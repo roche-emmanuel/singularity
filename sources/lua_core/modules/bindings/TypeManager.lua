@@ -130,6 +130,8 @@ function TypeManager:registerExternals(file)
 	self:info_v("Registering externals from ",file)
 	local f = io.open(file,"r")
 	
+	self:check(f,"Invalid file: ",file)
+	
 	local currentModule = nil
 	local line = f:read("*l")
 	while line do

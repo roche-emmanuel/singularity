@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		Box2DUpdater* self= (Box2DUpdater*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -74,8 +72,8 @@ public:
 	inline static bool _lg_typecheck_createBoundary(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -85,9 +83,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303173) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,92303173) ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -96,10 +94,10 @@ public:
 		if( luatop<4 || luatop>6 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,92303173) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		if( luatop>4 && !Luna<void>::has_uniqueid(L,5,92303173) ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -119,8 +117,7 @@ public:
 	// Box2DUpdater::Box2DUpdater()
 	static Box2DUpdater* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in Box2DUpdater::Box2DUpdater() function, expected prototype:\nBox2DUpdater::Box2DUpdater()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in Box2DUpdater::Box2DUpdater() function, expected prototype:\nBox2DUpdater::Box2DUpdater()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -132,8 +129,7 @@ public:
 	// osg::Node * Box2DUpdater::createBoundary(float halfWidth, float halfHeight)
 	static int _bind_createBoundary(lua_State *L) {
 		if (!_lg_typecheck_createBoundary(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::Node * Box2DUpdater::createBoundary(float halfWidth, float halfHeight) function, expected prototype:\nosg::Node * Box2DUpdater::createBoundary(float halfWidth, float halfHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in osg::Node * Box2DUpdater::createBoundary(float halfWidth, float halfHeight) function, expected prototype:\nosg::Node * Box2DUpdater::createBoundary(float halfWidth, float halfHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float halfWidth=(float)lua_tonumber(L,2);
@@ -141,8 +137,7 @@ public:
 
 		Box2DUpdater* self=Luna< osg::Referenced >::checkSubType< Box2DUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::Node * Box2DUpdater::createBoundary(float, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::Node * Box2DUpdater::createBoundary(float, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::Node * lret = self->createBoundary(halfWidth, halfHeight);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -155,8 +150,7 @@ public:
 	// osg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f & pos, const osg::Vec2f & size, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f)
 	static int _bind_createBoxObject(lua_State *L) {
 		if (!_lg_typecheck_createBoxObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f & pos, const osg::Vec2f & size, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f) function, expected prototype:\nosg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f & pos, const osg::Vec2f & size, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\narg 4 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in osg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f & pos, const osg::Vec2f & size, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f) function, expected prototype:\nosg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f & pos, const osg::Vec2f & size, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f)\nClass arguments details:\narg 1 ID = 92303173\narg 2 ID = 92303173\narg 4 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -181,8 +175,7 @@ public:
 
 		Box2DUpdater* self=Luna< osg::Referenced >::checkSubType< Box2DUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f &, const osg::Vec2f &, float, const osg::Vec2f &, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::MatrixTransform * Box2DUpdater::createBoxObject(const osg::Vec2f &, const osg::Vec2f &, float, const osg::Vec2f &, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::MatrixTransform * lret = self->createBoxObject(pos, size, density, vel, damping);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -195,8 +188,7 @@ public:
 	// osg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f & pos, float radius, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f)
 	static int _bind_createDiskObject(lua_State *L) {
 		if (!_lg_typecheck_createDiskObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in osg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f & pos, float radius, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f) function, expected prototype:\nosg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f & pos, float radius, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f)\nClass arguments details:\narg 1 ID = 92303173\narg 4 ID = 92303173\n");
+			luaL_error(L, "luna typecheck failed in osg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f & pos, float radius, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f) function, expected prototype:\nosg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f & pos, float radius, float density, const osg::Vec2f & vel = osg::Vec2f (), float damping = 0.3f)\nClass arguments details:\narg 1 ID = 92303173\narg 4 ID = 92303173\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -217,8 +209,7 @@ public:
 
 		Box2DUpdater* self=Luna< osg::Referenced >::checkSubType< Box2DUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call osg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f &, float, float, const osg::Vec2f &, float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call osg::MatrixTransform * Box2DUpdater::createDiskObject(const osg::Vec2f &, float, float, const osg::Vec2f &, float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		osg::MatrixTransform * lret = self->createDiskObject(pos, radius, density, vel, damping);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -231,8 +222,7 @@ public:
 	// bool Box2DUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool Box2DUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool Box2DUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool Box2DUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool Box2DUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -248,8 +238,7 @@ public:
 
 		Box2DUpdater* self=Luna< osg::Referenced >::checkSubType< Box2DUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool Box2DUpdater::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool Box2DUpdater::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);

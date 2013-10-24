@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglGroup*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglGroup*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGroup* rhs =(Luna< mglGroup >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglGroup* self= (mglGroup*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglGroup >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -104,19 +100,13 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
-		if( luatop>0 && lua_isstring(L,1)==0 ) return false;
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>0 && lua_type(L,1)!=LUA_TSTRING ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 
 	// Function checkers:
-	inline static bool _lg_typecheck_getP(lua_State *L) {
-		if( lua_gettop(L)!=1 ) return false;
-
-		return true;
-	}
-
 	inline static bool _lg_typecheck_getId(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
@@ -132,21 +122,21 @@ public:
 	inline static bool _lg_typecheck_setP(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( !Luna<void>::has_uniqueid(L,2,47978518) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLbl(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -158,8 +148,7 @@ public:
 	// mglGroup::mglGroup(const char * lbl = "", int id = 0)
 	static mglGroup* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglGroup::mglGroup(const char * lbl = \"\", int id = 0) function, expected prototype:\nmglGroup::mglGroup(const char * lbl = \"\", int id = 0)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglGroup::mglGroup(const char * lbl = \"\", int id = 0) function, expected prototype:\nmglGroup::mglGroup(const char * lbl = \"\", int id = 0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -172,39 +161,16 @@ public:
 
 
 	// Function binds:
-	// std::vector< long > mglGroup::p()
-	static int _bind_getP(lua_State *L) {
-		if (!_lg_typecheck_getP(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::vector< long > mglGroup::p() function, expected prototype:\nstd::vector< long > mglGroup::p()\nClass arguments details:\n");
-		}
-
-
-		mglGroup* self=(Luna< mglGroup >::check(L,1));
-		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::vector< long > mglGroup::p(). Got : '%s'",typeid(Luna< mglGroup >::check(L,1)).name());
-		}
-		const std::vector< long >* lret = &self->p;
-		if(!lret) return 0; // Do not write NULL pointers.
-
-		Luna< std::vector< long > >::push(L,lret,false);
-
-		return 1;
-	}
-
 	// int mglGroup::Id()
 	static int _bind_getId(lua_State *L) {
 		if (!_lg_typecheck_getId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int mglGroup::Id() function, expected prototype:\nint mglGroup::Id()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int mglGroup::Id() function, expected prototype:\nint mglGroup::Id()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGroup* self=(Luna< mglGroup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int mglGroup::Id(). Got : '%s'",typeid(Luna< mglGroup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int mglGroup::Id(). Got : '%s'\n%s",typeid(Luna< mglGroup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Id;
 		lua_pushnumber(L,lret);
@@ -215,15 +181,13 @@ public:
 	// std::string mglGroup::Lbl()
 	static int _bind_getLbl(lua_State *L) {
 		if (!_lg_typecheck_getLbl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string mglGroup::Lbl() function, expected prototype:\nstd::string mglGroup::Lbl()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string mglGroup::Lbl() function, expected prototype:\nstd::string mglGroup::Lbl()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglGroup* self=(Luna< mglGroup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string mglGroup::Lbl(). Got : '%s'",typeid(Luna< mglGroup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string mglGroup::Lbl(). Got : '%s'\n%s",typeid(Luna< mglGroup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->Lbl;
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -234,20 +198,14 @@ public:
 	// void mglGroup::p(std::vector< long > value)
 	static int _bind_setP(lua_State *L) {
 		if (!_lg_typecheck_setP(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGroup::p(std::vector< long > value) function, expected prototype:\nvoid mglGroup::p(std::vector< long > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void mglGroup::p(std::vector< long > value) function, expected prototype:\nvoid mglGroup::p(std::vector< long > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		std::vector< long >* value_ptr=(Luna< std::vector< long > >::check(L,2));
-		if( !value_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg value in mglGroup::p function");
-		}
-		std::vector< long > value=*value_ptr;
+		std::vector< long > value=(std::vector< long >)lua_tonumber(L,2);
 
 		mglGroup* self=(Luna< mglGroup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGroup::p(std::vector< long >). Got : '%s'",typeid(Luna< mglGroup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGroup::p(std::vector< long >). Got : '%s'\n%s",typeid(Luna< mglGroup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->p = value;
 
@@ -257,16 +215,14 @@ public:
 	// void mglGroup::Id(int value)
 	static int _bind_setId(lua_State *L) {
 		if (!_lg_typecheck_setId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGroup::Id(int value) function, expected prototype:\nvoid mglGroup::Id(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGroup::Id(int value) function, expected prototype:\nvoid mglGroup::Id(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		mglGroup* self=(Luna< mglGroup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGroup::Id(int). Got : '%s'",typeid(Luna< mglGroup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGroup::Id(int). Got : '%s'\n%s",typeid(Luna< mglGroup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Id = value;
 
@@ -276,16 +232,14 @@ public:
 	// void mglGroup::Lbl(std::string value)
 	static int _bind_setLbl(lua_State *L) {
 		if (!_lg_typecheck_setLbl(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglGroup::Lbl(std::string value) function, expected prototype:\nvoid mglGroup::Lbl(std::string value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void mglGroup::Lbl(std::string value) function, expected prototype:\nvoid mglGroup::Lbl(std::string value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string value(lua_tostring(L,2),lua_objlen(L,2));
 
 		mglGroup* self=(Luna< mglGroup >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglGroup::Lbl(std::string). Got : '%s'",typeid(Luna< mglGroup >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglGroup::Lbl(std::string). Got : '%s'\n%s",typeid(Luna< mglGroup >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Lbl = value;
 
@@ -313,7 +267,6 @@ const int LunaTraits< mglGroup >::hash = 48686103;
 const int LunaTraits< mglGroup >::uniqueIDs[] = {48686103,0};
 
 luna_RegType LunaTraits< mglGroup >::methods[] = {
-	{"getP", &luna_wrapper_mglGroup::_bind_getP},
 	{"getId", &luna_wrapper_mglGroup::_bind_getId},
 	{"getLbl", &luna_wrapper_mglGroup::_bind_getLbl},
 	{"setP", &luna_wrapper_mglGroup::_bind_setP},

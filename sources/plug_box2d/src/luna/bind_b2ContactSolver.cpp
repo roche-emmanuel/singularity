@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactSolver*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactSolver*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactSolver* rhs =(Luna< b2ContactSolver >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactSolver* self= (b2ContactSolver*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2ContactSolver >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -142,8 +138,8 @@ public:
 	inline static bool _lg_typecheck_SolveTOIPositionConstraints(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -234,7 +230,7 @@ public:
 	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -246,8 +242,7 @@ public:
 	// b2ContactSolver::b2ContactSolver(b2ContactSolverDef * def)
 	static b2ContactSolver* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactSolver::b2ContactSolver(b2ContactSolverDef * def) function, expected prototype:\nb2ContactSolver::b2ContactSolver(b2ContactSolverDef * def)\nClass arguments details:\narg 1 ID = 69667931\n");
+			luaL_error(L, "luna typecheck failed in b2ContactSolver::b2ContactSolver(b2ContactSolverDef * def) function, expected prototype:\nb2ContactSolver::b2ContactSolver(b2ContactSolverDef * def)\nClass arguments details:\narg 1 ID = 69667931\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactSolverDef* def=(Luna< b2ContactSolverDef >::check(L,1));
@@ -260,15 +255,13 @@ public:
 	// void b2ContactSolver::InitializeVelocityConstraints()
 	static int _bind_InitializeVelocityConstraints(lua_State *L) {
 		if (!_lg_typecheck_InitializeVelocityConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::InitializeVelocityConstraints() function, expected prototype:\nvoid b2ContactSolver::InitializeVelocityConstraints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::InitializeVelocityConstraints() function, expected prototype:\nvoid b2ContactSolver::InitializeVelocityConstraints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::InitializeVelocityConstraints(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::InitializeVelocityConstraints(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InitializeVelocityConstraints();
 
@@ -278,15 +271,13 @@ public:
 	// void b2ContactSolver::WarmStart()
 	static int _bind_WarmStart(lua_State *L) {
 		if (!_lg_typecheck_WarmStart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::WarmStart() function, expected prototype:\nvoid b2ContactSolver::WarmStart()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::WarmStart() function, expected prototype:\nvoid b2ContactSolver::WarmStart()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::WarmStart(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::WarmStart(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->WarmStart();
 
@@ -296,15 +287,13 @@ public:
 	// void b2ContactSolver::SolveVelocityConstraints()
 	static int _bind_SolveVelocityConstraints(lua_State *L) {
 		if (!_lg_typecheck_SolveVelocityConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::SolveVelocityConstraints() function, expected prototype:\nvoid b2ContactSolver::SolveVelocityConstraints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::SolveVelocityConstraints() function, expected prototype:\nvoid b2ContactSolver::SolveVelocityConstraints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::SolveVelocityConstraints(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::SolveVelocityConstraints(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SolveVelocityConstraints();
 
@@ -314,15 +303,13 @@ public:
 	// void b2ContactSolver::StoreImpulses()
 	static int _bind_StoreImpulses(lua_State *L) {
 		if (!_lg_typecheck_StoreImpulses(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::StoreImpulses() function, expected prototype:\nvoid b2ContactSolver::StoreImpulses()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::StoreImpulses() function, expected prototype:\nvoid b2ContactSolver::StoreImpulses()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::StoreImpulses(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::StoreImpulses(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->StoreImpulses();
 
@@ -332,15 +319,13 @@ public:
 	// bool b2ContactSolver::SolvePositionConstraints()
 	static int _bind_SolvePositionConstraints(lua_State *L) {
 		if (!_lg_typecheck_SolvePositionConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2ContactSolver::SolvePositionConstraints() function, expected prototype:\nbool b2ContactSolver::SolvePositionConstraints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2ContactSolver::SolvePositionConstraints() function, expected prototype:\nbool b2ContactSolver::SolvePositionConstraints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2ContactSolver::SolvePositionConstraints(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2ContactSolver::SolvePositionConstraints(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SolvePositionConstraints();
 		lua_pushboolean(L,lret?1:0);
@@ -351,8 +336,7 @@ public:
 	// bool b2ContactSolver::SolveTOIPositionConstraints(signed int toiIndexA, signed int toiIndexB)
 	static int _bind_SolveTOIPositionConstraints(lua_State *L) {
 		if (!_lg_typecheck_SolveTOIPositionConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2ContactSolver::SolveTOIPositionConstraints(signed int toiIndexA, signed int toiIndexB) function, expected prototype:\nbool b2ContactSolver::SolveTOIPositionConstraints(signed int toiIndexA, signed int toiIndexB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2ContactSolver::SolveTOIPositionConstraints(signed int toiIndexA, signed int toiIndexB) function, expected prototype:\nbool b2ContactSolver::SolveTOIPositionConstraints(signed int toiIndexA, signed int toiIndexB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int toiIndexA=(signed int)lua_tointeger(L,2);
@@ -360,8 +344,7 @@ public:
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2ContactSolver::SolveTOIPositionConstraints(signed int, signed int). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2ContactSolver::SolveTOIPositionConstraints(signed int, signed int). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->SolveTOIPositionConstraints(toiIndexA, toiIndexB);
 		lua_pushboolean(L,lret?1:0);
@@ -372,15 +355,13 @@ public:
 	// b2TimeStep b2ContactSolver::m_step()
 	static int _bind_getStep(lua_State *L) {
 		if (!_lg_typecheck_getStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2TimeStep b2ContactSolver::m_step() function, expected prototype:\nb2TimeStep b2ContactSolver::m_step()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2TimeStep b2ContactSolver::m_step() function, expected prototype:\nb2TimeStep b2ContactSolver::m_step()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2TimeStep b2ContactSolver::m_step(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2TimeStep b2ContactSolver::m_step(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2TimeStep* lret = &self->m_step;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -393,15 +374,13 @@ public:
 	// b2Position * b2ContactSolver::m_positions()
 	static int _bind_getPositions(lua_State *L) {
 		if (!_lg_typecheck_getPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Position * b2ContactSolver::m_positions() function, expected prototype:\nb2Position * b2ContactSolver::m_positions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Position * b2ContactSolver::m_positions() function, expected prototype:\nb2Position * b2ContactSolver::m_positions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Position * b2ContactSolver::m_positions(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Position * b2ContactSolver::m_positions(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Position * lret = self->m_positions;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -414,15 +393,13 @@ public:
 	// b2Velocity * b2ContactSolver::m_velocities()
 	static int _bind_getVelocities(lua_State *L) {
 		if (!_lg_typecheck_getVelocities(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Velocity * b2ContactSolver::m_velocities() function, expected prototype:\nb2Velocity * b2ContactSolver::m_velocities()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Velocity * b2ContactSolver::m_velocities() function, expected prototype:\nb2Velocity * b2ContactSolver::m_velocities()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Velocity * b2ContactSolver::m_velocities(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Velocity * b2ContactSolver::m_velocities(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Velocity * lret = self->m_velocities;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -435,15 +412,13 @@ public:
 	// b2StackAllocator * b2ContactSolver::m_allocator()
 	static int _bind_getAllocator(lua_State *L) {
 		if (!_lg_typecheck_getAllocator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2StackAllocator * b2ContactSolver::m_allocator() function, expected prototype:\nb2StackAllocator * b2ContactSolver::m_allocator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2StackAllocator * b2ContactSolver::m_allocator() function, expected prototype:\nb2StackAllocator * b2ContactSolver::m_allocator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2StackAllocator * b2ContactSolver::m_allocator(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2StackAllocator * b2ContactSolver::m_allocator(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2StackAllocator * lret = self->m_allocator;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -456,15 +431,13 @@ public:
 	// b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints()
 	static int _bind_getPositionConstraints(lua_State *L) {
 		if (!_lg_typecheck_getPositionConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints() function, expected prototype:\nb2ContactPositionConstraint * b2ContactSolver::m_positionConstraints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints() function, expected prototype:\nb2ContactPositionConstraint * b2ContactSolver::m_positionConstraints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2ContactPositionConstraint * b2ContactSolver::m_positionConstraints(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2ContactPositionConstraint * lret = self->m_positionConstraints;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -477,15 +450,13 @@ public:
 	// b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints()
 	static int _bind_getVelocityConstraints(lua_State *L) {
 		if (!_lg_typecheck_getVelocityConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints() function, expected prototype:\nb2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints() function, expected prototype:\nb2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2ContactVelocityConstraint * b2ContactSolver::m_velocityConstraints(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2ContactVelocityConstraint * lret = self->m_velocityConstraints;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -498,15 +469,13 @@ public:
 	// int b2ContactSolver::m_count()
 	static int _bind_getCount(lua_State *L) {
 		if (!_lg_typecheck_getCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int b2ContactSolver::m_count() function, expected prototype:\nint b2ContactSolver::m_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int b2ContactSolver::m_count() function, expected prototype:\nint b2ContactSolver::m_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int b2ContactSolver::m_count(). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int b2ContactSolver::m_count(). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_count;
 		lua_pushnumber(L,lret);
@@ -517,8 +486,7 @@ public:
 	// void b2ContactSolver::m_step(b2TimeStep value)
 	static int _bind_setStep(lua_State *L) {
 		if (!_lg_typecheck_setStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_step(b2TimeStep value) function, expected prototype:\nvoid b2ContactSolver::m_step(b2TimeStep value)\nClass arguments details:\narg 1 ID = 28832978\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_step(b2TimeStep value) function, expected prototype:\nvoid b2ContactSolver::m_step(b2TimeStep value)\nClass arguments details:\narg 1 ID = 28832978\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TimeStep* value_ptr=(Luna< b2TimeStep >::check(L,2));
@@ -529,8 +497,7 @@ public:
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_step(b2TimeStep). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_step(b2TimeStep). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_step = value;
 
@@ -540,16 +507,14 @@ public:
 	// void b2ContactSolver::m_positions(b2Position * value)
 	static int _bind_setPositions(lua_State *L) {
 		if (!_lg_typecheck_setPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_positions(b2Position * value) function, expected prototype:\nvoid b2ContactSolver::m_positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_positions(b2Position * value) function, expected prototype:\nvoid b2ContactSolver::m_positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Position* value=(Luna< b2Position >::check(L,2));
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_positions(b2Position *). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_positions(b2Position *). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_positions = value;
 
@@ -559,16 +524,14 @@ public:
 	// void b2ContactSolver::m_velocities(b2Velocity * value)
 	static int _bind_setVelocities(lua_State *L) {
 		if (!_lg_typecheck_setVelocities(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_velocities(b2Velocity * value) function, expected prototype:\nvoid b2ContactSolver::m_velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_velocities(b2Velocity * value) function, expected prototype:\nvoid b2ContactSolver::m_velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Velocity* value=(Luna< b2Velocity >::check(L,2));
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_velocities(b2Velocity *). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_velocities(b2Velocity *). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_velocities = value;
 
@@ -578,16 +541,14 @@ public:
 	// void b2ContactSolver::m_allocator(b2StackAllocator * value)
 	static int _bind_setAllocator(lua_State *L) {
 		if (!_lg_typecheck_setAllocator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_allocator(b2StackAllocator * value) function, expected prototype:\nvoid b2ContactSolver::m_allocator(b2StackAllocator * value)\nClass arguments details:\narg 1 ID = 83926873\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_allocator(b2StackAllocator * value) function, expected prototype:\nvoid b2ContactSolver::m_allocator(b2StackAllocator * value)\nClass arguments details:\narg 1 ID = 83926873\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2StackAllocator* value=(Luna< b2StackAllocator >::check(L,2));
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_allocator(b2StackAllocator *). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_allocator(b2StackAllocator *). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allocator = value;
 
@@ -597,16 +558,14 @@ public:
 	// void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value)
 	static int _bind_setPositionConstraints(lua_State *L) {
 		if (!_lg_typecheck_setPositionConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value) function, expected prototype:\nvoid b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value)\nClass arguments details:\narg 1 ID = 38983117\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value) function, expected prototype:\nvoid b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint * value)\nClass arguments details:\narg 1 ID = 38983117\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactPositionConstraint* value=(Luna< b2ContactPositionConstraint >::check(L,2));
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint *). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_positionConstraints(b2ContactPositionConstraint *). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_positionConstraints = value;
 
@@ -616,16 +575,14 @@ public:
 	// void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value)
 	static int _bind_setVelocityConstraints(lua_State *L) {
 		if (!_lg_typecheck_setVelocityConstraints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value) function, expected prototype:\nvoid b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value)\nClass arguments details:\narg 1 ID = 22596938\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value) function, expected prototype:\nvoid b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint * value)\nClass arguments details:\narg 1 ID = 22596938\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactVelocityConstraint* value=(Luna< b2ContactVelocityConstraint >::check(L,2));
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint *). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_velocityConstraints(b2ContactVelocityConstraint *). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_velocityConstraints = value;
 
@@ -635,16 +592,14 @@ public:
 	// void b2ContactSolver::m_count(int value)
 	static int _bind_setCount(lua_State *L) {
 		if (!_lg_typecheck_setCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_count(int value) function, expected prototype:\nvoid b2ContactSolver::m_count(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactSolver::m_count(int value) function, expected prototype:\nvoid b2ContactSolver::m_count(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		b2ContactSolver* self=(Luna< b2ContactSolver >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_count(int). Got : '%s'",typeid(Luna< b2ContactSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactSolver::m_count(int). Got : '%s'\n%s",typeid(Luna< b2ContactSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_count = value;
 

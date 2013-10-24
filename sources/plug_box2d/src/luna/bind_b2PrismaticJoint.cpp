@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2PrismaticJoint* self= (b2PrismaticJoint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Joint >::check(L,1));
@@ -106,14 +103,14 @@ public:
 	inline static bool _lg_typecheck_GetReactionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetReactionTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -181,8 +178,8 @@ public:
 	inline static bool _lg_typecheck_SetLimits(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -202,7 +199,7 @@ public:
 	inline static bool _lg_typecheck_SetMotorSpeed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -215,7 +212,7 @@ public:
 	inline static bool _lg_typecheck_SetMaxMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -228,7 +225,7 @@ public:
 	inline static bool _lg_typecheck_GetMotorForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -253,14 +250,14 @@ public:
 	inline static bool _lg_typecheck_base_GetReactionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_GetReactionTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -280,15 +277,13 @@ public:
 	// b2Vec2 b2PrismaticJoint::GetAnchorA() const
 	static int _bind_GetAnchorA(lua_State *L) {
 		if (!_lg_typecheck_GetAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::GetAnchorA() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::GetAnchorA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::GetAnchorA() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::GetAnchorA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::GetAnchorA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::GetAnchorA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetAnchorA();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -302,15 +297,13 @@ public:
 	// b2Vec2 b2PrismaticJoint::GetAnchorB() const
 	static int _bind_GetAnchorB(lua_State *L) {
 		if (!_lg_typecheck_GetAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::GetAnchorB() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::GetAnchorB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::GetAnchorB() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::GetAnchorB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::GetAnchorB() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::GetAnchorB() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetAnchorB();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -324,16 +317,14 @@ public:
 	// b2Vec2 b2PrismaticJoint::GetReactionForce(float inv_dt) const
 	static int _bind_GetReactionForce(lua_State *L) {
 		if (!_lg_typecheck_GetReactionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2PrismaticJoint::GetReactionForce(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2PrismaticJoint::GetReactionForce(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::GetReactionForce(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::GetReactionForce(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetReactionForce(inv_dt);
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -347,16 +338,14 @@ public:
 	// float b2PrismaticJoint::GetReactionTorque(float inv_dt) const
 	static int _bind_GetReactionTorque(lua_State *L) {
 		if (!_lg_typecheck_GetReactionTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2PrismaticJoint::GetReactionTorque(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2PrismaticJoint::GetReactionTorque(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetReactionTorque(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetReactionTorque(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetReactionTorque(inv_dt);
 		lua_pushnumber(L,lret);
@@ -367,15 +356,13 @@ public:
 	// const b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const
 	static int _bind_GetLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_GetLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const function, expected prototype:\nconst b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const function, expected prototype:\nconst b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PrismaticJoint::GetLocalAnchorA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetLocalAnchorA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -388,15 +375,13 @@ public:
 	// const b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const
 	static int _bind_GetLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_GetLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const function, expected prototype:\nconst b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const function, expected prototype:\nconst b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PrismaticJoint::GetLocalAnchorB() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetLocalAnchorB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -409,15 +394,13 @@ public:
 	// const b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const
 	static int _bind_GetLocalAxisA(lua_State *L) {
 		if (!_lg_typecheck_GetLocalAxisA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const function, expected prototype:\nconst b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const function, expected prototype:\nconst b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PrismaticJoint::GetLocalAxisA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetLocalAxisA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -430,15 +413,13 @@ public:
 	// float b2PrismaticJoint::GetReferenceAngle() const
 	static int _bind_GetReferenceAngle(lua_State *L) {
 		if (!_lg_typecheck_GetReferenceAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetReferenceAngle() const function, expected prototype:\nfloat b2PrismaticJoint::GetReferenceAngle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetReferenceAngle() const function, expected prototype:\nfloat b2PrismaticJoint::GetReferenceAngle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetReferenceAngle() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetReferenceAngle() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetReferenceAngle();
 		lua_pushnumber(L,lret);
@@ -449,15 +430,13 @@ public:
 	// float b2PrismaticJoint::GetJointTranslation() const
 	static int _bind_GetJointTranslation(lua_State *L) {
 		if (!_lg_typecheck_GetJointTranslation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetJointTranslation() const function, expected prototype:\nfloat b2PrismaticJoint::GetJointTranslation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetJointTranslation() const function, expected prototype:\nfloat b2PrismaticJoint::GetJointTranslation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetJointTranslation() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetJointTranslation() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetJointTranslation();
 		lua_pushnumber(L,lret);
@@ -468,15 +447,13 @@ public:
 	// float b2PrismaticJoint::GetJointSpeed() const
 	static int _bind_GetJointSpeed(lua_State *L) {
 		if (!_lg_typecheck_GetJointSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetJointSpeed() const function, expected prototype:\nfloat b2PrismaticJoint::GetJointSpeed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetJointSpeed() const function, expected prototype:\nfloat b2PrismaticJoint::GetJointSpeed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetJointSpeed() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetJointSpeed() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetJointSpeed();
 		lua_pushnumber(L,lret);
@@ -487,15 +464,13 @@ public:
 	// bool b2PrismaticJoint::IsLimitEnabled() const
 	static int _bind_IsLimitEnabled(lua_State *L) {
 		if (!_lg_typecheck_IsLimitEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2PrismaticJoint::IsLimitEnabled() const function, expected prototype:\nbool b2PrismaticJoint::IsLimitEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2PrismaticJoint::IsLimitEnabled() const function, expected prototype:\nbool b2PrismaticJoint::IsLimitEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2PrismaticJoint::IsLimitEnabled() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2PrismaticJoint::IsLimitEnabled() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsLimitEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -506,16 +481,14 @@ public:
 	// void b2PrismaticJoint::EnableLimit(bool flag)
 	static int _bind_EnableLimit(lua_State *L) {
 		if (!_lg_typecheck_EnableLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::EnableLimit(bool flag) function, expected prototype:\nvoid b2PrismaticJoint::EnableLimit(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::EnableLimit(bool flag) function, expected prototype:\nvoid b2PrismaticJoint::EnableLimit(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::EnableLimit(bool). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::EnableLimit(bool). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnableLimit(flag);
 
@@ -525,15 +498,13 @@ public:
 	// float b2PrismaticJoint::GetLowerLimit() const
 	static int _bind_GetLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_GetLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetLowerLimit() const function, expected prototype:\nfloat b2PrismaticJoint::GetLowerLimit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetLowerLimit() const function, expected prototype:\nfloat b2PrismaticJoint::GetLowerLimit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetLowerLimit() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetLowerLimit() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetLowerLimit();
 		lua_pushnumber(L,lret);
@@ -544,15 +515,13 @@ public:
 	// float b2PrismaticJoint::GetUpperLimit() const
 	static int _bind_GetUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_GetUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetUpperLimit() const function, expected prototype:\nfloat b2PrismaticJoint::GetUpperLimit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetUpperLimit() const function, expected prototype:\nfloat b2PrismaticJoint::GetUpperLimit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetUpperLimit() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetUpperLimit() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetUpperLimit();
 		lua_pushnumber(L,lret);
@@ -563,8 +532,7 @@ public:
 	// void b2PrismaticJoint::SetLimits(float lower, float upper)
 	static int _bind_SetLimits(lua_State *L) {
 		if (!_lg_typecheck_SetLimits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::SetLimits(float lower, float upper) function, expected prototype:\nvoid b2PrismaticJoint::SetLimits(float lower, float upper)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::SetLimits(float lower, float upper) function, expected prototype:\nvoid b2PrismaticJoint::SetLimits(float lower, float upper)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float lower=(float)lua_tonumber(L,2);
@@ -572,8 +540,7 @@ public:
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::SetLimits(float, float). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::SetLimits(float, float). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetLimits(lower, upper);
 
@@ -583,15 +550,13 @@ public:
 	// bool b2PrismaticJoint::IsMotorEnabled() const
 	static int _bind_IsMotorEnabled(lua_State *L) {
 		if (!_lg_typecheck_IsMotorEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2PrismaticJoint::IsMotorEnabled() const function, expected prototype:\nbool b2PrismaticJoint::IsMotorEnabled() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2PrismaticJoint::IsMotorEnabled() const function, expected prototype:\nbool b2PrismaticJoint::IsMotorEnabled() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2PrismaticJoint::IsMotorEnabled() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2PrismaticJoint::IsMotorEnabled() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsMotorEnabled();
 		lua_pushboolean(L,lret?1:0);
@@ -602,16 +567,14 @@ public:
 	// void b2PrismaticJoint::EnableMotor(bool flag)
 	static int _bind_EnableMotor(lua_State *L) {
 		if (!_lg_typecheck_EnableMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::EnableMotor(bool flag) function, expected prototype:\nvoid b2PrismaticJoint::EnableMotor(bool flag)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::EnableMotor(bool flag) function, expected prototype:\nvoid b2PrismaticJoint::EnableMotor(bool flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool flag=(bool)(lua_toboolean(L,2)==1);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::EnableMotor(bool). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::EnableMotor(bool). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EnableMotor(flag);
 
@@ -621,16 +584,14 @@ public:
 	// void b2PrismaticJoint::SetMotorSpeed(float speed)
 	static int _bind_SetMotorSpeed(lua_State *L) {
 		if (!_lg_typecheck_SetMotorSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::SetMotorSpeed(float speed) function, expected prototype:\nvoid b2PrismaticJoint::SetMotorSpeed(float speed)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::SetMotorSpeed(float speed) function, expected prototype:\nvoid b2PrismaticJoint::SetMotorSpeed(float speed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float speed=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::SetMotorSpeed(float). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::SetMotorSpeed(float). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMotorSpeed(speed);
 
@@ -640,15 +601,13 @@ public:
 	// float b2PrismaticJoint::GetMotorSpeed() const
 	static int _bind_GetMotorSpeed(lua_State *L) {
 		if (!_lg_typecheck_GetMotorSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetMotorSpeed() const function, expected prototype:\nfloat b2PrismaticJoint::GetMotorSpeed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetMotorSpeed() const function, expected prototype:\nfloat b2PrismaticJoint::GetMotorSpeed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetMotorSpeed() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetMotorSpeed() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetMotorSpeed();
 		lua_pushnumber(L,lret);
@@ -659,16 +618,14 @@ public:
 	// void b2PrismaticJoint::SetMaxMotorForce(float force)
 	static int _bind_SetMaxMotorForce(lua_State *L) {
 		if (!_lg_typecheck_SetMaxMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::SetMaxMotorForce(float force) function, expected prototype:\nvoid b2PrismaticJoint::SetMaxMotorForce(float force)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::SetMaxMotorForce(float force) function, expected prototype:\nvoid b2PrismaticJoint::SetMaxMotorForce(float force)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float force=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::SetMaxMotorForce(float). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::SetMaxMotorForce(float). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMaxMotorForce(force);
 
@@ -678,15 +635,13 @@ public:
 	// float b2PrismaticJoint::GetMaxMotorForce() const
 	static int _bind_GetMaxMotorForce(lua_State *L) {
 		if (!_lg_typecheck_GetMaxMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetMaxMotorForce() const function, expected prototype:\nfloat b2PrismaticJoint::GetMaxMotorForce() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetMaxMotorForce() const function, expected prototype:\nfloat b2PrismaticJoint::GetMaxMotorForce() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetMaxMotorForce() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetMaxMotorForce() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetMaxMotorForce();
 		lua_pushnumber(L,lret);
@@ -697,16 +652,14 @@ public:
 	// float b2PrismaticJoint::GetMotorForce(float inv_dt) const
 	static int _bind_GetMotorForce(lua_State *L) {
 		if (!_lg_typecheck_GetMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetMotorForce(float inv_dt) const function, expected prototype:\nfloat b2PrismaticJoint::GetMotorForce(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::GetMotorForce(float inv_dt) const function, expected prototype:\nfloat b2PrismaticJoint::GetMotorForce(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetMotorForce(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::GetMotorForce(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetMotorForce(inv_dt);
 		lua_pushnumber(L,lret);
@@ -717,15 +670,13 @@ public:
 	// void b2PrismaticJoint::Dump()
 	static int _bind_Dump(lua_State *L) {
 		if (!_lg_typecheck_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::Dump() function, expected prototype:\nvoid b2PrismaticJoint::Dump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::Dump() function, expected prototype:\nvoid b2PrismaticJoint::Dump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::Dump(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::Dump(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dump();
 
@@ -735,15 +686,13 @@ public:
 	// b2Vec2 b2PrismaticJoint::base_GetAnchorA() const
 	static int _bind_base_GetAnchorA(lua_State *L) {
 		if (!_lg_typecheck_base_GetAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::base_GetAnchorA() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::base_GetAnchorA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::base_GetAnchorA() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::base_GetAnchorA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::base_GetAnchorA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::base_GetAnchorA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->b2PrismaticJoint::GetAnchorA();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -757,15 +706,13 @@ public:
 	// b2Vec2 b2PrismaticJoint::base_GetAnchorB() const
 	static int _bind_base_GetAnchorB(lua_State *L) {
 		if (!_lg_typecheck_base_GetAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::base_GetAnchorB() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::base_GetAnchorB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::base_GetAnchorB() const function, expected prototype:\nb2Vec2 b2PrismaticJoint::base_GetAnchorB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::base_GetAnchorB() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::base_GetAnchorB() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->b2PrismaticJoint::GetAnchorB();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -779,16 +726,14 @@ public:
 	// b2Vec2 b2PrismaticJoint::base_GetReactionForce(float inv_dt) const
 	static int _bind_base_GetReactionForce(lua_State *L) {
 		if (!_lg_typecheck_base_GetReactionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::base_GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2PrismaticJoint::base_GetReactionForce(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PrismaticJoint::base_GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2PrismaticJoint::base_GetReactionForce(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::base_GetReactionForce(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PrismaticJoint::base_GetReactionForce(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->b2PrismaticJoint::GetReactionForce(inv_dt);
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -802,16 +747,14 @@ public:
 	// float b2PrismaticJoint::base_GetReactionTorque(float inv_dt) const
 	static int _bind_base_GetReactionTorque(lua_State *L) {
 		if (!_lg_typecheck_base_GetReactionTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::base_GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2PrismaticJoint::base_GetReactionTorque(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2PrismaticJoint::base_GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2PrismaticJoint::base_GetReactionTorque(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::base_GetReactionTorque(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2PrismaticJoint::base_GetReactionTorque(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->b2PrismaticJoint::GetReactionTorque(inv_dt);
 		lua_pushnumber(L,lret);
@@ -822,15 +765,13 @@ public:
 	// void b2PrismaticJoint::base_Dump()
 	static int _bind_base_Dump(lua_State *L) {
 		if (!_lg_typecheck_base_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::base_Dump() function, expected prototype:\nvoid b2PrismaticJoint::base_Dump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PrismaticJoint::base_Dump() function, expected prototype:\nvoid b2PrismaticJoint::base_Dump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PrismaticJoint* self=Luna< b2Joint >::checkSubType< b2PrismaticJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::base_Dump(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PrismaticJoint::base_Dump(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2PrismaticJoint::Dump();
 

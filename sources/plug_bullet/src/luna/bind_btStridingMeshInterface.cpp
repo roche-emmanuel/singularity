@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btStridingMeshInterface*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btStridingMeshInterface*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* rhs =(Luna< btStridingMeshInterface >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* self= (btStridingMeshInterface*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btStridingMeshInterface >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -155,14 +150,14 @@ public:
 	inline static bool _lg_typecheck_unLockVertexBase(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_unLockReadOnlyVertexBase(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -175,14 +170,14 @@ public:
 	inline static bool _lg_typecheck_preallocateVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_preallocateIndices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -272,8 +267,7 @@ public:
 	// btStridingMeshInterface::btStridingMeshInterface(lua_Table * data)
 	static btStridingMeshInterface* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btStridingMeshInterface::btStridingMeshInterface(lua_Table * data) function, expected prototype:\nbtStridingMeshInterface::btStridingMeshInterface(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btStridingMeshInterface::btStridingMeshInterface(lua_Table * data) function, expected prototype:\nbtStridingMeshInterface::btStridingMeshInterface(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -285,8 +279,7 @@ public:
 	// void btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_InternalProcessAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_InternalProcessAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 59503577\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 59503577\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btInternalTriangleIndexCallback* callback=(Luna< btInternalTriangleIndexCallback >::check(L,2));
@@ -303,8 +296,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::InternalProcessAllTriangles(btInternalTriangleIndexCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->InternalProcessAllTriangles(callback, aabbMin, aabbMax);
 
@@ -314,8 +306,7 @@ public:
 	// void btStridingMeshInterface::calculateAabbBruteForce(btVector3 & aabbMin, btVector3 & aabbMax)
 	static int _bind_calculateAabbBruteForce(lua_State *L) {
 		if (!_lg_typecheck_calculateAabbBruteForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::calculateAabbBruteForce(btVector3 & aabbMin, btVector3 & aabbMax) function, expected prototype:\nvoid btStridingMeshInterface::calculateAabbBruteForce(btVector3 & aabbMin, btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::calculateAabbBruteForce(btVector3 & aabbMin, btVector3 & aabbMax) function, expected prototype:\nvoid btStridingMeshInterface::calculateAabbBruteForce(btVector3 & aabbMin, btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -331,8 +322,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::calculateAabbBruteForce(btVector3 &, btVector3 &). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::calculateAabbBruteForce(btVector3 &, btVector3 &). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateAabbBruteForce(aabbMin, aabbMax);
 
@@ -342,16 +332,14 @@ public:
 	// void btStridingMeshInterface::unLockVertexBase(int subpart)
 	static int _bind_unLockVertexBase(lua_State *L) {
 		if (!_lg_typecheck_unLockVertexBase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::unLockVertexBase(int subpart) function, expected prototype:\nvoid btStridingMeshInterface::unLockVertexBase(int subpart)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::unLockVertexBase(int subpart) function, expected prototype:\nvoid btStridingMeshInterface::unLockVertexBase(int subpart)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int subpart=(int)lua_tointeger(L,2);
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::unLockVertexBase(int). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::unLockVertexBase(int). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unLockVertexBase(subpart);
 
@@ -361,16 +349,14 @@ public:
 	// void btStridingMeshInterface::unLockReadOnlyVertexBase(int subpart) const
 	static int _bind_unLockReadOnlyVertexBase(lua_State *L) {
 		if (!_lg_typecheck_unLockReadOnlyVertexBase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::unLockReadOnlyVertexBase(int subpart) const function, expected prototype:\nvoid btStridingMeshInterface::unLockReadOnlyVertexBase(int subpart) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::unLockReadOnlyVertexBase(int subpart) const function, expected prototype:\nvoid btStridingMeshInterface::unLockReadOnlyVertexBase(int subpart) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int subpart=(int)lua_tointeger(L,2);
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::unLockReadOnlyVertexBase(int) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::unLockReadOnlyVertexBase(int) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unLockReadOnlyVertexBase(subpart);
 
@@ -380,15 +366,13 @@ public:
 	// int btStridingMeshInterface::getNumSubParts() const
 	static int _bind_getNumSubParts(lua_State *L) {
 		if (!_lg_typecheck_getNumSubParts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btStridingMeshInterface::getNumSubParts() const function, expected prototype:\nint btStridingMeshInterface::getNumSubParts() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btStridingMeshInterface::getNumSubParts() const function, expected prototype:\nint btStridingMeshInterface::getNumSubParts() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btStridingMeshInterface::getNumSubParts() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btStridingMeshInterface::getNumSubParts() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumSubParts();
 		lua_pushnumber(L,lret);
@@ -399,16 +383,14 @@ public:
 	// void btStridingMeshInterface::preallocateVertices(int numverts)
 	static int _bind_preallocateVertices(lua_State *L) {
 		if (!_lg_typecheck_preallocateVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::preallocateVertices(int numverts) function, expected prototype:\nvoid btStridingMeshInterface::preallocateVertices(int numverts)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::preallocateVertices(int numverts) function, expected prototype:\nvoid btStridingMeshInterface::preallocateVertices(int numverts)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int numverts=(int)lua_tointeger(L,2);
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::preallocateVertices(int). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::preallocateVertices(int). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preallocateVertices(numverts);
 
@@ -418,16 +400,14 @@ public:
 	// void btStridingMeshInterface::preallocateIndices(int numindices)
 	static int _bind_preallocateIndices(lua_State *L) {
 		if (!_lg_typecheck_preallocateIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::preallocateIndices(int numindices) function, expected prototype:\nvoid btStridingMeshInterface::preallocateIndices(int numindices)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::preallocateIndices(int numindices) function, expected prototype:\nvoid btStridingMeshInterface::preallocateIndices(int numindices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int numindices=(int)lua_tointeger(L,2);
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::preallocateIndices(int). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::preallocateIndices(int). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preallocateIndices(numindices);
 
@@ -437,15 +417,13 @@ public:
 	// bool btStridingMeshInterface::hasPremadeAabb() const
 	static int _bind_hasPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_hasPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btStridingMeshInterface::hasPremadeAabb() const function, expected prototype:\nbool btStridingMeshInterface::hasPremadeAabb() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btStridingMeshInterface::hasPremadeAabb() const function, expected prototype:\nbool btStridingMeshInterface::hasPremadeAabb() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btStridingMeshInterface::hasPremadeAabb() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btStridingMeshInterface::hasPremadeAabb() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->hasPremadeAabb();
 		lua_pushboolean(L,lret?1:0);
@@ -456,8 +434,7 @@ public:
 	// void btStridingMeshInterface::setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_setPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_setPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -473,8 +450,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::setPremadeAabb(const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::setPremadeAabb(const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPremadeAabb(aabbMin, aabbMax);
 
@@ -484,8 +460,7 @@ public:
 	// void btStridingMeshInterface::getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const
 	static int _bind_getPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_getPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* aabbMin=(Luna< btVector3 >::check(L,2));
@@ -493,8 +468,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::getPremadeAabb(btVector3 *, btVector3 *) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::getPremadeAabb(btVector3 *, btVector3 *) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getPremadeAabb(aabbMin, aabbMax);
 
@@ -504,15 +478,13 @@ public:
 	// const btVector3 & btStridingMeshInterface::getScaling() const
 	static int _bind_getScaling(lua_State *L) {
 		if (!_lg_typecheck_getScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btStridingMeshInterface::getScaling() const function, expected prototype:\nconst btVector3 & btStridingMeshInterface::getScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btStridingMeshInterface::getScaling() const function, expected prototype:\nconst btVector3 & btStridingMeshInterface::getScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btStridingMeshInterface::getScaling() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btStridingMeshInterface::getScaling() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -525,8 +497,7 @@ public:
 	// void btStridingMeshInterface::setScaling(const btVector3 & scaling)
 	static int _bind_setScaling(lua_State *L) {
 		if (!_lg_typecheck_setScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::setScaling(const btVector3 & scaling) function, expected prototype:\nvoid btStridingMeshInterface::setScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::setScaling(const btVector3 & scaling) function, expected prototype:\nvoid btStridingMeshInterface::setScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -537,8 +508,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::setScaling(const btVector3 &). Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::setScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setScaling(scaling);
 
@@ -548,15 +518,13 @@ public:
 	// int btStridingMeshInterface::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btStridingMeshInterface::calculateSerializeBufferSize() const function, expected prototype:\nint btStridingMeshInterface::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btStridingMeshInterface::calculateSerializeBufferSize() const function, expected prototype:\nint btStridingMeshInterface::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btStridingMeshInterface::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btStridingMeshInterface::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -567,8 +535,7 @@ public:
 	// void btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_InternalProcessAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_InternalProcessAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 59503577\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 59503577\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btInternalTriangleIndexCallback* callback=(Luna< btInternalTriangleIndexCallback >::check(L,2));
@@ -585,8 +552,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::base_InternalProcessAllTriangles(btInternalTriangleIndexCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btStridingMeshInterface::InternalProcessAllTriangles(callback, aabbMin, aabbMax);
 
@@ -596,15 +562,13 @@ public:
 	// bool btStridingMeshInterface::base_hasPremadeAabb() const
 	static int _bind_base_hasPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_base_hasPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btStridingMeshInterface::base_hasPremadeAabb() const function, expected prototype:\nbool btStridingMeshInterface::base_hasPremadeAabb() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btStridingMeshInterface::base_hasPremadeAabb() const function, expected prototype:\nbool btStridingMeshInterface::base_hasPremadeAabb() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btStridingMeshInterface::base_hasPremadeAabb() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btStridingMeshInterface::base_hasPremadeAabb() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btStridingMeshInterface::hasPremadeAabb();
 		lua_pushboolean(L,lret?1:0);
@@ -615,8 +579,7 @@ public:
 	// void btStridingMeshInterface::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_setPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_base_setPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::base_setPremadeAabb(const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -632,8 +595,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::base_setPremadeAabb(const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::base_setPremadeAabb(const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btStridingMeshInterface::setPremadeAabb(aabbMin, aabbMax);
 
@@ -643,8 +605,7 @@ public:
 	// void btStridingMeshInterface::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const
 	static int _bind_base_getPremadeAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getPremadeAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btStridingMeshInterface::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const function, expected prototype:\nvoid btStridingMeshInterface::base_getPremadeAabb(btVector3 * aabbMin, btVector3 * aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* aabbMin=(Luna< btVector3 >::check(L,2));
@@ -652,8 +613,7 @@ public:
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::base_getPremadeAabb(btVector3 *, btVector3 *) const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btStridingMeshInterface::base_getPremadeAabb(btVector3 *, btVector3 *) const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btStridingMeshInterface::getPremadeAabb(aabbMin, aabbMax);
 
@@ -663,15 +623,13 @@ public:
 	// int btStridingMeshInterface::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btStridingMeshInterface::base_calculateSerializeBufferSize() const function, expected prototype:\nint btStridingMeshInterface::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btStridingMeshInterface::base_calculateSerializeBufferSize() const function, expected prototype:\nint btStridingMeshInterface::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btStridingMeshInterface* self=(Luna< btStridingMeshInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btStridingMeshInterface::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btStridingMeshInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btStridingMeshInterface::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btStridingMeshInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btStridingMeshInterface::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);

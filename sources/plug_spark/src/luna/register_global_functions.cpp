@@ -71,8 +71,7 @@ inline static bool _lg_typecheck_crossProduct_overload_2(lua_State *L) {
 // bool SPK::isFurtherToCamera(const SPK::Particle & a, const SPK::Particle & b)
 static int _bind_isFurtherToCamera(lua_State *L) {
 	if (!_lg_typecheck_isFurtherToCamera(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool SPK::isFurtherToCamera(const SPK::Particle & a, const SPK::Particle & b) function, expected prototype:\nbool SPK::isFurtherToCamera(const SPK::Particle & a, const SPK::Particle & b)\nClass arguments details:\narg 1 ID = 73657533\narg 2 ID = 73657533\n");
+		luaL_error(L, "luna typecheck failed in bool SPK::isFurtherToCamera(const SPK::Particle & a, const SPK::Particle & b) function, expected prototype:\nbool SPK::isFurtherToCamera(const SPK::Particle & a, const SPK::Particle & b)\nClass arguments details:\narg 1 ID = 73657533\narg 2 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const SPK::Particle* a_ptr=(Luna< SPK::Particle >::check(L,1));
@@ -95,8 +94,7 @@ static int _bind_isFurtherToCamera(lua_State *L) {
 // void SPK::swapParticles(SPK::Particle & a, SPK::Particle & b)
 static int _bind_swapParticles(lua_State *L) {
 	if (!_lg_typecheck_swapParticles(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void SPK::swapParticles(SPK::Particle & a, SPK::Particle & b) function, expected prototype:\nvoid SPK::swapParticles(SPK::Particle & a, SPK::Particle & b)\nClass arguments details:\narg 1 ID = 73657533\narg 2 ID = 73657533\n");
+		luaL_error(L, "luna typecheck failed in void SPK::swapParticles(SPK::Particle & a, SPK::Particle & b) function, expected prototype:\nvoid SPK::swapParticles(SPK::Particle & a, SPK::Particle & b)\nClass arguments details:\narg 1 ID = 73657533\narg 2 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	SPK::Particle* a_ptr=(Luna< SPK::Particle >::check(L,1));
@@ -118,8 +116,7 @@ static int _bind_swapParticles(lua_State *L) {
 // float SPK::getSqrDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1)
 static int _bind_getSqrDist(lua_State *L) {
 	if (!_lg_typecheck_getSqrDist(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float SPK::getSqrDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nfloat SPK::getSqrDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+		luaL_error(L, "luna typecheck failed in float SPK::getSqrDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nfloat SPK::getSqrDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const SPK::Vector3D* v0_ptr=(Luna< SPK::Vector3D >::check(L,1));
@@ -142,8 +139,7 @@ static int _bind_getSqrDist(lua_State *L) {
 // float SPK::getDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1)
 static int _bind_getDist(lua_State *L) {
 	if (!_lg_typecheck_getDist(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float SPK::getDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nfloat SPK::getDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+		luaL_error(L, "luna typecheck failed in float SPK::getDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nfloat SPK::getDist(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const SPK::Vector3D* v0_ptr=(Luna< SPK::Vector3D >::check(L,1));
@@ -166,8 +162,7 @@ static int _bind_getDist(lua_State *L) {
 // float SPK::dotProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1)
 static int _bind_dotProduct(lua_State *L) {
 	if (!_lg_typecheck_dotProduct(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float SPK::dotProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nfloat SPK::dotProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+		luaL_error(L, "luna typecheck failed in float SPK::dotProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nfloat SPK::dotProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const SPK::Vector3D* v0_ptr=(Luna< SPK::Vector3D >::check(L,1));
@@ -190,8 +185,7 @@ static int _bind_dotProduct(lua_State *L) {
 // SPK::Vector3D SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1)
 static int _bind_crossProduct_overload_1(lua_State *L) {
 	if (!_lg_typecheck_crossProduct_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nSPK::Vector3D SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n");
+		luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1) function, expected prototype:\nSPK::Vector3D SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const SPK::Vector3D* v0_ptr=(Luna< SPK::Vector3D >::check(L,1));
@@ -217,8 +211,7 @@ static int _bind_crossProduct_overload_1(lua_State *L) {
 // void SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D & result)
 static int _bind_crossProduct_overload_2(lua_State *L) {
 	if (!_lg_typecheck_crossProduct_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D & result) function, expected prototype:\nvoid SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D & result)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\narg 3 ID = 70092749\n");
+		luaL_error(L, "luna typecheck failed in void SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D & result) function, expected prototype:\nvoid SPK::crossProduct(const SPK::Vector3D & v0, const SPK::Vector3D & v1, SPK::Vector3D & result)\nClass arguments details:\narg 1 ID = 70092749\narg 2 ID = 70092749\narg 3 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const SPK::Vector3D* v0_ptr=(Luna< SPK::Vector3D >::check(L,1));

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConstraintSetting*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConstraintSetting*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintSetting* rhs =(Luna< btConstraintSetting >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintSetting* self= (btConstraintSetting*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConstraintSetting >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -129,21 +125,21 @@ public:
 	inline static bool _lg_typecheck_setTau(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setImpulseClamp(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -155,8 +151,7 @@ public:
 	// btConstraintSetting::btConstraintSetting()
 	static btConstraintSetting* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConstraintSetting::btConstraintSetting() function, expected prototype:\nbtConstraintSetting::btConstraintSetting()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConstraintSetting::btConstraintSetting() function, expected prototype:\nbtConstraintSetting::btConstraintSetting()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -168,15 +163,13 @@ public:
 	// float btConstraintSetting::m_tau()
 	static int _bind_getTau(lua_State *L) {
 		if (!_lg_typecheck_getTau(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_tau() function, expected prototype:\nfloat btConstraintSetting::m_tau()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_tau() function, expected prototype:\nfloat btConstraintSetting::m_tau()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConstraintSetting* self=(Luna< btConstraintSetting >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConstraintSetting::m_tau(). Got : '%s'",typeid(Luna< btConstraintSetting >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConstraintSetting::m_tau(). Got : '%s'\n%s",typeid(Luna< btConstraintSetting >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_tau;
 		lua_pushnumber(L,lret);
@@ -187,15 +180,13 @@ public:
 	// float btConstraintSetting::m_damping()
 	static int _bind_getDamping(lua_State *L) {
 		if (!_lg_typecheck_getDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_damping() function, expected prototype:\nfloat btConstraintSetting::m_damping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_damping() function, expected prototype:\nfloat btConstraintSetting::m_damping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConstraintSetting* self=(Luna< btConstraintSetting >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConstraintSetting::m_damping(). Got : '%s'",typeid(Luna< btConstraintSetting >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConstraintSetting::m_damping(). Got : '%s'\n%s",typeid(Luna< btConstraintSetting >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_damping;
 		lua_pushnumber(L,lret);
@@ -206,15 +197,13 @@ public:
 	// float btConstraintSetting::m_impulseClamp()
 	static int _bind_getImpulseClamp(lua_State *L) {
 		if (!_lg_typecheck_getImpulseClamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_impulseClamp() function, expected prototype:\nfloat btConstraintSetting::m_impulseClamp()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConstraintSetting::m_impulseClamp() function, expected prototype:\nfloat btConstraintSetting::m_impulseClamp()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConstraintSetting* self=(Luna< btConstraintSetting >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConstraintSetting::m_impulseClamp(). Got : '%s'",typeid(Luna< btConstraintSetting >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConstraintSetting::m_impulseClamp(). Got : '%s'\n%s",typeid(Luna< btConstraintSetting >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_impulseClamp;
 		lua_pushnumber(L,lret);
@@ -225,16 +214,14 @@ public:
 	// void btConstraintSetting::m_tau(float value)
 	static int _bind_setTau(lua_State *L) {
 		if (!_lg_typecheck_setTau(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_tau(float value) function, expected prototype:\nvoid btConstraintSetting::m_tau(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_tau(float value) function, expected prototype:\nvoid btConstraintSetting::m_tau(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btConstraintSetting* self=(Luna< btConstraintSetting >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConstraintSetting::m_tau(float). Got : '%s'",typeid(Luna< btConstraintSetting >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConstraintSetting::m_tau(float). Got : '%s'\n%s",typeid(Luna< btConstraintSetting >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_tau = value;
 
@@ -244,16 +231,14 @@ public:
 	// void btConstraintSetting::m_damping(float value)
 	static int _bind_setDamping(lua_State *L) {
 		if (!_lg_typecheck_setDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_damping(float value) function, expected prototype:\nvoid btConstraintSetting::m_damping(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_damping(float value) function, expected prototype:\nvoid btConstraintSetting::m_damping(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btConstraintSetting* self=(Luna< btConstraintSetting >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConstraintSetting::m_damping(float). Got : '%s'",typeid(Luna< btConstraintSetting >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConstraintSetting::m_damping(float). Got : '%s'\n%s",typeid(Luna< btConstraintSetting >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_damping = value;
 
@@ -263,16 +248,14 @@ public:
 	// void btConstraintSetting::m_impulseClamp(float value)
 	static int _bind_setImpulseClamp(lua_State *L) {
 		if (!_lg_typecheck_setImpulseClamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_impulseClamp(float value) function, expected prototype:\nvoid btConstraintSetting::m_impulseClamp(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConstraintSetting::m_impulseClamp(float value) function, expected prototype:\nvoid btConstraintSetting::m_impulseClamp(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btConstraintSetting* self=(Luna< btConstraintSetting >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConstraintSetting::m_impulseClamp(float). Got : '%s'",typeid(Luna< btConstraintSetting >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConstraintSetting::m_impulseClamp(float). Got : '%s'\n%s",typeid(Luna< btConstraintSetting >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_impulseClamp = value;
 

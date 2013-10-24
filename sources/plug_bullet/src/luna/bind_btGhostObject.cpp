@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* self=(Luna< btCollisionObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGhostObject* self= (btGhostObject*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionObject >::check(L,1));
@@ -112,7 +109,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,18279310) ) return false;
-		if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+		if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -153,14 +150,14 @@ public:
 	inline static bool _lg_typecheck_getOverlappingObject_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getOverlappingObject_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -232,8 +229,7 @@ public:
 	// btGhostObject::btGhostObject()
 	static btGhostObject* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGhostObject::btGhostObject() function, expected prototype:\nbtGhostObject::btGhostObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGhostObject::btGhostObject() function, expected prototype:\nbtGhostObject::btGhostObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -243,8 +239,7 @@ public:
 	// btGhostObject::btGhostObject(lua_Table * data)
 	static btGhostObject* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGhostObject::btGhostObject(lua_Table * data) function, expected prototype:\nbtGhostObject::btGhostObject(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGhostObject::btGhostObject(lua_Table * data) function, expected prototype:\nbtGhostObject::btGhostObject(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -265,8 +260,7 @@ public:
 	// void btGhostObject::convexSweepTest(const btConvexShape * castShape, const btTransform & convexFromWorld, const btTransform & convexToWorld, btCollisionWorld::ConvexResultCallback & resultCallback, float allowedCcdPenetration = 0.f) const
 	static int _bind_convexSweepTest(lua_State *L) {
 		if (!_lg_typecheck_convexSweepTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::convexSweepTest(const btConvexShape * castShape, const btTransform & convexFromWorld, const btTransform & convexToWorld, btCollisionWorld::ConvexResultCallback & resultCallback, float allowedCcdPenetration = 0.f) const function, expected prototype:\nvoid btGhostObject::convexSweepTest(const btConvexShape * castShape, const btTransform & convexFromWorld, const btTransform & convexToWorld, btCollisionWorld::ConvexResultCallback & resultCallback, float allowedCcdPenetration = 0.f) const\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 18279310\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::convexSweepTest(const btConvexShape * castShape, const btTransform & convexFromWorld, const btTransform & convexToWorld, btCollisionWorld::ConvexResultCallback & resultCallback, float allowedCcdPenetration = 0.f) const function, expected prototype:\nvoid btGhostObject::convexSweepTest(const btConvexShape * castShape, const btTransform & convexFromWorld, const btTransform & convexToWorld, btCollisionWorld::ConvexResultCallback & resultCallback, float allowedCcdPenetration = 0.f) const\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 18279310\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -291,8 +285,7 @@ public:
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::convexSweepTest(const btConvexShape *, const btTransform &, const btTransform &, btCollisionWorld::ConvexResultCallback &, float) const. Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::convexSweepTest(const btConvexShape *, const btTransform &, const btTransform &, btCollisionWorld::ConvexResultCallback &, float) const. Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->convexSweepTest(castShape, convexFromWorld, convexToWorld, resultCallback, allowedCcdPenetration);
 
@@ -302,8 +295,7 @@ public:
 	// void btGhostObject::rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const
 	static int _bind_rayTest(lua_State *L) {
 		if (!_lg_typecheck_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGhostObject::rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGhostObject::rayTest(const btVector3 & rayFromWorld, const btVector3 & rayToWorld, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFromWorld_ptr=(Luna< btVector3 >::check(L,2));
@@ -324,8 +316,7 @@ public:
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rayTest(rayFromWorld, rayToWorld, resultCallback);
 
@@ -335,8 +326,7 @@ public:
 	// void btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0)
 	static int _bind_addOverlappingObjectInternal(lua_State *L) {
 		if (!_lg_typecheck_addOverlappingObjectInternal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -346,8 +336,7 @@ public:
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::addOverlappingObjectInternal(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addOverlappingObjectInternal(otherProxy, thisProxy);
 
@@ -357,8 +346,7 @@ public:
 	// void btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0)
 	static int _bind_removeOverlappingObjectInternal(lua_State *L) {
 		if (!_lg_typecheck_removeOverlappingObjectInternal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\narg 3 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\narg 3 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -369,8 +357,7 @@ public:
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy *, btDispatcher *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::removeOverlappingObjectInternal(btBroadphaseProxy *, btDispatcher *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->removeOverlappingObjectInternal(otherProxy, dispatcher, thisProxy);
 
@@ -380,15 +367,13 @@ public:
 	// int btGhostObject::getNumOverlappingObjects() const
 	static int _bind_getNumOverlappingObjects(lua_State *L) {
 		if (!_lg_typecheck_getNumOverlappingObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGhostObject::getNumOverlappingObjects() const function, expected prototype:\nint btGhostObject::getNumOverlappingObjects() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGhostObject::getNumOverlappingObjects() const function, expected prototype:\nint btGhostObject::getNumOverlappingObjects() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGhostObject::getNumOverlappingObjects() const. Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGhostObject::getNumOverlappingObjects() const. Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumOverlappingObjects();
 		lua_pushnumber(L,lret);
@@ -399,16 +384,14 @@ public:
 	// btCollisionObject * btGhostObject::getOverlappingObject(int index)
 	static int _bind_getOverlappingObject_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingObject_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionObject * btGhostObject::getOverlappingObject(int index) function, expected prototype:\nbtCollisionObject * btGhostObject::getOverlappingObject(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionObject * btGhostObject::getOverlappingObject(int index) function, expected prototype:\nbtCollisionObject * btGhostObject::getOverlappingObject(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionObject * btGhostObject::getOverlappingObject(int). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionObject * btGhostObject::getOverlappingObject(int). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionObject * lret = self->getOverlappingObject(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -421,16 +404,14 @@ public:
 	// const btCollisionObject * btGhostObject::getOverlappingObject(int index) const
 	static int _bind_getOverlappingObject_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingObject_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionObject * btGhostObject::getOverlappingObject(int index) const function, expected prototype:\nconst btCollisionObject * btGhostObject::getOverlappingObject(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionObject * btGhostObject::getOverlappingObject(int index) const function, expected prototype:\nconst btCollisionObject * btGhostObject::getOverlappingObject(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionObject * btGhostObject::getOverlappingObject(int) const. Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionObject * btGhostObject::getOverlappingObject(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionObject * lret = self->getOverlappingObject(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -452,15 +433,13 @@ public:
 	// btAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs()
 	static int _bind_getOverlappingPairs_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairs_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs() function, expected prototype:\nbtAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs() function, expected prototype:\nbtAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs(). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btCollisionObject * > & btGhostObject::getOverlappingPairs(). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btCollisionObject * >* lret = &self->getOverlappingPairs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -473,15 +452,13 @@ public:
 	// const btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const
 	static int _bind_getOverlappingPairs_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairs_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const function, expected prototype:\nconst btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const function, expected prototype:\nconst btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const. Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btAlignedObjectArray< btCollisionObject * > btGhostObject::getOverlappingPairs() const. Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btCollisionObject * > stack_lret = self->getOverlappingPairs();
 		const btAlignedObjectArray< btCollisionObject * >* lret = new const btAlignedObjectArray< btCollisionObject * >(stack_lret);
@@ -504,8 +481,7 @@ public:
 	// static const btGhostObject * btGhostObject::upcast(const btCollisionObject * colObj)
 	static int _bind_upcast_overload_1(lua_State *L) {
 		if (!_lg_typecheck_upcast_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const btGhostObject * btGhostObject::upcast(const btCollisionObject * colObj) function, expected prototype:\nstatic const btGhostObject * btGhostObject::upcast(const btCollisionObject * colObj)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in static const btGhostObject * btGhostObject::upcast(const btCollisionObject * colObj) function, expected prototype:\nstatic const btGhostObject * btGhostObject::upcast(const btCollisionObject * colObj)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObject* colObj=(Luna< btCollisionObject >::check(L,1));
@@ -521,8 +497,7 @@ public:
 	// static btGhostObject * btGhostObject::upcast(btCollisionObject * colObj)
 	static int _bind_upcast_overload_2(lua_State *L) {
 		if (!_lg_typecheck_upcast_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btGhostObject * btGhostObject::upcast(btCollisionObject * colObj) function, expected prototype:\nstatic btGhostObject * btGhostObject::upcast(btCollisionObject * colObj)\nClass arguments details:\narg 1 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in static btGhostObject * btGhostObject::upcast(btCollisionObject * colObj) function, expected prototype:\nstatic btGhostObject * btGhostObject::upcast(btCollisionObject * colObj)\nClass arguments details:\narg 1 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* colObj=(Luna< btCollisionObject >::check(L,1));
@@ -547,16 +522,14 @@ public:
 	// void btGhostObject::base_setCollisionShape(btCollisionShape * collisionShape)
 	static int _bind_base_setCollisionShape(lua_State *L) {
 		if (!_lg_typecheck_base_setCollisionShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::base_setCollisionShape(btCollisionShape * collisionShape) function, expected prototype:\nvoid btGhostObject::base_setCollisionShape(btCollisionShape * collisionShape)\nClass arguments details:\narg 1 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::base_setCollisionShape(btCollisionShape * collisionShape) function, expected prototype:\nvoid btGhostObject::base_setCollisionShape(btCollisionShape * collisionShape)\nClass arguments details:\narg 1 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* collisionShape=(Luna< btCollisionShape >::check(L,2));
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::base_setCollisionShape(btCollisionShape *). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::base_setCollisionShape(btCollisionShape *). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGhostObject::setCollisionShape(collisionShape);
 
@@ -566,15 +539,13 @@ public:
 	// int btGhostObject::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGhostObject::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGhostObject::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGhostObject::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGhostObject::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGhostObject::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGhostObject::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGhostObject::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -585,8 +556,7 @@ public:
 	// void btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0)
 	static int _bind_base_addOverlappingObjectInternal(lua_State *L) {
 		if (!_lg_typecheck_base_addOverlappingObjectInternal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -596,8 +566,7 @@ public:
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::base_addOverlappingObjectInternal(btBroadphaseProxy *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGhostObject::addOverlappingObjectInternal(otherProxy, thisProxy);
 
@@ -607,8 +576,7 @@ public:
 	// void btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0)
 	static int _bind_base_removeOverlappingObjectInternal(lua_State *L) {
 		if (!_lg_typecheck_base_removeOverlappingObjectInternal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\narg 3 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in void btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0) function, expected prototype:\nvoid btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy * otherProxy, btDispatcher * dispatcher, btBroadphaseProxy * thisProxy = 0)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\narg 3 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -619,8 +587,7 @@ public:
 
 		btGhostObject* self=Luna< btCollisionObject >::checkSubType< btGhostObject >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy *, btDispatcher *, btBroadphaseProxy *). Got : '%s'",typeid(Luna< btCollisionObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGhostObject::base_removeOverlappingObjectInternal(btBroadphaseProxy *, btDispatcher *, btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btCollisionObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGhostObject::removeOverlappingObjectInternal(otherProxy, dispatcher, thisProxy);
 

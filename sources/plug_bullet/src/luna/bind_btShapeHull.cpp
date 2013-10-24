@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btShapeHull*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btShapeHull*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btShapeHull* rhs =(Luna< btShapeHull >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btShapeHull* self= (btShapeHull*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btShapeHull >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -112,7 +108,7 @@ public:
 	inline static bool _lg_typecheck_buildHull(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -154,8 +150,7 @@ public:
 	// btShapeHull::btShapeHull(const btConvexShape * shape)
 	static btShapeHull* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btShapeHull::btShapeHull(const btConvexShape * shape) function, expected prototype:\nbtShapeHull::btShapeHull(const btConvexShape * shape)\nClass arguments details:\narg 1 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btShapeHull::btShapeHull(const btConvexShape * shape) function, expected prototype:\nbtShapeHull::btShapeHull(const btConvexShape * shape)\nClass arguments details:\narg 1 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexShape* shape=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,1));
@@ -168,16 +163,14 @@ public:
 	// bool btShapeHull::buildHull(float margin)
 	static int _bind_buildHull(lua_State *L) {
 		if (!_lg_typecheck_buildHull(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btShapeHull::buildHull(float margin) function, expected prototype:\nbool btShapeHull::buildHull(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btShapeHull::buildHull(float margin) function, expected prototype:\nbool btShapeHull::buildHull(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btShapeHull* self=(Luna< btShapeHull >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btShapeHull::buildHull(float). Got : '%s'",typeid(Luna< btShapeHull >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btShapeHull::buildHull(float). Got : '%s'\n%s",typeid(Luna< btShapeHull >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->buildHull(margin);
 		lua_pushboolean(L,lret?1:0);
@@ -188,15 +181,13 @@ public:
 	// int btShapeHull::numTriangles() const
 	static int _bind_numTriangles(lua_State *L) {
 		if (!_lg_typecheck_numTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btShapeHull::numTriangles() const function, expected prototype:\nint btShapeHull::numTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btShapeHull::numTriangles() const function, expected prototype:\nint btShapeHull::numTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btShapeHull* self=(Luna< btShapeHull >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btShapeHull::numTriangles() const. Got : '%s'",typeid(Luna< btShapeHull >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btShapeHull::numTriangles() const. Got : '%s'\n%s",typeid(Luna< btShapeHull >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numTriangles();
 		lua_pushnumber(L,lret);
@@ -207,15 +198,13 @@ public:
 	// int btShapeHull::numVertices() const
 	static int _bind_numVertices(lua_State *L) {
 		if (!_lg_typecheck_numVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btShapeHull::numVertices() const function, expected prototype:\nint btShapeHull::numVertices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btShapeHull::numVertices() const function, expected prototype:\nint btShapeHull::numVertices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btShapeHull* self=(Luna< btShapeHull >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btShapeHull::numVertices() const. Got : '%s'",typeid(Luna< btShapeHull >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btShapeHull::numVertices() const. Got : '%s'\n%s",typeid(Luna< btShapeHull >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numVertices();
 		lua_pushnumber(L,lret);
@@ -226,15 +215,13 @@ public:
 	// int btShapeHull::numIndices() const
 	static int _bind_numIndices(lua_State *L) {
 		if (!_lg_typecheck_numIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btShapeHull::numIndices() const function, expected prototype:\nint btShapeHull::numIndices() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btShapeHull::numIndices() const function, expected prototype:\nint btShapeHull::numIndices() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btShapeHull* self=(Luna< btShapeHull >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btShapeHull::numIndices() const. Got : '%s'",typeid(Luna< btShapeHull >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btShapeHull::numIndices() const. Got : '%s'\n%s",typeid(Luna< btShapeHull >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->numIndices();
 		lua_pushnumber(L,lret);
@@ -245,15 +232,13 @@ public:
 	// const btVector3 * btShapeHull::getVertexPointer() const
 	static int _bind_getVertexPointer(lua_State *L) {
 		if (!_lg_typecheck_getVertexPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 * btShapeHull::getVertexPointer() const function, expected prototype:\nconst btVector3 * btShapeHull::getVertexPointer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 * btShapeHull::getVertexPointer() const function, expected prototype:\nconst btVector3 * btShapeHull::getVertexPointer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btShapeHull* self=(Luna< btShapeHull >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 * btShapeHull::getVertexPointer() const. Got : '%s'",typeid(Luna< btShapeHull >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 * btShapeHull::getVertexPointer() const. Got : '%s'\n%s",typeid(Luna< btShapeHull >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3 * lret = self->getVertexPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +251,13 @@ public:
 	// const unsigned int * btShapeHull::getIndexPointer() const
 	static int _bind_getIndexPointer(lua_State *L) {
 		if (!_lg_typecheck_getIndexPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned int * btShapeHull::getIndexPointer() const function, expected prototype:\nconst unsigned int * btShapeHull::getIndexPointer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned int * btShapeHull::getIndexPointer() const function, expected prototype:\nconst unsigned int * btShapeHull::getIndexPointer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btShapeHull* self=(Luna< btShapeHull >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned int * btShapeHull::getIndexPointer() const. Got : '%s'",typeid(Luna< btShapeHull >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned int * btShapeHull::getIndexPointer() const. Got : '%s'\n%s",typeid(Luna< btShapeHull >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned int * lret = self->getIndexPointer();
 		lua_pushnumber(L,*lret);

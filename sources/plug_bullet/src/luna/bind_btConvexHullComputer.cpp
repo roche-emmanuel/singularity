@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexHullComputer*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexHullComputer*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexHullComputer* rhs =(Luna< btConvexHullComputer >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexHullComputer* self= (btConvexHullComputer*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexHullComputer >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -106,10 +102,10 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -117,10 +113,10 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -173,8 +169,7 @@ public:
 	// float btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp)
 	static int _bind_compute_overload_1(lua_State *L) {
 		if (!_lg_typecheck_compute_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp) function, expected prototype:\nfloat btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp) function, expected prototype:\nfloat btConvexHullComputer::compute(const float * coords, int stride, int count, float shrink, float shrinkClamp)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float* coords=(const float*)Luna< void >::check(L,2);
@@ -185,8 +180,7 @@ public:
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexHullComputer::compute(const float *, int, int, float, float). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexHullComputer::compute(const float *, int, int, float, float). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->compute(coords, stride, count, shrink, shrinkClamp);
 		lua_pushnumber(L,lret);
@@ -197,8 +191,7 @@ public:
 	// float btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp)
 	static int _bind_compute_overload_2(lua_State *L) {
 		if (!_lg_typecheck_compute_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp) function, expected prototype:\nfloat btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp) function, expected prototype:\nfloat btConvexHullComputer::compute(const double * coords, int stride, int count, float shrink, float shrinkClamp)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const double* coords=(const double*)Luna< void >::check(L,2);
@@ -209,8 +202,7 @@ public:
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexHullComputer::compute(const double *, int, int, float, float). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexHullComputer::compute(const double *, int, int, float, float). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->compute(coords, stride, count, shrink, shrinkClamp);
 		lua_pushnumber(L,lret);
@@ -230,15 +222,13 @@ public:
 	// btAlignedObjectArray< btVector3 > btConvexHullComputer::vertices()
 	static int _bind_getVertices(lua_State *L) {
 		if (!_lg_typecheck_getVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexHullComputer::vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexHullComputer::vertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btConvexHullComputer::vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btConvexHullComputer::vertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btConvexHullComputer::vertices(). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btConvexHullComputer::vertices(). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->vertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -251,15 +241,13 @@ public:
 	// btAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges()
 	static int _bind_getEdges(lua_State *L) {
 		if (!_lg_typecheck_getEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges() function, expected prototype:\nbtAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges() function, expected prototype:\nbtAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges(). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btConvexHullComputer::Edge > btConvexHullComputer::edges(). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btConvexHullComputer::Edge >* lret = &self->edges;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -272,15 +260,13 @@ public:
 	// btAlignedObjectArray< int > btConvexHullComputer::faces()
 	static int _bind_getFaces(lua_State *L) {
 		if (!_lg_typecheck_getFaces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > btConvexHullComputer::faces() function, expected prototype:\nbtAlignedObjectArray< int > btConvexHullComputer::faces()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > btConvexHullComputer::faces() function, expected prototype:\nbtAlignedObjectArray< int > btConvexHullComputer::faces()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< int > btConvexHullComputer::faces(). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< int > btConvexHullComputer::faces(). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< int >* lret = &self->faces;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -293,8 +279,7 @@ public:
 	// void btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setVertices(lua_State *L) {
 		if (!_lg_typecheck_setVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -305,8 +290,7 @@ public:
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullComputer::vertices(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertices = value;
 
@@ -316,8 +300,7 @@ public:
 	// void btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge > value)
 	static int _bind_setEdges(lua_State *L) {
 		if (!_lg_typecheck_setEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge > value) function, expected prototype:\nvoid btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge > value) function, expected prototype:\nvoid btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btConvexHullComputer::Edge >* value_ptr=(Luna< btAlignedObjectArray< btConvexHullComputer::Edge > >::check(L,2));
@@ -328,8 +311,7 @@ public:
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge >). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullComputer::edges(btAlignedObjectArray< btConvexHullComputer::Edge >). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->edges = value;
 
@@ -339,8 +321,7 @@ public:
 	// void btConvexHullComputer::faces(btAlignedObjectArray< int > value)
 	static int _bind_setFaces(lua_State *L) {
 		if (!_lg_typecheck_setFaces(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullComputer::faces(btAlignedObjectArray< int > value) function, expected prototype:\nvoid btConvexHullComputer::faces(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullComputer::faces(btAlignedObjectArray< int > value) function, expected prototype:\nvoid btConvexHullComputer::faces(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< int >* value_ptr=(Luna< btAlignedObjectArray< int > >::check(L,2));
@@ -351,8 +332,7 @@ public:
 
 		btConvexHullComputer* self=(Luna< btConvexHullComputer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullComputer::faces(btAlignedObjectArray< int >). Got : '%s'",typeid(Luna< btConvexHullComputer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullComputer::faces(btAlignedObjectArray< int >). Got : '%s'\n%s",typeid(Luna< btConvexHullComputer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->faces = value;
 

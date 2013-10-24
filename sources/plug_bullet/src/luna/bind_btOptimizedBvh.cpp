@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btOptimizedBvh* self= (btOptimizedBvh*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btQuantizedBvh >::check(L,1));
@@ -136,9 +133,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56402633)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -156,8 +153,7 @@ public:
 	// btOptimizedBvh::btOptimizedBvh()
 	static btOptimizedBvh* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btOptimizedBvh::btOptimizedBvh() function, expected prototype:\nbtOptimizedBvh::btOptimizedBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btOptimizedBvh::btOptimizedBvh() function, expected prototype:\nbtOptimizedBvh::btOptimizedBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -167,8 +163,7 @@ public:
 	// btOptimizedBvh::btOptimizedBvh(lua_Table * data)
 	static btOptimizedBvh* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btOptimizedBvh::btOptimizedBvh(lua_Table * data) function, expected prototype:\nbtOptimizedBvh::btOptimizedBvh(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btOptimizedBvh::btOptimizedBvh(lua_Table * data) function, expected prototype:\nbtOptimizedBvh::btOptimizedBvh(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -189,8 +184,7 @@ public:
 	// void btOptimizedBvh::build(btStridingMeshInterface * triangles, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax)
 	static int _bind_build(lua_State *L) {
 		if (!_lg_typecheck_build(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::build(btStridingMeshInterface * triangles, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax) function, expected prototype:\nvoid btOptimizedBvh::build(btStridingMeshInterface * triangles, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax)\nClass arguments details:\narg 1 ID = 56402633\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::build(btStridingMeshInterface * triangles, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax) function, expected prototype:\nvoid btOptimizedBvh::build(btStridingMeshInterface * triangles, bool useQuantizedAabbCompression, const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax)\nClass arguments details:\narg 1 ID = 56402633\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* triangles=(Luna< btStridingMeshInterface >::check(L,2));
@@ -208,8 +202,7 @@ public:
 
 		btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btOptimizedBvh::build(btStridingMeshInterface *, bool, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btOptimizedBvh::build(btStridingMeshInterface *, bool, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->build(triangles, useQuantizedAabbCompression, bvhAabbMin, bvhAabbMax);
 
@@ -219,8 +212,7 @@ public:
 	// void btOptimizedBvh::refit(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax)
 	static int _bind_refit(lua_State *L) {
 		if (!_lg_typecheck_refit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::refit(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btOptimizedBvh::refit(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 56402633\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::refit(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btOptimizedBvh::refit(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 56402633\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* triangles=(Luna< btStridingMeshInterface >::check(L,2));
@@ -237,8 +229,7 @@ public:
 
 		btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btOptimizedBvh::refit(btStridingMeshInterface *, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btOptimizedBvh::refit(btStridingMeshInterface *, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->refit(triangles, aabbMin, aabbMax);
 
@@ -248,8 +239,7 @@ public:
 	// void btOptimizedBvh::refitPartial(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax)
 	static int _bind_refitPartial(lua_State *L) {
 		if (!_lg_typecheck_refitPartial(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::refitPartial(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btOptimizedBvh::refitPartial(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 56402633\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::refitPartial(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax) function, expected prototype:\nvoid btOptimizedBvh::refitPartial(btStridingMeshInterface * triangles, const btVector3 & aabbMin, const btVector3 & aabbMax)\nClass arguments details:\narg 1 ID = 56402633\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* triangles=(Luna< btStridingMeshInterface >::check(L,2));
@@ -266,8 +256,7 @@ public:
 
 		btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btOptimizedBvh::refitPartial(btStridingMeshInterface *, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btOptimizedBvh::refitPartial(btStridingMeshInterface *, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->refitPartial(triangles, aabbMin, aabbMax);
 
@@ -277,8 +266,7 @@ public:
 	// void btOptimizedBvh::updateBvhNodes(btStridingMeshInterface * meshInterface, int firstNode, int endNode, int index)
 	static int _bind_updateBvhNodes(lua_State *L) {
 		if (!_lg_typecheck_updateBvhNodes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::updateBvhNodes(btStridingMeshInterface * meshInterface, int firstNode, int endNode, int index) function, expected prototype:\nvoid btOptimizedBvh::updateBvhNodes(btStridingMeshInterface * meshInterface, int firstNode, int endNode, int index)\nClass arguments details:\narg 1 ID = 56402633\n");
+			luaL_error(L, "luna typecheck failed in void btOptimizedBvh::updateBvhNodes(btStridingMeshInterface * meshInterface, int firstNode, int endNode, int index) function, expected prototype:\nvoid btOptimizedBvh::updateBvhNodes(btStridingMeshInterface * meshInterface, int firstNode, int endNode, int index)\nClass arguments details:\narg 1 ID = 56402633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,2));
@@ -288,8 +276,7 @@ public:
 
 		btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btOptimizedBvh::updateBvhNodes(btStridingMeshInterface *, int, int, int). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btOptimizedBvh::updateBvhNodes(btStridingMeshInterface *, int, int, int). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateBvhNodes(meshInterface, firstNode, endNode, index);
 
@@ -299,15 +286,13 @@ public:
 	// int btOptimizedBvh::base_calculateSerializeBufferSizeNew() const
 	static int _bind_base_calculateSerializeBufferSizeNew(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSizeNew(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btOptimizedBvh::base_calculateSerializeBufferSizeNew() const function, expected prototype:\nint btOptimizedBvh::base_calculateSerializeBufferSizeNew() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btOptimizedBvh::base_calculateSerializeBufferSizeNew() const function, expected prototype:\nint btOptimizedBvh::base_calculateSerializeBufferSizeNew() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btOptimizedBvh* self=Luna< btQuantizedBvh >::checkSubType< btOptimizedBvh >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btOptimizedBvh::base_calculateSerializeBufferSizeNew() const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btOptimizedBvh::base_calculateSerializeBufferSizeNew() const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btOptimizedBvh::calculateSerializeBufferSizeNew();
 		lua_pushnumber(L,lret);

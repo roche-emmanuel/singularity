@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactListener*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactListener*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactListener* rhs =(Luna< b2ContactListener >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactListener* self= (b2ContactListener*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2ContactListener >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -209,8 +204,7 @@ public:
 	// b2ContactListener::b2ContactListener()
 	static b2ContactListener* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactListener::b2ContactListener() function, expected prototype:\nb2ContactListener::b2ContactListener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactListener::b2ContactListener() function, expected prototype:\nb2ContactListener::b2ContactListener()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -220,8 +214,7 @@ public:
 	// b2ContactListener::b2ContactListener(lua_Table * data)
 	static b2ContactListener* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactListener::b2ContactListener(lua_Table * data) function, expected prototype:\nb2ContactListener::b2ContactListener(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactListener::b2ContactListener(lua_Table * data) function, expected prototype:\nb2ContactListener::b2ContactListener(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -242,16 +235,14 @@ public:
 	// void b2ContactListener::BeginContact(b2Contact * contact)
 	static int _bind_BeginContact(lua_State *L) {
 		if (!_lg_typecheck_BeginContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::BeginContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::BeginContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::BeginContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::BeginContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::BeginContact(b2Contact *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::BeginContact(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->BeginContact(contact);
 
@@ -261,16 +252,14 @@ public:
 	// void b2ContactListener::EndContact(b2Contact * contact)
 	static int _bind_EndContact(lua_State *L) {
 		if (!_lg_typecheck_EndContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::EndContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::EndContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::EndContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::EndContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::EndContact(b2Contact *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::EndContact(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->EndContact(contact);
 
@@ -280,8 +269,7 @@ public:
 	// void b2ContactListener::PreSolve(b2Contact * contact, const b2Manifold * oldManifold)
 	static int _bind_PreSolve(lua_State *L) {
 		if (!_lg_typecheck_PreSolve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::PreSolve(b2Contact * contact, const b2Manifold * oldManifold) function, expected prototype:\nvoid b2ContactListener::PreSolve(b2Contact * contact, const b2Manifold * oldManifold)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 73405450\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::PreSolve(b2Contact * contact, const b2Manifold * oldManifold) function, expected prototype:\nvoid b2ContactListener::PreSolve(b2Contact * contact, const b2Manifold * oldManifold)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 73405450\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
@@ -289,8 +277,7 @@ public:
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::PreSolve(b2Contact *, const b2Manifold *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::PreSolve(b2Contact *, const b2Manifold *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PreSolve(contact, oldManifold);
 
@@ -300,8 +287,7 @@ public:
 	// void b2ContactListener::PostSolve(b2Contact * contact, const b2ContactImpulse * impulse)
 	static int _bind_PostSolve(lua_State *L) {
 		if (!_lg_typecheck_PostSolve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::PostSolve(b2Contact * contact, const b2ContactImpulse * impulse) function, expected prototype:\nvoid b2ContactListener::PostSolve(b2Contact * contact, const b2ContactImpulse * impulse)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 12344703\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::PostSolve(b2Contact * contact, const b2ContactImpulse * impulse) function, expected prototype:\nvoid b2ContactListener::PostSolve(b2Contact * contact, const b2ContactImpulse * impulse)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 12344703\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
@@ -309,8 +295,7 @@ public:
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::PostSolve(b2Contact *, const b2ContactImpulse *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::PostSolve(b2Contact *, const b2ContactImpulse *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PostSolve(contact, impulse);
 
@@ -320,16 +305,14 @@ public:
 	// void b2ContactListener::base_BeginContact(b2Contact * contact)
 	static int _bind_base_BeginContact(lua_State *L) {
 		if (!_lg_typecheck_base_BeginContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_BeginContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::base_BeginContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_BeginContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::base_BeginContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::base_BeginContact(b2Contact *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::base_BeginContact(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2ContactListener::BeginContact(contact);
 
@@ -339,16 +322,14 @@ public:
 	// void b2ContactListener::base_EndContact(b2Contact * contact)
 	static int _bind_base_EndContact(lua_State *L) {
 		if (!_lg_typecheck_base_EndContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_EndContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::base_EndContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_EndContact(b2Contact * contact) function, expected prototype:\nvoid b2ContactListener::base_EndContact(b2Contact * contact)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::base_EndContact(b2Contact *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::base_EndContact(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2ContactListener::EndContact(contact);
 
@@ -358,8 +339,7 @@ public:
 	// void b2ContactListener::base_PreSolve(b2Contact * contact, const b2Manifold * oldManifold)
 	static int _bind_base_PreSolve(lua_State *L) {
 		if (!_lg_typecheck_base_PreSolve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_PreSolve(b2Contact * contact, const b2Manifold * oldManifold) function, expected prototype:\nvoid b2ContactListener::base_PreSolve(b2Contact * contact, const b2Manifold * oldManifold)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 73405450\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_PreSolve(b2Contact * contact, const b2Manifold * oldManifold) function, expected prototype:\nvoid b2ContactListener::base_PreSolve(b2Contact * contact, const b2Manifold * oldManifold)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 73405450\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
@@ -367,8 +347,7 @@ public:
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::base_PreSolve(b2Contact *, const b2Manifold *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::base_PreSolve(b2Contact *, const b2Manifold *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2ContactListener::PreSolve(contact, oldManifold);
 
@@ -378,8 +357,7 @@ public:
 	// void b2ContactListener::base_PostSolve(b2Contact * contact, const b2ContactImpulse * impulse)
 	static int _bind_base_PostSolve(lua_State *L) {
 		if (!_lg_typecheck_base_PostSolve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_PostSolve(b2Contact * contact, const b2ContactImpulse * impulse) function, expected prototype:\nvoid b2ContactListener::base_PostSolve(b2Contact * contact, const b2ContactImpulse * impulse)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 12344703\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactListener::base_PostSolve(b2Contact * contact, const b2ContactImpulse * impulse) function, expected prototype:\nvoid b2ContactListener::base_PostSolve(b2Contact * contact, const b2ContactImpulse * impulse)\nClass arguments details:\narg 1 ID = 92978558\narg 2 ID = 12344703\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* contact=(Luna< b2Contact >::check(L,2));
@@ -387,8 +365,7 @@ public:
 
 		b2ContactListener* self=(Luna< b2ContactListener >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactListener::base_PostSolve(b2Contact *, const b2ContactImpulse *). Got : '%s'",typeid(Luna< b2ContactListener >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactListener::base_PostSolve(b2Contact *, const b2ContactImpulse *). Got : '%s'\n%s",typeid(Luna< b2ContactListener >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2ContactListener::PostSolve(contact, impulse);
 

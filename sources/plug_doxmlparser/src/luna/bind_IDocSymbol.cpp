@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocSymbol* self= (IDocSymbol*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -124,8 +121,7 @@ public:
 	// IDocSymbol::IDocSymbol(lua_Table * data)
 	static IDocSymbol* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocSymbol::IDocSymbol(lua_Table * data) function, expected prototype:\nIDocSymbol::IDocSymbol(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocSymbol::IDocSymbol(lua_Table * data) function, expected prototype:\nIDocSymbol::IDocSymbol(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -137,15 +133,13 @@ public:
 	// IDocSymbol::Types IDocSymbol::type() const
 	static int _bind_type(lua_State *L) {
 		if (!_lg_typecheck_type(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocSymbol::Types IDocSymbol::type() const function, expected prototype:\nIDocSymbol::Types IDocSymbol::type() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocSymbol::Types IDocSymbol::type() const function, expected prototype:\nIDocSymbol::Types IDocSymbol::type() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSymbol* self=Luna< IDoc >::checkSubType< IDocSymbol >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocSymbol::Types IDocSymbol::type() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocSymbol::Types IDocSymbol::type() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocSymbol::Types lret = self->type();
 		lua_pushnumber(L,lret);
@@ -156,15 +150,13 @@ public:
 	// const IString * IDocSymbol::typeString() const
 	static int _bind_typeString(lua_State *L) {
 		if (!_lg_typecheck_typeString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IDocSymbol::typeString() const function, expected prototype:\nconst IString * IDocSymbol::typeString() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IDocSymbol::typeString() const function, expected prototype:\nconst IString * IDocSymbol::typeString() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSymbol* self=Luna< IDoc >::checkSubType< IDocSymbol >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IDocSymbol::typeString() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IDocSymbol::typeString() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->typeString();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -177,15 +169,13 @@ public:
 	// char IDocSymbol::letter() const
 	static int _bind_letter(lua_State *L) {
 		if (!_lg_typecheck_letter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in char IDocSymbol::letter() const function, expected prototype:\nchar IDocSymbol::letter() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in char IDocSymbol::letter() const function, expected prototype:\nchar IDocSymbol::letter() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSymbol* self=Luna< IDoc >::checkSubType< IDocSymbol >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char IDocSymbol::letter() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call char IDocSymbol::letter() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		char lret = self->letter();
 		lua_pushnumber(L,lret);

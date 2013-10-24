@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSubSimplexClosestResult*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSubSimplexClosestResult*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSubSimplexClosestResult* rhs =(Luna< btSubSimplexClosestResult >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSubSimplexClosestResult* self= (btSubSimplexClosestResult*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btSubSimplexClosestResult >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -118,10 +114,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>5 ) return false;
 
-		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -174,15 +170,13 @@ public:
 	// void btSubSimplexClosestResult::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::reset() function, expected prototype:\nvoid btSubSimplexClosestResult::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::reset() function, expected prototype:\nvoid btSubSimplexClosestResult::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::reset(). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::reset(). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -192,15 +186,13 @@ public:
 	// bool btSubSimplexClosestResult::isValid()
 	static int _bind_isValid(lua_State *L) {
 		if (!_lg_typecheck_isValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSubSimplexClosestResult::isValid() function, expected prototype:\nbool btSubSimplexClosestResult::isValid()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSubSimplexClosestResult::isValid() function, expected prototype:\nbool btSubSimplexClosestResult::isValid()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSubSimplexClosestResult::isValid(). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSubSimplexClosestResult::isValid(). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isValid();
 		lua_pushboolean(L,lret?1:0);
@@ -211,8 +203,7 @@ public:
 	// void btSubSimplexClosestResult::setBarycentricCoordinates(float a = float (0.), float b = float (0.), float c = float (0.), float d = float (0.))
 	static int _bind_setBarycentricCoordinates(lua_State *L) {
 		if (!_lg_typecheck_setBarycentricCoordinates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::setBarycentricCoordinates(float a = float (0.), float b = float (0.), float c = float (0.), float d = float (0.)) function, expected prototype:\nvoid btSubSimplexClosestResult::setBarycentricCoordinates(float a = float (0.), float b = float (0.), float c = float (0.), float d = float (0.))\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::setBarycentricCoordinates(float a = float (0.), float b = float (0.), float c = float (0.), float d = float (0.)) function, expected prototype:\nvoid btSubSimplexClosestResult::setBarycentricCoordinates(float a = float (0.), float b = float (0.), float c = float (0.), float d = float (0.))\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -224,8 +215,7 @@ public:
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::setBarycentricCoordinates(float, float, float, float). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::setBarycentricCoordinates(float, float, float, float). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setBarycentricCoordinates(a, b, c, d);
 
@@ -235,15 +225,13 @@ public:
 	// btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex()
 	static int _bind_getClosestPointOnSimplex(lua_State *L) {
 		if (!_lg_typecheck_getClosestPointOnSimplex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex() function, expected prototype:\nbtVector3 btSubSimplexClosestResult::m_closestPointOnSimplex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex() function, expected prototype:\nbtVector3 btSubSimplexClosestResult::m_closestPointOnSimplex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex(). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btSubSimplexClosestResult::m_closestPointOnSimplex(). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_closestPointOnSimplex;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -256,15 +244,13 @@ public:
 	// btUsageBitfield btSubSimplexClosestResult::m_usedVertices()
 	static int _bind_getUsedVertices(lua_State *L) {
 		if (!_lg_typecheck_getUsedVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btUsageBitfield btSubSimplexClosestResult::m_usedVertices() function, expected prototype:\nbtUsageBitfield btSubSimplexClosestResult::m_usedVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btUsageBitfield btSubSimplexClosestResult::m_usedVertices() function, expected prototype:\nbtUsageBitfield btSubSimplexClosestResult::m_usedVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btUsageBitfield btSubSimplexClosestResult::m_usedVertices(). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btUsageBitfield btSubSimplexClosestResult::m_usedVertices(). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btUsageBitfield* lret = &self->m_usedVertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -277,15 +263,13 @@ public:
 	// bool btSubSimplexClosestResult::m_degenerate()
 	static int _bind_getDegenerate(lua_State *L) {
 		if (!_lg_typecheck_getDegenerate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSubSimplexClosestResult::m_degenerate() function, expected prototype:\nbool btSubSimplexClosestResult::m_degenerate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btSubSimplexClosestResult::m_degenerate() function, expected prototype:\nbool btSubSimplexClosestResult::m_degenerate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSubSimplexClosestResult::m_degenerate(). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSubSimplexClosestResult::m_degenerate(). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_degenerate;
 		lua_pushboolean(L,lret?1:0);
@@ -296,8 +280,7 @@ public:
 	// void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value)
 	static int _bind_setClosestPointOnSimplex(lua_State *L) {
 		if (!_lg_typecheck_setClosestPointOnSimplex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -308,8 +291,7 @@ public:
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::m_closestPointOnSimplex(btVector3). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_closestPointOnSimplex = value;
 
@@ -319,8 +301,7 @@ public:
 	// void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value)
 	static int _bind_setUsedVertices(lua_State *L) {
 		if (!_lg_typecheck_setUsedVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value)\nClass arguments details:\narg 1 ID = 61938597\n");
+			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_usedVertices(btUsageBitfield value)\nClass arguments details:\narg 1 ID = 61938597\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btUsageBitfield* value_ptr=(Luna< btUsageBitfield >::check(L,2));
@@ -331,8 +312,7 @@ public:
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::m_usedVertices(btUsageBitfield). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_usedVertices = value;
 
@@ -342,16 +322,14 @@ public:
 	// void btSubSimplexClosestResult::m_degenerate(bool value)
 	static int _bind_setDegenerate(lua_State *L) {
 		if (!_lg_typecheck_setDegenerate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_degenerate(bool value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_degenerate(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSubSimplexClosestResult::m_degenerate(bool value) function, expected prototype:\nvoid btSubSimplexClosestResult::m_degenerate(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btSubSimplexClosestResult* self=(Luna< btSubSimplexClosestResult >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::m_degenerate(bool). Got : '%s'",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSubSimplexClosestResult::m_degenerate(bool). Got : '%s'\n%s",typeid(Luna< btSubSimplexClosestResult >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_degenerate = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btQuantizedBvh*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btQuantizedBvh*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvh* rhs =(Luna< btQuantizedBvh >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvh* self= (btQuantizedBvh*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btQuantizedBvh >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -147,7 +142,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
+		if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -197,7 +192,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -206,7 +201,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -220,7 +215,7 @@ public:
 	inline static bool _lg_typecheck_setTraversalMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -274,8 +269,7 @@ public:
 	// btQuantizedBvh::btQuantizedBvh()
 	static btQuantizedBvh* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuantizedBvh::btQuantizedBvh() function, expected prototype:\nbtQuantizedBvh::btQuantizedBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuantizedBvh::btQuantizedBvh() function, expected prototype:\nbtQuantizedBvh::btQuantizedBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -285,8 +279,7 @@ public:
 	// btQuantizedBvh::btQuantizedBvh(lua_Table * data)
 	static btQuantizedBvh* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btQuantizedBvh::btQuantizedBvh(lua_Table * data) function, expected prototype:\nbtQuantizedBvh::btQuantizedBvh(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btQuantizedBvh::btQuantizedBvh(lua_Table * data) function, expected prototype:\nbtQuantizedBvh::btQuantizedBvh(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -307,8 +300,7 @@ public:
 	// void btQuantizedBvh::setQuantizationValues(const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, float quantizationMargin = float (1.0))
 	static int _bind_setQuantizationValues(lua_State *L) {
 		if (!_lg_typecheck_setQuantizationValues(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::setQuantizationValues(const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, float quantizationMargin = float (1.0)) function, expected prototype:\nvoid btQuantizedBvh::setQuantizationValues(const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, float quantizationMargin = float (1.0))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::setQuantizationValues(const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, float quantizationMargin = float (1.0)) function, expected prototype:\nvoid btQuantizedBvh::setQuantizationValues(const btVector3 & bvhAabbMin, const btVector3 & bvhAabbMax, float quantizationMargin = float (1.0))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -327,8 +319,7 @@ public:
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::setQuantizationValues(const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::setQuantizationValues(const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setQuantizationValues(bvhAabbMin, bvhAabbMax, quantizationMargin);
 
@@ -338,15 +329,13 @@ public:
 	// QuantizedNodeArray & btQuantizedBvh::getLeafNodeArray()
 	static int _bind_getLeafNodeArray(lua_State *L) {
 		if (!_lg_typecheck_getLeafNodeArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in QuantizedNodeArray & btQuantizedBvh::getLeafNodeArray() function, expected prototype:\nQuantizedNodeArray & btQuantizedBvh::getLeafNodeArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in QuantizedNodeArray & btQuantizedBvh::getLeafNodeArray() function, expected prototype:\nQuantizedNodeArray & btQuantizedBvh::getLeafNodeArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call QuantizedNodeArray & btQuantizedBvh::getLeafNodeArray(). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call QuantizedNodeArray & btQuantizedBvh::getLeafNodeArray(). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const QuantizedNodeArray* lret = &self->getLeafNodeArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -359,15 +348,13 @@ public:
 	// void btQuantizedBvh::buildInternal()
 	static int _bind_buildInternal(lua_State *L) {
 		if (!_lg_typecheck_buildInternal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::buildInternal() function, expected prototype:\nvoid btQuantizedBvh::buildInternal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::buildInternal() function, expected prototype:\nvoid btQuantizedBvh::buildInternal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::buildInternal(). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::buildInternal(). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildInternal();
 
@@ -377,8 +364,7 @@ public:
 	// void btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_reportAabbOverlappingNodex(lua_State *L) {
 		if (!_lg_typecheck_reportAabbOverlappingNodex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -395,8 +381,7 @@ public:
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::reportAabbOverlappingNodex(btNodeOverlapCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportAabbOverlappingNodex(nodeCallback, aabbMin, aabbMax);
 
@@ -406,8 +391,7 @@ public:
 	// void btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget) const
 	static int _bind_reportRayOverlappingNodex(lua_State *L) {
 		if (!_lg_typecheck_reportRayOverlappingNodex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget) const function, expected prototype:\nvoid btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget) const function, expected prototype:\nvoid btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -424,8 +408,7 @@ public:
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::reportRayOverlappingNodex(btNodeOverlapCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportRayOverlappingNodex(nodeCallback, raySource, rayTarget);
 
@@ -435,8 +418,7 @@ public:
 	// void btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_reportBoxCastOverlappingNodex(lua_State *L) {
 		if (!_lg_typecheck_reportBoxCastOverlappingNodex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback * nodeCallback, const btVector3 & raySource, const btVector3 & rayTarget, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 47895716\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btNodeOverlapCallback* nodeCallback=(Luna< btNodeOverlapCallback >::check(L,2));
@@ -463,8 +445,7 @@ public:
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::reportBoxCastOverlappingNodex(btNodeOverlapCallback *, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportBoxCastOverlappingNodex(nodeCallback, raySource, rayTarget, aabbMin, aabbMax);
 
@@ -474,8 +455,7 @@ public:
 	// void btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const
 	static int _bind_quantize(lua_State *L) {
 		if (!_lg_typecheck_quantize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const function, expected prototype:\nvoid btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const function, expected prototype:\nvoid btQuantizedBvh::quantize(unsigned short * out, const btVector3 & point, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short* out=(unsigned short*)Luna< void >::check(L,2);
@@ -488,8 +468,7 @@ public:
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::quantize(unsigned short *, const btVector3 &, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::quantize(unsigned short *, const btVector3 &, int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->quantize(out, point, isMax);
 
@@ -499,8 +478,7 @@ public:
 	// void btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const
 	static int _bind_quantizeWithClamp(lua_State *L) {
 		if (!_lg_typecheck_quantizeWithClamp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const function, expected prototype:\nvoid btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const function, expected prototype:\nvoid btQuantizedBvh::quantizeWithClamp(unsigned short * out, const btVector3 & point2, int isMax) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short* out=(unsigned short*)Luna< void >::check(L,2);
@@ -513,8 +491,7 @@ public:
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::quantizeWithClamp(unsigned short *, const btVector3 &, int) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::quantizeWithClamp(unsigned short *, const btVector3 &, int) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->quantizeWithClamp(out, point2, isMax);
 
@@ -524,16 +501,14 @@ public:
 	// btVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const
 	static int _bind_unQuantize(lua_State *L) {
 		if (!_lg_typecheck_unQuantize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const function, expected prototype:\nbtVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const function, expected prototype:\nbtVector3 btQuantizedBvh::unQuantize(const unsigned short * vecIn) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const unsigned short* vecIn=(const unsigned short*)Luna< void >::check(L,2);
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::unQuantize(const unsigned short *) const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btQuantizedBvh::unQuantize(const unsigned short *) const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->unQuantize(vecIn);
 		btVector3* lret = new btVector3(stack_lret);
@@ -547,16 +522,14 @@ public:
 	// void btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode traversalMode)
 	static int _bind_setTraversalMode(lua_State *L) {
 		if (!_lg_typecheck_setTraversalMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode traversalMode) function, expected prototype:\nvoid btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode traversalMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode traversalMode) function, expected prototype:\nvoid btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode traversalMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuantizedBvh::btTraversalMode traversalMode=(btQuantizedBvh::btTraversalMode)lua_tointeger(L,2);
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btQuantizedBvh::setTraversalMode(btQuantizedBvh::btTraversalMode). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTraversalMode(traversalMode);
 
@@ -566,15 +539,13 @@ public:
 	// QuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray()
 	static int _bind_getQuantizedNodeArray(lua_State *L) {
 		if (!_lg_typecheck_getQuantizedNodeArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in QuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray() function, expected prototype:\nQuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in QuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray() function, expected prototype:\nQuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call QuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray(). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call QuantizedNodeArray & btQuantizedBvh::getQuantizedNodeArray(). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const QuantizedNodeArray* lret = &self->getQuantizedNodeArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -587,15 +558,13 @@ public:
 	// BvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray()
 	static int _bind_getSubtreeInfoArray(lua_State *L) {
 		if (!_lg_typecheck_getSubtreeInfoArray(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in BvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray() function, expected prototype:\nBvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in BvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray() function, expected prototype:\nBvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call BvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray(). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call BvhSubtreeInfoArray & btQuantizedBvh::getSubtreeInfoArray(). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const BvhSubtreeInfoArray* lret = &self->getSubtreeInfoArray();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -608,15 +577,13 @@ public:
 	// unsigned int btQuantizedBvh::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int btQuantizedBvh::calculateSerializeBufferSize() const function, expected prototype:\nunsigned int btQuantizedBvh::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int btQuantizedBvh::calculateSerializeBufferSize() const function, expected prototype:\nunsigned int btQuantizedBvh::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int btQuantizedBvh::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int btQuantizedBvh::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -627,15 +594,13 @@ public:
 	// int btQuantizedBvh::calculateSerializeBufferSizeNew() const
 	static int _bind_calculateSerializeBufferSizeNew(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSizeNew(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::calculateSerializeBufferSizeNew() const function, expected prototype:\nint btQuantizedBvh::calculateSerializeBufferSizeNew() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::calculateSerializeBufferSizeNew() const function, expected prototype:\nint btQuantizedBvh::calculateSerializeBufferSizeNew() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btQuantizedBvh::calculateSerializeBufferSizeNew() const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btQuantizedBvh::calculateSerializeBufferSizeNew() const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSizeNew();
 		lua_pushnumber(L,lret);
@@ -646,15 +611,13 @@ public:
 	// bool btQuantizedBvh::isQuantized()
 	static int _bind_isQuantized(lua_State *L) {
 		if (!_lg_typecheck_isQuantized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btQuantizedBvh::isQuantized() function, expected prototype:\nbool btQuantizedBvh::isQuantized()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btQuantizedBvh::isQuantized() function, expected prototype:\nbool btQuantizedBvh::isQuantized()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btQuantizedBvh::isQuantized(). Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btQuantizedBvh::isQuantized(). Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isQuantized();
 		lua_pushboolean(L,lret?1:0);
@@ -665,8 +628,7 @@ public:
 	// static unsigned int btQuantizedBvh::getAlignmentSerializationPadding()
 	static int _bind_getAlignmentSerializationPadding(lua_State *L) {
 		if (!_lg_typecheck_getAlignmentSerializationPadding(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static unsigned int btQuantizedBvh::getAlignmentSerializationPadding() function, expected prototype:\nstatic unsigned int btQuantizedBvh::getAlignmentSerializationPadding()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static unsigned int btQuantizedBvh::getAlignmentSerializationPadding() function, expected prototype:\nstatic unsigned int btQuantizedBvh::getAlignmentSerializationPadding()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -679,15 +641,13 @@ public:
 	// int btQuantizedBvh::base_calculateSerializeBufferSizeNew() const
 	static int _bind_base_calculateSerializeBufferSizeNew(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSizeNew(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::base_calculateSerializeBufferSizeNew() const function, expected prototype:\nint btQuantizedBvh::base_calculateSerializeBufferSizeNew() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btQuantizedBvh::base_calculateSerializeBufferSizeNew() const function, expected prototype:\nint btQuantizedBvh::base_calculateSerializeBufferSizeNew() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btQuantizedBvh* self=(Luna< btQuantizedBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btQuantizedBvh::base_calculateSerializeBufferSizeNew() const. Got : '%s'",typeid(Luna< btQuantizedBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btQuantizedBvh::base_calculateSerializeBufferSizeNew() const. Got : '%s'\n%s",typeid(Luna< btQuantizedBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btQuantizedBvh::calculateSerializeBufferSizeNew();
 		lua_pushnumber(L,lret);

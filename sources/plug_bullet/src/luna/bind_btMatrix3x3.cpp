@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMatrix3x3*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMatrix3x3*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3* rhs =(Luna< btMatrix3x3 >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3* self= (btMatrix3x3*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btMatrix3x3 >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -117,15 +113,15 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=9 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -142,14 +138,14 @@ public:
 	inline static bool _lg_typecheck_getColumn(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getRow(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -163,15 +159,15 @@ public:
 	inline static bool _lg_typecheck_setValue(lua_State *L) {
 		if( lua_gettop(L)!=10 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
-		if( lua_isnumber(L,10)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,10)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -185,18 +181,18 @@ public:
 	inline static bool _lg_typecheck_setEulerYPR(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setEulerZYX(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -223,9 +219,9 @@ public:
 	inline static bool _lg_typecheck_getEulerYPR(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -233,10 +229,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<4 || luatop>5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -316,18 +312,18 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,30394543) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_cofac(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -350,14 +346,14 @@ public:
 	inline static bool _lg_typecheck_op_index_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_op_index_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -387,8 +383,7 @@ public:
 	// btMatrix3x3::btMatrix3x3()
 	static btMatrix3x3* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3() function, expected prototype:\nbtMatrix3x3::btMatrix3x3()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3() function, expected prototype:\nbtMatrix3x3::btMatrix3x3()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -398,8 +393,7 @@ public:
 	// btMatrix3x3::btMatrix3x3(const btQuaternion & q)
 	static btMatrix3x3* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const btQuaternion & q) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const btQuaternion & q) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,1));
@@ -414,8 +408,7 @@ public:
 	// btMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)
 	static btMatrix3x3* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float xx=(const float)lua_tonumber(L,1);
@@ -434,8 +427,7 @@ public:
 	// btMatrix3x3::btMatrix3x3(const btMatrix3x3 & other)
 	static btMatrix3x3* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const btMatrix3x3 & other) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const btMatrix3x3 & other)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3::btMatrix3x3(const btMatrix3x3 & other) function, expected prototype:\nbtMatrix3x3::btMatrix3x3(const btMatrix3x3 & other)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* other_ptr=(Luna< btMatrix3x3 >::check(L,1));
@@ -463,16 +455,14 @@ public:
 	// btVector3 btMatrix3x3::getColumn(int i) const
 	static int _bind_getColumn(lua_State *L) {
 		if (!_lg_typecheck_getColumn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMatrix3x3::getColumn(int i) const function, expected prototype:\nbtVector3 btMatrix3x3::getColumn(int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMatrix3x3::getColumn(int i) const function, expected prototype:\nbtVector3 btMatrix3x3::getColumn(int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMatrix3x3::getColumn(int) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMatrix3x3::getColumn(int) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getColumn(i);
 		btVector3* lret = new btVector3(stack_lret);
@@ -486,16 +476,14 @@ public:
 	// const btVector3 & btMatrix3x3::getRow(int i) const
 	static int _bind_getRow(lua_State *L) {
 		if (!_lg_typecheck_getRow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btMatrix3x3::getRow(int i) const function, expected prototype:\nconst btVector3 & btMatrix3x3::getRow(int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btMatrix3x3::getRow(int i) const function, expected prototype:\nconst btVector3 & btMatrix3x3::getRow(int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btMatrix3x3::getRow(int) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btMatrix3x3::getRow(int) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getRow(i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -508,16 +496,14 @@ public:
 	// void btMatrix3x3::setFromOpenGLSubMatrix(const float * m)
 	static int _bind_setFromOpenGLSubMatrix(lua_State *L) {
 		if (!_lg_typecheck_setFromOpenGLSubMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setFromOpenGLSubMatrix(const float * m) function, expected prototype:\nvoid btMatrix3x3::setFromOpenGLSubMatrix(const float * m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setFromOpenGLSubMatrix(const float * m) function, expected prototype:\nvoid btMatrix3x3::setFromOpenGLSubMatrix(const float * m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float* m=(const float*)Luna< void >::check(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::setFromOpenGLSubMatrix(const float *). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::setFromOpenGLSubMatrix(const float *). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFromOpenGLSubMatrix(m);
 
@@ -527,8 +513,7 @@ public:
 	// void btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz) function, expected prototype:\nvoid btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz) function, expected prototype:\nvoid btMatrix3x3::setValue(const float & xx, const float & xy, const float & xz, const float & yx, const float & yy, const float & yz, const float & zx, const float & zy, const float & zz)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float xx=(const float)lua_tonumber(L,2);
@@ -543,8 +528,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::setValue(const float &, const float &, const float &, const float &, const float &, const float &, const float &, const float &, const float &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::setValue(const float &, const float &, const float &, const float &, const float &, const float &, const float &, const float &, const float &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setValue(xx, xy, xz, yx, yy, yz, zx, zy, zz);
 
@@ -554,8 +538,7 @@ public:
 	// void btMatrix3x3::setRotation(const btQuaternion & q)
 	static int _bind_setRotation(lua_State *L) {
 		if (!_lg_typecheck_setRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setRotation(const btQuaternion & q) function, expected prototype:\nvoid btMatrix3x3::setRotation(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setRotation(const btQuaternion & q) function, expected prototype:\nvoid btMatrix3x3::setRotation(const btQuaternion & q)\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,2));
@@ -566,8 +549,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::setRotation(const btQuaternion &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::setRotation(const btQuaternion &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRotation(q);
 
@@ -577,8 +559,7 @@ public:
 	// void btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll)
 	static int _bind_setEulerYPR(lua_State *L) {
 		if (!_lg_typecheck_setEulerYPR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll) function, expected prototype:\nvoid btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll) function, expected prototype:\nvoid btMatrix3x3::setEulerYPR(const float & yaw, const float & pitch, const float & roll)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const float yaw=(const float)lua_tonumber(L,2);
@@ -587,8 +568,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::setEulerYPR(const float &, const float &, const float &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::setEulerYPR(const float &, const float &, const float &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEulerYPR(yaw, pitch, roll);
 
@@ -598,8 +578,7 @@ public:
 	// void btMatrix3x3::setEulerZYX(float eulerX, float eulerY, float eulerZ)
 	static int _bind_setEulerZYX(lua_State *L) {
 		if (!_lg_typecheck_setEulerZYX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setEulerZYX(float eulerX, float eulerY, float eulerZ) function, expected prototype:\nvoid btMatrix3x3::setEulerZYX(float eulerX, float eulerY, float eulerZ)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setEulerZYX(float eulerX, float eulerY, float eulerZ) function, expected prototype:\nvoid btMatrix3x3::setEulerZYX(float eulerX, float eulerY, float eulerZ)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float eulerX=(float)lua_tonumber(L,2);
@@ -608,8 +587,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::setEulerZYX(float, float, float). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::setEulerZYX(float, float, float). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setEulerZYX(eulerX, eulerY, eulerZ);
 
@@ -619,15 +597,13 @@ public:
 	// void btMatrix3x3::setIdentity()
 	static int _bind_setIdentity(lua_State *L) {
 		if (!_lg_typecheck_setIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setIdentity() function, expected prototype:\nvoid btMatrix3x3::setIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::setIdentity() function, expected prototype:\nvoid btMatrix3x3::setIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::setIdentity(). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::setIdentity(). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setIdentity();
 
@@ -637,16 +613,14 @@ public:
 	// void btMatrix3x3::getOpenGLSubMatrix(float * m) const
 	static int _bind_getOpenGLSubMatrix(lua_State *L) {
 		if (!_lg_typecheck_getOpenGLSubMatrix(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getOpenGLSubMatrix(float * m) const function, expected prototype:\nvoid btMatrix3x3::getOpenGLSubMatrix(float * m) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getOpenGLSubMatrix(float * m) const function, expected prototype:\nvoid btMatrix3x3::getOpenGLSubMatrix(float * m) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float* m=(float*)Luna< void >::check(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::getOpenGLSubMatrix(float *) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::getOpenGLSubMatrix(float *) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getOpenGLSubMatrix(m);
 
@@ -656,8 +630,7 @@ public:
 	// void btMatrix3x3::getRotation(btQuaternion & q) const
 	static int _bind_getRotation(lua_State *L) {
 		if (!_lg_typecheck_getRotation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getRotation(btQuaternion & q) const function, expected prototype:\nvoid btMatrix3x3::getRotation(btQuaternion & q) const\nClass arguments details:\narg 1 ID = 2139400\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getRotation(btQuaternion & q) const function, expected prototype:\nvoid btMatrix3x3::getRotation(btQuaternion & q) const\nClass arguments details:\narg 1 ID = 2139400\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btQuaternion* q_ptr=(Luna< btQuadWord >::checkSubType< btQuaternion >(L,2));
@@ -668,8 +641,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::getRotation(btQuaternion &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::getRotation(btQuaternion &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getRotation(q);
 
@@ -679,8 +651,7 @@ public:
 	// void btMatrix3x3::getEulerYPR(float & yaw, float & pitch, float & roll) const
 	static int _bind_getEulerYPR(lua_State *L) {
 		if (!_lg_typecheck_getEulerYPR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getEulerYPR(float & yaw, float & pitch, float & roll) const function, expected prototype:\nvoid btMatrix3x3::getEulerYPR(float & yaw, float & pitch, float & roll) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getEulerYPR(float & yaw, float & pitch, float & roll) const function, expected prototype:\nvoid btMatrix3x3::getEulerYPR(float & yaw, float & pitch, float & roll) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float yaw=(float)lua_tonumber(L,2);
@@ -689,19 +660,20 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::getEulerYPR(float &, float &, float &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::getEulerYPR(float &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getEulerYPR(yaw, pitch, roll);
 
-		return 0;
+		lua_pushnumber(L,yaw);
+		lua_pushnumber(L,pitch);
+		lua_pushnumber(L,roll);
+		return 3;
 	}
 
 	// void btMatrix3x3::getEulerZYX(float & yaw, float & pitch, float & roll, unsigned int solution_number = 1) const
 	static int _bind_getEulerZYX(lua_State *L) {
 		if (!_lg_typecheck_getEulerZYX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getEulerZYX(float & yaw, float & pitch, float & roll, unsigned int solution_number = 1) const function, expected prototype:\nvoid btMatrix3x3::getEulerZYX(float & yaw, float & pitch, float & roll, unsigned int solution_number = 1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::getEulerZYX(float & yaw, float & pitch, float & roll, unsigned int solution_number = 1) const function, expected prototype:\nvoid btMatrix3x3::getEulerZYX(float & yaw, float & pitch, float & roll, unsigned int solution_number = 1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -713,19 +685,20 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::getEulerZYX(float &, float &, float &, unsigned int) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::getEulerZYX(float &, float &, float &, unsigned int) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getEulerZYX(yaw, pitch, roll, solution_number);
 
-		return 0;
+		lua_pushnumber(L,yaw);
+		lua_pushnumber(L,pitch);
+		lua_pushnumber(L,roll);
+		return 3;
 	}
 
 	// btMatrix3x3 btMatrix3x3::scaled(const btVector3 & s) const
 	static int _bind_scaled(lua_State *L) {
 		if (!_lg_typecheck_scaled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::scaled(const btVector3 & s) const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::scaled(const btVector3 & s) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::scaled(const btVector3 & s) const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::scaled(const btVector3 & s) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* s_ptr=(Luna< btVector3 >::check(L,2));
@@ -736,8 +709,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::scaled(const btVector3 &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::scaled(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->scaled(s);
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -751,15 +723,13 @@ public:
 	// float btMatrix3x3::determinant() const
 	static int _bind_determinant(lua_State *L) {
 		if (!_lg_typecheck_determinant(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMatrix3x3::determinant() const function, expected prototype:\nfloat btMatrix3x3::determinant() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMatrix3x3::determinant() const function, expected prototype:\nfloat btMatrix3x3::determinant() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMatrix3x3::determinant() const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMatrix3x3::determinant() const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->determinant();
 		lua_pushnumber(L,lret);
@@ -770,15 +740,13 @@ public:
 	// btMatrix3x3 btMatrix3x3::adjoint() const
 	static int _bind_adjoint(lua_State *L) {
 		if (!_lg_typecheck_adjoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::adjoint() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::adjoint() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::adjoint() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::adjoint() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::adjoint() const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::adjoint() const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->adjoint();
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -792,15 +760,13 @@ public:
 	// btMatrix3x3 btMatrix3x3::absolute() const
 	static int _bind_absolute(lua_State *L) {
 		if (!_lg_typecheck_absolute(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::absolute() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::absolute() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::absolute() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::absolute() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::absolute() const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::absolute() const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->absolute();
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -814,15 +780,13 @@ public:
 	// btMatrix3x3 btMatrix3x3::transpose() const
 	static int _bind_transpose(lua_State *L) {
 		if (!_lg_typecheck_transpose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::transpose() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::transpose() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::transpose() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::transpose() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::transpose() const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::transpose() const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->transpose();
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -836,15 +800,13 @@ public:
 	// btMatrix3x3 btMatrix3x3::inverse() const
 	static int _bind_inverse(lua_State *L) {
 		if (!_lg_typecheck_inverse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::inverse() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::inverse() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::inverse() const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::inverse() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::inverse() const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::inverse() const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->inverse();
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -858,8 +820,7 @@ public:
 	// btMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 & m) const
 	static int _bind_transposeTimes(lua_State *L) {
 		if (!_lg_typecheck_transposeTimes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 & m) const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 & m) const\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 & m) const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 & m) const\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* m_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -870,8 +831,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::transposeTimes(const btMatrix3x3 &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->transposeTimes(m);
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -885,8 +845,7 @@ public:
 	// btMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 & m) const
 	static int _bind_timesTranspose(lua_State *L) {
 		if (!_lg_typecheck_timesTranspose(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 & m) const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 & m) const\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 & m) const function, expected prototype:\nbtMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 & m) const\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* m_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -897,8 +856,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 btMatrix3x3::timesTranspose(const btMatrix3x3 &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btMatrix3x3 stack_lret = self->timesTranspose(m);
 		btMatrix3x3* lret = new btMatrix3x3(stack_lret);
@@ -912,8 +870,7 @@ public:
 	// float btMatrix3x3::tdotx(const btVector3 & v) const
 	static int _bind_tdotx(lua_State *L) {
 		if (!_lg_typecheck_tdotx(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMatrix3x3::tdotx(const btVector3 & v) const function, expected prototype:\nfloat btMatrix3x3::tdotx(const btVector3 & v) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btMatrix3x3::tdotx(const btVector3 & v) const function, expected prototype:\nfloat btMatrix3x3::tdotx(const btVector3 & v) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v_ptr=(Luna< btVector3 >::check(L,2));
@@ -924,8 +881,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMatrix3x3::tdotx(const btVector3 &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMatrix3x3::tdotx(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->tdotx(v);
 		lua_pushnumber(L,lret);
@@ -936,8 +892,7 @@ public:
 	// float btMatrix3x3::tdoty(const btVector3 & v) const
 	static int _bind_tdoty(lua_State *L) {
 		if (!_lg_typecheck_tdoty(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMatrix3x3::tdoty(const btVector3 & v) const function, expected prototype:\nfloat btMatrix3x3::tdoty(const btVector3 & v) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btMatrix3x3::tdoty(const btVector3 & v) const function, expected prototype:\nfloat btMatrix3x3::tdoty(const btVector3 & v) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v_ptr=(Luna< btVector3 >::check(L,2));
@@ -948,8 +903,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMatrix3x3::tdoty(const btVector3 &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMatrix3x3::tdoty(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->tdoty(v);
 		lua_pushnumber(L,lret);
@@ -960,8 +914,7 @@ public:
 	// float btMatrix3x3::tdotz(const btVector3 & v) const
 	static int _bind_tdotz(lua_State *L) {
 		if (!_lg_typecheck_tdotz(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMatrix3x3::tdotz(const btVector3 & v) const function, expected prototype:\nfloat btMatrix3x3::tdotz(const btVector3 & v) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btMatrix3x3::tdotz(const btVector3 & v) const function, expected prototype:\nfloat btMatrix3x3::tdotz(const btVector3 & v) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v_ptr=(Luna< btVector3 >::check(L,2));
@@ -972,8 +925,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMatrix3x3::tdotz(const btVector3 &) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMatrix3x3::tdotz(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->tdotz(v);
 		lua_pushnumber(L,lret);
@@ -984,8 +936,7 @@ public:
 	// void btMatrix3x3::diagonalize(btMatrix3x3 & rot, float threshold, int maxSteps)
 	static int _bind_diagonalize(lua_State *L) {
 		if (!_lg_typecheck_diagonalize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMatrix3x3::diagonalize(btMatrix3x3 & rot, float threshold, int maxSteps) function, expected prototype:\nvoid btMatrix3x3::diagonalize(btMatrix3x3 & rot, float threshold, int maxSteps)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in void btMatrix3x3::diagonalize(btMatrix3x3 & rot, float threshold, int maxSteps) function, expected prototype:\nvoid btMatrix3x3::diagonalize(btMatrix3x3 & rot, float threshold, int maxSteps)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3* rot_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -998,8 +949,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMatrix3x3::diagonalize(btMatrix3x3 &, float, int). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMatrix3x3::diagonalize(btMatrix3x3 &, float, int). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->diagonalize(rot, threshold, maxSteps);
 
@@ -1009,8 +959,7 @@ public:
 	// float btMatrix3x3::cofac(int r1, int c1, int r2, int c2) const
 	static int _bind_cofac(lua_State *L) {
 		if (!_lg_typecheck_cofac(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMatrix3x3::cofac(int r1, int c1, int r2, int c2) const function, expected prototype:\nfloat btMatrix3x3::cofac(int r1, int c1, int r2, int c2) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMatrix3x3::cofac(int r1, int c1, int r2, int c2) const function, expected prototype:\nfloat btMatrix3x3::cofac(int r1, int c1, int r2, int c2) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int r1=(int)lua_tointeger(L,2);
@@ -1020,8 +969,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMatrix3x3::cofac(int, int, int, int) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMatrix3x3::cofac(int, int, int, int) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->cofac(r1, c1, r2, c2);
 		lua_pushnumber(L,lret);
@@ -1032,8 +980,7 @@ public:
 	// static const btMatrix3x3 & btMatrix3x3::getIdentity()
 	static int _bind_getIdentity(lua_State *L) {
 		if (!_lg_typecheck_getIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static const btMatrix3x3 & btMatrix3x3::getIdentity() function, expected prototype:\nstatic const btMatrix3x3 & btMatrix3x3::getIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static const btMatrix3x3 & btMatrix3x3::getIdentity() function, expected prototype:\nstatic const btMatrix3x3 & btMatrix3x3::getIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -1050,8 +997,7 @@ public:
 	// btMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 & other)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 & other) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 & other)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 & other) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 & other)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* other_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -1062,8 +1008,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator=(const btMatrix3x3 &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->operator=(other);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1076,16 +1021,14 @@ public:
 	// btVector3 & btMatrix3x3::operator[](int i)
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 & btMatrix3x3::operator[](int i) function, expected prototype:\nbtVector3 & btMatrix3x3::operator[](int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 & btMatrix3x3::operator[](int i) function, expected prototype:\nbtVector3 & btMatrix3x3::operator[](int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 & btMatrix3x3::operator[](int). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 & btMatrix3x3::operator[](int). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->operator[](i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1098,16 +1041,14 @@ public:
 	// const btVector3 & btMatrix3x3::operator[](int i) const
 	static int _bind_op_index_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btMatrix3x3::operator[](int i) const function, expected prototype:\nconst btVector3 & btMatrix3x3::operator[](int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btMatrix3x3::operator[](int i) const function, expected prototype:\nconst btVector3 & btMatrix3x3::operator[](int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btMatrix3x3::operator[](int) const. Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btMatrix3x3::operator[](int) const. Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->operator[](i);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1129,8 +1070,7 @@ public:
 	// btMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 & m)
 	static int _bind_op_mult(lua_State *L) {
 		if (!_lg_typecheck_op_mult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 & m) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 & m)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 & m) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 & m)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* m_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -1141,8 +1081,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator*=(const btMatrix3x3 &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->operator*=(m);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1155,8 +1094,7 @@ public:
 	// btMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 & m)
 	static int _bind_op_add(lua_State *L) {
 		if (!_lg_typecheck_op_add(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 & m) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 & m)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 & m) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 & m)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* m_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -1167,8 +1105,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator+=(const btMatrix3x3 &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->operator+=(m);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1181,8 +1118,7 @@ public:
 	// btMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 & m)
 	static int _bind_op_sub(lua_State *L) {
 		if (!_lg_typecheck_op_sub(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 & m) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 & m)\nClass arguments details:\narg 1 ID = 30394543\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 & m) function, expected prototype:\nbtMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 & m)\nClass arguments details:\narg 1 ID = 30394543\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btMatrix3x3* m_ptr=(Luna< btMatrix3x3 >::check(L,2));
@@ -1193,8 +1129,7 @@ public:
 
 		btMatrix3x3* self=(Luna< btMatrix3x3 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 &). Got : '%s'",typeid(Luna< btMatrix3x3 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3 & btMatrix3x3::operator-=(const btMatrix3x3 &). Got : '%s'\n%s",typeid(Luna< btMatrix3x3 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3* lret = &self->operator-=(m);
 		if(!lret) return 0; // Do not write NULL pointers.

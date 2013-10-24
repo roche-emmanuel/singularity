@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IPage* self= (IPage*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ICompound >::check(L,1));
@@ -112,8 +109,7 @@ public:
 	// IPage::IPage(lua_Table * data)
 	static IPage* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IPage::IPage(lua_Table * data) function, expected prototype:\nIPage::IPage(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IPage::IPage(lua_Table * data) function, expected prototype:\nIPage::IPage(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -125,15 +121,13 @@ public:
 	// const IDocTitle * IPage::title() const
 	static int _bind_title(lua_State *L) {
 		if (!_lg_typecheck_title(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IDocTitle * IPage::title() const function, expected prototype:\nconst IDocTitle * IPage::title() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IDocTitle * IPage::title() const function, expected prototype:\nconst IDocTitle * IPage::title() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IPage* self=Luna< ICompound >::checkSubType< IPage >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IDocTitle * IPage::title() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IDocTitle * IPage::title() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IDocTitle * lret = self->title();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMeshPartData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btMeshPartData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMeshPartData* rhs =(Luna< btMeshPartData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMeshPartData* self= (btMeshPartData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btMeshPartData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -195,14 +191,14 @@ public:
 	inline static bool _lg_typecheck_setNumTriangles(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNumVertices(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -216,15 +212,13 @@ public:
 	// btVector3FloatData * btMeshPartData::m_vertices3f()
 	static int _bind_getVertices3f(lua_State *L) {
 		if (!_lg_typecheck_getVertices3f(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData * btMeshPartData::m_vertices3f() function, expected prototype:\nbtVector3FloatData * btMeshPartData::m_vertices3f()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData * btMeshPartData::m_vertices3f() function, expected prototype:\nbtVector3FloatData * btMeshPartData::m_vertices3f()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData * btMeshPartData::m_vertices3f(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData * btMeshPartData::m_vertices3f(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3FloatData * lret = self->m_vertices3f;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -237,15 +231,13 @@ public:
 	// btVector3DoubleData * btMeshPartData::m_vertices3d()
 	static int _bind_getVertices3d(lua_State *L) {
 		if (!_lg_typecheck_getVertices3d(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3DoubleData * btMeshPartData::m_vertices3d() function, expected prototype:\nbtVector3DoubleData * btMeshPartData::m_vertices3d()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3DoubleData * btMeshPartData::m_vertices3d() function, expected prototype:\nbtVector3DoubleData * btMeshPartData::m_vertices3d()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3DoubleData * btMeshPartData::m_vertices3d(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3DoubleData * btMeshPartData::m_vertices3d(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3DoubleData * lret = self->m_vertices3d;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -258,15 +250,13 @@ public:
 	// btIntIndexData * btMeshPartData::m_indices32()
 	static int _bind_getIndices32(lua_State *L) {
 		if (!_lg_typecheck_getIndices32(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btIntIndexData * btMeshPartData::m_indices32() function, expected prototype:\nbtIntIndexData * btMeshPartData::m_indices32()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btIntIndexData * btMeshPartData::m_indices32() function, expected prototype:\nbtIntIndexData * btMeshPartData::m_indices32()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btIntIndexData * btMeshPartData::m_indices32(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btIntIndexData * btMeshPartData::m_indices32(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btIntIndexData * lret = self->m_indices32;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -279,15 +269,13 @@ public:
 	// btShortIntIndexTripletData * btMeshPartData::m_3indices16()
 	static int _bind_get3indices16(lua_State *L) {
 		if (!_lg_typecheck_get3indices16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btShortIntIndexTripletData * btMeshPartData::m_3indices16() function, expected prototype:\nbtShortIntIndexTripletData * btMeshPartData::m_3indices16()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btShortIntIndexTripletData * btMeshPartData::m_3indices16() function, expected prototype:\nbtShortIntIndexTripletData * btMeshPartData::m_3indices16()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btShortIntIndexTripletData * btMeshPartData::m_3indices16(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btShortIntIndexTripletData * btMeshPartData::m_3indices16(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btShortIntIndexTripletData * lret = self->m_3indices16;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -300,15 +288,13 @@ public:
 	// btCharIndexTripletData * btMeshPartData::m_3indices8()
 	static int _bind_get3indices8(lua_State *L) {
 		if (!_lg_typecheck_get3indices8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCharIndexTripletData * btMeshPartData::m_3indices8() function, expected prototype:\nbtCharIndexTripletData * btMeshPartData::m_3indices8()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCharIndexTripletData * btMeshPartData::m_3indices8() function, expected prototype:\nbtCharIndexTripletData * btMeshPartData::m_3indices8()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCharIndexTripletData * btMeshPartData::m_3indices8(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCharIndexTripletData * btMeshPartData::m_3indices8(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCharIndexTripletData * lret = self->m_3indices8;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -321,15 +307,13 @@ public:
 	// btShortIntIndexData * btMeshPartData::m_indices16()
 	static int _bind_getIndices16(lua_State *L) {
 		if (!_lg_typecheck_getIndices16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btShortIntIndexData * btMeshPartData::m_indices16() function, expected prototype:\nbtShortIntIndexData * btMeshPartData::m_indices16()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btShortIntIndexData * btMeshPartData::m_indices16() function, expected prototype:\nbtShortIntIndexData * btMeshPartData::m_indices16()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btShortIntIndexData * btMeshPartData::m_indices16(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btShortIntIndexData * btMeshPartData::m_indices16(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btShortIntIndexData * lret = self->m_indices16;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -342,15 +326,13 @@ public:
 	// int btMeshPartData::m_numTriangles()
 	static int _bind_getNumTriangles(lua_State *L) {
 		if (!_lg_typecheck_getNumTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMeshPartData::m_numTriangles() function, expected prototype:\nint btMeshPartData::m_numTriangles()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMeshPartData::m_numTriangles() function, expected prototype:\nint btMeshPartData::m_numTriangles()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMeshPartData::m_numTriangles(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMeshPartData::m_numTriangles(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numTriangles;
 		lua_pushnumber(L,lret);
@@ -361,15 +343,13 @@ public:
 	// int btMeshPartData::m_numVertices()
 	static int _bind_getNumVertices(lua_State *L) {
 		if (!_lg_typecheck_getNumVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMeshPartData::m_numVertices() function, expected prototype:\nint btMeshPartData::m_numVertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMeshPartData::m_numVertices() function, expected prototype:\nint btMeshPartData::m_numVertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMeshPartData::m_numVertices(). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMeshPartData::m_numVertices(). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numVertices;
 		lua_pushnumber(L,lret);
@@ -380,16 +360,14 @@ public:
 	// void btMeshPartData::m_vertices3f(btVector3FloatData * value)
 	static int _bind_setVertices3f(lua_State *L) {
 		if (!_lg_typecheck_setVertices3f(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_vertices3f(btVector3FloatData * value) function, expected prototype:\nvoid btMeshPartData::m_vertices3f(btVector3FloatData * value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_vertices3f(btVector3FloatData * value) function, expected prototype:\nvoid btMeshPartData::m_vertices3f(btVector3FloatData * value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value=(Luna< btVector3FloatData >::check(L,2));
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_vertices3f(btVector3FloatData *). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_vertices3f(btVector3FloatData *). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertices3f = value;
 
@@ -399,16 +377,14 @@ public:
 	// void btMeshPartData::m_vertices3d(btVector3DoubleData * value)
 	static int _bind_setVertices3d(lua_State *L) {
 		if (!_lg_typecheck_setVertices3d(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_vertices3d(btVector3DoubleData * value) function, expected prototype:\nvoid btMeshPartData::m_vertices3d(btVector3DoubleData * value)\nClass arguments details:\narg 1 ID = 89582070\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_vertices3d(btVector3DoubleData * value) function, expected prototype:\nvoid btMeshPartData::m_vertices3d(btVector3DoubleData * value)\nClass arguments details:\narg 1 ID = 89582070\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3DoubleData* value=(Luna< btVector3DoubleData >::check(L,2));
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_vertices3d(btVector3DoubleData *). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_vertices3d(btVector3DoubleData *). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertices3d = value;
 
@@ -418,16 +394,14 @@ public:
 	// void btMeshPartData::m_indices32(btIntIndexData * value)
 	static int _bind_setIndices32(lua_State *L) {
 		if (!_lg_typecheck_setIndices32(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_indices32(btIntIndexData * value) function, expected prototype:\nvoid btMeshPartData::m_indices32(btIntIndexData * value)\nClass arguments details:\narg 1 ID = 39554929\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_indices32(btIntIndexData * value) function, expected prototype:\nvoid btMeshPartData::m_indices32(btIntIndexData * value)\nClass arguments details:\narg 1 ID = 39554929\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIntIndexData* value=(Luna< btIntIndexData >::check(L,2));
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_indices32(btIntIndexData *). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_indices32(btIntIndexData *). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_indices32 = value;
 
@@ -437,16 +411,14 @@ public:
 	// void btMeshPartData::m_3indices16(btShortIntIndexTripletData * value)
 	static int _bind_set3indices16(lua_State *L) {
 		if (!_lg_typecheck_set3indices16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_3indices16(btShortIntIndexTripletData * value) function, expected prototype:\nvoid btMeshPartData::m_3indices16(btShortIntIndexTripletData * value)\nClass arguments details:\narg 1 ID = 10920434\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_3indices16(btShortIntIndexTripletData * value) function, expected prototype:\nvoid btMeshPartData::m_3indices16(btShortIntIndexTripletData * value)\nClass arguments details:\narg 1 ID = 10920434\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btShortIntIndexTripletData* value=(Luna< btShortIntIndexTripletData >::check(L,2));
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_3indices16(btShortIntIndexTripletData *). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_3indices16(btShortIntIndexTripletData *). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_3indices16 = value;
 
@@ -456,16 +428,14 @@ public:
 	// void btMeshPartData::m_3indices8(btCharIndexTripletData * value)
 	static int _bind_set3indices8(lua_State *L) {
 		if (!_lg_typecheck_set3indices8(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_3indices8(btCharIndexTripletData * value) function, expected prototype:\nvoid btMeshPartData::m_3indices8(btCharIndexTripletData * value)\nClass arguments details:\narg 1 ID = 66220201\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_3indices8(btCharIndexTripletData * value) function, expected prototype:\nvoid btMeshPartData::m_3indices8(btCharIndexTripletData * value)\nClass arguments details:\narg 1 ID = 66220201\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCharIndexTripletData* value=(Luna< btCharIndexTripletData >::check(L,2));
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_3indices8(btCharIndexTripletData *). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_3indices8(btCharIndexTripletData *). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_3indices8 = value;
 
@@ -475,16 +445,14 @@ public:
 	// void btMeshPartData::m_indices16(btShortIntIndexData * value)
 	static int _bind_setIndices16(lua_State *L) {
 		if (!_lg_typecheck_setIndices16(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_indices16(btShortIntIndexData * value) function, expected prototype:\nvoid btMeshPartData::m_indices16(btShortIntIndexData * value)\nClass arguments details:\narg 1 ID = 8692805\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_indices16(btShortIntIndexData * value) function, expected prototype:\nvoid btMeshPartData::m_indices16(btShortIntIndexData * value)\nClass arguments details:\narg 1 ID = 8692805\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btShortIntIndexData* value=(Luna< btShortIntIndexData >::check(L,2));
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_indices16(btShortIntIndexData *). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_indices16(btShortIntIndexData *). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_indices16 = value;
 
@@ -494,16 +462,14 @@ public:
 	// void btMeshPartData::m_numTriangles(int value)
 	static int _bind_setNumTriangles(lua_State *L) {
 		if (!_lg_typecheck_setNumTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_numTriangles(int value) function, expected prototype:\nvoid btMeshPartData::m_numTriangles(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_numTriangles(int value) function, expected prototype:\nvoid btMeshPartData::m_numTriangles(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_numTriangles(int). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_numTriangles(int). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numTriangles = value;
 
@@ -513,16 +479,14 @@ public:
 	// void btMeshPartData::m_numVertices(int value)
 	static int _bind_setNumVertices(lua_State *L) {
 		if (!_lg_typecheck_setNumVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_numVertices(int value) function, expected prototype:\nvoid btMeshPartData::m_numVertices(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMeshPartData::m_numVertices(int value) function, expected prototype:\nvoid btMeshPartData::m_numVertices(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMeshPartData* self=(Luna< btMeshPartData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMeshPartData::m_numVertices(int). Got : '%s'",typeid(Luna< btMeshPartData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMeshPartData::m_numVertices(int). Got : '%s'\n%s",typeid(Luna< btMeshPartData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numVertices = value;
 

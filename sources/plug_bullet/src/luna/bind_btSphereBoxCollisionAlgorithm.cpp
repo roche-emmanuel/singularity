@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithm* self=(Luna< btCollisionAlgorithm >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSphereBoxCollisionAlgorithm* self= (btSphereBoxCollisionAlgorithm*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionAlgorithm >::check(L,1));
@@ -155,10 +152,10 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,32391296)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -207,8 +204,7 @@ public:
 	// btSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped)
 	static btSphereBoxCollisionAlgorithm* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped) function, expected prototype:\nbtSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped)\nClass arguments details:\narg 1 ID = 66271199\narg 2 ID = 61780402\narg 3 ID = 32391296\narg 4 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped) function, expected prototype:\nbtSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped)\nClass arguments details:\narg 1 ID = 66271199\narg 2 ID = 61780402\narg 3 ID = 32391296\narg 4 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* mf=(Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1));
@@ -227,8 +223,7 @@ public:
 	// btSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped)
 	static btSphereBoxCollisionAlgorithm* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped) function, expected prototype:\nbtSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped)\nClass arguments details:\narg 2 ID = 66271199\narg 3 ID = 61780402\narg 4 ID = 32391296\narg 5 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped) function, expected prototype:\nbtSphereBoxCollisionAlgorithm::btSphereBoxCollisionAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, bool isSwapped)\nClass arguments details:\narg 2 ID = 66271199\narg 3 ID = 61780402\narg 4 ID = 32391296\narg 5 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* mf=(Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,2));
@@ -258,8 +253,7 @@ public:
 	// void btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_processCollision(lua_State *L) {
 		if (!_lg_typecheck_processCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -273,8 +267,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processCollision(body0Wrap, body1Wrap, dispatchInfo, resultOut);
 
@@ -284,8 +277,7 @@ public:
 	// float btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_calculateTimeOfImpact(lua_State *L) {
 		if (!_lg_typecheck_calculateTimeOfImpact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in float btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* body0=(Luna< btCollisionObject >::check(L,2));
@@ -299,8 +291,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->calculateTimeOfImpact(body0, body1, dispatchInfo, resultOut);
 		lua_pushnumber(L,lret);
@@ -311,8 +302,7 @@ public:
 	// void btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray)
 	static int _bind_getAllContactManifolds(lua_State *L) {
 		if (!_lg_typecheck_getAllContactManifolds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n");
+			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldArray* manifoldArray_ptr=(Luna< btAlignedObjectArray< btPersistentManifold * > >::checkSubType< btManifoldArray >(L,2));
@@ -323,8 +313,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray &). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::getAllContactManifolds(btManifoldArray &). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAllContactManifolds(manifoldArray);
 
@@ -334,8 +323,7 @@ public:
 	// bool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper * boxObjWrap, btVector3 & v3PointOnBox, btVector3 & normal, float & penetrationDepth, const btVector3 & v3SphereCenter, float fRadius, float maxContactDistance)
 	static int _bind_getSphereDistance(lua_State *L) {
 		if (!_lg_typecheck_getSphereDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper * boxObjWrap, btVector3 & v3PointOnBox, btVector3 & normal, float & penetrationDepth, const btVector3 & v3SphereCenter, float fRadius, float maxContactDistance) function, expected prototype:\nbool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper * boxObjWrap, btVector3 & v3PointOnBox, btVector3 & normal, float & penetrationDepth, const btVector3 & v3SphereCenter, float fRadius, float maxContactDistance)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper * boxObjWrap, btVector3 & v3PointOnBox, btVector3 & normal, float & penetrationDepth, const btVector3 & v3SphereCenter, float fRadius, float maxContactDistance) function, expected prototype:\nbool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper * boxObjWrap, btVector3 & v3PointOnBox, btVector3 & normal, float & penetrationDepth, const btVector3 & v3SphereCenter, float fRadius, float maxContactDistance)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* boxObjWrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -360,20 +348,19 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper *, btVector3 &, btVector3 &, float &, const btVector3 &, float, float). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btSphereBoxCollisionAlgorithm::getSphereDistance(const btCollisionObjectWrapper *, btVector3 &, btVector3 &, float &, const btVector3 &, float, float). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getSphereDistance(boxObjWrap, v3PointOnBox, normal, penetrationDepth, v3SphereCenter, fRadius, maxContactDistance);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,penetrationDepth);
+		return 2;
 	}
 
 	// float btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const & boxHalfExtent, btVector3 const & sphereRelPos, btVector3 & closestPoint, btVector3 & normal)
 	static int _bind_getSpherePenetration(lua_State *L) {
 		if (!_lg_typecheck_getSpherePenetration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const & boxHalfExtent, btVector3 const & sphereRelPos, btVector3 & closestPoint, btVector3 & normal) function, expected prototype:\nfloat btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const & boxHalfExtent, btVector3 const & sphereRelPos, btVector3 & closestPoint, btVector3 & normal)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const & boxHalfExtent, btVector3 const & sphereRelPos, btVector3 & closestPoint, btVector3 & normal) function, expected prototype:\nfloat btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const & boxHalfExtent, btVector3 const & sphereRelPos, btVector3 & closestPoint, btVector3 & normal)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* boxHalfExtent_ptr=(Luna< btVector3 >::check(L,2));
@@ -399,8 +386,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const &, btVector3 const &, btVector3 &, btVector3 &). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSphereBoxCollisionAlgorithm::getSpherePenetration(btVector3 const &, btVector3 const &, btVector3 &, btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getSpherePenetration(boxHalfExtent, sphereRelPos, closestPoint, normal);
 		lua_pushnumber(L,lret);
@@ -411,8 +397,7 @@ public:
 	// void btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_base_processCollision(lua_State *L) {
 		if (!_lg_typecheck_base_processCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -426,8 +411,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::base_processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSphereBoxCollisionAlgorithm::processCollision(body0Wrap, body1Wrap, dispatchInfo, resultOut);
 
@@ -437,8 +421,7 @@ public:
 	// float btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_base_calculateTimeOfImpact(lua_State *L) {
 		if (!_lg_typecheck_base_calculateTimeOfImpact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in float btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* body0=(Luna< btCollisionObject >::check(L,2));
@@ -452,8 +435,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btSphereBoxCollisionAlgorithm::base_calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btSphereBoxCollisionAlgorithm::calculateTimeOfImpact(body0, body1, dispatchInfo, resultOut);
 		lua_pushnumber(L,lret);
@@ -464,8 +446,7 @@ public:
 	// void btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray)
 	static int _bind_base_getAllContactManifolds(lua_State *L) {
 		if (!_lg_typecheck_base_getAllContactManifolds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n");
+			luaL_error(L, "luna typecheck failed in void btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldArray* manifoldArray_ptr=(Luna< btAlignedObjectArray< btPersistentManifold * > >::checkSubType< btManifoldArray >(L,2));
@@ -476,8 +457,7 @@ public:
 
 		btSphereBoxCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btSphereBoxCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray &). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSphereBoxCollisionAlgorithm::base_getAllContactManifolds(btManifoldArray &). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSphereBoxCollisionAlgorithm::getAllContactManifolds(manifoldArray);
 

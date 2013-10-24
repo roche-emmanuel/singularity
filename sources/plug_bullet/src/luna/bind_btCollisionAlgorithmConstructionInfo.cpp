@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionAlgorithmConstructionInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionAlgorithmConstructionInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmConstructionInfo* rhs =(Luna< btCollisionAlgorithmConstructionInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmConstructionInfo* self= (btCollisionAlgorithmConstructionInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -111,7 +107,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,71097681)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< btDispatcher >::check(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,8 +147,7 @@ public:
 	// btCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo()
 	static btCollisionAlgorithmConstructionInfo* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo() function, expected prototype:\nbtCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo() function, expected prototype:\nbtCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -162,8 +157,7 @@ public:
 	// btCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo(btDispatcher * dispatcher, int temp)
 	static btCollisionAlgorithmConstructionInfo* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo(btDispatcher * dispatcher, int temp) function, expected prototype:\nbtCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo(btDispatcher * dispatcher, int temp)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo(btDispatcher * dispatcher, int temp) function, expected prototype:\nbtCollisionAlgorithmConstructionInfo::btCollisionAlgorithmConstructionInfo(btDispatcher * dispatcher, int temp)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,1));
@@ -186,15 +180,13 @@ public:
 	// btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1()
 	static int _bind_getDispatcher1(lua_State *L) {
 		if (!_lg_typecheck_getDispatcher1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1() function, expected prototype:\nbtDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1() function, expected prototype:\nbtDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionAlgorithmConstructionInfo* self=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1(). Got : '%s'",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btDispatcher * btCollisionAlgorithmConstructionInfo::m_dispatcher1(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btDispatcher * lret = self->m_dispatcher1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -207,15 +199,13 @@ public:
 	// btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold()
 	static int _bind_getManifold(lua_State *L) {
 		if (!_lg_typecheck_getManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold() function, expected prototype:\nbtPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold() function, expected prototype:\nbtPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionAlgorithmConstructionInfo* self=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold(). Got : '%s'",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btPersistentManifold * btCollisionAlgorithmConstructionInfo::m_manifold(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btPersistentManifold * lret = self->m_manifold;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -228,16 +218,14 @@ public:
 	// void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value)
 	static int _bind_setDispatcher1(lua_State *L) {
 		if (!_lg_typecheck_setDispatcher1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value) function, expected prototype:\nvoid btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value) function, expected prototype:\nvoid btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher * value)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* value=(Luna< btDispatcher >::check(L,2));
 
 		btCollisionAlgorithmConstructionInfo* self=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher *). Got : '%s'",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionAlgorithmConstructionInfo::m_dispatcher1(btDispatcher *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_dispatcher1 = value;
 
@@ -247,16 +235,14 @@ public:
 	// void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value)
 	static int _bind_setManifold(lua_State *L) {
 		if (!_lg_typecheck_setManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value) function, expected prototype:\nvoid btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value)\nClass arguments details:\narg 1 ID = 66271199\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value) function, expected prototype:\nvoid btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold * value)\nClass arguments details:\narg 1 ID = 66271199\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* value=(Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,2));
 
 		btCollisionAlgorithmConstructionInfo* self=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold *). Got : '%s'",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionAlgorithmConstructionInfo::m_manifold(btPersistentManifold *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_manifold = value;
 

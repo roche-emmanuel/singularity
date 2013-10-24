@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactManager*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2ContactManager*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactManager* rhs =(Luna< b2ContactManager >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactManager* self= (b2ContactManager*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2ContactManager >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -188,7 +184,7 @@ public:
 	inline static bool _lg_typecheck_setContactCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -221,8 +217,7 @@ public:
 	// b2ContactManager::b2ContactManager()
 	static b2ContactManager* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactManager::b2ContactManager() function, expected prototype:\nb2ContactManager::b2ContactManager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactManager::b2ContactManager() function, expected prototype:\nb2ContactManager::b2ContactManager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -234,8 +229,7 @@ public:
 	// void b2ContactManager::AddPair(void * proxyUserDataA, void * proxyUserDataB)
 	static int _bind_AddPair(lua_State *L) {
 		if (!_lg_typecheck_AddPair(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::AddPair(void * proxyUserDataA, void * proxyUserDataB) function, expected prototype:\nvoid b2ContactManager::AddPair(void * proxyUserDataA, void * proxyUserDataB)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::AddPair(void * proxyUserDataA, void * proxyUserDataB) function, expected prototype:\nvoid b2ContactManager::AddPair(void * proxyUserDataA, void * proxyUserDataB)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* proxyUserDataA=(Luna< void >::check(L,2));
@@ -243,8 +237,7 @@ public:
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::AddPair(void *, void *). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::AddPair(void *, void *). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AddPair(proxyUserDataA, proxyUserDataB);
 
@@ -254,15 +247,13 @@ public:
 	// void b2ContactManager::FindNewContacts()
 	static int _bind_FindNewContacts(lua_State *L) {
 		if (!_lg_typecheck_FindNewContacts(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::FindNewContacts() function, expected prototype:\nvoid b2ContactManager::FindNewContacts()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::FindNewContacts() function, expected prototype:\nvoid b2ContactManager::FindNewContacts()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::FindNewContacts(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::FindNewContacts(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->FindNewContacts();
 
@@ -272,16 +263,14 @@ public:
 	// void b2ContactManager::Destroy(b2Contact * c)
 	static int _bind_Destroy(lua_State *L) {
 		if (!_lg_typecheck_Destroy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::Destroy(b2Contact * c) function, expected prototype:\nvoid b2ContactManager::Destroy(b2Contact * c)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::Destroy(b2Contact * c) function, expected prototype:\nvoid b2ContactManager::Destroy(b2Contact * c)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* c=(Luna< b2Contact >::check(L,2));
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::Destroy(b2Contact *). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::Destroy(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Destroy(c);
 
@@ -291,15 +280,13 @@ public:
 	// void b2ContactManager::Collide()
 	static int _bind_Collide(lua_State *L) {
 		if (!_lg_typecheck_Collide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::Collide() function, expected prototype:\nvoid b2ContactManager::Collide()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::Collide() function, expected prototype:\nvoid b2ContactManager::Collide()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::Collide(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::Collide(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Collide();
 
@@ -309,15 +296,13 @@ public:
 	// b2BroadPhase b2ContactManager::m_broadPhase()
 	static int _bind_getBroadPhase(lua_State *L) {
 		if (!_lg_typecheck_getBroadPhase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2BroadPhase b2ContactManager::m_broadPhase() function, expected prototype:\nb2BroadPhase b2ContactManager::m_broadPhase()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2BroadPhase b2ContactManager::m_broadPhase() function, expected prototype:\nb2BroadPhase b2ContactManager::m_broadPhase()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2BroadPhase b2ContactManager::m_broadPhase(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2BroadPhase b2ContactManager::m_broadPhase(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2BroadPhase* lret = &self->m_broadPhase;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -330,15 +315,13 @@ public:
 	// b2Contact * b2ContactManager::m_contactList()
 	static int _bind_getContactList(lua_State *L) {
 		if (!_lg_typecheck_getContactList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Contact * b2ContactManager::m_contactList() function, expected prototype:\nb2Contact * b2ContactManager::m_contactList()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Contact * b2ContactManager::m_contactList() function, expected prototype:\nb2Contact * b2ContactManager::m_contactList()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Contact * b2ContactManager::m_contactList(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Contact * b2ContactManager::m_contactList(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Contact * lret = self->m_contactList;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -351,15 +334,13 @@ public:
 	// signed int b2ContactManager::m_contactCount()
 	static int _bind_getContactCount(lua_State *L) {
 		if (!_lg_typecheck_getContactCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2ContactManager::m_contactCount() function, expected prototype:\nsigned int b2ContactManager::m_contactCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2ContactManager::m_contactCount() function, expected prototype:\nsigned int b2ContactManager::m_contactCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2ContactManager::m_contactCount(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2ContactManager::m_contactCount(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_contactCount;
 		lua_pushnumber(L,lret);
@@ -370,15 +351,13 @@ public:
 	// b2ContactFilter * b2ContactManager::m_contactFilter()
 	static int _bind_getContactFilter(lua_State *L) {
 		if (!_lg_typecheck_getContactFilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactFilter * b2ContactManager::m_contactFilter() function, expected prototype:\nb2ContactFilter * b2ContactManager::m_contactFilter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactFilter * b2ContactManager::m_contactFilter() function, expected prototype:\nb2ContactFilter * b2ContactManager::m_contactFilter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2ContactFilter * b2ContactManager::m_contactFilter(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2ContactFilter * b2ContactManager::m_contactFilter(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2ContactFilter * lret = self->m_contactFilter;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -391,15 +370,13 @@ public:
 	// b2ContactListener * b2ContactManager::m_contactListener()
 	static int _bind_getContactListener(lua_State *L) {
 		if (!_lg_typecheck_getContactListener(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2ContactListener * b2ContactManager::m_contactListener() function, expected prototype:\nb2ContactListener * b2ContactManager::m_contactListener()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2ContactListener * b2ContactManager::m_contactListener() function, expected prototype:\nb2ContactListener * b2ContactManager::m_contactListener()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2ContactListener * b2ContactManager::m_contactListener(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2ContactListener * b2ContactManager::m_contactListener(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2ContactListener * lret = self->m_contactListener;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -412,15 +389,13 @@ public:
 	// b2BlockAllocator * b2ContactManager::m_allocator()
 	static int _bind_getAllocator(lua_State *L) {
 		if (!_lg_typecheck_getAllocator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2BlockAllocator * b2ContactManager::m_allocator() function, expected prototype:\nb2BlockAllocator * b2ContactManager::m_allocator()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2BlockAllocator * b2ContactManager::m_allocator() function, expected prototype:\nb2BlockAllocator * b2ContactManager::m_allocator()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2BlockAllocator * b2ContactManager::m_allocator(). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2BlockAllocator * b2ContactManager::m_allocator(). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2BlockAllocator * lret = self->m_allocator;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -433,8 +408,7 @@ public:
 	// void b2ContactManager::m_broadPhase(b2BroadPhase value)
 	static int _bind_setBroadPhase(lua_State *L) {
 		if (!_lg_typecheck_setBroadPhase(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_broadPhase(b2BroadPhase value) function, expected prototype:\nvoid b2ContactManager::m_broadPhase(b2BroadPhase value)\nClass arguments details:\narg 1 ID = 95168430\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_broadPhase(b2BroadPhase value) function, expected prototype:\nvoid b2ContactManager::m_broadPhase(b2BroadPhase value)\nClass arguments details:\narg 1 ID = 95168430\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2BroadPhase* value_ptr=(Luna< b2BroadPhase >::check(L,2));
@@ -445,8 +419,7 @@ public:
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::m_broadPhase(b2BroadPhase). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::m_broadPhase(b2BroadPhase). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_broadPhase = value;
 
@@ -456,16 +429,14 @@ public:
 	// void b2ContactManager::m_contactList(b2Contact * value)
 	static int _bind_setContactList(lua_State *L) {
 		if (!_lg_typecheck_setContactList(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactList(b2Contact * value) function, expected prototype:\nvoid b2ContactManager::m_contactList(b2Contact * value)\nClass arguments details:\narg 1 ID = 92978558\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactList(b2Contact * value) function, expected prototype:\nvoid b2ContactManager::m_contactList(b2Contact * value)\nClass arguments details:\narg 1 ID = 92978558\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Contact* value=(Luna< b2Contact >::check(L,2));
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactList(b2Contact *). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactList(b2Contact *). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactList = value;
 
@@ -475,16 +446,14 @@ public:
 	// void b2ContactManager::m_contactCount(signed int value)
 	static int _bind_setContactCount(lua_State *L) {
 		if (!_lg_typecheck_setContactCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactCount(signed int value) function, expected prototype:\nvoid b2ContactManager::m_contactCount(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactCount(signed int value) function, expected prototype:\nvoid b2ContactManager::m_contactCount(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactCount(signed int). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactCount(signed int). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactCount = value;
 
@@ -494,16 +463,14 @@ public:
 	// void b2ContactManager::m_contactFilter(b2ContactFilter * value)
 	static int _bind_setContactFilter(lua_State *L) {
 		if (!_lg_typecheck_setContactFilter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactFilter(b2ContactFilter * value) function, expected prototype:\nvoid b2ContactManager::m_contactFilter(b2ContactFilter * value)\nClass arguments details:\narg 1 ID = 7470542\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactFilter(b2ContactFilter * value) function, expected prototype:\nvoid b2ContactManager::m_contactFilter(b2ContactFilter * value)\nClass arguments details:\narg 1 ID = 7470542\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactFilter* value=(Luna< b2ContactFilter >::check(L,2));
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactFilter(b2ContactFilter *). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactFilter(b2ContactFilter *). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactFilter = value;
 
@@ -513,16 +480,14 @@ public:
 	// void b2ContactManager::m_contactListener(b2ContactListener * value)
 	static int _bind_setContactListener(lua_State *L) {
 		if (!_lg_typecheck_setContactListener(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactListener(b2ContactListener * value) function, expected prototype:\nvoid b2ContactManager::m_contactListener(b2ContactListener * value)\nClass arguments details:\narg 1 ID = 55252344\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_contactListener(b2ContactListener * value) function, expected prototype:\nvoid b2ContactManager::m_contactListener(b2ContactListener * value)\nClass arguments details:\narg 1 ID = 55252344\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2ContactListener* value=(Luna< b2ContactListener >::check(L,2));
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactListener(b2ContactListener *). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::m_contactListener(b2ContactListener *). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactListener = value;
 
@@ -532,16 +497,14 @@ public:
 	// void b2ContactManager::m_allocator(b2BlockAllocator * value)
 	static int _bind_setAllocator(lua_State *L) {
 		if (!_lg_typecheck_setAllocator(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_allocator(b2BlockAllocator * value) function, expected prototype:\nvoid b2ContactManager::m_allocator(b2BlockAllocator * value)\nClass arguments details:\narg 1 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in void b2ContactManager::m_allocator(b2BlockAllocator * value) function, expected prototype:\nvoid b2ContactManager::m_allocator(b2BlockAllocator * value)\nClass arguments details:\narg 1 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2BlockAllocator* value=(Luna< b2BlockAllocator >::check(L,2));
 
 		b2ContactManager* self=(Luna< b2ContactManager >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2ContactManager::m_allocator(b2BlockAllocator *). Got : '%s'",typeid(Luna< b2ContactManager >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2ContactManager::m_allocator(b2BlockAllocator *). Got : '%s'\n%s",typeid(Luna< b2ContactManager >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allocator = value;
 

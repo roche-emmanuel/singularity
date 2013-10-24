@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IInterface* self= (IInterface*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ICompound >::check(L,1));
@@ -118,8 +115,7 @@ public:
 	// IInterface::IInterface(lua_Table * data)
 	static IInterface* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IInterface::IInterface(lua_Table * data) function, expected prototype:\nIInterface::IInterface(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IInterface::IInterface(lua_Table * data) function, expected prototype:\nIInterface::IInterface(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -131,15 +127,13 @@ public:
 	// IRelatedCompoundIterator * IInterface::baseCompounds() const
 	static int _bind_baseCompounds(lua_State *L) {
 		if (!_lg_typecheck_baseCompounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IInterface::baseCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IInterface::baseCompounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IInterface::baseCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IInterface::baseCompounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IInterface* self=Luna< ICompound >::checkSubType< IInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IInterface::baseCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IInterface::baseCompounds() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IRelatedCompoundIterator * lret = self->baseCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -152,15 +146,13 @@ public:
 	// IRelatedCompoundIterator * IInterface::derivedCompounds() const
 	static int _bind_derivedCompounds(lua_State *L) {
 		if (!_lg_typecheck_derivedCompounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IInterface::derivedCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IInterface::derivedCompounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IRelatedCompoundIterator * IInterface::derivedCompounds() const function, expected prototype:\nIRelatedCompoundIterator * IInterface::derivedCompounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IInterface* self=Luna< ICompound >::checkSubType< IInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IInterface::derivedCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IRelatedCompoundIterator * IInterface::derivedCompounds() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IRelatedCompoundIterator * lret = self->derivedCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.

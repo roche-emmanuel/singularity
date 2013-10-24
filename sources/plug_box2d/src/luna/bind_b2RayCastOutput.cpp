@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2RayCastOutput*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2RayCastOutput*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* rhs =(Luna< b2RayCastOutput >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* self= (b2RayCastOutput*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2RayCastOutput >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -124,7 +120,7 @@ public:
 	inline static bool _lg_typecheck_setFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// b2Vec2 b2RayCastOutput::normal()
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2RayCastOutput::normal() function, expected prototype:\nb2Vec2 b2RayCastOutput::normal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2RayCastOutput::normal() function, expected prototype:\nb2Vec2 b2RayCastOutput::normal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RayCastOutput* self=(Luna< b2RayCastOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2RayCastOutput::normal(). Got : '%s'",typeid(Luna< b2RayCastOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2RayCastOutput::normal(). Got : '%s'\n%s",typeid(Luna< b2RayCastOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->normal;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,15 +153,13 @@ public:
 	// float b2RayCastOutput::fraction()
 	static int _bind_getFraction(lua_State *L) {
 		if (!_lg_typecheck_getFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2RayCastOutput::fraction() function, expected prototype:\nfloat b2RayCastOutput::fraction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2RayCastOutput::fraction() function, expected prototype:\nfloat b2RayCastOutput::fraction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RayCastOutput* self=(Luna< b2RayCastOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2RayCastOutput::fraction(). Got : '%s'",typeid(Luna< b2RayCastOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2RayCastOutput::fraction(). Got : '%s'\n%s",typeid(Luna< b2RayCastOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->fraction;
 		lua_pushnumber(L,lret);
@@ -178,8 +170,7 @@ public:
 	// void b2RayCastOutput::normal(b2Vec2 value)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RayCastOutput::normal(b2Vec2 value) function, expected prototype:\nvoid b2RayCastOutput::normal(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2RayCastOutput::normal(b2Vec2 value) function, expected prototype:\nvoid b2RayCastOutput::normal(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -190,8 +181,7 @@ public:
 
 		b2RayCastOutput* self=(Luna< b2RayCastOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RayCastOutput::normal(b2Vec2). Got : '%s'",typeid(Luna< b2RayCastOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RayCastOutput::normal(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2RayCastOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->normal = value;
 
@@ -201,16 +191,14 @@ public:
 	// void b2RayCastOutput::fraction(float value)
 	static int _bind_setFraction(lua_State *L) {
 		if (!_lg_typecheck_setFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RayCastOutput::fraction(float value) function, expected prototype:\nvoid b2RayCastOutput::fraction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RayCastOutput::fraction(float value) function, expected prototype:\nvoid b2RayCastOutput::fraction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2RayCastOutput* self=(Luna< b2RayCastOutput >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RayCastOutput::fraction(float). Got : '%s'",typeid(Luna< b2RayCastOutput >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RayCastOutput::fraction(float). Got : '%s'\n%s",typeid(Luna< b2RayCastOutput >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->fraction = value;
 

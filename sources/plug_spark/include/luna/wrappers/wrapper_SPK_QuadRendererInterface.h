@@ -111,8 +111,7 @@ public:
 	// void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const
 	static int _bind_public_computeAtlasCoordinates(lua_State *L) {
 		if (!_lg_typecheck_public_computeAtlasCoordinates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const function, expected prototype:\nvoid SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const\nClass arguments details:\narg 1 ID = 73657533\n");
+			luaL_error(L, "luna typecheck failed in void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const function, expected prototype:\nvoid SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle & particle) const\nClass arguments details:\narg 1 ID = 73657533\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const SPK::Particle* particle_ptr=(Luna< SPK::Particle >::check(L,2));
@@ -123,8 +122,7 @@ public:
 
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle &) const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::QuadRendererInterface::public_computeAtlasCoordinates(const SPK::Particle &) const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_computeAtlasCoordinates(particle);
 
@@ -134,15 +132,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasU0() const
 	static int _bind_public_textureAtlasU0(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasU0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU0() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU0() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU0() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU0() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasU0();
 		lua_pushnumber(L,lret);
@@ -153,15 +149,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasU1() const
 	static int _bind_public_textureAtlasU1(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasU1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU1() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasU1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasU1() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU1() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasU1() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasU1();
 		lua_pushnumber(L,lret);
@@ -172,15 +166,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasV0() const
 	static int _bind_public_textureAtlasV0(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasV0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV0() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV0() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV0() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV0() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV0() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasV0();
 		lua_pushnumber(L,lret);
@@ -191,15 +183,13 @@ public:
 	// float SPK::QuadRendererInterface::public_textureAtlasV1() const
 	static int _bind_public_textureAtlasV1(lua_State *L) {
 		if (!_lg_typecheck_public_textureAtlasV1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV1() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::QuadRendererInterface::public_textureAtlasV1() const function, expected prototype:\nfloat SPK::QuadRendererInterface::public_textureAtlasV1() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_SPK_QuadRendererInterface* self=Luna< SPK::QuadRendererInterface >::checkSubType< wrapper_SPK_QuadRendererInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV1() const. Got : '%s'",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::QuadRendererInterface::public_textureAtlasV1() const. Got : '%s'\n%s",typeid(Luna< SPK::QuadRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->public_textureAtlasV1();
 		lua_pushnumber(L,lret);

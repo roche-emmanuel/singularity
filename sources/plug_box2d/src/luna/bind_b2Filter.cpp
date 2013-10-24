@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Filter*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Filter*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Filter* rhs =(Luna< b2Filter >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Filter* self= (b2Filter*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Filter >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -129,21 +125,21 @@ public:
 	inline static bool _lg_typecheck_setCategoryBits(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaskBits(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setGroupIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -155,8 +151,7 @@ public:
 	// b2Filter::b2Filter()
 	static b2Filter* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Filter::b2Filter() function, expected prototype:\nb2Filter::b2Filter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Filter::b2Filter() function, expected prototype:\nb2Filter::b2Filter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -168,15 +163,13 @@ public:
 	// unsigned short b2Filter::categoryBits()
 	static int _bind_getCategoryBits(lua_State *L) {
 		if (!_lg_typecheck_getCategoryBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short b2Filter::categoryBits() function, expected prototype:\nunsigned short b2Filter::categoryBits()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short b2Filter::categoryBits() function, expected prototype:\nunsigned short b2Filter::categoryBits()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Filter* self=(Luna< b2Filter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short b2Filter::categoryBits(). Got : '%s'",typeid(Luna< b2Filter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short b2Filter::categoryBits(). Got : '%s'\n%s",typeid(Luna< b2Filter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->categoryBits;
 		lua_pushnumber(L,lret);
@@ -187,15 +180,13 @@ public:
 	// unsigned short b2Filter::maskBits()
 	static int _bind_getMaskBits(lua_State *L) {
 		if (!_lg_typecheck_getMaskBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short b2Filter::maskBits() function, expected prototype:\nunsigned short b2Filter::maskBits()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short b2Filter::maskBits() function, expected prototype:\nunsigned short b2Filter::maskBits()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Filter* self=(Luna< b2Filter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short b2Filter::maskBits(). Got : '%s'",typeid(Luna< b2Filter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short b2Filter::maskBits(). Got : '%s'\n%s",typeid(Luna< b2Filter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->maskBits;
 		lua_pushnumber(L,lret);
@@ -206,15 +197,13 @@ public:
 	// signed short b2Filter::groupIndex()
 	static int _bind_getGroupIndex(lua_State *L) {
 		if (!_lg_typecheck_getGroupIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed short b2Filter::groupIndex() function, expected prototype:\nsigned short b2Filter::groupIndex()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed short b2Filter::groupIndex() function, expected prototype:\nsigned short b2Filter::groupIndex()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Filter* self=(Luna< b2Filter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed short b2Filter::groupIndex(). Got : '%s'",typeid(Luna< b2Filter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed short b2Filter::groupIndex(). Got : '%s'\n%s",typeid(Luna< b2Filter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed short lret = self->groupIndex;
 		lua_pushnumber(L,lret);
@@ -225,16 +214,14 @@ public:
 	// void b2Filter::categoryBits(unsigned short value)
 	static int _bind_setCategoryBits(lua_State *L) {
 		if (!_lg_typecheck_setCategoryBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Filter::categoryBits(unsigned short value) function, expected prototype:\nvoid b2Filter::categoryBits(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Filter::categoryBits(unsigned short value) function, expected prototype:\nvoid b2Filter::categoryBits(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		b2Filter* self=(Luna< b2Filter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Filter::categoryBits(unsigned short). Got : '%s'",typeid(Luna< b2Filter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Filter::categoryBits(unsigned short). Got : '%s'\n%s",typeid(Luna< b2Filter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->categoryBits = value;
 
@@ -244,16 +231,14 @@ public:
 	// void b2Filter::maskBits(unsigned short value)
 	static int _bind_setMaskBits(lua_State *L) {
 		if (!_lg_typecheck_setMaskBits(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Filter::maskBits(unsigned short value) function, expected prototype:\nvoid b2Filter::maskBits(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Filter::maskBits(unsigned short value) function, expected prototype:\nvoid b2Filter::maskBits(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		b2Filter* self=(Luna< b2Filter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Filter::maskBits(unsigned short). Got : '%s'",typeid(Luna< b2Filter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Filter::maskBits(unsigned short). Got : '%s'\n%s",typeid(Luna< b2Filter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->maskBits = value;
 
@@ -263,16 +248,14 @@ public:
 	// void b2Filter::groupIndex(signed short value)
 	static int _bind_setGroupIndex(lua_State *L) {
 		if (!_lg_typecheck_setGroupIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Filter::groupIndex(signed short value) function, expected prototype:\nvoid b2Filter::groupIndex(signed short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Filter::groupIndex(signed short value) function, expected prototype:\nvoid b2Filter::groupIndex(signed short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed short value=(signed short)lua_tointeger(L,2);
 
 		b2Filter* self=(Luna< b2Filter >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Filter::groupIndex(signed short). Got : '%s'",typeid(Luna< b2Filter >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Filter::groupIndex(signed short). Got : '%s'\n%s",typeid(Luna< b2Filter >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->groupIndex = value;
 

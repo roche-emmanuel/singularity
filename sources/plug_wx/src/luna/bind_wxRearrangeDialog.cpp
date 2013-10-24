@@ -73,7 +73,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -108,15 +108,15 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,47342076) ) return false;
 		if( (!(Luna< wxArrayInt >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,59507769) ) return false;
 		if( (!(Luna< wxArrayString >::check(L,5))) ) return false;
 		if( luatop>5 && !Luna<void>::has_uniqueid(L,6,25723480) ) return false;
 		if( luatop>5 && (!(Luna< wxPoint >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isstring(L,7)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -127,12 +127,12 @@ public:
 		if( luatop<6 || luatop>8 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,47342076) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
 		if( luatop>6 && !Luna<void>::has_uniqueid(L,7,25723480) ) return false;
-		if( luatop>7 && lua_isstring(L,8)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

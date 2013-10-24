@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2TimeStep*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2TimeStep*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TimeStep* rhs =(Luna< b2TimeStep >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TimeStep* self= (b2TimeStep*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2TimeStep >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -141,35 +137,35 @@ public:
 	inline static bool _lg_typecheck_setDt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_set_inv_dt(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDtRatio(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setVelocityIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setPositionIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -190,15 +186,13 @@ public:
 	// float b2TimeStep::dt()
 	static int _bind_getDt(lua_State *L) {
 		if (!_lg_typecheck_getDt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2TimeStep::dt() function, expected prototype:\nfloat b2TimeStep::dt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2TimeStep::dt() function, expected prototype:\nfloat b2TimeStep::dt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2TimeStep::dt(). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2TimeStep::dt(). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->dt;
 		lua_pushnumber(L,lret);
@@ -209,15 +203,13 @@ public:
 	// float b2TimeStep::inv_dt()
 	static int _bind_get_inv_dt(lua_State *L) {
 		if (!_lg_typecheck_get_inv_dt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2TimeStep::inv_dt() function, expected prototype:\nfloat b2TimeStep::inv_dt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2TimeStep::inv_dt() function, expected prototype:\nfloat b2TimeStep::inv_dt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2TimeStep::inv_dt(). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2TimeStep::inv_dt(). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->inv_dt;
 		lua_pushnumber(L,lret);
@@ -228,15 +220,13 @@ public:
 	// float b2TimeStep::dtRatio()
 	static int _bind_getDtRatio(lua_State *L) {
 		if (!_lg_typecheck_getDtRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2TimeStep::dtRatio() function, expected prototype:\nfloat b2TimeStep::dtRatio()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2TimeStep::dtRatio() function, expected prototype:\nfloat b2TimeStep::dtRatio()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2TimeStep::dtRatio(). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2TimeStep::dtRatio(). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->dtRatio;
 		lua_pushnumber(L,lret);
@@ -247,15 +237,13 @@ public:
 	// signed int b2TimeStep::velocityIterations()
 	static int _bind_getVelocityIterations(lua_State *L) {
 		if (!_lg_typecheck_getVelocityIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2TimeStep::velocityIterations() function, expected prototype:\nsigned int b2TimeStep::velocityIterations()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2TimeStep::velocityIterations() function, expected prototype:\nsigned int b2TimeStep::velocityIterations()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2TimeStep::velocityIterations(). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2TimeStep::velocityIterations(). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->velocityIterations;
 		lua_pushnumber(L,lret);
@@ -266,15 +254,13 @@ public:
 	// signed int b2TimeStep::positionIterations()
 	static int _bind_getPositionIterations(lua_State *L) {
 		if (!_lg_typecheck_getPositionIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2TimeStep::positionIterations() function, expected prototype:\nsigned int b2TimeStep::positionIterations()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2TimeStep::positionIterations() function, expected prototype:\nsigned int b2TimeStep::positionIterations()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2TimeStep::positionIterations(). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2TimeStep::positionIterations(). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->positionIterations;
 		lua_pushnumber(L,lret);
@@ -285,15 +271,13 @@ public:
 	// bool b2TimeStep::warmStarting()
 	static int _bind_getWarmStarting(lua_State *L) {
 		if (!_lg_typecheck_getWarmStarting(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2TimeStep::warmStarting() function, expected prototype:\nbool b2TimeStep::warmStarting()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2TimeStep::warmStarting() function, expected prototype:\nbool b2TimeStep::warmStarting()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2TimeStep::warmStarting(). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2TimeStep::warmStarting(). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->warmStarting;
 		lua_pushboolean(L,lret?1:0);
@@ -304,16 +288,14 @@ public:
 	// void b2TimeStep::dt(float value)
 	static int _bind_setDt(lua_State *L) {
 		if (!_lg_typecheck_setDt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TimeStep::dt(float value) function, expected prototype:\nvoid b2TimeStep::dt(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TimeStep::dt(float value) function, expected prototype:\nvoid b2TimeStep::dt(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TimeStep::dt(float). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TimeStep::dt(float). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dt = value;
 
@@ -323,16 +305,14 @@ public:
 	// void b2TimeStep::inv_dt(float value)
 	static int _bind_set_inv_dt(lua_State *L) {
 		if (!_lg_typecheck_set_inv_dt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TimeStep::inv_dt(float value) function, expected prototype:\nvoid b2TimeStep::inv_dt(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TimeStep::inv_dt(float value) function, expected prototype:\nvoid b2TimeStep::inv_dt(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TimeStep::inv_dt(float). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TimeStep::inv_dt(float). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->inv_dt = value;
 
@@ -342,16 +322,14 @@ public:
 	// void b2TimeStep::dtRatio(float value)
 	static int _bind_setDtRatio(lua_State *L) {
 		if (!_lg_typecheck_setDtRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TimeStep::dtRatio(float value) function, expected prototype:\nvoid b2TimeStep::dtRatio(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TimeStep::dtRatio(float value) function, expected prototype:\nvoid b2TimeStep::dtRatio(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TimeStep::dtRatio(float). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TimeStep::dtRatio(float). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dtRatio = value;
 
@@ -361,16 +339,14 @@ public:
 	// void b2TimeStep::velocityIterations(signed int value)
 	static int _bind_setVelocityIterations(lua_State *L) {
 		if (!_lg_typecheck_setVelocityIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TimeStep::velocityIterations(signed int value) function, expected prototype:\nvoid b2TimeStep::velocityIterations(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TimeStep::velocityIterations(signed int value) function, expected prototype:\nvoid b2TimeStep::velocityIterations(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TimeStep::velocityIterations(signed int). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TimeStep::velocityIterations(signed int). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->velocityIterations = value;
 
@@ -380,16 +356,14 @@ public:
 	// void b2TimeStep::positionIterations(signed int value)
 	static int _bind_setPositionIterations(lua_State *L) {
 		if (!_lg_typecheck_setPositionIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TimeStep::positionIterations(signed int value) function, expected prototype:\nvoid b2TimeStep::positionIterations(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TimeStep::positionIterations(signed int value) function, expected prototype:\nvoid b2TimeStep::positionIterations(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TimeStep::positionIterations(signed int). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TimeStep::positionIterations(signed int). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->positionIterations = value;
 
@@ -399,16 +373,14 @@ public:
 	// void b2TimeStep::warmStarting(bool value)
 	static int _bind_setWarmStarting(lua_State *L) {
 		if (!_lg_typecheck_setWarmStarting(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2TimeStep::warmStarting(bool value) function, expected prototype:\nvoid b2TimeStep::warmStarting(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2TimeStep::warmStarting(bool value) function, expected prototype:\nvoid b2TimeStep::warmStarting(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		b2TimeStep* self=(Luna< b2TimeStep >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2TimeStep::warmStarting(bool). Got : '%s'",typeid(Luna< b2TimeStep >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2TimeStep::warmStarting(bool). Got : '%s'\n%s",typeid(Luna< b2TimeStep >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->warmStarting = value;
 

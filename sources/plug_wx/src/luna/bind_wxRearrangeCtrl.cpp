@@ -73,7 +73,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -108,7 +108,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
 		if( (!(Luna< wxPoint >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,20268751) ) return false;
@@ -117,10 +117,10 @@ public:
 		if( (!(Luna< wxArrayInt >::check(L,5))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,59507769) ) return false;
 		if( (!(Luna< wxArrayString >::check(L,6))) ) return false;
-		if( luatop>6 && lua_isnumber(L,7)==0 ) return false;
+		if( luatop>6 && lua_type(L,7)!=LUA_TNUMBER ) return false;
 		if( luatop>7 && !Luna<void>::has_uniqueid(L,8,56813631) ) return false;
 		if( luatop>7 && (!(Luna< wxObject >::checkSubType< wxValidator >(L,8))) ) return false;
-		if( luatop>8 && lua_isstring(L,9)==0 ) return false;
+		if( luatop>8 && lua_type(L,9)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -131,14 +131,14 @@ public:
 		if( luatop<7 || luatop>10 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,20268751) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,47342076) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,59507769) ) return false;
-		if( luatop>7 && lua_isnumber(L,8)==0 ) return false;
+		if( luatop>7 && lua_type(L,8)!=LUA_TNUMBER ) return false;
 		if( luatop>8 && !Luna<void>::has_uniqueid(L,9,56813631) ) return false;
-		if( luatop>9 && lua_isstring(L,10)==0 ) return false;
+		if( luatop>9 && lua_type(L,10)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

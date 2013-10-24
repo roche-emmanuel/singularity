@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btJointFeedback*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btJointFeedback*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btJointFeedback* rhs =(Luna< btJointFeedback >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btJointFeedback* self= (btJointFeedback*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btJointFeedback >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -164,15 +160,13 @@ public:
 	// btVector3 btJointFeedback::m_appliedForceBodyA()
 	static int _bind_getAppliedForceBodyA(lua_State *L) {
 		if (!_lg_typecheck_getAppliedForceBodyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedForceBodyA() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedForceBodyA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedForceBodyA() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedForceBodyA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedForceBodyA(). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedForceBodyA(). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_appliedForceBodyA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -185,15 +179,13 @@ public:
 	// btVector3 btJointFeedback::m_appliedTorqueBodyA()
 	static int _bind_getAppliedTorqueBodyA(lua_State *L) {
 		if (!_lg_typecheck_getAppliedTorqueBodyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedTorqueBodyA() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedTorqueBodyA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedTorqueBodyA() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedTorqueBodyA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedTorqueBodyA(). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedTorqueBodyA(). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_appliedTorqueBodyA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -206,15 +198,13 @@ public:
 	// btVector3 btJointFeedback::m_appliedForceBodyB()
 	static int _bind_getAppliedForceBodyB(lua_State *L) {
 		if (!_lg_typecheck_getAppliedForceBodyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedForceBodyB() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedForceBodyB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedForceBodyB() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedForceBodyB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedForceBodyB(). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedForceBodyB(). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_appliedForceBodyB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -227,15 +217,13 @@ public:
 	// btVector3 btJointFeedback::m_appliedTorqueBodyB()
 	static int _bind_getAppliedTorqueBodyB(lua_State *L) {
 		if (!_lg_typecheck_getAppliedTorqueBodyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedTorqueBodyB() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedTorqueBodyB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btJointFeedback::m_appliedTorqueBodyB() function, expected prototype:\nbtVector3 btJointFeedback::m_appliedTorqueBodyB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedTorqueBodyB(). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btJointFeedback::m_appliedTorqueBodyB(). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_appliedTorqueBodyB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -248,8 +236,7 @@ public:
 	// void btJointFeedback::m_appliedForceBodyA(btVector3 value)
 	static int _bind_setAppliedForceBodyA(lua_State *L) {
 		if (!_lg_typecheck_setAppliedForceBodyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedForceBodyA(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedForceBodyA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedForceBodyA(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedForceBodyA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -260,8 +247,7 @@ public:
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedForceBodyA(btVector3). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedForceBodyA(btVector3). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedForceBodyA = value;
 
@@ -271,8 +257,7 @@ public:
 	// void btJointFeedback::m_appliedTorqueBodyA(btVector3 value)
 	static int _bind_setAppliedTorqueBodyA(lua_State *L) {
 		if (!_lg_typecheck_setAppliedTorqueBodyA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedTorqueBodyA(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedTorqueBodyA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedTorqueBodyA(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedTorqueBodyA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -283,8 +268,7 @@ public:
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedTorqueBodyA(btVector3). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedTorqueBodyA(btVector3). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedTorqueBodyA = value;
 
@@ -294,8 +278,7 @@ public:
 	// void btJointFeedback::m_appliedForceBodyB(btVector3 value)
 	static int _bind_setAppliedForceBodyB(lua_State *L) {
 		if (!_lg_typecheck_setAppliedForceBodyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedForceBodyB(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedForceBodyB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedForceBodyB(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedForceBodyB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -306,8 +289,7 @@ public:
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedForceBodyB(btVector3). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedForceBodyB(btVector3). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedForceBodyB = value;
 
@@ -317,8 +299,7 @@ public:
 	// void btJointFeedback::m_appliedTorqueBodyB(btVector3 value)
 	static int _bind_setAppliedTorqueBodyB(lua_State *L) {
 		if (!_lg_typecheck_setAppliedTorqueBodyB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedTorqueBodyB(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedTorqueBodyB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btJointFeedback::m_appliedTorqueBodyB(btVector3 value) function, expected prototype:\nvoid btJointFeedback::m_appliedTorqueBodyB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -329,8 +310,7 @@ public:
 
 		btJointFeedback* self=(Luna< btJointFeedback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedTorqueBodyB(btVector3). Got : '%s'",typeid(Luna< btJointFeedback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btJointFeedback::m_appliedTorqueBodyB(btVector3). Got : '%s'\n%s",typeid(Luna< btJointFeedback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedTorqueBodyB = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCompoundShapeChild*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCompoundShapeChild*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCompoundShapeChild* rhs =(Luna< btCompoundShapeChild >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCompoundShapeChild* self= (btCompoundShapeChild*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCompoundShapeChild >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -149,14 +145,14 @@ public:
 	inline static bool _lg_typecheck_setChildShapeType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setChildMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -177,15 +173,13 @@ public:
 	// btTransform btCompoundShapeChild::m_transform()
 	static int _bind_getTransform(lua_State *L) {
 		if (!_lg_typecheck_getTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btCompoundShapeChild::m_transform() function, expected prototype:\nbtTransform btCompoundShapeChild::m_transform()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btCompoundShapeChild::m_transform() function, expected prototype:\nbtTransform btCompoundShapeChild::m_transform()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btCompoundShapeChild::m_transform(). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btCompoundShapeChild::m_transform(). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_transform;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -198,15 +192,13 @@ public:
 	// btCollisionShape * btCompoundShapeChild::m_childShape()
 	static int _bind_getChildShape(lua_State *L) {
 		if (!_lg_typecheck_getChildShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShape * btCompoundShapeChild::m_childShape() function, expected prototype:\nbtCollisionShape * btCompoundShapeChild::m_childShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShape * btCompoundShapeChild::m_childShape() function, expected prototype:\nbtCollisionShape * btCompoundShapeChild::m_childShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShape * btCompoundShapeChild::m_childShape(). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShape * btCompoundShapeChild::m_childShape(). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionShape * lret = self->m_childShape;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -219,15 +211,13 @@ public:
 	// int btCompoundShapeChild::m_childShapeType()
 	static int _bind_getChildShapeType(lua_State *L) {
 		if (!_lg_typecheck_getChildShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btCompoundShapeChild::m_childShapeType() function, expected prototype:\nint btCompoundShapeChild::m_childShapeType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btCompoundShapeChild::m_childShapeType() function, expected prototype:\nint btCompoundShapeChild::m_childShapeType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btCompoundShapeChild::m_childShapeType(). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btCompoundShapeChild::m_childShapeType(). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_childShapeType;
 		lua_pushnumber(L,lret);
@@ -238,15 +228,13 @@ public:
 	// float btCompoundShapeChild::m_childMargin()
 	static int _bind_getChildMargin(lua_State *L) {
 		if (!_lg_typecheck_getChildMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btCompoundShapeChild::m_childMargin() function, expected prototype:\nfloat btCompoundShapeChild::m_childMargin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btCompoundShapeChild::m_childMargin() function, expected prototype:\nfloat btCompoundShapeChild::m_childMargin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btCompoundShapeChild::m_childMargin(). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btCompoundShapeChild::m_childMargin(). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_childMargin;
 		lua_pushnumber(L,lret);
@@ -257,15 +245,13 @@ public:
 	// struct btDbvtNode * btCompoundShapeChild::m_node()
 	static int _bind_getNode(lua_State *L) {
 		if (!_lg_typecheck_getNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in struct btDbvtNode * btCompoundShapeChild::m_node() function, expected prototype:\nstruct btDbvtNode * btCompoundShapeChild::m_node()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in struct btDbvtNode * btCompoundShapeChild::m_node() function, expected prototype:\nstruct btDbvtNode * btCompoundShapeChild::m_node()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call struct btDbvtNode * btCompoundShapeChild::m_node(). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call struct btDbvtNode * btCompoundShapeChild::m_node(). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		struct btDbvtNode * lret = self->m_node;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -278,8 +264,7 @@ public:
 	// void btCompoundShapeChild::m_transform(btTransform value)
 	static int _bind_setTransform(lua_State *L) {
 		if (!_lg_typecheck_setTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_transform(btTransform value) function, expected prototype:\nvoid btCompoundShapeChild::m_transform(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_transform(btTransform value) function, expected prototype:\nvoid btCompoundShapeChild::m_transform(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -290,8 +275,7 @@ public:
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_transform(btTransform). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_transform(btTransform). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_transform = value;
 
@@ -301,16 +285,14 @@ public:
 	// void btCompoundShapeChild::m_childShape(btCollisionShape * value)
 	static int _bind_setChildShape(lua_State *L) {
 		if (!_lg_typecheck_setChildShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childShape(btCollisionShape * value) function, expected prototype:\nvoid btCompoundShapeChild::m_childShape(btCollisionShape * value)\nClass arguments details:\narg 1 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childShape(btCollisionShape * value) function, expected prototype:\nvoid btCompoundShapeChild::m_childShape(btCollisionShape * value)\nClass arguments details:\narg 1 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* value=(Luna< btCollisionShape >::check(L,2));
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_childShape(btCollisionShape *). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_childShape(btCollisionShape *). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_childShape = value;
 
@@ -320,16 +302,14 @@ public:
 	// void btCompoundShapeChild::m_childShapeType(int value)
 	static int _bind_setChildShapeType(lua_State *L) {
 		if (!_lg_typecheck_setChildShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childShapeType(int value) function, expected prototype:\nvoid btCompoundShapeChild::m_childShapeType(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childShapeType(int value) function, expected prototype:\nvoid btCompoundShapeChild::m_childShapeType(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_childShapeType(int). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_childShapeType(int). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_childShapeType = value;
 
@@ -339,16 +319,14 @@ public:
 	// void btCompoundShapeChild::m_childMargin(float value)
 	static int _bind_setChildMargin(lua_State *L) {
 		if (!_lg_typecheck_setChildMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childMargin(float value) function, expected prototype:\nvoid btCompoundShapeChild::m_childMargin(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_childMargin(float value) function, expected prototype:\nvoid btCompoundShapeChild::m_childMargin(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_childMargin(float). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_childMargin(float). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_childMargin = value;
 
@@ -358,16 +336,14 @@ public:
 	// void btCompoundShapeChild::m_node(struct btDbvtNode * value)
 	static int _bind_setNode(lua_State *L) {
 		if (!_lg_typecheck_setNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_node(struct btDbvtNode * value) function, expected prototype:\nvoid btCompoundShapeChild::m_node(struct btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btCompoundShapeChild::m_node(struct btDbvtNode * value) function, expected prototype:\nvoid btCompoundShapeChild::m_node(struct btDbvtNode * value)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvtNode* value=(Luna< btDbvtNode >::check(L,2));
 
 		btCompoundShapeChild* self=(Luna< btCompoundShapeChild >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_node(struct btDbvtNode *). Got : '%s'",typeid(Luna< btCompoundShapeChild >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCompoundShapeChild::m_node(struct btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btCompoundShapeChild >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_node = value;
 

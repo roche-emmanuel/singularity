@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexHullShapeData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexHullShapeData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexHullShapeData* rhs =(Luna< btConvexHullShapeData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexHullShapeData* self= (btConvexHullShapeData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexHullShapeData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,7 +146,7 @@ public:
 	inline static bool _lg_typecheck_setNumUnscaledPoints(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -164,15 +160,13 @@ public:
 	// btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData()
 	static int _bind_getConvexInternalShapeData(lua_State *L) {
 		if (!_lg_typecheck_getConvexInternalShapeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData() function, expected prototype:\nbtConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData(). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btConvexInternalShapeData btConvexHullShapeData::m_convexInternalShapeData(). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btConvexInternalShapeData* lret = &self->m_convexInternalShapeData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -185,15 +179,13 @@ public:
 	// btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr()
 	static int _bind_getUnscaledPointsFloatPtr(lua_State *L) {
 		if (!_lg_typecheck_getUnscaledPointsFloatPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr() function, expected prototype:\nbtVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr() function, expected prototype:\nbtVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr(). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData * btConvexHullShapeData::m_unscaledPointsFloatPtr(). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3FloatData * lret = self->m_unscaledPointsFloatPtr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -206,15 +198,13 @@ public:
 	// btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr()
 	static int _bind_getUnscaledPointsDoublePtr(lua_State *L) {
 		if (!_lg_typecheck_getUnscaledPointsDoublePtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr() function, expected prototype:\nbtVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr() function, expected prototype:\nbtVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr(). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3DoubleData * btConvexHullShapeData::m_unscaledPointsDoublePtr(). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3DoubleData * lret = self->m_unscaledPointsDoublePtr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -227,15 +217,13 @@ public:
 	// int btConvexHullShapeData::m_numUnscaledPoints()
 	static int _bind_getNumUnscaledPoints(lua_State *L) {
 		if (!_lg_typecheck_getNumUnscaledPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexHullShapeData::m_numUnscaledPoints() function, expected prototype:\nint btConvexHullShapeData::m_numUnscaledPoints()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexHullShapeData::m_numUnscaledPoints() function, expected prototype:\nint btConvexHullShapeData::m_numUnscaledPoints()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexHullShapeData::m_numUnscaledPoints(). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexHullShapeData::m_numUnscaledPoints(). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numUnscaledPoints;
 		lua_pushnumber(L,lret);
@@ -246,8 +234,7 @@ public:
 	// void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)
 	static int _bind_setConvexInternalShapeData(lua_State *L) {
 		if (!_lg_typecheck_setConvexInternalShapeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value) function, expected prototype:\nvoid btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData value)\nClass arguments details:\narg 1 ID = 7968673\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexInternalShapeData* value_ptr=(Luna< btConvexInternalShapeData >::check(L,2));
@@ -258,8 +245,7 @@ public:
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_convexInternalShapeData(btConvexInternalShapeData). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_convexInternalShapeData = value;
 
@@ -269,16 +255,14 @@ public:
 	// void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value)
 	static int _bind_setUnscaledPointsFloatPtr(lua_State *L) {
 		if (!_lg_typecheck_setUnscaledPointsFloatPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value) function, expected prototype:\nvoid btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value) function, expected prototype:\nvoid btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData * value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value=(Luna< btVector3FloatData >::check(L,2));
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData *). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_unscaledPointsFloatPtr(btVector3FloatData *). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_unscaledPointsFloatPtr = value;
 
@@ -288,16 +272,14 @@ public:
 	// void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value)
 	static int _bind_setUnscaledPointsDoublePtr(lua_State *L) {
 		if (!_lg_typecheck_setUnscaledPointsDoublePtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value) function, expected prototype:\nvoid btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value)\nClass arguments details:\narg 1 ID = 89582070\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value) function, expected prototype:\nvoid btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData * value)\nClass arguments details:\narg 1 ID = 89582070\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3DoubleData* value=(Luna< btVector3DoubleData >::check(L,2));
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData *). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_unscaledPointsDoublePtr(btVector3DoubleData *). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_unscaledPointsDoublePtr = value;
 
@@ -307,16 +289,14 @@ public:
 	// void btConvexHullShapeData::m_numUnscaledPoints(int value)
 	static int _bind_setNumUnscaledPoints(lua_State *L) {
 		if (!_lg_typecheck_setNumUnscaledPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_numUnscaledPoints(int value) function, expected prototype:\nvoid btConvexHullShapeData::m_numUnscaledPoints(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexHullShapeData::m_numUnscaledPoints(int value) function, expected prototype:\nvoid btConvexHullShapeData::m_numUnscaledPoints(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btConvexHullShapeData* self=(Luna< btConvexHullShapeData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_numUnscaledPoints(int). Got : '%s'",typeid(Luna< btConvexHullShapeData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexHullShapeData::m_numUnscaledPoints(int). Got : '%s'\n%s",typeid(Luna< btConvexHullShapeData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numUnscaledPoints = value;
 

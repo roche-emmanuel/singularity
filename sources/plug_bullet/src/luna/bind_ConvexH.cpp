@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ConvexH*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(ConvexH*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ConvexH* rhs =(Luna< ConvexH >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ConvexH* self= (ConvexH*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ConvexH >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -109,9 +105,9 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -164,8 +160,7 @@ public:
 	// ConvexH::ConvexH()
 	static ConvexH* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ConvexH::ConvexH() function, expected prototype:\nConvexH::ConvexH()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ConvexH::ConvexH() function, expected prototype:\nConvexH::ConvexH()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -175,8 +170,7 @@ public:
 	// ConvexH::ConvexH(int vertices_size, int edges_size, int facets_size)
 	static ConvexH* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ConvexH::ConvexH(int vertices_size, int edges_size, int facets_size) function, expected prototype:\nConvexH::ConvexH(int vertices_size, int edges_size, int facets_size)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ConvexH::ConvexH(int vertices_size, int edges_size, int facets_size) function, expected prototype:\nConvexH::ConvexH(int vertices_size, int edges_size, int facets_size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int vertices_size=(int)lua_tointeger(L,1);
@@ -200,15 +194,13 @@ public:
 	// btAlignedObjectArray< btVector3 > ConvexH::vertices()
 	static int _bind_getVertices(lua_State *L) {
 		if (!_lg_typecheck_getVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > ConvexH::vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > ConvexH::vertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > ConvexH::vertices() function, expected prototype:\nbtAlignedObjectArray< btVector3 > ConvexH::vertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ConvexH* self=(Luna< ConvexH >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > ConvexH::vertices(). Got : '%s'",typeid(Luna< ConvexH >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > ConvexH::vertices(). Got : '%s'\n%s",typeid(Luna< ConvexH >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->vertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -221,15 +213,13 @@ public:
 	// btAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges()
 	static int _bind_getEdges(lua_State *L) {
 		if (!_lg_typecheck_getEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges() function, expected prototype:\nbtAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges() function, expected prototype:\nbtAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ConvexH* self=(Luna< ConvexH >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges(). Got : '%s'",typeid(Luna< ConvexH >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< ConvexH::HalfEdge > ConvexH::edges(). Got : '%s'\n%s",typeid(Luna< ConvexH >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< ConvexH::HalfEdge >* lret = &self->edges;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -242,15 +232,13 @@ public:
 	// btAlignedObjectArray< btPlane > ConvexH::facets()
 	static int _bind_getFacets(lua_State *L) {
 		if (!_lg_typecheck_getFacets(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btPlane > ConvexH::facets() function, expected prototype:\nbtAlignedObjectArray< btPlane > ConvexH::facets()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btPlane > ConvexH::facets() function, expected prototype:\nbtAlignedObjectArray< btPlane > ConvexH::facets()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		ConvexH* self=(Luna< ConvexH >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btPlane > ConvexH::facets(). Got : '%s'",typeid(Luna< ConvexH >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btPlane > ConvexH::facets(). Got : '%s'\n%s",typeid(Luna< ConvexH >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btPlane >* lret = &self->facets;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -263,8 +251,7 @@ public:
 	// void ConvexH::vertices(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setVertices(lua_State *L) {
 		if (!_lg_typecheck_setVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void ConvexH::vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid ConvexH::vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void ConvexH::vertices(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid ConvexH::vertices(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -275,8 +262,7 @@ public:
 
 		ConvexH* self=(Luna< ConvexH >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void ConvexH::vertices(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< ConvexH >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void ConvexH::vertices(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< ConvexH >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertices = value;
 
@@ -286,8 +272,7 @@ public:
 	// void ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge > value)
 	static int _bind_setEdges(lua_State *L) {
 		if (!_lg_typecheck_setEdges(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge > value) function, expected prototype:\nvoid ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge > value) function, expected prototype:\nvoid ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< ConvexH::HalfEdge >* value_ptr=(Luna< btAlignedObjectArray< ConvexH::HalfEdge > >::check(L,2));
@@ -298,8 +283,7 @@ public:
 
 		ConvexH* self=(Luna< ConvexH >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge >). Got : '%s'",typeid(Luna< ConvexH >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void ConvexH::edges(btAlignedObjectArray< ConvexH::HalfEdge >). Got : '%s'\n%s",typeid(Luna< ConvexH >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->edges = value;
 
@@ -309,8 +293,7 @@ public:
 	// void ConvexH::facets(btAlignedObjectArray< btPlane > value)
 	static int _bind_setFacets(lua_State *L) {
 		if (!_lg_typecheck_setFacets(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void ConvexH::facets(btAlignedObjectArray< btPlane > value) function, expected prototype:\nvoid ConvexH::facets(btAlignedObjectArray< btPlane > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void ConvexH::facets(btAlignedObjectArray< btPlane > value) function, expected prototype:\nvoid ConvexH::facets(btAlignedObjectArray< btPlane > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btPlane >* value_ptr=(Luna< btAlignedObjectArray< btPlane > >::check(L,2));
@@ -321,8 +304,7 @@ public:
 
 		ConvexH* self=(Luna< ConvexH >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void ConvexH::facets(btAlignedObjectArray< btPlane >). Got : '%s'",typeid(Luna< ConvexH >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void ConvexH::facets(btAlignedObjectArray< btPlane >). Got : '%s'\n%s",typeid(Luna< ConvexH >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->facets = value;
 

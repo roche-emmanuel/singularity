@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(int4*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(int4*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int4* rhs =(Luna< int4 >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int4* self= (int4*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< int4 >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -109,10 +105,10 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -145,28 +141,28 @@ public:
 	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setY(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setZ(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setW(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -176,14 +172,14 @@ public:
 	inline static bool _lg_typecheck_op_index_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_op_index_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -192,8 +188,7 @@ public:
 	// int4::int4()
 	static int4* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int4::int4() function, expected prototype:\nint4::int4()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int4::int4() function, expected prototype:\nint4::int4()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -203,8 +198,7 @@ public:
 	// int4::int4(int _x, int _y, int _z, int _w)
 	static int4* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int4::int4(int _x, int _y, int _z, int _w) function, expected prototype:\nint4::int4(int _x, int _y, int _z, int _w)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int4::int4(int _x, int _y, int _z, int _w) function, expected prototype:\nint4::int4(int _x, int _y, int _z, int _w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int _x=(int)lua_tointeger(L,1);
@@ -229,15 +223,13 @@ public:
 	// int int4::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int int4::x() function, expected prototype:\nint int4::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int int4::x() function, expected prototype:\nint int4::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int int4::x(). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int int4::x(). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->x;
 		lua_pushnumber(L,lret);
@@ -248,15 +240,13 @@ public:
 	// int int4::y()
 	static int _bind_getY(lua_State *L) {
 		if (!_lg_typecheck_getY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int int4::y() function, expected prototype:\nint int4::y()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int int4::y() function, expected prototype:\nint int4::y()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int int4::y(). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int int4::y(). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->y;
 		lua_pushnumber(L,lret);
@@ -267,15 +257,13 @@ public:
 	// int int4::z()
 	static int _bind_getZ(lua_State *L) {
 		if (!_lg_typecheck_getZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int int4::z() function, expected prototype:\nint int4::z()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int int4::z() function, expected prototype:\nint int4::z()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int int4::z(). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int int4::z(). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->z;
 		lua_pushnumber(L,lret);
@@ -286,15 +274,13 @@ public:
 	// int int4::w()
 	static int _bind_getW(lua_State *L) {
 		if (!_lg_typecheck_getW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int int4::w() function, expected prototype:\nint int4::w()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int int4::w() function, expected prototype:\nint int4::w()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int int4::w(). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int int4::w(). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->w;
 		lua_pushnumber(L,lret);
@@ -305,16 +291,14 @@ public:
 	// void int4::x(int value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void int4::x(int value) function, expected prototype:\nvoid int4::x(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void int4::x(int value) function, expected prototype:\nvoid int4::x(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void int4::x(int). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void int4::x(int). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -324,16 +308,14 @@ public:
 	// void int4::y(int value)
 	static int _bind_setY(lua_State *L) {
 		if (!_lg_typecheck_setY(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void int4::y(int value) function, expected prototype:\nvoid int4::y(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void int4::y(int value) function, expected prototype:\nvoid int4::y(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void int4::y(int). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void int4::y(int). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y = value;
 
@@ -343,16 +325,14 @@ public:
 	// void int4::z(int value)
 	static int _bind_setZ(lua_State *L) {
 		if (!_lg_typecheck_setZ(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void int4::z(int value) function, expected prototype:\nvoid int4::z(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void int4::z(int value) function, expected prototype:\nvoid int4::z(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void int4::z(int). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void int4::z(int). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->z = value;
 
@@ -362,16 +342,14 @@ public:
 	// void int4::w(int value)
 	static int _bind_setW(lua_State *L) {
 		if (!_lg_typecheck_setW(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void int4::w(int value) function, expected prototype:\nvoid int4::w(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void int4::w(int value) function, expected prototype:\nvoid int4::w(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void int4::w(int). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void int4::w(int). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->w = value;
 
@@ -383,16 +361,14 @@ public:
 	// const int & int4::operator[](int i) const
 	static int _bind_op_index_overload_1(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const int & int4::operator[](int i) const function, expected prototype:\nconst int & int4::operator[](int i) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const int & int4::operator[](int i) const function, expected prototype:\nconst int & int4::operator[](int i) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const int & int4::operator[](int) const. Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const int & int4::operator[](int) const. Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const int & lret = self->operator[](i);
 		lua_pushnumber(L,lret);
@@ -403,16 +379,14 @@ public:
 	// int & int4::operator[](int i)
 	static int _bind_op_index_overload_2(lua_State *L) {
 		if (!_lg_typecheck_op_index_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int & int4::operator[](int i) function, expected prototype:\nint & int4::operator[](int i)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int & int4::operator[](int i) function, expected prototype:\nint & int4::operator[](int i)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int i=(int)lua_tointeger(L,2);
 
 		int4* self=(Luna< int4 >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int & int4::operator[](int). Got : '%s'",typeid(Luna< int4 >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int & int4::operator[](int). Got : '%s'\n%s",typeid(Luna< int4 >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int & lret = self->operator[](i);
 		lua_pushnumber(L,lret);

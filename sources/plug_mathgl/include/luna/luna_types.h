@@ -988,25 +988,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Mapped type: std::vector< long >
-template<>
-class LunaTraits< std::vector< long > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static std::vector< long >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(std::vector< long >* obj);
-	typedef std::vector< long > parent_t;
-	typedef std::vector< long > base_t;
-	static luna_ConverterType converters[];
-};
-
 
 // Referenced external: void
 template<>
@@ -1453,13 +1434,6 @@ template<>
 class LunaType< 52583290 > {
 public:
 	typedef std::vector< mglTexture > type;
-	
-};
-
-template<>
-class LunaType< 47978518 > {
-public:
-	typedef std::vector< long > type;
 	
 };
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTypedConstraintData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTypedConstraintData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraintData* rhs =(Luna< btTypedConstraintData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraintData* self= (btTypedConstraintData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedConstraintData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -197,77 +193,77 @@ public:
 	inline static bool _lg_typecheck_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setObjectType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setUserConstraintType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setUserConstraintId(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNeedsFeedback(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDbgDrawSize(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDisableCollisionsBetweenLinkedBodies(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setOverrideNumSolverIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setBreakingImpulseThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setIsEnabled(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -281,15 +277,13 @@ public:
 	// btRigidBodyFloatData * btTypedConstraintData::m_rbA()
 	static int _bind_getRbA(lua_State *L) {
 		if (!_lg_typecheck_getRbA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRigidBodyFloatData * btTypedConstraintData::m_rbA() function, expected prototype:\nbtRigidBodyFloatData * btTypedConstraintData::m_rbA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRigidBodyFloatData * btTypedConstraintData::m_rbA() function, expected prototype:\nbtRigidBodyFloatData * btTypedConstraintData::m_rbA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btRigidBodyFloatData * btTypedConstraintData::m_rbA(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btRigidBodyFloatData * btTypedConstraintData::m_rbA(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btRigidBodyFloatData * lret = self->m_rbA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,15 +296,13 @@ public:
 	// btRigidBodyFloatData * btTypedConstraintData::m_rbB()
 	static int _bind_getRbB(lua_State *L) {
 		if (!_lg_typecheck_getRbB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRigidBodyFloatData * btTypedConstraintData::m_rbB() function, expected prototype:\nbtRigidBodyFloatData * btTypedConstraintData::m_rbB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRigidBodyFloatData * btTypedConstraintData::m_rbB() function, expected prototype:\nbtRigidBodyFloatData * btTypedConstraintData::m_rbB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btRigidBodyFloatData * btTypedConstraintData::m_rbB(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btRigidBodyFloatData * btTypedConstraintData::m_rbB(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btRigidBodyFloatData * lret = self->m_rbB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -323,15 +315,13 @@ public:
 	// char * btTypedConstraintData::m_name()
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in char * btTypedConstraintData::m_name() function, expected prototype:\nchar * btTypedConstraintData::m_name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in char * btTypedConstraintData::m_name() function, expected prototype:\nchar * btTypedConstraintData::m_name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call char * btTypedConstraintData::m_name(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call char * btTypedConstraintData::m_name(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		char * lret = self->m_name;
 		lua_pushnumber(L,*lret);
@@ -342,15 +332,13 @@ public:
 	// int btTypedConstraintData::m_objectType()
 	static int _bind_getObjectType(lua_State *L) {
 		if (!_lg_typecheck_getObjectType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_objectType() function, expected prototype:\nint btTypedConstraintData::m_objectType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_objectType() function, expected prototype:\nint btTypedConstraintData::m_objectType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_objectType(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_objectType(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_objectType;
 		lua_pushnumber(L,lret);
@@ -361,15 +349,13 @@ public:
 	// int btTypedConstraintData::m_userConstraintType()
 	static int _bind_getUserConstraintType(lua_State *L) {
 		if (!_lg_typecheck_getUserConstraintType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_userConstraintType() function, expected prototype:\nint btTypedConstraintData::m_userConstraintType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_userConstraintType() function, expected prototype:\nint btTypedConstraintData::m_userConstraintType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_userConstraintType(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_userConstraintType(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_userConstraintType;
 		lua_pushnumber(L,lret);
@@ -380,15 +366,13 @@ public:
 	// int btTypedConstraintData::m_userConstraintId()
 	static int _bind_getUserConstraintId(lua_State *L) {
 		if (!_lg_typecheck_getUserConstraintId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_userConstraintId() function, expected prototype:\nint btTypedConstraintData::m_userConstraintId()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_userConstraintId() function, expected prototype:\nint btTypedConstraintData::m_userConstraintId()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_userConstraintId(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_userConstraintId(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_userConstraintId;
 		lua_pushnumber(L,lret);
@@ -399,15 +383,13 @@ public:
 	// int btTypedConstraintData::m_needsFeedback()
 	static int _bind_getNeedsFeedback(lua_State *L) {
 		if (!_lg_typecheck_getNeedsFeedback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_needsFeedback() function, expected prototype:\nint btTypedConstraintData::m_needsFeedback()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_needsFeedback() function, expected prototype:\nint btTypedConstraintData::m_needsFeedback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_needsFeedback(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_needsFeedback(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_needsFeedback;
 		lua_pushnumber(L,lret);
@@ -418,15 +400,13 @@ public:
 	// float btTypedConstraintData::m_appliedImpulse()
 	static int _bind_getAppliedImpulse(lua_State *L) {
 		if (!_lg_typecheck_getAppliedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_appliedImpulse() function, expected prototype:\nfloat btTypedConstraintData::m_appliedImpulse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_appliedImpulse() function, expected prototype:\nfloat btTypedConstraintData::m_appliedImpulse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTypedConstraintData::m_appliedImpulse(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTypedConstraintData::m_appliedImpulse(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_appliedImpulse;
 		lua_pushnumber(L,lret);
@@ -437,15 +417,13 @@ public:
 	// float btTypedConstraintData::m_dbgDrawSize()
 	static int _bind_getDbgDrawSize(lua_State *L) {
 		if (!_lg_typecheck_getDbgDrawSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_dbgDrawSize() function, expected prototype:\nfloat btTypedConstraintData::m_dbgDrawSize()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_dbgDrawSize() function, expected prototype:\nfloat btTypedConstraintData::m_dbgDrawSize()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTypedConstraintData::m_dbgDrawSize(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTypedConstraintData::m_dbgDrawSize(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_dbgDrawSize;
 		lua_pushnumber(L,lret);
@@ -456,15 +434,13 @@ public:
 	// int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies()
 	static int _bind_getDisableCollisionsBetweenLinkedBodies(lua_State *L) {
 		if (!_lg_typecheck_getDisableCollisionsBetweenLinkedBodies(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies() function, expected prototype:\nint btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies() function, expected prototype:\nint btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_disableCollisionsBetweenLinkedBodies;
 		lua_pushnumber(L,lret);
@@ -475,15 +451,13 @@ public:
 	// int btTypedConstraintData::m_overrideNumSolverIterations()
 	static int _bind_getOverrideNumSolverIterations(lua_State *L) {
 		if (!_lg_typecheck_getOverrideNumSolverIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_overrideNumSolverIterations() function, expected prototype:\nint btTypedConstraintData::m_overrideNumSolverIterations()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_overrideNumSolverIterations() function, expected prototype:\nint btTypedConstraintData::m_overrideNumSolverIterations()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_overrideNumSolverIterations(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_overrideNumSolverIterations(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_overrideNumSolverIterations;
 		lua_pushnumber(L,lret);
@@ -494,15 +468,13 @@ public:
 	// float btTypedConstraintData::m_breakingImpulseThreshold()
 	static int _bind_getBreakingImpulseThreshold(lua_State *L) {
 		if (!_lg_typecheck_getBreakingImpulseThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_breakingImpulseThreshold() function, expected prototype:\nfloat btTypedConstraintData::m_breakingImpulseThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTypedConstraintData::m_breakingImpulseThreshold() function, expected prototype:\nfloat btTypedConstraintData::m_breakingImpulseThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTypedConstraintData::m_breakingImpulseThreshold(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTypedConstraintData::m_breakingImpulseThreshold(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_breakingImpulseThreshold;
 		lua_pushnumber(L,lret);
@@ -513,15 +485,13 @@ public:
 	// int btTypedConstraintData::m_isEnabled()
 	static int _bind_getIsEnabled(lua_State *L) {
 		if (!_lg_typecheck_getIsEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_isEnabled() function, expected prototype:\nint btTypedConstraintData::m_isEnabled()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedConstraintData::m_isEnabled() function, expected prototype:\nint btTypedConstraintData::m_isEnabled()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_isEnabled(). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedConstraintData::m_isEnabled(). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_isEnabled;
 		lua_pushnumber(L,lret);
@@ -532,16 +502,14 @@ public:
 	// void btTypedConstraintData::m_rbA(btRigidBodyFloatData * value)
 	static int _bind_setRbA(lua_State *L) {
 		if (!_lg_typecheck_setRbA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_rbA(btRigidBodyFloatData * value) function, expected prototype:\nvoid btTypedConstraintData::m_rbA(btRigidBodyFloatData * value)\nClass arguments details:\narg 1 ID = 1580424\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_rbA(btRigidBodyFloatData * value) function, expected prototype:\nvoid btTypedConstraintData::m_rbA(btRigidBodyFloatData * value)\nClass arguments details:\narg 1 ID = 1580424\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBodyFloatData* value=(Luna< btRigidBodyFloatData >::check(L,2));
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_rbA(btRigidBodyFloatData *). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_rbA(btRigidBodyFloatData *). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_rbA = value;
 
@@ -551,16 +519,14 @@ public:
 	// void btTypedConstraintData::m_rbB(btRigidBodyFloatData * value)
 	static int _bind_setRbB(lua_State *L) {
 		if (!_lg_typecheck_setRbB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_rbB(btRigidBodyFloatData * value) function, expected prototype:\nvoid btTypedConstraintData::m_rbB(btRigidBodyFloatData * value)\nClass arguments details:\narg 1 ID = 1580424\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_rbB(btRigidBodyFloatData * value) function, expected prototype:\nvoid btTypedConstraintData::m_rbB(btRigidBodyFloatData * value)\nClass arguments details:\narg 1 ID = 1580424\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBodyFloatData* value=(Luna< btRigidBodyFloatData >::check(L,2));
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_rbB(btRigidBodyFloatData *). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_rbB(btRigidBodyFloatData *). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_rbB = value;
 
@@ -570,16 +536,14 @@ public:
 	// void btTypedConstraintData::m_name(char * value)
 	static int _bind_setName(lua_State *L) {
 		if (!_lg_typecheck_setName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_name(char * value) function, expected prototype:\nvoid btTypedConstraintData::m_name(char * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_name(char * value) function, expected prototype:\nvoid btTypedConstraintData::m_name(char * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		char* value=(char*)Luna< void >::check(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_name(char *). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_name(char *). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_name = value;
 
@@ -589,16 +553,14 @@ public:
 	// void btTypedConstraintData::m_objectType(int value)
 	static int _bind_setObjectType(lua_State *L) {
 		if (!_lg_typecheck_setObjectType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_objectType(int value) function, expected prototype:\nvoid btTypedConstraintData::m_objectType(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_objectType(int value) function, expected prototype:\nvoid btTypedConstraintData::m_objectType(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_objectType(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_objectType(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_objectType = value;
 
@@ -608,16 +570,14 @@ public:
 	// void btTypedConstraintData::m_userConstraintType(int value)
 	static int _bind_setUserConstraintType(lua_State *L) {
 		if (!_lg_typecheck_setUserConstraintType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_userConstraintType(int value) function, expected prototype:\nvoid btTypedConstraintData::m_userConstraintType(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_userConstraintType(int value) function, expected prototype:\nvoid btTypedConstraintData::m_userConstraintType(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_userConstraintType(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_userConstraintType(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_userConstraintType = value;
 
@@ -627,16 +587,14 @@ public:
 	// void btTypedConstraintData::m_userConstraintId(int value)
 	static int _bind_setUserConstraintId(lua_State *L) {
 		if (!_lg_typecheck_setUserConstraintId(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_userConstraintId(int value) function, expected prototype:\nvoid btTypedConstraintData::m_userConstraintId(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_userConstraintId(int value) function, expected prototype:\nvoid btTypedConstraintData::m_userConstraintId(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_userConstraintId(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_userConstraintId(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_userConstraintId = value;
 
@@ -646,16 +604,14 @@ public:
 	// void btTypedConstraintData::m_needsFeedback(int value)
 	static int _bind_setNeedsFeedback(lua_State *L) {
 		if (!_lg_typecheck_setNeedsFeedback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_needsFeedback(int value) function, expected prototype:\nvoid btTypedConstraintData::m_needsFeedback(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_needsFeedback(int value) function, expected prototype:\nvoid btTypedConstraintData::m_needsFeedback(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_needsFeedback(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_needsFeedback(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_needsFeedback = value;
 
@@ -665,16 +621,14 @@ public:
 	// void btTypedConstraintData::m_appliedImpulse(float value)
 	static int _bind_setAppliedImpulse(lua_State *L) {
 		if (!_lg_typecheck_setAppliedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_appliedImpulse(float value) function, expected prototype:\nvoid btTypedConstraintData::m_appliedImpulse(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_appliedImpulse(float value) function, expected prototype:\nvoid btTypedConstraintData::m_appliedImpulse(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_appliedImpulse(float). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_appliedImpulse(float). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedImpulse = value;
 
@@ -684,16 +638,14 @@ public:
 	// void btTypedConstraintData::m_dbgDrawSize(float value)
 	static int _bind_setDbgDrawSize(lua_State *L) {
 		if (!_lg_typecheck_setDbgDrawSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_dbgDrawSize(float value) function, expected prototype:\nvoid btTypedConstraintData::m_dbgDrawSize(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_dbgDrawSize(float value) function, expected prototype:\nvoid btTypedConstraintData::m_dbgDrawSize(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_dbgDrawSize(float). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_dbgDrawSize(float). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_dbgDrawSize = value;
 
@@ -703,16 +655,14 @@ public:
 	// void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value)
 	static int _bind_setDisableCollisionsBetweenLinkedBodies(lua_State *L) {
 		if (!_lg_typecheck_setDisableCollisionsBetweenLinkedBodies(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value) function, expected prototype:\nvoid btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value) function, expected prototype:\nvoid btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_disableCollisionsBetweenLinkedBodies(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_disableCollisionsBetweenLinkedBodies = value;
 
@@ -722,16 +672,14 @@ public:
 	// void btTypedConstraintData::m_overrideNumSolverIterations(int value)
 	static int _bind_setOverrideNumSolverIterations(lua_State *L) {
 		if (!_lg_typecheck_setOverrideNumSolverIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_overrideNumSolverIterations(int value) function, expected prototype:\nvoid btTypedConstraintData::m_overrideNumSolverIterations(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_overrideNumSolverIterations(int value) function, expected prototype:\nvoid btTypedConstraintData::m_overrideNumSolverIterations(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_overrideNumSolverIterations(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_overrideNumSolverIterations(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_overrideNumSolverIterations = value;
 
@@ -741,16 +689,14 @@ public:
 	// void btTypedConstraintData::m_breakingImpulseThreshold(float value)
 	static int _bind_setBreakingImpulseThreshold(lua_State *L) {
 		if (!_lg_typecheck_setBreakingImpulseThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_breakingImpulseThreshold(float value) function, expected prototype:\nvoid btTypedConstraintData::m_breakingImpulseThreshold(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_breakingImpulseThreshold(float value) function, expected prototype:\nvoid btTypedConstraintData::m_breakingImpulseThreshold(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_breakingImpulseThreshold(float). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_breakingImpulseThreshold(float). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_breakingImpulseThreshold = value;
 
@@ -760,16 +706,14 @@ public:
 	// void btTypedConstraintData::m_isEnabled(int value)
 	static int _bind_setIsEnabled(lua_State *L) {
 		if (!_lg_typecheck_setIsEnabled(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_isEnabled(int value) function, expected prototype:\nvoid btTypedConstraintData::m_isEnabled(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedConstraintData::m_isEnabled(int value) function, expected prototype:\nvoid btTypedConstraintData::m_isEnabled(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedConstraintData* self=(Luna< btTypedConstraintData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_isEnabled(int). Got : '%s'",typeid(Luna< btTypedConstraintData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedConstraintData::m_isEnabled(int). Got : '%s'\n%s",typeid(Luna< btTypedConstraintData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_isEnabled = value;
 

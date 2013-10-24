@@ -239,15 +239,13 @@ public:
 	// int btSimpleBroadphase::public_allocHandle()
 	static int _bind_public_allocHandle(lua_State *L) {
 		if (!_lg_typecheck_public_allocHandle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSimpleBroadphase::public_allocHandle() function, expected prototype:\nint btSimpleBroadphase::public_allocHandle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSimpleBroadphase::public_allocHandle() function, expected prototype:\nint btSimpleBroadphase::public_allocHandle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btSimpleBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< wrapper_btSimpleBroadphase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSimpleBroadphase::public_allocHandle(). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSimpleBroadphase::public_allocHandle(). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_allocHandle();
 		lua_pushnumber(L,lret);
@@ -258,16 +256,14 @@ public:
 	// void btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy * proxy)
 	static int _bind_public_freeHandle(lua_State *L) {
 		if (!_lg_typecheck_public_freeHandle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy * proxy) function, expected prototype:\nvoid btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy * proxy)\nClass arguments details:\narg 1 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy * proxy) function, expected prototype:\nvoid btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy * proxy)\nClass arguments details:\narg 1 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSimpleBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::checkSubType< btSimpleBroadphaseProxy >(L,2));
 
 		wrapper_btSimpleBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< wrapper_btSimpleBroadphase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleBroadphase::public_freeHandle(btSimpleBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_freeHandle(proxy);
 
@@ -277,16 +273,14 @@ public:
 	// btSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy * proxy)
 	static int _bind_public_getSimpleProxyFromProxy(lua_State *L) {
 		if (!_lg_typecheck_public_getSimpleProxyFromProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy * proxy) function, expected prototype:\nbtSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy * proxy)\nClass arguments details:\narg 1 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in btSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy * proxy) function, expected prototype:\nbtSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy * proxy)\nClass arguments details:\narg 1 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
 
 		wrapper_btSimpleBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< wrapper_btSimpleBroadphase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btSimpleBroadphaseProxy * btSimpleBroadphase::public_getSimpleProxyFromProxy(btBroadphaseProxy *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btSimpleBroadphaseProxy * lret = self->public_getSimpleProxyFromProxy(proxy);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -299,15 +293,13 @@ public:
 	// void btSimpleBroadphase::public_validate()
 	static int _bind_public_validate(lua_State *L) {
 		if (!_lg_typecheck_public_validate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleBroadphase::public_validate() function, expected prototype:\nvoid btSimpleBroadphase::public_validate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleBroadphase::public_validate() function, expected prototype:\nvoid btSimpleBroadphase::public_validate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btSimpleBroadphase* self=Luna< btBroadphaseInterface >::checkSubType< wrapper_btSimpleBroadphase >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleBroadphase::public_validate(). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleBroadphase::public_validate(). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_validate();
 

@@ -77,10 +77,10 @@ inline static bool _lg_typecheck_b2TestOverlap_overload_1(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,86660265)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< b2Shape >::check(L,1)) ) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,86660265)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< b2Shape >::check(L,3)) ) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,44090970) ) return false;
 	if( (!(Luna< b2Transform >::check(L,5))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,6,44090970) ) return false;
@@ -101,16 +101,16 @@ inline static bool _lg_typecheck_b2TestOverlap_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_b2MixFriction(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_b2MixRestitution(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -139,14 +139,14 @@ inline static bool _lg_typecheck_b2Distance_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_b2IsValid(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_b2InvSqrt(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -185,14 +185,14 @@ inline static bool _lg_typecheck_b2Cross_overload_2(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,54494886) ) return false;
 	if( (!(Luna< b2Vec2 >::check(L,1))) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_b2Cross_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,54494886) ) return false;
 	if( (!(Luna< b2Vec2 >::check(L,2))) ) return false;
 	return true;
@@ -398,21 +398,21 @@ inline static bool _lg_typecheck_b2Clamp(lua_State *L) {
 inline static bool _lg_typecheck_b2NextPowerOfTwo(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_b2IsPowerOfTwo(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_b2Alloc(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -436,8 +436,7 @@ inline static bool _lg_typecheck_b2TimeOfImpact(lua_State *L) {
 // bool b2PairLessThan(const b2Pair & pair1, const b2Pair & pair2)
 static int _bind_b2PairLessThan(lua_State *L) {
 	if (!_lg_typecheck_b2PairLessThan(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool b2PairLessThan(const b2Pair & pair1, const b2Pair & pair2) function, expected prototype:\nbool b2PairLessThan(const b2Pair & pair1, const b2Pair & pair2)\nClass arguments details:\narg 1 ID = 54312546\narg 2 ID = 54312546\n");
+		luaL_error(L, "luna typecheck failed in bool b2PairLessThan(const b2Pair & pair1, const b2Pair & pair2) function, expected prototype:\nbool b2PairLessThan(const b2Pair & pair1, const b2Pair & pair2)\nClass arguments details:\narg 1 ID = 54312546\narg 2 ID = 54312546\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Pair* pair1_ptr=(Luna< b2Pair >::check(L,1));
@@ -460,8 +459,7 @@ static int _bind_b2PairLessThan(lua_State *L) {
 // void b2CollideCircles(b2Manifold * manifold, const b2CircleShape * circleA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)
 static int _bind_b2CollideCircles(lua_State *L) {
 	if (!_lg_typecheck_b2CollideCircles(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2CollideCircles(b2Manifold * manifold, const b2CircleShape * circleA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollideCircles(b2Manifold * manifold, const b2CircleShape * circleA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in void b2CollideCircles(b2Manifold * manifold, const b2CircleShape * circleA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollideCircles(b2Manifold * manifold, const b2CircleShape * circleA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2Manifold* manifold=(Luna< b2Manifold >::check(L,1));
@@ -486,8 +484,7 @@ static int _bind_b2CollideCircles(lua_State *L) {
 // void b2CollidePolygonAndCircle(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)
 static int _bind_b2CollidePolygonAndCircle(lua_State *L) {
 	if (!_lg_typecheck_b2CollidePolygonAndCircle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2CollidePolygonAndCircle(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollidePolygonAndCircle(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in void b2CollidePolygonAndCircle(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollidePolygonAndCircle(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2Manifold* manifold=(Luna< b2Manifold >::check(L,1));
@@ -512,8 +509,7 @@ static int _bind_b2CollidePolygonAndCircle(lua_State *L) {
 // void b2CollidePolygons(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2PolygonShape * polygonB, const b2Transform & xfB)
 static int _bind_b2CollidePolygons(lua_State *L) {
 	if (!_lg_typecheck_b2CollidePolygons(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2CollidePolygons(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2PolygonShape * polygonB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollidePolygons(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2PolygonShape * polygonB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in void b2CollidePolygons(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2PolygonShape * polygonB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollidePolygons(b2Manifold * manifold, const b2PolygonShape * polygonA, const b2Transform & xfA, const b2PolygonShape * polygonB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2Manifold* manifold=(Luna< b2Manifold >::check(L,1));
@@ -538,8 +534,7 @@ static int _bind_b2CollidePolygons(lua_State *L) {
 // void b2CollideEdgeAndCircle(b2Manifold * manifold, const b2EdgeShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)
 static int _bind_b2CollideEdgeAndCircle(lua_State *L) {
 	if (!_lg_typecheck_b2CollideEdgeAndCircle(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2CollideEdgeAndCircle(b2Manifold * manifold, const b2EdgeShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollideEdgeAndCircle(b2Manifold * manifold, const b2EdgeShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in void b2CollideEdgeAndCircle(b2Manifold * manifold, const b2EdgeShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollideEdgeAndCircle(b2Manifold * manifold, const b2EdgeShape * polygonA, const b2Transform & xfA, const b2CircleShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2Manifold* manifold=(Luna< b2Manifold >::check(L,1));
@@ -564,8 +559,7 @@ static int _bind_b2CollideEdgeAndCircle(lua_State *L) {
 // void b2CollideEdgeAndPolygon(b2Manifold * manifold, const b2EdgeShape * edgeA, const b2Transform & xfA, const b2PolygonShape * circleB, const b2Transform & xfB)
 static int _bind_b2CollideEdgeAndPolygon(lua_State *L) {
 	if (!_lg_typecheck_b2CollideEdgeAndPolygon(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2CollideEdgeAndPolygon(b2Manifold * manifold, const b2EdgeShape * edgeA, const b2Transform & xfA, const b2PolygonShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollideEdgeAndPolygon(b2Manifold * manifold, const b2EdgeShape * edgeA, const b2Transform & xfA, const b2PolygonShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in void b2CollideEdgeAndPolygon(b2Manifold * manifold, const b2EdgeShape * edgeA, const b2Transform & xfA, const b2PolygonShape * circleB, const b2Transform & xfB) function, expected prototype:\nvoid b2CollideEdgeAndPolygon(b2Manifold * manifold, const b2EdgeShape * edgeA, const b2Transform & xfA, const b2PolygonShape * circleB, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 73405450\narg 2 ID = 86660265\narg 3 ID = 44090970\narg 4 ID = 86660265\narg 5 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2Manifold* manifold=(Luna< b2Manifold >::check(L,1));
@@ -590,8 +584,7 @@ static int _bind_b2CollideEdgeAndPolygon(lua_State *L) {
 // bool b2TestOverlap(const b2Shape * shapeA, signed int indexA, const b2Shape * shapeB, signed int indexB, const b2Transform & xfA, const b2Transform & xfB)
 static int _bind_b2TestOverlap_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2TestOverlap_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool b2TestOverlap(const b2Shape * shapeA, signed int indexA, const b2Shape * shapeB, signed int indexB, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nbool b2TestOverlap(const b2Shape * shapeA, signed int indexA, const b2Shape * shapeB, signed int indexB, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 86660265\narg 3 ID = 86660265\narg 5 ID = 44090970\narg 6 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in bool b2TestOverlap(const b2Shape * shapeA, signed int indexA, const b2Shape * shapeB, signed int indexB, const b2Transform & xfA, const b2Transform & xfB) function, expected prototype:\nbool b2TestOverlap(const b2Shape * shapeA, signed int indexA, const b2Shape * shapeB, signed int indexB, const b2Transform & xfA, const b2Transform & xfB)\nClass arguments details:\narg 1 ID = 86660265\narg 3 ID = 86660265\narg 5 ID = 44090970\narg 6 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Shape* shapeA=(Luna< b2Shape >::check(L,1));
@@ -618,8 +611,7 @@ static int _bind_b2TestOverlap_overload_1(lua_State *L) {
 // bool b2TestOverlap(const b2AABB & a, const b2AABB & b)
 static int _bind_b2TestOverlap_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2TestOverlap_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool b2TestOverlap(const b2AABB & a, const b2AABB & b) function, expected prototype:\nbool b2TestOverlap(const b2AABB & a, const b2AABB & b)\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 53833672\n");
+		luaL_error(L, "luna typecheck failed in bool b2TestOverlap(const b2AABB & a, const b2AABB & b) function, expected prototype:\nbool b2TestOverlap(const b2AABB & a, const b2AABB & b)\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 53833672\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2AABB* a_ptr=(Luna< b2AABB >::check(L,1));
@@ -651,8 +643,7 @@ static int _bind_b2TestOverlap(lua_State *L) {
 // float b2MixFriction(float friction1, float friction2)
 static int _bind_b2MixFriction(lua_State *L) {
 	if (!_lg_typecheck_b2MixFriction(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2MixFriction(float friction1, float friction2) function, expected prototype:\nfloat b2MixFriction(float friction1, float friction2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float b2MixFriction(float friction1, float friction2) function, expected prototype:\nfloat b2MixFriction(float friction1, float friction2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float friction1=(float)lua_tonumber(L,1);
@@ -667,8 +658,7 @@ static int _bind_b2MixFriction(lua_State *L) {
 // float b2MixRestitution(float restitution1, float restitution2)
 static int _bind_b2MixRestitution(lua_State *L) {
 	if (!_lg_typecheck_b2MixRestitution(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2MixRestitution(float restitution1, float restitution2) function, expected prototype:\nfloat b2MixRestitution(float restitution1, float restitution2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float b2MixRestitution(float restitution1, float restitution2) function, expected prototype:\nfloat b2MixRestitution(float restitution1, float restitution2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float restitution1=(float)lua_tonumber(L,1);
@@ -683,8 +673,7 @@ static int _bind_b2MixRestitution(lua_State *L) {
 // void b2Distance(b2DistanceOutput * output, b2SimplexCache * cache, const b2DistanceInput * input)
 static int _bind_b2Distance_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2Distance_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2Distance(b2DistanceOutput * output, b2SimplexCache * cache, const b2DistanceInput * input) function, expected prototype:\nvoid b2Distance(b2DistanceOutput * output, b2SimplexCache * cache, const b2DistanceInput * input)\nClass arguments details:\narg 1 ID = 57509721\narg 2 ID = 65613863\narg 3 ID = 50940514\n");
+		luaL_error(L, "luna typecheck failed in void b2Distance(b2DistanceOutput * output, b2SimplexCache * cache, const b2DistanceInput * input) function, expected prototype:\nvoid b2Distance(b2DistanceOutput * output, b2SimplexCache * cache, const b2DistanceInput * input)\nClass arguments details:\narg 1 ID = 57509721\narg 2 ID = 65613863\narg 3 ID = 50940514\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2DistanceOutput* output=(Luna< b2DistanceOutput >::check(L,1));
@@ -699,8 +688,7 @@ static int _bind_b2Distance_overload_1(lua_State *L) {
 // float b2Distance(const b2Vec2 & a, const b2Vec2 & b)
 static int _bind_b2Distance_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2Distance_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2Distance(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2Distance(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in float b2Distance(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2Distance(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -732,8 +720,7 @@ static int _bind_b2Distance(lua_State *L) {
 // bool b2IsValid(float x)
 static int _bind_b2IsValid(lua_State *L) {
 	if (!_lg_typecheck_b2IsValid(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool b2IsValid(float x) function, expected prototype:\nbool b2IsValid(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool b2IsValid(float x) function, expected prototype:\nbool b2IsValid(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -747,8 +734,7 @@ static int _bind_b2IsValid(lua_State *L) {
 // float b2InvSqrt(float x)
 static int _bind_b2InvSqrt(lua_State *L) {
 	if (!_lg_typecheck_b2InvSqrt(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2InvSqrt(float x) function, expected prototype:\nfloat b2InvSqrt(float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in float b2InvSqrt(float x) function, expected prototype:\nfloat b2InvSqrt(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float x=(float)lua_tonumber(L,1);
@@ -762,8 +748,7 @@ static int _bind_b2InvSqrt(lua_State *L) {
 // float b2Dot(const b2Vec2 & a, const b2Vec2 & b)
 static int _bind_b2Dot_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2Dot_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2Dot(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2Dot(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in float b2Dot(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2Dot(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -786,8 +771,7 @@ static int _bind_b2Dot_overload_1(lua_State *L) {
 // float b2Dot(const b2Vec3 & a, const b2Vec3 & b)
 static int _bind_b2Dot_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2Dot_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2Dot(const b2Vec3 & a, const b2Vec3 & b) function, expected prototype:\nfloat b2Dot(const b2Vec3 & a, const b2Vec3 & b)\nClass arguments details:\narg 1 ID = 54494887\narg 2 ID = 54494887\n");
+		luaL_error(L, "luna typecheck failed in float b2Dot(const b2Vec3 & a, const b2Vec3 & b) function, expected prototype:\nfloat b2Dot(const b2Vec3 & a, const b2Vec3 & b)\nClass arguments details:\narg 1 ID = 54494887\narg 2 ID = 54494887\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec3* a_ptr=(Luna< b2Vec3 >::check(L,1));
@@ -819,8 +803,7 @@ static int _bind_b2Dot(lua_State *L) {
 // float b2Cross(const b2Vec2 & a, const b2Vec2 & b)
 static int _bind_b2Cross_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2Cross_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2Cross(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2Cross(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in float b2Cross(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2Cross(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -843,8 +826,7 @@ static int _bind_b2Cross_overload_1(lua_State *L) {
 // b2Vec2 b2Cross(const b2Vec2 & a, float s)
 static int _bind_b2Cross_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2Cross_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Cross(const b2Vec2 & a, float s) function, expected prototype:\nb2Vec2 b2Cross(const b2Vec2 & a, float s)\nClass arguments details:\narg 1 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Cross(const b2Vec2 & a, float s) function, expected prototype:\nb2Vec2 b2Cross(const b2Vec2 & a, float s)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -866,8 +848,7 @@ static int _bind_b2Cross_overload_2(lua_State *L) {
 // b2Vec2 b2Cross(float s, const b2Vec2 & a)
 static int _bind_b2Cross_overload_3(lua_State *L) {
 	if (!_lg_typecheck_b2Cross_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Cross(float s, const b2Vec2 & a) function, expected prototype:\nb2Vec2 b2Cross(float s, const b2Vec2 & a)\nClass arguments details:\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Cross(float s, const b2Vec2 & a) function, expected prototype:\nb2Vec2 b2Cross(float s, const b2Vec2 & a)\nClass arguments details:\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float s=(float)lua_tonumber(L,1);
@@ -889,8 +870,7 @@ static int _bind_b2Cross_overload_3(lua_State *L) {
 // b2Vec3 b2Cross(const b2Vec3 & a, const b2Vec3 & b)
 static int _bind_b2Cross_overload_4(lua_State *L) {
 	if (!_lg_typecheck_b2Cross_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec3 b2Cross(const b2Vec3 & a, const b2Vec3 & b) function, expected prototype:\nb2Vec3 b2Cross(const b2Vec3 & a, const b2Vec3 & b)\nClass arguments details:\narg 1 ID = 54494887\narg 2 ID = 54494887\n");
+		luaL_error(L, "luna typecheck failed in b2Vec3 b2Cross(const b2Vec3 & a, const b2Vec3 & b) function, expected prototype:\nb2Vec3 b2Cross(const b2Vec3 & a, const b2Vec3 & b)\nClass arguments details:\narg 1 ID = 54494887\narg 2 ID = 54494887\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec3* a_ptr=(Luna< b2Vec3 >::check(L,1));
@@ -927,8 +907,7 @@ static int _bind_b2Cross(lua_State *L) {
 // b2Vec2 b2Mul(const b2Mat22 & A, const b2Vec2 & v)
 static int _bind_b2Mul_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul(const b2Mat22 & A, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul(const b2Mat22 & A, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul(const b2Mat22 & A, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul(const b2Mat22 & A, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat22* A_ptr=(Luna< b2Mat22 >::check(L,1));
@@ -954,8 +933,7 @@ static int _bind_b2Mul_overload_1(lua_State *L) {
 // b2Mat22 b2Mul(const b2Mat22 & A, const b2Mat22 & B)
 static int _bind_b2Mul_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Mat22 b2Mul(const b2Mat22 & A, const b2Mat22 & B) function, expected prototype:\nb2Mat22 b2Mul(const b2Mat22 & A, const b2Mat22 & B)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 80926888\n");
+		luaL_error(L, "luna typecheck failed in b2Mat22 b2Mul(const b2Mat22 & A, const b2Mat22 & B) function, expected prototype:\nb2Mat22 b2Mul(const b2Mat22 & A, const b2Mat22 & B)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 80926888\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat22* A_ptr=(Luna< b2Mat22 >::check(L,1));
@@ -981,8 +959,7 @@ static int _bind_b2Mul_overload_2(lua_State *L) {
 // b2Vec3 b2Mul(const b2Mat33 & A, const b2Vec3 & v)
 static int _bind_b2Mul_overload_3(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec3 b2Mul(const b2Mat33 & A, const b2Vec3 & v) function, expected prototype:\nb2Vec3 b2Mul(const b2Mat33 & A, const b2Vec3 & v)\nClass arguments details:\narg 1 ID = 80926920\narg 2 ID = 54494887\n");
+		luaL_error(L, "luna typecheck failed in b2Vec3 b2Mul(const b2Mat33 & A, const b2Vec3 & v) function, expected prototype:\nb2Vec3 b2Mul(const b2Mat33 & A, const b2Vec3 & v)\nClass arguments details:\narg 1 ID = 80926920\narg 2 ID = 54494887\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat33* A_ptr=(Luna< b2Mat33 >::check(L,1));
@@ -1008,8 +985,7 @@ static int _bind_b2Mul_overload_3(lua_State *L) {
 // b2Rot b2Mul(const b2Rot & q, const b2Rot & r)
 static int _bind_b2Mul_overload_4(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Rot b2Mul(const b2Rot & q, const b2Rot & r) function, expected prototype:\nb2Rot b2Mul(const b2Rot & q, const b2Rot & r)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 92076967\n");
+		luaL_error(L, "luna typecheck failed in b2Rot b2Mul(const b2Rot & q, const b2Rot & r) function, expected prototype:\nb2Rot b2Mul(const b2Rot & q, const b2Rot & r)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 92076967\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Rot* q_ptr=(Luna< b2Rot >::check(L,1));
@@ -1035,8 +1011,7 @@ static int _bind_b2Mul_overload_4(lua_State *L) {
 // b2Vec2 b2Mul(const b2Rot & q, const b2Vec2 & v)
 static int _bind_b2Mul_overload_5(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_5(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul(const b2Rot & q, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul(const b2Rot & q, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul(const b2Rot & q, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul(const b2Rot & q, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Rot* q_ptr=(Luna< b2Rot >::check(L,1));
@@ -1062,8 +1037,7 @@ static int _bind_b2Mul_overload_5(lua_State *L) {
 // b2Vec2 b2Mul(const b2Transform & T, const b2Vec2 & v)
 static int _bind_b2Mul_overload_6(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_6(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul(const b2Transform & T, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul(const b2Transform & T, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul(const b2Transform & T, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul(const b2Transform & T, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Transform* T_ptr=(Luna< b2Transform >::check(L,1));
@@ -1089,8 +1063,7 @@ static int _bind_b2Mul_overload_6(lua_State *L) {
 // b2Transform b2Mul(const b2Transform & A, const b2Transform & B)
 static int _bind_b2Mul_overload_7(lua_State *L) {
 	if (!_lg_typecheck_b2Mul_overload_7(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Transform b2Mul(const b2Transform & A, const b2Transform & B) function, expected prototype:\nb2Transform b2Mul(const b2Transform & A, const b2Transform & B)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in b2Transform b2Mul(const b2Transform & A, const b2Transform & B) function, expected prototype:\nb2Transform b2Mul(const b2Transform & A, const b2Transform & B)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Transform* A_ptr=(Luna< b2Transform >::check(L,1));
@@ -1130,8 +1103,7 @@ static int _bind_b2Mul(lua_State *L) {
 // b2Vec2 b2MulT(const b2Mat22 & A, const b2Vec2 & v)
 static int _bind_b2MulT_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2MulT_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2MulT(const b2Mat22 & A, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2MulT(const b2Mat22 & A, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2MulT(const b2Mat22 & A, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2MulT(const b2Mat22 & A, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat22* A_ptr=(Luna< b2Mat22 >::check(L,1));
@@ -1157,8 +1129,7 @@ static int _bind_b2MulT_overload_1(lua_State *L) {
 // b2Mat22 b2MulT(const b2Mat22 & A, const b2Mat22 & B)
 static int _bind_b2MulT_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2MulT_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Mat22 b2MulT(const b2Mat22 & A, const b2Mat22 & B) function, expected prototype:\nb2Mat22 b2MulT(const b2Mat22 & A, const b2Mat22 & B)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 80926888\n");
+		luaL_error(L, "luna typecheck failed in b2Mat22 b2MulT(const b2Mat22 & A, const b2Mat22 & B) function, expected prototype:\nb2Mat22 b2MulT(const b2Mat22 & A, const b2Mat22 & B)\nClass arguments details:\narg 1 ID = 80926888\narg 2 ID = 80926888\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat22* A_ptr=(Luna< b2Mat22 >::check(L,1));
@@ -1184,8 +1155,7 @@ static int _bind_b2MulT_overload_2(lua_State *L) {
 // b2Rot b2MulT(const b2Rot & q, const b2Rot & r)
 static int _bind_b2MulT_overload_3(lua_State *L) {
 	if (!_lg_typecheck_b2MulT_overload_3(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Rot b2MulT(const b2Rot & q, const b2Rot & r) function, expected prototype:\nb2Rot b2MulT(const b2Rot & q, const b2Rot & r)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 92076967\n");
+		luaL_error(L, "luna typecheck failed in b2Rot b2MulT(const b2Rot & q, const b2Rot & r) function, expected prototype:\nb2Rot b2MulT(const b2Rot & q, const b2Rot & r)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 92076967\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Rot* q_ptr=(Luna< b2Rot >::check(L,1));
@@ -1211,8 +1181,7 @@ static int _bind_b2MulT_overload_3(lua_State *L) {
 // b2Vec2 b2MulT(const b2Rot & q, const b2Vec2 & v)
 static int _bind_b2MulT_overload_4(lua_State *L) {
 	if (!_lg_typecheck_b2MulT_overload_4(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2MulT(const b2Rot & q, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2MulT(const b2Rot & q, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2MulT(const b2Rot & q, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2MulT(const b2Rot & q, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 92076967\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Rot* q_ptr=(Luna< b2Rot >::check(L,1));
@@ -1238,8 +1207,7 @@ static int _bind_b2MulT_overload_4(lua_State *L) {
 // b2Vec2 b2MulT(const b2Transform & T, const b2Vec2 & v)
 static int _bind_b2MulT_overload_5(lua_State *L) {
 	if (!_lg_typecheck_b2MulT_overload_5(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2MulT(const b2Transform & T, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2MulT(const b2Transform & T, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2MulT(const b2Transform & T, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2MulT(const b2Transform & T, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Transform* T_ptr=(Luna< b2Transform >::check(L,1));
@@ -1265,8 +1233,7 @@ static int _bind_b2MulT_overload_5(lua_State *L) {
 // b2Transform b2MulT(const b2Transform & A, const b2Transform & B)
 static int _bind_b2MulT_overload_6(lua_State *L) {
 	if (!_lg_typecheck_b2MulT_overload_6(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Transform b2MulT(const b2Transform & A, const b2Transform & B) function, expected prototype:\nb2Transform b2MulT(const b2Transform & A, const b2Transform & B)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 44090970\n");
+		luaL_error(L, "luna typecheck failed in b2Transform b2MulT(const b2Transform & A, const b2Transform & B) function, expected prototype:\nb2Transform b2MulT(const b2Transform & A, const b2Transform & B)\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Transform* A_ptr=(Luna< b2Transform >::check(L,1));
@@ -1305,8 +1272,7 @@ static int _bind_b2MulT(lua_State *L) {
 // float b2DistanceSquared(const b2Vec2 & a, const b2Vec2 & b)
 static int _bind_b2DistanceSquared(lua_State *L) {
 	if (!_lg_typecheck_b2DistanceSquared(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in float b2DistanceSquared(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2DistanceSquared(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in float b2DistanceSquared(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nfloat b2DistanceSquared(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -1329,8 +1295,7 @@ static int _bind_b2DistanceSquared(lua_State *L) {
 // b2Vec2 b2Mul22(const b2Mat33 & A, const b2Vec2 & v)
 static int _bind_b2Mul22(lua_State *L) {
 	if (!_lg_typecheck_b2Mul22(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul22(const b2Mat33 & A, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul22(const b2Mat33 & A, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 80926920\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Mul22(const b2Mat33 & A, const b2Vec2 & v) function, expected prototype:\nb2Vec2 b2Mul22(const b2Mat33 & A, const b2Vec2 & v)\nClass arguments details:\narg 1 ID = 80926920\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat33* A_ptr=(Luna< b2Mat33 >::check(L,1));
@@ -1356,8 +1321,7 @@ static int _bind_b2Mul22(lua_State *L) {
 // b2Vec2 b2Abs(const b2Vec2 & a)
 static int _bind_b2Abs_overload_1(lua_State *L) {
 	if (!_lg_typecheck_b2Abs_overload_1(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Abs(const b2Vec2 & a) function, expected prototype:\nb2Vec2 b2Abs(const b2Vec2 & a)\nClass arguments details:\narg 1 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Abs(const b2Vec2 & a) function, expected prototype:\nb2Vec2 b2Abs(const b2Vec2 & a)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -1378,8 +1342,7 @@ static int _bind_b2Abs_overload_1(lua_State *L) {
 // b2Mat22 b2Abs(const b2Mat22 & A)
 static int _bind_b2Abs_overload_2(lua_State *L) {
 	if (!_lg_typecheck_b2Abs_overload_2(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Mat22 b2Abs(const b2Mat22 & A) function, expected prototype:\nb2Mat22 b2Abs(const b2Mat22 & A)\nClass arguments details:\narg 1 ID = 80926888\n");
+		luaL_error(L, "luna typecheck failed in b2Mat22 b2Abs(const b2Mat22 & A) function, expected prototype:\nb2Mat22 b2Abs(const b2Mat22 & A)\nClass arguments details:\narg 1 ID = 80926888\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Mat22* A_ptr=(Luna< b2Mat22 >::check(L,1));
@@ -1409,8 +1372,7 @@ static int _bind_b2Abs(lua_State *L) {
 // b2Vec2 b2Min(const b2Vec2 & a, const b2Vec2 & b)
 static int _bind_b2Min(lua_State *L) {
 	if (!_lg_typecheck_b2Min(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Min(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nb2Vec2 b2Min(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Min(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nb2Vec2 b2Min(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -1436,8 +1398,7 @@ static int _bind_b2Min(lua_State *L) {
 // b2Vec2 b2Max(const b2Vec2 & a, const b2Vec2 & b)
 static int _bind_b2Max(lua_State *L) {
 	if (!_lg_typecheck_b2Max(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Max(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nb2Vec2 b2Max(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Max(const b2Vec2 & a, const b2Vec2 & b) function, expected prototype:\nb2Vec2 b2Max(const b2Vec2 & a, const b2Vec2 & b)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -1463,8 +1424,7 @@ static int _bind_b2Max(lua_State *L) {
 // b2Vec2 b2Clamp(const b2Vec2 & a, const b2Vec2 & low, const b2Vec2 & high)
 static int _bind_b2Clamp(lua_State *L) {
 	if (!_lg_typecheck_b2Clamp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in b2Vec2 b2Clamp(const b2Vec2 & a, const b2Vec2 & low, const b2Vec2 & high) function, expected prototype:\nb2Vec2 b2Clamp(const b2Vec2 & a, const b2Vec2 & low, const b2Vec2 & high)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\narg 3 ID = 54494886\n");
+		luaL_error(L, "luna typecheck failed in b2Vec2 b2Clamp(const b2Vec2 & a, const b2Vec2 & low, const b2Vec2 & high) function, expected prototype:\nb2Vec2 b2Clamp(const b2Vec2 & a, const b2Vec2 & low, const b2Vec2 & high)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const b2Vec2* a_ptr=(Luna< b2Vec2 >::check(L,1));
@@ -1495,8 +1455,7 @@ static int _bind_b2Clamp(lua_State *L) {
 // unsigned int b2NextPowerOfTwo(unsigned int x)
 static int _bind_b2NextPowerOfTwo(lua_State *L) {
 	if (!_lg_typecheck_b2NextPowerOfTwo(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int b2NextPowerOfTwo(unsigned int x) function, expected prototype:\nunsigned int b2NextPowerOfTwo(unsigned int x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int b2NextPowerOfTwo(unsigned int x) function, expected prototype:\nunsigned int b2NextPowerOfTwo(unsigned int x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int x=(unsigned int)lua_tointeger(L,1);
@@ -1510,8 +1469,7 @@ static int _bind_b2NextPowerOfTwo(lua_State *L) {
 // bool b2IsPowerOfTwo(unsigned int x)
 static int _bind_b2IsPowerOfTwo(lua_State *L) {
 	if (!_lg_typecheck_b2IsPowerOfTwo(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in bool b2IsPowerOfTwo(unsigned int x) function, expected prototype:\nbool b2IsPowerOfTwo(unsigned int x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in bool b2IsPowerOfTwo(unsigned int x) function, expected prototype:\nbool b2IsPowerOfTwo(unsigned int x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int x=(unsigned int)lua_tointeger(L,1);
@@ -1525,8 +1483,7 @@ static int _bind_b2IsPowerOfTwo(lua_State *L) {
 // void * b2Alloc(signed int size)
 static int _bind_b2Alloc(lua_State *L) {
 	if (!_lg_typecheck_b2Alloc(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * b2Alloc(signed int size) function, expected prototype:\nvoid * b2Alloc(signed int size)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * b2Alloc(signed int size) function, expected prototype:\nvoid * b2Alloc(signed int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	signed int size=(signed int)lua_tointeger(L,1);
@@ -1542,8 +1499,7 @@ static int _bind_b2Alloc(lua_State *L) {
 // void b2Free(void * mem)
 static int _bind_b2Free(lua_State *L) {
 	if (!_lg_typecheck_b2Free(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2Free(void * mem) function, expected prototype:\nvoid b2Free(void * mem)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void b2Free(void * mem) function, expected prototype:\nvoid b2Free(void * mem)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* mem=(Luna< void >::check(L,1));
@@ -1556,8 +1512,7 @@ static int _bind_b2Free(lua_State *L) {
 // void b2TimeOfImpact(b2TOIOutput * output, const b2TOIInput * input)
 static int _bind_b2TimeOfImpact(lua_State *L) {
 	if (!_lg_typecheck_b2TimeOfImpact(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void b2TimeOfImpact(b2TOIOutput * output, const b2TOIInput * input) function, expected prototype:\nvoid b2TimeOfImpact(b2TOIOutput * output, const b2TOIInput * input)\nClass arguments details:\narg 1 ID = 17329370\narg 2 ID = 98031472\n");
+		luaL_error(L, "luna typecheck failed in void b2TimeOfImpact(b2TOIOutput * output, const b2TOIInput * input) function, expected prototype:\nvoid b2TimeOfImpact(b2TOIOutput * output, const b2TOIInput * input)\nClass arguments details:\narg 1 ID = 17329370\narg 2 ID = 98031472\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	b2TOIOutput* output=(Luna< b2TOIOutput >::check(L,1));

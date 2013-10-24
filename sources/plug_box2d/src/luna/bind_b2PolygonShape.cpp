@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Shape* self=(Luna< b2Shape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2PolygonShape* self= (b2PolygonShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Shape >::check(L,1));
@@ -121,26 +118,26 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,54494886)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetAsBox_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_SetAsBox_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,54494886) ) return false;
 		if( (!(Luna< b2Vec2 >::check(L,4))) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -158,7 +155,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78839054)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,74209205) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,44090970) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -167,7 +164,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,53833672)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,44090970) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -175,7 +172,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,24760292)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -188,7 +185,7 @@ public:
 	inline static bool _lg_typecheck_GetVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -214,7 +211,7 @@ public:
 	inline static bool _lg_typecheck_setVertexCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -245,7 +242,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78839054)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,74209205) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,44090970) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -254,7 +251,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,53833672)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,44090970) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -262,7 +259,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,24760292)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -274,8 +271,7 @@ public:
 	// b2PolygonShape::b2PolygonShape()
 	static b2PolygonShape* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2PolygonShape::b2PolygonShape() function, expected prototype:\nb2PolygonShape::b2PolygonShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2PolygonShape::b2PolygonShape() function, expected prototype:\nb2PolygonShape::b2PolygonShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -285,8 +281,7 @@ public:
 	// b2PolygonShape::b2PolygonShape(lua_Table * data)
 	static b2PolygonShape* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2PolygonShape::b2PolygonShape(lua_Table * data) function, expected prototype:\nb2PolygonShape::b2PolygonShape(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2PolygonShape::b2PolygonShape(lua_Table * data) function, expected prototype:\nb2PolygonShape::b2PolygonShape(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -307,16 +302,14 @@ public:
 	// b2Shape * b2PolygonShape::Clone(b2BlockAllocator * allocator) const
 	static int _bind_Clone(lua_State *L) {
 		if (!_lg_typecheck_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Shape * b2PolygonShape::Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2PolygonShape::Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in b2Shape * b2PolygonShape::Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2PolygonShape::Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2BlockAllocator* allocator=(Luna< b2BlockAllocator >::check(L,2));
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Shape * b2PolygonShape::Clone(b2BlockAllocator *) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Shape * b2PolygonShape::Clone(b2BlockAllocator *) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Shape * lret = self->Clone(allocator);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -329,15 +322,13 @@ public:
 	// signed int b2PolygonShape::GetChildCount() const
 	static int _bind_GetChildCount(lua_State *L) {
 		if (!_lg_typecheck_GetChildCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::GetChildCount() const function, expected prototype:\nsigned int b2PolygonShape::GetChildCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::GetChildCount() const function, expected prototype:\nsigned int b2PolygonShape::GetChildCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::GetChildCount() const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::GetChildCount() const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetChildCount();
 		lua_pushnumber(L,lret);
@@ -348,8 +339,7 @@ public:
 	// void b2PolygonShape::Set(const b2Vec2 * vertices, signed int vertexCount)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::Set(const b2Vec2 * vertices, signed int vertexCount) function, expected prototype:\nvoid b2PolygonShape::Set(const b2Vec2 * vertices, signed int vertexCount)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::Set(const b2Vec2 * vertices, signed int vertexCount) function, expected prototype:\nvoid b2PolygonShape::Set(const b2Vec2 * vertices, signed int vertexCount)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* vertices=(Luna< b2Vec2 >::check(L,2));
@@ -357,8 +347,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::Set(const b2Vec2 *, signed int). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::Set(const b2Vec2 *, signed int). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(vertices, vertexCount);
 
@@ -368,8 +357,7 @@ public:
 	// void b2PolygonShape::SetAsBox(float hx, float hy)
 	static int _bind_SetAsBox_overload_1(lua_State *L) {
 		if (!_lg_typecheck_SetAsBox_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::SetAsBox(float hx, float hy) function, expected prototype:\nvoid b2PolygonShape::SetAsBox(float hx, float hy)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::SetAsBox(float hx, float hy) function, expected prototype:\nvoid b2PolygonShape::SetAsBox(float hx, float hy)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float hx=(float)lua_tonumber(L,2);
@@ -377,8 +365,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::SetAsBox(float, float). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::SetAsBox(float, float). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAsBox(hx, hy);
 
@@ -388,8 +375,7 @@ public:
 	// void b2PolygonShape::SetAsBox(float hx, float hy, const b2Vec2 & center, float angle)
 	static int _bind_SetAsBox_overload_2(lua_State *L) {
 		if (!_lg_typecheck_SetAsBox_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::SetAsBox(float hx, float hy, const b2Vec2 & center, float angle) function, expected prototype:\nvoid b2PolygonShape::SetAsBox(float hx, float hy, const b2Vec2 & center, float angle)\nClass arguments details:\narg 3 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::SetAsBox(float hx, float hy, const b2Vec2 & center, float angle) function, expected prototype:\nvoid b2PolygonShape::SetAsBox(float hx, float hy, const b2Vec2 & center, float angle)\nClass arguments details:\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float hx=(float)lua_tonumber(L,2);
@@ -403,8 +389,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::SetAsBox(float, float, const b2Vec2 &, float). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::SetAsBox(float, float, const b2Vec2 &, float). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetAsBox(hx, hy, center, angle);
 
@@ -423,8 +408,7 @@ public:
 	// bool b2PolygonShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const
 	static int _bind_TestPoint(lua_State *L) {
 		if (!_lg_typecheck_TestPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2PolygonShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2PolygonShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Transform* transform_ptr=(Luna< b2Transform >::check(L,2));
@@ -440,8 +424,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2PolygonShape::TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2PolygonShape::TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TestPoint(transform, p);
 		lua_pushboolean(L,lret?1:0);
@@ -452,8 +435,7 @@ public:
 	// bool b2PolygonShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const
 	static int _bind_RayCast(lua_State *L) {
 		if (!_lg_typecheck_RayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2PolygonShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2PolygonShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* output=(Luna< b2RayCastOutput >::check(L,2));
@@ -471,8 +453,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2PolygonShape::RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2PolygonShape::RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RayCast(output, input, transform, childIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -483,8 +464,7 @@ public:
 	// void b2PolygonShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const
 	static int _bind_ComputeAABB(lua_State *L) {
 		if (!_lg_typecheck_ComputeAABB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2PolygonShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2PolygonShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* aabb=(Luna< b2AABB >::check(L,2));
@@ -497,8 +477,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ComputeAABB(aabb, transform, childIndex);
 
@@ -508,8 +487,7 @@ public:
 	// void b2PolygonShape::ComputeMass(b2MassData * massData, float density) const
 	static int _bind_ComputeMass(lua_State *L) {
 		if (!_lg_typecheck_ComputeMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2PolygonShape::ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2PolygonShape::ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* massData=(Luna< b2MassData >::check(L,2));
@@ -517,8 +495,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::ComputeMass(b2MassData *, float) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::ComputeMass(b2MassData *, float) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ComputeMass(massData, density);
 
@@ -528,15 +505,13 @@ public:
 	// signed int b2PolygonShape::GetVertexCount() const
 	static int _bind_GetVertexCount(lua_State *L) {
 		if (!_lg_typecheck_GetVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::GetVertexCount() const function, expected prototype:\nsigned int b2PolygonShape::GetVertexCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::GetVertexCount() const function, expected prototype:\nsigned int b2PolygonShape::GetVertexCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::GetVertexCount() const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::GetVertexCount() const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetVertexCount();
 		lua_pushnumber(L,lret);
@@ -547,16 +522,14 @@ public:
 	// const b2Vec2 & b2PolygonShape::GetVertex(signed int index) const
 	static int _bind_GetVertex(lua_State *L) {
 		if (!_lg_typecheck_GetVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PolygonShape::GetVertex(signed int index) const function, expected prototype:\nconst b2Vec2 & b2PolygonShape::GetVertex(signed int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2PolygonShape::GetVertex(signed int index) const function, expected prototype:\nconst b2Vec2 & b2PolygonShape::GetVertex(signed int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int index=(signed int)lua_tointeger(L,2);
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PolygonShape::GetVertex(signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2PolygonShape::GetVertex(signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetVertex(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,15 +542,13 @@ public:
 	// b2Vec2 b2PolygonShape::m_centroid()
 	static int _bind_getCentroid(lua_State *L) {
 		if (!_lg_typecheck_getCentroid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2PolygonShape::m_centroid() function, expected prototype:\nb2Vec2 b2PolygonShape::m_centroid()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2PolygonShape::m_centroid() function, expected prototype:\nb2Vec2 b2PolygonShape::m_centroid()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2PolygonShape::m_centroid(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2PolygonShape::m_centroid(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->m_centroid;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -590,15 +561,13 @@ public:
 	// signed int b2PolygonShape::m_vertexCount()
 	static int _bind_getVertexCount(lua_State *L) {
 		if (!_lg_typecheck_getVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::m_vertexCount() function, expected prototype:\nsigned int b2PolygonShape::m_vertexCount()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::m_vertexCount() function, expected prototype:\nsigned int b2PolygonShape::m_vertexCount()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::m_vertexCount(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::m_vertexCount(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_vertexCount;
 		lua_pushnumber(L,lret);
@@ -609,8 +578,7 @@ public:
 	// void b2PolygonShape::m_centroid(b2Vec2 value)
 	static int _bind_setCentroid(lua_State *L) {
 		if (!_lg_typecheck_setCentroid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::m_centroid(b2Vec2 value) function, expected prototype:\nvoid b2PolygonShape::m_centroid(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::m_centroid(b2Vec2 value) function, expected prototype:\nvoid b2PolygonShape::m_centroid(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -621,8 +589,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::m_centroid(b2Vec2). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::m_centroid(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_centroid = value;
 
@@ -632,16 +599,14 @@ public:
 	// void b2PolygonShape::m_vertexCount(signed int value)
 	static int _bind_setVertexCount(lua_State *L) {
 		if (!_lg_typecheck_setVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::m_vertexCount(signed int value) function, expected prototype:\nvoid b2PolygonShape::m_vertexCount(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::m_vertexCount(signed int value) function, expected prototype:\nvoid b2PolygonShape::m_vertexCount(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::m_vertexCount(signed int). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::m_vertexCount(signed int). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertexCount = value;
 
@@ -651,16 +616,14 @@ public:
 	// b2Shape * b2PolygonShape::base_Clone(b2BlockAllocator * allocator) const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Shape * b2PolygonShape::base_Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2PolygonShape::base_Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in b2Shape * b2PolygonShape::base_Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2PolygonShape::base_Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2BlockAllocator* allocator=(Luna< b2BlockAllocator >::check(L,2));
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Shape * b2PolygonShape::base_Clone(b2BlockAllocator *) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Shape * b2PolygonShape::base_Clone(b2BlockAllocator *) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Shape * lret = self->b2PolygonShape::Clone(allocator);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -673,15 +636,13 @@ public:
 	// signed int b2PolygonShape::base_GetChildCount() const
 	static int _bind_base_GetChildCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetChildCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::base_GetChildCount() const function, expected prototype:\nsigned int b2PolygonShape::base_GetChildCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2PolygonShape::base_GetChildCount() const function, expected prototype:\nsigned int b2PolygonShape::base_GetChildCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::base_GetChildCount() const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2PolygonShape::base_GetChildCount() const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->b2PolygonShape::GetChildCount();
 		lua_pushnumber(L,lret);
@@ -692,8 +653,7 @@ public:
 	// bool b2PolygonShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const
 	static int _bind_base_TestPoint(lua_State *L) {
 		if (!_lg_typecheck_base_TestPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2PolygonShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2PolygonShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Transform* transform_ptr=(Luna< b2Transform >::check(L,2));
@@ -709,8 +669,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2PolygonShape::base_TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2PolygonShape::base_TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->b2PolygonShape::TestPoint(transform, p);
 		lua_pushboolean(L,lret?1:0);
@@ -721,8 +680,7 @@ public:
 	// bool b2PolygonShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const
 	static int _bind_base_RayCast(lua_State *L) {
 		if (!_lg_typecheck_base_RayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2PolygonShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in bool b2PolygonShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2PolygonShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* output=(Luna< b2RayCastOutput >::check(L,2));
@@ -740,8 +698,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2PolygonShape::base_RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2PolygonShape::base_RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->b2PolygonShape::RayCast(output, input, transform, childIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -752,8 +709,7 @@ public:
 	// void b2PolygonShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const
 	static int _bind_base_ComputeAABB(lua_State *L) {
 		if (!_lg_typecheck_base_ComputeAABB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2PolygonShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2PolygonShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* aabb=(Luna< b2AABB >::check(L,2));
@@ -766,8 +722,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::base_ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::base_ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2PolygonShape::ComputeAABB(aabb, transform, childIndex);
 
@@ -777,8 +732,7 @@ public:
 	// void b2PolygonShape::base_ComputeMass(b2MassData * massData, float density) const
 	static int _bind_base_ComputeMass(lua_State *L) {
 		if (!_lg_typecheck_base_ComputeMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2PolygonShape::base_ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2PolygonShape::base_ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n");
+			luaL_error(L, "luna typecheck failed in void b2PolygonShape::base_ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2PolygonShape::base_ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* massData=(Luna< b2MassData >::check(L,2));
@@ -786,8 +740,7 @@ public:
 
 		b2PolygonShape* self=Luna< b2Shape >::checkSubType< b2PolygonShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2PolygonShape::base_ComputeMass(b2MassData *, float) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2PolygonShape::base_ComputeMass(b2MassData *, float) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2PolygonShape::ComputeMass(massData, density);
 

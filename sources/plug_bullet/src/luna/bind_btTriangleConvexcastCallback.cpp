@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* self=(Luna< btTriangleCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleConvexcastCallback* self= (btTriangleConvexcastCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTriangleCallback >::check(L,1));
@@ -97,7 +94,7 @@ public:
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -107,8 +104,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -117,9 +114,9 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -189,21 +186,21 @@ public:
 	inline static bool _lg_typecheck_setHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setTriangleCollisionMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAllowedPenetration(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -211,8 +208,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -224,8 +221,7 @@ public:
 	// btTriangleConvexcastCallback::btTriangleConvexcastCallback(lua_Table * data, const btConvexShape * convexShape, const btTransform & convexShapeFrom, const btTransform & convexShapeTo, const btTransform & triangleToWorld, const float triangleCollisionMargin)
 	static btTriangleConvexcastCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleConvexcastCallback::btTriangleConvexcastCallback(lua_Table * data, const btConvexShape * convexShape, const btTransform & convexShapeFrom, const btTransform & convexShapeTo, const btTransform & triangleToWorld, const float triangleCollisionMargin) function, expected prototype:\nbtTriangleConvexcastCallback::btTriangleConvexcastCallback(lua_Table * data, const btConvexShape * convexShape, const btTransform & convexShapeFrom, const btTransform & convexShapeTo, const btTransform & triangleToWorld, const float triangleCollisionMargin)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 13247377\narg 4 ID = 13247377\narg 5 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btTriangleConvexcastCallback::btTriangleConvexcastCallback(lua_Table * data, const btConvexShape * convexShape, const btTransform & convexShapeFrom, const btTransform & convexShapeTo, const btTransform & triangleToWorld, const float triangleCollisionMargin) function, expected prototype:\nbtTriangleConvexcastCallback::btTriangleConvexcastCallback(lua_Table * data, const btConvexShape * convexShape, const btTransform & convexShapeFrom, const btTransform & convexShapeTo, const btTransform & triangleToWorld, const float triangleCollisionMargin)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 13247377\narg 4 ID = 13247377\narg 5 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexShape* convexShape=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,2));
@@ -254,8 +250,7 @@ public:
 	// void btTriangleConvexcastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex)
 	static int _bind_processTriangle(lua_State *L) {
 		if (!_lg_typecheck_processTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleConvexcastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleConvexcastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* triangle=(Luna< btVector3 >::check(L,2));
@@ -264,8 +259,7 @@ public:
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::processTriangle(btVector3 *, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::processTriangle(btVector3 *, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processTriangle(triangle, partId, triangleIndex);
 
@@ -275,8 +269,7 @@ public:
 	// float btTriangleConvexcastCallback::reportHit(const btVector3 & hitNormalLocal, const btVector3 & hitPointLocal, float hitFraction, int partId, int triangleIndex)
 	static int _bind_reportHit(lua_State *L) {
 		if (!_lg_typecheck_reportHit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::reportHit(const btVector3 & hitNormalLocal, const btVector3 & hitPointLocal, float hitFraction, int partId, int triangleIndex) function, expected prototype:\nfloat btTriangleConvexcastCallback::reportHit(const btVector3 & hitNormalLocal, const btVector3 & hitPointLocal, float hitFraction, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::reportHit(const btVector3 & hitNormalLocal, const btVector3 & hitPointLocal, float hitFraction, int partId, int triangleIndex) function, expected prototype:\nfloat btTriangleConvexcastCallback::reportHit(const btVector3 & hitNormalLocal, const btVector3 & hitPointLocal, float hitFraction, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* hitNormalLocal_ptr=(Luna< btVector3 >::check(L,2));
@@ -295,8 +288,7 @@ public:
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::reportHit(const btVector3 &, const btVector3 &, float, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::reportHit(const btVector3 &, const btVector3 &, float, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->reportHit(hitNormalLocal, hitPointLocal, hitFraction, partId, triangleIndex);
 		lua_pushnumber(L,lret);
@@ -307,15 +299,13 @@ public:
 	// const btConvexShape * btTriangleConvexcastCallback::m_convexShape()
 	static int _bind_getConvexShape(lua_State *L) {
 		if (!_lg_typecheck_getConvexShape(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btConvexShape * btTriangleConvexcastCallback::m_convexShape() function, expected prototype:\nconst btConvexShape * btTriangleConvexcastCallback::m_convexShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btConvexShape * btTriangleConvexcastCallback::m_convexShape() function, expected prototype:\nconst btConvexShape * btTriangleConvexcastCallback::m_convexShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btConvexShape * btTriangleConvexcastCallback::m_convexShape(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btConvexShape * btTriangleConvexcastCallback::m_convexShape(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btConvexShape * lret = self->m_convexShape;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -328,15 +318,13 @@ public:
 	// btTransform btTriangleConvexcastCallback::m_convexShapeFrom()
 	static int _bind_getConvexShapeFrom(lua_State *L) {
 		if (!_lg_typecheck_getConvexShapeFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_convexShapeFrom() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_convexShapeFrom()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_convexShapeFrom() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_convexShapeFrom()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btTriangleConvexcastCallback::m_convexShapeFrom(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btTriangleConvexcastCallback::m_convexShapeFrom(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_convexShapeFrom;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -349,15 +337,13 @@ public:
 	// btTransform btTriangleConvexcastCallback::m_convexShapeTo()
 	static int _bind_getConvexShapeTo(lua_State *L) {
 		if (!_lg_typecheck_getConvexShapeTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_convexShapeTo() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_convexShapeTo()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_convexShapeTo() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_convexShapeTo()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btTriangleConvexcastCallback::m_convexShapeTo(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btTriangleConvexcastCallback::m_convexShapeTo(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_convexShapeTo;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -370,15 +356,13 @@ public:
 	// btTransform btTriangleConvexcastCallback::m_triangleToWorld()
 	static int _bind_getTriangleToWorld(lua_State *L) {
 		if (!_lg_typecheck_getTriangleToWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_triangleToWorld() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_triangleToWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btTriangleConvexcastCallback::m_triangleToWorld() function, expected prototype:\nbtTransform btTriangleConvexcastCallback::m_triangleToWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btTriangleConvexcastCallback::m_triangleToWorld(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btTriangleConvexcastCallback::m_triangleToWorld(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->m_triangleToWorld;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -391,15 +375,13 @@ public:
 	// float btTriangleConvexcastCallback::m_hitFraction()
 	static int _bind_getHitFraction(lua_State *L) {
 		if (!_lg_typecheck_getHitFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_hitFraction() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_hitFraction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_hitFraction() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_hitFraction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::m_hitFraction(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::m_hitFraction(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_hitFraction;
 		lua_pushnumber(L,lret);
@@ -410,15 +392,13 @@ public:
 	// float btTriangleConvexcastCallback::m_triangleCollisionMargin()
 	static int _bind_getTriangleCollisionMargin(lua_State *L) {
 		if (!_lg_typecheck_getTriangleCollisionMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_triangleCollisionMargin() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_triangleCollisionMargin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_triangleCollisionMargin() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_triangleCollisionMargin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::m_triangleCollisionMargin(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::m_triangleCollisionMargin(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_triangleCollisionMargin;
 		lua_pushnumber(L,lret);
@@ -429,15 +409,13 @@ public:
 	// float btTriangleConvexcastCallback::m_allowedPenetration()
 	static int _bind_getAllowedPenetration(lua_State *L) {
 		if (!_lg_typecheck_getAllowedPenetration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_allowedPenetration() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_allowedPenetration()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleConvexcastCallback::m_allowedPenetration() function, expected prototype:\nfloat btTriangleConvexcastCallback::m_allowedPenetration()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::m_allowedPenetration(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleConvexcastCallback::m_allowedPenetration(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_allowedPenetration;
 		lua_pushnumber(L,lret);
@@ -448,8 +426,7 @@ public:
 	// void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value)
 	static int _bind_setConvexShapeFrom(lua_State *L) {
 		if (!_lg_typecheck_setConvexShapeFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_convexShapeFrom(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -460,8 +437,7 @@ public:
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_convexShapeFrom(btTransform). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_convexShapeFrom = value;
 
@@ -471,8 +447,7 @@ public:
 	// void btTriangleConvexcastCallback::m_convexShapeTo(btTransform value)
 	static int _bind_setConvexShapeTo(lua_State *L) {
 		if (!_lg_typecheck_setConvexShapeTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_convexShapeTo(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_convexShapeTo(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_convexShapeTo(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_convexShapeTo(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -483,8 +458,7 @@ public:
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_convexShapeTo(btTransform). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_convexShapeTo(btTransform). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_convexShapeTo = value;
 
@@ -494,8 +468,7 @@ public:
 	// void btTriangleConvexcastCallback::m_triangleToWorld(btTransform value)
 	static int _bind_setTriangleToWorld(lua_State *L) {
 		if (!_lg_typecheck_setTriangleToWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_triangleToWorld(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_triangleToWorld(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_triangleToWorld(btTransform value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_triangleToWorld(btTransform value)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransform* value_ptr=(Luna< btTransform >::check(L,2));
@@ -506,8 +479,7 @@ public:
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_triangleToWorld(btTransform). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_triangleToWorld(btTransform). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_triangleToWorld = value;
 
@@ -517,16 +489,14 @@ public:
 	// void btTriangleConvexcastCallback::m_hitFraction(float value)
 	static int _bind_setHitFraction(lua_State *L) {
 		if (!_lg_typecheck_setHitFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_hitFraction(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_hitFraction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_hitFraction(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_hitFraction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_hitFraction(float). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_hitFraction(float). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitFraction = value;
 
@@ -536,16 +506,14 @@ public:
 	// void btTriangleConvexcastCallback::m_triangleCollisionMargin(float value)
 	static int _bind_setTriangleCollisionMargin(lua_State *L) {
 		if (!_lg_typecheck_setTriangleCollisionMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_triangleCollisionMargin(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_triangleCollisionMargin(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_triangleCollisionMargin(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_triangleCollisionMargin(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_triangleCollisionMargin(float). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_triangleCollisionMargin(float). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_triangleCollisionMargin = value;
 
@@ -555,16 +523,14 @@ public:
 	// void btTriangleConvexcastCallback::m_allowedPenetration(float value)
 	static int _bind_setAllowedPenetration(lua_State *L) {
 		if (!_lg_typecheck_setAllowedPenetration(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_allowedPenetration(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_allowedPenetration(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::m_allowedPenetration(float value) function, expected prototype:\nvoid btTriangleConvexcastCallback::m_allowedPenetration(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_allowedPenetration(float). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::m_allowedPenetration(float). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_allowedPenetration = value;
 
@@ -574,8 +540,7 @@ public:
 	// void btTriangleConvexcastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)
 	static int _bind_base_processTriangle(lua_State *L) {
 		if (!_lg_typecheck_base_processTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleConvexcastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleConvexcastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleConvexcastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* triangle=(Luna< btVector3 >::check(L,2));
@@ -584,8 +549,7 @@ public:
 
 		btTriangleConvexcastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleConvexcastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::base_processTriangle(btVector3 *, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleConvexcastCallback::base_processTriangle(btVector3 *, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleConvexcastCallback::processTriangle(triangle, partId, triangleIndex);
 

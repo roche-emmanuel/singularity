@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::LineRendererInterface*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::LineRendererInterface*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::LineRendererInterface* rhs =(Luna< SPK::LineRendererInterface >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::LineRendererInterface* self= (SPK::LineRendererInterface*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::LineRendererInterface >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -130,8 +125,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<0 || luatop>2 ) return false;
 
-		if( luatop>0 && lua_isnumber(L,1)==0 ) return false;
-		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+		if( luatop>0 && lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -140,8 +135,8 @@ public:
 		if( luatop<1 || luatop>3 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
-		if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+		if( luatop>1 && lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -150,14 +145,14 @@ public:
 	inline static bool _lg_typecheck_setLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -176,7 +171,7 @@ public:
 	inline static bool _lg_typecheck_base_setWidth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -188,8 +183,7 @@ public:
 	// SPK::LineRendererInterface::LineRendererInterface(float length = 1.0f, float width = 1.0f)
 	static SPK::LineRendererInterface* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::LineRendererInterface::LineRendererInterface(float length = 1.0f, float width = 1.0f) function, expected prototype:\nSPK::LineRendererInterface::LineRendererInterface(float length = 1.0f, float width = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::LineRendererInterface::LineRendererInterface(float length = 1.0f, float width = 1.0f) function, expected prototype:\nSPK::LineRendererInterface::LineRendererInterface(float length = 1.0f, float width = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -203,8 +197,7 @@ public:
 	// SPK::LineRendererInterface::LineRendererInterface(lua_Table * data, float length = 1.0f, float width = 1.0f)
 	static SPK::LineRendererInterface* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::LineRendererInterface::LineRendererInterface(lua_Table * data, float length = 1.0f, float width = 1.0f) function, expected prototype:\nSPK::LineRendererInterface::LineRendererInterface(lua_Table * data, float length = 1.0f, float width = 1.0f)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::LineRendererInterface::LineRendererInterface(lua_Table * data, float length = 1.0f, float width = 1.0f) function, expected prototype:\nSPK::LineRendererInterface::LineRendererInterface(lua_Table * data, float length = 1.0f, float width = 1.0f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -229,16 +222,14 @@ public:
 	// void SPK::LineRendererInterface::setLength(float length)
 	static int _bind_setLength(lua_State *L) {
 		if (!_lg_typecheck_setLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::LineRendererInterface::setLength(float length) function, expected prototype:\nvoid SPK::LineRendererInterface::setLength(float length)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::LineRendererInterface::setLength(float length) function, expected prototype:\nvoid SPK::LineRendererInterface::setLength(float length)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float length=(float)lua_tonumber(L,2);
 
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setLength(float). Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setLength(float). Got : '%s'\n%s",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLength(length);
 
@@ -248,16 +239,14 @@ public:
 	// void SPK::LineRendererInterface::setWidth(float width)
 	static int _bind_setWidth(lua_State *L) {
 		if (!_lg_typecheck_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::LineRendererInterface::setWidth(float width) function, expected prototype:\nvoid SPK::LineRendererInterface::setWidth(float width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::LineRendererInterface::setWidth(float width) function, expected prototype:\nvoid SPK::LineRendererInterface::setWidth(float width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float width=(float)lua_tonumber(L,2);
 
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setWidth(float). Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::setWidth(float). Got : '%s'\n%s",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setWidth(width);
 
@@ -267,15 +256,13 @@ public:
 	// float SPK::LineRendererInterface::getLength() const
 	static int _bind_getLength(lua_State *L) {
 		if (!_lg_typecheck_getLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::LineRendererInterface::getLength() const function, expected prototype:\nfloat SPK::LineRendererInterface::getLength() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::LineRendererInterface::getLength() const function, expected prototype:\nfloat SPK::LineRendererInterface::getLength() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getLength() const. Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getLength() const. Got : '%s'\n%s",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getLength();
 		lua_pushnumber(L,lret);
@@ -286,15 +273,13 @@ public:
 	// float SPK::LineRendererInterface::getWidth() const
 	static int _bind_getWidth(lua_State *L) {
 		if (!_lg_typecheck_getWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::LineRendererInterface::getWidth() const function, expected prototype:\nfloat SPK::LineRendererInterface::getWidth() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::LineRendererInterface::getWidth() const function, expected prototype:\nfloat SPK::LineRendererInterface::getWidth() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getWidth() const. Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::LineRendererInterface::getWidth() const. Got : '%s'\n%s",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getWidth();
 		lua_pushnumber(L,lret);
@@ -305,16 +290,14 @@ public:
 	// void SPK::LineRendererInterface::base_setWidth(float width)
 	static int _bind_base_setWidth(lua_State *L) {
 		if (!_lg_typecheck_base_setWidth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::LineRendererInterface::base_setWidth(float width) function, expected prototype:\nvoid SPK::LineRendererInterface::base_setWidth(float width)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::LineRendererInterface::base_setWidth(float width) function, expected prototype:\nvoid SPK::LineRendererInterface::base_setWidth(float width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float width=(float)lua_tonumber(L,2);
 
 		SPK::LineRendererInterface* self=(Luna< SPK::LineRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::base_setWidth(float). Got : '%s'",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::LineRendererInterface::base_setWidth(float). Got : '%s'\n%s",typeid(Luna< SPK::LineRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->LineRendererInterface::setWidth(width);
 

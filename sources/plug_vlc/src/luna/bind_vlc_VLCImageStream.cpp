@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		vlc::VLCImageStream* self= (vlc::VLCImageStream*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -108,10 +105,10 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>5 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -144,7 +141,7 @@ public:
 	inline static bool _lg_typecheck_setReferenceTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -157,7 +154,7 @@ public:
 	inline static bool _lg_typecheck_setTimeMultiplier(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -170,7 +167,7 @@ public:
 	inline static bool _lg_typecheck_setVolume(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -209,7 +206,7 @@ public:
 	inline static bool _lg_typecheck_base_setReferenceTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -222,7 +219,7 @@ public:
 	inline static bool _lg_typecheck_base_setTimeMultiplier(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -235,7 +232,7 @@ public:
 	inline static bool _lg_typecheck_base_setVolume(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -253,8 +250,7 @@ public:
 	// vlc::VLCImageStream::VLCImageStream()
 	static vlc::VLCImageStream* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in vlc::VLCImageStream::VLCImageStream() function, expected prototype:\nvlc::VLCImageStream::VLCImageStream()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in vlc::VLCImageStream::VLCImageStream() function, expected prototype:\nvlc::VLCImageStream::VLCImageStream()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -264,8 +260,7 @@ public:
 	// vlc::VLCImageStream::VLCImageStream(lua_Table * data)
 	static vlc::VLCImageStream* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in vlc::VLCImageStream::VLCImageStream(lua_Table * data) function, expected prototype:\nvlc::VLCImageStream::VLCImageStream(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in vlc::VLCImageStream::VLCImageStream(lua_Table * data) function, expected prototype:\nvlc::VLCImageStream::VLCImageStream(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -286,8 +281,7 @@ public:
 	// void vlc::VLCImageStream::open(const std::string & file, bool needPlay = true, unsigned int w = 512, unsigned int h = 512)
 	static int _bind_open(lua_State *L) {
 		if (!_lg_typecheck_open(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::open(const std::string & file, bool needPlay = true, unsigned int w = 512, unsigned int h = 512) function, expected prototype:\nvoid vlc::VLCImageStream::open(const std::string & file, bool needPlay = true, unsigned int w = 512, unsigned int h = 512)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::open(const std::string & file, bool needPlay = true, unsigned int w = 512, unsigned int h = 512) function, expected prototype:\nvoid vlc::VLCImageStream::open(const std::string & file, bool needPlay = true, unsigned int w = 512, unsigned int h = 512)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -299,8 +293,7 @@ public:
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::open(const std::string &, bool, unsigned int, unsigned int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::open(const std::string &, bool, unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->open(file, needPlay, w, h);
 
@@ -310,15 +303,13 @@ public:
 	// void vlc::VLCImageStream::play()
 	static int _bind_play(lua_State *L) {
 		if (!_lg_typecheck_play(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::play() function, expected prototype:\nvoid vlc::VLCImageStream::play()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::play() function, expected prototype:\nvoid vlc::VLCImageStream::play()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::play(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::play(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->play();
 
@@ -328,15 +319,13 @@ public:
 	// void vlc::VLCImageStream::pause()
 	static int _bind_pause(lua_State *L) {
 		if (!_lg_typecheck_pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::pause() function, expected prototype:\nvoid vlc::VLCImageStream::pause()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::pause() function, expected prototype:\nvoid vlc::VLCImageStream::pause()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::pause(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::pause(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->pause();
 
@@ -346,15 +335,13 @@ public:
 	// void vlc::VLCImageStream::rewind()
 	static int _bind_rewind(lua_State *L) {
 		if (!_lg_typecheck_rewind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::rewind() function, expected prototype:\nvoid vlc::VLCImageStream::rewind()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::rewind() function, expected prototype:\nvoid vlc::VLCImageStream::rewind()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::rewind(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::rewind(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rewind();
 
@@ -364,8 +351,7 @@ public:
 	// void vlc::VLCImageStream::quit(bool waitForThreadToExit = true)
 	static int _bind_quit(lua_State *L) {
 		if (!_lg_typecheck_quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::quit(bool waitForThreadToExit = true) function, expected prototype:\nvoid vlc::VLCImageStream::quit(bool waitForThreadToExit = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::quit(bool waitForThreadToExit = true) function, expected prototype:\nvoid vlc::VLCImageStream::quit(bool waitForThreadToExit = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -374,8 +360,7 @@ public:
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::quit(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::quit(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->quit(waitForThreadToExit);
 
@@ -385,16 +370,14 @@ public:
 	// void vlc::VLCImageStream::setReferenceTime(double time)
 	static int _bind_setReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_setReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::setReferenceTime(double time) function, expected prototype:\nvoid vlc::VLCImageStream::setReferenceTime(double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::setReferenceTime(double time) function, expected prototype:\nvoid vlc::VLCImageStream::setReferenceTime(double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double time=(double)lua_tonumber(L,2);
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::setReferenceTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::setReferenceTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setReferenceTime(time);
 
@@ -404,15 +387,13 @@ public:
 	// double vlc::VLCImageStream::getReferenceTime() const
 	static int _bind_getReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_getReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::getReferenceTime() const function, expected prototype:\ndouble vlc::VLCImageStream::getReferenceTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::getReferenceTime() const function, expected prototype:\ndouble vlc::VLCImageStream::getReferenceTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::getReferenceTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::getReferenceTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getReferenceTime();
 		lua_pushnumber(L,lret);
@@ -423,16 +404,14 @@ public:
 	// void vlc::VLCImageStream::setTimeMultiplier(double m)
 	static int _bind_setTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_setTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::setTimeMultiplier(double m) function, expected prototype:\nvoid vlc::VLCImageStream::setTimeMultiplier(double m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::setTimeMultiplier(double m) function, expected prototype:\nvoid vlc::VLCImageStream::setTimeMultiplier(double m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double m=(double)lua_tonumber(L,2);
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::setTimeMultiplier(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::setTimeMultiplier(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTimeMultiplier(m);
 
@@ -442,15 +421,13 @@ public:
 	// double vlc::VLCImageStream::getTimeMultiplier() const
 	static int _bind_getTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_getTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::getTimeMultiplier() const function, expected prototype:\ndouble vlc::VLCImageStream::getTimeMultiplier() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::getTimeMultiplier() const function, expected prototype:\ndouble vlc::VLCImageStream::getTimeMultiplier() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::getTimeMultiplier() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::getTimeMultiplier() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->getTimeMultiplier();
 		lua_pushnumber(L,lret);
@@ -461,16 +438,14 @@ public:
 	// void vlc::VLCImageStream::setVolume(float vol)
 	static int _bind_setVolume(lua_State *L) {
 		if (!_lg_typecheck_setVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::setVolume(float vol) function, expected prototype:\nvoid vlc::VLCImageStream::setVolume(float vol)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::setVolume(float vol) function, expected prototype:\nvoid vlc::VLCImageStream::setVolume(float vol)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float vol=(float)lua_tonumber(L,2);
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::setVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::setVolume(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVolume(vol);
 
@@ -480,15 +455,13 @@ public:
 	// float vlc::VLCImageStream::getVolume() const
 	static int _bind_getVolume(lua_State *L) {
 		if (!_lg_typecheck_getVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float vlc::VLCImageStream::getVolume() const function, expected prototype:\nfloat vlc::VLCImageStream::getVolume() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float vlc::VLCImageStream::getVolume() const function, expected prototype:\nfloat vlc::VLCImageStream::getVolume() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float vlc::VLCImageStream::getVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float vlc::VLCImageStream::getVolume() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getVolume();
 		lua_pushnumber(L,lret);
@@ -499,15 +472,13 @@ public:
 	// void vlc::VLCImageStream::base_play()
 	static int _bind_base_play(lua_State *L) {
 		if (!_lg_typecheck_base_play(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_play() function, expected prototype:\nvoid vlc::VLCImageStream::base_play()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_play() function, expected prototype:\nvoid vlc::VLCImageStream::base_play()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_play(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_play(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::play();
 
@@ -517,15 +488,13 @@ public:
 	// void vlc::VLCImageStream::base_pause()
 	static int _bind_base_pause(lua_State *L) {
 		if (!_lg_typecheck_base_pause(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_pause() function, expected prototype:\nvoid vlc::VLCImageStream::base_pause()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_pause() function, expected prototype:\nvoid vlc::VLCImageStream::base_pause()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_pause(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_pause(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::pause();
 
@@ -535,15 +504,13 @@ public:
 	// void vlc::VLCImageStream::base_rewind()
 	static int _bind_base_rewind(lua_State *L) {
 		if (!_lg_typecheck_base_rewind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_rewind() function, expected prototype:\nvoid vlc::VLCImageStream::base_rewind()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_rewind() function, expected prototype:\nvoid vlc::VLCImageStream::base_rewind()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_rewind(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_rewind(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::rewind();
 
@@ -553,8 +520,7 @@ public:
 	// void vlc::VLCImageStream::base_quit(bool waitForThreadToExit = true)
 	static int _bind_base_quit(lua_State *L) {
 		if (!_lg_typecheck_base_quit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_quit(bool waitForThreadToExit = true) function, expected prototype:\nvoid vlc::VLCImageStream::base_quit(bool waitForThreadToExit = true)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_quit(bool waitForThreadToExit = true) function, expected prototype:\nvoid vlc::VLCImageStream::base_quit(bool waitForThreadToExit = true)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -563,8 +529,7 @@ public:
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_quit(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_quit(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::quit(waitForThreadToExit);
 
@@ -574,16 +539,14 @@ public:
 	// void vlc::VLCImageStream::base_setReferenceTime(double time)
 	static int _bind_base_setReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_base_setReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_setReferenceTime(double time) function, expected prototype:\nvoid vlc::VLCImageStream::base_setReferenceTime(double time)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_setReferenceTime(double time) function, expected prototype:\nvoid vlc::VLCImageStream::base_setReferenceTime(double time)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double time=(double)lua_tonumber(L,2);
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_setReferenceTime(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_setReferenceTime(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::setReferenceTime(time);
 
@@ -593,15 +556,13 @@ public:
 	// double vlc::VLCImageStream::base_getReferenceTime() const
 	static int _bind_base_getReferenceTime(lua_State *L) {
 		if (!_lg_typecheck_base_getReferenceTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::base_getReferenceTime() const function, expected prototype:\ndouble vlc::VLCImageStream::base_getReferenceTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::base_getReferenceTime() const function, expected prototype:\ndouble vlc::VLCImageStream::base_getReferenceTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::base_getReferenceTime() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::base_getReferenceTime() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->VLCImageStream::getReferenceTime();
 		lua_pushnumber(L,lret);
@@ -612,16 +573,14 @@ public:
 	// void vlc::VLCImageStream::base_setTimeMultiplier(double m)
 	static int _bind_base_setTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_base_setTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_setTimeMultiplier(double m) function, expected prototype:\nvoid vlc::VLCImageStream::base_setTimeMultiplier(double m)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_setTimeMultiplier(double m) function, expected prototype:\nvoid vlc::VLCImageStream::base_setTimeMultiplier(double m)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		double m=(double)lua_tonumber(L,2);
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_setTimeMultiplier(double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_setTimeMultiplier(double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::setTimeMultiplier(m);
 
@@ -631,15 +590,13 @@ public:
 	// double vlc::VLCImageStream::base_getTimeMultiplier() const
 	static int _bind_base_getTimeMultiplier(lua_State *L) {
 		if (!_lg_typecheck_base_getTimeMultiplier(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::base_getTimeMultiplier() const function, expected prototype:\ndouble vlc::VLCImageStream::base_getTimeMultiplier() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in double vlc::VLCImageStream::base_getTimeMultiplier() const function, expected prototype:\ndouble vlc::VLCImageStream::base_getTimeMultiplier() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::base_getTimeMultiplier() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call double vlc::VLCImageStream::base_getTimeMultiplier() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		double lret = self->VLCImageStream::getTimeMultiplier();
 		lua_pushnumber(L,lret);
@@ -650,16 +607,14 @@ public:
 	// void vlc::VLCImageStream::base_setVolume(float vol)
 	static int _bind_base_setVolume(lua_State *L) {
 		if (!_lg_typecheck_base_setVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_setVolume(float vol) function, expected prototype:\nvoid vlc::VLCImageStream::base_setVolume(float vol)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void vlc::VLCImageStream::base_setVolume(float vol) function, expected prototype:\nvoid vlc::VLCImageStream::base_setVolume(float vol)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float vol=(float)lua_tonumber(L,2);
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_setVolume(float). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void vlc::VLCImageStream::base_setVolume(float). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->VLCImageStream::setVolume(vol);
 
@@ -669,15 +624,13 @@ public:
 	// float vlc::VLCImageStream::base_getVolume() const
 	static int _bind_base_getVolume(lua_State *L) {
 		if (!_lg_typecheck_base_getVolume(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float vlc::VLCImageStream::base_getVolume() const function, expected prototype:\nfloat vlc::VLCImageStream::base_getVolume() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float vlc::VLCImageStream::base_getVolume() const function, expected prototype:\nfloat vlc::VLCImageStream::base_getVolume() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		vlc::VLCImageStream* self=Luna< osg::Referenced >::checkSubType< vlc::VLCImageStream >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float vlc::VLCImageStream::base_getVolume() const. Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float vlc::VLCImageStream::base_getVolume() const. Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->VLCImageStream::getVolume();
 		lua_pushnumber(L,lret);

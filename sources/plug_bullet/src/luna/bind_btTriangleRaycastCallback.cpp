@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* self=(Luna< btTriangleCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleRaycastCallback* self= (btTriangleRaycastCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTriangleCallback >::check(L,1));
@@ -96,7 +93,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -106,8 +103,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -115,9 +112,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -162,14 +159,14 @@ public:
 	inline static bool _lg_typecheck_setFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -177,8 +174,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -190,8 +187,7 @@ public:
 	// btTriangleRaycastCallback::btTriangleRaycastCallback(lua_Table * data, const btVector3 & from, const btVector3 & to, unsigned int flags = 0)
 	static btTriangleRaycastCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTriangleRaycastCallback::btTriangleRaycastCallback(lua_Table * data, const btVector3 & from, const btVector3 & to, unsigned int flags = 0) function, expected prototype:\nbtTriangleRaycastCallback::btTriangleRaycastCallback(lua_Table * data, const btVector3 & from, const btVector3 & to, unsigned int flags = 0)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btTriangleRaycastCallback::btTriangleRaycastCallback(lua_Table * data, const btVector3 & from, const btVector3 & to, unsigned int flags = 0) function, expected prototype:\nbtTriangleRaycastCallback::btTriangleRaycastCallback(lua_Table * data, const btVector3 & from, const btVector3 & to, unsigned int flags = 0)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -216,8 +212,7 @@ public:
 	// void btTriangleRaycastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex)
 	static int _bind_processTriangle(lua_State *L) {
 		if (!_lg_typecheck_processTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleRaycastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleRaycastCallback::processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* triangle=(Luna< btVector3 >::check(L,2));
@@ -226,8 +221,7 @@ public:
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::processTriangle(btVector3 *, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::processTriangle(btVector3 *, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processTriangle(triangle, partId, triangleIndex);
 
@@ -237,8 +231,7 @@ public:
 	// float btTriangleRaycastCallback::reportHit(const btVector3 & hitNormalLocal, float hitFraction, int partId, int triangleIndex)
 	static int _bind_reportHit(lua_State *L) {
 		if (!_lg_typecheck_reportHit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleRaycastCallback::reportHit(const btVector3 & hitNormalLocal, float hitFraction, int partId, int triangleIndex) function, expected prototype:\nfloat btTriangleRaycastCallback::reportHit(const btVector3 & hitNormalLocal, float hitFraction, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleRaycastCallback::reportHit(const btVector3 & hitNormalLocal, float hitFraction, int partId, int triangleIndex) function, expected prototype:\nfloat btTriangleRaycastCallback::reportHit(const btVector3 & hitNormalLocal, float hitFraction, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* hitNormalLocal_ptr=(Luna< btVector3 >::check(L,2));
@@ -252,8 +245,7 @@ public:
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleRaycastCallback::reportHit(const btVector3 &, float, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleRaycastCallback::reportHit(const btVector3 &, float, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->reportHit(hitNormalLocal, hitFraction, partId, triangleIndex);
 		lua_pushnumber(L,lret);
@@ -264,15 +256,13 @@ public:
 	// btVector3 btTriangleRaycastCallback::m_from()
 	static int _bind_getFrom(lua_State *L) {
 		if (!_lg_typecheck_getFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTriangleRaycastCallback::m_from() function, expected prototype:\nbtVector3 btTriangleRaycastCallback::m_from()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTriangleRaycastCallback::m_from() function, expected prototype:\nbtVector3 btTriangleRaycastCallback::m_from()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTriangleRaycastCallback::m_from(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTriangleRaycastCallback::m_from(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_from;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -285,15 +275,13 @@ public:
 	// btVector3 btTriangleRaycastCallback::m_to()
 	static int _bind_getTo(lua_State *L) {
 		if (!_lg_typecheck_getTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTriangleRaycastCallback::m_to() function, expected prototype:\nbtVector3 btTriangleRaycastCallback::m_to()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTriangleRaycastCallback::m_to() function, expected prototype:\nbtVector3 btTriangleRaycastCallback::m_to()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTriangleRaycastCallback::m_to(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTriangleRaycastCallback::m_to(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_to;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -306,15 +294,13 @@ public:
 	// unsigned int btTriangleRaycastCallback::m_flags()
 	static int _bind_getFlags(lua_State *L) {
 		if (!_lg_typecheck_getFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int btTriangleRaycastCallback::m_flags() function, expected prototype:\nunsigned int btTriangleRaycastCallback::m_flags()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int btTriangleRaycastCallback::m_flags() function, expected prototype:\nunsigned int btTriangleRaycastCallback::m_flags()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int btTriangleRaycastCallback::m_flags(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int btTriangleRaycastCallback::m_flags(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->m_flags;
 		lua_pushnumber(L,lret);
@@ -325,15 +311,13 @@ public:
 	// float btTriangleRaycastCallback::m_hitFraction()
 	static int _bind_getHitFraction(lua_State *L) {
 		if (!_lg_typecheck_getHitFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTriangleRaycastCallback::m_hitFraction() function, expected prototype:\nfloat btTriangleRaycastCallback::m_hitFraction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTriangleRaycastCallback::m_hitFraction() function, expected prototype:\nfloat btTriangleRaycastCallback::m_hitFraction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTriangleRaycastCallback::m_hitFraction(). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTriangleRaycastCallback::m_hitFraction(). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_hitFraction;
 		lua_pushnumber(L,lret);
@@ -344,8 +328,7 @@ public:
 	// void btTriangleRaycastCallback::m_from(btVector3 value)
 	static int _bind_setFrom(lua_State *L) {
 		if (!_lg_typecheck_setFrom(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_from(btVector3 value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_from(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_from(btVector3 value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_from(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -356,8 +339,7 @@ public:
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_from(btVector3). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_from(btVector3). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_from = value;
 
@@ -367,8 +349,7 @@ public:
 	// void btTriangleRaycastCallback::m_to(btVector3 value)
 	static int _bind_setTo(lua_State *L) {
 		if (!_lg_typecheck_setTo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_to(btVector3 value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_to(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_to(btVector3 value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_to(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -379,8 +360,7 @@ public:
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_to(btVector3). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_to(btVector3). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_to = value;
 
@@ -390,16 +370,14 @@ public:
 	// void btTriangleRaycastCallback::m_flags(unsigned int value)
 	static int _bind_setFlags(lua_State *L) {
 		if (!_lg_typecheck_setFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_flags(unsigned int value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_flags(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_flags(unsigned int value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_flags(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_flags(unsigned int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_flags(unsigned int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_flags = value;
 
@@ -409,16 +387,14 @@ public:
 	// void btTriangleRaycastCallback::m_hitFraction(float value)
 	static int _bind_setHitFraction(lua_State *L) {
 		if (!_lg_typecheck_setHitFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_hitFraction(float value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_hitFraction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::m_hitFraction(float value) function, expected prototype:\nvoid btTriangleRaycastCallback::m_hitFraction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_hitFraction(float). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::m_hitFraction(float). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitFraction = value;
 
@@ -428,8 +404,7 @@ public:
 	// void btTriangleRaycastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)
 	static int _bind_base_processTriangle(lua_State *L) {
 		if (!_lg_typecheck_base_processTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleRaycastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTriangleRaycastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex) function, expected prototype:\nvoid btTriangleRaycastCallback::base_processTriangle(btVector3 * triangle, int partId, int triangleIndex)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* triangle=(Luna< btVector3 >::check(L,2));
@@ -438,8 +413,7 @@ public:
 
 		btTriangleRaycastCallback* self=Luna< btTriangleCallback >::checkSubType< btTriangleRaycastCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::base_processTriangle(btVector3 *, int, int). Got : '%s'",typeid(Luna< btTriangleCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTriangleRaycastCallback::base_processTriangle(btVector3 *, int, int). Got : '%s'\n%s",typeid(Luna< btTriangleCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btTriangleRaycastCallback::processTriangle(triangle, partId, triangleIndex);
 

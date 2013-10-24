@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTransformFloatData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTransformFloatData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransformFloatData* rhs =(Luna< btTransformFloatData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTransformFloatData* self= (btTransformFloatData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTransformFloatData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -138,15 +134,13 @@ public:
 	// btMatrix3x3FloatData btTransformFloatData::m_basis()
 	static int _bind_getBasis(lua_State *L) {
 		if (!_lg_typecheck_getBasis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMatrix3x3FloatData btTransformFloatData::m_basis() function, expected prototype:\nbtMatrix3x3FloatData btTransformFloatData::m_basis()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btMatrix3x3FloatData btTransformFloatData::m_basis() function, expected prototype:\nbtMatrix3x3FloatData btTransformFloatData::m_basis()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransformFloatData* self=(Luna< btTransformFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btMatrix3x3FloatData btTransformFloatData::m_basis(). Got : '%s'",typeid(Luna< btTransformFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btMatrix3x3FloatData btTransformFloatData::m_basis(). Got : '%s'\n%s",typeid(Luna< btTransformFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btMatrix3x3FloatData* lret = &self->m_basis;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,15 +153,13 @@ public:
 	// btVector3FloatData btTransformFloatData::m_origin()
 	static int _bind_getOrigin(lua_State *L) {
 		if (!_lg_typecheck_getOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btTransformFloatData::m_origin() function, expected prototype:\nbtVector3FloatData btTransformFloatData::m_origin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btTransformFloatData::m_origin() function, expected prototype:\nbtVector3FloatData btTransformFloatData::m_origin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTransformFloatData* self=(Luna< btTransformFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btTransformFloatData::m_origin(). Got : '%s'",typeid(Luna< btTransformFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btTransformFloatData::m_origin(). Got : '%s'\n%s",typeid(Luna< btTransformFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_origin;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -180,8 +172,7 @@ public:
 	// void btTransformFloatData::m_basis(btMatrix3x3FloatData value)
 	static int _bind_setBasis(lua_State *L) {
 		if (!_lg_typecheck_setBasis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransformFloatData::m_basis(btMatrix3x3FloatData value) function, expected prototype:\nvoid btTransformFloatData::m_basis(btMatrix3x3FloatData value)\nClass arguments details:\narg 1 ID = 4769007\n");
+			luaL_error(L, "luna typecheck failed in void btTransformFloatData::m_basis(btMatrix3x3FloatData value) function, expected prototype:\nvoid btTransformFloatData::m_basis(btMatrix3x3FloatData value)\nClass arguments details:\narg 1 ID = 4769007\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMatrix3x3FloatData* value_ptr=(Luna< btMatrix3x3FloatData >::check(L,2));
@@ -192,8 +183,7 @@ public:
 
 		btTransformFloatData* self=(Luna< btTransformFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransformFloatData::m_basis(btMatrix3x3FloatData). Got : '%s'",typeid(Luna< btTransformFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransformFloatData::m_basis(btMatrix3x3FloatData). Got : '%s'\n%s",typeid(Luna< btTransformFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_basis = value;
 
@@ -203,8 +193,7 @@ public:
 	// void btTransformFloatData::m_origin(btVector3FloatData value)
 	static int _bind_setOrigin(lua_State *L) {
 		if (!_lg_typecheck_setOrigin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTransformFloatData::m_origin(btVector3FloatData value) function, expected prototype:\nvoid btTransformFloatData::m_origin(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btTransformFloatData::m_origin(btVector3FloatData value) function, expected prototype:\nvoid btTransformFloatData::m_origin(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -215,8 +204,7 @@ public:
 
 		btTransformFloatData* self=(Luna< btTransformFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTransformFloatData::m_origin(btVector3FloatData). Got : '%s'",typeid(Luna< btTransformFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTransformFloatData::m_origin(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btTransformFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_origin = value;
 

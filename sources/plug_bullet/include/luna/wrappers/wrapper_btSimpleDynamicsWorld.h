@@ -404,14 +404,14 @@ public:
 	inline static bool _lg_typecheck_public_predictUnconstraintMotion(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_integrateTransforms(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -420,16 +420,14 @@ public:
 	// void btSimpleDynamicsWorld::public_predictUnconstraintMotion(float timeStep)
 	static int _bind_public_predictUnconstraintMotion(lua_State *L) {
 		if (!_lg_typecheck_public_predictUnconstraintMotion(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::public_predictUnconstraintMotion(float timeStep) function, expected prototype:\nvoid btSimpleDynamicsWorld::public_predictUnconstraintMotion(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::public_predictUnconstraintMotion(float timeStep) function, expected prototype:\nvoid btSimpleDynamicsWorld::public_predictUnconstraintMotion(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		wrapper_btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< wrapper_btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::public_predictUnconstraintMotion(float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::public_predictUnconstraintMotion(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_predictUnconstraintMotion(timeStep);
 
@@ -439,16 +437,14 @@ public:
 	// void btSimpleDynamicsWorld::public_integrateTransforms(float timeStep)
 	static int _bind_public_integrateTransforms(lua_State *L) {
 		if (!_lg_typecheck_public_integrateTransforms(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::public_integrateTransforms(float timeStep) function, expected prototype:\nvoid btSimpleDynamicsWorld::public_integrateTransforms(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSimpleDynamicsWorld::public_integrateTransforms(float timeStep) function, expected prototype:\nvoid btSimpleDynamicsWorld::public_integrateTransforms(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		wrapper_btSimpleDynamicsWorld* self=Luna< btCollisionWorld >::checkSubType< wrapper_btSimpleDynamicsWorld >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::public_integrateTransforms(float). Got : '%s'",typeid(Luna< btCollisionWorld >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSimpleDynamicsWorld::public_integrateTransforms(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_integrateTransforms(timeStep);
 

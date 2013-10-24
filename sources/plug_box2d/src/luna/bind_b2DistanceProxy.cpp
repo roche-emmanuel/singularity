@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2DistanceProxy*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2DistanceProxy*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2DistanceProxy* rhs =(Luna< b2DistanceProxy >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2DistanceProxy* self= (b2DistanceProxy*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2DistanceProxy >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -112,7 +108,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,86660265)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -139,7 +135,7 @@ public:
 	inline static bool _lg_typecheck_GetVertex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -164,14 +160,14 @@ public:
 	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -183,8 +179,7 @@ public:
 	// b2DistanceProxy::b2DistanceProxy()
 	static b2DistanceProxy* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2DistanceProxy::b2DistanceProxy() function, expected prototype:\nb2DistanceProxy::b2DistanceProxy()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2DistanceProxy::b2DistanceProxy() function, expected prototype:\nb2DistanceProxy::b2DistanceProxy()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -196,8 +191,7 @@ public:
 	// void b2DistanceProxy::Set(const b2Shape * shape, signed int index)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::Set(const b2Shape * shape, signed int index) function, expected prototype:\nvoid b2DistanceProxy::Set(const b2Shape * shape, signed int index)\nClass arguments details:\narg 1 ID = 86660265\n");
+			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::Set(const b2Shape * shape, signed int index) function, expected prototype:\nvoid b2DistanceProxy::Set(const b2Shape * shape, signed int index)\nClass arguments details:\narg 1 ID = 86660265\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Shape* shape=(Luna< b2Shape >::check(L,2));
@@ -205,8 +199,7 @@ public:
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2DistanceProxy::Set(const b2Shape *, signed int). Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2DistanceProxy::Set(const b2Shape *, signed int). Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(shape, index);
 
@@ -216,8 +209,7 @@ public:
 	// signed int b2DistanceProxy::GetSupport(const b2Vec2 & d) const
 	static int _bind_GetSupport(lua_State *L) {
 		if (!_lg_typecheck_GetSupport(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::GetSupport(const b2Vec2 & d) const function, expected prototype:\nsigned int b2DistanceProxy::GetSupport(const b2Vec2 & d) const\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::GetSupport(const b2Vec2 & d) const function, expected prototype:\nsigned int b2DistanceProxy::GetSupport(const b2Vec2 & d) const\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* d_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -228,8 +220,7 @@ public:
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2DistanceProxy::GetSupport(const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2DistanceProxy::GetSupport(const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetSupport(d);
 		lua_pushnumber(L,lret);
@@ -240,8 +231,7 @@ public:
 	// const b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 & d) const
 	static int _bind_GetSupportVertex(lua_State *L) {
 		if (!_lg_typecheck_GetSupportVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 & d) const function, expected prototype:\nconst b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 & d) const\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 & d) const function, expected prototype:\nconst b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 & d) const\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* d_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -252,8 +242,7 @@ public:
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2DistanceProxy::GetSupportVertex(const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetSupportVertex(d);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -266,15 +255,13 @@ public:
 	// signed int b2DistanceProxy::GetVertexCount() const
 	static int _bind_GetVertexCount(lua_State *L) {
 		if (!_lg_typecheck_GetVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::GetVertexCount() const function, expected prototype:\nsigned int b2DistanceProxy::GetVertexCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::GetVertexCount() const function, expected prototype:\nsigned int b2DistanceProxy::GetVertexCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2DistanceProxy::GetVertexCount() const. Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2DistanceProxy::GetVertexCount() const. Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetVertexCount();
 		lua_pushnumber(L,lret);
@@ -285,16 +272,14 @@ public:
 	// const b2Vec2 & b2DistanceProxy::GetVertex(signed int index) const
 	static int _bind_GetVertex(lua_State *L) {
 		if (!_lg_typecheck_GetVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2DistanceProxy::GetVertex(signed int index) const function, expected prototype:\nconst b2Vec2 & b2DistanceProxy::GetVertex(signed int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2DistanceProxy::GetVertex(signed int index) const function, expected prototype:\nconst b2Vec2 & b2DistanceProxy::GetVertex(signed int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int index=(signed int)lua_tointeger(L,2);
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2DistanceProxy::GetVertex(signed int) const. Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2DistanceProxy::GetVertex(signed int) const. Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetVertex(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -307,15 +292,13 @@ public:
 	// const b2Vec2 * b2DistanceProxy::m_vertices()
 	static int _bind_getVertices(lua_State *L) {
 		if (!_lg_typecheck_getVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 * b2DistanceProxy::m_vertices() function, expected prototype:\nconst b2Vec2 * b2DistanceProxy::m_vertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 * b2DistanceProxy::m_vertices() function, expected prototype:\nconst b2Vec2 * b2DistanceProxy::m_vertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 * b2DistanceProxy::m_vertices(). Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 * b2DistanceProxy::m_vertices(). Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2 * lret = self->m_vertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -328,15 +311,13 @@ public:
 	// signed int b2DistanceProxy::m_count()
 	static int _bind_getCount(lua_State *L) {
 		if (!_lg_typecheck_getCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::m_count() function, expected prototype:\nsigned int b2DistanceProxy::m_count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2DistanceProxy::m_count() function, expected prototype:\nsigned int b2DistanceProxy::m_count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2DistanceProxy::m_count(). Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2DistanceProxy::m_count(). Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->m_count;
 		lua_pushnumber(L,lret);
@@ -347,15 +328,13 @@ public:
 	// float b2DistanceProxy::m_radius()
 	static int _bind_getRadius(lua_State *L) {
 		if (!_lg_typecheck_getRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2DistanceProxy::m_radius() function, expected prototype:\nfloat b2DistanceProxy::m_radius()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2DistanceProxy::m_radius() function, expected prototype:\nfloat b2DistanceProxy::m_radius()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2DistanceProxy::m_radius(). Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2DistanceProxy::m_radius(). Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_radius;
 		lua_pushnumber(L,lret);
@@ -366,16 +345,14 @@ public:
 	// void b2DistanceProxy::m_count(signed int value)
 	static int _bind_setCount(lua_State *L) {
 		if (!_lg_typecheck_setCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::m_count(signed int value) function, expected prototype:\nvoid b2DistanceProxy::m_count(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::m_count(signed int value) function, expected prototype:\nvoid b2DistanceProxy::m_count(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2DistanceProxy::m_count(signed int). Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2DistanceProxy::m_count(signed int). Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_count = value;
 
@@ -385,16 +362,14 @@ public:
 	// void b2DistanceProxy::m_radius(float value)
 	static int _bind_setRadius(lua_State *L) {
 		if (!_lg_typecheck_setRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::m_radius(float value) function, expected prototype:\nvoid b2DistanceProxy::m_radius(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2DistanceProxy::m_radius(float value) function, expected prototype:\nvoid b2DistanceProxy::m_radius(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2DistanceProxy* self=(Luna< b2DistanceProxy >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2DistanceProxy::m_radius(float). Got : '%s'",typeid(Luna< b2DistanceProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2DistanceProxy::m_radius(float). Got : '%s'\n%s",typeid(Luna< b2DistanceProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_radius = value;
 

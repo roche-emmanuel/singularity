@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2WeldJointDef* self= (b2WeldJointDef*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2JointDef >::check(L,1));
@@ -127,21 +125,21 @@ public:
 	inline static bool _lg_typecheck_setReferenceAngle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFrequencyHz(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDampingRatio(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -153,8 +151,7 @@ public:
 	// b2WeldJointDef::b2WeldJointDef()
 	static b2WeldJointDef* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2WeldJointDef::b2WeldJointDef() function, expected prototype:\nb2WeldJointDef::b2WeldJointDef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2WeldJointDef::b2WeldJointDef() function, expected prototype:\nb2WeldJointDef::b2WeldJointDef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -166,8 +163,7 @@ public:
 	// void b2WeldJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor)
 	static int _bind_Initialize(lua_State *L) {
 		if (!_lg_typecheck_Initialize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor) function, expected prototype:\nvoid b2WeldJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor)\nClass arguments details:\narg 1 ID = 53908778\narg 2 ID = 53908778\narg 3 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor) function, expected prototype:\nvoid b2WeldJointDef::Initialize(b2Body * bodyA, b2Body * bodyB, const b2Vec2 & anchor)\nClass arguments details:\narg 1 ID = 53908778\narg 2 ID = 53908778\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Body* bodyA=(Luna< b2Body >::check(L,2));
@@ -180,8 +176,7 @@ public:
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2WeldJointDef::Initialize(b2Body *, b2Body *, const b2Vec2 &). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2WeldJointDef::Initialize(b2Body *, b2Body *, const b2Vec2 &). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Initialize(bodyA, bodyB, anchor);
 
@@ -191,15 +186,13 @@ public:
 	// b2Vec2 b2WeldJointDef::localAnchorA()
 	static int _bind_getLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_getLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2WeldJointDef::localAnchorA() function, expected prototype:\nb2Vec2 b2WeldJointDef::localAnchorA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2WeldJointDef::localAnchorA() function, expected prototype:\nb2Vec2 b2WeldJointDef::localAnchorA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2WeldJointDef::localAnchorA(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2WeldJointDef::localAnchorA(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localAnchorA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -212,15 +205,13 @@ public:
 	// b2Vec2 b2WeldJointDef::localAnchorB()
 	static int _bind_getLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_getLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2WeldJointDef::localAnchorB() function, expected prototype:\nb2Vec2 b2WeldJointDef::localAnchorB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2WeldJointDef::localAnchorB() function, expected prototype:\nb2Vec2 b2WeldJointDef::localAnchorB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2WeldJointDef::localAnchorB(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2WeldJointDef::localAnchorB(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localAnchorB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -233,15 +224,13 @@ public:
 	// float b2WeldJointDef::referenceAngle()
 	static int _bind_getReferenceAngle(lua_State *L) {
 		if (!_lg_typecheck_getReferenceAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2WeldJointDef::referenceAngle() function, expected prototype:\nfloat b2WeldJointDef::referenceAngle()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2WeldJointDef::referenceAngle() function, expected prototype:\nfloat b2WeldJointDef::referenceAngle()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2WeldJointDef::referenceAngle(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2WeldJointDef::referenceAngle(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->referenceAngle;
 		lua_pushnumber(L,lret);
@@ -252,15 +241,13 @@ public:
 	// float b2WeldJointDef::frequencyHz()
 	static int _bind_getFrequencyHz(lua_State *L) {
 		if (!_lg_typecheck_getFrequencyHz(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2WeldJointDef::frequencyHz() function, expected prototype:\nfloat b2WeldJointDef::frequencyHz()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2WeldJointDef::frequencyHz() function, expected prototype:\nfloat b2WeldJointDef::frequencyHz()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2WeldJointDef::frequencyHz(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2WeldJointDef::frequencyHz(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->frequencyHz;
 		lua_pushnumber(L,lret);
@@ -271,15 +258,13 @@ public:
 	// float b2WeldJointDef::dampingRatio()
 	static int _bind_getDampingRatio(lua_State *L) {
 		if (!_lg_typecheck_getDampingRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2WeldJointDef::dampingRatio() function, expected prototype:\nfloat b2WeldJointDef::dampingRatio()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2WeldJointDef::dampingRatio() function, expected prototype:\nfloat b2WeldJointDef::dampingRatio()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2WeldJointDef::dampingRatio(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2WeldJointDef::dampingRatio(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->dampingRatio;
 		lua_pushnumber(L,lret);
@@ -290,8 +275,7 @@ public:
 	// void b2WeldJointDef::localAnchorA(b2Vec2 value)
 	static int _bind_setLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_setLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::localAnchorA(b2Vec2 value) function, expected prototype:\nvoid b2WeldJointDef::localAnchorA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::localAnchorA(b2Vec2 value) function, expected prototype:\nvoid b2WeldJointDef::localAnchorA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -302,8 +286,7 @@ public:
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2WeldJointDef::localAnchorA(b2Vec2). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2WeldJointDef::localAnchorA(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localAnchorA = value;
 
@@ -313,8 +296,7 @@ public:
 	// void b2WeldJointDef::localAnchorB(b2Vec2 value)
 	static int _bind_setLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_setLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::localAnchorB(b2Vec2 value) function, expected prototype:\nvoid b2WeldJointDef::localAnchorB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::localAnchorB(b2Vec2 value) function, expected prototype:\nvoid b2WeldJointDef::localAnchorB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -325,8 +307,7 @@ public:
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2WeldJointDef::localAnchorB(b2Vec2). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2WeldJointDef::localAnchorB(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localAnchorB = value;
 
@@ -336,16 +317,14 @@ public:
 	// void b2WeldJointDef::referenceAngle(float value)
 	static int _bind_setReferenceAngle(lua_State *L) {
 		if (!_lg_typecheck_setReferenceAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::referenceAngle(float value) function, expected prototype:\nvoid b2WeldJointDef::referenceAngle(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::referenceAngle(float value) function, expected prototype:\nvoid b2WeldJointDef::referenceAngle(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2WeldJointDef::referenceAngle(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2WeldJointDef::referenceAngle(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->referenceAngle = value;
 
@@ -355,16 +334,14 @@ public:
 	// void b2WeldJointDef::frequencyHz(float value)
 	static int _bind_setFrequencyHz(lua_State *L) {
 		if (!_lg_typecheck_setFrequencyHz(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::frequencyHz(float value) function, expected prototype:\nvoid b2WeldJointDef::frequencyHz(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::frequencyHz(float value) function, expected prototype:\nvoid b2WeldJointDef::frequencyHz(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2WeldJointDef::frequencyHz(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2WeldJointDef::frequencyHz(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->frequencyHz = value;
 
@@ -374,16 +351,14 @@ public:
 	// void b2WeldJointDef::dampingRatio(float value)
 	static int _bind_setDampingRatio(lua_State *L) {
 		if (!_lg_typecheck_setDampingRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::dampingRatio(float value) function, expected prototype:\nvoid b2WeldJointDef::dampingRatio(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2WeldJointDef::dampingRatio(float value) function, expected prototype:\nvoid b2WeldJointDef::dampingRatio(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2WeldJointDef* self=Luna< b2JointDef >::checkSubType< b2WeldJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2WeldJointDef::dampingRatio(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2WeldJointDef::dampingRatio(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->dampingRatio = value;
 

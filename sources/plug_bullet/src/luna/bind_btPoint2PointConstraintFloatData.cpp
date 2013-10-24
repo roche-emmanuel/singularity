@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPoint2PointConstraintFloatData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPoint2PointConstraintFloatData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPoint2PointConstraintFloatData* rhs =(Luna< btPoint2PointConstraintFloatData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPoint2PointConstraintFloatData* self= (btPoint2PointConstraintFloatData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPoint2PointConstraintFloatData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -151,15 +147,13 @@ public:
 	// btTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData()
 	static int _bind_getTypeConstraintData(lua_State *L) {
 		if (!_lg_typecheck_getTypeConstraintData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData() function, expected prototype:\nbtTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData() function, expected prototype:\nbtTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoint2PointConstraintFloatData* self=(Luna< btPoint2PointConstraintFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData(). Got : '%s'",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTypedConstraintData btPoint2PointConstraintFloatData::m_typeConstraintData(). Got : '%s'\n%s",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTypedConstraintData* lret = &self->m_typeConstraintData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +166,13 @@ public:
 	// btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA()
 	static int _bind_getPivotInA(lua_State *L) {
 		if (!_lg_typecheck_getPivotInA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA() function, expected prototype:\nbtVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA() function, expected prototype:\nbtVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoint2PointConstraintFloatData* self=(Luna< btPoint2PointConstraintFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA(). Got : '%s'",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInA(). Got : '%s'\n%s",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_pivotInA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,15 +185,13 @@ public:
 	// btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB()
 	static int _bind_getPivotInB(lua_State *L) {
 		if (!_lg_typecheck_getPivotInB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB() function, expected prototype:\nbtVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB() function, expected prototype:\nbtVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPoint2PointConstraintFloatData* self=(Luna< btPoint2PointConstraintFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB(). Got : '%s'",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btPoint2PointConstraintFloatData::m_pivotInB(). Got : '%s'\n%s",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_pivotInB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -214,8 +204,7 @@ public:
 	// void btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData value)
 	static int _bind_setTypeConstraintData(lua_State *L) {
 		if (!_lg_typecheck_setTypeConstraintData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData value) function, expected prototype:\nvoid btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData value)\nClass arguments details:\narg 1 ID = 98838043\n");
+			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData value) function, expected prototype:\nvoid btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData value)\nClass arguments details:\narg 1 ID = 98838043\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraintData* value_ptr=(Luna< btTypedConstraintData >::check(L,2));
@@ -226,8 +215,7 @@ public:
 
 		btPoint2PointConstraintFloatData* self=(Luna< btPoint2PointConstraintFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData). Got : '%s'",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPoint2PointConstraintFloatData::m_typeConstraintData(btTypedConstraintData). Got : '%s'\n%s",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_typeConstraintData = value;
 
@@ -237,8 +225,7 @@ public:
 	// void btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData value)
 	static int _bind_setPivotInA(lua_State *L) {
 		if (!_lg_typecheck_setPivotInA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData value) function, expected prototype:\nvoid btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData value) function, expected prototype:\nvoid btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -249,8 +236,7 @@ public:
 
 		btPoint2PointConstraintFloatData* self=(Luna< btPoint2PointConstraintFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData). Got : '%s'",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPoint2PointConstraintFloatData::m_pivotInA(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_pivotInA = value;
 
@@ -260,8 +246,7 @@ public:
 	// void btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData value)
 	static int _bind_setPivotInB(lua_State *L) {
 		if (!_lg_typecheck_setPivotInB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData value) function, expected prototype:\nvoid btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData value) function, expected prototype:\nvoid btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -272,8 +257,7 @@ public:
 
 		btPoint2PointConstraintFloatData* self=(Luna< btPoint2PointConstraintFloatData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData). Got : '%s'",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPoint2PointConstraintFloatData::m_pivotInB(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btPoint2PointConstraintFloatData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_pivotInB = value;
 

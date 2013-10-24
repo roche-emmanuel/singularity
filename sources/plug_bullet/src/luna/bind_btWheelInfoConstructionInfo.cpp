@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btWheelInfoConstructionInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btWheelInfoConstructionInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btWheelInfoConstructionInfo* rhs =(Luna< btWheelInfoConstructionInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btWheelInfoConstructionInfo* self= (btWheelInfoConstructionInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btWheelInfoConstructionInfo >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -198,56 +194,56 @@ public:
 	inline static bool _lg_typecheck_setSuspensionRestLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaxSuspensionTravelCm(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setWheelRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setSuspensionStiffness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setWheelsDampingCompression(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setWheelsDampingRelaxation(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFrictionSlip(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaxSuspensionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -268,15 +264,13 @@ public:
 	// btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS()
 	static int _bind_getChassisConnectionCS(lua_State *L) {
 		if (!_lg_typecheck_getChassisConnectionCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfoConstructionInfo::m_chassisConnectionCS(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_chassisConnectionCS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -289,15 +283,13 @@ public:
 	// btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS()
 	static int _bind_getWheelDirectionCS(lua_State *L) {
 		if (!_lg_typecheck_getWheelDirectionCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfoConstructionInfo::m_wheelDirectionCS(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_wheelDirectionCS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -310,15 +302,13 @@ public:
 	// btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS()
 	static int _bind_getWheelAxleCS(lua_State *L) {
 		if (!_lg_typecheck_getWheelAxleCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_wheelAxleCS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS() function, expected prototype:\nbtVector3 btWheelInfoConstructionInfo::m_wheelAxleCS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfoConstructionInfo::m_wheelAxleCS(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_wheelAxleCS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -331,15 +321,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_suspensionRestLength()
 	static int _bind_getSuspensionRestLength(lua_State *L) {
 		if (!_lg_typecheck_getSuspensionRestLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_suspensionRestLength() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_suspensionRestLength()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_suspensionRestLength() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_suspensionRestLength()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_suspensionRestLength(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_suspensionRestLength(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_suspensionRestLength;
 		lua_pushnumber(L,lret);
@@ -350,15 +338,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm()
 	static int _bind_getMaxSuspensionTravelCm(lua_State *L) {
 		if (!_lg_typecheck_getMaxSuspensionTravelCm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_maxSuspensionTravelCm()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_maxSuspensionTravelCm()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_maxSuspensionTravelCm;
 		lua_pushnumber(L,lret);
@@ -369,15 +355,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_wheelRadius()
 	static int _bind_getWheelRadius(lua_State *L) {
 		if (!_lg_typecheck_getWheelRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelRadius() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelRadius()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelRadius() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelRadius()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_wheelRadius(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_wheelRadius(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_wheelRadius;
 		lua_pushnumber(L,lret);
@@ -388,15 +372,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_suspensionStiffness()
 	static int _bind_getSuspensionStiffness(lua_State *L) {
 		if (!_lg_typecheck_getSuspensionStiffness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_suspensionStiffness() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_suspensionStiffness()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_suspensionStiffness() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_suspensionStiffness()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_suspensionStiffness(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_suspensionStiffness(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_suspensionStiffness;
 		lua_pushnumber(L,lret);
@@ -407,15 +389,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_wheelsDampingCompression()
 	static int _bind_getWheelsDampingCompression(lua_State *L) {
 		if (!_lg_typecheck_getWheelsDampingCompression(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelsDampingCompression() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelsDampingCompression()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelsDampingCompression() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelsDampingCompression()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_wheelsDampingCompression(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_wheelsDampingCompression(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_wheelsDampingCompression;
 		lua_pushnumber(L,lret);
@@ -426,15 +406,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation()
 	static int _bind_getWheelsDampingRelaxation(lua_State *L) {
 		if (!_lg_typecheck_getWheelsDampingRelaxation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelsDampingRelaxation()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_wheelsDampingRelaxation()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_wheelsDampingRelaxation;
 		lua_pushnumber(L,lret);
@@ -445,15 +423,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_frictionSlip()
 	static int _bind_getFrictionSlip(lua_State *L) {
 		if (!_lg_typecheck_getFrictionSlip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_frictionSlip() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_frictionSlip()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_frictionSlip() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_frictionSlip()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_frictionSlip(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_frictionSlip(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_frictionSlip;
 		lua_pushnumber(L,lret);
@@ -464,15 +440,13 @@ public:
 	// float btWheelInfoConstructionInfo::m_maxSuspensionForce()
 	static int _bind_getMaxSuspensionForce(lua_State *L) {
 		if (!_lg_typecheck_getMaxSuspensionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_maxSuspensionForce() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_maxSuspensionForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfoConstructionInfo::m_maxSuspensionForce() function, expected prototype:\nfloat btWheelInfoConstructionInfo::m_maxSuspensionForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_maxSuspensionForce(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfoConstructionInfo::m_maxSuspensionForce(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_maxSuspensionForce;
 		lua_pushnumber(L,lret);
@@ -483,15 +457,13 @@ public:
 	// bool btWheelInfoConstructionInfo::m_bIsFrontWheel()
 	static int _bind_getBIsFrontWheel(lua_State *L) {
 		if (!_lg_typecheck_getBIsFrontWheel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btWheelInfoConstructionInfo::m_bIsFrontWheel() function, expected prototype:\nbool btWheelInfoConstructionInfo::m_bIsFrontWheel()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btWheelInfoConstructionInfo::m_bIsFrontWheel() function, expected prototype:\nbool btWheelInfoConstructionInfo::m_bIsFrontWheel()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btWheelInfoConstructionInfo::m_bIsFrontWheel(). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btWheelInfoConstructionInfo::m_bIsFrontWheel(). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_bIsFrontWheel;
 		lua_pushboolean(L,lret?1:0);
@@ -502,8 +474,7 @@ public:
 	// void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value)
 	static int _bind_setChassisConnectionCS(lua_State *L) {
 		if (!_lg_typecheck_setChassisConnectionCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -514,8 +485,7 @@ public:
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_chassisConnectionCS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_chassisConnectionCS = value;
 
@@ -525,8 +495,7 @@ public:
 	// void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value)
 	static int _bind_setWheelDirectionCS(lua_State *L) {
 		if (!_lg_typecheck_setWheelDirectionCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -537,8 +506,7 @@ public:
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelDirectionCS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelDirectionCS = value;
 
@@ -548,8 +516,7 @@ public:
 	// void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value)
 	static int _bind_setWheelAxleCS(lua_State *L) {
 		if (!_lg_typecheck_setWheelAxleCS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -560,8 +527,7 @@ public:
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelAxleCS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelAxleCS = value;
 
@@ -571,16 +537,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_suspensionRestLength(float value)
 	static int _bind_setSuspensionRestLength(lua_State *L) {
 		if (!_lg_typecheck_setSuspensionRestLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_suspensionRestLength(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_suspensionRestLength(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_suspensionRestLength(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_suspensionRestLength(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_suspensionRestLength(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_suspensionRestLength(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_suspensionRestLength = value;
 
@@ -590,16 +554,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value)
 	static int _bind_setMaxSuspensionTravelCm(lua_State *L) {
 		if (!_lg_typecheck_setMaxSuspensionTravelCm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_maxSuspensionTravelCm(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_maxSuspensionTravelCm = value;
 
@@ -609,16 +571,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_wheelRadius(float value)
 	static int _bind_setWheelRadius(lua_State *L) {
 		if (!_lg_typecheck_setWheelRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelRadius(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelRadius(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelRadius(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelRadius(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelRadius(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelRadius(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelRadius = value;
 
@@ -628,16 +588,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_suspensionStiffness(float value)
 	static int _bind_setSuspensionStiffness(lua_State *L) {
 		if (!_lg_typecheck_setSuspensionStiffness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_suspensionStiffness(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_suspensionStiffness(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_suspensionStiffness(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_suspensionStiffness(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_suspensionStiffness(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_suspensionStiffness(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_suspensionStiffness = value;
 
@@ -647,16 +605,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value)
 	static int _bind_setWheelsDampingCompression(lua_State *L) {
 		if (!_lg_typecheck_setWheelsDampingCompression(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelsDampingCompression(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelsDampingCompression(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelsDampingCompression = value;
 
@@ -666,16 +622,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value)
 	static int _bind_setWheelsDampingRelaxation(lua_State *L) {
 		if (!_lg_typecheck_setWheelsDampingRelaxation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_wheelsDampingRelaxation(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelsDampingRelaxation = value;
 
@@ -685,16 +639,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_frictionSlip(float value)
 	static int _bind_setFrictionSlip(lua_State *L) {
 		if (!_lg_typecheck_setFrictionSlip(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_frictionSlip(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_frictionSlip(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_frictionSlip(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_frictionSlip(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_frictionSlip(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_frictionSlip(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_frictionSlip = value;
 
@@ -704,16 +656,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_maxSuspensionForce(float value)
 	static int _bind_setMaxSuspensionForce(lua_State *L) {
 		if (!_lg_typecheck_setMaxSuspensionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_maxSuspensionForce(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_maxSuspensionForce(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_maxSuspensionForce(float value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_maxSuspensionForce(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_maxSuspensionForce(float). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_maxSuspensionForce(float). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_maxSuspensionForce = value;
 
@@ -723,16 +673,14 @@ public:
 	// void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value)
 	static int _bind_setBIsFrontWheel(lua_State *L) {
 		if (!_lg_typecheck_setBIsFrontWheel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value) function, expected prototype:\nvoid btWheelInfoConstructionInfo::m_bIsFrontWheel(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btWheelInfoConstructionInfo* self=(Luna< btWheelInfoConstructionInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool). Got : '%s'",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfoConstructionInfo::m_bIsFrontWheel(bool). Got : '%s'\n%s",typeid(Luna< btWheelInfoConstructionInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_bIsFrontWheel = value;
 

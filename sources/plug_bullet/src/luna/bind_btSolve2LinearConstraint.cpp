@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSolve2LinearConstraint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSolve2LinearConstraint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolve2LinearConstraint* rhs =(Luna< btSolve2LinearConstraint >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolve2LinearConstraint* self= (btSolve2LinearConstraint*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btSolve2LinearConstraint >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,8 +99,8 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -118,23 +114,23 @@ public:
 		if( !Luna<void>::has_uniqueid(L,4,30394543) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,30394543) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,11,91544891) ) return false;
-		if( lua_isnumber(L,12)==0 ) return false;
+		if( lua_type(L,12)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,13,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,14,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,15,91544891) ) return false;
-		if( lua_isnumber(L,16)==0 ) return false;
+		if( lua_type(L,16)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,17,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,18,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,19,91544891) ) return false;
-		if( lua_isnumber(L,20)==0 ) return false;
+		if( lua_type(L,20)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,21,91544891) ) return false;
-		if( lua_isnumber(L,22)==0 ) return false;
-		if( lua_isnumber(L,23)==0 ) return false;
+		if( lua_type(L,22)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,23)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -146,23 +142,23 @@ public:
 		if( !Luna<void>::has_uniqueid(L,4,30394543) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,30394543) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,11,91544891) ) return false;
-		if( lua_isnumber(L,12)==0 ) return false;
+		if( lua_type(L,12)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,13,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,14,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,15,91544891) ) return false;
-		if( lua_isnumber(L,16)==0 ) return false;
+		if( lua_type(L,16)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,17,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,18,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,19,91544891) ) return false;
-		if( lua_isnumber(L,20)==0 ) return false;
+		if( lua_type(L,20)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,21,91544891) ) return false;
-		if( lua_isnumber(L,22)==0 ) return false;
-		if( lua_isnumber(L,23)==0 ) return false;
+		if( lua_type(L,22)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,23)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -174,8 +170,7 @@ public:
 	// btSolve2LinearConstraint::btSolve2LinearConstraint(float tau, float damping)
 	static btSolve2LinearConstraint* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSolve2LinearConstraint::btSolve2LinearConstraint(float tau, float damping) function, expected prototype:\nbtSolve2LinearConstraint::btSolve2LinearConstraint(float tau, float damping)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSolve2LinearConstraint::btSolve2LinearConstraint(float tau, float damping) function, expected prototype:\nbtSolve2LinearConstraint::btSolve2LinearConstraint(float tau, float damping)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float tau=(float)lua_tonumber(L,1);
@@ -189,8 +184,7 @@ public:
 	// void btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1)
 	static int _bind_resolveUnilateralPairConstraint(lua_State *L) {
 		if (!_lg_typecheck_resolveUnilateralPairConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1) function, expected prototype:\nvoid btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 30394543\narg 4 ID = 30394543\narg 5 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 91544891\narg 10 ID = 91544891\narg 12 ID = 91544891\narg 13 ID = 91544891\narg 14 ID = 91544891\narg 16 ID = 91544891\narg 17 ID = 91544891\narg 18 ID = 91544891\narg 20 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1) function, expected prototype:\nvoid btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 30394543\narg 4 ID = 30394543\narg 5 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 91544891\narg 10 ID = 91544891\narg 12 ID = 91544891\narg 13 ID = 91544891\narg 14 ID = 91544891\narg 16 ID = 91544891\narg 17 ID = 91544891\narg 18 ID = 91544891\narg 20 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body0=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -274,19 +268,19 @@ public:
 
 		btSolve2LinearConstraint* self=(Luna< btSolve2LinearConstraint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody *, btRigidBody *, const btMatrix3x3 &, const btMatrix3x3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, float &, float &). Got : '%s'",typeid(Luna< btSolve2LinearConstraint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSolve2LinearConstraint::resolveUnilateralPairConstraint(btRigidBody *, btRigidBody *, const btMatrix3x3 &, const btMatrix3x3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, float &, float &). Got : '%s'\n%s",typeid(Luna< btSolve2LinearConstraint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resolveUnilateralPairConstraint(body0, body1, world2A, world2B, invInertiaADiag, invMassA, linvelA, angvelA, rel_posA1, invInertiaBDiag, invMassB, linvelB, angvelB, rel_posA2, depthA, normalA, rel_posB1, rel_posB2, depthB, normalB, imp0, imp1);
 
-		return 0;
+		lua_pushnumber(L,imp0);
+		lua_pushnumber(L,imp1);
+		return 2;
 	}
 
 	// void btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1)
 	static int _bind_resolveBilateralPairConstraint(lua_State *L) {
 		if (!_lg_typecheck_resolveBilateralPairConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1) function, expected prototype:\nvoid btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 30394543\narg 4 ID = 30394543\narg 5 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 91544891\narg 10 ID = 91544891\narg 12 ID = 91544891\narg 13 ID = 91544891\narg 14 ID = 91544891\narg 16 ID = 91544891\narg 17 ID = 91544891\narg 18 ID = 91544891\narg 20 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1) function, expected prototype:\nvoid btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody * body0, btRigidBody * body1, const btMatrix3x3 & world2A, const btMatrix3x3 & world2B, const btVector3 & invInertiaADiag, const float invMassA, const btVector3 & linvelA, const btVector3 & angvelA, const btVector3 & rel_posA1, const btVector3 & invInertiaBDiag, const float invMassB, const btVector3 & linvelB, const btVector3 & angvelB, const btVector3 & rel_posA2, float depthA, const btVector3 & normalA, const btVector3 & rel_posB1, const btVector3 & rel_posB2, float depthB, const btVector3 & normalB, float & imp0, float & imp1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 30394543\narg 4 ID = 30394543\narg 5 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 91544891\narg 10 ID = 91544891\narg 12 ID = 91544891\narg 13 ID = 91544891\narg 14 ID = 91544891\narg 16 ID = 91544891\narg 17 ID = 91544891\narg 18 ID = 91544891\narg 20 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* body0=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -370,12 +364,13 @@ public:
 
 		btSolve2LinearConstraint* self=(Luna< btSolve2LinearConstraint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody *, btRigidBody *, const btMatrix3x3 &, const btMatrix3x3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, float &, float &). Got : '%s'",typeid(Luna< btSolve2LinearConstraint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSolve2LinearConstraint::resolveBilateralPairConstraint(btRigidBody *, btRigidBody *, const btMatrix3x3 &, const btMatrix3x3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, const btVector3 &, const btVector3 &, float, const btVector3 &, float &, float &). Got : '%s'\n%s",typeid(Luna< btSolve2LinearConstraint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resolveBilateralPairConstraint(body0, body1, world2A, world2B, invInertiaADiag, invMassA, linvelA, angvelA, rel_posA1, invInertiaBDiag, invMassB, linvelB, angvelB, rel_posA2, depthA, normalA, rel_posB1, rel_posB2, depthB, normalB, imp0, imp1);
 
-		return 0;
+		lua_pushnumber(L,imp0);
+		lua_pushnumber(L,imp1);
+		return 2;
 	}
 
 

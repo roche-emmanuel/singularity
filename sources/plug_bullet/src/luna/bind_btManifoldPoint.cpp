@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btManifoldPoint*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btManifoldPoint*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldPoint* rhs =(Luna< btManifoldPoint >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldPoint* self= (btManifoldPoint*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btManifoldPoint >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -115,7 +111,7 @@ public:
 		if( (!(Luna< btVector3 >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,3))) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -148,7 +144,7 @@ public:
 	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -322,56 +318,56 @@ public:
 	inline static bool _lg_typecheck_setDistance1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCombinedFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCombinedRollingFriction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCombinedRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setPartId0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setPartId1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setIndex0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setIndex1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -392,56 +388,56 @@ public:
 	inline static bool _lg_typecheck_setAppliedImpulse(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAppliedImpulseLateral1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setAppliedImpulseLateral2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactMotion1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactMotion2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactCFM1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setContactCFM2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLifeTime(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -467,8 +463,7 @@ public:
 	// btManifoldPoint::btManifoldPoint()
 	static btManifoldPoint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btManifoldPoint::btManifoldPoint() function, expected prototype:\nbtManifoldPoint::btManifoldPoint()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btManifoldPoint::btManifoldPoint() function, expected prototype:\nbtManifoldPoint::btManifoldPoint()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -478,8 +473,7 @@ public:
 	// btManifoldPoint::btManifoldPoint(const btVector3 & pointA, const btVector3 & pointB, const btVector3 & normal, float distance)
 	static btManifoldPoint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btManifoldPoint::btManifoldPoint(const btVector3 & pointA, const btVector3 & pointB, const btVector3 & normal, float distance) function, expected prototype:\nbtManifoldPoint::btManifoldPoint(const btVector3 & pointA, const btVector3 & pointB, const btVector3 & normal, float distance)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btManifoldPoint::btManifoldPoint(const btVector3 & pointA, const btVector3 & pointB, const btVector3 & normal, float distance) function, expected prototype:\nbtManifoldPoint::btManifoldPoint(const btVector3 & pointA, const btVector3 & pointB, const btVector3 & normal, float distance)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* pointA_ptr=(Luna< btVector3 >::check(L,1));
@@ -516,15 +510,13 @@ public:
 	// float btManifoldPoint::getDistance() const
 	static int _bind_getDistance(lua_State *L) {
 		if (!_lg_typecheck_getDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::getDistance() const function, expected prototype:\nfloat btManifoldPoint::getDistance() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::getDistance() const function, expected prototype:\nfloat btManifoldPoint::getDistance() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::getDistance() const. Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::getDistance() const. Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getDistance();
 		lua_pushnumber(L,lret);
@@ -535,15 +527,13 @@ public:
 	// int btManifoldPoint::getLifeTime() const
 	static int _bind_getLifeTime(lua_State *L) {
 		if (!_lg_typecheck_getLifeTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btManifoldPoint::getLifeTime() const function, expected prototype:\nint btManifoldPoint::getLifeTime() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btManifoldPoint::getLifeTime() const function, expected prototype:\nint btManifoldPoint::getLifeTime() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btManifoldPoint::getLifeTime() const. Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btManifoldPoint::getLifeTime() const. Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getLifeTime();
 		lua_pushnumber(L,lret);
@@ -554,15 +544,13 @@ public:
 	// const btVector3 & btManifoldPoint::getPositionWorldOnA() const
 	static int _bind_getPositionWorldOnA(lua_State *L) {
 		if (!_lg_typecheck_getPositionWorldOnA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btManifoldPoint::getPositionWorldOnA() const function, expected prototype:\nconst btVector3 & btManifoldPoint::getPositionWorldOnA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btManifoldPoint::getPositionWorldOnA() const function, expected prototype:\nconst btVector3 & btManifoldPoint::getPositionWorldOnA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btManifoldPoint::getPositionWorldOnA() const. Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btManifoldPoint::getPositionWorldOnA() const. Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getPositionWorldOnA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -575,15 +563,13 @@ public:
 	// const btVector3 & btManifoldPoint::getPositionWorldOnB() const
 	static int _bind_getPositionWorldOnB(lua_State *L) {
 		if (!_lg_typecheck_getPositionWorldOnB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btManifoldPoint::getPositionWorldOnB() const function, expected prototype:\nconst btVector3 & btManifoldPoint::getPositionWorldOnB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btManifoldPoint::getPositionWorldOnB() const function, expected prototype:\nconst btVector3 & btManifoldPoint::getPositionWorldOnB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btManifoldPoint::getPositionWorldOnB() const. Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btManifoldPoint::getPositionWorldOnB() const. Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getPositionWorldOnB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -596,16 +582,14 @@ public:
 	// void btManifoldPoint::setDistance(float dist)
 	static int _bind_setDistance(lua_State *L) {
 		if (!_lg_typecheck_setDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::setDistance(float dist) function, expected prototype:\nvoid btManifoldPoint::setDistance(float dist)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::setDistance(float dist) function, expected prototype:\nvoid btManifoldPoint::setDistance(float dist)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float dist=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::setDistance(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::setDistance(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDistance(dist);
 
@@ -615,15 +599,13 @@ public:
 	// float btManifoldPoint::getAppliedImpulse() const
 	static int _bind_getAppliedImpulse(lua_State *L) {
 		if (!_lg_typecheck_getAppliedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::getAppliedImpulse() const function, expected prototype:\nfloat btManifoldPoint::getAppliedImpulse() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::getAppliedImpulse() const function, expected prototype:\nfloat btManifoldPoint::getAppliedImpulse() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::getAppliedImpulse() const. Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::getAppliedImpulse() const. Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAppliedImpulse();
 		lua_pushnumber(L,lret);
@@ -634,15 +616,13 @@ public:
 	// btVector3 btManifoldPoint::m_localPointA()
 	static int _bind_getLocalPointA(lua_State *L) {
 		if (!_lg_typecheck_getLocalPointA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_localPointA() function, expected prototype:\nbtVector3 btManifoldPoint::m_localPointA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_localPointA() function, expected prototype:\nbtVector3 btManifoldPoint::m_localPointA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_localPointA(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_localPointA(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_localPointA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -655,15 +635,13 @@ public:
 	// btVector3 btManifoldPoint::m_localPointB()
 	static int _bind_getLocalPointB(lua_State *L) {
 		if (!_lg_typecheck_getLocalPointB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_localPointB() function, expected prototype:\nbtVector3 btManifoldPoint::m_localPointB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_localPointB() function, expected prototype:\nbtVector3 btManifoldPoint::m_localPointB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_localPointB(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_localPointB(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_localPointB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -676,15 +654,13 @@ public:
 	// btVector3 btManifoldPoint::m_normalWorldOnB()
 	static int _bind_getNormalWorldOnB(lua_State *L) {
 		if (!_lg_typecheck_getNormalWorldOnB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_normalWorldOnB() function, expected prototype:\nbtVector3 btManifoldPoint::m_normalWorldOnB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_normalWorldOnB() function, expected prototype:\nbtVector3 btManifoldPoint::m_normalWorldOnB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_normalWorldOnB(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_normalWorldOnB(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_normalWorldOnB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -697,15 +673,13 @@ public:
 	// float btManifoldPoint::m_distance1()
 	static int _bind_getDistance1(lua_State *L) {
 		if (!_lg_typecheck_getDistance1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_distance1() function, expected prototype:\nfloat btManifoldPoint::m_distance1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_distance1() function, expected prototype:\nfloat btManifoldPoint::m_distance1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_distance1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_distance1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_distance1;
 		lua_pushnumber(L,lret);
@@ -716,15 +690,13 @@ public:
 	// float btManifoldPoint::m_combinedFriction()
 	static int _bind_getCombinedFriction(lua_State *L) {
 		if (!_lg_typecheck_getCombinedFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedFriction() function, expected prototype:\nfloat btManifoldPoint::m_combinedFriction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedFriction() function, expected prototype:\nfloat btManifoldPoint::m_combinedFriction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_combinedFriction(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_combinedFriction(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_combinedFriction;
 		lua_pushnumber(L,lret);
@@ -735,15 +707,13 @@ public:
 	// float btManifoldPoint::m_combinedRollingFriction()
 	static int _bind_getCombinedRollingFriction(lua_State *L) {
 		if (!_lg_typecheck_getCombinedRollingFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedRollingFriction() function, expected prototype:\nfloat btManifoldPoint::m_combinedRollingFriction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedRollingFriction() function, expected prototype:\nfloat btManifoldPoint::m_combinedRollingFriction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_combinedRollingFriction(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_combinedRollingFriction(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_combinedRollingFriction;
 		lua_pushnumber(L,lret);
@@ -754,15 +724,13 @@ public:
 	// float btManifoldPoint::m_combinedRestitution()
 	static int _bind_getCombinedRestitution(lua_State *L) {
 		if (!_lg_typecheck_getCombinedRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedRestitution() function, expected prototype:\nfloat btManifoldPoint::m_combinedRestitution()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_combinedRestitution() function, expected prototype:\nfloat btManifoldPoint::m_combinedRestitution()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_combinedRestitution(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_combinedRestitution(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_combinedRestitution;
 		lua_pushnumber(L,lret);
@@ -773,15 +741,13 @@ public:
 	// int btManifoldPoint::m_partId0()
 	static int _bind_getPartId0(lua_State *L) {
 		if (!_lg_typecheck_getPartId0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_partId0() function, expected prototype:\nint btManifoldPoint::m_partId0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_partId0() function, expected prototype:\nint btManifoldPoint::m_partId0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_partId0(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_partId0(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_partId0;
 		lua_pushnumber(L,lret);
@@ -792,15 +758,13 @@ public:
 	// int btManifoldPoint::m_partId1()
 	static int _bind_getPartId1(lua_State *L) {
 		if (!_lg_typecheck_getPartId1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_partId1() function, expected prototype:\nint btManifoldPoint::m_partId1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_partId1() function, expected prototype:\nint btManifoldPoint::m_partId1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_partId1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_partId1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_partId1;
 		lua_pushnumber(L,lret);
@@ -811,15 +775,13 @@ public:
 	// int btManifoldPoint::m_index0()
 	static int _bind_getIndex0(lua_State *L) {
 		if (!_lg_typecheck_getIndex0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_index0() function, expected prototype:\nint btManifoldPoint::m_index0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_index0() function, expected prototype:\nint btManifoldPoint::m_index0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_index0(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_index0(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_index0;
 		lua_pushnumber(L,lret);
@@ -830,15 +792,13 @@ public:
 	// int btManifoldPoint::m_index1()
 	static int _bind_getIndex1(lua_State *L) {
 		if (!_lg_typecheck_getIndex1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_index1() function, expected prototype:\nint btManifoldPoint::m_index1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btManifoldPoint::m_index1() function, expected prototype:\nint btManifoldPoint::m_index1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_index1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btManifoldPoint::m_index1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_index1;
 		lua_pushnumber(L,lret);
@@ -849,15 +809,13 @@ public:
 	// void * btManifoldPoint::m_userPersistentData()
 	static int _bind_getUserPersistentData(lua_State *L) {
 		if (!_lg_typecheck_getUserPersistentData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btManifoldPoint::m_userPersistentData() function, expected prototype:\nvoid * btManifoldPoint::m_userPersistentData()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btManifoldPoint::m_userPersistentData() function, expected prototype:\nvoid * btManifoldPoint::m_userPersistentData()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btManifoldPoint::m_userPersistentData(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btManifoldPoint::m_userPersistentData(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_userPersistentData;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -870,15 +828,13 @@ public:
 	// bool btManifoldPoint::m_lateralFrictionInitialized()
 	static int _bind_getLateralFrictionInitialized(lua_State *L) {
 		if (!_lg_typecheck_getLateralFrictionInitialized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btManifoldPoint::m_lateralFrictionInitialized() function, expected prototype:\nbool btManifoldPoint::m_lateralFrictionInitialized()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btManifoldPoint::m_lateralFrictionInitialized() function, expected prototype:\nbool btManifoldPoint::m_lateralFrictionInitialized()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btManifoldPoint::m_lateralFrictionInitialized(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btManifoldPoint::m_lateralFrictionInitialized(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_lateralFrictionInitialized;
 		lua_pushboolean(L,lret?1:0);
@@ -889,15 +845,13 @@ public:
 	// float btManifoldPoint::m_appliedImpulseLateral1()
 	static int _bind_getAppliedImpulseLateral1(lua_State *L) {
 		if (!_lg_typecheck_getAppliedImpulseLateral1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulseLateral1() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulseLateral1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulseLateral1() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulseLateral1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_appliedImpulseLateral1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_appliedImpulseLateral1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_appliedImpulseLateral1;
 		lua_pushnumber(L,lret);
@@ -908,15 +862,13 @@ public:
 	// float btManifoldPoint::m_appliedImpulseLateral2()
 	static int _bind_getAppliedImpulseLateral2(lua_State *L) {
 		if (!_lg_typecheck_getAppliedImpulseLateral2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulseLateral2() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulseLateral2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_appliedImpulseLateral2() function, expected prototype:\nfloat btManifoldPoint::m_appliedImpulseLateral2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_appliedImpulseLateral2(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_appliedImpulseLateral2(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_appliedImpulseLateral2;
 		lua_pushnumber(L,lret);
@@ -927,15 +879,13 @@ public:
 	// float btManifoldPoint::m_contactMotion1()
 	static int _bind_getContactMotion1(lua_State *L) {
 		if (!_lg_typecheck_getContactMotion1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactMotion1() function, expected prototype:\nfloat btManifoldPoint::m_contactMotion1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactMotion1() function, expected prototype:\nfloat btManifoldPoint::m_contactMotion1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactMotion1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactMotion1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_contactMotion1;
 		lua_pushnumber(L,lret);
@@ -946,15 +896,13 @@ public:
 	// float btManifoldPoint::m_contactMotion2()
 	static int _bind_getContactMotion2(lua_State *L) {
 		if (!_lg_typecheck_getContactMotion2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactMotion2() function, expected prototype:\nfloat btManifoldPoint::m_contactMotion2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactMotion2() function, expected prototype:\nfloat btManifoldPoint::m_contactMotion2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactMotion2(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactMotion2(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_contactMotion2;
 		lua_pushnumber(L,lret);
@@ -965,15 +913,13 @@ public:
 	// float btManifoldPoint::m_contactCFM1()
 	static int _bind_getContactCFM1(lua_State *L) {
 		if (!_lg_typecheck_getContactCFM1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactCFM1() function, expected prototype:\nfloat btManifoldPoint::m_contactCFM1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactCFM1() function, expected prototype:\nfloat btManifoldPoint::m_contactCFM1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactCFM1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactCFM1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_contactCFM1;
 		lua_pushnumber(L,lret);
@@ -984,15 +930,13 @@ public:
 	// float btManifoldPoint::m_contactCFM2()
 	static int _bind_getContactCFM2(lua_State *L) {
 		if (!_lg_typecheck_getContactCFM2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactCFM2() function, expected prototype:\nfloat btManifoldPoint::m_contactCFM2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btManifoldPoint::m_contactCFM2() function, expected prototype:\nfloat btManifoldPoint::m_contactCFM2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactCFM2(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btManifoldPoint::m_contactCFM2(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_contactCFM2;
 		lua_pushnumber(L,lret);
@@ -1003,15 +947,13 @@ public:
 	// btVector3 btManifoldPoint::m_lateralFrictionDir1()
 	static int _bind_getLateralFrictionDir1(lua_State *L) {
 		if (!_lg_typecheck_getLateralFrictionDir1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_lateralFrictionDir1() function, expected prototype:\nbtVector3 btManifoldPoint::m_lateralFrictionDir1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_lateralFrictionDir1() function, expected prototype:\nbtVector3 btManifoldPoint::m_lateralFrictionDir1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_lateralFrictionDir1(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_lateralFrictionDir1(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_lateralFrictionDir1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1024,15 +966,13 @@ public:
 	// btVector3 btManifoldPoint::m_lateralFrictionDir2()
 	static int _bind_getLateralFrictionDir2(lua_State *L) {
 		if (!_lg_typecheck_getLateralFrictionDir2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_lateralFrictionDir2() function, expected prototype:\nbtVector3 btManifoldPoint::m_lateralFrictionDir2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btManifoldPoint::m_lateralFrictionDir2() function, expected prototype:\nbtVector3 btManifoldPoint::m_lateralFrictionDir2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_lateralFrictionDir2(). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btManifoldPoint::m_lateralFrictionDir2(). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_lateralFrictionDir2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1045,8 +985,7 @@ public:
 	// void btManifoldPoint::m_localPointA(btVector3 value)
 	static int _bind_setLocalPointA(lua_State *L) {
 		if (!_lg_typecheck_setLocalPointA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_localPointA(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_localPointA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_localPointA(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_localPointA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1057,8 +996,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_localPointA(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_localPointA(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_localPointA = value;
 
@@ -1068,8 +1006,7 @@ public:
 	// void btManifoldPoint::m_localPointB(btVector3 value)
 	static int _bind_setLocalPointB(lua_State *L) {
 		if (!_lg_typecheck_setLocalPointB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_localPointB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_localPointB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_localPointB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_localPointB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1080,8 +1017,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_localPointB(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_localPointB(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_localPointB = value;
 
@@ -1091,8 +1027,7 @@ public:
 	// void btManifoldPoint::m_positionWorldOnB(btVector3 value)
 	static int _bind_setPositionWorldOnB(lua_State *L) {
 		if (!_lg_typecheck_setPositionWorldOnB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_positionWorldOnB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_positionWorldOnB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_positionWorldOnB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_positionWorldOnB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1103,8 +1038,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_positionWorldOnB(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_positionWorldOnB(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_positionWorldOnB = value;
 
@@ -1114,8 +1048,7 @@ public:
 	// void btManifoldPoint::m_positionWorldOnA(btVector3 value)
 	static int _bind_setPositionWorldOnA(lua_State *L) {
 		if (!_lg_typecheck_setPositionWorldOnA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_positionWorldOnA(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_positionWorldOnA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_positionWorldOnA(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_positionWorldOnA(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1126,8 +1059,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_positionWorldOnA(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_positionWorldOnA(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_positionWorldOnA = value;
 
@@ -1137,8 +1069,7 @@ public:
 	// void btManifoldPoint::m_normalWorldOnB(btVector3 value)
 	static int _bind_setNormalWorldOnB(lua_State *L) {
 		if (!_lg_typecheck_setNormalWorldOnB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_normalWorldOnB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_normalWorldOnB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_normalWorldOnB(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_normalWorldOnB(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1149,8 +1080,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_normalWorldOnB(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_normalWorldOnB(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_normalWorldOnB = value;
 
@@ -1160,16 +1090,14 @@ public:
 	// void btManifoldPoint::m_distance1(float value)
 	static int _bind_setDistance1(lua_State *L) {
 		if (!_lg_typecheck_setDistance1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_distance1(float value) function, expected prototype:\nvoid btManifoldPoint::m_distance1(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_distance1(float value) function, expected prototype:\nvoid btManifoldPoint::m_distance1(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_distance1(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_distance1(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_distance1 = value;
 
@@ -1179,16 +1107,14 @@ public:
 	// void btManifoldPoint::m_combinedFriction(float value)
 	static int _bind_setCombinedFriction(lua_State *L) {
 		if (!_lg_typecheck_setCombinedFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedFriction(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedFriction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedFriction(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedFriction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_combinedFriction(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_combinedFriction(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_combinedFriction = value;
 
@@ -1198,16 +1124,14 @@ public:
 	// void btManifoldPoint::m_combinedRollingFriction(float value)
 	static int _bind_setCombinedRollingFriction(lua_State *L) {
 		if (!_lg_typecheck_setCombinedRollingFriction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedRollingFriction(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedRollingFriction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedRollingFriction(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedRollingFriction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_combinedRollingFriction(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_combinedRollingFriction(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_combinedRollingFriction = value;
 
@@ -1217,16 +1141,14 @@ public:
 	// void btManifoldPoint::m_combinedRestitution(float value)
 	static int _bind_setCombinedRestitution(lua_State *L) {
 		if (!_lg_typecheck_setCombinedRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedRestitution(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedRestitution(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_combinedRestitution(float value) function, expected prototype:\nvoid btManifoldPoint::m_combinedRestitution(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_combinedRestitution(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_combinedRestitution(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_combinedRestitution = value;
 
@@ -1236,16 +1158,14 @@ public:
 	// void btManifoldPoint::m_partId0(int value)
 	static int _bind_setPartId0(lua_State *L) {
 		if (!_lg_typecheck_setPartId0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_partId0(int value) function, expected prototype:\nvoid btManifoldPoint::m_partId0(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_partId0(int value) function, expected prototype:\nvoid btManifoldPoint::m_partId0(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_partId0(int). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_partId0(int). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_partId0 = value;
 
@@ -1255,16 +1175,14 @@ public:
 	// void btManifoldPoint::m_partId1(int value)
 	static int _bind_setPartId1(lua_State *L) {
 		if (!_lg_typecheck_setPartId1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_partId1(int value) function, expected prototype:\nvoid btManifoldPoint::m_partId1(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_partId1(int value) function, expected prototype:\nvoid btManifoldPoint::m_partId1(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_partId1(int). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_partId1(int). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_partId1 = value;
 
@@ -1274,16 +1192,14 @@ public:
 	// void btManifoldPoint::m_index0(int value)
 	static int _bind_setIndex0(lua_State *L) {
 		if (!_lg_typecheck_setIndex0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_index0(int value) function, expected prototype:\nvoid btManifoldPoint::m_index0(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_index0(int value) function, expected prototype:\nvoid btManifoldPoint::m_index0(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_index0(int). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_index0(int). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_index0 = value;
 
@@ -1293,16 +1209,14 @@ public:
 	// void btManifoldPoint::m_index1(int value)
 	static int _bind_setIndex1(lua_State *L) {
 		if (!_lg_typecheck_setIndex1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_index1(int value) function, expected prototype:\nvoid btManifoldPoint::m_index1(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_index1(int value) function, expected prototype:\nvoid btManifoldPoint::m_index1(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_index1(int). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_index1(int). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_index1 = value;
 
@@ -1312,16 +1226,14 @@ public:
 	// void btManifoldPoint::m_userPersistentData(void * value)
 	static int _bind_setUserPersistentData(lua_State *L) {
 		if (!_lg_typecheck_setUserPersistentData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_userPersistentData(void * value) function, expected prototype:\nvoid btManifoldPoint::m_userPersistentData(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_userPersistentData(void * value) function, expected prototype:\nvoid btManifoldPoint::m_userPersistentData(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_userPersistentData(void *). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_userPersistentData(void *). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_userPersistentData = value;
 
@@ -1331,16 +1243,14 @@ public:
 	// void btManifoldPoint::m_lateralFrictionInitialized(bool value)
 	static int _bind_setLateralFrictionInitialized(lua_State *L) {
 		if (!_lg_typecheck_setLateralFrictionInitialized(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionInitialized(bool value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionInitialized(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionInitialized(bool value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionInitialized(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lateralFrictionInitialized(bool). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lateralFrictionInitialized(bool). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lateralFrictionInitialized = value;
 
@@ -1350,16 +1260,14 @@ public:
 	// void btManifoldPoint::m_appliedImpulse(float value)
 	static int _bind_setAppliedImpulse(lua_State *L) {
 		if (!_lg_typecheck_setAppliedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulse(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulse(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulse(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulse(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_appliedImpulse(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_appliedImpulse(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedImpulse = value;
 
@@ -1369,16 +1277,14 @@ public:
 	// void btManifoldPoint::m_appliedImpulseLateral1(float value)
 	static int _bind_setAppliedImpulseLateral1(lua_State *L) {
 		if (!_lg_typecheck_setAppliedImpulseLateral1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulseLateral1(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulseLateral1(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulseLateral1(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulseLateral1(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_appliedImpulseLateral1(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_appliedImpulseLateral1(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedImpulseLateral1 = value;
 
@@ -1388,16 +1294,14 @@ public:
 	// void btManifoldPoint::m_appliedImpulseLateral2(float value)
 	static int _bind_setAppliedImpulseLateral2(lua_State *L) {
 		if (!_lg_typecheck_setAppliedImpulseLateral2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulseLateral2(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulseLateral2(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_appliedImpulseLateral2(float value) function, expected prototype:\nvoid btManifoldPoint::m_appliedImpulseLateral2(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_appliedImpulseLateral2(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_appliedImpulseLateral2(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_appliedImpulseLateral2 = value;
 
@@ -1407,16 +1311,14 @@ public:
 	// void btManifoldPoint::m_contactMotion1(float value)
 	static int _bind_setContactMotion1(lua_State *L) {
 		if (!_lg_typecheck_setContactMotion1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactMotion1(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactMotion1(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactMotion1(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactMotion1(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactMotion1(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactMotion1(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactMotion1 = value;
 
@@ -1426,16 +1328,14 @@ public:
 	// void btManifoldPoint::m_contactMotion2(float value)
 	static int _bind_setContactMotion2(lua_State *L) {
 		if (!_lg_typecheck_setContactMotion2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactMotion2(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactMotion2(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactMotion2(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactMotion2(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactMotion2(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactMotion2(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactMotion2 = value;
 
@@ -1445,16 +1345,14 @@ public:
 	// void btManifoldPoint::m_contactCFM1(float value)
 	static int _bind_setContactCFM1(lua_State *L) {
 		if (!_lg_typecheck_setContactCFM1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactCFM1(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactCFM1(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactCFM1(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactCFM1(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactCFM1(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactCFM1(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactCFM1 = value;
 
@@ -1464,16 +1362,14 @@ public:
 	// void btManifoldPoint::m_contactCFM2(float value)
 	static int _bind_setContactCFM2(lua_State *L) {
 		if (!_lg_typecheck_setContactCFM2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactCFM2(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactCFM2(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_contactCFM2(float value) function, expected prototype:\nvoid btManifoldPoint::m_contactCFM2(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactCFM2(float). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_contactCFM2(float). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactCFM2 = value;
 
@@ -1483,16 +1379,14 @@ public:
 	// void btManifoldPoint::m_lifeTime(int value)
 	static int _bind_setLifeTime(lua_State *L) {
 		if (!_lg_typecheck_setLifeTime(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lifeTime(int value) function, expected prototype:\nvoid btManifoldPoint::m_lifeTime(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lifeTime(int value) function, expected prototype:\nvoid btManifoldPoint::m_lifeTime(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lifeTime(int). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lifeTime(int). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lifeTime = value;
 
@@ -1502,8 +1396,7 @@ public:
 	// void btManifoldPoint::m_lateralFrictionDir1(btVector3 value)
 	static int _bind_setLateralFrictionDir1(lua_State *L) {
 		if (!_lg_typecheck_setLateralFrictionDir1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionDir1(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionDir1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionDir1(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionDir1(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1514,8 +1407,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lateralFrictionDir1(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lateralFrictionDir1(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lateralFrictionDir1 = value;
 
@@ -1525,8 +1417,7 @@ public:
 	// void btManifoldPoint::m_lateralFrictionDir2(btVector3 value)
 	static int _bind_setLateralFrictionDir2(lua_State *L) {
 		if (!_lg_typecheck_setLateralFrictionDir2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionDir2(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionDir2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btManifoldPoint::m_lateralFrictionDir2(btVector3 value) function, expected prototype:\nvoid btManifoldPoint::m_lateralFrictionDir2(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1537,8 +1428,7 @@ public:
 
 		btManifoldPoint* self=(Luna< btManifoldPoint >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lateralFrictionDir2(btVector3). Got : '%s'",typeid(Luna< btManifoldPoint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btManifoldPoint::m_lateralFrictionDir2(btVector3). Got : '%s'\n%s",typeid(Luna< btManifoldPoint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lateralFrictionDir2 = value;
 

@@ -498,7 +498,7 @@ inline static bool _lg_typecheck_GetNumberOfProcessors(lua_State *L) {
 inline static bool _lg_typecheck_SetProcessorAffinityOfCurrentThread(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -542,36 +542,36 @@ inline static bool _lg_typecheck_getCpuByteOrder(lua_State *L) {
 inline static bool _lg_typecheck_swapBytes(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes4(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes8(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_swapBytes16(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -584,10 +584,10 @@ inline static bool _lg_typecheck_createTexturedQuadGeometry_overload_1(lua_State
 	if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 	if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
-	if( lua_isnumber(L,7)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -601,8 +601,8 @@ inline static bool _lg_typecheck_createTexturedQuadGeometry_overload_2(lua_State
 	if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 	if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
-	if( luatop>3 && lua_isnumber(L,4)==0 ) return false;
-	if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
+	if( luatop>3 && lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -615,56 +615,56 @@ inline static bool _lg_typecheck_getGLVersionNumber(lua_State *L) {
 inline static bool _lg_typecheck_isExtensionInExtensionString(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_isGLExtensionSupported(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_isGLExtensionOrVersionSupported(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getGLExtensionFuncPtr_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getGLExtensionFuncPtr_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getGLExtensionFuncPtr_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_setGLExtensionDisableString(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -677,37 +677,37 @@ inline static bool _lg_typecheck_getGLExtensionDisableString(lua_State *L) {
 inline static bool _lg_typecheck_flushDeletedGLObjects(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_flushAllDeletedGLObjects(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_deleteAllGLObjects(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_discardAllGLObjects(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_gluErrorString(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -716,14 +716,14 @@ inline static bool _lg_typecheck_gluScaleImage_overload_1(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,58853759)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< osg::PixelStorageModes >::check(L,1)) ) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 	return true;
 }
@@ -731,14 +731,14 @@ inline static bool _lg_typecheck_gluScaleImage_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_gluScaleImage_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
@@ -746,14 +746,14 @@ inline static bool _lg_typecheck_gluScaleImage_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_gluBuild1DMipmapLevels(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
@@ -761,11 +761,11 @@ inline static bool _lg_typecheck_gluBuild1DMipmapLevels(lua_State *L) {
 inline static bool _lg_typecheck_gluBuild1DMipmaps(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
@@ -773,15 +773,15 @@ inline static bool _lg_typecheck_gluBuild1DMipmaps(lua_State *L) {
 inline static bool _lg_typecheck_gluBuild2DMipmapLevels(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 	return true;
 }
@@ -789,12 +789,12 @@ inline static bool _lg_typecheck_gluBuild2DMipmapLevels(lua_State *L) {
 inline static bool _lg_typecheck_gluBuild2DMipmaps(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
@@ -830,9 +830,9 @@ inline static bool _lg_typecheck_gluTessNormal(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,37525689)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -840,8 +840,8 @@ inline static bool _lg_typecheck_gluTessProperty(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,37525689)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -873,7 +873,7 @@ inline static bool _lg_typecheck_gluGetTessProperty(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,37525689)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -891,8 +891,8 @@ inline static bool _lg_typecheck_createGeodeForImage_overload_2(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
 	if( (lua_isnil(L,1)==0 && !(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1)) ) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -919,16 +919,16 @@ inline static bool _lg_typecheck_copyImage(lua_State *L) {
 	if( luatop<11 || luatop>12 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,50169651)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,50169651)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
-	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( (lua_type(L,11)!=LUA_TNUMBER || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
 	if( luatop>11 && lua_isboolean(L,12)==0 ) return false;
 	return true;
 }
@@ -953,10 +953,10 @@ inline static bool _lg_typecheck_createImage3D(lua_State *L) {
 	if( luatop<2 || luatop>6 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,35913554) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( luatop>5 && lua_isboolean(L,6)==0 ) return false;
 	return true;
 }
@@ -966,9 +966,9 @@ inline static bool _lg_typecheck_createImage3DWithAlpha(lua_State *L) {
 	if( luatop<1 || luatop>5 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,35913554) ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( luatop>4 && lua_isboolean(L,5)==0 ) return false;
 	return true;
 }
@@ -978,15 +978,15 @@ inline static bool _lg_typecheck_createSpotLightImage(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,92303235) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,92303235) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_colorSpaceConversion(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
 	return true;
@@ -996,9 +996,9 @@ inline static bool _lg_typecheck_equivalent_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -1006,107 +1006,107 @@ inline static bool _lg_typecheck_equivalent_overload_2(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_inDegrees_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_inDegrees_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_DegreesToRadians_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_DegreesToRadians_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_RadiansToDegrees_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_RadiansToDegrees_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_round_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_round_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_isNaN(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_asciiToDouble(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_asciiToFloat(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_findAsciiToDouble(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_findAsciiToFloat(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_setNotifyLevel(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -1125,14 +1125,14 @@ inline static bool _lg_typecheck_initNotifyLevel(lua_State *L) {
 inline static bool _lg_typecheck_isNotifyEnabled(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_notify_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -1158,7 +1158,7 @@ inline static bool _lg_typecheck_getNotifyHandler(lua_State *L) {
 inline static bool _lg_typecheck_isTextureMode(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -1764,7 +1764,7 @@ static int _bind_gluScaleImage_overload_1(lua_State *L) {
 	int wIn=(int)lua_tointeger(L,3);
 	int hIn=(int)lua_tointeger(L,4);
 	unsigned int typeIn=(unsigned int)lua_tointeger(L,5);
-	void* dataIn=(Luna< void >::check(L,6));
+	const void* dataIn=(Luna< void >::check(L,6));
 	int wOut=(int)lua_tointeger(L,7);
 	int hOut=(int)lua_tointeger(L,8);
 	unsigned int typeOut=(unsigned int)lua_tointeger(L,9);
@@ -1786,7 +1786,7 @@ static int _bind_gluScaleImage_overload_2(lua_State *L) {
 	int wIn=(int)lua_tointeger(L,2);
 	int hIn=(int)lua_tointeger(L,3);
 	unsigned int typeIn=(unsigned int)lua_tointeger(L,4);
-	void* dataIn=(Luna< void >::check(L,5));
+	const void* dataIn=(Luna< void >::check(L,5));
 	int wOut=(int)lua_tointeger(L,6);
 	int hOut=(int)lua_tointeger(L,7);
 	unsigned int typeOut=(unsigned int)lua_tointeger(L,8);
@@ -1821,7 +1821,7 @@ static int _bind_gluBuild1DMipmapLevels(lua_State *L) {
 	int level=(int)lua_tointeger(L,6);
 	int base=(int)lua_tointeger(L,7);
 	int max=(int)lua_tointeger(L,8);
-	void* data=(Luna< void >::check(L,9));
+	const void* data=(Luna< void >::check(L,9));
 
 	int lret = osg::gluBuild1DMipmapLevels(target, internalFormat, width, format, type, level, base, max, data);
 	lua_pushnumber(L,lret);
@@ -1840,7 +1840,7 @@ static int _bind_gluBuild1DMipmaps(lua_State *L) {
 	int width=(int)lua_tointeger(L,3);
 	unsigned int format=(unsigned int)lua_tointeger(L,4);
 	unsigned int type=(unsigned int)lua_tointeger(L,5);
-	void* data=(Luna< void >::check(L,6));
+	const void* data=(Luna< void >::check(L,6));
 
 	int lret = osg::gluBuild1DMipmaps(target, internalFormat, width, format, type, data);
 	lua_pushnumber(L,lret);
@@ -1863,7 +1863,7 @@ static int _bind_gluBuild2DMipmapLevels(lua_State *L) {
 	int level=(int)lua_tointeger(L,7);
 	int base=(int)lua_tointeger(L,8);
 	int max=(int)lua_tointeger(L,9);
-	void* data=(Luna< void >::check(L,10));
+	const void* data=(Luna< void >::check(L,10));
 
 	int lret = osg::gluBuild2DMipmapLevels(target, internalFormat, width, height, format, type, level, base, max, data);
 	lua_pushnumber(L,lret);
@@ -1883,7 +1883,7 @@ static int _bind_gluBuild2DMipmaps(lua_State *L) {
 	int height=(int)lua_tointeger(L,4);
 	unsigned int format=(unsigned int)lua_tointeger(L,5);
 	unsigned int type=(unsigned int)lua_tointeger(L,6);
-	void* data=(Luna< void >::check(L,7));
+	const void* data=(Luna< void >::check(L,7));
 
 	int lret = osg::gluBuild2DMipmaps(target, internalFormat, width, height, format, type, data);
 	lua_pushnumber(L,lret);
@@ -3300,18 +3300,18 @@ inline static bool _lg_typecheck_openArchive_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_openArchive_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,50169651)) ) return false;
 	if( (lua_isnil(L,4)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,4)) ) ) return false;
 	return true;
@@ -3320,136 +3320,136 @@ inline static bool _lg_typecheck_openArchive_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertStringFromCurrentCodePageToUTF8_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertStringFromUTF8toCurrentCodePage_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getFilePath(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getFileExtension(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getFileExtensionIncludingDot(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getLowerCaseFileExtension(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getSimpleFileName(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getNameLessExtension(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getStrippedName(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getPathRelative(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getPathRoot(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_isAbsolutePath(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertFileNameToWindowsStyle(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertFileNameToUnixStyle(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertToLowerCase(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3462,87 +3462,87 @@ inline static bool _lg_typecheck_getNativePathSeparator(lua_State *L) {
 inline static bool _lg_typecheck_isFileNameNativeStyle(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertFileNameToNativeStyle(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_equalCaseInsensitive_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_equalCaseInsensitive_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_containsServerAddress(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getServerProtocol(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getServerAddress(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getServerFileName(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_concatPaths(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getRealPath(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_makeDirectory(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_makeDirectoryForFile(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3555,21 +3555,21 @@ inline static bool _lg_typecheck_getCurrentWorkingDirectory(lua_State *L) {
 inline static bool _lg_typecheck_setCurrentWorkingDirectory(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_fileExists(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_fileType(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3577,9 +3577,9 @@ inline static bool _lg_typecheck_findFileInPath(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
@@ -3587,38 +3587,38 @@ inline static bool _lg_typecheck_findFileInDirectory(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getDirectoryContents(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_getSortedDirectoryContents(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_expandWildcardsInFilename(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_copyFile(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3633,7 +3633,7 @@ inline static bool _lg_typecheck_setDataFilePathList_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_setDataFilePathList_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3647,8 +3647,8 @@ inline static bool _lg_typecheck_findDataFile_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -3656,10 +3656,10 @@ inline static bool _lg_typecheck_findDataFile_overload_2(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
@@ -3674,7 +3674,7 @@ inline static bool _lg_typecheck_setLibraryFilePathList_overload_1(lua_State *L)
 inline static bool _lg_typecheck_setLibraryFilePathList_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3688,15 +3688,15 @@ inline static bool _lg_typecheck_findLibraryFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_convertStringPathIntoFilePathList(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,79889541) ) return false;
 	return true;
 }
@@ -3726,9 +3726,9 @@ inline static bool _lg_typecheck_split(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,95416160) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
@@ -3741,7 +3741,7 @@ inline static bool _lg_typecheck_listAllAvailablePlugins(lua_State *L) {
 inline static bool _lg_typecheck_queryPlugin(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,14972349) ) return false;
 	return true;
 }
@@ -3750,14 +3750,14 @@ inline static bool _lg_typecheck_outputPluginDetails(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,2993706) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readObjectFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3766,14 +3766,14 @@ inline static bool _lg_typecheck_readObjectFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readObjectFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readImageFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3782,14 +3782,14 @@ inline static bool _lg_typecheck_readImageFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readImageFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readHeightFieldFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3798,14 +3798,14 @@ inline static bool _lg_typecheck_readHeightFieldFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readHeightFieldFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readNodeFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3814,14 +3814,14 @@ inline static bool _lg_typecheck_readNodeFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readNodeFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readShaderFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3830,15 +3830,15 @@ inline static bool _lg_typecheck_readShaderFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readShaderFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readShaderFile_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
@@ -3847,15 +3847,15 @@ inline static bool _lg_typecheck_readShaderFile_overload_3(lua_State *L) {
 inline static bool _lg_typecheck_readShaderFile_overload_4(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readRefObjectFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3864,14 +3864,14 @@ inline static bool _lg_typecheck_readRefObjectFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readRefObjectFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readRefImageFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3880,14 +3880,14 @@ inline static bool _lg_typecheck_readRefImageFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readRefImageFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readRefHeightFieldFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3896,14 +3896,14 @@ inline static bool _lg_typecheck_readRefHeightFieldFile_overload_1(lua_State *L)
 inline static bool _lg_typecheck_readRefHeightFieldFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readRefNodeFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3912,14 +3912,14 @@ inline static bool _lg_typecheck_readRefNodeFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readRefNodeFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readRefShaderFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -3928,7 +3928,7 @@ inline static bool _lg_typecheck_readRefShaderFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readRefShaderFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3944,7 +3944,7 @@ inline static bool _lg_typecheck_writeObjectFile_overload_1(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
@@ -3955,7 +3955,7 @@ inline static bool _lg_typecheck_writeObjectFile_overload_2(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Object >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3964,7 +3964,7 @@ inline static bool _lg_typecheck_writeImageFile_overload_1(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
@@ -3975,7 +3975,7 @@ inline static bool _lg_typecheck_writeImageFile_overload_2(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Image >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -3984,7 +3984,7 @@ inline static bool _lg_typecheck_writeHeightFieldFile_overload_1(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
@@ -3995,7 +3995,7 @@ inline static bool _lg_typecheck_writeHeightFieldFile_overload_2(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::HeightField >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -4004,7 +4004,7 @@ inline static bool _lg_typecheck_writeNodeFile_overload_1(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
@@ -4015,7 +4015,7 @@ inline static bool _lg_typecheck_writeNodeFile_overload_2(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Node >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -4024,7 +4024,7 @@ inline static bool _lg_typecheck_writeShaderFile_overload_1(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 	if( (lua_isnil(L,3)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,3)) ) ) return false;
 	return true;
@@ -4035,14 +4035,14 @@ inline static bool _lg_typecheck_writeShaderFile_overload_2(lua_State *L) {
 
 	if( !Luna<void>::has_uniqueid(L,1,50169651) ) return false;
 	if( (!(Luna< osg::Referenced >::checkSubType< osg::Shader >(L,1))) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_readXmlFile_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< osg::Referenced >::checkSubType< osgDB::Options >(L,2)) ) ) return false;
 	return true;
@@ -4051,7 +4051,7 @@ inline static bool _lg_typecheck_readXmlFile_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_readXmlFile_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -4065,7 +4065,7 @@ inline static bool _lg_typecheck_readXmlStream(lua_State *L) {
 inline static bool _lg_typecheck_trimEnclosingSpaces(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -5856,7 +5856,7 @@ inline static bool _lg_typecheck_readFontFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	return true;
 }
@@ -5874,7 +5874,7 @@ inline static bool _lg_typecheck_readRefFontFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	return true;
 }
@@ -5891,7 +5891,7 @@ inline static bool _lg_typecheck_readRefFontStream(lua_State *L) {
 inline static bool _lg_typecheck_findFontFile(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -5899,7 +5899,7 @@ inline static bool _lg_typecheck_readFont3DFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	return true;
 }
@@ -5917,7 +5917,7 @@ inline static bool _lg_typecheck_readRefFont3DFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 	return true;
 }
@@ -5934,7 +5934,7 @@ inline static bool _lg_typecheck_readRefFont3DStream(lua_State *L) {
 inline static bool _lg_typecheck_findFont3DFile(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -6133,14 +6133,14 @@ static int _bind_findFont3DFile(lua_State *L) {
 inline static bool _lg_typecheck_create3DNoiseImage(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_create3DNoiseTexture(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 

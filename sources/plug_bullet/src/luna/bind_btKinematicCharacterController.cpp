@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* self=(Luna< btActionInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btKinematicCharacterController* self= (btKinematicCharacterController*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btActionInterface >::check(L,1));
@@ -97,8 +94,8 @@ public:
 		if( (lua_isnil(L,1)==0 && !(Luna< btCollisionObject >::checkSubType< btPairCachingGhostObject >(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58243831)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,2)) ) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -111,8 +108,8 @@ public:
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionObject >::checkSubType< btPairCachingGhostObject >(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,58243831)) ) return false;
 		if( (lua_isnil(L,3)==0 && !(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,3)) ) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -122,7 +119,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -136,7 +133,7 @@ public:
 	inline static bool _lg_typecheck_setUpAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,7 +148,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -179,28 +176,28 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFallSpeed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setJumpSpeed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMaxJumpHeight(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -219,7 +216,7 @@ public:
 	inline static bool _lg_typecheck_setGravity(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -232,7 +229,7 @@ public:
 	inline static bool _lg_typecheck_setMaxSlope(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -265,7 +262,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -287,7 +284,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -315,7 +312,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -345,8 +342,7 @@ public:
 	// btKinematicCharacterController::btKinematicCharacterController(btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1)
 	static btKinematicCharacterController* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btKinematicCharacterController::btKinematicCharacterController(btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1) function, expected prototype:\nbtKinematicCharacterController::btKinematicCharacterController(btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btKinematicCharacterController::btKinematicCharacterController(btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1) function, expected prototype:\nbtKinematicCharacterController::btKinematicCharacterController(btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -362,8 +358,7 @@ public:
 	// btKinematicCharacterController::btKinematicCharacterController(lua_Table * data, btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1)
 	static btKinematicCharacterController* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btKinematicCharacterController::btKinematicCharacterController(lua_Table * data, btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1) function, expected prototype:\nbtKinematicCharacterController::btKinematicCharacterController(lua_Table * data, btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btKinematicCharacterController::btKinematicCharacterController(lua_Table * data, btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1) function, expected prototype:\nbtKinematicCharacterController::btKinematicCharacterController(lua_Table * data, btPairCachingGhostObject * ghostObject, btConvexShape * convexShape, float stepHeight, int upAxis = 1)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -390,8 +385,7 @@ public:
 	// void btKinematicCharacterController::updateAction(btCollisionWorld * collisionWorld, float deltaTime)
 	static int _bind_updateAction(lua_State *L) {
 		if (!_lg_typecheck_updateAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::updateAction(btCollisionWorld * collisionWorld, float deltaTime) function, expected prototype:\nvoid btKinematicCharacterController::updateAction(btCollisionWorld * collisionWorld, float deltaTime)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::updateAction(btCollisionWorld * collisionWorld, float deltaTime) function, expected prototype:\nvoid btKinematicCharacterController::updateAction(btCollisionWorld * collisionWorld, float deltaTime)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -399,8 +393,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::updateAction(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::updateAction(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateAction(collisionWorld, deltaTime);
 
@@ -410,16 +403,14 @@ public:
 	// void btKinematicCharacterController::debugDraw(btIDebugDraw * debugDrawer)
 	static int _bind_debugDraw(lua_State *L) {
 		if (!_lg_typecheck_debugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btKinematicCharacterController::debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btKinematicCharacterController::debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* debugDrawer=(Luna< btIDebugDraw >::check(L,2));
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::debugDraw(btIDebugDraw *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::debugDraw(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->debugDraw(debugDrawer);
 
@@ -429,16 +420,14 @@ public:
 	// void btKinematicCharacterController::setUpAxis(int axis)
 	static int _bind_setUpAxis(lua_State *L) {
 		if (!_lg_typecheck_setUpAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setUpAxis(int axis) function, expected prototype:\nvoid btKinematicCharacterController::setUpAxis(int axis)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setUpAxis(int axis) function, expected prototype:\nvoid btKinematicCharacterController::setUpAxis(int axis)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int axis=(int)lua_tointeger(L,2);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setUpAxis(int). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setUpAxis(int). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUpAxis(axis);
 
@@ -448,8 +437,7 @@ public:
 	// void btKinematicCharacterController::setWalkDirection(const btVector3 & walkDirection)
 	static int _bind_setWalkDirection(lua_State *L) {
 		if (!_lg_typecheck_setWalkDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setWalkDirection(const btVector3 & walkDirection) function, expected prototype:\nvoid btKinematicCharacterController::setWalkDirection(const btVector3 & walkDirection)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setWalkDirection(const btVector3 & walkDirection) function, expected prototype:\nvoid btKinematicCharacterController::setWalkDirection(const btVector3 & walkDirection)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* walkDirection_ptr=(Luna< btVector3 >::check(L,2));
@@ -460,8 +448,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setWalkDirection(const btVector3 &). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setWalkDirection(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setWalkDirection(walkDirection);
 
@@ -471,8 +458,7 @@ public:
 	// void btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval)
 	static int _bind_setVelocityForTimeInterval(lua_State *L) {
 		if (!_lg_typecheck_setVelocityForTimeInterval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval) function, expected prototype:\nvoid btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval) function, expected prototype:\nvoid btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* velocity_ptr=(Luna< btVector3 >::check(L,2));
@@ -484,8 +470,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 &, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setVelocityForTimeInterval(const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setVelocityForTimeInterval(velocity, timeInterval);
 
@@ -495,15 +480,13 @@ public:
 	// void btKinematicCharacterController::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::reset() function, expected prototype:\nvoid btKinematicCharacterController::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::reset() function, expected prototype:\nvoid btKinematicCharacterController::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::reset(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::reset(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -513,8 +496,7 @@ public:
 	// void btKinematicCharacterController::warp(const btVector3 & origin)
 	static int _bind_warp(lua_State *L) {
 		if (!_lg_typecheck_warp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::warp(const btVector3 & origin) function, expected prototype:\nvoid btKinematicCharacterController::warp(const btVector3 & origin)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::warp(const btVector3 & origin) function, expected prototype:\nvoid btKinematicCharacterController::warp(const btVector3 & origin)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* origin_ptr=(Luna< btVector3 >::check(L,2));
@@ -525,8 +507,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::warp(const btVector3 &). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::warp(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->warp(origin);
 
@@ -536,16 +517,14 @@ public:
 	// void btKinematicCharacterController::preStep(btCollisionWorld * collisionWorld)
 	static int _bind_preStep(lua_State *L) {
 		if (!_lg_typecheck_preStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::preStep(btCollisionWorld * collisionWorld) function, expected prototype:\nvoid btKinematicCharacterController::preStep(btCollisionWorld * collisionWorld)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::preStep(btCollisionWorld * collisionWorld) function, expected prototype:\nvoid btKinematicCharacterController::preStep(btCollisionWorld * collisionWorld)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::preStep(btCollisionWorld *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::preStep(btCollisionWorld *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->preStep(collisionWorld);
 
@@ -555,8 +534,7 @@ public:
 	// void btKinematicCharacterController::playerStep(btCollisionWorld * collisionWorld, float dt)
 	static int _bind_playerStep(lua_State *L) {
 		if (!_lg_typecheck_playerStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::playerStep(btCollisionWorld * collisionWorld, float dt) function, expected prototype:\nvoid btKinematicCharacterController::playerStep(btCollisionWorld * collisionWorld, float dt)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::playerStep(btCollisionWorld * collisionWorld, float dt) function, expected prototype:\nvoid btKinematicCharacterController::playerStep(btCollisionWorld * collisionWorld, float dt)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -564,8 +542,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::playerStep(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::playerStep(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->playerStep(collisionWorld, dt);
 
@@ -575,16 +552,14 @@ public:
 	// void btKinematicCharacterController::setFallSpeed(float fallSpeed)
 	static int _bind_setFallSpeed(lua_State *L) {
 		if (!_lg_typecheck_setFallSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setFallSpeed(float fallSpeed) function, expected prototype:\nvoid btKinematicCharacterController::setFallSpeed(float fallSpeed)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setFallSpeed(float fallSpeed) function, expected prototype:\nvoid btKinematicCharacterController::setFallSpeed(float fallSpeed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fallSpeed=(float)lua_tonumber(L,2);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setFallSpeed(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setFallSpeed(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFallSpeed(fallSpeed);
 
@@ -594,16 +569,14 @@ public:
 	// void btKinematicCharacterController::setJumpSpeed(float jumpSpeed)
 	static int _bind_setJumpSpeed(lua_State *L) {
 		if (!_lg_typecheck_setJumpSpeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setJumpSpeed(float jumpSpeed) function, expected prototype:\nvoid btKinematicCharacterController::setJumpSpeed(float jumpSpeed)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setJumpSpeed(float jumpSpeed) function, expected prototype:\nvoid btKinematicCharacterController::setJumpSpeed(float jumpSpeed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float jumpSpeed=(float)lua_tonumber(L,2);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setJumpSpeed(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setJumpSpeed(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setJumpSpeed(jumpSpeed);
 
@@ -613,16 +586,14 @@ public:
 	// void btKinematicCharacterController::setMaxJumpHeight(float maxJumpHeight)
 	static int _bind_setMaxJumpHeight(lua_State *L) {
 		if (!_lg_typecheck_setMaxJumpHeight(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setMaxJumpHeight(float maxJumpHeight) function, expected prototype:\nvoid btKinematicCharacterController::setMaxJumpHeight(float maxJumpHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setMaxJumpHeight(float maxJumpHeight) function, expected prototype:\nvoid btKinematicCharacterController::setMaxJumpHeight(float maxJumpHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float maxJumpHeight=(float)lua_tonumber(L,2);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setMaxJumpHeight(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setMaxJumpHeight(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxJumpHeight(maxJumpHeight);
 
@@ -632,15 +603,13 @@ public:
 	// bool btKinematicCharacterController::canJump() const
 	static int _bind_canJump(lua_State *L) {
 		if (!_lg_typecheck_canJump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::canJump() const function, expected prototype:\nbool btKinematicCharacterController::canJump() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::canJump() const function, expected prototype:\nbool btKinematicCharacterController::canJump() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::canJump() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::canJump() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->canJump();
 		lua_pushboolean(L,lret?1:0);
@@ -651,15 +620,13 @@ public:
 	// void btKinematicCharacterController::jump()
 	static int _bind_jump(lua_State *L) {
 		if (!_lg_typecheck_jump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::jump() function, expected prototype:\nvoid btKinematicCharacterController::jump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::jump() function, expected prototype:\nvoid btKinematicCharacterController::jump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::jump(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::jump(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->jump();
 
@@ -669,16 +636,14 @@ public:
 	// void btKinematicCharacterController::setGravity(float gravity)
 	static int _bind_setGravity(lua_State *L) {
 		if (!_lg_typecheck_setGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setGravity(float gravity) function, expected prototype:\nvoid btKinematicCharacterController::setGravity(float gravity)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setGravity(float gravity) function, expected prototype:\nvoid btKinematicCharacterController::setGravity(float gravity)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float gravity=(float)lua_tonumber(L,2);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setGravity(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setGravity(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setGravity(gravity);
 
@@ -688,15 +653,13 @@ public:
 	// float btKinematicCharacterController::getGravity() const
 	static int _bind_getGravity(lua_State *L) {
 		if (!_lg_typecheck_getGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btKinematicCharacterController::getGravity() const function, expected prototype:\nfloat btKinematicCharacterController::getGravity() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btKinematicCharacterController::getGravity() const function, expected prototype:\nfloat btKinematicCharacterController::getGravity() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btKinematicCharacterController::getGravity() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btKinematicCharacterController::getGravity() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getGravity();
 		lua_pushnumber(L,lret);
@@ -707,16 +670,14 @@ public:
 	// void btKinematicCharacterController::setMaxSlope(float slopeRadians)
 	static int _bind_setMaxSlope(lua_State *L) {
 		if (!_lg_typecheck_setMaxSlope(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setMaxSlope(float slopeRadians) function, expected prototype:\nvoid btKinematicCharacterController::setMaxSlope(float slopeRadians)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setMaxSlope(float slopeRadians) function, expected prototype:\nvoid btKinematicCharacterController::setMaxSlope(float slopeRadians)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float slopeRadians=(float)lua_tonumber(L,2);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setMaxSlope(float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setMaxSlope(float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMaxSlope(slopeRadians);
 
@@ -726,15 +687,13 @@ public:
 	// float btKinematicCharacterController::getMaxSlope() const
 	static int _bind_getMaxSlope(lua_State *L) {
 		if (!_lg_typecheck_getMaxSlope(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btKinematicCharacterController::getMaxSlope() const function, expected prototype:\nfloat btKinematicCharacterController::getMaxSlope() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btKinematicCharacterController::getMaxSlope() const function, expected prototype:\nfloat btKinematicCharacterController::getMaxSlope() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btKinematicCharacterController::getMaxSlope() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btKinematicCharacterController::getMaxSlope() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMaxSlope();
 		lua_pushnumber(L,lret);
@@ -745,15 +704,13 @@ public:
 	// btPairCachingGhostObject * btKinematicCharacterController::getGhostObject()
 	static int _bind_getGhostObject(lua_State *L) {
 		if (!_lg_typecheck_getGhostObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPairCachingGhostObject * btKinematicCharacterController::getGhostObject() function, expected prototype:\nbtPairCachingGhostObject * btKinematicCharacterController::getGhostObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPairCachingGhostObject * btKinematicCharacterController::getGhostObject() function, expected prototype:\nbtPairCachingGhostObject * btKinematicCharacterController::getGhostObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btPairCachingGhostObject * btKinematicCharacterController::getGhostObject(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btPairCachingGhostObject * btKinematicCharacterController::getGhostObject(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btPairCachingGhostObject * lret = self->getGhostObject();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -766,16 +723,14 @@ public:
 	// void btKinematicCharacterController::setUseGhostSweepTest(bool useGhostObjectSweepTest)
 	static int _bind_setUseGhostSweepTest(lua_State *L) {
 		if (!_lg_typecheck_setUseGhostSweepTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setUseGhostSweepTest(bool useGhostObjectSweepTest) function, expected prototype:\nvoid btKinematicCharacterController::setUseGhostSweepTest(bool useGhostObjectSweepTest)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::setUseGhostSweepTest(bool useGhostObjectSweepTest) function, expected prototype:\nvoid btKinematicCharacterController::setUseGhostSweepTest(bool useGhostObjectSweepTest)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useGhostObjectSweepTest=(bool)(lua_toboolean(L,2)==1);
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setUseGhostSweepTest(bool). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::setUseGhostSweepTest(bool). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUseGhostSweepTest(useGhostObjectSweepTest);
 
@@ -785,15 +740,13 @@ public:
 	// bool btKinematicCharacterController::onGround() const
 	static int _bind_onGround(lua_State *L) {
 		if (!_lg_typecheck_onGround(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::onGround() const function, expected prototype:\nbool btKinematicCharacterController::onGround() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::onGround() const function, expected prototype:\nbool btKinematicCharacterController::onGround() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::onGround() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::onGround() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->onGround();
 		lua_pushboolean(L,lret?1:0);
@@ -804,8 +757,7 @@ public:
 	// void btKinematicCharacterController::base_updateAction(btCollisionWorld * collisionWorld, float deltaTime)
 	static int _bind_base_updateAction(lua_State *L) {
 		if (!_lg_typecheck_base_updateAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_updateAction(btCollisionWorld * collisionWorld, float deltaTime) function, expected prototype:\nvoid btKinematicCharacterController::base_updateAction(btCollisionWorld * collisionWorld, float deltaTime)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_updateAction(btCollisionWorld * collisionWorld, float deltaTime) function, expected prototype:\nvoid btKinematicCharacterController::base_updateAction(btCollisionWorld * collisionWorld, float deltaTime)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -813,8 +765,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_updateAction(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_updateAction(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::updateAction(collisionWorld, deltaTime);
 
@@ -824,16 +775,14 @@ public:
 	// void btKinematicCharacterController::base_debugDraw(btIDebugDraw * debugDrawer)
 	static int _bind_base_debugDraw(lua_State *L) {
 		if (!_lg_typecheck_base_debugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btKinematicCharacterController::base_debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btKinematicCharacterController::base_debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* debugDrawer=(Luna< btIDebugDraw >::check(L,2));
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_debugDraw(btIDebugDraw *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_debugDraw(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::debugDraw(debugDrawer);
 
@@ -843,8 +792,7 @@ public:
 	// void btKinematicCharacterController::base_setWalkDirection(const btVector3 & walkDirection)
 	static int _bind_base_setWalkDirection(lua_State *L) {
 		if (!_lg_typecheck_base_setWalkDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_setWalkDirection(const btVector3 & walkDirection) function, expected prototype:\nvoid btKinematicCharacterController::base_setWalkDirection(const btVector3 & walkDirection)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_setWalkDirection(const btVector3 & walkDirection) function, expected prototype:\nvoid btKinematicCharacterController::base_setWalkDirection(const btVector3 & walkDirection)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* walkDirection_ptr=(Luna< btVector3 >::check(L,2));
@@ -855,8 +803,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_setWalkDirection(const btVector3 &). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_setWalkDirection(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::setWalkDirection(walkDirection);
 
@@ -866,8 +813,7 @@ public:
 	// void btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval)
 	static int _bind_base_setVelocityForTimeInterval(lua_State *L) {
 		if (!_lg_typecheck_base_setVelocityForTimeInterval(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval) function, expected prototype:\nvoid btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval) function, expected prototype:\nvoid btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 & velocity, float timeInterval)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* velocity_ptr=(Luna< btVector3 >::check(L,2));
@@ -879,8 +825,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 &, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_setVelocityForTimeInterval(const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::setVelocityForTimeInterval(velocity, timeInterval);
 
@@ -890,15 +835,13 @@ public:
 	// void btKinematicCharacterController::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_reset() function, expected prototype:\nvoid btKinematicCharacterController::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_reset() function, expected prototype:\nvoid btKinematicCharacterController::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_reset(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_reset(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::reset();
 
@@ -908,8 +851,7 @@ public:
 	// void btKinematicCharacterController::base_warp(const btVector3 & origin)
 	static int _bind_base_warp(lua_State *L) {
 		if (!_lg_typecheck_base_warp(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_warp(const btVector3 & origin) function, expected prototype:\nvoid btKinematicCharacterController::base_warp(const btVector3 & origin)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_warp(const btVector3 & origin) function, expected prototype:\nvoid btKinematicCharacterController::base_warp(const btVector3 & origin)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* origin_ptr=(Luna< btVector3 >::check(L,2));
@@ -920,8 +862,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_warp(const btVector3 &). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_warp(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::warp(origin);
 
@@ -931,16 +872,14 @@ public:
 	// void btKinematicCharacterController::base_preStep(btCollisionWorld * collisionWorld)
 	static int _bind_base_preStep(lua_State *L) {
 		if (!_lg_typecheck_base_preStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_preStep(btCollisionWorld * collisionWorld) function, expected prototype:\nvoid btKinematicCharacterController::base_preStep(btCollisionWorld * collisionWorld)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_preStep(btCollisionWorld * collisionWorld) function, expected prototype:\nvoid btKinematicCharacterController::base_preStep(btCollisionWorld * collisionWorld)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_preStep(btCollisionWorld *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_preStep(btCollisionWorld *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::preStep(collisionWorld);
 
@@ -950,8 +889,7 @@ public:
 	// void btKinematicCharacterController::base_playerStep(btCollisionWorld * collisionWorld, float dt)
 	static int _bind_base_playerStep(lua_State *L) {
 		if (!_lg_typecheck_base_playerStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_playerStep(btCollisionWorld * collisionWorld, float dt) function, expected prototype:\nvoid btKinematicCharacterController::base_playerStep(btCollisionWorld * collisionWorld, float dt)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_playerStep(btCollisionWorld * collisionWorld, float dt) function, expected prototype:\nvoid btKinematicCharacterController::base_playerStep(btCollisionWorld * collisionWorld, float dt)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -959,8 +897,7 @@ public:
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_playerStep(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_playerStep(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::playerStep(collisionWorld, dt);
 
@@ -970,15 +907,13 @@ public:
 	// bool btKinematicCharacterController::base_canJump() const
 	static int _bind_base_canJump(lua_State *L) {
 		if (!_lg_typecheck_base_canJump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::base_canJump() const function, expected prototype:\nbool btKinematicCharacterController::base_canJump() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::base_canJump() const function, expected prototype:\nbool btKinematicCharacterController::base_canJump() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::base_canJump() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::base_canJump() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btKinematicCharacterController::canJump();
 		lua_pushboolean(L,lret?1:0);
@@ -989,15 +924,13 @@ public:
 	// void btKinematicCharacterController::base_jump()
 	static int _bind_base_jump(lua_State *L) {
 		if (!_lg_typecheck_base_jump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_jump() function, expected prototype:\nvoid btKinematicCharacterController::base_jump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btKinematicCharacterController::base_jump() function, expected prototype:\nvoid btKinematicCharacterController::base_jump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_jump(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btKinematicCharacterController::base_jump(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btKinematicCharacterController::jump();
 
@@ -1007,15 +940,13 @@ public:
 	// bool btKinematicCharacterController::base_onGround() const
 	static int _bind_base_onGround(lua_State *L) {
 		if (!_lg_typecheck_base_onGround(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::base_onGround() const function, expected prototype:\nbool btKinematicCharacterController::base_onGround() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btKinematicCharacterController::base_onGround() const function, expected prototype:\nbool btKinematicCharacterController::base_onGround() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btKinematicCharacterController* self=Luna< btActionInterface >::checkSubType< btKinematicCharacterController >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::base_onGround() const. Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btKinematicCharacterController::base_onGround() const. Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btKinematicCharacterController::onGround();
 		lua_pushboolean(L,lret?1:0);

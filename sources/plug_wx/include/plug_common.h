@@ -30,7 +30,7 @@
 #include <wx/ribbon/buttonbar.h>
 #include <wx/ctrlsub.h>
 
-#include "sgtCommon.h"
+#include "lunaCommon.h"
 
 
 #ifdef LUNA_BINDINGS

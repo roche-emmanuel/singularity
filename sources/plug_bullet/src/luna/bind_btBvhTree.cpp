@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBvhTree*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBvhTree*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBvhTree* rhs =(Luna< btBvhTree >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBvhTree* self= (btBvhTree*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBvhTree >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,21 +119,21 @@ public:
 	inline static bool _lg_typecheck_isLeafNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getNodeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getNodeBound(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -145,7 +141,7 @@ public:
 	inline static bool _lg_typecheck_setNodeBound(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -153,21 +149,21 @@ public:
 	inline static bool _lg_typecheck_getLeftNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getRightNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getEscapeNodeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -175,7 +171,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -187,8 +183,7 @@ public:
 	// btBvhTree::btBvhTree()
 	static btBvhTree* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBvhTree::btBvhTree() function, expected prototype:\nbtBvhTree::btBvhTree()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBvhTree::btBvhTree() function, expected prototype:\nbtBvhTree::btBvhTree()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -200,15 +195,13 @@ public:
 	// void btBvhTree::clearNodes()
 	static int _bind_clearNodes(lua_State *L) {
 		if (!_lg_typecheck_clearNodes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTree::clearNodes() function, expected prototype:\nvoid btBvhTree::clearNodes()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTree::clearNodes() function, expected prototype:\nvoid btBvhTree::clearNodes()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTree::clearNodes(). Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTree::clearNodes(). Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->clearNodes();
 
@@ -218,15 +211,13 @@ public:
 	// int btBvhTree::getNodeCount() const
 	static int _bind_getNodeCount(lua_State *L) {
 		if (!_lg_typecheck_getNodeCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTree::getNodeCount() const function, expected prototype:\nint btBvhTree::getNodeCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTree::getNodeCount() const function, expected prototype:\nint btBvhTree::getNodeCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTree::getNodeCount() const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTree::getNodeCount() const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNodeCount();
 		lua_pushnumber(L,lret);
@@ -237,16 +228,14 @@ public:
 	// bool btBvhTree::isLeafNode(int nodeindex) const
 	static int _bind_isLeafNode(lua_State *L) {
 		if (!_lg_typecheck_isLeafNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btBvhTree::isLeafNode(int nodeindex) const function, expected prototype:\nbool btBvhTree::isLeafNode(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btBvhTree::isLeafNode(int nodeindex) const function, expected prototype:\nbool btBvhTree::isLeafNode(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btBvhTree::isLeafNode(int) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btBvhTree::isLeafNode(int) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLeafNode(nodeindex);
 		lua_pushboolean(L,lret?1:0);
@@ -257,16 +246,14 @@ public:
 	// int btBvhTree::getNodeData(int nodeindex) const
 	static int _bind_getNodeData(lua_State *L) {
 		if (!_lg_typecheck_getNodeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTree::getNodeData(int nodeindex) const function, expected prototype:\nint btBvhTree::getNodeData(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTree::getNodeData(int nodeindex) const function, expected prototype:\nint btBvhTree::getNodeData(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTree::getNodeData(int) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTree::getNodeData(int) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNodeData(nodeindex);
 		lua_pushnumber(L,lret);
@@ -277,8 +264,7 @@ public:
 	// void btBvhTree::getNodeBound(int nodeindex, btAABB & bound) const
 	static int _bind_getNodeBound(lua_State *L) {
 		if (!_lg_typecheck_getNodeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTree::getNodeBound(int nodeindex, btAABB & bound) const function, expected prototype:\nvoid btBvhTree::getNodeBound(int nodeindex, btAABB & bound) const\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTree::getNodeBound(int nodeindex, btAABB & bound) const function, expected prototype:\nvoid btBvhTree::getNodeBound(int nodeindex, btAABB & bound) const\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
@@ -290,8 +276,7 @@ public:
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTree::getNodeBound(int, btAABB &) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTree::getNodeBound(int, btAABB &) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getNodeBound(nodeindex, bound);
 
@@ -301,8 +286,7 @@ public:
 	// void btBvhTree::setNodeBound(int nodeindex, const btAABB & bound)
 	static int _bind_setNodeBound(lua_State *L) {
 		if (!_lg_typecheck_setNodeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBvhTree::setNodeBound(int nodeindex, const btAABB & bound) function, expected prototype:\nvoid btBvhTree::setNodeBound(int nodeindex, const btAABB & bound)\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btBvhTree::setNodeBound(int nodeindex, const btAABB & bound) function, expected prototype:\nvoid btBvhTree::setNodeBound(int nodeindex, const btAABB & bound)\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
@@ -314,8 +298,7 @@ public:
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBvhTree::setNodeBound(int, const btAABB &). Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBvhTree::setNodeBound(int, const btAABB &). Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNodeBound(nodeindex, bound);
 
@@ -325,16 +308,14 @@ public:
 	// int btBvhTree::getLeftNode(int nodeindex) const
 	static int _bind_getLeftNode(lua_State *L) {
 		if (!_lg_typecheck_getLeftNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTree::getLeftNode(int nodeindex) const function, expected prototype:\nint btBvhTree::getLeftNode(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTree::getLeftNode(int nodeindex) const function, expected prototype:\nint btBvhTree::getLeftNode(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTree::getLeftNode(int) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTree::getLeftNode(int) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getLeftNode(nodeindex);
 		lua_pushnumber(L,lret);
@@ -345,16 +326,14 @@ public:
 	// int btBvhTree::getRightNode(int nodeindex) const
 	static int _bind_getRightNode(lua_State *L) {
 		if (!_lg_typecheck_getRightNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTree::getRightNode(int nodeindex) const function, expected prototype:\nint btBvhTree::getRightNode(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTree::getRightNode(int nodeindex) const function, expected prototype:\nint btBvhTree::getRightNode(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTree::getRightNode(int) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTree::getRightNode(int) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getRightNode(nodeindex);
 		lua_pushnumber(L,lret);
@@ -365,16 +344,14 @@ public:
 	// int btBvhTree::getEscapeNodeIndex(int nodeindex) const
 	static int _bind_getEscapeNodeIndex(lua_State *L) {
 		if (!_lg_typecheck_getEscapeNodeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btBvhTree::getEscapeNodeIndex(int nodeindex) const function, expected prototype:\nint btBvhTree::getEscapeNodeIndex(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btBvhTree::getEscapeNodeIndex(int nodeindex) const function, expected prototype:\nint btBvhTree::getEscapeNodeIndex(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btBvhTree::getEscapeNodeIndex(int) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btBvhTree::getEscapeNodeIndex(int) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getEscapeNodeIndex(nodeindex);
 		lua_pushnumber(L,lret);
@@ -385,8 +362,7 @@ public:
 	// const GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int index = 0) const
 	static int _bind_get_node_pointer(lua_State *L) {
 		if (!_lg_typecheck_get_node_pointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int index = 0) const function, expected prototype:\nconst GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int index = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int index = 0) const function, expected prototype:\nconst GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int index = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -395,8 +371,7 @@ public:
 
 		btBvhTree* self=(Luna< btBvhTree >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int) const. Got : '%s'",typeid(Luna< btBvhTree >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const GIM_BVH_TREE_NODE * btBvhTree::get_node_pointer(int) const. Got : '%s'\n%s",typeid(Luna< btBvhTree >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const GIM_BVH_TREE_NODE * lret = self->get_node_pointer(index);
 		if(!lret) return 0; // Do not write NULL pointers.

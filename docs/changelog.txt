@@ -90,6 +90,7 @@
 - Preparing support for awesomium direct rendering.
 - Fixed alignment for letter spacing for last character.
 - Cutting MXEngine interface into interface components.
+- Externalized sgtLuna module.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

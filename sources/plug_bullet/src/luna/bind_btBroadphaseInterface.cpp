@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphaseInterface*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btBroadphaseInterface*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseInterface* rhs =(Luna< btBroadphaseInterface >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseInterface* self= (btBroadphaseInterface*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBroadphaseInterface >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -140,10 +135,10 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,71097681)) ) return false;
 		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 		return true;
@@ -252,8 +247,7 @@ public:
 	// btBroadphaseInterface::btBroadphaseInterface(lua_Table * data)
 	static btBroadphaseInterface* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphaseInterface::btBroadphaseInterface(lua_Table * data) function, expected prototype:\nbtBroadphaseInterface::btBroadphaseInterface(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btBroadphaseInterface::btBroadphaseInterface(lua_Table * data) function, expected prototype:\nbtBroadphaseInterface::btBroadphaseInterface(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -265,8 +259,7 @@ public:
 	// btBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, btDispatcher * dispatcher, void * multiSapProxy)
 	static int _bind_createProxy(lua_State *L) {
 		if (!_lg_typecheck_createProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, btDispatcher * dispatcher, void * multiSapProxy) function, expected prototype:\nbtBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, btDispatcher * dispatcher, void * multiSapProxy)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 7 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in btBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, btDispatcher * dispatcher, void * multiSapProxy) function, expected prototype:\nbtBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask, btDispatcher * dispatcher, void * multiSapProxy)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 7 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -288,8 +281,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 &, const btVector3 &, int, void *, short int, short int, btDispatcher *, void *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btBroadphaseProxy * btBroadphaseInterface::createProxy(const btVector3 &, const btVector3 &, int, void *, short int, short int, btDispatcher *, void *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btBroadphaseProxy * lret = self->createProxy(aabbMin, aabbMax, shapeType, userPtr, collisionFilterGroup, collisionFilterMask, dispatcher, multiSapProxy);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -302,8 +294,7 @@ public:
 	// void btBroadphaseInterface::destroyProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)
 	static int _bind_destroyProxy(lua_State *L) {
 		if (!_lg_typecheck_destroyProxy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::destroyProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::destroyProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::destroyProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::destroyProxy(btBroadphaseProxy * proxy, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -311,8 +302,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::destroyProxy(btBroadphaseProxy *, btDispatcher *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::destroyProxy(btBroadphaseProxy *, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->destroyProxy(proxy, dispatcher);
 
@@ -322,8 +312,7 @@ public:
 	// void btBroadphaseInterface::setAabb(btBroadphaseProxy * proxy, const btVector3 & aabbMin, const btVector3 & aabbMax, btDispatcher * dispatcher)
 	static int _bind_setAabb(lua_State *L) {
 		if (!_lg_typecheck_setAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::setAabb(btBroadphaseProxy * proxy, const btVector3 & aabbMin, const btVector3 & aabbMax, btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::setAabb(btBroadphaseProxy * proxy, const btVector3 & aabbMin, const btVector3 & aabbMax, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::setAabb(btBroadphaseProxy * proxy, const btVector3 & aabbMin, const btVector3 & aabbMax, btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::setAabb(btBroadphaseProxy * proxy, const btVector3 & aabbMin, const btVector3 & aabbMax, btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -341,8 +330,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::setAabb(btBroadphaseProxy *, const btVector3 &, const btVector3 &, btDispatcher *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::setAabb(btBroadphaseProxy *, const btVector3 &, const btVector3 &, btDispatcher *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAabb(proxy, aabbMin, aabbMax, dispatcher);
 
@@ -352,8 +340,7 @@ public:
 	// void btBroadphaseInterface::getAabb(btBroadphaseProxy * proxy, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_getAabb(lua_State *L) {
 		if (!_lg_typecheck_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::getAabb(btBroadphaseProxy * proxy, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btBroadphaseInterface::getAabb(btBroadphaseProxy * proxy, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::getAabb(btBroadphaseProxy * proxy, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btBroadphaseInterface::getAabb(btBroadphaseProxy * proxy, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 44086089\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy=(Luna< btBroadphaseProxy >::check(L,2));
@@ -370,8 +357,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::getAabb(btBroadphaseProxy *, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::getAabb(btBroadphaseProxy *, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAabb(proxy, aabbMin, aabbMax);
 
@@ -381,8 +367,7 @@ public:
 	// void btBroadphaseInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btBroadphaseRayCallback & rayCallback, const btVector3 & aabbMin = btVector3 (0, 0, 0), const btVector3 & aabbMax = btVector3 (0, 0, 0))
 	static int _bind_rayTest(lua_State *L) {
 		if (!_lg_typecheck_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btBroadphaseRayCallback & rayCallback, const btVector3 & aabbMin = btVector3 (0, 0, 0), const btVector3 & aabbMax = btVector3 (0, 0, 0)) function, expected prototype:\nvoid btBroadphaseInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btBroadphaseRayCallback & rayCallback, const btVector3 & aabbMin = btVector3 (0, 0, 0), const btVector3 & aabbMax = btVector3 (0, 0, 0))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 52132875\narg 4 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btBroadphaseRayCallback & rayCallback, const btVector3 & aabbMin = btVector3 (0, 0, 0), const btVector3 & aabbMax = btVector3 (0, 0, 0)) function, expected prototype:\nvoid btBroadphaseInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btBroadphaseRayCallback & rayCallback, const btVector3 & aabbMin = btVector3 (0, 0, 0), const btVector3 & aabbMax = btVector3 (0, 0, 0))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 52132875\narg 4 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -415,8 +400,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::rayTest(const btVector3 &, const btVector3 &, btBroadphaseRayCallback &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::rayTest(const btVector3 &, const btVector3 &, btBroadphaseRayCallback &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rayTest(rayFrom, rayTo, rayCallback, aabbMin, aabbMax);
 
@@ -426,8 +410,7 @@ public:
 	// void btBroadphaseInterface::aabbTest(const btVector3 & aabbMin, const btVector3 & aabbMax, btBroadphaseAabbCallback & callback)
 	static int _bind_aabbTest(lua_State *L) {
 		if (!_lg_typecheck_aabbTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::aabbTest(const btVector3 & aabbMin, const btVector3 & aabbMax, btBroadphaseAabbCallback & callback) function, expected prototype:\nvoid btBroadphaseInterface::aabbTest(const btVector3 & aabbMin, const btVector3 & aabbMax, btBroadphaseAabbCallback & callback)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 52132875\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::aabbTest(const btVector3 & aabbMin, const btVector3 & aabbMax, btBroadphaseAabbCallback & callback) function, expected prototype:\nvoid btBroadphaseInterface::aabbTest(const btVector3 & aabbMin, const btVector3 & aabbMax, btBroadphaseAabbCallback & callback)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 52132875\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -448,8 +431,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::aabbTest(const btVector3 &, const btVector3 &, btBroadphaseAabbCallback &). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::aabbTest(const btVector3 &, const btVector3 &, btBroadphaseAabbCallback &). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->aabbTest(aabbMin, aabbMax, callback);
 
@@ -459,16 +441,14 @@ public:
 	// void btBroadphaseInterface::calculateOverlappingPairs(btDispatcher * dispatcher)
 	static int _bind_calculateOverlappingPairs(lua_State *L) {
 		if (!_lg_typecheck_calculateOverlappingPairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::calculateOverlappingPairs(btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::calculateOverlappingPairs(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::calculateOverlappingPairs(btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::calculateOverlappingPairs(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::calculateOverlappingPairs(btDispatcher *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::calculateOverlappingPairs(btDispatcher *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateOverlappingPairs(dispatcher);
 
@@ -478,15 +458,13 @@ public:
 	// btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache()
 	static int _bind_getOverlappingPairCache_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairCache_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() function, expected prototype:\nbtOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() function, expected prototype:\nbtOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache(). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache(). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btOverlappingPairCache * lret = self->getOverlappingPairCache();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -499,15 +477,13 @@ public:
 	// const btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const
 	static int _bind_getOverlappingPairCache_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getOverlappingPairCache_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const function, expected prototype:\nconst btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const function, expected prototype:\nconst btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const. Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btOverlappingPairCache * btBroadphaseInterface::getOverlappingPairCache() const. Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btOverlappingPairCache * lret = self->getOverlappingPairCache();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -529,8 +505,7 @@ public:
 	// void btBroadphaseInterface::getBroadphaseAabb(btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_getBroadphaseAabb(lua_State *L) {
 		if (!_lg_typecheck_getBroadphaseAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::getBroadphaseAabb(btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btBroadphaseInterface::getBroadphaseAabb(btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::getBroadphaseAabb(btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btBroadphaseInterface::getBroadphaseAabb(btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -546,8 +521,7 @@ public:
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::getBroadphaseAabb(btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::getBroadphaseAabb(btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBroadphaseAabb(aabbMin, aabbMax);
 
@@ -557,16 +531,14 @@ public:
 	// void btBroadphaseInterface::resetPool(btDispatcher * dispatcher)
 	static int _bind_resetPool(lua_State *L) {
 		if (!_lg_typecheck_resetPool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::resetPool(btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::resetPool(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::resetPool(btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::resetPool(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::resetPool(btDispatcher *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::resetPool(btDispatcher *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->resetPool(dispatcher);
 
@@ -576,15 +548,13 @@ public:
 	// void btBroadphaseInterface::printStats()
 	static int _bind_printStats(lua_State *L) {
 		if (!_lg_typecheck_printStats(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::printStats() function, expected prototype:\nvoid btBroadphaseInterface::printStats()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::printStats() function, expected prototype:\nvoid btBroadphaseInterface::printStats()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::printStats(). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::printStats(). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->printStats();
 
@@ -594,16 +564,14 @@ public:
 	// void btBroadphaseInterface::base_resetPool(btDispatcher * dispatcher)
 	static int _bind_base_resetPool(lua_State *L) {
 		if (!_lg_typecheck_base_resetPool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::base_resetPool(btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::base_resetPool(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n");
+			luaL_error(L, "luna typecheck failed in void btBroadphaseInterface::base_resetPool(btDispatcher * dispatcher) function, expected prototype:\nvoid btBroadphaseInterface::base_resetPool(btDispatcher * dispatcher)\nClass arguments details:\narg 1 ID = 71097681\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDispatcher* dispatcher=(Luna< btDispatcher >::check(L,2));
 
 		btBroadphaseInterface* self=(Luna< btBroadphaseInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::base_resetPool(btDispatcher *). Got : '%s'",typeid(Luna< btBroadphaseInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btBroadphaseInterface::base_resetPool(btDispatcher *). Got : '%s'\n%s",typeid(Luna< btBroadphaseInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btBroadphaseInterface::resetPool(dispatcher);
 

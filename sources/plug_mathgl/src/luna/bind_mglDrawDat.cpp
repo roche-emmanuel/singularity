@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglDrawDat*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglDrawDat*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDrawDat* rhs =(Luna< mglDrawDat >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglDrawDat* self= (mglDrawDat*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglDrawDat >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -177,15 +173,13 @@ public:
 	// std::vector< mglPnt > mglDrawDat::Pnt()
 	static int _bind_getPnt(lua_State *L) {
 		if (!_lg_typecheck_getPnt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::vector< mglPnt > mglDrawDat::Pnt() function, expected prototype:\nstd::vector< mglPnt > mglDrawDat::Pnt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::vector< mglPnt > mglDrawDat::Pnt() function, expected prototype:\nstd::vector< mglPnt > mglDrawDat::Pnt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::vector< mglPnt > mglDrawDat::Pnt(). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::vector< mglPnt > mglDrawDat::Pnt(). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::vector< mglPnt >* lret = &self->Pnt;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -198,15 +192,13 @@ public:
 	// std::vector< mglPrim > mglDrawDat::Prm()
 	static int _bind_getPrm(lua_State *L) {
 		if (!_lg_typecheck_getPrm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::vector< mglPrim > mglDrawDat::Prm() function, expected prototype:\nstd::vector< mglPrim > mglDrawDat::Prm()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::vector< mglPrim > mglDrawDat::Prm() function, expected prototype:\nstd::vector< mglPrim > mglDrawDat::Prm()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::vector< mglPrim > mglDrawDat::Prm(). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::vector< mglPrim > mglDrawDat::Prm(). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::vector< mglPrim >* lret = &self->Prm;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -219,15 +211,13 @@ public:
 	// std::vector< mglText > mglDrawDat::Ptx()
 	static int _bind_getPtx(lua_State *L) {
 		if (!_lg_typecheck_getPtx(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::vector< mglText > mglDrawDat::Ptx() function, expected prototype:\nstd::vector< mglText > mglDrawDat::Ptx()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::vector< mglText > mglDrawDat::Ptx() function, expected prototype:\nstd::vector< mglText > mglDrawDat::Ptx()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::vector< mglText > mglDrawDat::Ptx(). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::vector< mglText > mglDrawDat::Ptx(). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::vector< mglText >* lret = &self->Ptx;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -240,15 +230,13 @@ public:
 	// std::vector< mglGlyph > mglDrawDat::Glf()
 	static int _bind_getGlf(lua_State *L) {
 		if (!_lg_typecheck_getGlf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::vector< mglGlyph > mglDrawDat::Glf() function, expected prototype:\nstd::vector< mglGlyph > mglDrawDat::Glf()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::vector< mglGlyph > mglDrawDat::Glf() function, expected prototype:\nstd::vector< mglGlyph > mglDrawDat::Glf()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::vector< mglGlyph > mglDrawDat::Glf(). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::vector< mglGlyph > mglDrawDat::Glf(). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::vector< mglGlyph >* lret = &self->Glf;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -261,15 +249,13 @@ public:
 	// std::vector< mglTexture > mglDrawDat::Txt()
 	static int _bind_getTxt(lua_State *L) {
 		if (!_lg_typecheck_getTxt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::vector< mglTexture > mglDrawDat::Txt() function, expected prototype:\nstd::vector< mglTexture > mglDrawDat::Txt()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::vector< mglTexture > mglDrawDat::Txt() function, expected prototype:\nstd::vector< mglTexture > mglDrawDat::Txt()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::vector< mglTexture > mglDrawDat::Txt(). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::vector< mglTexture > mglDrawDat::Txt(). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const std::vector< mglTexture >* lret = &self->Txt;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -282,8 +268,7 @@ public:
 	// void mglDrawDat::Pnt(std::vector< mglPnt > value)
 	static int _bind_setPnt(lua_State *L) {
 		if (!_lg_typecheck_setPnt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDrawDat::Pnt(std::vector< mglPnt > value) function, expected prototype:\nvoid mglDrawDat::Pnt(std::vector< mglPnt > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void mglDrawDat::Pnt(std::vector< mglPnt > value) function, expected prototype:\nvoid mglDrawDat::Pnt(std::vector< mglPnt > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::vector< mglPnt >* value_ptr=(Luna< std::vector< mglPnt > >::check(L,2));
@@ -294,8 +279,7 @@ public:
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDrawDat::Pnt(std::vector< mglPnt >). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDrawDat::Pnt(std::vector< mglPnt >). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Pnt = value;
 
@@ -305,8 +289,7 @@ public:
 	// void mglDrawDat::Prm(std::vector< mglPrim > value)
 	static int _bind_setPrm(lua_State *L) {
 		if (!_lg_typecheck_setPrm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDrawDat::Prm(std::vector< mglPrim > value) function, expected prototype:\nvoid mglDrawDat::Prm(std::vector< mglPrim > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void mglDrawDat::Prm(std::vector< mglPrim > value) function, expected prototype:\nvoid mglDrawDat::Prm(std::vector< mglPrim > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::vector< mglPrim >* value_ptr=(Luna< std::vector< mglPrim > >::check(L,2));
@@ -317,8 +300,7 @@ public:
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDrawDat::Prm(std::vector< mglPrim >). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDrawDat::Prm(std::vector< mglPrim >). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Prm = value;
 
@@ -328,8 +310,7 @@ public:
 	// void mglDrawDat::Ptx(std::vector< mglText > value)
 	static int _bind_setPtx(lua_State *L) {
 		if (!_lg_typecheck_setPtx(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDrawDat::Ptx(std::vector< mglText > value) function, expected prototype:\nvoid mglDrawDat::Ptx(std::vector< mglText > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void mglDrawDat::Ptx(std::vector< mglText > value) function, expected prototype:\nvoid mglDrawDat::Ptx(std::vector< mglText > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::vector< mglText >* value_ptr=(Luna< std::vector< mglText > >::check(L,2));
@@ -340,8 +321,7 @@ public:
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDrawDat::Ptx(std::vector< mglText >). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDrawDat::Ptx(std::vector< mglText >). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Ptx = value;
 
@@ -351,8 +331,7 @@ public:
 	// void mglDrawDat::Glf(std::vector< mglGlyph > value)
 	static int _bind_setGlf(lua_State *L) {
 		if (!_lg_typecheck_setGlf(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDrawDat::Glf(std::vector< mglGlyph > value) function, expected prototype:\nvoid mglDrawDat::Glf(std::vector< mglGlyph > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void mglDrawDat::Glf(std::vector< mglGlyph > value) function, expected prototype:\nvoid mglDrawDat::Glf(std::vector< mglGlyph > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::vector< mglGlyph >* value_ptr=(Luna< std::vector< mglGlyph > >::check(L,2));
@@ -363,8 +342,7 @@ public:
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDrawDat::Glf(std::vector< mglGlyph >). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDrawDat::Glf(std::vector< mglGlyph >). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Glf = value;
 
@@ -374,8 +352,7 @@ public:
 	// void mglDrawDat::Txt(std::vector< mglTexture > value)
 	static int _bind_setTxt(lua_State *L) {
 		if (!_lg_typecheck_setTxt(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void mglDrawDat::Txt(std::vector< mglTexture > value) function, expected prototype:\nvoid mglDrawDat::Txt(std::vector< mglTexture > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void mglDrawDat::Txt(std::vector< mglTexture > value) function, expected prototype:\nvoid mglDrawDat::Txt(std::vector< mglTexture > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::vector< mglTexture >* value_ptr=(Luna< std::vector< mglTexture > >::check(L,2));
@@ -386,8 +363,7 @@ public:
 
 		mglDrawDat* self=(Luna< mglDrawDat >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void mglDrawDat::Txt(std::vector< mglTexture >). Got : '%s'",typeid(Luna< mglDrawDat >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void mglDrawDat::Txt(std::vector< mglTexture >). Got : '%s'\n%s",typeid(Luna< mglDrawDat >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Txt = value;
 

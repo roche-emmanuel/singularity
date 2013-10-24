@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btHashString*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btHashString*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btHashString* rhs =(Luna< btHashString >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btHashString* self= (btHashString*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btHashString >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,7 +99,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -118,8 +114,8 @@ public:
 	inline static bool _lg_typecheck_portableStringCompare(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -139,7 +135,7 @@ public:
 	inline static bool _lg_typecheck_setHash(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -151,8 +147,7 @@ public:
 	// btHashString::btHashString(const char * name)
 	static btHashString* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHashString::btHashString(const char * name) function, expected prototype:\nbtHashString::btHashString(const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btHashString::btHashString(const char * name) function, expected prototype:\nbtHashString::btHashString(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,1);
@@ -165,15 +160,13 @@ public:
 	// unsigned int btHashString::getHash() const
 	static int _bind_getHash(lua_State *L) {
 		if (!_lg_typecheck_getHash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int btHashString::getHash() const function, expected prototype:\nunsigned int btHashString::getHash() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int btHashString::getHash() const function, expected prototype:\nunsigned int btHashString::getHash() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHashString* self=(Luna< btHashString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int btHashString::getHash() const. Got : '%s'",typeid(Luna< btHashString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int btHashString::getHash() const. Got : '%s'\n%s",typeid(Luna< btHashString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getHash();
 		lua_pushnumber(L,lret);
@@ -184,8 +177,7 @@ public:
 	// int btHashString::portableStringCompare(const char * src, const char * dst) const
 	static int _bind_portableStringCompare(lua_State *L) {
 		if (!_lg_typecheck_portableStringCompare(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btHashString::portableStringCompare(const char * src, const char * dst) const function, expected prototype:\nint btHashString::portableStringCompare(const char * src, const char * dst) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btHashString::portableStringCompare(const char * src, const char * dst) const function, expected prototype:\nint btHashString::portableStringCompare(const char * src, const char * dst) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * src=(const char *)lua_tostring(L,2);
@@ -193,8 +185,7 @@ public:
 
 		btHashString* self=(Luna< btHashString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btHashString::portableStringCompare(const char *, const char *) const. Got : '%s'",typeid(Luna< btHashString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btHashString::portableStringCompare(const char *, const char *) const. Got : '%s'\n%s",typeid(Luna< btHashString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->portableStringCompare(src, dst);
 		lua_pushnumber(L,lret);
@@ -205,8 +196,7 @@ public:
 	// bool btHashString::equals(const btHashString & other) const
 	static int _bind_equals(lua_State *L) {
 		if (!_lg_typecheck_equals(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btHashString::equals(const btHashString & other) const function, expected prototype:\nbool btHashString::equals(const btHashString & other) const\nClass arguments details:\narg 1 ID = 23064786\n");
+			luaL_error(L, "luna typecheck failed in bool btHashString::equals(const btHashString & other) const function, expected prototype:\nbool btHashString::equals(const btHashString & other) const\nClass arguments details:\narg 1 ID = 23064786\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btHashString* other_ptr=(Luna< btHashString >::check(L,2));
@@ -217,8 +207,7 @@ public:
 
 		btHashString* self=(Luna< btHashString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btHashString::equals(const btHashString &) const. Got : '%s'",typeid(Luna< btHashString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btHashString::equals(const btHashString &) const. Got : '%s'\n%s",typeid(Luna< btHashString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->equals(other);
 		lua_pushboolean(L,lret?1:0);
@@ -229,15 +218,13 @@ public:
 	// const char * btHashString::m_string()
 	static int _bind_getString(lua_State *L) {
 		if (!_lg_typecheck_getString(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btHashString::m_string() function, expected prototype:\nconst char * btHashString::m_string()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btHashString::m_string() function, expected prototype:\nconst char * btHashString::m_string()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHashString* self=(Luna< btHashString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btHashString::m_string(). Got : '%s'",typeid(Luna< btHashString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btHashString::m_string(). Got : '%s'\n%s",typeid(Luna< btHashString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->m_string;
 		lua_pushstring(L,lret);
@@ -248,16 +235,14 @@ public:
 	// void btHashString::m_hash(unsigned int value)
 	static int _bind_setHash(lua_State *L) {
 		if (!_lg_typecheck_setHash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btHashString::m_hash(unsigned int value) function, expected prototype:\nvoid btHashString::m_hash(unsigned int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btHashString::m_hash(unsigned int value) function, expected prototype:\nvoid btHashString::m_hash(unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int value=(unsigned int)lua_tointeger(L,2);
 
 		btHashString* self=(Luna< btHashString >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btHashString::m_hash(unsigned int). Got : '%s'",typeid(Luna< btHashString >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btHashString::m_hash(unsigned int). Got : '%s'\n%s",typeid(Luna< btHashString >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hash = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IMemberReference*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IMemberReference*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IMemberReference* rhs =(Luna< IMemberReference >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IMemberReference* self= (IMemberReference*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IMemberReference >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -179,8 +174,7 @@ public:
 	// IMemberReference::IMemberReference(lua_Table * data)
 	static IMemberReference* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMemberReference::IMemberReference(lua_Table * data) function, expected prototype:\nIMemberReference::IMemberReference(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMemberReference::IMemberReference(lua_Table * data) function, expected prototype:\nIMemberReference::IMemberReference(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -192,15 +186,13 @@ public:
 	// IMember * IMemberReference::member() const
 	static int _bind_member(lua_State *L) {
 		if (!_lg_typecheck_member(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * IMemberReference::member() const function, expected prototype:\nIMember * IMemberReference::member() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberReference::member() const function, expected prototype:\nIMember * IMemberReference::member() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * IMemberReference::member() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * IMemberReference::member() const. Got : '%s'\n%s",typeid(Luna< IMemberReference >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->member();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -213,15 +205,13 @@ public:
 	// const IString * IMemberReference::name() const
 	static int _bind_name(lua_State *L) {
 		if (!_lg_typecheck_name(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::name() const function, expected prototype:\nconst IString * IMemberReference::name() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::name() const function, expected prototype:\nconst IString * IMemberReference::name() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IMemberReference::name() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::name() const. Got : '%s'\n%s",typeid(Luna< IMemberReference >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->name();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -234,15 +224,13 @@ public:
 	// const IString * IMemberReference::scope() const
 	static int _bind_scope(lua_State *L) {
 		if (!_lg_typecheck_scope(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::scope() const function, expected prototype:\nconst IString * IMemberReference::scope() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::scope() const function, expected prototype:\nconst IString * IMemberReference::scope() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IMemberReference::scope() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::scope() const. Got : '%s'\n%s",typeid(Luna< IMemberReference >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->scope();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,15 +243,13 @@ public:
 	// const IString * IMemberReference::protection() const
 	static int _bind_protection(lua_State *L) {
 		if (!_lg_typecheck_protection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::protection() const function, expected prototype:\nconst IString * IMemberReference::protection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::protection() const function, expected prototype:\nconst IString * IMemberReference::protection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IMemberReference::protection() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::protection() const. Got : '%s'\n%s",typeid(Luna< IMemberReference >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->protection();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -276,15 +262,13 @@ public:
 	// const IString * IMemberReference::virtualness() const
 	static int _bind_virtualness(lua_State *L) {
 		if (!_lg_typecheck_virtualness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::virtualness() const function, expected prototype:\nconst IString * IMemberReference::virtualness() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::virtualness() const function, expected prototype:\nconst IString * IMemberReference::virtualness() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IMemberReference::virtualness() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::virtualness() const. Got : '%s'\n%s",typeid(Luna< IMemberReference >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->virtualness();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,15 +281,13 @@ public:
 	// const IString * IMemberReference::ambiguityScope() const
 	static int _bind_ambiguityScope(lua_State *L) {
 		if (!_lg_typecheck_ambiguityScope(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::ambiguityScope() const function, expected prototype:\nconst IString * IMemberReference::ambiguityScope() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IMemberReference::ambiguityScope() const function, expected prototype:\nconst IString * IMemberReference::ambiguityScope() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberReference* self=(Luna< IMemberReference >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IMemberReference::ambiguityScope() const. Got : '%s'",typeid(Luna< IMemberReference >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IMemberReference::ambiguityScope() const. Got : '%s'\n%s",typeid(Luna< IMemberReference >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->ambiguityScope();
 		if(!lret) return 0; // Do not write NULL pointers.

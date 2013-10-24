@@ -17,7 +17,14 @@
 
 #include <lua.hpp>
 
-#include "sgtCommon.h"
+#include "lunaCommon.h"
+#include <d3d9.h>
+#include <d3dx9.h>
+#include <DxErr.h>
+#include <osg/Array>
+
+#define SafeRelease(x) if(x) x->Release();
+
 #include "DXSurface.h"
 
 

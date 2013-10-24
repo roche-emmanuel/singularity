@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IntCallback* self= (IntCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -117,7 +114,7 @@ public:
 	inline static bool _lg_typecheck_setValue(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -135,8 +132,7 @@ public:
 	// IntCallback::IntCallback(lua_Table * data)
 	static IntCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IntCallback::IntCallback(lua_Table * data) function, expected prototype:\nIntCallback::IntCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IntCallback::IntCallback(lua_Table * data) function, expected prototype:\nIntCallback::IntCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -148,11 +144,10 @@ public:
 	// static void IntCallback::setCallback(const void * value, void * clientData)
 	static int _bind_setCallback(lua_State *L) {
 		if (!_lg_typecheck_setCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void IntCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void IntCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void IntCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void IntCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* value=(Luna< void >::check(L,1));
+		const void* value=(Luna< void >::check(L,1));
 		void* clientData=(Luna< void >::check(L,2));
 
 		IntCallback::setCallback(value, clientData);
@@ -163,8 +158,7 @@ public:
 	// static void IntCallback::getCallback(void * value, void * clientData)
 	static int _bind_getCallback(lua_State *L) {
 		if (!_lg_typecheck_getCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void IntCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void IntCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void IntCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void IntCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,1));
@@ -178,16 +172,14 @@ public:
 	// void IntCallback::setValue(int val)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void IntCallback::setValue(int val) function, expected prototype:\nvoid IntCallback::setValue(int val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void IntCallback::setValue(int val) function, expected prototype:\nvoid IntCallback::setValue(int val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int val=(int)lua_tointeger(L,2);
 
 		IntCallback* self=Luna< osg::Referenced >::checkSubType< IntCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void IntCallback::setValue(int). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void IntCallback::setValue(int). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setValue(val);
 
@@ -197,15 +189,13 @@ public:
 	// int IntCallback::getValue()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int IntCallback::getValue() function, expected prototype:\nint IntCallback::getValue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int IntCallback::getValue() function, expected prototype:\nint IntCallback::getValue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IntCallback* self=Luna< osg::Referenced >::checkSubType< IntCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int IntCallback::getValue(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int IntCallback::getValue(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getValue();
 		lua_pushnumber(L,lret);

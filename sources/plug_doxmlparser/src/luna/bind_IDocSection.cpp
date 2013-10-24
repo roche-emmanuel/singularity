@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocSection* self= (IDocSection*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// IDocSection::IDocSection(lua_Table * data)
 	static IDocSection* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocSection::IDocSection(lua_Table * data) function, expected prototype:\nIDocSection::IDocSection(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocSection::IDocSection(lua_Table * data) function, expected prototype:\nIDocSection::IDocSection(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,15 +151,13 @@ public:
 	// const IString * IDocSection::id() const
 	static int _bind_id(lua_State *L) {
 		if (!_lg_typecheck_id(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IDocSection::id() const function, expected prototype:\nconst IString * IDocSection::id() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IDocSection::id() const function, expected prototype:\nconst IString * IDocSection::id() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IDocSection::id() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IDocSection::id() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->id();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -176,15 +170,13 @@ public:
 	// int IDocSection::level() const
 	static int _bind_level(lua_State *L) {
 		if (!_lg_typecheck_level(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int IDocSection::level() const function, expected prototype:\nint IDocSection::level() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int IDocSection::level() const function, expected prototype:\nint IDocSection::level() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int IDocSection::level() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int IDocSection::level() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->level();
 		lua_pushnumber(L,lret);
@@ -195,15 +187,13 @@ public:
 	// IDocTitle * IDocSection::title() const
 	static int _bind_title(lua_State *L) {
 		if (!_lg_typecheck_title(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocTitle * IDocSection::title() const function, expected prototype:\nIDocTitle * IDocSection::title() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocTitle * IDocSection::title() const function, expected prototype:\nIDocTitle * IDocSection::title() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocTitle * IDocSection::title() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocTitle * IDocSection::title() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocTitle * lret = self->title();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -216,15 +206,13 @@ public:
 	// IDocIterator * IDocSection::paragraphs() const
 	static int _bind_paragraphs(lua_State *L) {
 		if (!_lg_typecheck_paragraphs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocIterator * IDocSection::paragraphs() const function, expected prototype:\nIDocIterator * IDocSection::paragraphs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocSection::paragraphs() const function, expected prototype:\nIDocIterator * IDocSection::paragraphs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocIterator * IDocSection::paragraphs() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocSection::paragraphs() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocIterator * lret = self->paragraphs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -237,15 +225,13 @@ public:
 	// IDocIterator * IDocSection::subSections() const
 	static int _bind_subSections(lua_State *L) {
 		if (!_lg_typecheck_subSections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocIterator * IDocSection::subSections() const function, expected prototype:\nIDocIterator * IDocSection::subSections() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocSection::subSections() const function, expected prototype:\nIDocIterator * IDocSection::subSections() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocIterator * IDocSection::subSections() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocSection::subSections() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocIterator * lret = self->subSections();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -258,15 +244,13 @@ public:
 	// IDocInternal * IDocSection::internal() const
 	static int _bind_internal(lua_State *L) {
 		if (!_lg_typecheck_internal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocInternal * IDocSection::internal() const function, expected prototype:\nIDocInternal * IDocSection::internal() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocInternal * IDocSection::internal() const function, expected prototype:\nIDocInternal * IDocSection::internal() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocSection* self=Luna< IDoc >::checkSubType< IDocSection >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocInternal * IDocSection::internal() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocInternal * IDocSection::internal() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocInternal * lret = self->internal();
 		if(!lret) return 0; // Do not write NULL pointers.

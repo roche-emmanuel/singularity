@@ -95,8 +95,8 @@ public:
 		if( (!(Luna< osg::Matrixd >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
 		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -110,8 +110,8 @@ public:
 		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,18903838) ) return false;
 		if( (!(Luna< osg::Matrixd >::check(L,4))) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -124,8 +124,8 @@ public:
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,18903838) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,18903838) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 

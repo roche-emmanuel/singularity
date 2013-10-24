@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(GIM_CONTACT*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(GIM_CONTACT*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GIM_CONTACT* rhs =(Luna< GIM_CONTACT >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		GIM_CONTACT* self= (GIM_CONTACT*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< GIM_CONTACT >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -121,9 +117,9 @@ public:
 		if( (!(Luna< btVector3 >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -139,7 +135,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -196,28 +192,28 @@ public:
 	inline static bool _lg_typecheck_setDepth(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDistance(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFeature1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setFeature2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -229,8 +225,7 @@ public:
 	// GIM_CONTACT::GIM_CONTACT()
 	static GIM_CONTACT* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GIM_CONTACT::GIM_CONTACT() function, expected prototype:\nGIM_CONTACT::GIM_CONTACT()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in GIM_CONTACT::GIM_CONTACT() function, expected prototype:\nGIM_CONTACT::GIM_CONTACT()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -240,8 +235,7 @@ public:
 	// GIM_CONTACT::GIM_CONTACT(const GIM_CONTACT & contact)
 	static GIM_CONTACT* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GIM_CONTACT::GIM_CONTACT(const GIM_CONTACT & contact) function, expected prototype:\nGIM_CONTACT::GIM_CONTACT(const GIM_CONTACT & contact)\nClass arguments details:\narg 1 ID = 87678210\n");
+			luaL_error(L, "luna typecheck failed in GIM_CONTACT::GIM_CONTACT(const GIM_CONTACT & contact) function, expected prototype:\nGIM_CONTACT::GIM_CONTACT(const GIM_CONTACT & contact)\nClass arguments details:\narg 1 ID = 87678210\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const GIM_CONTACT* contact_ptr=(Luna< GIM_CONTACT >::check(L,1));
@@ -256,8 +250,7 @@ public:
 	// GIM_CONTACT::GIM_CONTACT(const btVector3 & point, const btVector3 & normal, float depth, int feature1, int feature2)
 	static GIM_CONTACT* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in GIM_CONTACT::GIM_CONTACT(const btVector3 & point, const btVector3 & normal, float depth, int feature1, int feature2) function, expected prototype:\nGIM_CONTACT::GIM_CONTACT(const btVector3 & point, const btVector3 & normal, float depth, int feature1, int feature2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in GIM_CONTACT::GIM_CONTACT(const btVector3 & point, const btVector3 & normal, float depth, int feature1, int feature2) function, expected prototype:\nGIM_CONTACT::GIM_CONTACT(const btVector3 & point, const btVector3 & normal, float depth, int feature1, int feature2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* point_ptr=(Luna< btVector3 >::check(L,1));
@@ -292,15 +285,13 @@ public:
 	// unsigned int GIM_CONTACT::calc_key_contact() const
 	static int _bind_calc_key_contact(lua_State *L) {
 		if (!_lg_typecheck_calc_key_contact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int GIM_CONTACT::calc_key_contact() const function, expected prototype:\nunsigned int GIM_CONTACT::calc_key_contact() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int GIM_CONTACT::calc_key_contact() const function, expected prototype:\nunsigned int GIM_CONTACT::calc_key_contact() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int GIM_CONTACT::calc_key_contact() const. Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int GIM_CONTACT::calc_key_contact() const. Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->calc_key_contact();
 		lua_pushnumber(L,lret);
@@ -311,8 +302,7 @@ public:
 	// void GIM_CONTACT::interpolate_normals(btVector3 * normals, int normal_count)
 	static int _bind_interpolate_normals(lua_State *L) {
 		if (!_lg_typecheck_interpolate_normals(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::interpolate_normals(btVector3 * normals, int normal_count) function, expected prototype:\nvoid GIM_CONTACT::interpolate_normals(btVector3 * normals, int normal_count)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::interpolate_normals(btVector3 * normals, int normal_count) function, expected prototype:\nvoid GIM_CONTACT::interpolate_normals(btVector3 * normals, int normal_count)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* normals=(Luna< btVector3 >::check(L,2));
@@ -320,8 +310,7 @@ public:
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::interpolate_normals(btVector3 *, int). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::interpolate_normals(btVector3 *, int). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->interpolate_normals(normals, normal_count);
 
@@ -331,15 +320,13 @@ public:
 	// btVector3 GIM_CONTACT::m_point()
 	static int _bind_getPoint(lua_State *L) {
 		if (!_lg_typecheck_getPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 GIM_CONTACT::m_point() function, expected prototype:\nbtVector3 GIM_CONTACT::m_point()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 GIM_CONTACT::m_point() function, expected prototype:\nbtVector3 GIM_CONTACT::m_point()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 GIM_CONTACT::m_point(). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 GIM_CONTACT::m_point(). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_point;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -352,15 +339,13 @@ public:
 	// btVector3 GIM_CONTACT::m_normal()
 	static int _bind_getNormal(lua_State *L) {
 		if (!_lg_typecheck_getNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 GIM_CONTACT::m_normal() function, expected prototype:\nbtVector3 GIM_CONTACT::m_normal()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 GIM_CONTACT::m_normal() function, expected prototype:\nbtVector3 GIM_CONTACT::m_normal()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 GIM_CONTACT::m_normal(). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 GIM_CONTACT::m_normal(). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_normal;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -373,15 +358,13 @@ public:
 	// float GIM_CONTACT::m_depth()
 	static int _bind_getDepth(lua_State *L) {
 		if (!_lg_typecheck_getDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float GIM_CONTACT::m_depth() function, expected prototype:\nfloat GIM_CONTACT::m_depth()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float GIM_CONTACT::m_depth() function, expected prototype:\nfloat GIM_CONTACT::m_depth()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float GIM_CONTACT::m_depth(). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float GIM_CONTACT::m_depth(). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_depth;
 		lua_pushnumber(L,lret);
@@ -392,15 +375,13 @@ public:
 	// float GIM_CONTACT::m_distance()
 	static int _bind_getDistance(lua_State *L) {
 		if (!_lg_typecheck_getDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float GIM_CONTACT::m_distance() function, expected prototype:\nfloat GIM_CONTACT::m_distance()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float GIM_CONTACT::m_distance() function, expected prototype:\nfloat GIM_CONTACT::m_distance()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float GIM_CONTACT::m_distance(). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float GIM_CONTACT::m_distance(). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_distance;
 		lua_pushnumber(L,lret);
@@ -411,15 +392,13 @@ public:
 	// int GIM_CONTACT::m_feature1()
 	static int _bind_getFeature1(lua_State *L) {
 		if (!_lg_typecheck_getFeature1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int GIM_CONTACT::m_feature1() function, expected prototype:\nint GIM_CONTACT::m_feature1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int GIM_CONTACT::m_feature1() function, expected prototype:\nint GIM_CONTACT::m_feature1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int GIM_CONTACT::m_feature1(). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int GIM_CONTACT::m_feature1(). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_feature1;
 		lua_pushnumber(L,lret);
@@ -430,15 +409,13 @@ public:
 	// int GIM_CONTACT::m_feature2()
 	static int _bind_getFeature2(lua_State *L) {
 		if (!_lg_typecheck_getFeature2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int GIM_CONTACT::m_feature2() function, expected prototype:\nint GIM_CONTACT::m_feature2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int GIM_CONTACT::m_feature2() function, expected prototype:\nint GIM_CONTACT::m_feature2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int GIM_CONTACT::m_feature2(). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int GIM_CONTACT::m_feature2(). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_feature2;
 		lua_pushnumber(L,lret);
@@ -449,8 +426,7 @@ public:
 	// void GIM_CONTACT::m_point(btVector3 value)
 	static int _bind_setPoint(lua_State *L) {
 		if (!_lg_typecheck_setPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_point(btVector3 value) function, expected prototype:\nvoid GIM_CONTACT::m_point(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_point(btVector3 value) function, expected prototype:\nvoid GIM_CONTACT::m_point(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -461,8 +437,7 @@ public:
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_point(btVector3). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_point(btVector3). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_point = value;
 
@@ -472,8 +447,7 @@ public:
 	// void GIM_CONTACT::m_normal(btVector3 value)
 	static int _bind_setNormal(lua_State *L) {
 		if (!_lg_typecheck_setNormal(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_normal(btVector3 value) function, expected prototype:\nvoid GIM_CONTACT::m_normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_normal(btVector3 value) function, expected prototype:\nvoid GIM_CONTACT::m_normal(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -484,8 +458,7 @@ public:
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_normal(btVector3). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_normal(btVector3). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_normal = value;
 
@@ -495,16 +468,14 @@ public:
 	// void GIM_CONTACT::m_depth(float value)
 	static int _bind_setDepth(lua_State *L) {
 		if (!_lg_typecheck_setDepth(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_depth(float value) function, expected prototype:\nvoid GIM_CONTACT::m_depth(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_depth(float value) function, expected prototype:\nvoid GIM_CONTACT::m_depth(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_depth(float). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_depth(float). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_depth = value;
 
@@ -514,16 +485,14 @@ public:
 	// void GIM_CONTACT::m_distance(float value)
 	static int _bind_setDistance(lua_State *L) {
 		if (!_lg_typecheck_setDistance(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_distance(float value) function, expected prototype:\nvoid GIM_CONTACT::m_distance(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_distance(float value) function, expected prototype:\nvoid GIM_CONTACT::m_distance(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_distance(float). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_distance(float). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_distance = value;
 
@@ -533,16 +502,14 @@ public:
 	// void GIM_CONTACT::m_feature1(int value)
 	static int _bind_setFeature1(lua_State *L) {
 		if (!_lg_typecheck_setFeature1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_feature1(int value) function, expected prototype:\nvoid GIM_CONTACT::m_feature1(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_feature1(int value) function, expected prototype:\nvoid GIM_CONTACT::m_feature1(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_feature1(int). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_feature1(int). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_feature1 = value;
 
@@ -552,16 +519,14 @@ public:
 	// void GIM_CONTACT::m_feature2(int value)
 	static int _bind_setFeature2(lua_State *L) {
 		if (!_lg_typecheck_setFeature2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_feature2(int value) function, expected prototype:\nvoid GIM_CONTACT::m_feature2(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void GIM_CONTACT::m_feature2(int value) function, expected prototype:\nvoid GIM_CONTACT::m_feature2(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		GIM_CONTACT* self=(Luna< GIM_CONTACT >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_feature2(int). Got : '%s'",typeid(Luna< GIM_CONTACT >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void GIM_CONTACT::m_feature2(int). Got : '%s'\n%s",typeid(Luna< GIM_CONTACT >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_feature2 = value;
 

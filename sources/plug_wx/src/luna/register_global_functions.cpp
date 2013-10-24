@@ -103,10 +103,10 @@ inline static bool _lg_typecheck_wxExit(lua_State *L) {
 inline static bool _lg_typecheck_wxBase64Encode_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
@@ -114,14 +114,14 @@ inline static bool _lg_typecheck_wxBase64Encode_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxBase64EncodedSize(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -153,18 +153,18 @@ inline static bool _lg_typecheck_wxGetSingleChoiceIndex_overload_1(lua_State *L)
 	int luatop = lua_gettop(L);
 	if( luatop<3 || luatop>10 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,3))) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,4)) ) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( luatop>6 && lua_isboolean(L,7)==0 ) return false;
-	if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( luatop>7 && (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( luatop>8 && (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( luatop>9 && (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
 
@@ -172,11 +172,11 @@ inline static bool _lg_typecheck_wxGetSingleChoiceIndex_overload_2(lua_State *L)
 	int luatop = lua_gettop(L);
 	if( luatop<4 || luatop>5 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,3))) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,5)) ) ) return false;
 	return true;
@@ -186,11 +186,11 @@ inline static bool _lg_typecheck_wxGetSingleChoiceIndex_overload_3(lua_State *L)
 	int luatop = lua_gettop(L);
 	if( luatop<5 || luatop>6 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,56813631)) ) return false;
 	if( luatop>5 && (lua_isnil(L,6)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,6)) ) ) return false;
 	return true;
@@ -200,18 +200,18 @@ inline static bool _lg_typecheck_wxGetSingleChoice_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<3 || luatop>10 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,3))) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,4)) ) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( luatop>6 && lua_isboolean(L,7)==0 ) return false;
-	if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( luatop>7 && (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( luatop>8 && (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( luatop>9 && (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
 
@@ -219,11 +219,11 @@ inline static bool _lg_typecheck_wxGetSingleChoice_overload_2(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<4 || luatop>5 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,3))) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,5)) ) ) return false;
 	return true;
@@ -233,11 +233,11 @@ inline static bool _lg_typecheck_wxGetSingleChoice_overload_3(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<5 || luatop>6 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( luatop>5 && (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,56813631)) ) return false;
 	if( luatop>5 && (lua_isnil(L,6)==0 && !(Luna< wxObject >::checkSubType< wxWindow >(L,6)) ) ) return false;
 	return true;
@@ -248,15 +248,15 @@ inline static bool _lg_typecheck_wxGetSelectedChoices(lua_State *L) {
 	if( luatop<4 || luatop>10 ) return false;
 
 	if( !Luna<void>::has_uniqueid(L,1,47342076) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,59507769) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( luatop>6 && (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( luatop>6 && (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( luatop>7 && lua_isboolean(L,8)==0 ) return false;
-	if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( luatop>9 && (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( luatop>8 && (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( luatop>9 && (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
 
@@ -266,7 +266,7 @@ inline static bool _lg_typecheck_wxGetColourFromUser(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-	if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
 	return true;
 }
@@ -274,7 +274,7 @@ inline static bool _lg_typecheck_wxGetColourFromUser(lua_State *L) {
 inline static bool _lg_typecheck_wxFromString_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxColour >(L,2)) ) ) return false;
 	return true;
@@ -283,7 +283,7 @@ inline static bool _lg_typecheck_wxFromString_overload_1(lua_State *L) {
 inline static bool _lg_typecheck_wxFromString_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 	if( (lua_isnil(L,2)==0 && !(Luna< wxObject >::checkSubType< wxFont >(L,2)) ) ) return false;
 	return true;
@@ -345,9 +345,9 @@ inline static bool _lg_typecheck_wxDirSelector(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<0 || luatop>5 ) return false;
 
-	if( luatop>0 && lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && lua_isnumber(L,3)==0 ) return false;
+	if( luatop>0 && lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TNUMBER ) return false;
 	if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,56813631)) ) return false;
 	return true;
@@ -379,15 +379,15 @@ inline static bool _lg_typecheck_wxFileSelector(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>9 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && lua_isstring(L,3)==0 ) return false;
-	if( luatop>3 && lua_isstring(L,4)==0 ) return false;
-	if( luatop>4 && lua_isstring(L,5)==0 ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
+	if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
+	if( luatop>4 && lua_type(L,5)!=LUA_TSTRING ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
-	if( luatop>7 && (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( luatop>8 && (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( luatop>7 && (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( luatop>8 && (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	return true;
 }
 
@@ -400,7 +400,7 @@ inline static bool _lg_typecheck_wxGetOSDirectory(lua_State *L) {
 inline static bool _lg_typecheck_wxParseCommonDialogsFilter(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,59507769) ) return false;
 	return true;
@@ -409,21 +409,21 @@ inline static bool _lg_typecheck_wxParseCommonDialogsFilter(lua_State *L) {
 inline static bool _lg_typecheck_wxDos2UnixFilename(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxUnix2DosFilename(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxDirExists(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -431,8 +431,8 @@ inline static bool _lg_typecheck_wxCopyFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( luatop>2 && lua_isboolean(L,3)==0 ) return false;
 	return true;
 }
@@ -440,15 +440,15 @@ inline static bool _lg_typecheck_wxCopyFile(lua_State *L) {
 inline static bool _lg_typecheck_wxFileExists(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxMatchWild(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( lua_isboolean(L,3)==0 ) return false;
 	return true;
 }
@@ -456,21 +456,21 @@ inline static bool _lg_typecheck_wxMatchWild(lua_State *L) {
 inline static bool _lg_typecheck_wxPathOnly(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxIsWild(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxIsAbsolutePath(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -483,16 +483,16 @@ inline static bool _lg_typecheck_wxGetCwd(lua_State *L) {
 inline static bool _lg_typecheck_wxSetWorkingDirectory(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxConcatFiles(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -500,8 +500,8 @@ inline static bool _lg_typecheck_wxMkdir(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -509,8 +509,8 @@ inline static bool _lg_typecheck_wxRmdir(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -524,15 +524,15 @@ inline static bool _lg_typecheck_wxFindFirstFile(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxGetFileKind(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -542,7 +542,7 @@ inline static bool _lg_typecheck_wxGetFontFromUser(lua_State *L) {
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
-	if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -636,8 +636,8 @@ inline static bool _lg_typecheck_wxEntryCleanup(lua_State *L) {
 inline static bool _lg_typecheck_wxSafeShowMessage(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -650,29 +650,29 @@ inline static bool _lg_typecheck_wxSysErrorCode(lua_State *L) {
 inline static bool _lg_typecheck_wxFinite(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxIsNaN(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxIsSameDouble(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxIsNullDouble(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -680,12 +680,12 @@ inline static bool _lg_typecheck_wxMessageBox(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>6 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
@@ -693,12 +693,12 @@ inline static bool _lg_typecheck_wxGetNumberFromUser(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<4 || luatop>8 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( luatop>4 && lua_isnumber(L,5)==0 ) return false;
-	if( luatop>5 && lua_isnumber(L,6)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( luatop>4 && lua_type(L,5)!=LUA_TNUMBER ) return false;
+	if( luatop>5 && lua_type(L,6)!=LUA_TNUMBER ) return false;
 	if( luatop>6 && (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,56813631)) ) return false;
 	if( luatop>7 && !Luna<void>::has_uniqueid(L,8,25723480) ) return false;
 	return true;
@@ -707,7 +707,7 @@ inline static bool _lg_typecheck_wxGetNumberFromUser(lua_State *L) {
 inline static bool _lg_typecheck_wxCreateDynamicObject(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -725,8 +725,8 @@ inline static bool _lg_typecheck_wxGetStockLabel(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( luatop>1 && lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -734,12 +734,12 @@ inline static bool _lg_typecheck_wxGetTextFromUser(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>7 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( luatop>6 && lua_isboolean(L,7)==0 ) return false;
 	return true;
 }
@@ -748,12 +748,12 @@ inline static bool _lg_typecheck_wxGetPasswordFromUser(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>7 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
-	if( luatop>2 && lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && lua_type(L,3)!=LUA_TSTRING ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,56813631)) ) return false;
-	if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( luatop>5 && (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( luatop>6 && lua_isboolean(L,7)==0 ) return false;
 	return true;
 }
@@ -803,8 +803,8 @@ inline static bool _lg_typecheck_wxGetUTCTimeUSec(lua_State *L) {
 inline static bool _lg_typecheck_wxCreateFileTipProvider(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -822,8 +822,8 @@ inline static bool _lg_typecheck_wxGetTranslation_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -831,17 +831,17 @@ inline static bool _lg_typecheck_wxGetTranslation_overload_2(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<3 || luatop>4 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( luatop>3 && lua_isstring(L,4)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>3 && lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck__(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -881,23 +881,23 @@ inline static bool _lg_typecheck_wxInfoMessageBox(lua_State *L) {
 inline static bool _lg_typecheck_wxGetEnv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxSetEnv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxUnsetEnv(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -916,7 +916,7 @@ inline static bool _lg_typecheck_wxGetPowerType(lua_State *L) {
 inline static bool _lg_typecheck_wxGetKeyState(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -951,7 +951,7 @@ inline static bool _lg_typecheck_wxFindWindowByLabel(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 	return true;
 }
@@ -960,7 +960,7 @@ inline static bool _lg_typecheck_wxFindWindowByName(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( luatop>1 && (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56813631)) ) return false;
 	return true;
 }
@@ -969,8 +969,8 @@ inline static bool _lg_typecheck_wxFindMenuItemId(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56813631)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -983,7 +983,7 @@ inline static bool _lg_typecheck_wxNewId(lua_State *L) {
 inline static bool _lg_typecheck_wxRegisterId(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -991,8 +991,8 @@ inline static bool _lg_typecheck_wxLaunchDefaultApplication(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -1000,8 +1000,8 @@ inline static bool _lg_typecheck_wxLaunchDefaultBrowser(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -1009,8 +1009,8 @@ inline static bool _lg_typecheck_wxLoadUserResource(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -1018,8 +1018,8 @@ inline static bool _lg_typecheck_wxStripMenuCodes(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -1045,7 +1045,7 @@ inline static bool _lg_typecheck_wxGetUserHome(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<0 || luatop>1 ) return false;
 
-	if( luatop>0 && lua_isstring(L,1)==0 ) return false;
+	if( luatop>0 && lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -1080,8 +1080,8 @@ inline static bool _lg_typecheck_wxExecute_overload_1(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<1 || luatop>4 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( luatop>2 && (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,56813631)) ) return false;
 	if( luatop>2 && (lua_isnil(L,3)==0 && !(Luna< wxObject >::checkSubType< wxProcess >(L,3)) ) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,57480074)) ) return false;
@@ -1093,10 +1093,10 @@ inline static bool _lg_typecheck_wxExecute_overload_2(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<2 || luatop>4 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,2))) ) return false;
-	if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,57480074)) ) return false;
 	if( luatop>3 && (lua_isnil(L,4)==0 && !(Luna< wxExecuteEnv >::check(L,4)) ) ) return false;
 	return true;
@@ -1106,12 +1106,12 @@ inline static bool _lg_typecheck_wxExecute_overload_3(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<3 || luatop>5 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,2))) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,59507769) ) return false;
 	if( (!(Luna< wxArrayString >::check(L,3))) ) return false;
-	if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,57480074)) ) return false;
 	if( luatop>4 && (lua_isnil(L,5)==0 && !(Luna< wxExecuteEnv >::check(L,5)) ) ) return false;
 	return true;
@@ -1127,7 +1127,7 @@ inline static bool _lg_typecheck_wxShell(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<0 || luatop>1 ) return false;
 
-	if( luatop>0 && lua_isstring(L,1)==0 ) return false;
+	if( luatop>0 && lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -1135,21 +1135,21 @@ inline static bool _lg_typecheck_wxShutdown(lua_State *L) {
 	int luatop = lua_gettop(L);
 	if( luatop<0 || luatop>1 ) return false;
 
-	if( luatop>0 && (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( luatop>0 && (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxMicroSleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxMilliSleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -1162,14 +1162,14 @@ inline static bool _lg_typecheck_wxNow(lua_State *L) {
 inline static bool _lg_typecheck_wxSleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxUsleep(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
@@ -1203,62 +1203,62 @@ inline static bool _lg_typecheck_createWxLogHandler(lua_State *L) {
 inline static bool _lg_typecheck_wxIsEmpty_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxIsEmpty_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxStrlen(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxStrlcpy(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxStrrchr_overload_1(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxStrrchr_overload_2(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxStrrchr_overload_3(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_wxStrrchr_overload_4(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 

@@ -161,7 +161,7 @@ public:
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,58243831)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,58243831)) ) return false;
 		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
 
@@ -173,7 +173,7 @@ public:
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,58243831)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,58243831)) ) return false;
 		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 		return true;
 	}
 
@@ -282,7 +282,7 @@ public:
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32391296)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -291,8 +291,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count)
 	static int _bind_public_collide_gjk_triangles(lua_State *L) {
 		if (!_lg_typecheck_public_collide_gjk_triangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -304,8 +303,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btGImpactMeshShapePart *, const int *, int). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_collide_gjk_triangles(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btGImpactMeshShapePart *, const int *, int). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_collide_gjk_triangles(body0Wrap, body1Wrap, shape0, shape1, pairs, pair_count);
 
@@ -315,8 +313,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count)
 	static int _bind_public_collide_sat_triangles(lua_State *L) {
 		if (!_lg_typecheck_public_collide_sat_triangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btGImpactMeshShapePart * shape1, const int * pairs, int pair_count)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -328,8 +325,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btGImpactMeshShapePart *, const int *, int). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_collide_sat_triangles(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btGImpactMeshShapePart *, const int *, int). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_collide_sat_triangles(body0Wrap, body1Wrap, shape0, shape1, pairs, pair_count);
 
@@ -339,8 +335,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper * body0, const btCollisionObjectWrapper * body1, const btCollisionShape * shape0, const btCollisionShape * shape1)
 	static int _bind_public_shape_vs_shape_collision(lua_State *L) {
 		if (!_lg_typecheck_public_shape_vs_shape_collision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper * body0, const btCollisionObjectWrapper * body1, const btCollisionShape * shape0, const btCollisionShape * shape1) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper * body0, const btCollisionObjectWrapper * body1, const btCollisionShape * shape0, const btCollisionShape * shape1)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper * body0, const btCollisionObjectWrapper * body1, const btCollisionShape * shape0, const btCollisionShape * shape1) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper * body0, const btCollisionObjectWrapper * body1, const btCollisionShape * shape0, const btCollisionShape * shape1)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -350,8 +345,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btCollisionShape *, const btCollisionShape *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_shape_vs_shape_collision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btCollisionShape *, const btCollisionShape *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_shape_vs_shape_collision(body0, body1, shape0, shape1);
 
@@ -361,8 +355,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btCollisionShape * shape0, const btCollisionShape * shape1)
 	static int _bind_public_convex_vs_convex_collision(lua_State *L) {
 		if (!_lg_typecheck_public_convex_vs_convex_collision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btCollisionShape * shape0, const btCollisionShape * shape1) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btCollisionShape * shape0, const btCollisionShape * shape1)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btCollisionShape * shape0, const btCollisionShape * shape1) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btCollisionShape * shape0, const btCollisionShape * shape1)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -372,8 +365,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btCollisionShape *, const btCollisionShape *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_convex_vs_convex_collision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btCollisionShape *, const btCollisionShape *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_convex_vs_convex_collision(body0Wrap, body1Wrap, shape0, shape1);
 
@@ -383,8 +375,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform & trans0, const btTransform & trans1, const btGImpactShapeInterface * shape0, const btCollisionShape * shape1, btAlignedObjectArray< int > & collided_primitives)
 	static int _bind_public_gimpact_vs_shape_find_pairs(lua_State *L) {
 		if (!_lg_typecheck_public_gimpact_vs_shape_find_pairs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform & trans0, const btTransform & trans1, const btGImpactShapeInterface * shape0, const btCollisionShape * shape1, btAlignedObjectArray< int > & collided_primitives) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform & trans0, const btTransform & trans1, const btGImpactShapeInterface * shape0, const btCollisionShape * shape1, btAlignedObjectArray< int > & collided_primitives)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 58243831\narg 5 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform & trans0, const btTransform & trans1, const btGImpactShapeInterface * shape0, const btCollisionShape * shape1, btAlignedObjectArray< int > & collided_primitives) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform & trans0, const btTransform & trans1, const btGImpactShapeInterface * shape0, const btCollisionShape * shape1, btAlignedObjectArray< int > & collided_primitives)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\narg 3 ID = 58243831\narg 4 ID = 58243831\narg 5 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans0_ptr=(Luna< btTransform >::check(L,2));
@@ -407,8 +398,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform &, const btTransform &, const btGImpactShapeInterface *, const btCollisionShape *, btAlignedObjectArray< int > &). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_gimpact_vs_shape_find_pairs(const btTransform &, const btTransform &, const btGImpactShapeInterface *, const btCollisionShape *, btAlignedObjectArray< int > &). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_gimpact_vs_shape_find_pairs(trans0, trans1, shape0, shape1, collided_primitives);
 
@@ -418,8 +408,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btStaticPlaneShape * shape1, bool swapped)
 	static int _bind_public_gimpacttrimeshpart_vs_plane_collision(lua_State *L) {
 		if (!_lg_typecheck_public_gimpacttrimeshpart_vs_plane_collision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btStaticPlaneShape * shape1, bool swapped) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btStaticPlaneShape * shape1, bool swapped)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btStaticPlaneShape * shape1, bool swapped) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btGImpactMeshShapePart * shape0, const btStaticPlaneShape * shape1, bool swapped)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 58243831\narg 4 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -430,8 +419,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btStaticPlaneShape *, bool). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_gimpacttrimeshpart_vs_plane_collision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btGImpactMeshShapePart *, const btStaticPlaneShape *, bool). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_gimpacttrimeshpart_vs_plane_collision(body0Wrap, body1Wrap, shape0, shape1, swapped);
 
@@ -441,8 +429,7 @@ public:
 	// btPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject * body0, const btCollisionObject * body1)
 	static int _bind_public_newContactManifold(lua_State *L) {
 		if (!_lg_typecheck_public_newContactManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject * body0, const btCollisionObject * body1) function, expected prototype:\nbtPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject * body0, const btCollisionObject * body1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\n");
+			luaL_error(L, "luna typecheck failed in btPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject * body0, const btCollisionObject * body1) function, expected prototype:\nbtPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject * body0, const btCollisionObject * body1)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObject* body0=(Luna< btCollisionObject >::check(L,2));
@@ -450,8 +437,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject *, const btCollisionObject *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btPersistentManifold * btGImpactCollisionAlgorithm::public_newContactManifold(const btCollisionObject *, const btCollisionObject *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btPersistentManifold * lret = self->public_newContactManifold(body0, body1);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -464,15 +450,13 @@ public:
 	// void btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm()
 	static int _bind_public_destroyConvexAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_public_destroyConvexAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm() function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm() function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm(). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_destroyConvexAlgorithm(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_destroyConvexAlgorithm();
 
@@ -482,15 +466,13 @@ public:
 	// void btGImpactCollisionAlgorithm::public_destroyContactManifolds()
 	static int _bind_public_destroyContactManifolds(lua_State *L) {
 		if (!_lg_typecheck_public_destroyContactManifolds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_destroyContactManifolds() function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_destroyContactManifolds()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_destroyContactManifolds() function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_destroyContactManifolds()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_destroyContactManifolds(). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_destroyContactManifolds(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_destroyContactManifolds();
 
@@ -500,15 +482,13 @@ public:
 	// void btGImpactCollisionAlgorithm::public_clearCache()
 	static int _bind_public_clearCache(lua_State *L) {
 		if (!_lg_typecheck_public_clearCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_clearCache() function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_clearCache()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_clearCache() function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_clearCache()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_clearCache(). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_clearCache(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_clearCache();
 
@@ -518,15 +498,13 @@ public:
 	// btPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold()
 	static int _bind_public_getLastManifold(lua_State *L) {
 		if (!_lg_typecheck_public_getLastManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold() function, expected prototype:\nbtPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold() function, expected prototype:\nbtPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold(). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btPersistentManifold * btGImpactCollisionAlgorithm::public_getLastManifold(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btPersistentManifold * lret = self->public_getLastManifold();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -539,8 +517,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_public_checkManifold(lua_State *L) {
 		if (!_lg_typecheck_public_checkManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -548,8 +525,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_checkManifold(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_checkManifold(body0Wrap, body1Wrap);
 
@@ -559,8 +535,7 @@ public:
 	// btCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_public_newAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_public_newAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -568,8 +543,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btGImpactCollisionAlgorithm::public_newAlgorithm(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionAlgorithm * lret = self->public_newAlgorithm(body0Wrap, body1Wrap);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -582,8 +556,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_public_checkConvexAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_public_checkConvexAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -591,8 +564,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_checkConvexAlgorithm(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_checkConvexAlgorithm(body0Wrap, body1Wrap);
 
@@ -602,8 +574,7 @@ public:
 	// void btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btVector3 & point, const btVector3 & normal, float distance)
 	static int _bind_public_addContactPoint(lua_State *L) {
 		if (!_lg_typecheck_public_addContactPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btVector3 & point, const btVector3 & normal, float distance) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btVector3 & point, const btVector3 & normal, float distance)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btVector3 & point, const btVector3 & normal, float distance) function, expected prototype:\nvoid btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btVector3 & point, const btVector3 & normal, float distance)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -622,8 +593,7 @@ public:
 
 		wrapper_btGImpactCollisionAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< wrapper_btGImpactCollisionAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactCollisionAlgorithm::public_addContactPoint(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_addContactPoint(body0Wrap, body1Wrap, point, normal, distance);
 

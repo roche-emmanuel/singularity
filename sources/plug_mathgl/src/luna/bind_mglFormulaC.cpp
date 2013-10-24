@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFormulaC* self=(Luna< mglFormulaC >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglFormulaC*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(mglFormulaC*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFormulaC* rhs =(Luna< mglFormulaC >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		mglFormulaC* self= (mglFormulaC*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< mglFormulaC >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -129,7 +124,7 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -137,7 +132,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -184,8 +179,7 @@ public:
 	// mglFormulaC::mglFormulaC(const char * str)
 	static mglFormulaC* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglFormulaC::mglFormulaC(const char * str) function, expected prototype:\nmglFormulaC::mglFormulaC(const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglFormulaC::mglFormulaC(const char * str) function, expected prototype:\nmglFormulaC::mglFormulaC(const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,1);
@@ -196,8 +190,7 @@ public:
 	// mglFormulaC::mglFormulaC(lua_Table * data, const char * str)
 	static mglFormulaC* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in mglFormulaC::mglFormulaC(lua_Table * data, const char * str) function, expected prototype:\nmglFormulaC::mglFormulaC(lua_Table * data, const char * str)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in mglFormulaC::mglFormulaC(lua_Table * data, const char * str) function, expected prototype:\nmglFormulaC::mglFormulaC(lua_Table * data, const char * str)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * str=(const char *)lua_tostring(L,2);
@@ -219,8 +212,7 @@ public:
 	// dual mglFormulaC::Calc(dual x, dual y = 0, dual z = 0, dual u = 0) const
 	static int _bind_Calc_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Calc_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dual mglFormulaC::Calc(dual x, dual y = 0, dual z = 0, dual u = 0) const function, expected prototype:\ndual mglFormulaC::Calc(dual x, dual y = 0, dual z = 0, dual u = 0) const\nClass arguments details:\narg 1 ID = 3094652\narg 2 ID = 3094652\narg 3 ID = 3094652\narg 4 ID = 3094652\n");
+			luaL_error(L, "luna typecheck failed in dual mglFormulaC::Calc(dual x, dual y = 0, dual z = 0, dual u = 0) const function, expected prototype:\ndual mglFormulaC::Calc(dual x, dual y = 0, dual z = 0, dual u = 0) const\nClass arguments details:\narg 1 ID = 3094652\narg 2 ID = 3094652\narg 3 ID = 3094652\narg 4 ID = 3094652\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -248,8 +240,7 @@ public:
 
 		mglFormulaC* self=(Luna< mglFormulaC >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call dual mglFormulaC::Calc(dual, dual, dual, dual) const. Got : '%s'",typeid(Luna< mglFormulaC >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call dual mglFormulaC::Calc(dual, dual, dual, dual) const. Got : '%s'\n%s",typeid(Luna< mglFormulaC >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		dual stack_lret = self->Calc(x, y, z, u);
 		dual* lret = new dual(stack_lret);
@@ -263,8 +254,7 @@ public:
 	// dual mglFormulaC::Calc(dual x, dual y, dual z, dual u, dual v, dual w) const
 	static int _bind_Calc_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Calc_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dual mglFormulaC::Calc(dual x, dual y, dual z, dual u, dual v, dual w) const function, expected prototype:\ndual mglFormulaC::Calc(dual x, dual y, dual z, dual u, dual v, dual w) const\nClass arguments details:\narg 1 ID = 3094652\narg 2 ID = 3094652\narg 3 ID = 3094652\narg 4 ID = 3094652\narg 5 ID = 3094652\narg 6 ID = 3094652\n");
+			luaL_error(L, "luna typecheck failed in dual mglFormulaC::Calc(dual x, dual y, dual z, dual u, dual v, dual w) const function, expected prototype:\ndual mglFormulaC::Calc(dual x, dual y, dual z, dual u, dual v, dual w) const\nClass arguments details:\narg 1 ID = 3094652\narg 2 ID = 3094652\narg 3 ID = 3094652\narg 4 ID = 3094652\narg 5 ID = 3094652\narg 6 ID = 3094652\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		dual* x_ptr=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
@@ -300,8 +290,7 @@ public:
 
 		mglFormulaC* self=(Luna< mglFormulaC >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call dual mglFormulaC::Calc(dual, dual, dual, dual, dual, dual) const. Got : '%s'",typeid(Luna< mglFormulaC >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call dual mglFormulaC::Calc(dual, dual, dual, dual, dual, dual) const. Got : '%s'\n%s",typeid(Luna< mglFormulaC >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		dual stack_lret = self->Calc(x, y, z, u, v, w);
 		dual* lret = new dual(stack_lret);

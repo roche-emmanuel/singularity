@@ -1156,11 +1156,11 @@ function wxcharToLua(buf,type,argname)
 end
 
 function ucharChecker(buf,index,type,defStr)
-    buf:writeSubLine("if( ${2}(lua_isnumber(L,${1})==0 || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
+    buf:writeSubLine("if( ${2}(lua_type(L,${1})!=LUA_TNUMBER || lua_tointeger(L,${1}) != lua_tonumber(L,${1})) ) return false;",index,defStr)
 end
 
 function webStringChecker(buf,index,type,defStr)
-    buf:writeSubLine("if( ${2}(lua_isstring(L,${1})==0) ) return false;",index,defStr)
+    buf:writeSubLine("if( ${2}(lua_type(L,${1})!=LUA_TSTRING) ) return false;",index,defStr)
 end
 
 function ReflectionGenerator.generate(options)

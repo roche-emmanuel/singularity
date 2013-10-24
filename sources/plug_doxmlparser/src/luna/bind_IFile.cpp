@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		ICompound* self=(Luna< ICompound >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IFile* self= (IFile*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< ICompound >::check(L,1));
@@ -142,8 +139,7 @@ public:
 	// IFile::IFile(lua_Table * data)
 	static IFile* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IFile::IFile(lua_Table * data) function, expected prototype:\nIFile::IFile(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IFile::IFile(lua_Table * data) function, expected prototype:\nIFile::IFile(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -155,15 +151,13 @@ public:
 	// IGraph * IFile::includeDependencyGraph() const
 	static int _bind_includeDependencyGraph(lua_State *L) {
 		if (!_lg_typecheck_includeDependencyGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IGraph * IFile::includeDependencyGraph() const function, expected prototype:\nIGraph * IFile::includeDependencyGraph() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IGraph * IFile::includeDependencyGraph() const function, expected prototype:\nIGraph * IFile::includeDependencyGraph() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IFile* self=Luna< ICompound >::checkSubType< IFile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IGraph * IFile::includeDependencyGraph() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IGraph * IFile::includeDependencyGraph() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IGraph * lret = self->includeDependencyGraph();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -176,15 +170,13 @@ public:
 	// IGraph * IFile::includedByDependencyGraph() const
 	static int _bind_includedByDependencyGraph(lua_State *L) {
 		if (!_lg_typecheck_includedByDependencyGraph(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IGraph * IFile::includedByDependencyGraph() const function, expected prototype:\nIGraph * IFile::includedByDependencyGraph() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IGraph * IFile::includedByDependencyGraph() const function, expected prototype:\nIGraph * IFile::includedByDependencyGraph() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IFile* self=Luna< ICompound >::checkSubType< IFile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IGraph * IFile::includedByDependencyGraph() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IGraph * IFile::includedByDependencyGraph() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IGraph * lret = self->includedByDependencyGraph();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -197,15 +189,13 @@ public:
 	// IDocProgramListing * IFile::source() const
 	static int _bind_source(lua_State *L) {
 		if (!_lg_typecheck_source(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocProgramListing * IFile::source() const function, expected prototype:\nIDocProgramListing * IFile::source() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocProgramListing * IFile::source() const function, expected prototype:\nIDocProgramListing * IFile::source() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IFile* self=Luna< ICompound >::checkSubType< IFile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocProgramListing * IFile::source() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocProgramListing * IFile::source() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocProgramListing * lret = self->source();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -218,15 +208,13 @@ public:
 	// ICompoundIterator * IFile::nestedCompounds() const
 	static int _bind_nestedCompounds(lua_State *L) {
 		if (!_lg_typecheck_nestedCompounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompoundIterator * IFile::nestedCompounds() const function, expected prototype:\nICompoundIterator * IFile::nestedCompounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompoundIterator * IFile::nestedCompounds() const function, expected prototype:\nICompoundIterator * IFile::nestedCompounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IFile* self=Luna< ICompound >::checkSubType< IFile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompoundIterator * IFile::nestedCompounds() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompoundIterator * IFile::nestedCompounds() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompoundIterator * lret = self->nestedCompounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -239,15 +227,13 @@ public:
 	// IIncludeIterator * IFile::includes() const
 	static int _bind_includes(lua_State *L) {
 		if (!_lg_typecheck_includes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IIncludeIterator * IFile::includes() const function, expected prototype:\nIIncludeIterator * IFile::includes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IIncludeIterator * IFile::includes() const function, expected prototype:\nIIncludeIterator * IFile::includes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IFile* self=Luna< ICompound >::checkSubType< IFile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IIncludeIterator * IFile::includes() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IIncludeIterator * IFile::includes() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IIncludeIterator * lret = self->includes();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -260,15 +246,13 @@ public:
 	// IIncludeIterator * IFile::includedBy() const
 	static int _bind_includedBy(lua_State *L) {
 		if (!_lg_typecheck_includedBy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IIncludeIterator * IFile::includedBy() const function, expected prototype:\nIIncludeIterator * IFile::includedBy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IIncludeIterator * IFile::includedBy() const function, expected prototype:\nIIncludeIterator * IFile::includedBy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IFile* self=Luna< ICompound >::checkSubType< IFile >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IIncludeIterator * IFile::includedBy() const. Got : '%s'",typeid(Luna< ICompound >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IIncludeIterator * IFile::includedBy() const. Got : '%s'\n%s",typeid(Luna< ICompound >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IIncludeIterator * lret = self->includedBy();
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactShapeInterface* self= (btGImpactShapeInterface*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -149,7 +146,7 @@ public:
 	inline static bool _lg_typecheck_getBulletTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -157,7 +154,7 @@ public:
 	inline static bool _lg_typecheck_getBulletTetrahedron(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -177,7 +174,7 @@ public:
 	inline static bool _lg_typecheck_getPrimitiveTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,79712881) ) return false;
 		return true;
 	}
@@ -185,7 +182,7 @@ public:
 	inline static bool _lg_typecheck_getChildAabb(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
@@ -195,28 +192,28 @@ public:
 	inline static bool _lg_typecheck_getChildShape_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getChildShape_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		return true;
 	}
@@ -270,7 +267,7 @@ public:
 	inline static bool _lg_typecheck_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -296,7 +293,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -309,7 +306,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -346,7 +343,7 @@ public:
 	inline static bool _lg_typecheck_base_getChildAabb(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
@@ -390,7 +387,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -420,8 +417,7 @@ public:
 	// btGImpactShapeInterface::btGImpactShapeInterface(lua_Table * data)
 	static btGImpactShapeInterface* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactShapeInterface::btGImpactShapeInterface(lua_Table * data) function, expected prototype:\nbtGImpactShapeInterface::btGImpactShapeInterface(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactShapeInterface::btGImpactShapeInterface(lua_Table * data) function, expected prototype:\nbtGImpactShapeInterface::btGImpactShapeInterface(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -433,15 +429,13 @@ public:
 	// eGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const
 	static int _bind_getGImpactShapeType(lua_State *L) {
 		if (!_lg_typecheck_getGImpactShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactShapeInterface::getGImpactShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		eGIMPACT_SHAPE_TYPE lret = self->getGImpactShapeType();
 		lua_pushnumber(L,lret);
@@ -452,15 +446,13 @@ public:
 	// const btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const
 	static int _bind_getBoxSet(lua_State *L) {
 		if (!_lg_typecheck_getBoxSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const function, expected prototype:\nconst btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const function, expected prototype:\nconst btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btGImpactQuantizedBvh * btGImpactShapeInterface::getBoxSet() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btGImpactQuantizedBvh * lret = self->getBoxSet();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -473,15 +465,13 @@ public:
 	// bool btGImpactShapeInterface::hasBoxSet() const
 	static int _bind_hasBoxSet(lua_State *L) {
 		if (!_lg_typecheck_hasBoxSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::hasBoxSet() const function, expected prototype:\nbool btGImpactShapeInterface::hasBoxSet() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::hasBoxSet() const function, expected prototype:\nbool btGImpactShapeInterface::hasBoxSet() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::hasBoxSet() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::hasBoxSet() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->hasBoxSet();
 		lua_pushboolean(L,lret?1:0);
@@ -492,15 +482,13 @@ public:
 	// const btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const
 	static int _bind_getPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactShapeInterface::getPrimitiveManager() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btPrimitiveManagerBase * lret = self->getPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -513,15 +501,13 @@ public:
 	// int btGImpactShapeInterface::getNumChildShapes() const
 	static int _bind_getNumChildShapes(lua_State *L) {
 		if (!_lg_typecheck_getNumChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::getNumChildShapes() const function, expected prototype:\nint btGImpactShapeInterface::getNumChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::getNumChildShapes() const function, expected prototype:\nint btGImpactShapeInterface::getNumChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::getNumChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::getNumChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumChildShapes();
 		lua_pushnumber(L,lret);
@@ -532,15 +518,13 @@ public:
 	// bool btGImpactShapeInterface::childrenHasTransform() const
 	static int _bind_childrenHasTransform(lua_State *L) {
 		if (!_lg_typecheck_childrenHasTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::childrenHasTransform() const function, expected prototype:\nbool btGImpactShapeInterface::childrenHasTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::childrenHasTransform() const function, expected prototype:\nbool btGImpactShapeInterface::childrenHasTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::childrenHasTransform() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::childrenHasTransform() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->childrenHasTransform();
 		lua_pushboolean(L,lret?1:0);
@@ -551,15 +535,13 @@ public:
 	// bool btGImpactShapeInterface::needsRetrieveTriangles() const
 	static int _bind_needsRetrieveTriangles(lua_State *L) {
 		if (!_lg_typecheck_needsRetrieveTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactShapeInterface::needsRetrieveTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactShapeInterface::needsRetrieveTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::needsRetrieveTriangles() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::needsRetrieveTriangles() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsRetrieveTriangles();
 		lua_pushboolean(L,lret?1:0);
@@ -570,15 +552,13 @@ public:
 	// bool btGImpactShapeInterface::needsRetrieveTetrahedrons() const
 	static int _bind_needsRetrieveTetrahedrons(lua_State *L) {
 		if (!_lg_typecheck_needsRetrieveTetrahedrons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactShapeInterface::needsRetrieveTetrahedrons() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactShapeInterface::needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactShapeInterface::needsRetrieveTetrahedrons() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::needsRetrieveTetrahedrons() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactShapeInterface::needsRetrieveTetrahedrons() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsRetrieveTetrahedrons();
 		lua_pushboolean(L,lret?1:0);
@@ -589,8 +569,7 @@ public:
 	// void btGImpactShapeInterface::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const
 	static int _bind_getBulletTriangle(lua_State *L) {
 		if (!_lg_typecheck_getBulletTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactShapeInterface::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactShapeInterface::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -602,8 +581,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBulletTriangle(prim_index, triangle);
 
@@ -613,8 +591,7 @@ public:
 	// void btGImpactShapeInterface::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const
 	static int _bind_getBulletTetrahedron(lua_State *L) {
 		if (!_lg_typecheck_getBulletTetrahedron(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactShapeInterface::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactShapeInterface::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -626,8 +603,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBulletTetrahedron(prim_index, tetrahedron);
 
@@ -637,15 +613,13 @@ public:
 	// void btGImpactShapeInterface::lockChildShapes() const
 	static int _bind_lockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_lockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::lockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::lockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::lockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::lockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::lockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::lockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->lockChildShapes();
 
@@ -655,15 +629,13 @@ public:
 	// void btGImpactShapeInterface::unlockChildShapes() const
 	static int _bind_unlockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_unlockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::unlockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::unlockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::unlockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::unlockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::unlockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::unlockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unlockChildShapes();
 
@@ -673,8 +645,7 @@ public:
 	// void btGImpactShapeInterface::getPrimitiveTriangle(int index, btPrimitiveTriangle & triangle) const
 	static int _bind_getPrimitiveTriangle(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getPrimitiveTriangle(int index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactShapeInterface::getPrimitiveTriangle(int index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getPrimitiveTriangle(int index, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactShapeInterface::getPrimitiveTriangle(int index, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -686,8 +657,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getPrimitiveTriangle(int, btPrimitiveTriangle &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getPrimitiveTriangle(int, btPrimitiveTriangle &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getPrimitiveTriangle(index, triangle);
 
@@ -697,8 +667,7 @@ public:
 	// void btGImpactShapeInterface::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_getChildAabb(lua_State *L) {
 		if (!_lg_typecheck_getChildAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int child_index=(int)lua_tointeger(L,2);
@@ -720,8 +689,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getChildAabb(child_index, t, aabbMin, aabbMax);
 
@@ -731,16 +699,14 @@ public:
 	// btCollisionShape * btGImpactShapeInterface::getChildShape(int index)
 	static int _bind_getChildShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getChildShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactShapeInterface::getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactShapeInterface::getChildShape(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactShapeInterface::getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactShapeInterface::getChildShape(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactShapeInterface::getChildShape(int). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactShapeInterface::getChildShape(int). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionShape * lret = self->getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -753,16 +719,14 @@ public:
 	// const btCollisionShape * btGImpactShapeInterface::getChildShape(int index) const
 	static int _bind_getChildShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getChildShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactShapeInterface::getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactShapeInterface::getChildShape(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactShapeInterface::getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactShapeInterface::getChildShape(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactShapeInterface::getChildShape(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactShapeInterface::getChildShape(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionShape * lret = self->getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -784,16 +748,14 @@ public:
 	// btTransform btGImpactShapeInterface::getChildTransform(int index) const
 	static int _bind_getChildTransform(lua_State *L) {
 		if (!_lg_typecheck_getChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btGImpactShapeInterface::getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactShapeInterface::getChildTransform(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btGImpactShapeInterface::getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactShapeInterface::getChildTransform(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btGImpactShapeInterface::getChildTransform(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btGImpactShapeInterface::getChildTransform(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->getChildTransform(index);
 		btTransform* lret = new btTransform(stack_lret);
@@ -807,8 +769,7 @@ public:
 	// void btGImpactShapeInterface::setChildTransform(int index, const btTransform & transform)
 	static int _bind_setChildTransform(lua_State *L) {
 		if (!_lg_typecheck_setChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactShapeInterface::setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactShapeInterface::setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -820,8 +781,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::setChildTransform(int, const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::setChildTransform(int, const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setChildTransform(index, transform);
 
@@ -831,15 +791,13 @@ public:
 	// void btGImpactShapeInterface::updateBound()
 	static int _bind_updateBound(lua_State *L) {
 		if (!_lg_typecheck_updateBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::updateBound() function, expected prototype:\nvoid btGImpactShapeInterface::updateBound()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::updateBound() function, expected prototype:\nvoid btGImpactShapeInterface::updateBound()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::updateBound(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::updateBound(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateBound();
 
@@ -849,8 +807,7 @@ public:
 	// void btGImpactShapeInterface::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_getAabb(lua_State *L) {
 		if (!_lg_typecheck_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -871,8 +828,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAabb(t, aabbMin, aabbMax);
 
@@ -882,15 +838,13 @@ public:
 	// void btGImpactShapeInterface::postUpdate()
 	static int _bind_postUpdate(lua_State *L) {
 		if (!_lg_typecheck_postUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::postUpdate() function, expected prototype:\nvoid btGImpactShapeInterface::postUpdate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::postUpdate() function, expected prototype:\nvoid btGImpactShapeInterface::postUpdate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::postUpdate(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::postUpdate(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->postUpdate();
 
@@ -900,15 +854,13 @@ public:
 	// const btAABB & btGImpactShapeInterface::getLocalBox()
 	static int _bind_getLocalBox(lua_State *L) {
 		if (!_lg_typecheck_getLocalBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btAABB & btGImpactShapeInterface::getLocalBox() function, expected prototype:\nconst btAABB & btGImpactShapeInterface::getLocalBox()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btAABB & btGImpactShapeInterface::getLocalBox() function, expected prototype:\nconst btAABB & btGImpactShapeInterface::getLocalBox()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btAABB & btGImpactShapeInterface::getLocalBox(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btAABB & btGImpactShapeInterface::getLocalBox(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAABB* lret = &self->getLocalBox();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -921,15 +873,13 @@ public:
 	// int btGImpactShapeInterface::getShapeType() const
 	static int _bind_getShapeType(lua_State *L) {
 		if (!_lg_typecheck_getShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::getShapeType() const function, expected prototype:\nint btGImpactShapeInterface::getShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::getShapeType() const function, expected prototype:\nint btGImpactShapeInterface::getShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::getShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::getShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getShapeType();
 		lua_pushnumber(L,lret);
@@ -940,8 +890,7 @@ public:
 	// void btGImpactShapeInterface::setLocalScaling(const btVector3 & scaling)
 	static int _bind_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactShapeInterface::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactShapeInterface::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -952,8 +901,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalScaling(scaling);
 
@@ -963,15 +911,13 @@ public:
 	// const btVector3 & btGImpactShapeInterface::getLocalScaling() const
 	static int _bind_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactShapeInterface::getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactShapeInterface::getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactShapeInterface::getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactShapeInterface::getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactShapeInterface::getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactShapeInterface::getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -984,16 +930,14 @@ public:
 	// void btGImpactShapeInterface::setMargin(float margin)
 	static int _bind_setMargin(lua_State *L) {
 		if (!_lg_typecheck_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::setMargin(float margin) function, expected prototype:\nvoid btGImpactShapeInterface::setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::setMargin(float margin) function, expected prototype:\nvoid btGImpactShapeInterface::setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMargin(margin);
 
@@ -1003,8 +947,7 @@ public:
 	// void btGImpactShapeInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const
 	static int _bind_rayTest(lua_State *L) {
 		if (!_lg_typecheck_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactShapeInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactShapeInterface::rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFrom_ptr=(Luna< btVector3 >::check(L,2));
@@ -1025,8 +968,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->rayTest(rayFrom, rayTo, resultCallback);
 
@@ -1036,8 +978,7 @@ public:
 	// void btGImpactShapeInterface::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -1054,8 +995,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processAllTriangles(callback, aabbMin, aabbMax);
 
@@ -1065,8 +1005,7 @@ public:
 	// void btGImpactShapeInterface::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btGImpactShapeInterface::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btGImpactShapeInterface::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -1078,26 +1017,24 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btGImpactShapeInterface::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactShapeInterface::base_getAngularMotionDisc() const function, expected prototype:\nfloat btGImpactShapeInterface::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactShapeInterface::base_getAngularMotionDisc() const function, expected prototype:\nfloat btGImpactShapeInterface::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactShapeInterface::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactShapeInterface::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactShapeInterface::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -1108,16 +1045,14 @@ public:
 	// float btGImpactShapeInterface::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactShapeInterface::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btGImpactShapeInterface::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactShapeInterface::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btGImpactShapeInterface::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactShapeInterface::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactShapeInterface::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactShapeInterface::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -1128,15 +1063,13 @@ public:
 	// btVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btGImpactShapeInterface::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btGImpactShapeInterface::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -1150,15 +1083,13 @@ public:
 	// int btGImpactShapeInterface::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGImpactShapeInterface::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGImpactShapeInterface::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactShapeInterface::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -1169,15 +1100,13 @@ public:
 	// float btGImpactShapeInterface::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactShapeInterface::base_getMargin() const function, expected prototype:\nfloat btGImpactShapeInterface::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactShapeInterface::base_getMargin() const function, expected prototype:\nfloat btGImpactShapeInterface::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactShapeInterface::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactShapeInterface::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactShapeInterface::getMargin();
 		lua_pushnumber(L,lret);
@@ -1188,15 +1117,13 @@ public:
 	// void btGImpactShapeInterface::base_lockChildShapes() const
 	static int _bind_base_lockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_lockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_lockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::base_lockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_lockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::base_lockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_lockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_lockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::lockChildShapes();
 
@@ -1206,15 +1133,13 @@ public:
 	// void btGImpactShapeInterface::base_unlockChildShapes() const
 	static int _bind_base_unlockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_unlockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_unlockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::base_unlockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_unlockChildShapes() const function, expected prototype:\nvoid btGImpactShapeInterface::base_unlockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_unlockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_unlockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::unlockChildShapes();
 
@@ -1224,8 +1149,7 @@ public:
 	// void btGImpactShapeInterface::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getChildAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getChildAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int child_index=(int)lua_tointeger(L,2);
@@ -1247,8 +1171,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::getChildAabb(child_index, t, aabbMin, aabbMax);
 
@@ -1258,8 +1181,7 @@ public:
 	// void btGImpactShapeInterface::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -1280,8 +1202,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::getAabb(t, aabbMin, aabbMax);
 
@@ -1291,15 +1212,13 @@ public:
 	// void btGImpactShapeInterface::base_postUpdate()
 	static int _bind_base_postUpdate(lua_State *L) {
 		if (!_lg_typecheck_base_postUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_postUpdate() function, expected prototype:\nvoid btGImpactShapeInterface::base_postUpdate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_postUpdate() function, expected prototype:\nvoid btGImpactShapeInterface::base_postUpdate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_postUpdate(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_postUpdate(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::postUpdate();
 
@@ -1309,15 +1228,13 @@ public:
 	// int btGImpactShapeInterface::base_getShapeType() const
 	static int _bind_base_getShapeType(lua_State *L) {
 		if (!_lg_typecheck_base_getShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::base_getShapeType() const function, expected prototype:\nint btGImpactShapeInterface::base_getShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactShapeInterface::base_getShapeType() const function, expected prototype:\nint btGImpactShapeInterface::base_getShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::base_getShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactShapeInterface::base_getShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactShapeInterface::getShapeType();
 		lua_pushnumber(L,lret);
@@ -1328,8 +1245,7 @@ public:
 	// void btGImpactShapeInterface::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactShapeInterface::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactShapeInterface::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -1340,8 +1256,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::setLocalScaling(scaling);
 
@@ -1351,15 +1266,13 @@ public:
 	// const btVector3 & btGImpactShapeInterface::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactShapeInterface::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactShapeInterface::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactShapeInterface::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactShapeInterface::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactShapeInterface::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactShapeInterface::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btGImpactShapeInterface::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1372,16 +1285,14 @@ public:
 	// void btGImpactShapeInterface::base_setMargin(float margin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_setMargin(float margin) function, expected prototype:\nvoid btGImpactShapeInterface::base_setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_setMargin(float margin) function, expected prototype:\nvoid btGImpactShapeInterface::base_setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::setMargin(margin);
 
@@ -1391,8 +1302,7 @@ public:
 	// void btGImpactShapeInterface::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const
 	static int _bind_base_rayTest(lua_State *L) {
 		if (!_lg_typecheck_base_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactShapeInterface::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactShapeInterface::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFrom_ptr=(Luna< btVector3 >::check(L,2));
@@ -1413,8 +1323,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::rayTest(rayFrom, rayTo, resultCallback);
 
@@ -1424,8 +1333,7 @@ public:
 	// void btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -1442,8 +1350,7 @@ public:
 
 		btGImpactShapeInterface* self=Luna< btCollisionShape >::checkSubType< btGImpactShapeInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactShapeInterface::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactShapeInterface::processAllTriangles(callback, aabbMin, aabbMax);
 

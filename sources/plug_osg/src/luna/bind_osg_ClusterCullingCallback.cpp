@@ -109,7 +109,7 @@ public:
 		if( (!(Luna< osg::Vec3f >::check(L,1))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -147,7 +147,7 @@ public:
 		if( (!(Luna< osg::Vec3f >::check(L,2))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -213,8 +213,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,92303204) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -247,7 +247,7 @@ public:
 	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -260,7 +260,7 @@ public:
 	inline static bool _lg_typecheck_setDeviation(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -289,7 +289,7 @@ public:
 	inline static bool _lg_typecheck_base_setName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionWorld::ConvexResultCallback*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionWorld::ConvexResultCallback*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::ConvexResultCallback* rhs =(Luna< btCollisionWorld::ConvexResultCallback >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::ConvexResultCallback* self= (btCollisionWorld::ConvexResultCallback*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -177,21 +172,21 @@ public:
 	inline static bool _lg_typecheck_setClosestHitFraction(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCollisionFilterGroup(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCollisionFilterMask(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -210,8 +205,7 @@ public:
 	// btCollisionWorld::ConvexResultCallback::ConvexResultCallback(lua_Table * data)
 	static btCollisionWorld::ConvexResultCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionWorld::ConvexResultCallback::ConvexResultCallback(lua_Table * data) function, expected prototype:\nbtCollisionWorld::ConvexResultCallback::ConvexResultCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionWorld::ConvexResultCallback::ConvexResultCallback(lua_Table * data) function, expected prototype:\nbtCollisionWorld::ConvexResultCallback::ConvexResultCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -223,15 +217,13 @@ public:
 	// bool btCollisionWorld::ConvexResultCallback::hasHit() const
 	static int _bind_hasHit(lua_State *L) {
 		if (!_lg_typecheck_hasHit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::ConvexResultCallback::hasHit() const function, expected prototype:\nbool btCollisionWorld::ConvexResultCallback::hasHit() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::ConvexResultCallback::hasHit() const function, expected prototype:\nbool btCollisionWorld::ConvexResultCallback::hasHit() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btCollisionWorld::ConvexResultCallback::hasHit() const. Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btCollisionWorld::ConvexResultCallback::hasHit() const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->hasHit();
 		lua_pushboolean(L,lret?1:0);
@@ -242,16 +234,14 @@ public:
 	// bool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy * proxy0) const
 	static int _bind_needsCollision(lua_State *L) {
 		if (!_lg_typecheck_needsCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy * proxy0) const function, expected prototype:\nbool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy * proxy0) const\nClass arguments details:\narg 1 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy * proxy0) const function, expected prototype:\nbool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy * proxy0) const\nClass arguments details:\narg 1 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy *) const. Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btCollisionWorld::ConvexResultCallback::needsCollision(btBroadphaseProxy *) const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsCollision(proxy0);
 		lua_pushboolean(L,lret?1:0);
@@ -262,8 +252,7 @@ public:
 	// float btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult & convexResult, bool normalInWorldSpace)
 	static int _bind_addSingleResult(lua_State *L) {
 		if (!_lg_typecheck_addSingleResult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult & convexResult, bool normalInWorldSpace) function, expected prototype:\nfloat btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult & convexResult, bool normalInWorldSpace)\nClass arguments details:\narg 1 ID = 34210430\n");
+			luaL_error(L, "luna typecheck failed in float btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult & convexResult, bool normalInWorldSpace) function, expected prototype:\nfloat btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult & convexResult, bool normalInWorldSpace)\nClass arguments details:\narg 1 ID = 34210430\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::LocalConvexResult* convexResult_ptr=(Luna< btCollisionWorld::LocalConvexResult >::check(L,2));
@@ -275,8 +264,7 @@ public:
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult &, bool). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btCollisionWorld::ConvexResultCallback::addSingleResult(btCollisionWorld::LocalConvexResult &, bool). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->addSingleResult(convexResult, normalInWorldSpace);
 		lua_pushnumber(L,lret);
@@ -287,15 +275,13 @@ public:
 	// float btCollisionWorld::ConvexResultCallback::m_closestHitFraction()
 	static int _bind_getClosestHitFraction(lua_State *L) {
 		if (!_lg_typecheck_getClosestHitFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btCollisionWorld::ConvexResultCallback::m_closestHitFraction() function, expected prototype:\nfloat btCollisionWorld::ConvexResultCallback::m_closestHitFraction()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btCollisionWorld::ConvexResultCallback::m_closestHitFraction() function, expected prototype:\nfloat btCollisionWorld::ConvexResultCallback::m_closestHitFraction()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btCollisionWorld::ConvexResultCallback::m_closestHitFraction(). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btCollisionWorld::ConvexResultCallback::m_closestHitFraction(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_closestHitFraction;
 		lua_pushnumber(L,lret);
@@ -306,15 +292,13 @@ public:
 	// short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup()
 	static int _bind_getCollisionFilterGroup(lua_State *L) {
 		if (!_lg_typecheck_getCollisionFilterGroup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup() function, expected prototype:\nshort int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup() function, expected prototype:\nshort int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short int btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short int lret = self->m_collisionFilterGroup;
 		lua_pushnumber(L,lret);
@@ -325,15 +309,13 @@ public:
 	// short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask()
 	static int _bind_getCollisionFilterMask(lua_State *L) {
 		if (!_lg_typecheck_getCollisionFilterMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask() function, expected prototype:\nshort int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask() function, expected prototype:\nshort int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call short int btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		short int lret = self->m_collisionFilterMask;
 		lua_pushnumber(L,lret);
@@ -344,16 +326,14 @@ public:
 	// void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value)
 	static int _bind_setClosestHitFraction(lua_State *L) {
 		if (!_lg_typecheck_setClosestHitFraction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::ConvexResultCallback::m_closestHitFraction(float). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_closestHitFraction = value;
 
@@ -363,16 +343,14 @@ public:
 	// void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value)
 	static int _bind_setCollisionFilterGroup(lua_State *L) {
 		if (!_lg_typecheck_setCollisionFilterGroup(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short int value=(short int)lua_tointeger(L,2);
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::ConvexResultCallback::m_collisionFilterGroup(short int). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionFilterGroup = value;
 
@@ -382,16 +360,14 @@ public:
 	// void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value)
 	static int _bind_setCollisionFilterMask(lua_State *L) {
 		if (!_lg_typecheck_setCollisionFilterMask(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value) function, expected prototype:\nvoid btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		short int value=(short int)lua_tointeger(L,2);
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int). Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::ConvexResultCallback::m_collisionFilterMask(short int). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionFilterMask = value;
 
@@ -401,16 +377,14 @@ public:
 	// bool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const
 	static int _bind_base_needsCollision(lua_State *L) {
 		if (!_lg_typecheck_base_needsCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const function, expected prototype:\nbool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const\nClass arguments details:\narg 1 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const function, expected prototype:\nbool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const\nClass arguments details:\narg 1 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
 
 		btCollisionWorld::ConvexResultCallback* self=(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy *) const. Got : '%s'",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btCollisionWorld::ConvexResultCallback::base_needsCollision(btBroadphaseProxy *) const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld::ConvexResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ConvexResultCallback::needsCollision(proxy0);
 		lua_pushboolean(L,lret?1:0);

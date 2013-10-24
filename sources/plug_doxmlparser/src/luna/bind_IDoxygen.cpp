@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoxygen*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IDoxygen*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoxygen* rhs =(Luna< IDoxygen >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoxygen* self= (IDoxygen*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoxygen >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -144,28 +139,28 @@ public:
 	inline static bool _lg_typecheck_compoundById(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_compoundByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_memberById(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_memberByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -178,14 +173,14 @@ public:
 	inline static bool _lg_typecheck_setDebugLevel(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_readXMLDir(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -197,8 +192,7 @@ public:
 	// IDoxygen::IDoxygen(lua_Table * data)
 	static IDoxygen* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDoxygen::IDoxygen(lua_Table * data) function, expected prototype:\nIDoxygen::IDoxygen(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDoxygen::IDoxygen(lua_Table * data) function, expected prototype:\nIDoxygen::IDoxygen(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -210,15 +204,13 @@ public:
 	// ICompoundIterator * IDoxygen::compounds() const
 	static int _bind_compounds(lua_State *L) {
 		if (!_lg_typecheck_compounds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompoundIterator * IDoxygen::compounds() const function, expected prototype:\nICompoundIterator * IDoxygen::compounds() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompoundIterator * IDoxygen::compounds() const function, expected prototype:\nICompoundIterator * IDoxygen::compounds() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompoundIterator * IDoxygen::compounds() const. Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompoundIterator * IDoxygen::compounds() const. Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompoundIterator * lret = self->compounds();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -231,16 +223,14 @@ public:
 	// ICompound * IDoxygen::compoundById(const char * id) const
 	static int _bind_compoundById(lua_State *L) {
 		if (!_lg_typecheck_compoundById(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompound * IDoxygen::compoundById(const char * id) const function, expected prototype:\nICompound * IDoxygen::compoundById(const char * id) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompound * IDoxygen::compoundById(const char * id) const function, expected prototype:\nICompound * IDoxygen::compoundById(const char * id) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * id=(const char *)lua_tostring(L,2);
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompound * IDoxygen::compoundById(const char *) const. Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompound * IDoxygen::compoundById(const char *) const. Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompound * lret = self->compoundById(id);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -253,16 +243,14 @@ public:
 	// ICompound * IDoxygen::compoundByName(const char * name) const
 	static int _bind_compoundByName(lua_State *L) {
 		if (!_lg_typecheck_compoundByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompound * IDoxygen::compoundByName(const char * name) const function, expected prototype:\nICompound * IDoxygen::compoundByName(const char * name) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompound * IDoxygen::compoundByName(const char * name) const function, expected prototype:\nICompound * IDoxygen::compoundByName(const char * name) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompound * IDoxygen::compoundByName(const char *) const. Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompound * IDoxygen::compoundByName(const char *) const. Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompound * lret = self->compoundByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -275,16 +263,14 @@ public:
 	// ICompound * IDoxygen::memberById(const char * id) const
 	static int _bind_memberById(lua_State *L) {
 		if (!_lg_typecheck_memberById(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompound * IDoxygen::memberById(const char * id) const function, expected prototype:\nICompound * IDoxygen::memberById(const char * id) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompound * IDoxygen::memberById(const char * id) const function, expected prototype:\nICompound * IDoxygen::memberById(const char * id) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * id=(const char *)lua_tostring(L,2);
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompound * IDoxygen::memberById(const char *) const. Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompound * IDoxygen::memberById(const char *) const. Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompound * lret = self->memberById(id);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,16 +283,14 @@ public:
 	// ICompoundIterator * IDoxygen::memberByName(const char * name) const
 	static int _bind_memberByName(lua_State *L) {
 		if (!_lg_typecheck_memberByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in ICompoundIterator * IDoxygen::memberByName(const char * name) const function, expected prototype:\nICompoundIterator * IDoxygen::memberByName(const char * name) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in ICompoundIterator * IDoxygen::memberByName(const char * name) const function, expected prototype:\nICompoundIterator * IDoxygen::memberByName(const char * name) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call ICompoundIterator * IDoxygen::memberByName(const char *) const. Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call ICompoundIterator * IDoxygen::memberByName(const char *) const. Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		ICompoundIterator * lret = self->memberByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,15 +303,13 @@ public:
 	// void IDoxygen::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void IDoxygen::release() function, expected prototype:\nvoid IDoxygen::release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void IDoxygen::release() function, expected prototype:\nvoid IDoxygen::release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void IDoxygen::release(). Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void IDoxygen::release(). Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->release();
 
@@ -337,16 +319,14 @@ public:
 	// void IDoxygen::setDebugLevel(int level)
 	static int _bind_setDebugLevel(lua_State *L) {
 		if (!_lg_typecheck_setDebugLevel(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void IDoxygen::setDebugLevel(int level) function, expected prototype:\nvoid IDoxygen::setDebugLevel(int level)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void IDoxygen::setDebugLevel(int level) function, expected prototype:\nvoid IDoxygen::setDebugLevel(int level)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int level=(int)lua_tointeger(L,2);
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void IDoxygen::setDebugLevel(int). Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void IDoxygen::setDebugLevel(int). Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDebugLevel(level);
 
@@ -356,16 +336,14 @@ public:
 	// bool IDoxygen::readXMLDir(const char * xmlDirName)
 	static int _bind_readXMLDir(lua_State *L) {
 		if (!_lg_typecheck_readXMLDir(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool IDoxygen::readXMLDir(const char * xmlDirName) function, expected prototype:\nbool IDoxygen::readXMLDir(const char * xmlDirName)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool IDoxygen::readXMLDir(const char * xmlDirName) function, expected prototype:\nbool IDoxygen::readXMLDir(const char * xmlDirName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * xmlDirName=(const char *)lua_tostring(L,2);
 
 		IDoxygen* self=(Luna< IDoxygen >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool IDoxygen::readXMLDir(const char *). Got : '%s'",typeid(Luna< IDoxygen >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool IDoxygen::readXMLDir(const char *). Got : '%s'\n%s",typeid(Luna< IDoxygen >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->readXMLDir(xmlDirName);
 		lua_pushboolean(L,lret?1:0);

@@ -7,34 +7,34 @@
 inline static bool _lg_typecheck_doLog(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_doLogV(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_doTrace(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_doTraceV(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -47,8 +47,8 @@ inline static bool _lg_typecheck_getLuaID(lua_State *L) {
 inline static bool _lg_typecheck_setEnv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -190,14 +190,14 @@ inline static bool _lg_typecheck_date_period_to_simple_string(lua_State *L) {
 inline static bool _lg_typecheck_from_string(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_from_undelimited_string(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -383,7 +383,7 @@ static int _bind_universal_day(lua_State *L) {
 inline static bool _lg_typecheck_duration_from_string(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -430,14 +430,14 @@ inline static bool _lg_typecheck_to_iso_string_overload_2(lua_State *L) {
 inline static bool _lg_typecheck_time_from_string(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_from_iso_string(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 

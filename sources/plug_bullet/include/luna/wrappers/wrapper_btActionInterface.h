@@ -72,15 +72,13 @@ public:
 	// static btRigidBody & btActionInterface::public_getFixedBody()
 	static int _bind_public_getFixedBody(lua_State *L) {
 		if (!_lg_typecheck_public_getFixedBody(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btRigidBody & btActionInterface::public_getFixedBody() function, expected prototype:\nstatic btRigidBody & btActionInterface::public_getFixedBody()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static btRigidBody & btActionInterface::public_getFixedBody() function, expected prototype:\nstatic btRigidBody & btActionInterface::public_getFixedBody()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btActionInterface* self=Luna< btActionInterface >::checkSubType< wrapper_btActionInterface >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static btRigidBody & btActionInterface::public_getFixedBody(). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static btRigidBody & btActionInterface::public_getFixedBody(). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btRigidBody* lret = &self->public_getFixedBody();
 		if(!lret) return 0; // Do not write NULL pointers.

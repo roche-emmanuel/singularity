@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btFace*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btFace*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btFace* rhs =(Luna< btFace >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btFace* self= (btFace*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btFace >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -125,15 +121,13 @@ public:
 	// btAlignedObjectArray< int > btFace::m_indices()
 	static int _bind_getIndices(lua_State *L) {
 		if (!_lg_typecheck_getIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > btFace::m_indices() function, expected prototype:\nbtAlignedObjectArray< int > btFace::m_indices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< int > btFace::m_indices() function, expected prototype:\nbtAlignedObjectArray< int > btFace::m_indices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btFace* self=(Luna< btFace >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< int > btFace::m_indices(). Got : '%s'",typeid(Luna< btFace >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< int > btFace::m_indices(). Got : '%s'\n%s",typeid(Luna< btFace >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< int >* lret = &self->m_indices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -146,8 +140,7 @@ public:
 	// void btFace::m_indices(btAlignedObjectArray< int > value)
 	static int _bind_setIndices(lua_State *L) {
 		if (!_lg_typecheck_setIndices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btFace::m_indices(btAlignedObjectArray< int > value) function, expected prototype:\nvoid btFace::m_indices(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btFace::m_indices(btAlignedObjectArray< int > value) function, expected prototype:\nvoid btFace::m_indices(btAlignedObjectArray< int > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< int >* value_ptr=(Luna< btAlignedObjectArray< int > >::check(L,2));
@@ -158,8 +151,7 @@ public:
 
 		btFace* self=(Luna< btFace >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btFace::m_indices(btAlignedObjectArray< int >). Got : '%s'",typeid(Luna< btFace >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btFace::m_indices(btAlignedObjectArray< int >). Got : '%s'\n%s",typeid(Luna< btFace >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_indices = value;
 

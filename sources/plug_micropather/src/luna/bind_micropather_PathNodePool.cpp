@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(micropather::PathNodePool*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(micropather::PathNodePool*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::PathNodePool* rhs =(Luna< micropather::PathNodePool >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::PathNodePool* self= (micropather::PathNodePool*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< micropather::PathNodePool >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,8 +99,8 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -119,10 +115,10 @@ public:
 	inline static bool _lg_typecheck_GetPathNode(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,73028343)) ) return false;
 		return true;
 	}
@@ -131,7 +127,7 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,11696051)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 		return true;
 	}
@@ -139,8 +135,8 @@ public:
 	inline static bool _lg_typecheck_GetCache(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,11696051)) ) return false;
 		return true;
 	}
@@ -148,7 +144,7 @@ public:
 	inline static bool _lg_typecheck_AllStates(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,87530881)) ) return false;
 		return true;
 	}
@@ -161,8 +157,7 @@ public:
 	// micropather::PathNodePool::PathNodePool(unsigned int allocate, unsigned int typicalAdjacent)
 	static micropather::PathNodePool* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in micropather::PathNodePool::PathNodePool(unsigned int allocate, unsigned int typicalAdjacent) function, expected prototype:\nmicropather::PathNodePool::PathNodePool(unsigned int allocate, unsigned int typicalAdjacent)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in micropather::PathNodePool::PathNodePool(unsigned int allocate, unsigned int typicalAdjacent) function, expected prototype:\nmicropather::PathNodePool::PathNodePool(unsigned int allocate, unsigned int typicalAdjacent)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned allocate=(unsigned)lua_tointeger(L,1);
@@ -176,15 +171,13 @@ public:
 	// void micropather::PathNodePool::Clear()
 	static int _bind_Clear(lua_State *L) {
 		if (!_lg_typecheck_Clear(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::PathNodePool::Clear() function, expected prototype:\nvoid micropather::PathNodePool::Clear()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void micropather::PathNodePool::Clear() function, expected prototype:\nvoid micropather::PathNodePool::Clear()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		micropather::PathNodePool* self=(Luna< micropather::PathNodePool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::PathNodePool::Clear(). Got : '%s'",typeid(Luna< micropather::PathNodePool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::PathNodePool::Clear(). Got : '%s'\n%s",typeid(Luna< micropather::PathNodePool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Clear();
 
@@ -194,8 +187,7 @@ public:
 	// micropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int frame, void * _state, float _costFromStart, float _estToGoal, micropather::PathNode * _parent)
 	static int _bind_GetPathNode(lua_State *L) {
 		if (!_lg_typecheck_GetPathNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in micropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int frame, void * _state, float _costFromStart, float _estToGoal, micropather::PathNode * _parent) function, expected prototype:\nmicropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int frame, void * _state, float _costFromStart, float _estToGoal, micropather::PathNode * _parent)\nClass arguments details:\narg 5 ID = 73028343\n");
+			luaL_error(L, "luna typecheck failed in micropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int frame, void * _state, float _costFromStart, float _estToGoal, micropather::PathNode * _parent) function, expected prototype:\nmicropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int frame, void * _state, float _costFromStart, float _estToGoal, micropather::PathNode * _parent)\nClass arguments details:\narg 5 ID = 73028343\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned frame=(unsigned)lua_tointeger(L,2);
@@ -206,8 +198,7 @@ public:
 
 		micropather::PathNodePool* self=(Luna< micropather::PathNodePool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call micropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int, void *, float, float, micropather::PathNode *). Got : '%s'",typeid(Luna< micropather::PathNodePool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call micropather::PathNode * micropather::PathNodePool::GetPathNode(unsigned int, void *, float, float, micropather::PathNode *). Got : '%s'\n%s",typeid(Luna< micropather::PathNodePool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		micropather::PathNode * lret = self->GetPathNode(frame, _state, _costFromStart, _estToGoal, _parent);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -220,8 +211,7 @@ public:
 	// bool micropather::PathNodePool::PushCache(const micropather::NodeCost * nodes, int nNodes, int * start)
 	static int _bind_PushCache(lua_State *L) {
 		if (!_lg_typecheck_PushCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool micropather::PathNodePool::PushCache(const micropather::NodeCost * nodes, int nNodes, int * start) function, expected prototype:\nbool micropather::PathNodePool::PushCache(const micropather::NodeCost * nodes, int nNodes, int * start)\nClass arguments details:\narg 1 ID = 11696051\n");
+			luaL_error(L, "luna typecheck failed in bool micropather::PathNodePool::PushCache(const micropather::NodeCost * nodes, int nNodes, int * start) function, expected prototype:\nbool micropather::PathNodePool::PushCache(const micropather::NodeCost * nodes, int nNodes, int * start)\nClass arguments details:\narg 1 ID = 11696051\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const micropather::NodeCost* nodes=(Luna< micropather::NodeCost >::check(L,2));
@@ -230,8 +220,7 @@ public:
 
 		micropather::PathNodePool* self=(Luna< micropather::PathNodePool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool micropather::PathNodePool::PushCache(const micropather::NodeCost *, int, int *). Got : '%s'",typeid(Luna< micropather::PathNodePool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool micropather::PathNodePool::PushCache(const micropather::NodeCost *, int, int *). Got : '%s'\n%s",typeid(Luna< micropather::PathNodePool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->PushCache(nodes, nNodes, start);
 		lua_pushboolean(L,lret?1:0);
@@ -242,8 +231,7 @@ public:
 	// void micropather::PathNodePool::GetCache(int start, int nNodes, micropather::NodeCost * nodes)
 	static int _bind_GetCache(lua_State *L) {
 		if (!_lg_typecheck_GetCache(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::PathNodePool::GetCache(int start, int nNodes, micropather::NodeCost * nodes) function, expected prototype:\nvoid micropather::PathNodePool::GetCache(int start, int nNodes, micropather::NodeCost * nodes)\nClass arguments details:\narg 3 ID = 11696051\n");
+			luaL_error(L, "luna typecheck failed in void micropather::PathNodePool::GetCache(int start, int nNodes, micropather::NodeCost * nodes) function, expected prototype:\nvoid micropather::PathNodePool::GetCache(int start, int nNodes, micropather::NodeCost * nodes)\nClass arguments details:\narg 3 ID = 11696051\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int start=(int)lua_tointeger(L,2);
@@ -252,8 +240,7 @@ public:
 
 		micropather::PathNodePool* self=(Luna< micropather::PathNodePool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::PathNodePool::GetCache(int, int, micropather::NodeCost *). Got : '%s'",typeid(Luna< micropather::PathNodePool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::PathNodePool::GetCache(int, int, micropather::NodeCost *). Got : '%s'\n%s",typeid(Luna< micropather::PathNodePool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->GetCache(start, nNodes, nodes);
 
@@ -263,8 +250,7 @@ public:
 	// void micropather::PathNodePool::AllStates(unsigned int frame, std::vector< void * > * stateVec)
 	static int _bind_AllStates(lua_State *L) {
 		if (!_lg_typecheck_AllStates(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::PathNodePool::AllStates(unsigned int frame, std::vector< void * > * stateVec) function, expected prototype:\nvoid micropather::PathNodePool::AllStates(unsigned int frame, std::vector< void * > * stateVec)\nClass arguments details:\narg 2 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void micropather::PathNodePool::AllStates(unsigned int frame, std::vector< void * > * stateVec) function, expected prototype:\nvoid micropather::PathNodePool::AllStates(unsigned int frame, std::vector< void * > * stateVec)\nClass arguments details:\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned frame=(unsigned)lua_tointeger(L,2);
@@ -272,8 +258,7 @@ public:
 
 		micropather::PathNodePool* self=(Luna< micropather::PathNodePool >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::PathNodePool::AllStates(unsigned int, std::vector< void * > *). Got : '%s'",typeid(Luna< micropather::PathNodePool >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::PathNodePool::AllStates(unsigned int, std::vector< void * > *). Got : '%s'\n%s",typeid(Luna< micropather::PathNodePool >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AllStates(frame, stateVec);
 

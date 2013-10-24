@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocHighlight* self= (IDocHighlight*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -118,8 +115,7 @@ public:
 	// IDocHighlight::IDocHighlight(lua_Table * data)
 	static IDocHighlight* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocHighlight::IDocHighlight(lua_Table * data) function, expected prototype:\nIDocHighlight::IDocHighlight(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocHighlight::IDocHighlight(lua_Table * data) function, expected prototype:\nIDocHighlight::IDocHighlight(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -131,15 +127,13 @@ public:
 	// IDocHighlight::HighlightKind IDocHighlight::highlightKind() const
 	static int _bind_highlightKind(lua_State *L) {
 		if (!_lg_typecheck_highlightKind(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocHighlight::HighlightKind IDocHighlight::highlightKind() const function, expected prototype:\nIDocHighlight::HighlightKind IDocHighlight::highlightKind() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocHighlight::HighlightKind IDocHighlight::highlightKind() const function, expected prototype:\nIDocHighlight::HighlightKind IDocHighlight::highlightKind() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocHighlight* self=Luna< IDoc >::checkSubType< IDocHighlight >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocHighlight::HighlightKind IDocHighlight::highlightKind() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocHighlight::HighlightKind IDocHighlight::highlightKind() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocHighlight::HighlightKind lret = self->highlightKind();
 		lua_pushnumber(L,lret);
@@ -150,15 +144,13 @@ public:
 	// IDocIterator * IDocHighlight::codeElements() const
 	static int _bind_codeElements(lua_State *L) {
 		if (!_lg_typecheck_codeElements(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocIterator * IDocHighlight::codeElements() const function, expected prototype:\nIDocIterator * IDocHighlight::codeElements() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocHighlight::codeElements() const function, expected prototype:\nIDocIterator * IDocHighlight::codeElements() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocHighlight* self=Luna< IDoc >::checkSubType< IDocHighlight >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocIterator * IDocHighlight::codeElements() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocHighlight::codeElements() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocIterator * lret = self->codeElements();
 		if(!lret) return 0; // Do not write NULL pointers.

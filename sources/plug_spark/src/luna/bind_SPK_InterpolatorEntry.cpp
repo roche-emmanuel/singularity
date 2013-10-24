@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::InterpolatorEntry*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::InterpolatorEntry*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::InterpolatorEntry* rhs =(Luna< SPK::InterpolatorEntry >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::InterpolatorEntry* self= (SPK::InterpolatorEntry*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::InterpolatorEntry >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -109,24 +105,24 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_3(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_ctor_overload_4(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -153,21 +149,21 @@ public:
 	inline static bool _lg_typecheck_setX(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setY0(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setY1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -179,8 +175,7 @@ public:
 	// SPK::InterpolatorEntry::InterpolatorEntry()
 	static SPK::InterpolatorEntry* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry() function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry() function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -190,8 +185,7 @@ public:
 	// SPK::InterpolatorEntry::InterpolatorEntry(float x, float y)
 	static SPK::InterpolatorEntry* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry(float x, float y) function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry(float x, float y)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry(float x, float y) function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry(float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,1);
@@ -203,8 +197,7 @@ public:
 	// SPK::InterpolatorEntry::InterpolatorEntry(float x, float y0, float y1)
 	static SPK::InterpolatorEntry* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry(float x, float y0, float y1) function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry(float x, float y0, float y1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry(float x, float y0, float y1) function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry(float x, float y0, float y1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,1);
@@ -217,8 +210,7 @@ public:
 	// SPK::InterpolatorEntry::InterpolatorEntry(float x)
 	static SPK::InterpolatorEntry* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry(float x) function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry(float x)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::InterpolatorEntry::InterpolatorEntry(float x) function, expected prototype:\nSPK::InterpolatorEntry::InterpolatorEntry(float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float x=(float)lua_tonumber(L,1);
@@ -242,15 +234,13 @@ public:
 	// float SPK::InterpolatorEntry::x()
 	static int _bind_getX(lua_State *L) {
 		if (!_lg_typecheck_getX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::InterpolatorEntry::x() function, expected prototype:\nfloat SPK::InterpolatorEntry::x()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::InterpolatorEntry::x() function, expected prototype:\nfloat SPK::InterpolatorEntry::x()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::InterpolatorEntry* self=(Luna< SPK::InterpolatorEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::InterpolatorEntry::x(). Got : '%s'",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::InterpolatorEntry::x(). Got : '%s'\n%s",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->x;
 		lua_pushnumber(L,lret);
@@ -261,15 +251,13 @@ public:
 	// float SPK::InterpolatorEntry::y0()
 	static int _bind_getY0(lua_State *L) {
 		if (!_lg_typecheck_getY0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::InterpolatorEntry::y0() function, expected prototype:\nfloat SPK::InterpolatorEntry::y0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::InterpolatorEntry::y0() function, expected prototype:\nfloat SPK::InterpolatorEntry::y0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::InterpolatorEntry* self=(Luna< SPK::InterpolatorEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::InterpolatorEntry::y0(). Got : '%s'",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::InterpolatorEntry::y0(). Got : '%s'\n%s",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->y0;
 		lua_pushnumber(L,lret);
@@ -280,15 +268,13 @@ public:
 	// float SPK::InterpolatorEntry::y1()
 	static int _bind_getY1(lua_State *L) {
 		if (!_lg_typecheck_getY1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float SPK::InterpolatorEntry::y1() function, expected prototype:\nfloat SPK::InterpolatorEntry::y1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float SPK::InterpolatorEntry::y1() function, expected prototype:\nfloat SPK::InterpolatorEntry::y1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::InterpolatorEntry* self=(Luna< SPK::InterpolatorEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float SPK::InterpolatorEntry::y1(). Got : '%s'",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float SPK::InterpolatorEntry::y1(). Got : '%s'\n%s",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->y1;
 		lua_pushnumber(L,lret);
@@ -299,16 +285,14 @@ public:
 	// void SPK::InterpolatorEntry::x(float value)
 	static int _bind_setX(lua_State *L) {
 		if (!_lg_typecheck_setX(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::InterpolatorEntry::x(float value) function, expected prototype:\nvoid SPK::InterpolatorEntry::x(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::InterpolatorEntry::x(float value) function, expected prototype:\nvoid SPK::InterpolatorEntry::x(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		SPK::InterpolatorEntry* self=(Luna< SPK::InterpolatorEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::InterpolatorEntry::x(float). Got : '%s'",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::InterpolatorEntry::x(float). Got : '%s'\n%s",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->x = value;
 
@@ -318,16 +302,14 @@ public:
 	// void SPK::InterpolatorEntry::y0(float value)
 	static int _bind_setY0(lua_State *L) {
 		if (!_lg_typecheck_setY0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::InterpolatorEntry::y0(float value) function, expected prototype:\nvoid SPK::InterpolatorEntry::y0(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::InterpolatorEntry::y0(float value) function, expected prototype:\nvoid SPK::InterpolatorEntry::y0(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		SPK::InterpolatorEntry* self=(Luna< SPK::InterpolatorEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::InterpolatorEntry::y0(float). Got : '%s'",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::InterpolatorEntry::y0(float). Got : '%s'\n%s",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y0 = value;
 
@@ -337,16 +319,14 @@ public:
 	// void SPK::InterpolatorEntry::y1(float value)
 	static int _bind_setY1(lua_State *L) {
 		if (!_lg_typecheck_setY1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::InterpolatorEntry::y1(float value) function, expected prototype:\nvoid SPK::InterpolatorEntry::y1(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::InterpolatorEntry::y1(float value) function, expected prototype:\nvoid SPK::InterpolatorEntry::y1(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		SPK::InterpolatorEntry* self=(Luna< SPK::InterpolatorEntry >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::InterpolatorEntry::y1(float). Got : '%s'",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::InterpolatorEntry::y1(float). Got : '%s'\n%s",typeid(Luna< SPK::InterpolatorEntry >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->y1 = value;
 

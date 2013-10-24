@@ -122,7 +122,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>3 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( luatop>1 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,2))) ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,25723480) ) return false;
@@ -145,7 +145,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,56813631) ) return false;
 		if( (!(Luna< wxObject >::checkSubType< wxListCtrl >(L,1))) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -189,7 +189,7 @@ public:
 		if( luatop<2 || luatop>4 ) return false;
 
 		if( lua_istable(L,1)==0 ) return false;
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		if( luatop>2 && !Luna<void>::has_uniqueid(L,3,56813631) ) return false;
 		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxCursor >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,25723480) ) return false;
@@ -214,7 +214,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( (!(Luna< wxObject >::checkSubType< wxListCtrl >(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 

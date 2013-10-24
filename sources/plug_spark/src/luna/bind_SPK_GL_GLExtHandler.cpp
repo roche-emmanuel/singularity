@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::GL::GLExtHandler*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::GL::GLExtHandler*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::GL::GLExtHandler* rhs =(Luna< SPK::GL::GLExtHandler >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::GL::GLExtHandler* self= (SPK::GL::GLExtHandler*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::GL::GLExtHandler >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -117,8 +113,8 @@ public:
 	inline static bool _lg_typecheck_setPixelPerUnit(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -131,15 +127,15 @@ public:
 	inline static bool _lg_typecheck_glTexImage3D(lua_State *L) {
 		if( lua_gettop(L)!=10 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 		return true;
 	}
@@ -160,8 +156,7 @@ public:
 	// static bool SPK::GL::GLExtHandler::loadGLExtPointSprite()
 	static int _bind_loadGLExtPointSprite(lua_State *L) {
 		if (!_lg_typecheck_loadGLExtPointSprite(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtPointSprite() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtPointSprite()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtPointSprite() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtPointSprite()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,8 +169,7 @@ public:
 	// static bool SPK::GL::GLExtHandler::loadGLExtPointParameter()
 	static int _bind_loadGLExtPointParameter(lua_State *L) {
 		if (!_lg_typecheck_loadGLExtPointParameter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtPointParameter() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtPointParameter()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtPointParameter() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtPointParameter()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -188,8 +182,7 @@ public:
 	// static void SPK::GL::GLExtHandler::setPixelPerUnit(float fovy, int screenHeight)
 	static int _bind_setPixelPerUnit(lua_State *L) {
 		if (!_lg_typecheck_setPixelPerUnit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::setPixelPerUnit(float fovy, int screenHeight) function, expected prototype:\nstatic void SPK::GL::GLExtHandler::setPixelPerUnit(float fovy, int screenHeight)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::setPixelPerUnit(float fovy, int screenHeight) function, expected prototype:\nstatic void SPK::GL::GLExtHandler::setPixelPerUnit(float fovy, int screenHeight)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float fovy=(float)lua_tonumber(L,1);
@@ -203,8 +196,7 @@ public:
 	// static bool SPK::GL::GLExtHandler::loadGLExtTexture3D()
 	static int _bind_loadGLExtTexture3D(lua_State *L) {
 		if (!_lg_typecheck_loadGLExtTexture3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtTexture3D() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtTexture3D()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtTexture3D() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtTexture3D()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -217,8 +209,7 @@ public:
 	// static void SPK::GL::GLExtHandler::glTexImage3D(unsigned int target, int level, unsigned int internalFormat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels)
 	static int _bind_glTexImage3D(lua_State *L) {
 		if (!_lg_typecheck_glTexImage3D(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::glTexImage3D(unsigned int target, int level, unsigned int internalFormat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nstatic void SPK::GL::GLExtHandler::glTexImage3D(unsigned int target, int level, unsigned int internalFormat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void SPK::GL::GLExtHandler::glTexImage3D(unsigned int target, int level, unsigned int internalFormat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nstatic void SPK::GL::GLExtHandler::glTexImage3D(unsigned int target, int level, unsigned int internalFormat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -230,7 +221,7 @@ public:
 		int border=(int)lua_tointeger(L,7);
 		unsigned int format=(unsigned int)lua_tointeger(L,8);
 		unsigned int type=(unsigned int)lua_tointeger(L,9);
-		void* pixels=(Luna< void >::check(L,10));
+		const void* pixels=(Luna< void >::check(L,10));
 
 		SPK::GL::GLExtHandler::glTexImage3D(target, level, internalFormat, width, height, depth, border, format, type, pixels);
 
@@ -240,8 +231,7 @@ public:
 	// static bool SPK::GL::GLExtHandler::loadGLExtShader()
 	static int _bind_loadGLExtShader(lua_State *L) {
 		if (!_lg_typecheck_loadGLExtShader(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtShader() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtShader()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static bool SPK::GL::GLExtHandler::loadGLExtShader() function, expected prototype:\nstatic bool SPK::GL::GLExtHandler::loadGLExtShader()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* self=(Luna< btActionInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btActionInterface*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btActionInterface*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* rhs =(Luna< btActionInterface >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btActionInterface* self= (btActionInterface*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btActionInterface >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -139,7 +134,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,62162664)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -158,8 +153,7 @@ public:
 	// btActionInterface::btActionInterface(lua_Table * data)
 	static btActionInterface* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btActionInterface::btActionInterface(lua_Table * data) function, expected prototype:\nbtActionInterface::btActionInterface(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btActionInterface::btActionInterface(lua_Table * data) function, expected prototype:\nbtActionInterface::btActionInterface(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -171,8 +165,7 @@ public:
 	// void btActionInterface::updateAction(btCollisionWorld * collisionWorld, float deltaTimeStep)
 	static int _bind_updateAction(lua_State *L) {
 		if (!_lg_typecheck_updateAction(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btActionInterface::updateAction(btCollisionWorld * collisionWorld, float deltaTimeStep) function, expected prototype:\nvoid btActionInterface::updateAction(btCollisionWorld * collisionWorld, float deltaTimeStep)\nClass arguments details:\narg 1 ID = 62162664\n");
+			luaL_error(L, "luna typecheck failed in void btActionInterface::updateAction(btCollisionWorld * collisionWorld, float deltaTimeStep) function, expected prototype:\nvoid btActionInterface::updateAction(btCollisionWorld * collisionWorld, float deltaTimeStep)\nClass arguments details:\narg 1 ID = 62162664\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld* collisionWorld=(Luna< btCollisionWorld >::check(L,2));
@@ -180,8 +173,7 @@ public:
 
 		btActionInterface* self=(Luna< btActionInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btActionInterface::updateAction(btCollisionWorld *, float). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btActionInterface::updateAction(btCollisionWorld *, float). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateAction(collisionWorld, deltaTimeStep);
 
@@ -191,16 +183,14 @@ public:
 	// void btActionInterface::debugDraw(btIDebugDraw * debugDrawer)
 	static int _bind_debugDraw(lua_State *L) {
 		if (!_lg_typecheck_debugDraw(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btActionInterface::debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btActionInterface::debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void btActionInterface::debugDraw(btIDebugDraw * debugDrawer) function, expected prototype:\nvoid btActionInterface::debugDraw(btIDebugDraw * debugDrawer)\nClass arguments details:\narg 1 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* debugDrawer=(Luna< btIDebugDraw >::check(L,2));
 
 		btActionInterface* self=(Luna< btActionInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btActionInterface::debugDraw(btIDebugDraw *). Got : '%s'",typeid(Luna< btActionInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btActionInterface::debugDraw(btIDebugDraw *). Got : '%s'\n%s",typeid(Luna< btActionInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->debugDraw(debugDrawer);
 

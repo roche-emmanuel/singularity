@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SampleRigidUpdater* self= (SampleRigidUpdater*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -85,7 +83,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -95,7 +93,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,50169651)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,92303204) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -115,8 +113,7 @@ public:
 	// SampleRigidUpdater::SampleRigidUpdater(osg::Group * root)
 	static SampleRigidUpdater* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SampleRigidUpdater::SampleRigidUpdater(osg::Group * root) function, expected prototype:\nSampleRigidUpdater::SampleRigidUpdater(osg::Group * root)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SampleRigidUpdater::SampleRigidUpdater(osg::Group * root) function, expected prototype:\nSampleRigidUpdater::SampleRigidUpdater(osg::Group * root)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Group* root=(Luna< osg::Referenced >::checkSubType< osg::Group >(L,1));
@@ -129,8 +126,7 @@ public:
 	// void SampleRigidUpdater::addGround(const osg::Vec3f & gravity)
 	static int _bind_addGround(lua_State *L) {
 		if (!_lg_typecheck_addGround(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SampleRigidUpdater::addGround(const osg::Vec3f & gravity) function, expected prototype:\nvoid SampleRigidUpdater::addGround(const osg::Vec3f & gravity)\nClass arguments details:\narg 1 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void SampleRigidUpdater::addGround(const osg::Vec3f & gravity) function, expected prototype:\nvoid SampleRigidUpdater::addGround(const osg::Vec3f & gravity)\nClass arguments details:\narg 1 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osg::Vec3f* gravity_ptr=(Luna< osg::Vec3f >::check(L,2));
@@ -141,8 +137,7 @@ public:
 
 		SampleRigidUpdater* self=Luna< osg::Referenced >::checkSubType< SampleRigidUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SampleRigidUpdater::addGround(const osg::Vec3f &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SampleRigidUpdater::addGround(const osg::Vec3f &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addGround(gravity);
 
@@ -152,8 +147,7 @@ public:
 	// void SampleRigidUpdater::addPhysicsBox(osg::Box * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass)
 	static int _bind_addPhysicsBox(lua_State *L) {
 		if (!_lg_typecheck_addPhysicsBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SampleRigidUpdater::addPhysicsBox(osg::Box * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass) function, expected prototype:\nvoid SampleRigidUpdater::addPhysicsBox(osg::Box * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void SampleRigidUpdater::addPhysicsBox(osg::Box * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass) function, expected prototype:\nvoid SampleRigidUpdater::addPhysicsBox(osg::Box * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Box* shape=(Luna< osg::Referenced >::checkSubType< osg::Box >(L,2));
@@ -171,8 +165,7 @@ public:
 
 		SampleRigidUpdater* self=Luna< osg::Referenced >::checkSubType< SampleRigidUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SampleRigidUpdater::addPhysicsBox(osg::Box *, const osg::Vec3f &, const osg::Vec3f &, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SampleRigidUpdater::addPhysicsBox(osg::Box *, const osg::Vec3f &, const osg::Vec3f &, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addPhysicsBox(shape, pos, vel, mass);
 
@@ -182,8 +175,7 @@ public:
 	// void SampleRigidUpdater::addPhysicsSphere(osg::Sphere * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass)
 	static int _bind_addPhysicsSphere(lua_State *L) {
 		if (!_lg_typecheck_addPhysicsSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SampleRigidUpdater::addPhysicsSphere(osg::Sphere * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass) function, expected prototype:\nvoid SampleRigidUpdater::addPhysicsSphere(osg::Sphere * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n");
+			luaL_error(L, "luna typecheck failed in void SampleRigidUpdater::addPhysicsSphere(osg::Sphere * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass) function, expected prototype:\nvoid SampleRigidUpdater::addPhysicsSphere(osg::Sphere * shape, const osg::Vec3f & pos, const osg::Vec3f & vel, double mass)\nClass arguments details:\narg 2 ID = 92303204\narg 3 ID = 92303204\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Sphere* shape=(Luna< osg::Referenced >::checkSubType< osg::Sphere >(L,2));
@@ -201,8 +193,7 @@ public:
 
 		SampleRigidUpdater* self=Luna< osg::Referenced >::checkSubType< SampleRigidUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SampleRigidUpdater::addPhysicsSphere(osg::Sphere *, const osg::Vec3f &, const osg::Vec3f &, double). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SampleRigidUpdater::addPhysicsSphere(osg::Sphere *, const osg::Vec3f &, const osg::Vec3f &, double). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->addPhysicsSphere(shape, pos, vel, mass);
 
@@ -212,8 +203,7 @@ public:
 	// bool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)
 	static int _bind_handle(lua_State *L) {
 		if (!_lg_typecheck_handle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa) function, expected prototype:\nbool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter & ea, osgGA::GUIActionAdapter & aa)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const osgGA::GUIEventAdapter* ea_ptr=(Luna< osg::Referenced >::checkSubType< osgGA::GUIEventAdapter >(L,2));
@@ -229,8 +219,7 @@ public:
 
 		SampleRigidUpdater* self=Luna< osg::Referenced >::checkSubType< SampleRigidUpdater >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SampleRigidUpdater::handle(const osgGA::GUIEventAdapter &, osgGA::GUIActionAdapter &). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->handle(ea, aa);
 		lua_pushboolean(L,lret?1:0);

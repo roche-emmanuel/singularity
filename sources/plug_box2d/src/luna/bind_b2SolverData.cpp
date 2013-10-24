@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2SolverData*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2SolverData*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2SolverData* rhs =(Luna< b2SolverData >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2SolverData* self= (b2SolverData*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2SolverData >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -151,15 +147,13 @@ public:
 	// b2TimeStep b2SolverData::step()
 	static int _bind_getStep(lua_State *L) {
 		if (!_lg_typecheck_getStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2TimeStep b2SolverData::step() function, expected prototype:\nb2TimeStep b2SolverData::step()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2TimeStep b2SolverData::step() function, expected prototype:\nb2TimeStep b2SolverData::step()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2SolverData* self=(Luna< b2SolverData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2TimeStep b2SolverData::step(). Got : '%s'",typeid(Luna< b2SolverData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2TimeStep b2SolverData::step(). Got : '%s'\n%s",typeid(Luna< b2SolverData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2TimeStep* lret = &self->step;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +166,13 @@ public:
 	// b2Position * b2SolverData::positions()
 	static int _bind_getPositions(lua_State *L) {
 		if (!_lg_typecheck_getPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Position * b2SolverData::positions() function, expected prototype:\nb2Position * b2SolverData::positions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Position * b2SolverData::positions() function, expected prototype:\nb2Position * b2SolverData::positions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2SolverData* self=(Luna< b2SolverData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Position * b2SolverData::positions(). Got : '%s'",typeid(Luna< b2SolverData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Position * b2SolverData::positions(). Got : '%s'\n%s",typeid(Luna< b2SolverData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Position * lret = self->positions;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,15 +185,13 @@ public:
 	// b2Velocity * b2SolverData::velocities()
 	static int _bind_getVelocities(lua_State *L) {
 		if (!_lg_typecheck_getVelocities(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Velocity * b2SolverData::velocities() function, expected prototype:\nb2Velocity * b2SolverData::velocities()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Velocity * b2SolverData::velocities() function, expected prototype:\nb2Velocity * b2SolverData::velocities()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2SolverData* self=(Luna< b2SolverData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Velocity * b2SolverData::velocities(). Got : '%s'",typeid(Luna< b2SolverData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Velocity * b2SolverData::velocities(). Got : '%s'\n%s",typeid(Luna< b2SolverData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Velocity * lret = self->velocities;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -214,8 +204,7 @@ public:
 	// void b2SolverData::step(b2TimeStep value)
 	static int _bind_setStep(lua_State *L) {
 		if (!_lg_typecheck_setStep(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2SolverData::step(b2TimeStep value) function, expected prototype:\nvoid b2SolverData::step(b2TimeStep value)\nClass arguments details:\narg 1 ID = 28832978\n");
+			luaL_error(L, "luna typecheck failed in void b2SolverData::step(b2TimeStep value) function, expected prototype:\nvoid b2SolverData::step(b2TimeStep value)\nClass arguments details:\narg 1 ID = 28832978\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2TimeStep* value_ptr=(Luna< b2TimeStep >::check(L,2));
@@ -226,8 +215,7 @@ public:
 
 		b2SolverData* self=(Luna< b2SolverData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2SolverData::step(b2TimeStep). Got : '%s'",typeid(Luna< b2SolverData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2SolverData::step(b2TimeStep). Got : '%s'\n%s",typeid(Luna< b2SolverData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->step = value;
 
@@ -237,16 +225,14 @@ public:
 	// void b2SolverData::positions(b2Position * value)
 	static int _bind_setPositions(lua_State *L) {
 		if (!_lg_typecheck_setPositions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2SolverData::positions(b2Position * value) function, expected prototype:\nvoid b2SolverData::positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n");
+			luaL_error(L, "luna typecheck failed in void b2SolverData::positions(b2Position * value) function, expected prototype:\nvoid b2SolverData::positions(b2Position * value)\nClass arguments details:\narg 1 ID = 79848895\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Position* value=(Luna< b2Position >::check(L,2));
 
 		b2SolverData* self=(Luna< b2SolverData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2SolverData::positions(b2Position *). Got : '%s'",typeid(Luna< b2SolverData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2SolverData::positions(b2Position *). Got : '%s'\n%s",typeid(Luna< b2SolverData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->positions = value;
 
@@ -256,16 +242,14 @@ public:
 	// void b2SolverData::velocities(b2Velocity * value)
 	static int _bind_setVelocities(lua_State *L) {
 		if (!_lg_typecheck_setVelocities(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2SolverData::velocities(b2Velocity * value) function, expected prototype:\nvoid b2SolverData::velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n");
+			luaL_error(L, "luna typecheck failed in void b2SolverData::velocities(b2Velocity * value) function, expected prototype:\nvoid b2SolverData::velocities(b2Velocity * value)\nClass arguments details:\narg 1 ID = 85114450\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Velocity* value=(Luna< b2Velocity >::check(L,2));
 
 		b2SolverData* self=(Luna< b2SolverData >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2SolverData::velocities(b2Velocity *). Got : '%s'",typeid(Luna< b2SolverData >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2SolverData::velocities(b2Velocity *). Got : '%s'\n%s",typeid(Luna< b2SolverData >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->velocities = value;
 

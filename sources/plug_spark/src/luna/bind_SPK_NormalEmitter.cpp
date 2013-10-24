@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Registerable* self=(Luna< SPK::Registerable >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::NormalEmitter* self= (SPK::NormalEmitter*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Registerable >::check(L,1));
@@ -148,7 +145,7 @@ public:
 	inline static bool _lg_typecheck_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -170,7 +167,7 @@ public:
 	inline static bool _lg_typecheck_base_findByName(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -182,8 +179,7 @@ public:
 	// SPK::NormalEmitter::NormalEmitter(lua_Table * data, SPK::Zone * normalZone = NULL, bool inverted = false)
 	static SPK::NormalEmitter* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::NormalEmitter::NormalEmitter(lua_Table * data, SPK::Zone * normalZone = NULL, bool inverted = false) function, expected prototype:\nSPK::NormalEmitter::NormalEmitter(lua_Table * data, SPK::Zone * normalZone = NULL, bool inverted = false)\nClass arguments details:\narg 2 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in SPK::NormalEmitter::NormalEmitter(lua_Table * data, SPK::Zone * normalZone = NULL, bool inverted = false) function, expected prototype:\nSPK::NormalEmitter::NormalEmitter(lua_Table * data, SPK::Zone * normalZone = NULL, bool inverted = false)\nClass arguments details:\narg 2 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -199,15 +195,13 @@ public:
 	// std::string SPK::NormalEmitter::getClassName() const
 	static int _bind_getClassName(lua_State *L) {
 		if (!_lg_typecheck_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::NormalEmitter::getClassName() const function, expected prototype:\nstd::string SPK::NormalEmitter::getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::NormalEmitter::getClassName() const function, expected prototype:\nstd::string SPK::NormalEmitter::getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::NormalEmitter::getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::NormalEmitter::getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -218,16 +212,14 @@ public:
 	// void SPK::NormalEmitter::setInverted(bool inverted)
 	static int _bind_setInverted(lua_State *L) {
 		if (!_lg_typecheck_setInverted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::NormalEmitter::setInverted(bool inverted) function, expected prototype:\nvoid SPK::NormalEmitter::setInverted(bool inverted)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::NormalEmitter::setInverted(bool inverted) function, expected prototype:\nvoid SPK::NormalEmitter::setInverted(bool inverted)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool inverted=(bool)(lua_toboolean(L,2)==1);
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::NormalEmitter::setInverted(bool). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::NormalEmitter::setInverted(bool). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setInverted(inverted);
 
@@ -237,16 +229,14 @@ public:
 	// void SPK::NormalEmitter::setNormalZone(SPK::Zone * zone)
 	static int _bind_setNormalZone(lua_State *L) {
 		if (!_lg_typecheck_setNormalZone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::NormalEmitter::setNormalZone(SPK::Zone * zone) function, expected prototype:\nvoid SPK::NormalEmitter::setNormalZone(SPK::Zone * zone)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in void SPK::NormalEmitter::setNormalZone(SPK::Zone * zone) function, expected prototype:\nvoid SPK::NormalEmitter::setNormalZone(SPK::Zone * zone)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Zone* zone=(Luna< SPK::Registerable >::checkSubType< SPK::Zone >(L,2));
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::NormalEmitter::setNormalZone(SPK::Zone *). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::NormalEmitter::setNormalZone(SPK::Zone *). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNormalZone(zone);
 
@@ -256,15 +246,13 @@ public:
 	// bool SPK::NormalEmitter::isInverted() const
 	static int _bind_isInverted(lua_State *L) {
 		if (!_lg_typecheck_isInverted(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SPK::NormalEmitter::isInverted() const function, expected prototype:\nbool SPK::NormalEmitter::isInverted() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool SPK::NormalEmitter::isInverted() const function, expected prototype:\nbool SPK::NormalEmitter::isInverted() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SPK::NormalEmitter::isInverted() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SPK::NormalEmitter::isInverted() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isInverted();
 		lua_pushboolean(L,lret?1:0);
@@ -275,15 +263,13 @@ public:
 	// SPK::Zone * SPK::NormalEmitter::getNormalZone() const
 	static int _bind_getNormalZone(lua_State *L) {
 		if (!_lg_typecheck_getNormalZone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Zone * SPK::NormalEmitter::getNormalZone() const function, expected prototype:\nSPK::Zone * SPK::NormalEmitter::getNormalZone() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Zone * SPK::NormalEmitter::getNormalZone() const function, expected prototype:\nSPK::Zone * SPK::NormalEmitter::getNormalZone() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::NormalEmitter::getNormalZone() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Zone * SPK::NormalEmitter::getNormalZone() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Zone * lret = self->getNormalZone();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -296,16 +282,14 @@ public:
 	// SPK::Registerable * SPK::NormalEmitter::findByName(const std::string & name)
 	static int _bind_findByName(lua_State *L) {
 		if (!_lg_typecheck_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::NormalEmitter::findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::NormalEmitter::findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::NormalEmitter::findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::NormalEmitter::findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::NormalEmitter::findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::NormalEmitter::findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -318,8 +302,7 @@ public:
 	// static SPK::NormalEmitter * SPK::NormalEmitter::create(SPK::Zone * normalZone = NULL, bool inverted = false)
 	static int _bind_create(lua_State *L) {
 		if (!_lg_typecheck_create(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static SPK::NormalEmitter * SPK::NormalEmitter::create(SPK::Zone * normalZone = NULL, bool inverted = false) function, expected prototype:\nstatic SPK::NormalEmitter * SPK::NormalEmitter::create(SPK::Zone * normalZone = NULL, bool inverted = false)\nClass arguments details:\narg 1 ID = 31337102\n");
+			luaL_error(L, "luna typecheck failed in static SPK::NormalEmitter * SPK::NormalEmitter::create(SPK::Zone * normalZone = NULL, bool inverted = false) function, expected prototype:\nstatic SPK::NormalEmitter * SPK::NormalEmitter::create(SPK::Zone * normalZone = NULL, bool inverted = false)\nClass arguments details:\narg 1 ID = 31337102\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -338,15 +321,13 @@ public:
 	// std::string SPK::NormalEmitter::base_getClassName() const
 	static int _bind_base_getClassName(lua_State *L) {
 		if (!_lg_typecheck_base_getClassName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in std::string SPK::NormalEmitter::base_getClassName() const function, expected prototype:\nstd::string SPK::NormalEmitter::base_getClassName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in std::string SPK::NormalEmitter::base_getClassName() const function, expected prototype:\nstd::string SPK::NormalEmitter::base_getClassName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call std::string SPK::NormalEmitter::base_getClassName() const. Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call std::string SPK::NormalEmitter::base_getClassName() const. Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		std::string lret = self->NormalEmitter::getClassName();
 		lua_pushlstring(L,lret.data(),lret.size());
@@ -357,16 +338,14 @@ public:
 	// SPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string & name)
 	static int _bind_base_findByName(lua_State *L) {
 		if (!_lg_typecheck_base_findByName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string & name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string & name) function, expected prototype:\nSPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string & name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
 
 		SPK::NormalEmitter* self=Luna< SPK::Registerable >::checkSubType< SPK::NormalEmitter >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string &). Got : '%s'",typeid(Luna< SPK::Registerable >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Registerable * SPK::NormalEmitter::base_findByName(const std::string &). Got : '%s'\n%s",typeid(Luna< SPK::Registerable >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::Registerable * lret = self->NormalEmitter::findByName(name);
 		if(!lret) return 0; // Do not write NULL pointers.

@@ -56,16 +56,14 @@ public:
 	// dual mglFormulaC::public_CalcIn(const dual * a1) const
 	static int _bind_public_CalcIn(lua_State *L) {
 		if (!_lg_typecheck_public_CalcIn(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dual mglFormulaC::public_CalcIn(const dual * a1) const function, expected prototype:\ndual mglFormulaC::public_CalcIn(const dual * a1) const\nClass arguments details:\narg 1 ID = 3094652\n");
+			luaL_error(L, "luna typecheck failed in dual mglFormulaC::public_CalcIn(const dual * a1) const function, expected prototype:\ndual mglFormulaC::public_CalcIn(const dual * a1) const\nClass arguments details:\narg 1 ID = 3094652\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const dual* a1=(Luna< std::complex< double > >::checkSubType< dual >(L,2));
 
 		wrapper_mglFormulaC* self=Luna< mglFormulaC >::checkSubType< wrapper_mglFormulaC >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call dual mglFormulaC::public_CalcIn(const dual *) const. Got : '%s'",typeid(Luna< mglFormulaC >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call dual mglFormulaC::public_CalcIn(const dual *) const. Got : '%s'\n%s",typeid(Luna< mglFormulaC >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		dual stack_lret = self->public_CalcIn(a1);
 		dual* lret = new dual(stack_lret);

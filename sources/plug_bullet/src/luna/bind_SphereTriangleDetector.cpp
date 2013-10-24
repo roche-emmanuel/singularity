@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDiscreteCollisionDetectorInterface* self=(Luna< btDiscreteCollisionDetectorInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SphereTriangleDetector* self= (SphereTriangleDetector*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDiscreteCollisionDetectorInterface >::check(L,1));
@@ -96,7 +93,7 @@ public:
 		if( (lua_isnil(L,1)==0 && !(Luna< btCollisionShape >::checkSubType< btSphereShape >(L,1)) ) ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,58243831)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionShape >::checkSubType< btTriangleShape >(L,2)) ) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -108,7 +105,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !(Luna< btCollisionShape >::checkSubType< btSphereShape >(L,2)) ) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,58243831)) ) return false;
 		if( (lua_isnil(L,3)==0 && !(Luna< btCollisionShape >::checkSubType< btTriangleShape >(L,3)) ) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -131,9 +128,9 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -156,8 +153,7 @@ public:
 	// SphereTriangleDetector::SphereTriangleDetector(btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold)
 	static SphereTriangleDetector* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SphereTriangleDetector::SphereTriangleDetector(btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold) function, expected prototype:\nSphereTriangleDetector::SphereTriangleDetector(btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in SphereTriangleDetector::SphereTriangleDetector(btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold) function, expected prototype:\nSphereTriangleDetector::SphereTriangleDetector(btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSphereShape* sphere=(Luna< btCollisionShape >::checkSubType< btSphereShape >(L,1));
@@ -170,8 +166,7 @@ public:
 	// SphereTriangleDetector::SphereTriangleDetector(lua_Table * data, btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold)
 	static SphereTriangleDetector* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SphereTriangleDetector::SphereTriangleDetector(lua_Table * data, btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold) function, expected prototype:\nSphereTriangleDetector::SphereTriangleDetector(lua_Table * data, btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in SphereTriangleDetector::SphereTriangleDetector(lua_Table * data, btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold) function, expected prototype:\nSphereTriangleDetector::SphereTriangleDetector(lua_Table * data, btSphereShape * sphere, btTriangleShape * triangle, float contactBreakingThreshold)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSphereShape* sphere=(Luna< btCollisionShape >::checkSubType< btSphereShape >(L,2));
@@ -195,8 +190,7 @@ public:
 	// void SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)
 	static int _bind_getClosestPoints(lua_State *L) {
 		if (!_lg_typecheck_getClosestPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -216,8 +210,7 @@ public:
 
 		SphereTriangleDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< SphereTriangleDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SphereTriangleDetector::getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getClosestPoints(input, output, debugDraw, swapResults);
 
@@ -227,8 +220,7 @@ public:
 	// bool SphereTriangleDetector::collide(const btVector3 & sphereCenter, btVector3 & point, btVector3 & resultNormal, float & depth, float & timeOfImpact, float contactBreakingThreshold)
 	static int _bind_collide(lua_State *L) {
 		if (!_lg_typecheck_collide(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool SphereTriangleDetector::collide(const btVector3 & sphereCenter, btVector3 & point, btVector3 & resultNormal, float & depth, float & timeOfImpact, float contactBreakingThreshold) function, expected prototype:\nbool SphereTriangleDetector::collide(const btVector3 & sphereCenter, btVector3 & point, btVector3 & resultNormal, float & depth, float & timeOfImpact, float contactBreakingThreshold)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in bool SphereTriangleDetector::collide(const btVector3 & sphereCenter, btVector3 & point, btVector3 & resultNormal, float & depth, float & timeOfImpact, float contactBreakingThreshold) function, expected prototype:\nbool SphereTriangleDetector::collide(const btVector3 & sphereCenter, btVector3 & point, btVector3 & resultNormal, float & depth, float & timeOfImpact, float contactBreakingThreshold)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* sphereCenter_ptr=(Luna< btVector3 >::check(L,2));
@@ -252,20 +244,20 @@ public:
 
 		SphereTriangleDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< SphereTriangleDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool SphereTriangleDetector::collide(const btVector3 &, btVector3 &, btVector3 &, float &, float &, float). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool SphereTriangleDetector::collide(const btVector3 &, btVector3 &, btVector3 &, float &, float &, float). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->collide(sphereCenter, point, resultNormal, depth, timeOfImpact, contactBreakingThreshold);
 		lua_pushboolean(L,lret?1:0);
 
-		return 1;
+		lua_pushnumber(L,depth);
+		lua_pushnumber(L,timeOfImpact);
+		return 3;
 	}
 
 	// void SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)
 	static int _bind_base_getClosestPoints(lua_State *L) {
 		if (!_lg_typecheck_base_getClosestPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n");
+			luaL_error(L, "luna typecheck failed in void SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false) function, expected prototype:\nvoid SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput & input, btDiscreteCollisionDetectorInterface::Result & output, class btIDebugDraw * debugDraw, bool swapResults = false)\nClass arguments details:\narg 1 ID = 99215612\narg 2 ID = 25324514\narg 3 ID = 63441741\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -285,8 +277,7 @@ public:
 
 		SphereTriangleDetector* self=Luna< btDiscreteCollisionDetectorInterface >::checkSubType< SphereTriangleDetector >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SphereTriangleDetector::base_getClosestPoints(const btDiscreteCollisionDetectorInterface::ClosestPointInput &, btDiscreteCollisionDetectorInterface::Result &, class btIDebugDraw *, bool). Got : '%s'\n%s",typeid(Luna< btDiscreteCollisionDetectorInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SphereTriangleDetector::getClosestPoints(input, output, debugDraw, swapResults);
 

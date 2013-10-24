@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btChunk*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btChunk*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btChunk* rhs =(Luna< btChunk >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btChunk* self= (btChunk*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btChunk >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -135,14 +131,14 @@ public:
 	inline static bool _lg_typecheck_setChunkCode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -156,14 +152,14 @@ public:
 	inline static bool _lg_typecheck_set_dna_nr(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setNumber(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -177,15 +173,13 @@ public:
 	// int btChunk::m_chunkCode()
 	static int _bind_getChunkCode(lua_State *L) {
 		if (!_lg_typecheck_getChunkCode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btChunk::m_chunkCode() function, expected prototype:\nint btChunk::m_chunkCode()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btChunk::m_chunkCode() function, expected prototype:\nint btChunk::m_chunkCode()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btChunk::m_chunkCode(). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btChunk::m_chunkCode(). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_chunkCode;
 		lua_pushnumber(L,lret);
@@ -196,15 +190,13 @@ public:
 	// int btChunk::m_length()
 	static int _bind_getLength(lua_State *L) {
 		if (!_lg_typecheck_getLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btChunk::m_length() function, expected prototype:\nint btChunk::m_length()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btChunk::m_length() function, expected prototype:\nint btChunk::m_length()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btChunk::m_length(). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btChunk::m_length(). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_length;
 		lua_pushnumber(L,lret);
@@ -215,15 +207,13 @@ public:
 	// void * btChunk::m_oldPtr()
 	static int _bind_getOldPtr(lua_State *L) {
 		if (!_lg_typecheck_getOldPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btChunk::m_oldPtr() function, expected prototype:\nvoid * btChunk::m_oldPtr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btChunk::m_oldPtr() function, expected prototype:\nvoid * btChunk::m_oldPtr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btChunk::m_oldPtr(). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btChunk::m_oldPtr(). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_oldPtr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -236,15 +226,13 @@ public:
 	// int btChunk::m_dna_nr()
 	static int _bind_get_dna_nr(lua_State *L) {
 		if (!_lg_typecheck_get_dna_nr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btChunk::m_dna_nr() function, expected prototype:\nint btChunk::m_dna_nr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btChunk::m_dna_nr() function, expected prototype:\nint btChunk::m_dna_nr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btChunk::m_dna_nr(). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btChunk::m_dna_nr(). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_dna_nr;
 		lua_pushnumber(L,lret);
@@ -255,15 +243,13 @@ public:
 	// int btChunk::m_number()
 	static int _bind_getNumber(lua_State *L) {
 		if (!_lg_typecheck_getNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btChunk::m_number() function, expected prototype:\nint btChunk::m_number()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btChunk::m_number() function, expected prototype:\nint btChunk::m_number()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btChunk::m_number(). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btChunk::m_number(). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_number;
 		lua_pushnumber(L,lret);
@@ -274,16 +260,14 @@ public:
 	// void btChunk::m_chunkCode(int value)
 	static int _bind_setChunkCode(lua_State *L) {
 		if (!_lg_typecheck_setChunkCode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btChunk::m_chunkCode(int value) function, expected prototype:\nvoid btChunk::m_chunkCode(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btChunk::m_chunkCode(int value) function, expected prototype:\nvoid btChunk::m_chunkCode(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btChunk::m_chunkCode(int). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btChunk::m_chunkCode(int). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_chunkCode = value;
 
@@ -293,16 +277,14 @@ public:
 	// void btChunk::m_length(int value)
 	static int _bind_setLength(lua_State *L) {
 		if (!_lg_typecheck_setLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btChunk::m_length(int value) function, expected prototype:\nvoid btChunk::m_length(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btChunk::m_length(int value) function, expected prototype:\nvoid btChunk::m_length(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btChunk::m_length(int). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btChunk::m_length(int). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_length = value;
 
@@ -312,16 +294,14 @@ public:
 	// void btChunk::m_oldPtr(void * value)
 	static int _bind_setOldPtr(lua_State *L) {
 		if (!_lg_typecheck_setOldPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btChunk::m_oldPtr(void * value) function, expected prototype:\nvoid btChunk::m_oldPtr(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btChunk::m_oldPtr(void * value) function, expected prototype:\nvoid btChunk::m_oldPtr(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btChunk::m_oldPtr(void *). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btChunk::m_oldPtr(void *). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_oldPtr = value;
 
@@ -331,16 +311,14 @@ public:
 	// void btChunk::m_dna_nr(int value)
 	static int _bind_set_dna_nr(lua_State *L) {
 		if (!_lg_typecheck_set_dna_nr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btChunk::m_dna_nr(int value) function, expected prototype:\nvoid btChunk::m_dna_nr(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btChunk::m_dna_nr(int value) function, expected prototype:\nvoid btChunk::m_dna_nr(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btChunk::m_dna_nr(int). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btChunk::m_dna_nr(int). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_dna_nr = value;
 
@@ -350,16 +328,14 @@ public:
 	// void btChunk::m_number(int value)
 	static int _bind_setNumber(lua_State *L) {
 		if (!_lg_typecheck_setNumber(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btChunk::m_number(int value) function, expected prototype:\nvoid btChunk::m_number(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btChunk::m_number(int value) function, expected prototype:\nvoid btChunk::m_number(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btChunk* self=(Luna< btChunk >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btChunk::m_number(int). Got : '%s'",typeid(Luna< btChunk >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btChunk::m_number(int). Got : '%s'\n%s",typeid(Luna< btChunk >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_number = value;
 

@@ -6,71 +6,71 @@
 inline static bool _lg_typecheck_glCullFace(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFrontFace(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glHint(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glLineWidth(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPointSize(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPolygonMode(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glScissor(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexParameterf(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -78,17 +78,17 @@ inline static bool _lg_typecheck_glTexParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glTexParameteri(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -96,13 +96,13 @@ inline static bool _lg_typecheck_glTexParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glTexImage1D(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	return true;
 }
@@ -110,14 +110,14 @@ inline static bool _lg_typecheck_glTexImage1D(lua_State *L) {
 inline static bool _lg_typecheck_glTexImage2D(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
@@ -125,76 +125,76 @@ inline static bool _lg_typecheck_glTexImage2D(lua_State *L) {
 inline static bool _lg_typecheck_glDrawBuffer(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClear(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClearColor(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClearStencil(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClearDepth(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glStencilMask(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glColorMask(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDepthMask(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDisable(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glEnable(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -213,75 +213,75 @@ inline static bool _lg_typecheck_glFlush(lua_State *L) {
 inline static bool _lg_typecheck_glBlendFunc(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glLogicOp(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glStencilFunc(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glStencilOp(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDepthFunc(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPixelStoref(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPixelStorei(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glReadBuffer(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glReadPixels(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
@@ -289,15 +289,15 @@ inline static bool _lg_typecheck_glReadPixels(lua_State *L) {
 inline static bool _lg_typecheck_glGetBooleanv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetDoublev(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -311,7 +311,7 @@ inline static bool _lg_typecheck_glGetError(lua_State *L) {
 inline static bool _lg_typecheck_glGetFloatv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -319,7 +319,7 @@ inline static bool _lg_typecheck_glGetFloatv(lua_State *L) {
 inline static bool _lg_typecheck_glGetIntegerv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -327,17 +327,17 @@ inline static bool _lg_typecheck_glGetIntegerv(lua_State *L) {
 inline static bool _lg_typecheck_glGetString(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetTexImage(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -345,8 +345,8 @@ inline static bool _lg_typecheck_glGetTexImage(lua_State *L) {
 inline static bool _lg_typecheck_glGetTexParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -354,8 +354,8 @@ inline static bool _lg_typecheck_glGetTexParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glGetTexParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -363,9 +363,9 @@ inline static bool _lg_typecheck_glGetTexParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glGetTexLevelParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -373,9 +373,9 @@ inline static bool _lg_typecheck_glGetTexLevelParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glGetTexLevelParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -383,43 +383,43 @@ inline static bool _lg_typecheck_glGetTexLevelParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glIsEnabled(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDepthRange(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glViewport(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawArrays(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawElements(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -427,73 +427,73 @@ inline static bool _lg_typecheck_glDrawElements(lua_State *L) {
 inline static bool _lg_typecheck_glPolygonOffset(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCopyTexImage1D(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCopyTexImage2D(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCopyTexSubImage1D(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCopyTexSubImage2D(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexSubImage1D(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
@@ -501,14 +501,14 @@ inline static bool _lg_typecheck_glTexSubImage1D(lua_State *L) {
 inline static bool _lg_typecheck_glTexSubImage2D(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
@@ -516,15 +516,15 @@ inline static bool _lg_typecheck_glTexSubImage2D(lua_State *L) {
 inline static bool _lg_typecheck_glBindTexture(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteTextures(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -532,7 +532,7 @@ inline static bool _lg_typecheck_glDeleteTextures(lua_State *L) {
 inline static bool _lg_typecheck_glGenTextures(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -540,35 +540,35 @@ inline static bool _lg_typecheck_glGenTextures(lua_State *L) {
 inline static bool _lg_typecheck_glIsTexture(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendColor(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendEquation(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawRangeElements(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
@@ -576,15 +576,15 @@ inline static bool _lg_typecheck_glDrawRangeElements(lua_State *L) {
 inline static bool _lg_typecheck_glTexImage3D(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	if( (lua_isnil(L,10)==0 && !Luna<void>::has_uniqueid(L,10,3625364)) ) return false;
 	return true;
 }
@@ -592,16 +592,16 @@ inline static bool _lg_typecheck_glTexImage3D(lua_State *L) {
 inline static bool _lg_typecheck_glTexSubImage3D(lua_State *L) {
 	if( lua_gettop(L)!=11 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
 	return true;
 }
@@ -609,44 +609,44 @@ inline static bool _lg_typecheck_glTexSubImage3D(lua_State *L) {
 inline static bool _lg_typecheck_glCopyTexSubImage3D(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glActiveTexture(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glSampleCoverage(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCompressedTexImage3D(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
@@ -654,13 +654,13 @@ inline static bool _lg_typecheck_glCompressedTexImage3D(lua_State *L) {
 inline static bool _lg_typecheck_glCompressedTexImage2D(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	return true;
 }
@@ -668,12 +668,12 @@ inline static bool _lg_typecheck_glCompressedTexImage2D(lua_State *L) {
 inline static bool _lg_typecheck_glCompressedTexImage1D(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
@@ -681,16 +681,16 @@ inline static bool _lg_typecheck_glCompressedTexImage1D(lua_State *L) {
 inline static bool _lg_typecheck_glCompressedTexSubImage3D(lua_State *L) {
 	if( lua_gettop(L)!=11 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	if( (lua_isnil(L,11)==0 && !Luna<void>::has_uniqueid(L,11,3625364)) ) return false;
 	return true;
 }
@@ -698,14 +698,14 @@ inline static bool _lg_typecheck_glCompressedTexSubImage3D(lua_State *L) {
 inline static bool _lg_typecheck_glCompressedTexSubImage2D(lua_State *L) {
 	if( lua_gettop(L)!=9 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,3625364)) ) return false;
 	return true;
 }
@@ -713,12 +713,12 @@ inline static bool _lg_typecheck_glCompressedTexSubImage2D(lua_State *L) {
 inline static bool _lg_typecheck_glCompressedTexSubImage1D(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
@@ -726,8 +726,8 @@ inline static bool _lg_typecheck_glCompressedTexSubImage1D(lua_State *L) {
 inline static bool _lg_typecheck_glGetCompressedTexImage(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -735,35 +735,35 @@ inline static bool _lg_typecheck_glGetCompressedTexImage(lua_State *L) {
 inline static bool _lg_typecheck_glBlendFuncSeparate(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiDrawArrays(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPointParameterf(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPointParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -771,15 +771,15 @@ inline static bool _lg_typecheck_glPointParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glPointParameteri(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPointParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -787,7 +787,7 @@ inline static bool _lg_typecheck_glPointParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glGenQueries(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -795,7 +795,7 @@ inline static bool _lg_typecheck_glGenQueries(lua_State *L) {
 inline static bool _lg_typecheck_glDeleteQueries(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -803,30 +803,30 @@ inline static bool _lg_typecheck_glDeleteQueries(lua_State *L) {
 inline static bool _lg_typecheck_glIsQuery(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBeginQuery(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glEndQuery(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetQueryiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -834,8 +834,8 @@ inline static bool _lg_typecheck_glGetQueryiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetQueryObjectiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -843,8 +843,8 @@ inline static bool _lg_typecheck_glGetQueryObjectiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetQueryObjectuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -852,15 +852,15 @@ inline static bool _lg_typecheck_glGetQueryObjectuiv(lua_State *L) {
 inline static bool _lg_typecheck_glBindBuffer(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteBuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -868,7 +868,7 @@ inline static bool _lg_typecheck_glDeleteBuffers(lua_State *L) {
 inline static bool _lg_typecheck_glGenBuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -876,24 +876,24 @@ inline static bool _lg_typecheck_glGenBuffers(lua_State *L) {
 inline static bool _lg_typecheck_glIsBuffer(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBufferData(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBufferSubData(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
@@ -903,7 +903,7 @@ inline static bool _lg_typecheck_glBufferSubData(lua_State *L) {
 inline static bool _lg_typecheck_glGetBufferSubData(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
@@ -913,23 +913,23 @@ inline static bool _lg_typecheck_glGetBufferSubData(lua_State *L) {
 inline static bool _lg_typecheck_glMapBuffer(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUnmapBuffer(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetBufferParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -937,15 +937,15 @@ inline static bool _lg_typecheck_glGetBufferParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glBlendEquationSeparate(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawBuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -953,52 +953,52 @@ inline static bool _lg_typecheck_glDrawBuffers(lua_State *L) {
 inline static bool _lg_typecheck_glStencilOpSeparate(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glStencilFuncSeparate(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glStencilMaskSeparate(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glAttachShader(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBindAttribLocation(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCompileShader(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -1011,77 +1011,77 @@ inline static bool _lg_typecheck_glCreateProgram(lua_State *L) {
 inline static bool _lg_typecheck_glCreateShader(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteProgram(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteShader(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDetachShader(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDisableVertexAttribArray(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glEnableVertexAttribArray(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetActiveAttrib(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-	if( lua_isstring(L,7)==0 ) return false;
+	if( lua_type(L,7)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetActiveUniform(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-	if( lua_isstring(L,7)==0 ) return false;
+	if( lua_type(L,7)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetAttachedShaders(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
@@ -1090,16 +1090,16 @@ inline static bool _lg_typecheck_glGetAttachedShaders(lua_State *L) {
 inline static bool _lg_typecheck_glGetAttribLocation(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1107,18 +1107,18 @@ inline static bool _lg_typecheck_glGetProgramiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetProgramInfoLog(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetShaderiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1126,36 +1126,36 @@ inline static bool _lg_typecheck_glGetShaderiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetShaderInfoLog(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetShaderSource(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetUniformLocation(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetUniformfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1163,8 +1163,8 @@ inline static bool _lg_typecheck_glGetUniformfv(lua_State *L) {
 inline static bool _lg_typecheck_glGetUniformiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1172,8 +1172,8 @@ inline static bool _lg_typecheck_glGetUniformiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetVertexAttribdv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1181,8 +1181,8 @@ inline static bool _lg_typecheck_glGetVertexAttribdv(lua_State *L) {
 inline static bool _lg_typecheck_glGetVertexAttribfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1190,8 +1190,8 @@ inline static bool _lg_typecheck_glGetVertexAttribfv(lua_State *L) {
 inline static bool _lg_typecheck_glGetVertexAttribiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1199,112 +1199,112 @@ inline static bool _lg_typecheck_glGetVertexAttribiv(lua_State *L) {
 inline static bool _lg_typecheck_glIsProgram(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glIsShader(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glLinkProgram(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUseProgram(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform1f(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform2f(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform3f(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform4f(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform1i(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform2i(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform3i(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform4i(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform1fv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1312,8 +1312,8 @@ inline static bool _lg_typecheck_glUniform1fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform2fv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1321,8 +1321,8 @@ inline static bool _lg_typecheck_glUniform2fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform3fv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1330,8 +1330,8 @@ inline static bool _lg_typecheck_glUniform3fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform4fv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1339,8 +1339,8 @@ inline static bool _lg_typecheck_glUniform4fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform1iv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1348,8 +1348,8 @@ inline static bool _lg_typecheck_glUniform1iv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform2iv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1357,8 +1357,8 @@ inline static bool _lg_typecheck_glUniform2iv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform3iv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1366,8 +1366,8 @@ inline static bool _lg_typecheck_glUniform3iv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform4iv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1375,9 +1375,9 @@ inline static bool _lg_typecheck_glUniform4iv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix2fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1385,9 +1385,9 @@ inline static bool _lg_typecheck_glUniformMatrix2fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix3fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1395,9 +1395,9 @@ inline static bool _lg_typecheck_glUniformMatrix3fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix4fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1405,22 +1405,22 @@ inline static bool _lg_typecheck_glUniformMatrix4fv(lua_State *L) {
 inline static bool _lg_typecheck_glValidateProgram(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib1d(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib1dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1428,15 +1428,15 @@ inline static bool _lg_typecheck_glVertexAttrib1dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib1f(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib1fv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1444,15 +1444,15 @@ inline static bool _lg_typecheck_glVertexAttrib1fv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib1s(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib1sv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1460,16 +1460,16 @@ inline static bool _lg_typecheck_glVertexAttrib1sv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib2d(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib2dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1477,16 +1477,16 @@ inline static bool _lg_typecheck_glVertexAttrib2dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib2f(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib2fv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1494,16 +1494,16 @@ inline static bool _lg_typecheck_glVertexAttrib2fv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib2s(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib2sv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1511,17 +1511,17 @@ inline static bool _lg_typecheck_glVertexAttrib2sv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib3d(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib3dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1529,17 +1529,17 @@ inline static bool _lg_typecheck_glVertexAttrib3dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib3f(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib3fv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1547,17 +1547,17 @@ inline static bool _lg_typecheck_glVertexAttrib3fv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib3s(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib3sv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1565,7 +1565,7 @@ inline static bool _lg_typecheck_glVertexAttrib3sv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4Nbv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1573,7 +1573,7 @@ inline static bool _lg_typecheck_glVertexAttrib4Nbv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4Niv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1581,7 +1581,7 @@ inline static bool _lg_typecheck_glVertexAttrib4Niv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4Nsv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1589,26 +1589,26 @@ inline static bool _lg_typecheck_glVertexAttrib4Nsv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4Nub(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib4Nubv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib4Nuiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1616,7 +1616,7 @@ inline static bool _lg_typecheck_glVertexAttrib4Nuiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4Nusv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1624,7 +1624,7 @@ inline static bool _lg_typecheck_glVertexAttrib4Nusv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4bv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1632,18 +1632,18 @@ inline static bool _lg_typecheck_glVertexAttrib4bv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4d(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib4dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1651,18 +1651,18 @@ inline static bool _lg_typecheck_glVertexAttrib4dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4f(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib4fv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1670,7 +1670,7 @@ inline static bool _lg_typecheck_glVertexAttrib4fv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4iv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1678,18 +1678,18 @@ inline static bool _lg_typecheck_glVertexAttrib4iv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4s(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib4sv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1697,15 +1697,15 @@ inline static bool _lg_typecheck_glVertexAttrib4sv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4ubv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttrib4uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1713,7 +1713,7 @@ inline static bool _lg_typecheck_glVertexAttrib4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttrib4usv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -1721,11 +1721,11 @@ inline static bool _lg_typecheck_glVertexAttrib4usv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribPointer(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
@@ -1733,9 +1733,9 @@ inline static bool _lg_typecheck_glVertexAttribPointer(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix2x3fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1743,9 +1743,9 @@ inline static bool _lg_typecheck_glUniformMatrix2x3fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix3x2fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1753,9 +1753,9 @@ inline static bool _lg_typecheck_glUniformMatrix3x2fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix2x4fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1763,9 +1763,9 @@ inline static bool _lg_typecheck_glUniformMatrix2x4fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix4x2fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1773,9 +1773,9 @@ inline static bool _lg_typecheck_glUniformMatrix4x2fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix3x4fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1783,9 +1783,9 @@ inline static bool _lg_typecheck_glUniformMatrix3x4fv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix4x3fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -1793,28 +1793,28 @@ inline static bool _lg_typecheck_glUniformMatrix4x3fv(lua_State *L) {
 inline static bool _lg_typecheck_glColorMaski(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetBooleani_v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetIntegeri_v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1822,31 +1822,31 @@ inline static bool _lg_typecheck_glGetIntegeri_v(lua_State *L) {
 inline static bool _lg_typecheck_glEnablei(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDisablei(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glIsEnabledi(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBeginTransformFeedback(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -1859,9 +1859,9 @@ inline static bool _lg_typecheck_glEndTransformFeedback(lua_State *L) {
 inline static bool _lg_typecheck_glBindBufferRange(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,32973728) ) return false;
 	return true;
@@ -1870,38 +1870,38 @@ inline static bool _lg_typecheck_glBindBufferRange(lua_State *L) {
 inline static bool _lg_typecheck_glBindBufferBase(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetTransformFeedbackVarying(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-	if( lua_isstring(L,7)==0 ) return false;
+	if( lua_type(L,7)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClampColor(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBeginConditionalRender(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
@@ -1914,10 +1914,10 @@ inline static bool _lg_typecheck_glEndConditionalRender(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribIPointer(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -1925,8 +1925,8 @@ inline static bool _lg_typecheck_glVertexAttribIPointer(lua_State *L) {
 inline static bool _lg_typecheck_glGetVertexAttribIiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1934,8 +1934,8 @@ inline static bool _lg_typecheck_glGetVertexAttribIiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetVertexAttribIuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -1943,83 +1943,83 @@ inline static bool _lg_typecheck_glGetVertexAttribIuiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI1i(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI2i(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI3i(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI4i(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI1ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI2ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI3ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI4ui(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI1iv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2027,7 +2027,7 @@ inline static bool _lg_typecheck_glVertexAttribI1iv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI2iv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2035,7 +2035,7 @@ inline static bool _lg_typecheck_glVertexAttribI2iv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI3iv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2043,7 +2043,7 @@ inline static bool _lg_typecheck_glVertexAttribI3iv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI4iv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2051,7 +2051,7 @@ inline static bool _lg_typecheck_glVertexAttribI4iv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI1uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2059,7 +2059,7 @@ inline static bool _lg_typecheck_glVertexAttribI1uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI2uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2067,7 +2067,7 @@ inline static bool _lg_typecheck_glVertexAttribI2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI3uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2075,7 +2075,7 @@ inline static bool _lg_typecheck_glVertexAttribI3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI4uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2083,7 +2083,7 @@ inline static bool _lg_typecheck_glVertexAttribI4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI4bv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2091,7 +2091,7 @@ inline static bool _lg_typecheck_glVertexAttribI4bv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI4sv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2099,15 +2099,15 @@ inline static bool _lg_typecheck_glVertexAttribI4sv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribI4ubv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribI4usv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2115,8 +2115,8 @@ inline static bool _lg_typecheck_glVertexAttribI4usv(lua_State *L) {
 inline static bool _lg_typecheck_glGetUniformuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2124,63 +2124,63 @@ inline static bool _lg_typecheck_glGetUniformuiv(lua_State *L) {
 inline static bool _lg_typecheck_glBindFragDataLocation(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetFragDataLocation(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform1ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform2ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform3ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform4ui(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform1uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2188,8 +2188,8 @@ inline static bool _lg_typecheck_glUniform1uiv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform2uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2197,8 +2197,8 @@ inline static bool _lg_typecheck_glUniform2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform3uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2206,8 +2206,8 @@ inline static bool _lg_typecheck_glUniform3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform4uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2215,8 +2215,8 @@ inline static bool _lg_typecheck_glUniform4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glTexParameterIiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2224,8 +2224,8 @@ inline static bool _lg_typecheck_glTexParameterIiv(lua_State *L) {
 inline static bool _lg_typecheck_glTexParameterIuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2233,8 +2233,8 @@ inline static bool _lg_typecheck_glTexParameterIuiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetTexParameterIiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2242,8 +2242,8 @@ inline static bool _lg_typecheck_glGetTexParameterIiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetTexParameterIuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2251,8 +2251,8 @@ inline static bool _lg_typecheck_glGetTexParameterIuiv(lua_State *L) {
 inline static bool _lg_typecheck_glClearBufferiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2260,8 +2260,8 @@ inline static bool _lg_typecheck_glClearBufferiv(lua_State *L) {
 inline static bool _lg_typecheck_glClearBufferuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2269,8 +2269,8 @@ inline static bool _lg_typecheck_glClearBufferuiv(lua_State *L) {
 inline static bool _lg_typecheck_glClearBufferfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2278,63 +2278,63 @@ inline static bool _lg_typecheck_glClearBufferfv(lua_State *L) {
 inline static bool _lg_typecheck_glClearBufferfi(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetStringi(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawArraysInstanced(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawElementsInstanced(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexBuffer(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPrimitiveRestartIndex(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetInteger64i_v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32973728)) ) return false;
 	return true;
 }
@@ -2342,8 +2342,8 @@ inline static bool _lg_typecheck_glGetInteger64i_v(lua_State *L) {
 inline static bool _lg_typecheck_glGetBufferParameteri64v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32973728)) ) return false;
 	return true;
 }
@@ -2351,84 +2351,84 @@ inline static bool _lg_typecheck_glGetBufferParameteri64v(lua_State *L) {
 inline static bool _lg_typecheck_glFramebufferTexture(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribDivisor(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMinSampleShading(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendEquationi(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendEquationSeparatei(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendFunci(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendFuncSeparatei(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glIsRenderbuffer(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBindRenderbuffer(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteRenderbuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2436,7 +2436,7 @@ inline static bool _lg_typecheck_glDeleteRenderbuffers(lua_State *L) {
 inline static bool _lg_typecheck_glGenRenderbuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2444,18 +2444,18 @@ inline static bool _lg_typecheck_glGenRenderbuffers(lua_State *L) {
 inline static bool _lg_typecheck_glRenderbufferStorage(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetRenderbufferParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2463,22 +2463,22 @@ inline static bool _lg_typecheck_glGetRenderbufferParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glIsFramebuffer(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBindFramebuffer(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteFramebuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2486,7 +2486,7 @@ inline static bool _lg_typecheck_glDeleteFramebuffers(lua_State *L) {
 inline static bool _lg_typecheck_glGenFramebuffers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2494,60 +2494,60 @@ inline static bool _lg_typecheck_glGenFramebuffers(lua_State *L) {
 inline static bool _lg_typecheck_glCheckFramebufferStatus(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFramebufferTexture1D(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFramebufferTexture2D(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFramebufferTexture3D(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFramebufferRenderbuffer(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetFramebufferAttachmentParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -2555,62 +2555,62 @@ inline static bool _lg_typecheck_glGetFramebufferAttachmentParameteriv(lua_State
 inline static bool _lg_typecheck_glGenerateMipmap(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlitFramebuffer(lua_State *L) {
 	if( lua_gettop(L)!=10 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glRenderbufferStorageMultisample(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFramebufferTextureLayer(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMapBufferRange(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFlushMappedBufferRange(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 	return true;
@@ -2619,14 +2619,14 @@ inline static bool _lg_typecheck_glFlushMappedBufferRange(lua_State *L) {
 inline static bool _lg_typecheck_glBindVertexArray(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteVertexArrays(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2634,7 +2634,7 @@ inline static bool _lg_typecheck_glDeleteVertexArrays(lua_State *L) {
 inline static bool _lg_typecheck_glGenVertexArrays(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2642,17 +2642,17 @@ inline static bool _lg_typecheck_glGenVertexArrays(lua_State *L) {
 inline static bool _lg_typecheck_glIsVertexArray(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetActiveUniformsiv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -2660,28 +2660,28 @@ inline static bool _lg_typecheck_glGetActiveUniformsiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetActiveUniformName(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( lua_isstring(L,5)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetUniformBlockIndex(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetActiveUniformBlockiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -2689,28 +2689,28 @@ inline static bool _lg_typecheck_glGetActiveUniformBlockiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetActiveUniformBlockName(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( lua_isstring(L,5)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniformBlockBinding(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glCopyBufferSubData(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,32973728) ) return false;
@@ -2720,76 +2720,76 @@ inline static bool _lg_typecheck_glCopyBufferSubData(lua_State *L) {
 inline static bool _lg_typecheck_glDrawElementsBaseVertex(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawRangeElementsBaseVertex(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawElementsInstancedBaseVertex(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProvokingVertex(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexImage2DMultisample(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexImage3DMultisample(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetMultisamplefv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2797,99 +2797,99 @@ inline static bool _lg_typecheck_glGetMultisamplefv(lua_State *L) {
 inline static bool _lg_typecheck_glSampleMaski(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendEquationiARB(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendEquationSeparateiARB(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendFunciARB(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBlendFuncSeparateiARB(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMinSampleShadingARB(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glNamedStringARB(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( lua_isstring(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( lua_type(L,5)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteNamedStringARB(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glIsNamedStringARB(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetNamedStringARB(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( lua_isstring(L,5)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetNamedStringivARB(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -2897,25 +2897,25 @@ inline static bool _lg_typecheck_glGetNamedStringivARB(lua_State *L) {
 inline static bool _lg_typecheck_glBindFragDataLocationIndexed(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetFragDataIndex(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isstring(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGenSamplers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2923,7 +2923,7 @@ inline static bool _lg_typecheck_glGenSamplers(lua_State *L) {
 inline static bool _lg_typecheck_glDeleteSamplers(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -2931,32 +2931,32 @@ inline static bool _lg_typecheck_glDeleteSamplers(lua_State *L) {
 inline static bool _lg_typecheck_glIsSampler(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBindSampler(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glSamplerParameteri(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glSamplerParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2964,17 +2964,17 @@ inline static bool _lg_typecheck_glSamplerParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glSamplerParameterf(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glSamplerParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2982,8 +2982,8 @@ inline static bool _lg_typecheck_glSamplerParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glSamplerParameterIiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -2991,8 +2991,8 @@ inline static bool _lg_typecheck_glSamplerParameterIiv(lua_State *L) {
 inline static bool _lg_typecheck_glSamplerParameterIuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3000,8 +3000,8 @@ inline static bool _lg_typecheck_glSamplerParameterIuiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetSamplerParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3009,8 +3009,8 @@ inline static bool _lg_typecheck_glGetSamplerParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glGetSamplerParameterIiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3018,8 +3018,8 @@ inline static bool _lg_typecheck_glGetSamplerParameterIiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetSamplerParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3027,8 +3027,8 @@ inline static bool _lg_typecheck_glGetSamplerParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glGetSamplerParameterIuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3036,16 +3036,16 @@ inline static bool _lg_typecheck_glGetSamplerParameterIuiv(lua_State *L) {
 inline static bool _lg_typecheck_glQueryCounter(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetQueryObjecti64v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,32973728)) ) return false;
 	return true;
 }
@@ -3053,8 +3053,8 @@ inline static bool _lg_typecheck_glGetQueryObjecti64v(lua_State *L) {
 inline static bool _lg_typecheck_glGetQueryObjectui64v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,60998621)) ) return false;
 	return true;
 }
@@ -3062,15 +3062,15 @@ inline static bool _lg_typecheck_glGetQueryObjectui64v(lua_State *L) {
 inline static bool _lg_typecheck_glVertexP2ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexP2uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3078,15 +3078,15 @@ inline static bool _lg_typecheck_glVertexP2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexP3ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3094,15 +3094,15 @@ inline static bool _lg_typecheck_glVertexP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexP4ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexP4uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3110,15 +3110,15 @@ inline static bool _lg_typecheck_glVertexP4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glTexCoordP1ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexCoordP1uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3126,15 +3126,15 @@ inline static bool _lg_typecheck_glTexCoordP1uiv(lua_State *L) {
 inline static bool _lg_typecheck_glTexCoordP2ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexCoordP2uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3142,15 +3142,15 @@ inline static bool _lg_typecheck_glTexCoordP2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glTexCoordP3ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexCoordP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3158,15 +3158,15 @@ inline static bool _lg_typecheck_glTexCoordP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glTexCoordP4ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexCoordP4uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3174,17 +3174,17 @@ inline static bool _lg_typecheck_glTexCoordP4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glMultiTexCoordP1ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiTexCoordP1uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3192,17 +3192,17 @@ inline static bool _lg_typecheck_glMultiTexCoordP1uiv(lua_State *L) {
 inline static bool _lg_typecheck_glMultiTexCoordP2ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiTexCoordP2uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3210,17 +3210,17 @@ inline static bool _lg_typecheck_glMultiTexCoordP2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glMultiTexCoordP3ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiTexCoordP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3228,17 +3228,17 @@ inline static bool _lg_typecheck_glMultiTexCoordP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glMultiTexCoordP4ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiTexCoordP4uiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3246,15 +3246,15 @@ inline static bool _lg_typecheck_glMultiTexCoordP4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glNormalP3ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glNormalP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3262,15 +3262,15 @@ inline static bool _lg_typecheck_glNormalP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glColorP3ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glColorP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3278,15 +3278,15 @@ inline static bool _lg_typecheck_glColorP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glColorP4ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glColorP4uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3294,15 +3294,15 @@ inline static bool _lg_typecheck_glColorP4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glSecondaryColorP3ui(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glSecondaryColorP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3310,19 +3310,19 @@ inline static bool _lg_typecheck_glSecondaryColorP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribP1ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribP1uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3330,19 +3330,19 @@ inline static bool _lg_typecheck_glVertexAttribP1uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribP2ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribP2uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3350,19 +3350,19 @@ inline static bool _lg_typecheck_glVertexAttribP2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribP3ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribP3uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3370,19 +3370,19 @@ inline static bool _lg_typecheck_glVertexAttribP3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribP4ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribP4uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3390,7 +3390,7 @@ inline static bool _lg_typecheck_glVertexAttribP4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glDrawArraysIndirect(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3398,8 +3398,8 @@ inline static bool _lg_typecheck_glDrawArraysIndirect(lua_State *L) {
 inline static bool _lg_typecheck_glDrawElementsIndirect(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3407,46 +3407,46 @@ inline static bool _lg_typecheck_glDrawElementsIndirect(lua_State *L) {
 inline static bool _lg_typecheck_glUniform1d(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform2d(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform3d(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform4d(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniform1dv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3454,8 +3454,8 @@ inline static bool _lg_typecheck_glUniform1dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform2dv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3463,8 +3463,8 @@ inline static bool _lg_typecheck_glUniform2dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform3dv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3472,8 +3472,8 @@ inline static bool _lg_typecheck_glUniform3dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniform4dv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3481,9 +3481,9 @@ inline static bool _lg_typecheck_glUniform4dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix2dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3491,9 +3491,9 @@ inline static bool _lg_typecheck_glUniformMatrix2dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix3dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3501,9 +3501,9 @@ inline static bool _lg_typecheck_glUniformMatrix3dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix4dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3511,9 +3511,9 @@ inline static bool _lg_typecheck_glUniformMatrix4dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix2x3dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3521,9 +3521,9 @@ inline static bool _lg_typecheck_glUniformMatrix2x3dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix2x4dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3531,9 +3531,9 @@ inline static bool _lg_typecheck_glUniformMatrix2x4dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix3x2dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3541,9 +3541,9 @@ inline static bool _lg_typecheck_glUniformMatrix3x2dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix3x4dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3551,9 +3551,9 @@ inline static bool _lg_typecheck_glUniformMatrix3x4dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix4x2dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3561,9 +3561,9 @@ inline static bool _lg_typecheck_glUniformMatrix4x2dv(lua_State *L) {
 inline static bool _lg_typecheck_glUniformMatrix4x3dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3571,8 +3571,8 @@ inline static bool _lg_typecheck_glUniformMatrix4x3dv(lua_State *L) {
 inline static bool _lg_typecheck_glGetUniformdv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3580,28 +3580,28 @@ inline static bool _lg_typecheck_glGetUniformdv(lua_State *L) {
 inline static bool _lg_typecheck_glGetSubroutineUniformLocation(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetSubroutineIndex(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetActiveSubroutineUniformiv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -3609,32 +3609,32 @@ inline static bool _lg_typecheck_glGetActiveSubroutineUniformiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetActiveSubroutineUniformName(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( lua_isstring(L,6)==0 ) return false;
+	if( lua_type(L,6)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetActiveSubroutineName(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( lua_isstring(L,6)==0 ) return false;
+	if( lua_type(L,6)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUniformSubroutinesuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3642,8 +3642,8 @@ inline static bool _lg_typecheck_glUniformSubroutinesuiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetUniformSubroutineuiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3651,9 +3651,9 @@ inline static bool _lg_typecheck_glGetUniformSubroutineuiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetProgramStageiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3661,15 +3661,15 @@ inline static bool _lg_typecheck_glGetProgramStageiv(lua_State *L) {
 inline static bool _lg_typecheck_glPatchParameteri(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPatchParameterfv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3677,15 +3677,15 @@ inline static bool _lg_typecheck_glPatchParameterfv(lua_State *L) {
 inline static bool _lg_typecheck_glBindTransformFeedback(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteTransformFeedbacks(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3693,7 +3693,7 @@ inline static bool _lg_typecheck_glDeleteTransformFeedbacks(lua_State *L) {
 inline static bool _lg_typecheck_glGenTransformFeedbacks(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3701,7 +3701,7 @@ inline static bool _lg_typecheck_glGenTransformFeedbacks(lua_State *L) {
 inline static bool _lg_typecheck_glIsTransformFeedback(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
@@ -3720,43 +3720,43 @@ inline static bool _lg_typecheck_glResumeTransformFeedback(lua_State *L) {
 inline static bool _lg_typecheck_glDrawTransformFeedback(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawTransformFeedbackStream(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBeginQueryIndexed(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glEndQueryIndexed(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetQueryIndexediv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3770,19 +3770,19 @@ inline static bool _lg_typecheck_glReleaseShaderCompiler(lua_State *L) {
 inline static bool _lg_typecheck_glShaderBinary(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetShaderPrecisionFormat(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
@@ -3791,23 +3791,23 @@ inline static bool _lg_typecheck_glGetShaderPrecisionFormat(lua_State *L) {
 inline static bool _lg_typecheck_glDepthRangef(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClearDepthf(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isnumber(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramBinary(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
@@ -3817,50 +3817,50 @@ inline static bool _lg_typecheck_glGetProgramBinary(lua_State *L) {
 inline static bool _lg_typecheck_glProgramBinary(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramParameteri(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glUseProgramStages(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glActiveShaderProgram(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBindProgramPipeline(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDeleteProgramPipelines(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3868,7 +3868,7 @@ inline static bool _lg_typecheck_glDeleteProgramPipelines(lua_State *L) {
 inline static bool _lg_typecheck_glGenProgramPipelines(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -3876,15 +3876,15 @@ inline static bool _lg_typecheck_glGenProgramPipelines(lua_State *L) {
 inline static bool _lg_typecheck_glIsProgramPipeline(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramPipelineiv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -3892,18 +3892,18 @@ inline static bool _lg_typecheck_glGetProgramPipelineiv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform1i(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform1iv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3911,18 +3911,18 @@ inline static bool _lg_typecheck_glProgramUniform1iv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform1f(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform1fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3930,18 +3930,18 @@ inline static bool _lg_typecheck_glProgramUniform1fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform1d(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform1dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3949,18 +3949,18 @@ inline static bool _lg_typecheck_glProgramUniform1dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform1ui(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform1uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3968,19 +3968,19 @@ inline static bool _lg_typecheck_glProgramUniform1uiv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform2i(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform2iv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -3988,19 +3988,19 @@ inline static bool _lg_typecheck_glProgramUniform2iv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform2f(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform2fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4008,19 +4008,19 @@ inline static bool _lg_typecheck_glProgramUniform2fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform2d(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform2dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4028,19 +4028,19 @@ inline static bool _lg_typecheck_glProgramUniform2dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform2ui(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform2uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4048,20 +4048,20 @@ inline static bool _lg_typecheck_glProgramUniform2uiv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform3i(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform3iv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4069,20 +4069,20 @@ inline static bool _lg_typecheck_glProgramUniform3iv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform3f(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform3fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4090,20 +4090,20 @@ inline static bool _lg_typecheck_glProgramUniform3fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform3d(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform3dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4111,20 +4111,20 @@ inline static bool _lg_typecheck_glProgramUniform3dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform3ui(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform3uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4132,21 +4132,21 @@ inline static bool _lg_typecheck_glProgramUniform3uiv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform4i(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform4iv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4154,21 +4154,21 @@ inline static bool _lg_typecheck_glProgramUniform4iv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform4f(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform4fv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4176,21 +4176,21 @@ inline static bool _lg_typecheck_glProgramUniform4fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform4d(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
-	if( lua_isnumber(L,6)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform4dv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4198,21 +4198,21 @@ inline static bool _lg_typecheck_glProgramUniform4dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniform4ui(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glProgramUniform4uiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4220,10 +4220,10 @@ inline static bool _lg_typecheck_glProgramUniform4uiv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix2fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4231,10 +4231,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix2fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix3fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4242,10 +4242,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix3fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix4fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4253,10 +4253,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix4fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix2dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4264,10 +4264,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix2dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix3dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4275,10 +4275,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix3dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix4dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4286,10 +4286,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix4dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix2x3fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4297,10 +4297,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix2x3fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix3x2fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4308,10 +4308,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix3x2fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix2x4fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4319,10 +4319,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix2x4fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix4x2fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4330,10 +4330,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix4x2fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix3x4fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4341,10 +4341,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix3x4fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix4x3fv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4352,10 +4352,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix4x3fv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix2x3dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4363,10 +4363,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix2x3dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix3x2dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4374,10 +4374,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix3x2dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix2x4dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4385,10 +4385,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix2x4dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix4x2dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4396,10 +4396,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix4x2dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix3x4dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4407,10 +4407,10 @@ inline static bool _lg_typecheck_glProgramUniformMatrix3x4dv(lua_State *L) {
 inline static bool _lg_typecheck_glProgramUniformMatrix4x3dv(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4418,62 +4418,62 @@ inline static bool _lg_typecheck_glProgramUniformMatrix4x3dv(lua_State *L) {
 inline static bool _lg_typecheck_glValidateProgramPipeline(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramPipelineInfoLog(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribL1d(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribL2d(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribL3d(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribL4d(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribL1dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -4481,7 +4481,7 @@ inline static bool _lg_typecheck_glVertexAttribL1dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribL2dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -4489,7 +4489,7 @@ inline static bool _lg_typecheck_glVertexAttribL2dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribL3dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -4497,7 +4497,7 @@ inline static bool _lg_typecheck_glVertexAttribL3dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribL4dv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -4505,10 +4505,10 @@ inline static bool _lg_typecheck_glVertexAttribL4dv(lua_State *L) {
 inline static bool _lg_typecheck_glVertexAttribLPointer(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4516,8 +4516,8 @@ inline static bool _lg_typecheck_glVertexAttribLPointer(lua_State *L) {
 inline static bool _lg_typecheck_glGetVertexAttribLdv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -4525,8 +4525,8 @@ inline static bool _lg_typecheck_glGetVertexAttribLdv(lua_State *L) {
 inline static bool _lg_typecheck_glViewportArrayv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -4534,18 +4534,18 @@ inline static bool _lg_typecheck_glViewportArrayv(lua_State *L) {
 inline static bool _lg_typecheck_glViewportIndexedf(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
-	if( lua_isnumber(L,4)==0 ) return false;
-	if( lua_isnumber(L,5)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glViewportIndexedfv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -4553,8 +4553,8 @@ inline static bool _lg_typecheck_glViewportIndexedfv(lua_State *L) {
 inline static bool _lg_typecheck_glScissorArrayv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -4562,18 +4562,18 @@ inline static bool _lg_typecheck_glScissorArrayv(lua_State *L) {
 inline static bool _lg_typecheck_glScissorIndexed(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glScissorIndexedv(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
 	return true;
 }
@@ -4581,8 +4581,8 @@ inline static bool _lg_typecheck_glScissorIndexedv(lua_State *L) {
 inline static bool _lg_typecheck_glDepthRangeArrayv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -4590,17 +4590,17 @@ inline static bool _lg_typecheck_glDepthRangeArrayv(lua_State *L) {
 inline static bool _lg_typecheck_glDepthRangeIndexed(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( lua_isnumber(L,2)==0 ) return false;
-	if( lua_isnumber(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+	if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetFloati_v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -4608,8 +4608,8 @@ inline static bool _lg_typecheck_glGetFloati_v(lua_State *L) {
 inline static bool _lg_typecheck_glGetDoublei_v(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -4617,38 +4617,38 @@ inline static bool _lg_typecheck_glGetDoublei_v(lua_State *L) {
 inline static bool _lg_typecheck_glDebugMessageControlARB(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDebugMessageInsertARB(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( lua_isstring(L,6)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( lua_type(L,6)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetDebugMessageLogARB(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
-	if( lua_isstring(L,8)==0 ) return false;
+	if( lua_type(L,8)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -4661,11 +4661,11 @@ inline static bool _lg_typecheck_glGetGraphicsResetStatusARB(lua_State *L) {
 inline static bool _lg_typecheck_glGetnTexImageARB(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	return true;
 }
@@ -4673,13 +4673,13 @@ inline static bool _lg_typecheck_glGetnTexImageARB(lua_State *L) {
 inline static bool _lg_typecheck_glReadnPixelsARB(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	return true;
 }
@@ -4687,9 +4687,9 @@ inline static bool _lg_typecheck_glReadnPixelsARB(lua_State *L) {
 inline static bool _lg_typecheck_glGetnCompressedTexImageARB(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4697,9 +4697,9 @@ inline static bool _lg_typecheck_glGetnCompressedTexImageARB(lua_State *L) {
 inline static bool _lg_typecheck_glGetnUniformfvARB(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4707,9 +4707,9 @@ inline static bool _lg_typecheck_glGetnUniformfvARB(lua_State *L) {
 inline static bool _lg_typecheck_glGetnUniformivARB(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4717,9 +4717,9 @@ inline static bool _lg_typecheck_glGetnUniformivARB(lua_State *L) {
 inline static bool _lg_typecheck_glGetnUniformuivARB(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4727,9 +4727,9 @@ inline static bool _lg_typecheck_glGetnUniformuivARB(lua_State *L) {
 inline static bool _lg_typecheck_glGetnUniformdvARB(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4737,65 +4737,65 @@ inline static bool _lg_typecheck_glGetnUniformdvARB(lua_State *L) {
 inline static bool _lg_typecheck_glDrawArraysInstancedBaseInstance(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawElementsInstancedBaseInstance(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawElementsInstancedBaseVertexBaseInstance(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawTransformFeedbackInstanced(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDrawTransformFeedbackStreamInstanced(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetInternalformativ(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -4803,9 +4803,9 @@ inline static bool _lg_typecheck_glGetInternalformativ(lua_State *L) {
 inline static bool _lg_typecheck_glGetActiveAtomicCounterBufferiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -4813,158 +4813,158 @@ inline static bool _lg_typecheck_glGetActiveAtomicCounterBufferiv(lua_State *L) 
 inline static bool _lg_typecheck_glBindImageTexture(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMemoryBarrier(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexStorage1D(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexStorage2D(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexStorage3D(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTextureStorage1DEXT(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTextureStorage2DEXT(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTextureStorage3DEXT(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDebugMessageControl(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glDebugMessageInsert(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( lua_isstring(L,6)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( lua_type(L,6)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetDebugMessageLog(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,3625364)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
-	if( lua_isstring(L,8)==0 ) return false;
+	if( lua_type(L,8)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glPushDebugGroup(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glObjectLabel(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetObjectLabel(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-	if( lua_isstring(L,5)==0 ) return false;
+	if( lua_type(L,5)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -4972,8 +4972,8 @@ inline static bool _lg_typecheck_glObjectPtrLabel(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -4981,19 +4981,19 @@ inline static bool _lg_typecheck_glGetObjectPtrLabel(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
 	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( lua_isstring(L,4)==0 ) return false;
+	if( lua_type(L,4)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glClearBufferData(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -5001,12 +5001,12 @@ inline static bool _lg_typecheck_glClearBufferData(lua_State *L) {
 inline static bool _lg_typecheck_glClearBufferSubData(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,32973728) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	return true;
 }
@@ -5014,10 +5014,10 @@ inline static bool _lg_typecheck_glClearBufferSubData(lua_State *L) {
 inline static bool _lg_typecheck_glClearNamedBufferDataEXT(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 	return true;
 }
@@ -5025,10 +5025,10 @@ inline static bool _lg_typecheck_glClearNamedBufferDataEXT(lua_State *L) {
 inline static bool _lg_typecheck_glClearNamedBufferSubDataEXT(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,6,32973728) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
@@ -5038,9 +5038,9 @@ inline static bool _lg_typecheck_glClearNamedBufferSubDataEXT(lua_State *L) {
 inline static bool _lg_typecheck_glDispatchCompute(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
@@ -5054,109 +5054,109 @@ inline static bool _lg_typecheck_glDispatchComputeIndirect(lua_State *L) {
 inline static bool _lg_typecheck_glCopyImageSubData(lua_State *L) {
 	if( lua_gettop(L)!=15 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-	if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
-	if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
-	if( (lua_isnumber(L,11)==0 || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
-	if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
-	if( (lua_isnumber(L,13)==0 || lua_tointeger(L,13) != lua_tonumber(L,13)) ) return false;
-	if( (lua_isnumber(L,14)==0 || lua_tointeger(L,14) != lua_tonumber(L,14)) ) return false;
-	if( (lua_isnumber(L,15)==0 || lua_tointeger(L,15) != lua_tonumber(L,15)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+	if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+	if( (lua_type(L,11)!=LUA_TNUMBER || lua_tointeger(L,11) != lua_tonumber(L,11)) ) return false;
+	if( (lua_type(L,12)!=LUA_TNUMBER || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
+	if( (lua_type(L,13)!=LUA_TNUMBER || lua_tointeger(L,13) != lua_tonumber(L,13)) ) return false;
+	if( (lua_type(L,14)!=LUA_TNUMBER || lua_tointeger(L,14) != lua_tonumber(L,14)) ) return false;
+	if( (lua_type(L,15)!=LUA_TNUMBER || lua_tointeger(L,15) != lua_tonumber(L,15)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTextureView(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glBindVertexBuffer(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribFormat(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribIFormat(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribLFormat(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexAttribBinding(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glVertexBindingDivisor(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glFramebufferParameteri(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetFramebufferParameteriv(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -5164,17 +5164,17 @@ inline static bool _lg_typecheck_glGetFramebufferParameteriv(lua_State *L) {
 inline static bool _lg_typecheck_glNamedFramebufferParameteriEXT(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetNamedFramebufferParameterivEXT(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -5182,10 +5182,10 @@ inline static bool _lg_typecheck_glGetNamedFramebufferParameterivEXT(lua_State *
 inline static bool _lg_typecheck_glGetInternalformati64v(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,32973728)) ) return false;
 	return true;
 }
@@ -5193,29 +5193,29 @@ inline static bool _lg_typecheck_glGetInternalformati64v(lua_State *L) {
 inline static bool _lg_typecheck_glInvalidateTexSubImage(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glInvalidateTexImage(lua_State *L) {
 	if( lua_gettop(L)!=2 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glInvalidateBufferSubData(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,2,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,3,32973728) ) return false;
 	return true;
@@ -5224,15 +5224,15 @@ inline static bool _lg_typecheck_glInvalidateBufferSubData(lua_State *L) {
 inline static bool _lg_typecheck_glInvalidateBufferData(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glInvalidateFramebuffer(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
 	return true;
 }
@@ -5240,43 +5240,43 @@ inline static bool _lg_typecheck_glInvalidateFramebuffer(lua_State *L) {
 inline static bool _lg_typecheck_glInvalidateSubFramebuffer(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiDrawArraysIndirect(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glMultiDrawElementsIndirect(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 	if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,3625364)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramInterfaceiv(lua_State *L) {
 	if( lua_gettop(L)!=4 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
 	return true;
 }
@@ -5284,33 +5284,33 @@ inline static bool _lg_typecheck_glGetProgramInterfaceiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetProgramResourceIndex(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramResourceName(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( lua_isstring(L,6)==0 ) return false;
+	if( lua_type(L,6)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramResourceiv(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,3625364)) ) return false;
 	if( (lua_isnil(L,8)==0 && !Luna<void>::has_uniqueid(L,8,3625364)) ) return false;
 	return true;
@@ -5319,36 +5319,36 @@ inline static bool _lg_typecheck_glGetProgramResourceiv(lua_State *L) {
 inline static bool _lg_typecheck_glGetProgramResourceLocation(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glGetProgramResourceLocationIndex(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( lua_isstring(L,3)==0 ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( lua_type(L,3)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glShaderStorageBlockBinding(lua_State *L) {
 	if( lua_gettop(L)!=3 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexBufferRange(lua_State *L) {
 	if( lua_gettop(L)!=5 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,4,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,32973728) ) return false;
 	return true;
@@ -5357,10 +5357,10 @@ inline static bool _lg_typecheck_glTexBufferRange(lua_State *L) {
 inline static bool _lg_typecheck_glTextureBufferRangeEXT(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 	if( !Luna<void>::has_uniqueid(L,5,32973728) ) return false;
 	if( !Luna<void>::has_uniqueid(L,6,32973728) ) return false;
 	return true;
@@ -5369,52 +5369,52 @@ inline static bool _lg_typecheck_glTextureBufferRangeEXT(lua_State *L) {
 inline static bool _lg_typecheck_glTexStorage2DMultisample(lua_State *L) {
 	if( lua_gettop(L)!=6 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTexStorage3DMultisample(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTextureStorage2DMultisampleEXT(lua_State *L) {
 	if( lua_gettop(L)!=7 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glTextureStorage3DMultisampleEXT(lua_State *L) {
 	if( lua_gettop(L)!=8 ) return false;
 
-	if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
-	if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-	if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-	if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-	if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-	if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
-	if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-	if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+	if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+	if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+	if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+	if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 	return true;
 }
 
@@ -5427,14 +5427,14 @@ inline static bool _lg_typecheck_glewInit(lua_State *L) {
 inline static bool _lg_typecheck_glewIsSupported(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
 inline static bool _lg_typecheck_glewGetExtension(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
-	if( lua_isstring(L,1)==0 ) return false;
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
 	return true;
 }
 
@@ -5443,8 +5443,7 @@ inline static bool _lg_typecheck_glewGetExtension(lua_State *L) {
 // void glCullFace(unsigned int mode)
 static int _bind_glCullFace(lua_State *L) {
 	if (!_lg_typecheck_glCullFace(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCullFace(unsigned int mode) function, expected prototype:\nvoid glCullFace(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCullFace(unsigned int mode) function, expected prototype:\nvoid glCullFace(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -5457,8 +5456,7 @@ static int _bind_glCullFace(lua_State *L) {
 // void glFrontFace(unsigned int mode)
 static int _bind_glFrontFace(lua_State *L) {
 	if (!_lg_typecheck_glFrontFace(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFrontFace(unsigned int mode) function, expected prototype:\nvoid glFrontFace(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFrontFace(unsigned int mode) function, expected prototype:\nvoid glFrontFace(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -5471,8 +5469,7 @@ static int _bind_glFrontFace(lua_State *L) {
 // void glHint(unsigned int target, unsigned int mode)
 static int _bind_glHint(lua_State *L) {
 	if (!_lg_typecheck_glHint(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glHint(unsigned int target, unsigned int mode) function, expected prototype:\nvoid glHint(unsigned int target, unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glHint(unsigned int target, unsigned int mode) function, expected prototype:\nvoid glHint(unsigned int target, unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5486,8 +5483,7 @@ static int _bind_glHint(lua_State *L) {
 // void glLineWidth(float width)
 static int _bind_glLineWidth(lua_State *L) {
 	if (!_lg_typecheck_glLineWidth(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glLineWidth(float width) function, expected prototype:\nvoid glLineWidth(float width)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glLineWidth(float width) function, expected prototype:\nvoid glLineWidth(float width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float width=(float)lua_tonumber(L,1);
@@ -5500,8 +5496,7 @@ static int _bind_glLineWidth(lua_State *L) {
 // void glPointSize(float size)
 static int _bind_glPointSize(lua_State *L) {
 	if (!_lg_typecheck_glPointSize(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPointSize(float size) function, expected prototype:\nvoid glPointSize(float size)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPointSize(float size) function, expected prototype:\nvoid glPointSize(float size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float size=(float)lua_tonumber(L,1);
@@ -5514,8 +5509,7 @@ static int _bind_glPointSize(lua_State *L) {
 // void glPolygonMode(unsigned int face, unsigned int mode)
 static int _bind_glPolygonMode(lua_State *L) {
 	if (!_lg_typecheck_glPolygonMode(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPolygonMode(unsigned int face, unsigned int mode) function, expected prototype:\nvoid glPolygonMode(unsigned int face, unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPolygonMode(unsigned int face, unsigned int mode) function, expected prototype:\nvoid glPolygonMode(unsigned int face, unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int face=(unsigned int)lua_tointeger(L,1);
@@ -5529,8 +5523,7 @@ static int _bind_glPolygonMode(lua_State *L) {
 // void glScissor(int x, int y, int width, int height)
 static int _bind_glScissor(lua_State *L) {
 	if (!_lg_typecheck_glScissor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glScissor(int x, int y, int width, int height) function, expected prototype:\nvoid glScissor(int x, int y, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glScissor(int x, int y, int width, int height) function, expected prototype:\nvoid glScissor(int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int x=(int)lua_tointeger(L,1);
@@ -5546,8 +5539,7 @@ static int _bind_glScissor(lua_State *L) {
 // void glTexParameterf(unsigned int target, unsigned int pname, float param)
 static int _bind_glTexParameterf(lua_State *L) {
 	if (!_lg_typecheck_glTexParameterf(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexParameterf(unsigned int target, unsigned int pname, float param) function, expected prototype:\nvoid glTexParameterf(unsigned int target, unsigned int pname, float param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexParameterf(unsigned int target, unsigned int pname, float param) function, expected prototype:\nvoid glTexParameterf(unsigned int target, unsigned int pname, float param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5562,8 +5554,7 @@ static int _bind_glTexParameterf(lua_State *L) {
 // void glTexParameterfv(unsigned int target, unsigned int pname, const float * params)
 static int _bind_glTexParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glTexParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexParameterfv(unsigned int target, unsigned int pname, const float * params) function, expected prototype:\nvoid glTexParameterfv(unsigned int target, unsigned int pname, const float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexParameterfv(unsigned int target, unsigned int pname, const float * params) function, expected prototype:\nvoid glTexParameterfv(unsigned int target, unsigned int pname, const float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5578,8 +5569,7 @@ static int _bind_glTexParameterfv(lua_State *L) {
 // void glTexParameteri(unsigned int target, unsigned int pname, int param)
 static int _bind_glTexParameteri(lua_State *L) {
 	if (!_lg_typecheck_glTexParameteri(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexParameteri(unsigned int target, unsigned int pname, int param) function, expected prototype:\nvoid glTexParameteri(unsigned int target, unsigned int pname, int param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexParameteri(unsigned int target, unsigned int pname, int param) function, expected prototype:\nvoid glTexParameteri(unsigned int target, unsigned int pname, int param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5594,8 +5584,7 @@ static int _bind_glTexParameteri(lua_State *L) {
 // void glTexParameteriv(unsigned int target, unsigned int pname, const int * params)
 static int _bind_glTexParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glTexParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexParameteriv(unsigned int target, unsigned int pname, const int * params) function, expected prototype:\nvoid glTexParameteriv(unsigned int target, unsigned int pname, const int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexParameteriv(unsigned int target, unsigned int pname, const int * params) function, expected prototype:\nvoid glTexParameteriv(unsigned int target, unsigned int pname, const int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5610,8 +5599,7 @@ static int _bind_glTexParameteriv(lua_State *L) {
 // void glTexImage1D(unsigned int target, int level, int internalformat, int width, int border, unsigned int format, unsigned int type, const void * pixels)
 static int _bind_glTexImage1D(lua_State *L) {
 	if (!_lg_typecheck_glTexImage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexImage1D(unsigned int target, int level, int internalformat, int width, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexImage1D(unsigned int target, int level, int internalformat, int width, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexImage1D(unsigned int target, int level, int internalformat, int width, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexImage1D(unsigned int target, int level, int internalformat, int width, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5621,7 +5609,7 @@ static int _bind_glTexImage1D(lua_State *L) {
 	int border=(int)lua_tointeger(L,5);
 	unsigned int format=(unsigned int)lua_tointeger(L,6);
 	unsigned int type=(unsigned int)lua_tointeger(L,7);
-	void* pixels=(Luna< void >::check(L,8));
+	const void* pixels=(Luna< void >::check(L,8));
 
 	::glTexImage1D(target, level, internalformat, width, border, format, type, pixels);
 
@@ -5631,8 +5619,7 @@ static int _bind_glTexImage1D(lua_State *L) {
 // void glTexImage2D(unsigned int target, int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void * pixels)
 static int _bind_glTexImage2D(lua_State *L) {
 	if (!_lg_typecheck_glTexImage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexImage2D(unsigned int target, int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexImage2D(unsigned int target, int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexImage2D(unsigned int target, int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexImage2D(unsigned int target, int level, int internalformat, int width, int height, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -5643,7 +5630,7 @@ static int _bind_glTexImage2D(lua_State *L) {
 	int border=(int)lua_tointeger(L,6);
 	unsigned int format=(unsigned int)lua_tointeger(L,7);
 	unsigned int type=(unsigned int)lua_tointeger(L,8);
-	void* pixels=(Luna< void >::check(L,9));
+	const void* pixels=(Luna< void >::check(L,9));
 
 	::glTexImage2D(target, level, internalformat, width, height, border, format, type, pixels);
 
@@ -5653,8 +5640,7 @@ static int _bind_glTexImage2D(lua_State *L) {
 // void glDrawBuffer(unsigned int mode)
 static int _bind_glDrawBuffer(lua_State *L) {
 	if (!_lg_typecheck_glDrawBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawBuffer(unsigned int mode) function, expected prototype:\nvoid glDrawBuffer(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawBuffer(unsigned int mode) function, expected prototype:\nvoid glDrawBuffer(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -5667,8 +5653,7 @@ static int _bind_glDrawBuffer(lua_State *L) {
 // void glClear(unsigned int mask)
 static int _bind_glClear(lua_State *L) {
 	if (!_lg_typecheck_glClear(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClear(unsigned int mask) function, expected prototype:\nvoid glClear(unsigned int mask)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClear(unsigned int mask) function, expected prototype:\nvoid glClear(unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mask=(unsigned int)lua_tointeger(L,1);
@@ -5681,8 +5666,7 @@ static int _bind_glClear(lua_State *L) {
 // void glClearColor(float red, float green, float blue, float alpha)
 static int _bind_glClearColor(lua_State *L) {
 	if (!_lg_typecheck_glClearColor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearColor(float red, float green, float blue, float alpha) function, expected prototype:\nvoid glClearColor(float red, float green, float blue, float alpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearColor(float red, float green, float blue, float alpha) function, expected prototype:\nvoid glClearColor(float red, float green, float blue, float alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float red=(float)lua_tonumber(L,1);
@@ -5698,8 +5682,7 @@ static int _bind_glClearColor(lua_State *L) {
 // void glClearStencil(int s)
 static int _bind_glClearStencil(lua_State *L) {
 	if (!_lg_typecheck_glClearStencil(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearStencil(int s) function, expected prototype:\nvoid glClearStencil(int s)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearStencil(int s) function, expected prototype:\nvoid glClearStencil(int s)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int s=(int)lua_tointeger(L,1);
@@ -5712,8 +5695,7 @@ static int _bind_glClearStencil(lua_State *L) {
 // void glClearDepth(double depth)
 static int _bind_glClearDepth(lua_State *L) {
 	if (!_lg_typecheck_glClearDepth(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearDepth(double depth) function, expected prototype:\nvoid glClearDepth(double depth)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearDepth(double depth) function, expected prototype:\nvoid glClearDepth(double depth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double depth=(double)lua_tonumber(L,1);
@@ -5726,8 +5708,7 @@ static int _bind_glClearDepth(lua_State *L) {
 // void glStencilMask(unsigned int mask)
 static int _bind_glStencilMask(lua_State *L) {
 	if (!_lg_typecheck_glStencilMask(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glStencilMask(unsigned int mask) function, expected prototype:\nvoid glStencilMask(unsigned int mask)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glStencilMask(unsigned int mask) function, expected prototype:\nvoid glStencilMask(unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mask=(unsigned int)lua_tointeger(L,1);
@@ -5740,8 +5721,7 @@ static int _bind_glStencilMask(lua_State *L) {
 // void glColorMask(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha)
 static int _bind_glColorMask(lua_State *L) {
 	if (!_lg_typecheck_glColorMask(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glColorMask(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha) function, expected prototype:\nvoid glColorMask(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glColorMask(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha) function, expected prototype:\nvoid glColorMask(unsigned char red, unsigned char green, unsigned char blue, unsigned char alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned char red = (unsigned char)(lua_tointeger(L,1));
@@ -5757,8 +5737,7 @@ static int _bind_glColorMask(lua_State *L) {
 // void glDepthMask(unsigned char flag)
 static int _bind_glDepthMask(lua_State *L) {
 	if (!_lg_typecheck_glDepthMask(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDepthMask(unsigned char flag) function, expected prototype:\nvoid glDepthMask(unsigned char flag)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDepthMask(unsigned char flag) function, expected prototype:\nvoid glDepthMask(unsigned char flag)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned char flag = (unsigned char)(lua_tointeger(L,1));
@@ -5771,8 +5750,7 @@ static int _bind_glDepthMask(lua_State *L) {
 // void glDisable(unsigned int cap)
 static int _bind_glDisable(lua_State *L) {
 	if (!_lg_typecheck_glDisable(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDisable(unsigned int cap) function, expected prototype:\nvoid glDisable(unsigned int cap)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDisable(unsigned int cap) function, expected prototype:\nvoid glDisable(unsigned int cap)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int cap=(unsigned int)lua_tointeger(L,1);
@@ -5785,8 +5763,7 @@ static int _bind_glDisable(lua_State *L) {
 // void glEnable(unsigned int cap)
 static int _bind_glEnable(lua_State *L) {
 	if (!_lg_typecheck_glEnable(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEnable(unsigned int cap) function, expected prototype:\nvoid glEnable(unsigned int cap)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEnable(unsigned int cap) function, expected prototype:\nvoid glEnable(unsigned int cap)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int cap=(unsigned int)lua_tointeger(L,1);
@@ -5799,8 +5776,7 @@ static int _bind_glEnable(lua_State *L) {
 // void glFinish()
 static int _bind_glFinish(lua_State *L) {
 	if (!_lg_typecheck_glFinish(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFinish() function, expected prototype:\nvoid glFinish()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFinish() function, expected prototype:\nvoid glFinish()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -5812,8 +5788,7 @@ static int _bind_glFinish(lua_State *L) {
 // void glFlush()
 static int _bind_glFlush(lua_State *L) {
 	if (!_lg_typecheck_glFlush(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFlush() function, expected prototype:\nvoid glFlush()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFlush() function, expected prototype:\nvoid glFlush()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -5825,8 +5800,7 @@ static int _bind_glFlush(lua_State *L) {
 // void glBlendFunc(unsigned int sfactor, unsigned int dfactor)
 static int _bind_glBlendFunc(lua_State *L) {
 	if (!_lg_typecheck_glBlendFunc(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendFunc(unsigned int sfactor, unsigned int dfactor) function, expected prototype:\nvoid glBlendFunc(unsigned int sfactor, unsigned int dfactor)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendFunc(unsigned int sfactor, unsigned int dfactor) function, expected prototype:\nvoid glBlendFunc(unsigned int sfactor, unsigned int dfactor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sfactor=(unsigned int)lua_tointeger(L,1);
@@ -5840,8 +5814,7 @@ static int _bind_glBlendFunc(lua_State *L) {
 // void glLogicOp(unsigned int opcode)
 static int _bind_glLogicOp(lua_State *L) {
 	if (!_lg_typecheck_glLogicOp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glLogicOp(unsigned int opcode) function, expected prototype:\nvoid glLogicOp(unsigned int opcode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glLogicOp(unsigned int opcode) function, expected prototype:\nvoid glLogicOp(unsigned int opcode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int opcode=(unsigned int)lua_tointeger(L,1);
@@ -5854,8 +5827,7 @@ static int _bind_glLogicOp(lua_State *L) {
 // void glStencilFunc(unsigned int func, int ref, unsigned int mask)
 static int _bind_glStencilFunc(lua_State *L) {
 	if (!_lg_typecheck_glStencilFunc(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glStencilFunc(unsigned int func, int ref, unsigned int mask) function, expected prototype:\nvoid glStencilFunc(unsigned int func, int ref, unsigned int mask)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glStencilFunc(unsigned int func, int ref, unsigned int mask) function, expected prototype:\nvoid glStencilFunc(unsigned int func, int ref, unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int func=(unsigned int)lua_tointeger(L,1);
@@ -5870,8 +5842,7 @@ static int _bind_glStencilFunc(lua_State *L) {
 // void glStencilOp(unsigned int fail, unsigned int zfail, unsigned int zpass)
 static int _bind_glStencilOp(lua_State *L) {
 	if (!_lg_typecheck_glStencilOp(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glStencilOp(unsigned int fail, unsigned int zfail, unsigned int zpass) function, expected prototype:\nvoid glStencilOp(unsigned int fail, unsigned int zfail, unsigned int zpass)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glStencilOp(unsigned int fail, unsigned int zfail, unsigned int zpass) function, expected prototype:\nvoid glStencilOp(unsigned int fail, unsigned int zfail, unsigned int zpass)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int fail=(unsigned int)lua_tointeger(L,1);
@@ -5886,8 +5857,7 @@ static int _bind_glStencilOp(lua_State *L) {
 // void glDepthFunc(unsigned int func)
 static int _bind_glDepthFunc(lua_State *L) {
 	if (!_lg_typecheck_glDepthFunc(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDepthFunc(unsigned int func) function, expected prototype:\nvoid glDepthFunc(unsigned int func)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDepthFunc(unsigned int func) function, expected prototype:\nvoid glDepthFunc(unsigned int func)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int func=(unsigned int)lua_tointeger(L,1);
@@ -5900,8 +5870,7 @@ static int _bind_glDepthFunc(lua_State *L) {
 // void glPixelStoref(unsigned int pname, float param)
 static int _bind_glPixelStoref(lua_State *L) {
 	if (!_lg_typecheck_glPixelStoref(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPixelStoref(unsigned int pname, float param) function, expected prototype:\nvoid glPixelStoref(unsigned int pname, float param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPixelStoref(unsigned int pname, float param) function, expected prototype:\nvoid glPixelStoref(unsigned int pname, float param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -5915,8 +5884,7 @@ static int _bind_glPixelStoref(lua_State *L) {
 // void glPixelStorei(unsigned int pname, int param)
 static int _bind_glPixelStorei(lua_State *L) {
 	if (!_lg_typecheck_glPixelStorei(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPixelStorei(unsigned int pname, int param) function, expected prototype:\nvoid glPixelStorei(unsigned int pname, int param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPixelStorei(unsigned int pname, int param) function, expected prototype:\nvoid glPixelStorei(unsigned int pname, int param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -5930,8 +5898,7 @@ static int _bind_glPixelStorei(lua_State *L) {
 // void glReadBuffer(unsigned int mode)
 static int _bind_glReadBuffer(lua_State *L) {
 	if (!_lg_typecheck_glReadBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glReadBuffer(unsigned int mode) function, expected prototype:\nvoid glReadBuffer(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glReadBuffer(unsigned int mode) function, expected prototype:\nvoid glReadBuffer(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -5944,8 +5911,7 @@ static int _bind_glReadBuffer(lua_State *L) {
 // void glReadPixels(int x, int y, int width, int height, unsigned int format, unsigned int type, void * pixels)
 static int _bind_glReadPixels(lua_State *L) {
 	if (!_lg_typecheck_glReadPixels(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glReadPixels(int x, int y, int width, int height, unsigned int format, unsigned int type, void * pixels) function, expected prototype:\nvoid glReadPixels(int x, int y, int width, int height, unsigned int format, unsigned int type, void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glReadPixels(int x, int y, int width, int height, unsigned int format, unsigned int type, void * pixels) function, expected prototype:\nvoid glReadPixels(int x, int y, int width, int height, unsigned int format, unsigned int type, void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int x=(int)lua_tointeger(L,1);
@@ -5964,8 +5930,7 @@ static int _bind_glReadPixels(lua_State *L) {
 // void glGetBooleanv(unsigned int pname, unsigned char * params)
 static int _bind_glGetBooleanv(lua_State *L) {
 	if (!_lg_typecheck_glGetBooleanv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetBooleanv(unsigned int pname, unsigned char * params) function, expected prototype:\nvoid glGetBooleanv(unsigned int pname, unsigned char * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetBooleanv(unsigned int pname, unsigned char * params) function, expected prototype:\nvoid glGetBooleanv(unsigned int pname, unsigned char * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -5979,8 +5944,7 @@ static int _bind_glGetBooleanv(lua_State *L) {
 // void glGetDoublev(unsigned int pname, double * params)
 static int _bind_glGetDoublev(lua_State *L) {
 	if (!_lg_typecheck_glGetDoublev(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetDoublev(unsigned int pname, double * params) function, expected prototype:\nvoid glGetDoublev(unsigned int pname, double * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetDoublev(unsigned int pname, double * params) function, expected prototype:\nvoid glGetDoublev(unsigned int pname, double * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -5994,8 +5958,7 @@ static int _bind_glGetDoublev(lua_State *L) {
 // unsigned int glGetError()
 static int _bind_glGetError(lua_State *L) {
 	if (!_lg_typecheck_glGetError(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetError() function, expected prototype:\nunsigned int glGetError()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetError() function, expected prototype:\nunsigned int glGetError()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -6008,8 +5971,7 @@ static int _bind_glGetError(lua_State *L) {
 // void glGetFloatv(unsigned int pname, float * params)
 static int _bind_glGetFloatv(lua_State *L) {
 	if (!_lg_typecheck_glGetFloatv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetFloatv(unsigned int pname, float * params) function, expected prototype:\nvoid glGetFloatv(unsigned int pname, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetFloatv(unsigned int pname, float * params) function, expected prototype:\nvoid glGetFloatv(unsigned int pname, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -6023,8 +5985,7 @@ static int _bind_glGetFloatv(lua_State *L) {
 // void glGetIntegerv(unsigned int pname, int * params)
 static int _bind_glGetIntegerv(lua_State *L) {
 	if (!_lg_typecheck_glGetIntegerv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetIntegerv(unsigned int pname, int * params) function, expected prototype:\nvoid glGetIntegerv(unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetIntegerv(unsigned int pname, int * params) function, expected prototype:\nvoid glGetIntegerv(unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -6038,8 +5999,7 @@ static int _bind_glGetIntegerv(lua_State *L) {
 // const unsigned char * glGetString(unsigned int name)
 static int _bind_glGetString(lua_State *L) {
 	if (!_lg_typecheck_glGetString(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const unsigned char * glGetString(unsigned int name) function, expected prototype:\nconst unsigned char * glGetString(unsigned int name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const unsigned char * glGetString(unsigned int name) function, expected prototype:\nconst unsigned char * glGetString(unsigned int name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int name=(unsigned int)lua_tointeger(L,1);
@@ -6053,8 +6013,7 @@ static int _bind_glGetString(lua_State *L) {
 // void glGetTexImage(unsigned int target, int level, unsigned int format, unsigned int type, void * pixels)
 static int _bind_glGetTexImage(lua_State *L) {
 	if (!_lg_typecheck_glGetTexImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexImage(unsigned int target, int level, unsigned int format, unsigned int type, void * pixels) function, expected prototype:\nvoid glGetTexImage(unsigned int target, int level, unsigned int format, unsigned int type, void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexImage(unsigned int target, int level, unsigned int format, unsigned int type, void * pixels) function, expected prototype:\nvoid glGetTexImage(unsigned int target, int level, unsigned int format, unsigned int type, void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6071,8 +6030,7 @@ static int _bind_glGetTexImage(lua_State *L) {
 // void glGetTexParameterfv(unsigned int target, unsigned int pname, float * params)
 static int _bind_glGetTexParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glGetTexParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexParameterfv(unsigned int target, unsigned int pname, float * params) function, expected prototype:\nvoid glGetTexParameterfv(unsigned int target, unsigned int pname, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexParameterfv(unsigned int target, unsigned int pname, float * params) function, expected prototype:\nvoid glGetTexParameterfv(unsigned int target, unsigned int pname, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6087,8 +6045,7 @@ static int _bind_glGetTexParameterfv(lua_State *L) {
 // void glGetTexParameteriv(unsigned int target, unsigned int pname, int * params)
 static int _bind_glGetTexParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetTexParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetTexParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetTexParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6103,8 +6060,7 @@ static int _bind_glGetTexParameteriv(lua_State *L) {
 // void glGetTexLevelParameterfv(unsigned int target, int level, unsigned int pname, float * params)
 static int _bind_glGetTexLevelParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glGetTexLevelParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexLevelParameterfv(unsigned int target, int level, unsigned int pname, float * params) function, expected prototype:\nvoid glGetTexLevelParameterfv(unsigned int target, int level, unsigned int pname, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexLevelParameterfv(unsigned int target, int level, unsigned int pname, float * params) function, expected prototype:\nvoid glGetTexLevelParameterfv(unsigned int target, int level, unsigned int pname, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6120,8 +6076,7 @@ static int _bind_glGetTexLevelParameterfv(lua_State *L) {
 // void glGetTexLevelParameteriv(unsigned int target, int level, unsigned int pname, int * params)
 static int _bind_glGetTexLevelParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetTexLevelParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexLevelParameteriv(unsigned int target, int level, unsigned int pname, int * params) function, expected prototype:\nvoid glGetTexLevelParameteriv(unsigned int target, int level, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexLevelParameteriv(unsigned int target, int level, unsigned int pname, int * params) function, expected prototype:\nvoid glGetTexLevelParameteriv(unsigned int target, int level, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6137,8 +6092,7 @@ static int _bind_glGetTexLevelParameteriv(lua_State *L) {
 // unsigned char glIsEnabled(unsigned int cap)
 static int _bind_glIsEnabled(lua_State *L) {
 	if (!_lg_typecheck_glIsEnabled(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsEnabled(unsigned int cap) function, expected prototype:\nunsigned char glIsEnabled(unsigned int cap)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsEnabled(unsigned int cap) function, expected prototype:\nunsigned char glIsEnabled(unsigned int cap)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int cap=(unsigned int)lua_tointeger(L,1);
@@ -6152,8 +6106,7 @@ static int _bind_glIsEnabled(lua_State *L) {
 // void glDepthRange(double nearv, double farv)
 static int _bind_glDepthRange(lua_State *L) {
 	if (!_lg_typecheck_glDepthRange(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDepthRange(double nearv, double farv) function, expected prototype:\nvoid glDepthRange(double nearv, double farv)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDepthRange(double nearv, double farv) function, expected prototype:\nvoid glDepthRange(double nearv, double farv)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	double nearv=(double)lua_tonumber(L,1);
@@ -6167,8 +6120,7 @@ static int _bind_glDepthRange(lua_State *L) {
 // void glViewport(int x, int y, int width, int height)
 static int _bind_glViewport(lua_State *L) {
 	if (!_lg_typecheck_glViewport(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glViewport(int x, int y, int width, int height) function, expected prototype:\nvoid glViewport(int x, int y, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glViewport(int x, int y, int width, int height) function, expected prototype:\nvoid glViewport(int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int x=(int)lua_tointeger(L,1);
@@ -6184,8 +6136,7 @@ static int _bind_glViewport(lua_State *L) {
 // void glDrawArrays(unsigned int mode, int first, int count)
 static int _bind_glDrawArrays(lua_State *L) {
 	if (!_lg_typecheck_glDrawArrays(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid glDrawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawArrays(unsigned int mode, int first, int count) function, expected prototype:\nvoid glDrawArrays(unsigned int mode, int first, int count)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -6200,14 +6151,13 @@ static int _bind_glDrawArrays(lua_State *L) {
 // void glDrawElements(unsigned int mode, int count, unsigned int type, const void * indices)
 static int _bind_glDrawElements(lua_State *L) {
 	if (!_lg_typecheck_glDrawElements(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElements(unsigned int mode, int count, unsigned int type, const void * indices) function, expected prototype:\nvoid glDrawElements(unsigned int mode, int count, unsigned int type, const void * indices)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElements(unsigned int mode, int count, unsigned int type, const void * indices) function, expected prototype:\nvoid glDrawElements(unsigned int mode, int count, unsigned int type, const void * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 	int count=(int)lua_tointeger(L,2);
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
-	void* indices=(Luna< void >::check(L,4));
+	const void* indices=(Luna< void >::check(L,4));
 
 	::glDrawElements(mode, count, type, indices);
 
@@ -6217,8 +6167,7 @@ static int _bind_glDrawElements(lua_State *L) {
 // void glPolygonOffset(float factor, float units)
 static int _bind_glPolygonOffset(lua_State *L) {
 	if (!_lg_typecheck_glPolygonOffset(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPolygonOffset(float factor, float units) function, expected prototype:\nvoid glPolygonOffset(float factor, float units)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPolygonOffset(float factor, float units) function, expected prototype:\nvoid glPolygonOffset(float factor, float units)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float factor=(float)lua_tonumber(L,1);
@@ -6232,8 +6181,7 @@ static int _bind_glPolygonOffset(lua_State *L) {
 // void glCopyTexImage1D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int border)
 static int _bind_glCopyTexImage1D(lua_State *L) {
 	if (!_lg_typecheck_glCopyTexImage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyTexImage1D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int border) function, expected prototype:\nvoid glCopyTexImage1D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int border)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCopyTexImage1D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int border) function, expected prototype:\nvoid glCopyTexImage1D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int border)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6252,8 +6200,7 @@ static int _bind_glCopyTexImage1D(lua_State *L) {
 // void glCopyTexImage2D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int height, int border)
 static int _bind_glCopyTexImage2D(lua_State *L) {
 	if (!_lg_typecheck_glCopyTexImage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyTexImage2D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int height, int border) function, expected prototype:\nvoid glCopyTexImage2D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int height, int border)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCopyTexImage2D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int height, int border) function, expected prototype:\nvoid glCopyTexImage2D(unsigned int target, int level, unsigned int internalformat, int x, int y, int width, int height, int border)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6273,8 +6220,7 @@ static int _bind_glCopyTexImage2D(lua_State *L) {
 // void glCopyTexSubImage1D(unsigned int target, int level, int xoffset, int x, int y, int width)
 static int _bind_glCopyTexSubImage1D(lua_State *L) {
 	if (!_lg_typecheck_glCopyTexSubImage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyTexSubImage1D(unsigned int target, int level, int xoffset, int x, int y, int width) function, expected prototype:\nvoid glCopyTexSubImage1D(unsigned int target, int level, int xoffset, int x, int y, int width)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCopyTexSubImage1D(unsigned int target, int level, int xoffset, int x, int y, int width) function, expected prototype:\nvoid glCopyTexSubImage1D(unsigned int target, int level, int xoffset, int x, int y, int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6292,8 +6238,7 @@ static int _bind_glCopyTexSubImage1D(lua_State *L) {
 // void glCopyTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int x, int y, int width, int height)
 static int _bind_glCopyTexSubImage2D(lua_State *L) {
 	if (!_lg_typecheck_glCopyTexSubImage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) function, expected prototype:\nvoid glCopyTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int x, int y, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCopyTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int x, int y, int width, int height) function, expected prototype:\nvoid glCopyTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6313,8 +6258,7 @@ static int _bind_glCopyTexSubImage2D(lua_State *L) {
 // void glTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, unsigned int type, const void * pixels)
 static int _bind_glTexSubImage1D(lua_State *L) {
 	if (!_lg_typecheck_glTexSubImage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6323,7 +6267,7 @@ static int _bind_glTexSubImage1D(lua_State *L) {
 	int width=(int)lua_tointeger(L,4);
 	unsigned int format=(unsigned int)lua_tointeger(L,5);
 	unsigned int type=(unsigned int)lua_tointeger(L,6);
-	void* pixels=(Luna< void >::check(L,7));
+	const void* pixels=(Luna< void >::check(L,7));
 
 	::glTexSubImage1D(target, level, xoffset, width, format, type, pixels);
 
@@ -6333,8 +6277,7 @@ static int _bind_glTexSubImage1D(lua_State *L) {
 // void glTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, unsigned int type, const void * pixels)
 static int _bind_glTexSubImage2D(lua_State *L) {
 	if (!_lg_typecheck_glTexSubImage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6345,7 +6288,7 @@ static int _bind_glTexSubImage2D(lua_State *L) {
 	int height=(int)lua_tointeger(L,6);
 	unsigned int format=(unsigned int)lua_tointeger(L,7);
 	unsigned int type=(unsigned int)lua_tointeger(L,8);
-	void* pixels=(Luna< void >::check(L,9));
+	const void* pixels=(Luna< void >::check(L,9));
 
 	::glTexSubImage2D(target, level, xoffset, yoffset, width, height, format, type, pixels);
 
@@ -6355,8 +6298,7 @@ static int _bind_glTexSubImage2D(lua_State *L) {
 // void glBindTexture(unsigned int target, unsigned int texture)
 static int _bind_glBindTexture(lua_State *L) {
 	if (!_lg_typecheck_glBindTexture(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindTexture(unsigned int target, unsigned int texture) function, expected prototype:\nvoid glBindTexture(unsigned int target, unsigned int texture)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindTexture(unsigned int target, unsigned int texture) function, expected prototype:\nvoid glBindTexture(unsigned int target, unsigned int texture)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6370,8 +6312,7 @@ static int _bind_glBindTexture(lua_State *L) {
 // void glDeleteTextures(int n, const unsigned int * textures)
 static int _bind_glDeleteTextures(lua_State *L) {
 	if (!_lg_typecheck_glDeleteTextures(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteTextures(int n, const unsigned int * textures) function, expected prototype:\nvoid glDeleteTextures(int n, const unsigned int * textures)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteTextures(int n, const unsigned int * textures) function, expected prototype:\nvoid glDeleteTextures(int n, const unsigned int * textures)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -6385,8 +6326,7 @@ static int _bind_glDeleteTextures(lua_State *L) {
 // void glGenTextures(int n, unsigned int * textures)
 static int _bind_glGenTextures(lua_State *L) {
 	if (!_lg_typecheck_glGenTextures(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenTextures(int n, unsigned int * textures) function, expected prototype:\nvoid glGenTextures(int n, unsigned int * textures)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenTextures(int n, unsigned int * textures) function, expected prototype:\nvoid glGenTextures(int n, unsigned int * textures)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -6400,8 +6340,7 @@ static int _bind_glGenTextures(lua_State *L) {
 // unsigned char glIsTexture(unsigned int texture)
 static int _bind_glIsTexture(lua_State *L) {
 	if (!_lg_typecheck_glIsTexture(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsTexture(unsigned int texture) function, expected prototype:\nunsigned char glIsTexture(unsigned int texture)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsTexture(unsigned int texture) function, expected prototype:\nunsigned char glIsTexture(unsigned int texture)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -6415,8 +6354,7 @@ static int _bind_glIsTexture(lua_State *L) {
 // void glBlendColor(float red, float green, float blue, float alpha)
 static int _bind_glBlendColor(lua_State *L) {
 	if (!_lg_typecheck_glBlendColor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendColor(float red, float green, float blue, float alpha) function, expected prototype:\nvoid glBlendColor(float red, float green, float blue, float alpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendColor(float red, float green, float blue, float alpha) function, expected prototype:\nvoid glBlendColor(float red, float green, float blue, float alpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float red=(float)lua_tonumber(L,1);
@@ -6432,8 +6370,7 @@ static int _bind_glBlendColor(lua_State *L) {
 // void glBlendEquation(unsigned int mode)
 static int _bind_glBlendEquation(lua_State *L) {
 	if (!_lg_typecheck_glBlendEquation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendEquation(unsigned int mode) function, expected prototype:\nvoid glBlendEquation(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendEquation(unsigned int mode) function, expected prototype:\nvoid glBlendEquation(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -6446,8 +6383,7 @@ static int _bind_glBlendEquation(lua_State *L) {
 // void glDrawRangeElements(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices)
 static int _bind_glDrawRangeElements(lua_State *L) {
 	if (!_lg_typecheck_glDrawRangeElements(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawRangeElements(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices) function, expected prototype:\nvoid glDrawRangeElements(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawRangeElements(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices) function, expected prototype:\nvoid glDrawRangeElements(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -6455,7 +6391,7 @@ static int _bind_glDrawRangeElements(lua_State *L) {
 	unsigned int end=(unsigned int)lua_tointeger(L,3);
 	int count=(int)lua_tointeger(L,4);
 	unsigned int type=(unsigned int)lua_tointeger(L,5);
-	void* indices=(Luna< void >::check(L,6));
+	const void* indices=(Luna< void >::check(L,6));
 
 	::glDrawRangeElements(mode, start, end, count, type, indices);
 
@@ -6465,8 +6401,7 @@ static int _bind_glDrawRangeElements(lua_State *L) {
 // void glTexImage3D(unsigned int target, int level, int internalformat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels)
 static int _bind_glTexImage3D(lua_State *L) {
 	if (!_lg_typecheck_glTexImage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexImage3D(unsigned int target, int level, int internalformat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexImage3D(unsigned int target, int level, int internalformat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexImage3D(unsigned int target, int level, int internalformat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexImage3D(unsigned int target, int level, int internalformat, int width, int height, int depth, int border, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6478,7 +6413,7 @@ static int _bind_glTexImage3D(lua_State *L) {
 	int border=(int)lua_tointeger(L,7);
 	unsigned int format=(unsigned int)lua_tointeger(L,8);
 	unsigned int type=(unsigned int)lua_tointeger(L,9);
-	void* pixels=(Luna< void >::check(L,10));
+	const void* pixels=(Luna< void >::check(L,10));
 
 	::glTexImage3D(target, level, internalformat, width, height, depth, border, format, type, pixels);
 
@@ -6488,8 +6423,7 @@ static int _bind_glTexImage3D(lua_State *L) {
 // void glTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, unsigned int type, const void * pixels)
 static int _bind_glTexSubImage3D(lua_State *L) {
 	if (!_lg_typecheck_glTexSubImage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, unsigned int type, const void * pixels) function, expected prototype:\nvoid glTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, unsigned int type, const void * pixels)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6502,7 +6436,7 @@ static int _bind_glTexSubImage3D(lua_State *L) {
 	int depth=(int)lua_tointeger(L,8);
 	unsigned int format=(unsigned int)lua_tointeger(L,9);
 	unsigned int type=(unsigned int)lua_tointeger(L,10);
-	void* pixels=(Luna< void >::check(L,11));
+	const void* pixels=(Luna< void >::check(L,11));
 
 	::glTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, type, pixels);
 
@@ -6512,8 +6446,7 @@ static int _bind_glTexSubImage3D(lua_State *L) {
 // void glCopyTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)
 static int _bind_glCopyTexSubImage3D(lua_State *L) {
 	if (!_lg_typecheck_glCopyTexSubImage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) function, expected prototype:\nvoid glCopyTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCopyTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) function, expected prototype:\nvoid glCopyTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6534,8 +6467,7 @@ static int _bind_glCopyTexSubImage3D(lua_State *L) {
 // void glActiveTexture(unsigned int texture)
 static int _bind_glActiveTexture(lua_State *L) {
 	if (!_lg_typecheck_glActiveTexture(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glActiveTexture(unsigned int texture) function, expected prototype:\nvoid glActiveTexture(unsigned int texture)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glActiveTexture(unsigned int texture) function, expected prototype:\nvoid glActiveTexture(unsigned int texture)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -6548,8 +6480,7 @@ static int _bind_glActiveTexture(lua_State *L) {
 // void glSampleCoverage(float value, unsigned char invert)
 static int _bind_glSampleCoverage(lua_State *L) {
 	if (!_lg_typecheck_glSampleCoverage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSampleCoverage(float value, unsigned char invert) function, expected prototype:\nvoid glSampleCoverage(float value, unsigned char invert)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSampleCoverage(float value, unsigned char invert) function, expected prototype:\nvoid glSampleCoverage(float value, unsigned char invert)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float value=(float)lua_tonumber(L,1);
@@ -6563,8 +6494,7 @@ static int _bind_glSampleCoverage(lua_State *L) {
 // void glCompressedTexImage3D(unsigned int target, int level, unsigned int internalformat, int width, int height, int depth, int border, int imageSize, const void * data)
 static int _bind_glCompressedTexImage3D(lua_State *L) {
 	if (!_lg_typecheck_glCompressedTexImage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompressedTexImage3D(unsigned int target, int level, unsigned int internalformat, int width, int height, int depth, int border, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexImage3D(unsigned int target, int level, unsigned int internalformat, int width, int height, int depth, int border, int imageSize, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompressedTexImage3D(unsigned int target, int level, unsigned int internalformat, int width, int height, int depth, int border, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexImage3D(unsigned int target, int level, unsigned int internalformat, int width, int height, int depth, int border, int imageSize, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6575,7 +6505,7 @@ static int _bind_glCompressedTexImage3D(lua_State *L) {
 	int depth=(int)lua_tointeger(L,6);
 	int border=(int)lua_tointeger(L,7);
 	int imageSize=(int)lua_tointeger(L,8);
-	void* data=(Luna< void >::check(L,9));
+	const void* data=(Luna< void >::check(L,9));
 
 	::glCompressedTexImage3D(target, level, internalformat, width, height, depth, border, imageSize, data);
 
@@ -6585,8 +6515,7 @@ static int _bind_glCompressedTexImage3D(lua_State *L) {
 // void glCompressedTexImage2D(unsigned int target, int level, unsigned int internalformat, int width, int height, int border, int imageSize, const void * data)
 static int _bind_glCompressedTexImage2D(lua_State *L) {
 	if (!_lg_typecheck_glCompressedTexImage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompressedTexImage2D(unsigned int target, int level, unsigned int internalformat, int width, int height, int border, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexImage2D(unsigned int target, int level, unsigned int internalformat, int width, int height, int border, int imageSize, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompressedTexImage2D(unsigned int target, int level, unsigned int internalformat, int width, int height, int border, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexImage2D(unsigned int target, int level, unsigned int internalformat, int width, int height, int border, int imageSize, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6596,7 +6525,7 @@ static int _bind_glCompressedTexImage2D(lua_State *L) {
 	int height=(int)lua_tointeger(L,5);
 	int border=(int)lua_tointeger(L,6);
 	int imageSize=(int)lua_tointeger(L,7);
-	void* data=(Luna< void >::check(L,8));
+	const void* data=(Luna< void >::check(L,8));
 
 	::glCompressedTexImage2D(target, level, internalformat, width, height, border, imageSize, data);
 
@@ -6606,8 +6535,7 @@ static int _bind_glCompressedTexImage2D(lua_State *L) {
 // void glCompressedTexImage1D(unsigned int target, int level, unsigned int internalformat, int width, int border, int imageSize, const void * data)
 static int _bind_glCompressedTexImage1D(lua_State *L) {
 	if (!_lg_typecheck_glCompressedTexImage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompressedTexImage1D(unsigned int target, int level, unsigned int internalformat, int width, int border, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexImage1D(unsigned int target, int level, unsigned int internalformat, int width, int border, int imageSize, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompressedTexImage1D(unsigned int target, int level, unsigned int internalformat, int width, int border, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexImage1D(unsigned int target, int level, unsigned int internalformat, int width, int border, int imageSize, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6616,7 +6544,7 @@ static int _bind_glCompressedTexImage1D(lua_State *L) {
 	int width=(int)lua_tointeger(L,4);
 	int border=(int)lua_tointeger(L,5);
 	int imageSize=(int)lua_tointeger(L,6);
-	void* data=(Luna< void >::check(L,7));
+	const void* data=(Luna< void >::check(L,7));
 
 	::glCompressedTexImage1D(target, level, internalformat, width, border, imageSize, data);
 
@@ -6626,8 +6554,7 @@ static int _bind_glCompressedTexImage1D(lua_State *L) {
 // void glCompressedTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, int imageSize, const void * data)
 static int _bind_glCompressedTexSubImage3D(lua_State *L) {
 	if (!_lg_typecheck_glCompressedTexSubImage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompressedTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, int imageSize, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompressedTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexSubImage3D(unsigned int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, unsigned int format, int imageSize, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6640,7 +6567,7 @@ static int _bind_glCompressedTexSubImage3D(lua_State *L) {
 	int depth=(int)lua_tointeger(L,8);
 	unsigned int format=(unsigned int)lua_tointeger(L,9);
 	int imageSize=(int)lua_tointeger(L,10);
-	void* data=(Luna< void >::check(L,11));
+	const void* data=(Luna< void >::check(L,11));
 
 	::glCompressedTexSubImage3D(target, level, xoffset, yoffset, zoffset, width, height, depth, format, imageSize, data);
 
@@ -6650,8 +6577,7 @@ static int _bind_glCompressedTexSubImage3D(lua_State *L) {
 // void glCompressedTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, int imageSize, const void * data)
 static int _bind_glCompressedTexSubImage2D(lua_State *L) {
 	if (!_lg_typecheck_glCompressedTexSubImage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompressedTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, int imageSize, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompressedTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexSubImage2D(unsigned int target, int level, int xoffset, int yoffset, int width, int height, unsigned int format, int imageSize, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6662,7 +6588,7 @@ static int _bind_glCompressedTexSubImage2D(lua_State *L) {
 	int height=(int)lua_tointeger(L,6);
 	unsigned int format=(unsigned int)lua_tointeger(L,7);
 	int imageSize=(int)lua_tointeger(L,8);
-	void* data=(Luna< void >::check(L,9));
+	const void* data=(Luna< void >::check(L,9));
 
 	::glCompressedTexSubImage2D(target, level, xoffset, yoffset, width, height, format, imageSize, data);
 
@@ -6672,8 +6598,7 @@ static int _bind_glCompressedTexSubImage2D(lua_State *L) {
 // void glCompressedTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, int imageSize, const void * data)
 static int _bind_glCompressedTexSubImage1D(lua_State *L) {
 	if (!_lg_typecheck_glCompressedTexSubImage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompressedTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, int imageSize, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompressedTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, int imageSize, const void * data) function, expected prototype:\nvoid glCompressedTexSubImage1D(unsigned int target, int level, int xoffset, int width, unsigned int format, int imageSize, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6682,7 +6607,7 @@ static int _bind_glCompressedTexSubImage1D(lua_State *L) {
 	int width=(int)lua_tointeger(L,4);
 	unsigned int format=(unsigned int)lua_tointeger(L,5);
 	int imageSize=(int)lua_tointeger(L,6);
-	void* data=(Luna< void >::check(L,7));
+	const void* data=(Luna< void >::check(L,7));
 
 	::glCompressedTexSubImage1D(target, level, xoffset, width, format, imageSize, data);
 
@@ -6692,8 +6617,7 @@ static int _bind_glCompressedTexSubImage1D(lua_State *L) {
 // void glGetCompressedTexImage(unsigned int target, int level, void * img)
 static int _bind_glGetCompressedTexImage(lua_State *L) {
 	if (!_lg_typecheck_glGetCompressedTexImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetCompressedTexImage(unsigned int target, int level, void * img) function, expected prototype:\nvoid glGetCompressedTexImage(unsigned int target, int level, void * img)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetCompressedTexImage(unsigned int target, int level, void * img) function, expected prototype:\nvoid glGetCompressedTexImage(unsigned int target, int level, void * img)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6708,8 +6632,7 @@ static int _bind_glGetCompressedTexImage(lua_State *L) {
 // void glBlendFuncSeparate(unsigned int sfactorRGB, unsigned int dfactorRGB, unsigned int sfactorAlpha, unsigned int dfactorAlpha)
 static int _bind_glBlendFuncSeparate(lua_State *L) {
 	if (!_lg_typecheck_glBlendFuncSeparate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendFuncSeparate(unsigned int sfactorRGB, unsigned int dfactorRGB, unsigned int sfactorAlpha, unsigned int dfactorAlpha) function, expected prototype:\nvoid glBlendFuncSeparate(unsigned int sfactorRGB, unsigned int dfactorRGB, unsigned int sfactorAlpha, unsigned int dfactorAlpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendFuncSeparate(unsigned int sfactorRGB, unsigned int dfactorRGB, unsigned int sfactorAlpha, unsigned int dfactorAlpha) function, expected prototype:\nvoid glBlendFuncSeparate(unsigned int sfactorRGB, unsigned int dfactorRGB, unsigned int sfactorAlpha, unsigned int dfactorAlpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sfactorRGB=(unsigned int)lua_tointeger(L,1);
@@ -6725,8 +6648,7 @@ static int _bind_glBlendFuncSeparate(lua_State *L) {
 // void glMultiDrawArrays(unsigned int mode, const int * first, const int * count, int drawcount)
 static int _bind_glMultiDrawArrays(lua_State *L) {
 	if (!_lg_typecheck_glMultiDrawArrays(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiDrawArrays(unsigned int mode, const int * first, const int * count, int drawcount) function, expected prototype:\nvoid glMultiDrawArrays(unsigned int mode, const int * first, const int * count, int drawcount)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiDrawArrays(unsigned int mode, const int * first, const int * count, int drawcount) function, expected prototype:\nvoid glMultiDrawArrays(unsigned int mode, const int * first, const int * count, int drawcount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -6742,8 +6664,7 @@ static int _bind_glMultiDrawArrays(lua_State *L) {
 // void glPointParameterf(unsigned int pname, float param)
 static int _bind_glPointParameterf(lua_State *L) {
 	if (!_lg_typecheck_glPointParameterf(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPointParameterf(unsigned int pname, float param) function, expected prototype:\nvoid glPointParameterf(unsigned int pname, float param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPointParameterf(unsigned int pname, float param) function, expected prototype:\nvoid glPointParameterf(unsigned int pname, float param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -6757,8 +6678,7 @@ static int _bind_glPointParameterf(lua_State *L) {
 // void glPointParameterfv(unsigned int pname, const float * params)
 static int _bind_glPointParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glPointParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPointParameterfv(unsigned int pname, const float * params) function, expected prototype:\nvoid glPointParameterfv(unsigned int pname, const float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPointParameterfv(unsigned int pname, const float * params) function, expected prototype:\nvoid glPointParameterfv(unsigned int pname, const float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -6772,8 +6692,7 @@ static int _bind_glPointParameterfv(lua_State *L) {
 // void glPointParameteri(unsigned int pname, int param)
 static int _bind_glPointParameteri(lua_State *L) {
 	if (!_lg_typecheck_glPointParameteri(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPointParameteri(unsigned int pname, int param) function, expected prototype:\nvoid glPointParameteri(unsigned int pname, int param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPointParameteri(unsigned int pname, int param) function, expected prototype:\nvoid glPointParameteri(unsigned int pname, int param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -6787,8 +6706,7 @@ static int _bind_glPointParameteri(lua_State *L) {
 // void glPointParameteriv(unsigned int pname, const int * params)
 static int _bind_glPointParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glPointParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPointParameteriv(unsigned int pname, const int * params) function, expected prototype:\nvoid glPointParameteriv(unsigned int pname, const int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPointParameteriv(unsigned int pname, const int * params) function, expected prototype:\nvoid glPointParameteriv(unsigned int pname, const int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -6802,8 +6720,7 @@ static int _bind_glPointParameteriv(lua_State *L) {
 // void glGenQueries(int n, unsigned int * ids)
 static int _bind_glGenQueries(lua_State *L) {
 	if (!_lg_typecheck_glGenQueries(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenQueries(int n, unsigned int * ids) function, expected prototype:\nvoid glGenQueries(int n, unsigned int * ids)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenQueries(int n, unsigned int * ids) function, expected prototype:\nvoid glGenQueries(int n, unsigned int * ids)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -6817,8 +6734,7 @@ static int _bind_glGenQueries(lua_State *L) {
 // void glDeleteQueries(int n, const unsigned int * ids)
 static int _bind_glDeleteQueries(lua_State *L) {
 	if (!_lg_typecheck_glDeleteQueries(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteQueries(int n, const unsigned int * ids) function, expected prototype:\nvoid glDeleteQueries(int n, const unsigned int * ids)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteQueries(int n, const unsigned int * ids) function, expected prototype:\nvoid glDeleteQueries(int n, const unsigned int * ids)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -6832,8 +6748,7 @@ static int _bind_glDeleteQueries(lua_State *L) {
 // unsigned char glIsQuery(unsigned int id)
 static int _bind_glIsQuery(lua_State *L) {
 	if (!_lg_typecheck_glIsQuery(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsQuery(unsigned int id) function, expected prototype:\nunsigned char glIsQuery(unsigned int id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsQuery(unsigned int id) function, expected prototype:\nunsigned char glIsQuery(unsigned int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -6847,8 +6762,7 @@ static int _bind_glIsQuery(lua_State *L) {
 // void glBeginQuery(unsigned int target, unsigned int id)
 static int _bind_glBeginQuery(lua_State *L) {
 	if (!_lg_typecheck_glBeginQuery(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBeginQuery(unsigned int target, unsigned int id) function, expected prototype:\nvoid glBeginQuery(unsigned int target, unsigned int id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBeginQuery(unsigned int target, unsigned int id) function, expected prototype:\nvoid glBeginQuery(unsigned int target, unsigned int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6862,8 +6776,7 @@ static int _bind_glBeginQuery(lua_State *L) {
 // void glEndQuery(unsigned int target)
 static int _bind_glEndQuery(lua_State *L) {
 	if (!_lg_typecheck_glEndQuery(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEndQuery(unsigned int target) function, expected prototype:\nvoid glEndQuery(unsigned int target)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEndQuery(unsigned int target) function, expected prototype:\nvoid glEndQuery(unsigned int target)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6876,8 +6789,7 @@ static int _bind_glEndQuery(lua_State *L) {
 // void glGetQueryiv(unsigned int target, unsigned int pname, int * params)
 static int _bind_glGetQueryiv(lua_State *L) {
 	if (!_lg_typecheck_glGetQueryiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetQueryiv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetQueryiv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetQueryiv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetQueryiv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6892,8 +6804,7 @@ static int _bind_glGetQueryiv(lua_State *L) {
 // void glGetQueryObjectiv(unsigned int id, unsigned int pname, int * params)
 static int _bind_glGetQueryObjectiv(lua_State *L) {
 	if (!_lg_typecheck_glGetQueryObjectiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetQueryObjectiv(unsigned int id, unsigned int pname, int * params) function, expected prototype:\nvoid glGetQueryObjectiv(unsigned int id, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetQueryObjectiv(unsigned int id, unsigned int pname, int * params) function, expected prototype:\nvoid glGetQueryObjectiv(unsigned int id, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -6908,8 +6819,7 @@ static int _bind_glGetQueryObjectiv(lua_State *L) {
 // void glGetQueryObjectuiv(unsigned int id, unsigned int pname, unsigned int * params)
 static int _bind_glGetQueryObjectuiv(lua_State *L) {
 	if (!_lg_typecheck_glGetQueryObjectuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetQueryObjectuiv(unsigned int id, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetQueryObjectuiv(unsigned int id, unsigned int pname, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetQueryObjectuiv(unsigned int id, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetQueryObjectuiv(unsigned int id, unsigned int pname, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -6924,8 +6834,7 @@ static int _bind_glGetQueryObjectuiv(lua_State *L) {
 // void glBindBuffer(unsigned int target, unsigned int buffer)
 static int _bind_glBindBuffer(lua_State *L) {
 	if (!_lg_typecheck_glBindBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindBuffer(unsigned int target, unsigned int buffer) function, expected prototype:\nvoid glBindBuffer(unsigned int target, unsigned int buffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindBuffer(unsigned int target, unsigned int buffer) function, expected prototype:\nvoid glBindBuffer(unsigned int target, unsigned int buffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6939,8 +6848,7 @@ static int _bind_glBindBuffer(lua_State *L) {
 // void glDeleteBuffers(int n, const unsigned int * buffers)
 static int _bind_glDeleteBuffers(lua_State *L) {
 	if (!_lg_typecheck_glDeleteBuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteBuffers(int n, const unsigned int * buffers) function, expected prototype:\nvoid glDeleteBuffers(int n, const unsigned int * buffers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteBuffers(int n, const unsigned int * buffers) function, expected prototype:\nvoid glDeleteBuffers(int n, const unsigned int * buffers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -6954,8 +6862,7 @@ static int _bind_glDeleteBuffers(lua_State *L) {
 // void glGenBuffers(int n, unsigned int * buffers)
 static int _bind_glGenBuffers(lua_State *L) {
 	if (!_lg_typecheck_glGenBuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenBuffers(int n, unsigned int * buffers) function, expected prototype:\nvoid glGenBuffers(int n, unsigned int * buffers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenBuffers(int n, unsigned int * buffers) function, expected prototype:\nvoid glGenBuffers(int n, unsigned int * buffers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -6969,8 +6876,7 @@ static int _bind_glGenBuffers(lua_State *L) {
 // unsigned char glIsBuffer(unsigned int buffer)
 static int _bind_glIsBuffer(lua_State *L) {
 	if (!_lg_typecheck_glIsBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsBuffer(unsigned int buffer) function, expected prototype:\nunsigned char glIsBuffer(unsigned int buffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsBuffer(unsigned int buffer) function, expected prototype:\nunsigned char glIsBuffer(unsigned int buffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -6984,8 +6890,7 @@ static int _bind_glIsBuffer(lua_State *L) {
 // void glBufferData(unsigned int target, __int64 size, const void * data, unsigned int usage)
 static int _bind_glBufferData(lua_State *L) {
 	if (!_lg_typecheck_glBufferData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBufferData(unsigned int target, __int64 size, const void * data, unsigned int usage) function, expected prototype:\nvoid glBufferData(unsigned int target, __int64 size, const void * data, unsigned int usage)\nClass arguments details:\narg 2 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glBufferData(unsigned int target, __int64 size, const void * data, unsigned int usage) function, expected prototype:\nvoid glBufferData(unsigned int target, __int64 size, const void * data, unsigned int usage)\nClass arguments details:\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -6994,7 +6899,7 @@ static int _bind_glBufferData(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg size in glBufferData function");
 	}
 	__int64 size=*size_ptr;
-	void* data=(Luna< void >::check(L,3));
+	const void* data=(Luna< void >::check(L,3));
 	unsigned int usage=(unsigned int)lua_tointeger(L,4);
 
 	::glBufferData(target, size, data, usage);
@@ -7005,8 +6910,7 @@ static int _bind_glBufferData(lua_State *L) {
 // void glBufferSubData(unsigned int target, __int64 offset, __int64 size, const void * data)
 static int _bind_glBufferSubData(lua_State *L) {
 	if (!_lg_typecheck_glBufferSubData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBufferSubData(unsigned int target, __int64 offset, __int64 size, const void * data) function, expected prototype:\nvoid glBufferSubData(unsigned int target, __int64 offset, __int64 size, const void * data)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glBufferSubData(unsigned int target, __int64 offset, __int64 size, const void * data) function, expected prototype:\nvoid glBufferSubData(unsigned int target, __int64 offset, __int64 size, const void * data)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -7020,7 +6924,7 @@ static int _bind_glBufferSubData(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg size in glBufferSubData function");
 	}
 	__int64 size=*size_ptr;
-	void* data=(Luna< void >::check(L,4));
+	const void* data=(Luna< void >::check(L,4));
 
 	::glBufferSubData(target, offset, size, data);
 
@@ -7030,8 +6934,7 @@ static int _bind_glBufferSubData(lua_State *L) {
 // void glGetBufferSubData(unsigned int target, __int64 offset, __int64 size, void * data)
 static int _bind_glGetBufferSubData(lua_State *L) {
 	if (!_lg_typecheck_glGetBufferSubData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetBufferSubData(unsigned int target, __int64 offset, __int64 size, void * data) function, expected prototype:\nvoid glGetBufferSubData(unsigned int target, __int64 offset, __int64 size, void * data)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glGetBufferSubData(unsigned int target, __int64 offset, __int64 size, void * data) function, expected prototype:\nvoid glGetBufferSubData(unsigned int target, __int64 offset, __int64 size, void * data)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -7055,8 +6958,7 @@ static int _bind_glGetBufferSubData(lua_State *L) {
 // void * glMapBuffer(unsigned int target, unsigned int access)
 static int _bind_glMapBuffer(lua_State *L) {
 	if (!_lg_typecheck_glMapBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * glMapBuffer(unsigned int target, unsigned int access) function, expected prototype:\nvoid * glMapBuffer(unsigned int target, unsigned int access)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void * glMapBuffer(unsigned int target, unsigned int access) function, expected prototype:\nvoid * glMapBuffer(unsigned int target, unsigned int access)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -7073,8 +6975,7 @@ static int _bind_glMapBuffer(lua_State *L) {
 // unsigned char glUnmapBuffer(unsigned int target)
 static int _bind_glUnmapBuffer(lua_State *L) {
 	if (!_lg_typecheck_glUnmapBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glUnmapBuffer(unsigned int target) function, expected prototype:\nunsigned char glUnmapBuffer(unsigned int target)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glUnmapBuffer(unsigned int target) function, expected prototype:\nunsigned char glUnmapBuffer(unsigned int target)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -7088,8 +6989,7 @@ static int _bind_glUnmapBuffer(lua_State *L) {
 // void glGetBufferParameteriv(unsigned int target, unsigned int pname, int * params)
 static int _bind_glGetBufferParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetBufferParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetBufferParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetBufferParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetBufferParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetBufferParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -7104,8 +7004,7 @@ static int _bind_glGetBufferParameteriv(lua_State *L) {
 // void glBlendEquationSeparate(unsigned int modeRGB, unsigned int modeAlpha)
 static int _bind_glBlendEquationSeparate(lua_State *L) {
 	if (!_lg_typecheck_glBlendEquationSeparate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendEquationSeparate(unsigned int modeRGB, unsigned int modeAlpha) function, expected prototype:\nvoid glBlendEquationSeparate(unsigned int modeRGB, unsigned int modeAlpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendEquationSeparate(unsigned int modeRGB, unsigned int modeAlpha) function, expected prototype:\nvoid glBlendEquationSeparate(unsigned int modeRGB, unsigned int modeAlpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int modeRGB=(unsigned int)lua_tointeger(L,1);
@@ -7119,8 +7018,7 @@ static int _bind_glBlendEquationSeparate(lua_State *L) {
 // void glDrawBuffers(int n, const unsigned int * bufs)
 static int _bind_glDrawBuffers(lua_State *L) {
 	if (!_lg_typecheck_glDrawBuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawBuffers(int n, const unsigned int * bufs) function, expected prototype:\nvoid glDrawBuffers(int n, const unsigned int * bufs)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawBuffers(int n, const unsigned int * bufs) function, expected prototype:\nvoid glDrawBuffers(int n, const unsigned int * bufs)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -7134,8 +7032,7 @@ static int _bind_glDrawBuffers(lua_State *L) {
 // void glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass)
 static int _bind_glStencilOpSeparate(lua_State *L) {
 	if (!_lg_typecheck_glStencilOpSeparate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) function, expected prototype:\nvoid glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass) function, expected prototype:\nvoid glStencilOpSeparate(unsigned int face, unsigned int sfail, unsigned int dpfail, unsigned int dppass)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int face=(unsigned int)lua_tointeger(L,1);
@@ -7151,8 +7048,7 @@ static int _bind_glStencilOpSeparate(lua_State *L) {
 // void glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask)
 static int _bind_glStencilFuncSeparate(lua_State *L) {
 	if (!_lg_typecheck_glStencilFuncSeparate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) function, expected prototype:\nvoid glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask) function, expected prototype:\nvoid glStencilFuncSeparate(unsigned int face, unsigned int func, int ref, unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int face=(unsigned int)lua_tointeger(L,1);
@@ -7168,8 +7064,7 @@ static int _bind_glStencilFuncSeparate(lua_State *L) {
 // void glStencilMaskSeparate(unsigned int face, unsigned int mask)
 static int _bind_glStencilMaskSeparate(lua_State *L) {
 	if (!_lg_typecheck_glStencilMaskSeparate(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glStencilMaskSeparate(unsigned int face, unsigned int mask) function, expected prototype:\nvoid glStencilMaskSeparate(unsigned int face, unsigned int mask)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glStencilMaskSeparate(unsigned int face, unsigned int mask) function, expected prototype:\nvoid glStencilMaskSeparate(unsigned int face, unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int face=(unsigned int)lua_tointeger(L,1);
@@ -7183,8 +7078,7 @@ static int _bind_glStencilMaskSeparate(lua_State *L) {
 // void glAttachShader(unsigned int program, unsigned int shader)
 static int _bind_glAttachShader(lua_State *L) {
 	if (!_lg_typecheck_glAttachShader(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glAttachShader(unsigned int program, unsigned int shader) function, expected prototype:\nvoid glAttachShader(unsigned int program, unsigned int shader)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glAttachShader(unsigned int program, unsigned int shader) function, expected prototype:\nvoid glAttachShader(unsigned int program, unsigned int shader)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7198,8 +7092,7 @@ static int _bind_glAttachShader(lua_State *L) {
 // void glBindAttribLocation(unsigned int program, unsigned int index, const char * name)
 static int _bind_glBindAttribLocation(lua_State *L) {
 	if (!_lg_typecheck_glBindAttribLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindAttribLocation(unsigned int program, unsigned int index, const char * name) function, expected prototype:\nvoid glBindAttribLocation(unsigned int program, unsigned int index, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindAttribLocation(unsigned int program, unsigned int index, const char * name) function, expected prototype:\nvoid glBindAttribLocation(unsigned int program, unsigned int index, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7214,8 +7107,7 @@ static int _bind_glBindAttribLocation(lua_State *L) {
 // void glCompileShader(unsigned int shader)
 static int _bind_glCompileShader(lua_State *L) {
 	if (!_lg_typecheck_glCompileShader(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCompileShader(unsigned int shader) function, expected prototype:\nvoid glCompileShader(unsigned int shader)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCompileShader(unsigned int shader) function, expected prototype:\nvoid glCompileShader(unsigned int shader)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shader=(unsigned int)lua_tointeger(L,1);
@@ -7228,8 +7120,7 @@ static int _bind_glCompileShader(lua_State *L) {
 // unsigned int glCreateProgram()
 static int _bind_glCreateProgram(lua_State *L) {
 	if (!_lg_typecheck_glCreateProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glCreateProgram() function, expected prototype:\nunsigned int glCreateProgram()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glCreateProgram() function, expected prototype:\nunsigned int glCreateProgram()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -7242,8 +7133,7 @@ static int _bind_glCreateProgram(lua_State *L) {
 // unsigned int glCreateShader(unsigned int type)
 static int _bind_glCreateShader(lua_State *L) {
 	if (!_lg_typecheck_glCreateShader(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glCreateShader(unsigned int type) function, expected prototype:\nunsigned int glCreateShader(unsigned int type)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glCreateShader(unsigned int type) function, expected prototype:\nunsigned int glCreateShader(unsigned int type)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -7257,8 +7147,7 @@ static int _bind_glCreateShader(lua_State *L) {
 // void glDeleteProgram(unsigned int program)
 static int _bind_glDeleteProgram(lua_State *L) {
 	if (!_lg_typecheck_glDeleteProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteProgram(unsigned int program) function, expected prototype:\nvoid glDeleteProgram(unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteProgram(unsigned int program) function, expected prototype:\nvoid glDeleteProgram(unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7271,8 +7160,7 @@ static int _bind_glDeleteProgram(lua_State *L) {
 // void glDeleteShader(unsigned int shader)
 static int _bind_glDeleteShader(lua_State *L) {
 	if (!_lg_typecheck_glDeleteShader(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteShader(unsigned int shader) function, expected prototype:\nvoid glDeleteShader(unsigned int shader)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteShader(unsigned int shader) function, expected prototype:\nvoid glDeleteShader(unsigned int shader)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shader=(unsigned int)lua_tointeger(L,1);
@@ -7285,8 +7173,7 @@ static int _bind_glDeleteShader(lua_State *L) {
 // void glDetachShader(unsigned int program, unsigned int shader)
 static int _bind_glDetachShader(lua_State *L) {
 	if (!_lg_typecheck_glDetachShader(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDetachShader(unsigned int program, unsigned int shader) function, expected prototype:\nvoid glDetachShader(unsigned int program, unsigned int shader)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDetachShader(unsigned int program, unsigned int shader) function, expected prototype:\nvoid glDetachShader(unsigned int program, unsigned int shader)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7300,8 +7187,7 @@ static int _bind_glDetachShader(lua_State *L) {
 // void glDisableVertexAttribArray(unsigned int index)
 static int _bind_glDisableVertexAttribArray(lua_State *L) {
 	if (!_lg_typecheck_glDisableVertexAttribArray(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDisableVertexAttribArray(unsigned int index) function, expected prototype:\nvoid glDisableVertexAttribArray(unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDisableVertexAttribArray(unsigned int index) function, expected prototype:\nvoid glDisableVertexAttribArray(unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7314,8 +7200,7 @@ static int _bind_glDisableVertexAttribArray(lua_State *L) {
 // void glEnableVertexAttribArray(unsigned int index)
 static int _bind_glEnableVertexAttribArray(lua_State *L) {
 	if (!_lg_typecheck_glEnableVertexAttribArray(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEnableVertexAttribArray(unsigned int index) function, expected prototype:\nvoid glEnableVertexAttribArray(unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEnableVertexAttribArray(unsigned int index) function, expected prototype:\nvoid glEnableVertexAttribArray(unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7328,8 +7213,7 @@ static int _bind_glEnableVertexAttribArray(lua_State *L) {
 // void glGetActiveAttrib(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)
 static int _bind_glGetActiveAttrib(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveAttrib(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveAttrib(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name) function, expected prototype:\nvoid glGetActiveAttrib(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveAttrib(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name) function, expected prototype:\nvoid glGetActiveAttrib(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7348,8 +7232,7 @@ static int _bind_glGetActiveAttrib(lua_State *L) {
 // void glGetActiveUniform(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)
 static int _bind_glGetActiveUniform(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveUniform(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveUniform(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name) function, expected prototype:\nvoid glGetActiveUniform(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveUniform(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name) function, expected prototype:\nvoid glGetActiveUniform(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7368,8 +7251,7 @@ static int _bind_glGetActiveUniform(lua_State *L) {
 // void glGetAttachedShaders(unsigned int program, int maxCount, int * count, unsigned int * obj)
 static int _bind_glGetAttachedShaders(lua_State *L) {
 	if (!_lg_typecheck_glGetAttachedShaders(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetAttachedShaders(unsigned int program, int maxCount, int * count, unsigned int * obj) function, expected prototype:\nvoid glGetAttachedShaders(unsigned int program, int maxCount, int * count, unsigned int * obj)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetAttachedShaders(unsigned int program, int maxCount, int * count, unsigned int * obj) function, expected prototype:\nvoid glGetAttachedShaders(unsigned int program, int maxCount, int * count, unsigned int * obj)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7385,8 +7267,7 @@ static int _bind_glGetAttachedShaders(lua_State *L) {
 // int glGetAttribLocation(unsigned int program, const char * name)
 static int _bind_glGetAttribLocation(lua_State *L) {
 	if (!_lg_typecheck_glGetAttribLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetAttribLocation(unsigned int program, const char * name) function, expected prototype:\nint glGetAttribLocation(unsigned int program, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetAttribLocation(unsigned int program, const char * name) function, expected prototype:\nint glGetAttribLocation(unsigned int program, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7401,8 +7282,7 @@ static int _bind_glGetAttribLocation(lua_State *L) {
 // void glGetProgramiv(unsigned int program, unsigned int pname, int * params)
 static int _bind_glGetProgramiv(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramiv(unsigned int program, unsigned int pname, int * params) function, expected prototype:\nvoid glGetProgramiv(unsigned int program, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramiv(unsigned int program, unsigned int pname, int * params) function, expected prototype:\nvoid glGetProgramiv(unsigned int program, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7417,8 +7297,7 @@ static int _bind_glGetProgramiv(lua_State *L) {
 // void glGetProgramInfoLog(unsigned int program, int bufSize, int * length, char * infoLog)
 static int _bind_glGetProgramInfoLog(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramInfoLog(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramInfoLog(unsigned int program, int bufSize, int * length, char * infoLog) function, expected prototype:\nvoid glGetProgramInfoLog(unsigned int program, int bufSize, int * length, char * infoLog)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramInfoLog(unsigned int program, int bufSize, int * length, char * infoLog) function, expected prototype:\nvoid glGetProgramInfoLog(unsigned int program, int bufSize, int * length, char * infoLog)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7434,8 +7313,7 @@ static int _bind_glGetProgramInfoLog(lua_State *L) {
 // void glGetShaderiv(unsigned int shader, unsigned int pname, int * params)
 static int _bind_glGetShaderiv(lua_State *L) {
 	if (!_lg_typecheck_glGetShaderiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetShaderiv(unsigned int shader, unsigned int pname, int * params) function, expected prototype:\nvoid glGetShaderiv(unsigned int shader, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetShaderiv(unsigned int shader, unsigned int pname, int * params) function, expected prototype:\nvoid glGetShaderiv(unsigned int shader, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shader=(unsigned int)lua_tointeger(L,1);
@@ -7450,8 +7328,7 @@ static int _bind_glGetShaderiv(lua_State *L) {
 // void glGetShaderInfoLog(unsigned int shader, int bufSize, int * length, char * infoLog)
 static int _bind_glGetShaderInfoLog(lua_State *L) {
 	if (!_lg_typecheck_glGetShaderInfoLog(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetShaderInfoLog(unsigned int shader, int bufSize, int * length, char * infoLog) function, expected prototype:\nvoid glGetShaderInfoLog(unsigned int shader, int bufSize, int * length, char * infoLog)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetShaderInfoLog(unsigned int shader, int bufSize, int * length, char * infoLog) function, expected prototype:\nvoid glGetShaderInfoLog(unsigned int shader, int bufSize, int * length, char * infoLog)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shader=(unsigned int)lua_tointeger(L,1);
@@ -7467,8 +7344,7 @@ static int _bind_glGetShaderInfoLog(lua_State *L) {
 // void glGetShaderSource(unsigned int shader, int bufSize, int * length, char * source)
 static int _bind_glGetShaderSource(lua_State *L) {
 	if (!_lg_typecheck_glGetShaderSource(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetShaderSource(unsigned int shader, int bufSize, int * length, char * source) function, expected prototype:\nvoid glGetShaderSource(unsigned int shader, int bufSize, int * length, char * source)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetShaderSource(unsigned int shader, int bufSize, int * length, char * source) function, expected prototype:\nvoid glGetShaderSource(unsigned int shader, int bufSize, int * length, char * source)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shader=(unsigned int)lua_tointeger(L,1);
@@ -7484,8 +7360,7 @@ static int _bind_glGetShaderSource(lua_State *L) {
 // int glGetUniformLocation(unsigned int program, const char * name)
 static int _bind_glGetUniformLocation(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetUniformLocation(unsigned int program, const char * name) function, expected prototype:\nint glGetUniformLocation(unsigned int program, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetUniformLocation(unsigned int program, const char * name) function, expected prototype:\nint glGetUniformLocation(unsigned int program, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7500,8 +7375,7 @@ static int _bind_glGetUniformLocation(lua_State *L) {
 // void glGetUniformfv(unsigned int program, int location, float * params)
 static int _bind_glGetUniformfv(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetUniformfv(unsigned int program, int location, float * params) function, expected prototype:\nvoid glGetUniformfv(unsigned int program, int location, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetUniformfv(unsigned int program, int location, float * params) function, expected prototype:\nvoid glGetUniformfv(unsigned int program, int location, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7516,8 +7390,7 @@ static int _bind_glGetUniformfv(lua_State *L) {
 // void glGetUniformiv(unsigned int program, int location, int * params)
 static int _bind_glGetUniformiv(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetUniformiv(unsigned int program, int location, int * params) function, expected prototype:\nvoid glGetUniformiv(unsigned int program, int location, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetUniformiv(unsigned int program, int location, int * params) function, expected prototype:\nvoid glGetUniformiv(unsigned int program, int location, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7532,8 +7405,7 @@ static int _bind_glGetUniformiv(lua_State *L) {
 // void glGetVertexAttribdv(unsigned int index, unsigned int pname, double * params)
 static int _bind_glGetVertexAttribdv(lua_State *L) {
 	if (!_lg_typecheck_glGetVertexAttribdv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetVertexAttribdv(unsigned int index, unsigned int pname, double * params) function, expected prototype:\nvoid glGetVertexAttribdv(unsigned int index, unsigned int pname, double * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetVertexAttribdv(unsigned int index, unsigned int pname, double * params) function, expected prototype:\nvoid glGetVertexAttribdv(unsigned int index, unsigned int pname, double * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7548,8 +7420,7 @@ static int _bind_glGetVertexAttribdv(lua_State *L) {
 // void glGetVertexAttribfv(unsigned int index, unsigned int pname, float * params)
 static int _bind_glGetVertexAttribfv(lua_State *L) {
 	if (!_lg_typecheck_glGetVertexAttribfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetVertexAttribfv(unsigned int index, unsigned int pname, float * params) function, expected prototype:\nvoid glGetVertexAttribfv(unsigned int index, unsigned int pname, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetVertexAttribfv(unsigned int index, unsigned int pname, float * params) function, expected prototype:\nvoid glGetVertexAttribfv(unsigned int index, unsigned int pname, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7564,8 +7435,7 @@ static int _bind_glGetVertexAttribfv(lua_State *L) {
 // void glGetVertexAttribiv(unsigned int index, unsigned int pname, int * params)
 static int _bind_glGetVertexAttribiv(lua_State *L) {
 	if (!_lg_typecheck_glGetVertexAttribiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetVertexAttribiv(unsigned int index, unsigned int pname, int * params) function, expected prototype:\nvoid glGetVertexAttribiv(unsigned int index, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetVertexAttribiv(unsigned int index, unsigned int pname, int * params) function, expected prototype:\nvoid glGetVertexAttribiv(unsigned int index, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7580,8 +7450,7 @@ static int _bind_glGetVertexAttribiv(lua_State *L) {
 // unsigned char glIsProgram(unsigned int program)
 static int _bind_glIsProgram(lua_State *L) {
 	if (!_lg_typecheck_glIsProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsProgram(unsigned int program) function, expected prototype:\nunsigned char glIsProgram(unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsProgram(unsigned int program) function, expected prototype:\nunsigned char glIsProgram(unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7595,8 +7464,7 @@ static int _bind_glIsProgram(lua_State *L) {
 // unsigned char glIsShader(unsigned int shader)
 static int _bind_glIsShader(lua_State *L) {
 	if (!_lg_typecheck_glIsShader(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsShader(unsigned int shader) function, expected prototype:\nunsigned char glIsShader(unsigned int shader)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsShader(unsigned int shader) function, expected prototype:\nunsigned char glIsShader(unsigned int shader)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shader=(unsigned int)lua_tointeger(L,1);
@@ -7610,8 +7478,7 @@ static int _bind_glIsShader(lua_State *L) {
 // void glLinkProgram(unsigned int program)
 static int _bind_glLinkProgram(lua_State *L) {
 	if (!_lg_typecheck_glLinkProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glLinkProgram(unsigned int program) function, expected prototype:\nvoid glLinkProgram(unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glLinkProgram(unsigned int program) function, expected prototype:\nvoid glLinkProgram(unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7624,8 +7491,7 @@ static int _bind_glLinkProgram(lua_State *L) {
 // void glUseProgram(unsigned int program)
 static int _bind_glUseProgram(lua_State *L) {
 	if (!_lg_typecheck_glUseProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUseProgram(unsigned int program) function, expected prototype:\nvoid glUseProgram(unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUseProgram(unsigned int program) function, expected prototype:\nvoid glUseProgram(unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7638,8 +7504,7 @@ static int _bind_glUseProgram(lua_State *L) {
 // void glUniform1f(int location, float v0)
 static int _bind_glUniform1f(lua_State *L) {
 	if (!_lg_typecheck_glUniform1f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1f(int location, float v0) function, expected prototype:\nvoid glUniform1f(int location, float v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1f(int location, float v0) function, expected prototype:\nvoid glUniform1f(int location, float v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7653,8 +7518,7 @@ static int _bind_glUniform1f(lua_State *L) {
 // void glUniform2f(int location, float v0, float v1)
 static int _bind_glUniform2f(lua_State *L) {
 	if (!_lg_typecheck_glUniform2f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2f(int location, float v0, float v1) function, expected prototype:\nvoid glUniform2f(int location, float v0, float v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2f(int location, float v0, float v1) function, expected prototype:\nvoid glUniform2f(int location, float v0, float v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7669,8 +7533,7 @@ static int _bind_glUniform2f(lua_State *L) {
 // void glUniform3f(int location, float v0, float v1, float v2)
 static int _bind_glUniform3f(lua_State *L) {
 	if (!_lg_typecheck_glUniform3f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3f(int location, float v0, float v1, float v2) function, expected prototype:\nvoid glUniform3f(int location, float v0, float v1, float v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3f(int location, float v0, float v1, float v2) function, expected prototype:\nvoid glUniform3f(int location, float v0, float v1, float v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7686,8 +7549,7 @@ static int _bind_glUniform3f(lua_State *L) {
 // void glUniform4f(int location, float v0, float v1, float v2, float v3)
 static int _bind_glUniform4f(lua_State *L) {
 	if (!_lg_typecheck_glUniform4f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4f(int location, float v0, float v1, float v2, float v3) function, expected prototype:\nvoid glUniform4f(int location, float v0, float v1, float v2, float v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4f(int location, float v0, float v1, float v2, float v3) function, expected prototype:\nvoid glUniform4f(int location, float v0, float v1, float v2, float v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7704,8 +7566,7 @@ static int _bind_glUniform4f(lua_State *L) {
 // void glUniform1i(int location, int v0)
 static int _bind_glUniform1i(lua_State *L) {
 	if (!_lg_typecheck_glUniform1i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1i(int location, int v0) function, expected prototype:\nvoid glUniform1i(int location, int v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1i(int location, int v0) function, expected prototype:\nvoid glUniform1i(int location, int v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7719,8 +7580,7 @@ static int _bind_glUniform1i(lua_State *L) {
 // void glUniform2i(int location, int v0, int v1)
 static int _bind_glUniform2i(lua_State *L) {
 	if (!_lg_typecheck_glUniform2i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2i(int location, int v0, int v1) function, expected prototype:\nvoid glUniform2i(int location, int v0, int v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2i(int location, int v0, int v1) function, expected prototype:\nvoid glUniform2i(int location, int v0, int v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7735,8 +7595,7 @@ static int _bind_glUniform2i(lua_State *L) {
 // void glUniform3i(int location, int v0, int v1, int v2)
 static int _bind_glUniform3i(lua_State *L) {
 	if (!_lg_typecheck_glUniform3i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3i(int location, int v0, int v1, int v2) function, expected prototype:\nvoid glUniform3i(int location, int v0, int v1, int v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3i(int location, int v0, int v1, int v2) function, expected prototype:\nvoid glUniform3i(int location, int v0, int v1, int v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7752,8 +7611,7 @@ static int _bind_glUniform3i(lua_State *L) {
 // void glUniform4i(int location, int v0, int v1, int v2, int v3)
 static int _bind_glUniform4i(lua_State *L) {
 	if (!_lg_typecheck_glUniform4i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4i(int location, int v0, int v1, int v2, int v3) function, expected prototype:\nvoid glUniform4i(int location, int v0, int v1, int v2, int v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4i(int location, int v0, int v1, int v2, int v3) function, expected prototype:\nvoid glUniform4i(int location, int v0, int v1, int v2, int v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7770,8 +7628,7 @@ static int _bind_glUniform4i(lua_State *L) {
 // void glUniform1fv(int location, int count, const float * value)
 static int _bind_glUniform1fv(lua_State *L) {
 	if (!_lg_typecheck_glUniform1fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform1fv(int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform1fv(int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7786,8 +7643,7 @@ static int _bind_glUniform1fv(lua_State *L) {
 // void glUniform2fv(int location, int count, const float * value)
 static int _bind_glUniform2fv(lua_State *L) {
 	if (!_lg_typecheck_glUniform2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform2fv(int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform2fv(int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7802,8 +7658,7 @@ static int _bind_glUniform2fv(lua_State *L) {
 // void glUniform3fv(int location, int count, const float * value)
 static int _bind_glUniform3fv(lua_State *L) {
 	if (!_lg_typecheck_glUniform3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform3fv(int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform3fv(int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7818,8 +7673,7 @@ static int _bind_glUniform3fv(lua_State *L) {
 // void glUniform4fv(int location, int count, const float * value)
 static int _bind_glUniform4fv(lua_State *L) {
 	if (!_lg_typecheck_glUniform4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform4fv(int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4fv(int location, int count, const float * value) function, expected prototype:\nvoid glUniform4fv(int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7834,8 +7688,7 @@ static int _bind_glUniform4fv(lua_State *L) {
 // void glUniform1iv(int location, int count, const int * value)
 static int _bind_glUniform1iv(lua_State *L) {
 	if (!_lg_typecheck_glUniform1iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform1iv(int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform1iv(int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7850,8 +7703,7 @@ static int _bind_glUniform1iv(lua_State *L) {
 // void glUniform2iv(int location, int count, const int * value)
 static int _bind_glUniform2iv(lua_State *L) {
 	if (!_lg_typecheck_glUniform2iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform2iv(int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform2iv(int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7866,8 +7718,7 @@ static int _bind_glUniform2iv(lua_State *L) {
 // void glUniform3iv(int location, int count, const int * value)
 static int _bind_glUniform3iv(lua_State *L) {
 	if (!_lg_typecheck_glUniform3iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform3iv(int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform3iv(int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7882,8 +7733,7 @@ static int _bind_glUniform3iv(lua_State *L) {
 // void glUniform4iv(int location, int count, const int * value)
 static int _bind_glUniform4iv(lua_State *L) {
 	if (!_lg_typecheck_glUniform4iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform4iv(int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4iv(int location, int count, const int * value) function, expected prototype:\nvoid glUniform4iv(int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7898,8 +7748,7 @@ static int _bind_glUniform4iv(lua_State *L) {
 // void glUniformMatrix2fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix2fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix2fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix2fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix2fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix2fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7915,8 +7764,7 @@ static int _bind_glUniformMatrix2fv(lua_State *L) {
 // void glUniformMatrix3fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix3fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix3fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix3fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix3fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix3fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7932,8 +7780,7 @@ static int _bind_glUniformMatrix3fv(lua_State *L) {
 // void glUniformMatrix4fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix4fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix4fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix4fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix4fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix4fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -7949,8 +7796,7 @@ static int _bind_glUniformMatrix4fv(lua_State *L) {
 // void glValidateProgram(unsigned int program)
 static int _bind_glValidateProgram(lua_State *L) {
 	if (!_lg_typecheck_glValidateProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glValidateProgram(unsigned int program) function, expected prototype:\nvoid glValidateProgram(unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glValidateProgram(unsigned int program) function, expected prototype:\nvoid glValidateProgram(unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -7963,8 +7809,7 @@ static int _bind_glValidateProgram(lua_State *L) {
 // void glVertexAttrib1d(unsigned int index, double x)
 static int _bind_glVertexAttrib1d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib1d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib1d(unsigned int index, double x) function, expected prototype:\nvoid glVertexAttrib1d(unsigned int index, double x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib1d(unsigned int index, double x) function, expected prototype:\nvoid glVertexAttrib1d(unsigned int index, double x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7978,8 +7823,7 @@ static int _bind_glVertexAttrib1d(lua_State *L) {
 // void glVertexAttrib1dv(unsigned int index, const double * v)
 static int _bind_glVertexAttrib1dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib1dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib1dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib1dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib1dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib1dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -7993,8 +7837,7 @@ static int _bind_glVertexAttrib1dv(lua_State *L) {
 // void glVertexAttrib1f(unsigned int index, float x)
 static int _bind_glVertexAttrib1f(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib1f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib1f(unsigned int index, float x) function, expected prototype:\nvoid glVertexAttrib1f(unsigned int index, float x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib1f(unsigned int index, float x) function, expected prototype:\nvoid glVertexAttrib1f(unsigned int index, float x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8008,8 +7851,7 @@ static int _bind_glVertexAttrib1f(lua_State *L) {
 // void glVertexAttrib1fv(unsigned int index, const float * v)
 static int _bind_glVertexAttrib1fv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib1fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib1fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib1fv(unsigned int index, const float * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib1fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib1fv(unsigned int index, const float * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8023,8 +7865,7 @@ static int _bind_glVertexAttrib1fv(lua_State *L) {
 // void glVertexAttrib1s(unsigned int index, short x)
 static int _bind_glVertexAttrib1s(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib1s(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib1s(unsigned int index, short x) function, expected prototype:\nvoid glVertexAttrib1s(unsigned int index, short x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib1s(unsigned int index, short x) function, expected prototype:\nvoid glVertexAttrib1s(unsigned int index, short x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8038,8 +7879,7 @@ static int _bind_glVertexAttrib1s(lua_State *L) {
 // void glVertexAttrib1sv(unsigned int index, const short * v)
 static int _bind_glVertexAttrib1sv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib1sv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib1sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib1sv(unsigned int index, const short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib1sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib1sv(unsigned int index, const short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8053,8 +7893,7 @@ static int _bind_glVertexAttrib1sv(lua_State *L) {
 // void glVertexAttrib2d(unsigned int index, double x, double y)
 static int _bind_glVertexAttrib2d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib2d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib2d(unsigned int index, double x, double y) function, expected prototype:\nvoid glVertexAttrib2d(unsigned int index, double x, double y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib2d(unsigned int index, double x, double y) function, expected prototype:\nvoid glVertexAttrib2d(unsigned int index, double x, double y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8069,8 +7908,7 @@ static int _bind_glVertexAttrib2d(lua_State *L) {
 // void glVertexAttrib2dv(unsigned int index, const double * v)
 static int _bind_glVertexAttrib2dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib2dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib2dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib2dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib2dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8084,8 +7922,7 @@ static int _bind_glVertexAttrib2dv(lua_State *L) {
 // void glVertexAttrib2f(unsigned int index, float x, float y)
 static int _bind_glVertexAttrib2f(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib2f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib2f(unsigned int index, float x, float y) function, expected prototype:\nvoid glVertexAttrib2f(unsigned int index, float x, float y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib2f(unsigned int index, float x, float y) function, expected prototype:\nvoid glVertexAttrib2f(unsigned int index, float x, float y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8100,8 +7937,7 @@ static int _bind_glVertexAttrib2f(lua_State *L) {
 // void glVertexAttrib2fv(unsigned int index, const float * v)
 static int _bind_glVertexAttrib2fv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib2fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib2fv(unsigned int index, const float * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib2fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib2fv(unsigned int index, const float * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8115,8 +7951,7 @@ static int _bind_glVertexAttrib2fv(lua_State *L) {
 // void glVertexAttrib2s(unsigned int index, short x, short y)
 static int _bind_glVertexAttrib2s(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib2s(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib2s(unsigned int index, short x, short y) function, expected prototype:\nvoid glVertexAttrib2s(unsigned int index, short x, short y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib2s(unsigned int index, short x, short y) function, expected prototype:\nvoid glVertexAttrib2s(unsigned int index, short x, short y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8131,8 +7966,7 @@ static int _bind_glVertexAttrib2s(lua_State *L) {
 // void glVertexAttrib2sv(unsigned int index, const short * v)
 static int _bind_glVertexAttrib2sv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib2sv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib2sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib2sv(unsigned int index, const short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib2sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib2sv(unsigned int index, const short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8146,8 +7980,7 @@ static int _bind_glVertexAttrib2sv(lua_State *L) {
 // void glVertexAttrib3d(unsigned int index, double x, double y, double z)
 static int _bind_glVertexAttrib3d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib3d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib3d(unsigned int index, double x, double y, double z) function, expected prototype:\nvoid glVertexAttrib3d(unsigned int index, double x, double y, double z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib3d(unsigned int index, double x, double y, double z) function, expected prototype:\nvoid glVertexAttrib3d(unsigned int index, double x, double y, double z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8163,8 +7996,7 @@ static int _bind_glVertexAttrib3d(lua_State *L) {
 // void glVertexAttrib3dv(unsigned int index, const double * v)
 static int _bind_glVertexAttrib3dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib3dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib3dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib3dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib3dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8178,8 +8010,7 @@ static int _bind_glVertexAttrib3dv(lua_State *L) {
 // void glVertexAttrib3f(unsigned int index, float x, float y, float z)
 static int _bind_glVertexAttrib3f(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib3f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib3f(unsigned int index, float x, float y, float z) function, expected prototype:\nvoid glVertexAttrib3f(unsigned int index, float x, float y, float z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib3f(unsigned int index, float x, float y, float z) function, expected prototype:\nvoid glVertexAttrib3f(unsigned int index, float x, float y, float z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8195,8 +8026,7 @@ static int _bind_glVertexAttrib3f(lua_State *L) {
 // void glVertexAttrib3fv(unsigned int index, const float * v)
 static int _bind_glVertexAttrib3fv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib3fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib3fv(unsigned int index, const float * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib3fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib3fv(unsigned int index, const float * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8210,8 +8040,7 @@ static int _bind_glVertexAttrib3fv(lua_State *L) {
 // void glVertexAttrib3s(unsigned int index, short x, short y, short z)
 static int _bind_glVertexAttrib3s(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib3s(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib3s(unsigned int index, short x, short y, short z) function, expected prototype:\nvoid glVertexAttrib3s(unsigned int index, short x, short y, short z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib3s(unsigned int index, short x, short y, short z) function, expected prototype:\nvoid glVertexAttrib3s(unsigned int index, short x, short y, short z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8227,8 +8056,7 @@ static int _bind_glVertexAttrib3s(lua_State *L) {
 // void glVertexAttrib3sv(unsigned int index, const short * v)
 static int _bind_glVertexAttrib3sv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib3sv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib3sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib3sv(unsigned int index, const short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib3sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib3sv(unsigned int index, const short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8242,8 +8070,7 @@ static int _bind_glVertexAttrib3sv(lua_State *L) {
 // void glVertexAttrib4Nbv(unsigned int index, const signed char * v)
 static int _bind_glVertexAttrib4Nbv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Nbv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nbv(unsigned int index, const signed char * v) function, expected prototype:\nvoid glVertexAttrib4Nbv(unsigned int index, const signed char * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nbv(unsigned int index, const signed char * v) function, expected prototype:\nvoid glVertexAttrib4Nbv(unsigned int index, const signed char * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8257,8 +8084,7 @@ static int _bind_glVertexAttrib4Nbv(lua_State *L) {
 // void glVertexAttrib4Niv(unsigned int index, const int * v)
 static int _bind_glVertexAttrib4Niv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Niv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Niv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttrib4Niv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Niv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttrib4Niv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8272,8 +8098,7 @@ static int _bind_glVertexAttrib4Niv(lua_State *L) {
 // void glVertexAttrib4Nsv(unsigned int index, const short * v)
 static int _bind_glVertexAttrib4Nsv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Nsv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nsv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib4Nsv(unsigned int index, const short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nsv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib4Nsv(unsigned int index, const short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8287,8 +8112,7 @@ static int _bind_glVertexAttrib4Nsv(lua_State *L) {
 // void glVertexAttrib4Nub(unsigned int index, unsigned char x, unsigned char y, unsigned char z, unsigned char w)
 static int _bind_glVertexAttrib4Nub(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Nub(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nub(unsigned int index, unsigned char x, unsigned char y, unsigned char z, unsigned char w) function, expected prototype:\nvoid glVertexAttrib4Nub(unsigned int index, unsigned char x, unsigned char y, unsigned char z, unsigned char w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nub(unsigned int index, unsigned char x, unsigned char y, unsigned char z, unsigned char w) function, expected prototype:\nvoid glVertexAttrib4Nub(unsigned int index, unsigned char x, unsigned char y, unsigned char z, unsigned char w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8305,8 +8129,7 @@ static int _bind_glVertexAttrib4Nub(lua_State *L) {
 // void glVertexAttrib4Nubv(unsigned int index, const unsigned char * v)
 static int _bind_glVertexAttrib4Nubv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Nubv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nubv(unsigned int index, const unsigned char * v) function, expected prototype:\nvoid glVertexAttrib4Nubv(unsigned int index, const unsigned char * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nubv(unsigned int index, const unsigned char * v) function, expected prototype:\nvoid glVertexAttrib4Nubv(unsigned int index, const unsigned char * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8320,8 +8143,7 @@ static int _bind_glVertexAttrib4Nubv(lua_State *L) {
 // void glVertexAttrib4Nuiv(unsigned int index, const unsigned int * v)
 static int _bind_glVertexAttrib4Nuiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Nuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nuiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttrib4Nuiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nuiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttrib4Nuiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8335,8 +8157,7 @@ static int _bind_glVertexAttrib4Nuiv(lua_State *L) {
 // void glVertexAttrib4Nusv(unsigned int index, const unsigned short * v)
 static int _bind_glVertexAttrib4Nusv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4Nusv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nusv(unsigned int index, const unsigned short * v) function, expected prototype:\nvoid glVertexAttrib4Nusv(unsigned int index, const unsigned short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4Nusv(unsigned int index, const unsigned short * v) function, expected prototype:\nvoid glVertexAttrib4Nusv(unsigned int index, const unsigned short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8350,8 +8171,7 @@ static int _bind_glVertexAttrib4Nusv(lua_State *L) {
 // void glVertexAttrib4bv(unsigned int index, const signed char * v)
 static int _bind_glVertexAttrib4bv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4bv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4bv(unsigned int index, const signed char * v) function, expected prototype:\nvoid glVertexAttrib4bv(unsigned int index, const signed char * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4bv(unsigned int index, const signed char * v) function, expected prototype:\nvoid glVertexAttrib4bv(unsigned int index, const signed char * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8365,8 +8185,7 @@ static int _bind_glVertexAttrib4bv(lua_State *L) {
 // void glVertexAttrib4d(unsigned int index, double x, double y, double z, double w)
 static int _bind_glVertexAttrib4d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4d(unsigned int index, double x, double y, double z, double w) function, expected prototype:\nvoid glVertexAttrib4d(unsigned int index, double x, double y, double z, double w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4d(unsigned int index, double x, double y, double z, double w) function, expected prototype:\nvoid glVertexAttrib4d(unsigned int index, double x, double y, double z, double w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8383,8 +8202,7 @@ static int _bind_glVertexAttrib4d(lua_State *L) {
 // void glVertexAttrib4dv(unsigned int index, const double * v)
 static int _bind_glVertexAttrib4dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib4dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttrib4dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8398,8 +8216,7 @@ static int _bind_glVertexAttrib4dv(lua_State *L) {
 // void glVertexAttrib4f(unsigned int index, float x, float y, float z, float w)
 static int _bind_glVertexAttrib4f(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4f(unsigned int index, float x, float y, float z, float w) function, expected prototype:\nvoid glVertexAttrib4f(unsigned int index, float x, float y, float z, float w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4f(unsigned int index, float x, float y, float z, float w) function, expected prototype:\nvoid glVertexAttrib4f(unsigned int index, float x, float y, float z, float w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8416,8 +8233,7 @@ static int _bind_glVertexAttrib4f(lua_State *L) {
 // void glVertexAttrib4fv(unsigned int index, const float * v)
 static int _bind_glVertexAttrib4fv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib4fv(unsigned int index, const float * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4fv(unsigned int index, const float * v) function, expected prototype:\nvoid glVertexAttrib4fv(unsigned int index, const float * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8431,8 +8247,7 @@ static int _bind_glVertexAttrib4fv(lua_State *L) {
 // void glVertexAttrib4iv(unsigned int index, const int * v)
 static int _bind_glVertexAttrib4iv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttrib4iv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttrib4iv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8446,8 +8261,7 @@ static int _bind_glVertexAttrib4iv(lua_State *L) {
 // void glVertexAttrib4s(unsigned int index, short x, short y, short z, short w)
 static int _bind_glVertexAttrib4s(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4s(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4s(unsigned int index, short x, short y, short z, short w) function, expected prototype:\nvoid glVertexAttrib4s(unsigned int index, short x, short y, short z, short w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4s(unsigned int index, short x, short y, short z, short w) function, expected prototype:\nvoid glVertexAttrib4s(unsigned int index, short x, short y, short z, short w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8464,8 +8278,7 @@ static int _bind_glVertexAttrib4s(lua_State *L) {
 // void glVertexAttrib4sv(unsigned int index, const short * v)
 static int _bind_glVertexAttrib4sv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4sv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib4sv(unsigned int index, const short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttrib4sv(unsigned int index, const short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8479,8 +8292,7 @@ static int _bind_glVertexAttrib4sv(lua_State *L) {
 // void glVertexAttrib4ubv(unsigned int index, const unsigned char * v)
 static int _bind_glVertexAttrib4ubv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4ubv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4ubv(unsigned int index, const unsigned char * v) function, expected prototype:\nvoid glVertexAttrib4ubv(unsigned int index, const unsigned char * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4ubv(unsigned int index, const unsigned char * v) function, expected prototype:\nvoid glVertexAttrib4ubv(unsigned int index, const unsigned char * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8494,8 +8306,7 @@ static int _bind_glVertexAttrib4ubv(lua_State *L) {
 // void glVertexAttrib4uiv(unsigned int index, const unsigned int * v)
 static int _bind_glVertexAttrib4uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttrib4uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttrib4uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8509,8 +8320,7 @@ static int _bind_glVertexAttrib4uiv(lua_State *L) {
 // void glVertexAttrib4usv(unsigned int index, const unsigned short * v)
 static int _bind_glVertexAttrib4usv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttrib4usv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttrib4usv(unsigned int index, const unsigned short * v) function, expected prototype:\nvoid glVertexAttrib4usv(unsigned int index, const unsigned short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttrib4usv(unsigned int index, const unsigned short * v) function, expected prototype:\nvoid glVertexAttrib4usv(unsigned int index, const unsigned short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8524,8 +8334,7 @@ static int _bind_glVertexAttrib4usv(lua_State *L) {
 // void glVertexAttribPointer(unsigned int index, int size, unsigned int type, unsigned char normalized, int stride, const void * pointer)
 static int _bind_glVertexAttribPointer(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribPointer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribPointer(unsigned int index, int size, unsigned int type, unsigned char normalized, int stride, const void * pointer) function, expected prototype:\nvoid glVertexAttribPointer(unsigned int index, int size, unsigned int type, unsigned char normalized, int stride, const void * pointer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribPointer(unsigned int index, int size, unsigned int type, unsigned char normalized, int stride, const void * pointer) function, expected prototype:\nvoid glVertexAttribPointer(unsigned int index, int size, unsigned int type, unsigned char normalized, int stride, const void * pointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8533,7 +8342,7 @@ static int _bind_glVertexAttribPointer(lua_State *L) {
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
 	unsigned char normalized = (unsigned char)(lua_tointeger(L,4));
 	int stride=(int)lua_tointeger(L,5);
-	void* pointer=(Luna< void >::check(L,6));
+	const void* pointer=(Luna< void >::check(L,6));
 
 	::glVertexAttribPointer(index, size, type, normalized, stride, pointer);
 
@@ -8543,8 +8352,7 @@ static int _bind_glVertexAttribPointer(lua_State *L) {
 // void glUniformMatrix2x3fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix2x3fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix2x3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x3fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix2x3fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x3fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix2x3fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -8560,8 +8368,7 @@ static int _bind_glUniformMatrix2x3fv(lua_State *L) {
 // void glUniformMatrix3x2fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix3x2fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix3x2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x2fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix3x2fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x2fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix3x2fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -8577,8 +8384,7 @@ static int _bind_glUniformMatrix3x2fv(lua_State *L) {
 // void glUniformMatrix2x4fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix2x4fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix2x4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x4fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix2x4fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x4fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix2x4fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -8594,8 +8400,7 @@ static int _bind_glUniformMatrix2x4fv(lua_State *L) {
 // void glUniformMatrix4x2fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix4x2fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix4x2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x2fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix4x2fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x2fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix4x2fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -8611,8 +8416,7 @@ static int _bind_glUniformMatrix4x2fv(lua_State *L) {
 // void glUniformMatrix3x4fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix3x4fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix3x4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x4fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix3x4fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x4fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix3x4fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -8628,8 +8432,7 @@ static int _bind_glUniformMatrix3x4fv(lua_State *L) {
 // void glUniformMatrix4x3fv(int location, int count, unsigned char transpose, const float * value)
 static int _bind_glUniformMatrix4x3fv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix4x3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x3fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix4x3fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x3fv(int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glUniformMatrix4x3fv(int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -8645,8 +8448,7 @@ static int _bind_glUniformMatrix4x3fv(lua_State *L) {
 // void glColorMaski(unsigned int index, unsigned char r, unsigned char g, unsigned char b, unsigned char a)
 static int _bind_glColorMaski(lua_State *L) {
 	if (!_lg_typecheck_glColorMaski(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glColorMaski(unsigned int index, unsigned char r, unsigned char g, unsigned char b, unsigned char a) function, expected prototype:\nvoid glColorMaski(unsigned int index, unsigned char r, unsigned char g, unsigned char b, unsigned char a)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glColorMaski(unsigned int index, unsigned char r, unsigned char g, unsigned char b, unsigned char a) function, expected prototype:\nvoid glColorMaski(unsigned int index, unsigned char r, unsigned char g, unsigned char b, unsigned char a)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8663,8 +8465,7 @@ static int _bind_glColorMaski(lua_State *L) {
 // void glGetBooleani_v(unsigned int target, unsigned int index, unsigned char * data)
 static int _bind_glGetBooleani_v(lua_State *L) {
 	if (!_lg_typecheck_glGetBooleani_v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetBooleani_v(unsigned int target, unsigned int index, unsigned char * data) function, expected prototype:\nvoid glGetBooleani_v(unsigned int target, unsigned int index, unsigned char * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetBooleani_v(unsigned int target, unsigned int index, unsigned char * data) function, expected prototype:\nvoid glGetBooleani_v(unsigned int target, unsigned int index, unsigned char * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8679,8 +8480,7 @@ static int _bind_glGetBooleani_v(lua_State *L) {
 // void glGetIntegeri_v(unsigned int target, unsigned int index, int * data)
 static int _bind_glGetIntegeri_v(lua_State *L) {
 	if (!_lg_typecheck_glGetIntegeri_v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetIntegeri_v(unsigned int target, unsigned int index, int * data) function, expected prototype:\nvoid glGetIntegeri_v(unsigned int target, unsigned int index, int * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetIntegeri_v(unsigned int target, unsigned int index, int * data) function, expected prototype:\nvoid glGetIntegeri_v(unsigned int target, unsigned int index, int * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8695,8 +8495,7 @@ static int _bind_glGetIntegeri_v(lua_State *L) {
 // void glEnablei(unsigned int target, unsigned int index)
 static int _bind_glEnablei(lua_State *L) {
 	if (!_lg_typecheck_glEnablei(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEnablei(unsigned int target, unsigned int index) function, expected prototype:\nvoid glEnablei(unsigned int target, unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEnablei(unsigned int target, unsigned int index) function, expected prototype:\nvoid glEnablei(unsigned int target, unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8710,8 +8509,7 @@ static int _bind_glEnablei(lua_State *L) {
 // void glDisablei(unsigned int target, unsigned int index)
 static int _bind_glDisablei(lua_State *L) {
 	if (!_lg_typecheck_glDisablei(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDisablei(unsigned int target, unsigned int index) function, expected prototype:\nvoid glDisablei(unsigned int target, unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDisablei(unsigned int target, unsigned int index) function, expected prototype:\nvoid glDisablei(unsigned int target, unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8725,8 +8523,7 @@ static int _bind_glDisablei(lua_State *L) {
 // unsigned char glIsEnabledi(unsigned int target, unsigned int index)
 static int _bind_glIsEnabledi(lua_State *L) {
 	if (!_lg_typecheck_glIsEnabledi(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsEnabledi(unsigned int target, unsigned int index) function, expected prototype:\nunsigned char glIsEnabledi(unsigned int target, unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsEnabledi(unsigned int target, unsigned int index) function, expected prototype:\nunsigned char glIsEnabledi(unsigned int target, unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8741,8 +8538,7 @@ static int _bind_glIsEnabledi(lua_State *L) {
 // void glBeginTransformFeedback(unsigned int primitiveMode)
 static int _bind_glBeginTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glBeginTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBeginTransformFeedback(unsigned int primitiveMode) function, expected prototype:\nvoid glBeginTransformFeedback(unsigned int primitiveMode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBeginTransformFeedback(unsigned int primitiveMode) function, expected prototype:\nvoid glBeginTransformFeedback(unsigned int primitiveMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int primitiveMode=(unsigned int)lua_tointeger(L,1);
@@ -8755,8 +8551,7 @@ static int _bind_glBeginTransformFeedback(lua_State *L) {
 // void glEndTransformFeedback()
 static int _bind_glEndTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glEndTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEndTransformFeedback() function, expected prototype:\nvoid glEndTransformFeedback()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEndTransformFeedback() function, expected prototype:\nvoid glEndTransformFeedback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -8768,8 +8563,7 @@ static int _bind_glEndTransformFeedback(lua_State *L) {
 // void glBindBufferRange(unsigned int target, unsigned int index, unsigned int buffer, __int64 offset, __int64 size)
 static int _bind_glBindBufferRange(lua_State *L) {
 	if (!_lg_typecheck_glBindBufferRange(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindBufferRange(unsigned int target, unsigned int index, unsigned int buffer, __int64 offset, __int64 size) function, expected prototype:\nvoid glBindBufferRange(unsigned int target, unsigned int index, unsigned int buffer, __int64 offset, __int64 size)\nClass arguments details:\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glBindBufferRange(unsigned int target, unsigned int index, unsigned int buffer, __int64 offset, __int64 size) function, expected prototype:\nvoid glBindBufferRange(unsigned int target, unsigned int index, unsigned int buffer, __int64 offset, __int64 size)\nClass arguments details:\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8794,8 +8588,7 @@ static int _bind_glBindBufferRange(lua_State *L) {
 // void glBindBufferBase(unsigned int target, unsigned int index, unsigned int buffer)
 static int _bind_glBindBufferBase(lua_State *L) {
 	if (!_lg_typecheck_glBindBufferBase(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindBufferBase(unsigned int target, unsigned int index, unsigned int buffer) function, expected prototype:\nvoid glBindBufferBase(unsigned int target, unsigned int index, unsigned int buffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindBufferBase(unsigned int target, unsigned int index, unsigned int buffer) function, expected prototype:\nvoid glBindBufferBase(unsigned int target, unsigned int index, unsigned int buffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8810,8 +8603,7 @@ static int _bind_glBindBufferBase(lua_State *L) {
 // void glGetTransformFeedbackVarying(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)
 static int _bind_glGetTransformFeedbackVarying(lua_State *L) {
 	if (!_lg_typecheck_glGetTransformFeedbackVarying(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTransformFeedbackVarying(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name) function, expected prototype:\nvoid glGetTransformFeedbackVarying(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTransformFeedbackVarying(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name) function, expected prototype:\nvoid glGetTransformFeedbackVarying(unsigned int program, unsigned int index, int bufSize, int * length, int * size, unsigned int * type, char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -8830,8 +8622,7 @@ static int _bind_glGetTransformFeedbackVarying(lua_State *L) {
 // void glClampColor(unsigned int target, unsigned int clamp)
 static int _bind_glClampColor(lua_State *L) {
 	if (!_lg_typecheck_glClampColor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClampColor(unsigned int target, unsigned int clamp) function, expected prototype:\nvoid glClampColor(unsigned int target, unsigned int clamp)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClampColor(unsigned int target, unsigned int clamp) function, expected prototype:\nvoid glClampColor(unsigned int target, unsigned int clamp)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -8845,8 +8636,7 @@ static int _bind_glClampColor(lua_State *L) {
 // void glBeginConditionalRender(unsigned int id, unsigned int mode)
 static int _bind_glBeginConditionalRender(lua_State *L) {
 	if (!_lg_typecheck_glBeginConditionalRender(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBeginConditionalRender(unsigned int id, unsigned int mode) function, expected prototype:\nvoid glBeginConditionalRender(unsigned int id, unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBeginConditionalRender(unsigned int id, unsigned int mode) function, expected prototype:\nvoid glBeginConditionalRender(unsigned int id, unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -8860,8 +8650,7 @@ static int _bind_glBeginConditionalRender(lua_State *L) {
 // void glEndConditionalRender()
 static int _bind_glEndConditionalRender(lua_State *L) {
 	if (!_lg_typecheck_glEndConditionalRender(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEndConditionalRender() function, expected prototype:\nvoid glEndConditionalRender()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEndConditionalRender() function, expected prototype:\nvoid glEndConditionalRender()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -8873,15 +8662,14 @@ static int _bind_glEndConditionalRender(lua_State *L) {
 // void glVertexAttribIPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer)
 static int _bind_glVertexAttribIPointer(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribIPointer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribIPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer) function, expected prototype:\nvoid glVertexAttribIPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribIPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer) function, expected prototype:\nvoid glVertexAttribIPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
 	int size=(int)lua_tointeger(L,2);
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
 	int stride=(int)lua_tointeger(L,4);
-	void* pointer=(Luna< void >::check(L,5));
+	const void* pointer=(Luna< void >::check(L,5));
 
 	::glVertexAttribIPointer(index, size, type, stride, pointer);
 
@@ -8891,8 +8679,7 @@ static int _bind_glVertexAttribIPointer(lua_State *L) {
 // void glGetVertexAttribIiv(unsigned int index, unsigned int pname, int * params)
 static int _bind_glGetVertexAttribIiv(lua_State *L) {
 	if (!_lg_typecheck_glGetVertexAttribIiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetVertexAttribIiv(unsigned int index, unsigned int pname, int * params) function, expected prototype:\nvoid glGetVertexAttribIiv(unsigned int index, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetVertexAttribIiv(unsigned int index, unsigned int pname, int * params) function, expected prototype:\nvoid glGetVertexAttribIiv(unsigned int index, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8907,8 +8694,7 @@ static int _bind_glGetVertexAttribIiv(lua_State *L) {
 // void glGetVertexAttribIuiv(unsigned int index, unsigned int pname, unsigned int * params)
 static int _bind_glGetVertexAttribIuiv(lua_State *L) {
 	if (!_lg_typecheck_glGetVertexAttribIuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetVertexAttribIuiv(unsigned int index, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetVertexAttribIuiv(unsigned int index, unsigned int pname, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetVertexAttribIuiv(unsigned int index, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetVertexAttribIuiv(unsigned int index, unsigned int pname, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8923,8 +8709,7 @@ static int _bind_glGetVertexAttribIuiv(lua_State *L) {
 // void glVertexAttribI1i(unsigned int index, int x)
 static int _bind_glVertexAttribI1i(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI1i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI1i(unsigned int index, int x) function, expected prototype:\nvoid glVertexAttribI1i(unsigned int index, int x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI1i(unsigned int index, int x) function, expected prototype:\nvoid glVertexAttribI1i(unsigned int index, int x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8938,8 +8723,7 @@ static int _bind_glVertexAttribI1i(lua_State *L) {
 // void glVertexAttribI2i(unsigned int index, int x, int y)
 static int _bind_glVertexAttribI2i(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI2i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI2i(unsigned int index, int x, int y) function, expected prototype:\nvoid glVertexAttribI2i(unsigned int index, int x, int y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI2i(unsigned int index, int x, int y) function, expected prototype:\nvoid glVertexAttribI2i(unsigned int index, int x, int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8954,8 +8738,7 @@ static int _bind_glVertexAttribI2i(lua_State *L) {
 // void glVertexAttribI3i(unsigned int index, int x, int y, int z)
 static int _bind_glVertexAttribI3i(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI3i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI3i(unsigned int index, int x, int y, int z) function, expected prototype:\nvoid glVertexAttribI3i(unsigned int index, int x, int y, int z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI3i(unsigned int index, int x, int y, int z) function, expected prototype:\nvoid glVertexAttribI3i(unsigned int index, int x, int y, int z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8971,8 +8754,7 @@ static int _bind_glVertexAttribI3i(lua_State *L) {
 // void glVertexAttribI4i(unsigned int index, int x, int y, int z, int w)
 static int _bind_glVertexAttribI4i(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4i(unsigned int index, int x, int y, int z, int w) function, expected prototype:\nvoid glVertexAttribI4i(unsigned int index, int x, int y, int z, int w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4i(unsigned int index, int x, int y, int z, int w) function, expected prototype:\nvoid glVertexAttribI4i(unsigned int index, int x, int y, int z, int w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -8989,8 +8771,7 @@ static int _bind_glVertexAttribI4i(lua_State *L) {
 // void glVertexAttribI1ui(unsigned int index, unsigned int x)
 static int _bind_glVertexAttribI1ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI1ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI1ui(unsigned int index, unsigned int x) function, expected prototype:\nvoid glVertexAttribI1ui(unsigned int index, unsigned int x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI1ui(unsigned int index, unsigned int x) function, expected prototype:\nvoid glVertexAttribI1ui(unsigned int index, unsigned int x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9004,8 +8785,7 @@ static int _bind_glVertexAttribI1ui(lua_State *L) {
 // void glVertexAttribI2ui(unsigned int index, unsigned int x, unsigned int y)
 static int _bind_glVertexAttribI2ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI2ui(unsigned int index, unsigned int x, unsigned int y) function, expected prototype:\nvoid glVertexAttribI2ui(unsigned int index, unsigned int x, unsigned int y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI2ui(unsigned int index, unsigned int x, unsigned int y) function, expected prototype:\nvoid glVertexAttribI2ui(unsigned int index, unsigned int x, unsigned int y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9020,8 +8800,7 @@ static int _bind_glVertexAttribI2ui(lua_State *L) {
 // void glVertexAttribI3ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z)
 static int _bind_glVertexAttribI3ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI3ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z) function, expected prototype:\nvoid glVertexAttribI3ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI3ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z) function, expected prototype:\nvoid glVertexAttribI3ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9037,8 +8816,7 @@ static int _bind_glVertexAttribI3ui(lua_State *L) {
 // void glVertexAttribI4ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z, unsigned int w)
 static int _bind_glVertexAttribI4ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z, unsigned int w) function, expected prototype:\nvoid glVertexAttribI4ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z, unsigned int w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z, unsigned int w) function, expected prototype:\nvoid glVertexAttribI4ui(unsigned int index, unsigned int x, unsigned int y, unsigned int z, unsigned int w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9055,8 +8833,7 @@ static int _bind_glVertexAttribI4ui(lua_State *L) {
 // void glVertexAttribI1iv(unsigned int index, const int * v)
 static int _bind_glVertexAttribI1iv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI1iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI1iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI1iv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI1iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI1iv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9070,8 +8847,7 @@ static int _bind_glVertexAttribI1iv(lua_State *L) {
 // void glVertexAttribI2iv(unsigned int index, const int * v)
 static int _bind_glVertexAttribI2iv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI2iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI2iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI2iv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI2iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI2iv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9085,8 +8861,7 @@ static int _bind_glVertexAttribI2iv(lua_State *L) {
 // void glVertexAttribI3iv(unsigned int index, const int * v)
 static int _bind_glVertexAttribI3iv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI3iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI3iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI3iv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI3iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI3iv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9100,8 +8875,7 @@ static int _bind_glVertexAttribI3iv(lua_State *L) {
 // void glVertexAttribI4iv(unsigned int index, const int * v)
 static int _bind_glVertexAttribI4iv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI4iv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4iv(unsigned int index, const int * v) function, expected prototype:\nvoid glVertexAttribI4iv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9115,8 +8889,7 @@ static int _bind_glVertexAttribI4iv(lua_State *L) {
 // void glVertexAttribI1uiv(unsigned int index, const unsigned int * v)
 static int _bind_glVertexAttribI1uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI1uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI1uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI1uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI1uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI1uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9130,8 +8903,7 @@ static int _bind_glVertexAttribI1uiv(lua_State *L) {
 // void glVertexAttribI2uiv(unsigned int index, const unsigned int * v)
 static int _bind_glVertexAttribI2uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI2uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI2uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI2uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI2uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9145,8 +8917,7 @@ static int _bind_glVertexAttribI2uiv(lua_State *L) {
 // void glVertexAttribI3uiv(unsigned int index, const unsigned int * v)
 static int _bind_glVertexAttribI3uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI3uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI3uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI3uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI3uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9160,8 +8931,7 @@ static int _bind_glVertexAttribI3uiv(lua_State *L) {
 // void glVertexAttribI4uiv(unsigned int index, const unsigned int * v)
 static int _bind_glVertexAttribI4uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI4uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4uiv(unsigned int index, const unsigned int * v) function, expected prototype:\nvoid glVertexAttribI4uiv(unsigned int index, const unsigned int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9175,8 +8945,7 @@ static int _bind_glVertexAttribI4uiv(lua_State *L) {
 // void glVertexAttribI4bv(unsigned int index, const signed char * v)
 static int _bind_glVertexAttribI4bv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4bv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4bv(unsigned int index, const signed char * v) function, expected prototype:\nvoid glVertexAttribI4bv(unsigned int index, const signed char * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4bv(unsigned int index, const signed char * v) function, expected prototype:\nvoid glVertexAttribI4bv(unsigned int index, const signed char * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9190,8 +8959,7 @@ static int _bind_glVertexAttribI4bv(lua_State *L) {
 // void glVertexAttribI4sv(unsigned int index, const short * v)
 static int _bind_glVertexAttribI4sv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4sv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttribI4sv(unsigned int index, const short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4sv(unsigned int index, const short * v) function, expected prototype:\nvoid glVertexAttribI4sv(unsigned int index, const short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9205,8 +8973,7 @@ static int _bind_glVertexAttribI4sv(lua_State *L) {
 // void glVertexAttribI4ubv(unsigned int index, const unsigned char * v)
 static int _bind_glVertexAttribI4ubv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4ubv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4ubv(unsigned int index, const unsigned char * v) function, expected prototype:\nvoid glVertexAttribI4ubv(unsigned int index, const unsigned char * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4ubv(unsigned int index, const unsigned char * v) function, expected prototype:\nvoid glVertexAttribI4ubv(unsigned int index, const unsigned char * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9220,8 +8987,7 @@ static int _bind_glVertexAttribI4ubv(lua_State *L) {
 // void glVertexAttribI4usv(unsigned int index, const unsigned short * v)
 static int _bind_glVertexAttribI4usv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribI4usv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribI4usv(unsigned int index, const unsigned short * v) function, expected prototype:\nvoid glVertexAttribI4usv(unsigned int index, const unsigned short * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribI4usv(unsigned int index, const unsigned short * v) function, expected prototype:\nvoid glVertexAttribI4usv(unsigned int index, const unsigned short * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9235,8 +9001,7 @@ static int _bind_glVertexAttribI4usv(lua_State *L) {
 // void glGetUniformuiv(unsigned int program, int location, unsigned int * params)
 static int _bind_glGetUniformuiv(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetUniformuiv(unsigned int program, int location, unsigned int * params) function, expected prototype:\nvoid glGetUniformuiv(unsigned int program, int location, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetUniformuiv(unsigned int program, int location, unsigned int * params) function, expected prototype:\nvoid glGetUniformuiv(unsigned int program, int location, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -9251,8 +9016,7 @@ static int _bind_glGetUniformuiv(lua_State *L) {
 // void glBindFragDataLocation(unsigned int program, unsigned int color, const char * name)
 static int _bind_glBindFragDataLocation(lua_State *L) {
 	if (!_lg_typecheck_glBindFragDataLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindFragDataLocation(unsigned int program, unsigned int color, const char * name) function, expected prototype:\nvoid glBindFragDataLocation(unsigned int program, unsigned int color, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindFragDataLocation(unsigned int program, unsigned int color, const char * name) function, expected prototype:\nvoid glBindFragDataLocation(unsigned int program, unsigned int color, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -9267,8 +9031,7 @@ static int _bind_glBindFragDataLocation(lua_State *L) {
 // int glGetFragDataLocation(unsigned int program, const char * name)
 static int _bind_glGetFragDataLocation(lua_State *L) {
 	if (!_lg_typecheck_glGetFragDataLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetFragDataLocation(unsigned int program, const char * name) function, expected prototype:\nint glGetFragDataLocation(unsigned int program, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetFragDataLocation(unsigned int program, const char * name) function, expected prototype:\nint glGetFragDataLocation(unsigned int program, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -9283,8 +9046,7 @@ static int _bind_glGetFragDataLocation(lua_State *L) {
 // void glUniform1ui(int location, unsigned int v0)
 static int _bind_glUniform1ui(lua_State *L) {
 	if (!_lg_typecheck_glUniform1ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1ui(int location, unsigned int v0) function, expected prototype:\nvoid glUniform1ui(int location, unsigned int v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1ui(int location, unsigned int v0) function, expected prototype:\nvoid glUniform1ui(int location, unsigned int v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9298,8 +9060,7 @@ static int _bind_glUniform1ui(lua_State *L) {
 // void glUniform2ui(int location, unsigned int v0, unsigned int v1)
 static int _bind_glUniform2ui(lua_State *L) {
 	if (!_lg_typecheck_glUniform2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2ui(int location, unsigned int v0, unsigned int v1) function, expected prototype:\nvoid glUniform2ui(int location, unsigned int v0, unsigned int v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2ui(int location, unsigned int v0, unsigned int v1) function, expected prototype:\nvoid glUniform2ui(int location, unsigned int v0, unsigned int v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9314,8 +9075,7 @@ static int _bind_glUniform2ui(lua_State *L) {
 // void glUniform3ui(int location, unsigned int v0, unsigned int v1, unsigned int v2)
 static int _bind_glUniform3ui(lua_State *L) {
 	if (!_lg_typecheck_glUniform3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3ui(int location, unsigned int v0, unsigned int v1, unsigned int v2) function, expected prototype:\nvoid glUniform3ui(int location, unsigned int v0, unsigned int v1, unsigned int v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3ui(int location, unsigned int v0, unsigned int v1, unsigned int v2) function, expected prototype:\nvoid glUniform3ui(int location, unsigned int v0, unsigned int v1, unsigned int v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9331,8 +9091,7 @@ static int _bind_glUniform3ui(lua_State *L) {
 // void glUniform4ui(int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3)
 static int _bind_glUniform4ui(lua_State *L) {
 	if (!_lg_typecheck_glUniform4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4ui(int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3) function, expected prototype:\nvoid glUniform4ui(int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4ui(int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3) function, expected prototype:\nvoid glUniform4ui(int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9349,8 +9108,7 @@ static int _bind_glUniform4ui(lua_State *L) {
 // void glUniform1uiv(int location, int count, const unsigned int * value)
 static int _bind_glUniform1uiv(lua_State *L) {
 	if (!_lg_typecheck_glUniform1uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform1uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform1uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9365,8 +9123,7 @@ static int _bind_glUniform1uiv(lua_State *L) {
 // void glUniform2uiv(int location, int count, const unsigned int * value)
 static int _bind_glUniform2uiv(lua_State *L) {
 	if (!_lg_typecheck_glUniform2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform2uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform2uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9381,8 +9138,7 @@ static int _bind_glUniform2uiv(lua_State *L) {
 // void glUniform3uiv(int location, int count, const unsigned int * value)
 static int _bind_glUniform3uiv(lua_State *L) {
 	if (!_lg_typecheck_glUniform3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform3uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform3uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9397,8 +9153,7 @@ static int _bind_glUniform3uiv(lua_State *L) {
 // void glUniform4uiv(int location, int count, const unsigned int * value)
 static int _bind_glUniform4uiv(lua_State *L) {
 	if (!_lg_typecheck_glUniform4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform4uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4uiv(int location, int count, const unsigned int * value) function, expected prototype:\nvoid glUniform4uiv(int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -9413,8 +9168,7 @@ static int _bind_glUniform4uiv(lua_State *L) {
 // void glTexParameterIiv(unsigned int target, unsigned int pname, const int * params)
 static int _bind_glTexParameterIiv(lua_State *L) {
 	if (!_lg_typecheck_glTexParameterIiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexParameterIiv(unsigned int target, unsigned int pname, const int * params) function, expected prototype:\nvoid glTexParameterIiv(unsigned int target, unsigned int pname, const int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexParameterIiv(unsigned int target, unsigned int pname, const int * params) function, expected prototype:\nvoid glTexParameterIiv(unsigned int target, unsigned int pname, const int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9429,8 +9183,7 @@ static int _bind_glTexParameterIiv(lua_State *L) {
 // void glTexParameterIuiv(unsigned int target, unsigned int pname, const unsigned int * params)
 static int _bind_glTexParameterIuiv(lua_State *L) {
 	if (!_lg_typecheck_glTexParameterIuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexParameterIuiv(unsigned int target, unsigned int pname, const unsigned int * params) function, expected prototype:\nvoid glTexParameterIuiv(unsigned int target, unsigned int pname, const unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexParameterIuiv(unsigned int target, unsigned int pname, const unsigned int * params) function, expected prototype:\nvoid glTexParameterIuiv(unsigned int target, unsigned int pname, const unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9445,8 +9198,7 @@ static int _bind_glTexParameterIuiv(lua_State *L) {
 // void glGetTexParameterIiv(unsigned int target, unsigned int pname, int * params)
 static int _bind_glGetTexParameterIiv(lua_State *L) {
 	if (!_lg_typecheck_glGetTexParameterIiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexParameterIiv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetTexParameterIiv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexParameterIiv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetTexParameterIiv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9461,8 +9213,7 @@ static int _bind_glGetTexParameterIiv(lua_State *L) {
 // void glGetTexParameterIuiv(unsigned int target, unsigned int pname, unsigned int * params)
 static int _bind_glGetTexParameterIuiv(lua_State *L) {
 	if (!_lg_typecheck_glGetTexParameterIuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetTexParameterIuiv(unsigned int target, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetTexParameterIuiv(unsigned int target, unsigned int pname, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetTexParameterIuiv(unsigned int target, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetTexParameterIuiv(unsigned int target, unsigned int pname, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9477,8 +9228,7 @@ static int _bind_glGetTexParameterIuiv(lua_State *L) {
 // void glClearBufferiv(unsigned int buffer, int drawbuffer, const int * value)
 static int _bind_glClearBufferiv(lua_State *L) {
 	if (!_lg_typecheck_glClearBufferiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearBufferiv(unsigned int buffer, int drawbuffer, const int * value) function, expected prototype:\nvoid glClearBufferiv(unsigned int buffer, int drawbuffer, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearBufferiv(unsigned int buffer, int drawbuffer, const int * value) function, expected prototype:\nvoid glClearBufferiv(unsigned int buffer, int drawbuffer, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -9493,8 +9243,7 @@ static int _bind_glClearBufferiv(lua_State *L) {
 // void glClearBufferuiv(unsigned int buffer, int drawbuffer, const unsigned int * value)
 static int _bind_glClearBufferuiv(lua_State *L) {
 	if (!_lg_typecheck_glClearBufferuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearBufferuiv(unsigned int buffer, int drawbuffer, const unsigned int * value) function, expected prototype:\nvoid glClearBufferuiv(unsigned int buffer, int drawbuffer, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearBufferuiv(unsigned int buffer, int drawbuffer, const unsigned int * value) function, expected prototype:\nvoid glClearBufferuiv(unsigned int buffer, int drawbuffer, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -9509,8 +9258,7 @@ static int _bind_glClearBufferuiv(lua_State *L) {
 // void glClearBufferfv(unsigned int buffer, int drawbuffer, const float * value)
 static int _bind_glClearBufferfv(lua_State *L) {
 	if (!_lg_typecheck_glClearBufferfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearBufferfv(unsigned int buffer, int drawbuffer, const float * value) function, expected prototype:\nvoid glClearBufferfv(unsigned int buffer, int drawbuffer, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearBufferfv(unsigned int buffer, int drawbuffer, const float * value) function, expected prototype:\nvoid glClearBufferfv(unsigned int buffer, int drawbuffer, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -9525,8 +9273,7 @@ static int _bind_glClearBufferfv(lua_State *L) {
 // void glClearBufferfi(unsigned int buffer, int drawbuffer, float depth, int stencil)
 static int _bind_glClearBufferfi(lua_State *L) {
 	if (!_lg_typecheck_glClearBufferfi(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearBufferfi(unsigned int buffer, int drawbuffer, float depth, int stencil) function, expected prototype:\nvoid glClearBufferfi(unsigned int buffer, int drawbuffer, float depth, int stencil)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearBufferfi(unsigned int buffer, int drawbuffer, float depth, int stencil) function, expected prototype:\nvoid glClearBufferfi(unsigned int buffer, int drawbuffer, float depth, int stencil)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -9542,8 +9289,7 @@ static int _bind_glClearBufferfi(lua_State *L) {
 // const unsigned char * glGetStringi(unsigned int name, unsigned int index)
 static int _bind_glGetStringi(lua_State *L) {
 	if (!_lg_typecheck_glGetStringi(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in const unsigned char * glGetStringi(unsigned int name, unsigned int index) function, expected prototype:\nconst unsigned char * glGetStringi(unsigned int name, unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in const unsigned char * glGetStringi(unsigned int name, unsigned int index) function, expected prototype:\nconst unsigned char * glGetStringi(unsigned int name, unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int name=(unsigned int)lua_tointeger(L,1);
@@ -9558,8 +9304,7 @@ static int _bind_glGetStringi(lua_State *L) {
 // void glDrawArraysInstanced(unsigned int mode, int first, int count, int instancecount)
 static int _bind_glDrawArraysInstanced(lua_State *L) {
 	if (!_lg_typecheck_glDrawArraysInstanced(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawArraysInstanced(unsigned int mode, int first, int count, int instancecount) function, expected prototype:\nvoid glDrawArraysInstanced(unsigned int mode, int first, int count, int instancecount)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawArraysInstanced(unsigned int mode, int first, int count, int instancecount) function, expected prototype:\nvoid glDrawArraysInstanced(unsigned int mode, int first, int count, int instancecount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -9575,14 +9320,13 @@ static int _bind_glDrawArraysInstanced(lua_State *L) {
 // void glDrawElementsInstanced(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount)
 static int _bind_glDrawElementsInstanced(lua_State *L) {
 	if (!_lg_typecheck_glDrawElementsInstanced(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElementsInstanced(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount) function, expected prototype:\nvoid glDrawElementsInstanced(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElementsInstanced(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount) function, expected prototype:\nvoid glDrawElementsInstanced(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 	int count=(int)lua_tointeger(L,2);
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
-	void* indices=(Luna< void >::check(L,4));
+	const void* indices=(Luna< void >::check(L,4));
 	int instancecount=(int)lua_tointeger(L,5);
 
 	::glDrawElementsInstanced(mode, count, type, indices, instancecount);
@@ -9593,8 +9337,7 @@ static int _bind_glDrawElementsInstanced(lua_State *L) {
 // void glTexBuffer(unsigned int target, unsigned int internalformat, unsigned int buffer)
 static int _bind_glTexBuffer(lua_State *L) {
 	if (!_lg_typecheck_glTexBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexBuffer(unsigned int target, unsigned int internalformat, unsigned int buffer) function, expected prototype:\nvoid glTexBuffer(unsigned int target, unsigned int internalformat, unsigned int buffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexBuffer(unsigned int target, unsigned int internalformat, unsigned int buffer) function, expected prototype:\nvoid glTexBuffer(unsigned int target, unsigned int internalformat, unsigned int buffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9609,8 +9352,7 @@ static int _bind_glTexBuffer(lua_State *L) {
 // void glPrimitiveRestartIndex(unsigned int index)
 static int _bind_glPrimitiveRestartIndex(lua_State *L) {
 	if (!_lg_typecheck_glPrimitiveRestartIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPrimitiveRestartIndex(unsigned int index) function, expected prototype:\nvoid glPrimitiveRestartIndex(unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPrimitiveRestartIndex(unsigned int index) function, expected prototype:\nvoid glPrimitiveRestartIndex(unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9623,8 +9365,7 @@ static int _bind_glPrimitiveRestartIndex(lua_State *L) {
 // void glGetInteger64i_v(unsigned int target, unsigned int index, __int64 * data)
 static int _bind_glGetInteger64i_v(lua_State *L) {
 	if (!_lg_typecheck_glGetInteger64i_v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetInteger64i_v(unsigned int target, unsigned int index, __int64 * data) function, expected prototype:\nvoid glGetInteger64i_v(unsigned int target, unsigned int index, __int64 * data)\nClass arguments details:\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glGetInteger64i_v(unsigned int target, unsigned int index, __int64 * data) function, expected prototype:\nvoid glGetInteger64i_v(unsigned int target, unsigned int index, __int64 * data)\nClass arguments details:\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9639,8 +9380,7 @@ static int _bind_glGetInteger64i_v(lua_State *L) {
 // void glGetBufferParameteri64v(unsigned int target, unsigned int pname, __int64 * params)
 static int _bind_glGetBufferParameteri64v(lua_State *L) {
 	if (!_lg_typecheck_glGetBufferParameteri64v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetBufferParameteri64v(unsigned int target, unsigned int pname, __int64 * params) function, expected prototype:\nvoid glGetBufferParameteri64v(unsigned int target, unsigned int pname, __int64 * params)\nClass arguments details:\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glGetBufferParameteri64v(unsigned int target, unsigned int pname, __int64 * params) function, expected prototype:\nvoid glGetBufferParameteri64v(unsigned int target, unsigned int pname, __int64 * params)\nClass arguments details:\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9655,8 +9395,7 @@ static int _bind_glGetBufferParameteri64v(lua_State *L) {
 // void glFramebufferTexture(unsigned int target, unsigned int attachment, unsigned int texture, int level)
 static int _bind_glFramebufferTexture(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferTexture(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferTexture(unsigned int target, unsigned int attachment, unsigned int texture, int level) function, expected prototype:\nvoid glFramebufferTexture(unsigned int target, unsigned int attachment, unsigned int texture, int level)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferTexture(unsigned int target, unsigned int attachment, unsigned int texture, int level) function, expected prototype:\nvoid glFramebufferTexture(unsigned int target, unsigned int attachment, unsigned int texture, int level)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9672,8 +9411,7 @@ static int _bind_glFramebufferTexture(lua_State *L) {
 // void glVertexAttribDivisor(unsigned int index, unsigned int divisor)
 static int _bind_glVertexAttribDivisor(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribDivisor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribDivisor(unsigned int index, unsigned int divisor) function, expected prototype:\nvoid glVertexAttribDivisor(unsigned int index, unsigned int divisor)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribDivisor(unsigned int index, unsigned int divisor) function, expected prototype:\nvoid glVertexAttribDivisor(unsigned int index, unsigned int divisor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -9687,8 +9425,7 @@ static int _bind_glVertexAttribDivisor(lua_State *L) {
 // void glMinSampleShading(float value)
 static int _bind_glMinSampleShading(lua_State *L) {
 	if (!_lg_typecheck_glMinSampleShading(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMinSampleShading(float value) function, expected prototype:\nvoid glMinSampleShading(float value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMinSampleShading(float value) function, expected prototype:\nvoid glMinSampleShading(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float value=(float)lua_tonumber(L,1);
@@ -9701,8 +9438,7 @@ static int _bind_glMinSampleShading(lua_State *L) {
 // void glBlendEquationi(unsigned int buf, unsigned int mode)
 static int _bind_glBlendEquationi(lua_State *L) {
 	if (!_lg_typecheck_glBlendEquationi(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendEquationi(unsigned int buf, unsigned int mode) function, expected prototype:\nvoid glBlendEquationi(unsigned int buf, unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendEquationi(unsigned int buf, unsigned int mode) function, expected prototype:\nvoid glBlendEquationi(unsigned int buf, unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -9716,8 +9452,7 @@ static int _bind_glBlendEquationi(lua_State *L) {
 // void glBlendEquationSeparatei(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha)
 static int _bind_glBlendEquationSeparatei(lua_State *L) {
 	if (!_lg_typecheck_glBlendEquationSeparatei(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendEquationSeparatei(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha) function, expected prototype:\nvoid glBlendEquationSeparatei(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendEquationSeparatei(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha) function, expected prototype:\nvoid glBlendEquationSeparatei(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -9732,8 +9467,7 @@ static int _bind_glBlendEquationSeparatei(lua_State *L) {
 // void glBlendFunci(unsigned int buf, unsigned int src, unsigned int dst)
 static int _bind_glBlendFunci(lua_State *L) {
 	if (!_lg_typecheck_glBlendFunci(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendFunci(unsigned int buf, unsigned int src, unsigned int dst) function, expected prototype:\nvoid glBlendFunci(unsigned int buf, unsigned int src, unsigned int dst)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendFunci(unsigned int buf, unsigned int src, unsigned int dst) function, expected prototype:\nvoid glBlendFunci(unsigned int buf, unsigned int src, unsigned int dst)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -9748,8 +9482,7 @@ static int _bind_glBlendFunci(lua_State *L) {
 // void glBlendFuncSeparatei(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha)
 static int _bind_glBlendFuncSeparatei(lua_State *L) {
 	if (!_lg_typecheck_glBlendFuncSeparatei(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendFuncSeparatei(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha) function, expected prototype:\nvoid glBlendFuncSeparatei(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendFuncSeparatei(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha) function, expected prototype:\nvoid glBlendFuncSeparatei(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -9766,8 +9499,7 @@ static int _bind_glBlendFuncSeparatei(lua_State *L) {
 // unsigned char glIsRenderbuffer(unsigned int renderbuffer)
 static int _bind_glIsRenderbuffer(lua_State *L) {
 	if (!_lg_typecheck_glIsRenderbuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsRenderbuffer(unsigned int renderbuffer) function, expected prototype:\nunsigned char glIsRenderbuffer(unsigned int renderbuffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsRenderbuffer(unsigned int renderbuffer) function, expected prototype:\nunsigned char glIsRenderbuffer(unsigned int renderbuffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int renderbuffer=(unsigned int)lua_tointeger(L,1);
@@ -9781,8 +9513,7 @@ static int _bind_glIsRenderbuffer(lua_State *L) {
 // void glBindRenderbuffer(unsigned int target, unsigned int renderbuffer)
 static int _bind_glBindRenderbuffer(lua_State *L) {
 	if (!_lg_typecheck_glBindRenderbuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindRenderbuffer(unsigned int target, unsigned int renderbuffer) function, expected prototype:\nvoid glBindRenderbuffer(unsigned int target, unsigned int renderbuffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindRenderbuffer(unsigned int target, unsigned int renderbuffer) function, expected prototype:\nvoid glBindRenderbuffer(unsigned int target, unsigned int renderbuffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9796,8 +9527,7 @@ static int _bind_glBindRenderbuffer(lua_State *L) {
 // void glDeleteRenderbuffers(int n, const unsigned int * renderbuffers)
 static int _bind_glDeleteRenderbuffers(lua_State *L) {
 	if (!_lg_typecheck_glDeleteRenderbuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteRenderbuffers(int n, const unsigned int * renderbuffers) function, expected prototype:\nvoid glDeleteRenderbuffers(int n, const unsigned int * renderbuffers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteRenderbuffers(int n, const unsigned int * renderbuffers) function, expected prototype:\nvoid glDeleteRenderbuffers(int n, const unsigned int * renderbuffers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -9811,8 +9541,7 @@ static int _bind_glDeleteRenderbuffers(lua_State *L) {
 // void glGenRenderbuffers(int n, unsigned int * renderbuffers)
 static int _bind_glGenRenderbuffers(lua_State *L) {
 	if (!_lg_typecheck_glGenRenderbuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenRenderbuffers(int n, unsigned int * renderbuffers) function, expected prototype:\nvoid glGenRenderbuffers(int n, unsigned int * renderbuffers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenRenderbuffers(int n, unsigned int * renderbuffers) function, expected prototype:\nvoid glGenRenderbuffers(int n, unsigned int * renderbuffers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -9826,8 +9555,7 @@ static int _bind_glGenRenderbuffers(lua_State *L) {
 // void glRenderbufferStorage(unsigned int target, unsigned int internalformat, int width, int height)
 static int _bind_glRenderbufferStorage(lua_State *L) {
 	if (!_lg_typecheck_glRenderbufferStorage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glRenderbufferStorage(unsigned int target, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glRenderbufferStorage(unsigned int target, unsigned int internalformat, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glRenderbufferStorage(unsigned int target, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glRenderbufferStorage(unsigned int target, unsigned int internalformat, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9843,8 +9571,7 @@ static int _bind_glRenderbufferStorage(lua_State *L) {
 // void glGetRenderbufferParameteriv(unsigned int target, unsigned int pname, int * params)
 static int _bind_glGetRenderbufferParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetRenderbufferParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetRenderbufferParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetRenderbufferParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetRenderbufferParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetRenderbufferParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9859,8 +9586,7 @@ static int _bind_glGetRenderbufferParameteriv(lua_State *L) {
 // unsigned char glIsFramebuffer(unsigned int framebuffer)
 static int _bind_glIsFramebuffer(lua_State *L) {
 	if (!_lg_typecheck_glIsFramebuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsFramebuffer(unsigned int framebuffer) function, expected prototype:\nunsigned char glIsFramebuffer(unsigned int framebuffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsFramebuffer(unsigned int framebuffer) function, expected prototype:\nunsigned char glIsFramebuffer(unsigned int framebuffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int framebuffer=(unsigned int)lua_tointeger(L,1);
@@ -9874,8 +9600,7 @@ static int _bind_glIsFramebuffer(lua_State *L) {
 // void glBindFramebuffer(unsigned int target, unsigned int framebuffer)
 static int _bind_glBindFramebuffer(lua_State *L) {
 	if (!_lg_typecheck_glBindFramebuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindFramebuffer(unsigned int target, unsigned int framebuffer) function, expected prototype:\nvoid glBindFramebuffer(unsigned int target, unsigned int framebuffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindFramebuffer(unsigned int target, unsigned int framebuffer) function, expected prototype:\nvoid glBindFramebuffer(unsigned int target, unsigned int framebuffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9889,8 +9614,7 @@ static int _bind_glBindFramebuffer(lua_State *L) {
 // void glDeleteFramebuffers(int n, const unsigned int * framebuffers)
 static int _bind_glDeleteFramebuffers(lua_State *L) {
 	if (!_lg_typecheck_glDeleteFramebuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteFramebuffers(int n, const unsigned int * framebuffers) function, expected prototype:\nvoid glDeleteFramebuffers(int n, const unsigned int * framebuffers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteFramebuffers(int n, const unsigned int * framebuffers) function, expected prototype:\nvoid glDeleteFramebuffers(int n, const unsigned int * framebuffers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -9904,8 +9628,7 @@ static int _bind_glDeleteFramebuffers(lua_State *L) {
 // void glGenFramebuffers(int n, unsigned int * framebuffers)
 static int _bind_glGenFramebuffers(lua_State *L) {
 	if (!_lg_typecheck_glGenFramebuffers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenFramebuffers(int n, unsigned int * framebuffers) function, expected prototype:\nvoid glGenFramebuffers(int n, unsigned int * framebuffers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenFramebuffers(int n, unsigned int * framebuffers) function, expected prototype:\nvoid glGenFramebuffers(int n, unsigned int * framebuffers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -9919,8 +9642,7 @@ static int _bind_glGenFramebuffers(lua_State *L) {
 // unsigned int glCheckFramebufferStatus(unsigned int target)
 static int _bind_glCheckFramebufferStatus(lua_State *L) {
 	if (!_lg_typecheck_glCheckFramebufferStatus(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glCheckFramebufferStatus(unsigned int target) function, expected prototype:\nunsigned int glCheckFramebufferStatus(unsigned int target)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glCheckFramebufferStatus(unsigned int target) function, expected prototype:\nunsigned int glCheckFramebufferStatus(unsigned int target)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9934,8 +9656,7 @@ static int _bind_glCheckFramebufferStatus(lua_State *L) {
 // void glFramebufferTexture1D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level)
 static int _bind_glFramebufferTexture1D(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferTexture1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferTexture1D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level) function, expected prototype:\nvoid glFramebufferTexture1D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferTexture1D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level) function, expected prototype:\nvoid glFramebufferTexture1D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9952,8 +9673,7 @@ static int _bind_glFramebufferTexture1D(lua_State *L) {
 // void glFramebufferTexture2D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level)
 static int _bind_glFramebufferTexture2D(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferTexture2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferTexture2D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level) function, expected prototype:\nvoid glFramebufferTexture2D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferTexture2D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level) function, expected prototype:\nvoid glFramebufferTexture2D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9970,8 +9690,7 @@ static int _bind_glFramebufferTexture2D(lua_State *L) {
 // void glFramebufferTexture3D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level, int zoffset)
 static int _bind_glFramebufferTexture3D(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferTexture3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferTexture3D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level, int zoffset) function, expected prototype:\nvoid glFramebufferTexture3D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level, int zoffset)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferTexture3D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level, int zoffset) function, expected prototype:\nvoid glFramebufferTexture3D(unsigned int target, unsigned int attachment, unsigned int textarget, unsigned int texture, int level, int zoffset)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -9989,8 +9708,7 @@ static int _bind_glFramebufferTexture3D(lua_State *L) {
 // void glFramebufferRenderbuffer(unsigned int target, unsigned int attachment, unsigned int renderbuffertarget, unsigned int renderbuffer)
 static int _bind_glFramebufferRenderbuffer(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferRenderbuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferRenderbuffer(unsigned int target, unsigned int attachment, unsigned int renderbuffertarget, unsigned int renderbuffer) function, expected prototype:\nvoid glFramebufferRenderbuffer(unsigned int target, unsigned int attachment, unsigned int renderbuffertarget, unsigned int renderbuffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferRenderbuffer(unsigned int target, unsigned int attachment, unsigned int renderbuffertarget, unsigned int renderbuffer) function, expected prototype:\nvoid glFramebufferRenderbuffer(unsigned int target, unsigned int attachment, unsigned int renderbuffertarget, unsigned int renderbuffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10006,8 +9724,7 @@ static int _bind_glFramebufferRenderbuffer(lua_State *L) {
 // void glGetFramebufferAttachmentParameteriv(unsigned int target, unsigned int attachment, unsigned int pname, int * params)
 static int _bind_glGetFramebufferAttachmentParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetFramebufferAttachmentParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetFramebufferAttachmentParameteriv(unsigned int target, unsigned int attachment, unsigned int pname, int * params) function, expected prototype:\nvoid glGetFramebufferAttachmentParameteriv(unsigned int target, unsigned int attachment, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetFramebufferAttachmentParameteriv(unsigned int target, unsigned int attachment, unsigned int pname, int * params) function, expected prototype:\nvoid glGetFramebufferAttachmentParameteriv(unsigned int target, unsigned int attachment, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10023,8 +9740,7 @@ static int _bind_glGetFramebufferAttachmentParameteriv(lua_State *L) {
 // void glGenerateMipmap(unsigned int target)
 static int _bind_glGenerateMipmap(lua_State *L) {
 	if (!_lg_typecheck_glGenerateMipmap(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenerateMipmap(unsigned int target) function, expected prototype:\nvoid glGenerateMipmap(unsigned int target)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenerateMipmap(unsigned int target) function, expected prototype:\nvoid glGenerateMipmap(unsigned int target)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10037,8 +9753,7 @@ static int _bind_glGenerateMipmap(lua_State *L) {
 // void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, unsigned int mask, unsigned int filter)
 static int _bind_glBlitFramebuffer(lua_State *L) {
 	if (!_lg_typecheck_glBlitFramebuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, unsigned int mask, unsigned int filter) function, expected prototype:\nvoid glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, unsigned int mask, unsigned int filter)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, unsigned int mask, unsigned int filter) function, expected prototype:\nvoid glBlitFramebuffer(int srcX0, int srcY0, int srcX1, int srcY1, int dstX0, int dstY0, int dstX1, int dstY1, unsigned int mask, unsigned int filter)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int srcX0=(int)lua_tointeger(L,1);
@@ -10060,8 +9775,7 @@ static int _bind_glBlitFramebuffer(lua_State *L) {
 // void glRenderbufferStorageMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height)
 static int _bind_glRenderbufferStorageMultisample(lua_State *L) {
 	if (!_lg_typecheck_glRenderbufferStorageMultisample(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glRenderbufferStorageMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glRenderbufferStorageMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glRenderbufferStorageMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glRenderbufferStorageMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10078,8 +9792,7 @@ static int _bind_glRenderbufferStorageMultisample(lua_State *L) {
 // void glFramebufferTextureLayer(unsigned int target, unsigned int attachment, unsigned int texture, int level, int layer)
 static int _bind_glFramebufferTextureLayer(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferTextureLayer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferTextureLayer(unsigned int target, unsigned int attachment, unsigned int texture, int level, int layer) function, expected prototype:\nvoid glFramebufferTextureLayer(unsigned int target, unsigned int attachment, unsigned int texture, int level, int layer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferTextureLayer(unsigned int target, unsigned int attachment, unsigned int texture, int level, int layer) function, expected prototype:\nvoid glFramebufferTextureLayer(unsigned int target, unsigned int attachment, unsigned int texture, int level, int layer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10096,8 +9809,7 @@ static int _bind_glFramebufferTextureLayer(lua_State *L) {
 // void * glMapBufferRange(unsigned int target, __int64 offset, __int64 length, unsigned int access)
 static int _bind_glMapBufferRange(lua_State *L) {
 	if (!_lg_typecheck_glMapBufferRange(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void * glMapBufferRange(unsigned int target, __int64 offset, __int64 length, unsigned int access) function, expected prototype:\nvoid * glMapBufferRange(unsigned int target, __int64 offset, __int64 length, unsigned int access)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void * glMapBufferRange(unsigned int target, __int64 offset, __int64 length, unsigned int access) function, expected prototype:\nvoid * glMapBufferRange(unsigned int target, __int64 offset, __int64 length, unsigned int access)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10124,8 +9836,7 @@ static int _bind_glMapBufferRange(lua_State *L) {
 // void glFlushMappedBufferRange(unsigned int target, __int64 offset, __int64 length)
 static int _bind_glFlushMappedBufferRange(lua_State *L) {
 	if (!_lg_typecheck_glFlushMappedBufferRange(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFlushMappedBufferRange(unsigned int target, __int64 offset, __int64 length) function, expected prototype:\nvoid glFlushMappedBufferRange(unsigned int target, __int64 offset, __int64 length)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glFlushMappedBufferRange(unsigned int target, __int64 offset, __int64 length) function, expected prototype:\nvoid glFlushMappedBufferRange(unsigned int target, __int64 offset, __int64 length)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10148,8 +9859,7 @@ static int _bind_glFlushMappedBufferRange(lua_State *L) {
 // void glBindVertexArray(unsigned int array)
 static int _bind_glBindVertexArray(lua_State *L) {
 	if (!_lg_typecheck_glBindVertexArray(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindVertexArray(unsigned int array) function, expected prototype:\nvoid glBindVertexArray(unsigned int array)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindVertexArray(unsigned int array) function, expected prototype:\nvoid glBindVertexArray(unsigned int array)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int array=(unsigned int)lua_tointeger(L,1);
@@ -10162,8 +9872,7 @@ static int _bind_glBindVertexArray(lua_State *L) {
 // void glDeleteVertexArrays(int n, const unsigned int * arrays)
 static int _bind_glDeleteVertexArrays(lua_State *L) {
 	if (!_lg_typecheck_glDeleteVertexArrays(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteVertexArrays(int n, const unsigned int * arrays) function, expected prototype:\nvoid glDeleteVertexArrays(int n, const unsigned int * arrays)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteVertexArrays(int n, const unsigned int * arrays) function, expected prototype:\nvoid glDeleteVertexArrays(int n, const unsigned int * arrays)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -10177,8 +9886,7 @@ static int _bind_glDeleteVertexArrays(lua_State *L) {
 // void glGenVertexArrays(int n, unsigned int * arrays)
 static int _bind_glGenVertexArrays(lua_State *L) {
 	if (!_lg_typecheck_glGenVertexArrays(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenVertexArrays(int n, unsigned int * arrays) function, expected prototype:\nvoid glGenVertexArrays(int n, unsigned int * arrays)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenVertexArrays(int n, unsigned int * arrays) function, expected prototype:\nvoid glGenVertexArrays(int n, unsigned int * arrays)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -10192,8 +9900,7 @@ static int _bind_glGenVertexArrays(lua_State *L) {
 // unsigned char glIsVertexArray(unsigned int array)
 static int _bind_glIsVertexArray(lua_State *L) {
 	if (!_lg_typecheck_glIsVertexArray(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsVertexArray(unsigned int array) function, expected prototype:\nunsigned char glIsVertexArray(unsigned int array)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsVertexArray(unsigned int array) function, expected prototype:\nunsigned char glIsVertexArray(unsigned int array)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int array=(unsigned int)lua_tointeger(L,1);
@@ -10207,8 +9914,7 @@ static int _bind_glIsVertexArray(lua_State *L) {
 // void glGetActiveUniformsiv(unsigned int program, int uniformCount, const unsigned int * uniformIndices, unsigned int pname, int * params)
 static int _bind_glGetActiveUniformsiv(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveUniformsiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveUniformsiv(unsigned int program, int uniformCount, const unsigned int * uniformIndices, unsigned int pname, int * params) function, expected prototype:\nvoid glGetActiveUniformsiv(unsigned int program, int uniformCount, const unsigned int * uniformIndices, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveUniformsiv(unsigned int program, int uniformCount, const unsigned int * uniformIndices, unsigned int pname, int * params) function, expected prototype:\nvoid glGetActiveUniformsiv(unsigned int program, int uniformCount, const unsigned int * uniformIndices, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10225,8 +9931,7 @@ static int _bind_glGetActiveUniformsiv(lua_State *L) {
 // void glGetActiveUniformName(unsigned int program, unsigned int uniformIndex, int bufSize, int * length, char * uniformName)
 static int _bind_glGetActiveUniformName(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveUniformName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveUniformName(unsigned int program, unsigned int uniformIndex, int bufSize, int * length, char * uniformName) function, expected prototype:\nvoid glGetActiveUniformName(unsigned int program, unsigned int uniformIndex, int bufSize, int * length, char * uniformName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveUniformName(unsigned int program, unsigned int uniformIndex, int bufSize, int * length, char * uniformName) function, expected prototype:\nvoid glGetActiveUniformName(unsigned int program, unsigned int uniformIndex, int bufSize, int * length, char * uniformName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10243,8 +9948,7 @@ static int _bind_glGetActiveUniformName(lua_State *L) {
 // unsigned int glGetUniformBlockIndex(unsigned int program, const char * uniformBlockName)
 static int _bind_glGetUniformBlockIndex(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformBlockIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetUniformBlockIndex(unsigned int program, const char * uniformBlockName) function, expected prototype:\nunsigned int glGetUniformBlockIndex(unsigned int program, const char * uniformBlockName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetUniformBlockIndex(unsigned int program, const char * uniformBlockName) function, expected prototype:\nunsigned int glGetUniformBlockIndex(unsigned int program, const char * uniformBlockName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10259,8 +9963,7 @@ static int _bind_glGetUniformBlockIndex(lua_State *L) {
 // void glGetActiveUniformBlockiv(unsigned int program, unsigned int uniformBlockIndex, unsigned int pname, int * params)
 static int _bind_glGetActiveUniformBlockiv(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveUniformBlockiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveUniformBlockiv(unsigned int program, unsigned int uniformBlockIndex, unsigned int pname, int * params) function, expected prototype:\nvoid glGetActiveUniformBlockiv(unsigned int program, unsigned int uniformBlockIndex, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveUniformBlockiv(unsigned int program, unsigned int uniformBlockIndex, unsigned int pname, int * params) function, expected prototype:\nvoid glGetActiveUniformBlockiv(unsigned int program, unsigned int uniformBlockIndex, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10276,8 +9979,7 @@ static int _bind_glGetActiveUniformBlockiv(lua_State *L) {
 // void glGetActiveUniformBlockName(unsigned int program, unsigned int uniformBlockIndex, int bufSize, int * length, char * uniformBlockName)
 static int _bind_glGetActiveUniformBlockName(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveUniformBlockName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveUniformBlockName(unsigned int program, unsigned int uniformBlockIndex, int bufSize, int * length, char * uniformBlockName) function, expected prototype:\nvoid glGetActiveUniformBlockName(unsigned int program, unsigned int uniformBlockIndex, int bufSize, int * length, char * uniformBlockName)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveUniformBlockName(unsigned int program, unsigned int uniformBlockIndex, int bufSize, int * length, char * uniformBlockName) function, expected prototype:\nvoid glGetActiveUniformBlockName(unsigned int program, unsigned int uniformBlockIndex, int bufSize, int * length, char * uniformBlockName)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10294,8 +9996,7 @@ static int _bind_glGetActiveUniformBlockName(lua_State *L) {
 // void glUniformBlockBinding(unsigned int program, unsigned int uniformBlockIndex, unsigned int uniformBlockBinding)
 static int _bind_glUniformBlockBinding(lua_State *L) {
 	if (!_lg_typecheck_glUniformBlockBinding(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformBlockBinding(unsigned int program, unsigned int uniformBlockIndex, unsigned int uniformBlockBinding) function, expected prototype:\nvoid glUniformBlockBinding(unsigned int program, unsigned int uniformBlockIndex, unsigned int uniformBlockBinding)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformBlockBinding(unsigned int program, unsigned int uniformBlockIndex, unsigned int uniformBlockBinding) function, expected prototype:\nvoid glUniformBlockBinding(unsigned int program, unsigned int uniformBlockIndex, unsigned int uniformBlockBinding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10310,8 +10011,7 @@ static int _bind_glUniformBlockBinding(lua_State *L) {
 // void glCopyBufferSubData(unsigned int readTarget, unsigned int writeTarget, __int64 readOffset, __int64 writeOffset, __int64 size)
 static int _bind_glCopyBufferSubData(lua_State *L) {
 	if (!_lg_typecheck_glCopyBufferSubData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyBufferSubData(unsigned int readTarget, unsigned int writeTarget, __int64 readOffset, __int64 writeOffset, __int64 size) function, expected prototype:\nvoid glCopyBufferSubData(unsigned int readTarget, unsigned int writeTarget, __int64 readOffset, __int64 writeOffset, __int64 size)\nClass arguments details:\narg 3 ID = [unknown]\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glCopyBufferSubData(unsigned int readTarget, unsigned int writeTarget, __int64 readOffset, __int64 writeOffset, __int64 size) function, expected prototype:\nvoid glCopyBufferSubData(unsigned int readTarget, unsigned int writeTarget, __int64 readOffset, __int64 writeOffset, __int64 size)\nClass arguments details:\narg 3 ID = [unknown]\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int readTarget=(unsigned int)lua_tointeger(L,1);
@@ -10337,11 +10037,10 @@ static int _bind_glCopyBufferSubData(lua_State *L) {
 	return 0;
 }
 
-// void glDrawElementsBaseVertex(unsigned int mode, int count, unsigned int type, const void * indices, int basevertex)
+// void glDrawElementsBaseVertex(unsigned int mode, int count, unsigned int type, void * indices, int basevertex)
 static int _bind_glDrawElementsBaseVertex(lua_State *L) {
 	if (!_lg_typecheck_glDrawElementsBaseVertex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElementsBaseVertex(unsigned int mode, int count, unsigned int type, const void * indices, int basevertex) function, expected prototype:\nvoid glDrawElementsBaseVertex(unsigned int mode, int count, unsigned int type, const void * indices, int basevertex)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElementsBaseVertex(unsigned int mode, int count, unsigned int type, void * indices, int basevertex) function, expected prototype:\nvoid glDrawElementsBaseVertex(unsigned int mode, int count, unsigned int type, void * indices, int basevertex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -10355,11 +10054,10 @@ static int _bind_glDrawElementsBaseVertex(lua_State *L) {
 	return 0;
 }
 
-// void glDrawRangeElementsBaseVertex(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices, int basevertex)
+// void glDrawRangeElementsBaseVertex(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, void * indices, int basevertex)
 static int _bind_glDrawRangeElementsBaseVertex(lua_State *L) {
 	if (!_lg_typecheck_glDrawRangeElementsBaseVertex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawRangeElementsBaseVertex(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices, int basevertex) function, expected prototype:\nvoid glDrawRangeElementsBaseVertex(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, const void * indices, int basevertex)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawRangeElementsBaseVertex(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, void * indices, int basevertex) function, expected prototype:\nvoid glDrawRangeElementsBaseVertex(unsigned int mode, unsigned int start, unsigned int end, int count, unsigned int type, void * indices, int basevertex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -10375,11 +10073,10 @@ static int _bind_glDrawRangeElementsBaseVertex(lua_State *L) {
 	return 0;
 }
 
-// void glDrawElementsInstancedBaseVertex(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex)
+// void glDrawElementsInstancedBaseVertex(unsigned int mode, int count, unsigned int type, void * indices, int instancecount, int basevertex)
 static int _bind_glDrawElementsInstancedBaseVertex(lua_State *L) {
 	if (!_lg_typecheck_glDrawElementsInstancedBaseVertex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElementsInstancedBaseVertex(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex) function, expected prototype:\nvoid glDrawElementsInstancedBaseVertex(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElementsInstancedBaseVertex(unsigned int mode, int count, unsigned int type, void * indices, int instancecount, int basevertex) function, expected prototype:\nvoid glDrawElementsInstancedBaseVertex(unsigned int mode, int count, unsigned int type, void * indices, int instancecount, int basevertex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -10397,8 +10094,7 @@ static int _bind_glDrawElementsInstancedBaseVertex(lua_State *L) {
 // void glProvokingVertex(unsigned int mode)
 static int _bind_glProvokingVertex(lua_State *L) {
 	if (!_lg_typecheck_glProvokingVertex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProvokingVertex(unsigned int mode) function, expected prototype:\nvoid glProvokingVertex(unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProvokingVertex(unsigned int mode) function, expected prototype:\nvoid glProvokingVertex(unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -10411,8 +10107,7 @@ static int _bind_glProvokingVertex(lua_State *L) {
 // void glTexImage2DMultisample(unsigned int target, int samples, int internalformat, int width, int height, unsigned char fixedsamplelocations)
 static int _bind_glTexImage2DMultisample(lua_State *L) {
 	if (!_lg_typecheck_glTexImage2DMultisample(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexImage2DMultisample(unsigned int target, int samples, int internalformat, int width, int height, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexImage2DMultisample(unsigned int target, int samples, int internalformat, int width, int height, unsigned char fixedsamplelocations)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexImage2DMultisample(unsigned int target, int samples, int internalformat, int width, int height, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexImage2DMultisample(unsigned int target, int samples, int internalformat, int width, int height, unsigned char fixedsamplelocations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10430,8 +10125,7 @@ static int _bind_glTexImage2DMultisample(lua_State *L) {
 // void glTexImage3DMultisample(unsigned int target, int samples, int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)
 static int _bind_glTexImage3DMultisample(lua_State *L) {
 	if (!_lg_typecheck_glTexImage3DMultisample(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexImage3DMultisample(unsigned int target, int samples, int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexImage3DMultisample(unsigned int target, int samples, int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexImage3DMultisample(unsigned int target, int samples, int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexImage3DMultisample(unsigned int target, int samples, int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -10450,8 +10144,7 @@ static int _bind_glTexImage3DMultisample(lua_State *L) {
 // void glGetMultisamplefv(unsigned int pname, unsigned int index, float * val)
 static int _bind_glGetMultisamplefv(lua_State *L) {
 	if (!_lg_typecheck_glGetMultisamplefv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetMultisamplefv(unsigned int pname, unsigned int index, float * val) function, expected prototype:\nvoid glGetMultisamplefv(unsigned int pname, unsigned int index, float * val)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetMultisamplefv(unsigned int pname, unsigned int index, float * val) function, expected prototype:\nvoid glGetMultisamplefv(unsigned int pname, unsigned int index, float * val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -10466,8 +10159,7 @@ static int _bind_glGetMultisamplefv(lua_State *L) {
 // void glSampleMaski(unsigned int index, unsigned int mask)
 static int _bind_glSampleMaski(lua_State *L) {
 	if (!_lg_typecheck_glSampleMaski(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSampleMaski(unsigned int index, unsigned int mask) function, expected prototype:\nvoid glSampleMaski(unsigned int index, unsigned int mask)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSampleMaski(unsigned int index, unsigned int mask) function, expected prototype:\nvoid glSampleMaski(unsigned int index, unsigned int mask)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -10481,8 +10173,7 @@ static int _bind_glSampleMaski(lua_State *L) {
 // void glBlendEquationiARB(unsigned int buf, unsigned int mode)
 static int _bind_glBlendEquationiARB(lua_State *L) {
 	if (!_lg_typecheck_glBlendEquationiARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendEquationiARB(unsigned int buf, unsigned int mode) function, expected prototype:\nvoid glBlendEquationiARB(unsigned int buf, unsigned int mode)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendEquationiARB(unsigned int buf, unsigned int mode) function, expected prototype:\nvoid glBlendEquationiARB(unsigned int buf, unsigned int mode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -10496,8 +10187,7 @@ static int _bind_glBlendEquationiARB(lua_State *L) {
 // void glBlendEquationSeparateiARB(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha)
 static int _bind_glBlendEquationSeparateiARB(lua_State *L) {
 	if (!_lg_typecheck_glBlendEquationSeparateiARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendEquationSeparateiARB(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha) function, expected prototype:\nvoid glBlendEquationSeparateiARB(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendEquationSeparateiARB(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha) function, expected prototype:\nvoid glBlendEquationSeparateiARB(unsigned int buf, unsigned int modeRGB, unsigned int modeAlpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -10512,8 +10202,7 @@ static int _bind_glBlendEquationSeparateiARB(lua_State *L) {
 // void glBlendFunciARB(unsigned int buf, unsigned int src, unsigned int dst)
 static int _bind_glBlendFunciARB(lua_State *L) {
 	if (!_lg_typecheck_glBlendFunciARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendFunciARB(unsigned int buf, unsigned int src, unsigned int dst) function, expected prototype:\nvoid glBlendFunciARB(unsigned int buf, unsigned int src, unsigned int dst)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendFunciARB(unsigned int buf, unsigned int src, unsigned int dst) function, expected prototype:\nvoid glBlendFunciARB(unsigned int buf, unsigned int src, unsigned int dst)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -10528,8 +10217,7 @@ static int _bind_glBlendFunciARB(lua_State *L) {
 // void glBlendFuncSeparateiARB(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha)
 static int _bind_glBlendFuncSeparateiARB(lua_State *L) {
 	if (!_lg_typecheck_glBlendFuncSeparateiARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBlendFuncSeparateiARB(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha) function, expected prototype:\nvoid glBlendFuncSeparateiARB(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBlendFuncSeparateiARB(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha) function, expected prototype:\nvoid glBlendFuncSeparateiARB(unsigned int buf, unsigned int srcRGB, unsigned int dstRGB, unsigned int srcAlpha, unsigned int dstAlpha)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buf=(unsigned int)lua_tointeger(L,1);
@@ -10546,8 +10234,7 @@ static int _bind_glBlendFuncSeparateiARB(lua_State *L) {
 // void glMinSampleShadingARB(float value)
 static int _bind_glMinSampleShadingARB(lua_State *L) {
 	if (!_lg_typecheck_glMinSampleShadingARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMinSampleShadingARB(float value) function, expected prototype:\nvoid glMinSampleShadingARB(float value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMinSampleShadingARB(float value) function, expected prototype:\nvoid glMinSampleShadingARB(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float value=(float)lua_tonumber(L,1);
@@ -10560,8 +10247,7 @@ static int _bind_glMinSampleShadingARB(lua_State *L) {
 // void glNamedStringARB(unsigned int type, int namelen, const char * name, int stringlen, const char * string)
 static int _bind_glNamedStringARB(lua_State *L) {
 	if (!_lg_typecheck_glNamedStringARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glNamedStringARB(unsigned int type, int namelen, const char * name, int stringlen, const char * string) function, expected prototype:\nvoid glNamedStringARB(unsigned int type, int namelen, const char * name, int stringlen, const char * string)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glNamedStringARB(unsigned int type, int namelen, const char * name, int stringlen, const char * string) function, expected prototype:\nvoid glNamedStringARB(unsigned int type, int namelen, const char * name, int stringlen, const char * string)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -10578,8 +10264,7 @@ static int _bind_glNamedStringARB(lua_State *L) {
 // void glDeleteNamedStringARB(int namelen, const char * name)
 static int _bind_glDeleteNamedStringARB(lua_State *L) {
 	if (!_lg_typecheck_glDeleteNamedStringARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteNamedStringARB(int namelen, const char * name) function, expected prototype:\nvoid glDeleteNamedStringARB(int namelen, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteNamedStringARB(int namelen, const char * name) function, expected prototype:\nvoid glDeleteNamedStringARB(int namelen, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int namelen=(int)lua_tointeger(L,1);
@@ -10593,8 +10278,7 @@ static int _bind_glDeleteNamedStringARB(lua_State *L) {
 // unsigned char glIsNamedStringARB(int namelen, const char * name)
 static int _bind_glIsNamedStringARB(lua_State *L) {
 	if (!_lg_typecheck_glIsNamedStringARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsNamedStringARB(int namelen, const char * name) function, expected prototype:\nunsigned char glIsNamedStringARB(int namelen, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsNamedStringARB(int namelen, const char * name) function, expected prototype:\nunsigned char glIsNamedStringARB(int namelen, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int namelen=(int)lua_tointeger(L,1);
@@ -10609,8 +10293,7 @@ static int _bind_glIsNamedStringARB(lua_State *L) {
 // void glGetNamedStringARB(int namelen, const char * name, int bufSize, int * stringlen, char * string)
 static int _bind_glGetNamedStringARB(lua_State *L) {
 	if (!_lg_typecheck_glGetNamedStringARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetNamedStringARB(int namelen, const char * name, int bufSize, int * stringlen, char * string) function, expected prototype:\nvoid glGetNamedStringARB(int namelen, const char * name, int bufSize, int * stringlen, char * string)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetNamedStringARB(int namelen, const char * name, int bufSize, int * stringlen, char * string) function, expected prototype:\nvoid glGetNamedStringARB(int namelen, const char * name, int bufSize, int * stringlen, char * string)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int namelen=(int)lua_tointeger(L,1);
@@ -10627,8 +10310,7 @@ static int _bind_glGetNamedStringARB(lua_State *L) {
 // void glGetNamedStringivARB(int namelen, const char * name, unsigned int pname, int * params)
 static int _bind_glGetNamedStringivARB(lua_State *L) {
 	if (!_lg_typecheck_glGetNamedStringivARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetNamedStringivARB(int namelen, const char * name, unsigned int pname, int * params) function, expected prototype:\nvoid glGetNamedStringivARB(int namelen, const char * name, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetNamedStringivARB(int namelen, const char * name, unsigned int pname, int * params) function, expected prototype:\nvoid glGetNamedStringivARB(int namelen, const char * name, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int namelen=(int)lua_tointeger(L,1);
@@ -10644,8 +10326,7 @@ static int _bind_glGetNamedStringivARB(lua_State *L) {
 // void glBindFragDataLocationIndexed(unsigned int program, unsigned int colorNumber, unsigned int index, const char * name)
 static int _bind_glBindFragDataLocationIndexed(lua_State *L) {
 	if (!_lg_typecheck_glBindFragDataLocationIndexed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindFragDataLocationIndexed(unsigned int program, unsigned int colorNumber, unsigned int index, const char * name) function, expected prototype:\nvoid glBindFragDataLocationIndexed(unsigned int program, unsigned int colorNumber, unsigned int index, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindFragDataLocationIndexed(unsigned int program, unsigned int colorNumber, unsigned int index, const char * name) function, expected prototype:\nvoid glBindFragDataLocationIndexed(unsigned int program, unsigned int colorNumber, unsigned int index, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10661,8 +10342,7 @@ static int _bind_glBindFragDataLocationIndexed(lua_State *L) {
 // int glGetFragDataIndex(unsigned int program, const char * name)
 static int _bind_glGetFragDataIndex(lua_State *L) {
 	if (!_lg_typecheck_glGetFragDataIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetFragDataIndex(unsigned int program, const char * name) function, expected prototype:\nint glGetFragDataIndex(unsigned int program, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetFragDataIndex(unsigned int program, const char * name) function, expected prototype:\nint glGetFragDataIndex(unsigned int program, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -10677,8 +10357,7 @@ static int _bind_glGetFragDataIndex(lua_State *L) {
 // void glGenSamplers(int count, unsigned int * samplers)
 static int _bind_glGenSamplers(lua_State *L) {
 	if (!_lg_typecheck_glGenSamplers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenSamplers(int count, unsigned int * samplers) function, expected prototype:\nvoid glGenSamplers(int count, unsigned int * samplers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenSamplers(int count, unsigned int * samplers) function, expected prototype:\nvoid glGenSamplers(int count, unsigned int * samplers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int count=(int)lua_tointeger(L,1);
@@ -10692,8 +10371,7 @@ static int _bind_glGenSamplers(lua_State *L) {
 // void glDeleteSamplers(int count, const unsigned int * samplers)
 static int _bind_glDeleteSamplers(lua_State *L) {
 	if (!_lg_typecheck_glDeleteSamplers(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteSamplers(int count, const unsigned int * samplers) function, expected prototype:\nvoid glDeleteSamplers(int count, const unsigned int * samplers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteSamplers(int count, const unsigned int * samplers) function, expected prototype:\nvoid glDeleteSamplers(int count, const unsigned int * samplers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int count=(int)lua_tointeger(L,1);
@@ -10707,8 +10385,7 @@ static int _bind_glDeleteSamplers(lua_State *L) {
 // unsigned char glIsSampler(unsigned int sampler)
 static int _bind_glIsSampler(lua_State *L) {
 	if (!_lg_typecheck_glIsSampler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsSampler(unsigned int sampler) function, expected prototype:\nunsigned char glIsSampler(unsigned int sampler)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsSampler(unsigned int sampler) function, expected prototype:\nunsigned char glIsSampler(unsigned int sampler)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10722,8 +10399,7 @@ static int _bind_glIsSampler(lua_State *L) {
 // void glBindSampler(unsigned int unit, unsigned int sampler)
 static int _bind_glBindSampler(lua_State *L) {
 	if (!_lg_typecheck_glBindSampler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindSampler(unsigned int unit, unsigned int sampler) function, expected prototype:\nvoid glBindSampler(unsigned int unit, unsigned int sampler)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindSampler(unsigned int unit, unsigned int sampler) function, expected prototype:\nvoid glBindSampler(unsigned int unit, unsigned int sampler)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int unit=(unsigned int)lua_tointeger(L,1);
@@ -10737,8 +10413,7 @@ static int _bind_glBindSampler(lua_State *L) {
 // void glSamplerParameteri(unsigned int sampler, unsigned int pname, int param)
 static int _bind_glSamplerParameteri(lua_State *L) {
 	if (!_lg_typecheck_glSamplerParameteri(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSamplerParameteri(unsigned int sampler, unsigned int pname, int param) function, expected prototype:\nvoid glSamplerParameteri(unsigned int sampler, unsigned int pname, int param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSamplerParameteri(unsigned int sampler, unsigned int pname, int param) function, expected prototype:\nvoid glSamplerParameteri(unsigned int sampler, unsigned int pname, int param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10753,8 +10428,7 @@ static int _bind_glSamplerParameteri(lua_State *L) {
 // void glSamplerParameteriv(unsigned int sampler, unsigned int pname, const int * param)
 static int _bind_glSamplerParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glSamplerParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSamplerParameteriv(unsigned int sampler, unsigned int pname, const int * param) function, expected prototype:\nvoid glSamplerParameteriv(unsigned int sampler, unsigned int pname, const int * param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSamplerParameteriv(unsigned int sampler, unsigned int pname, const int * param) function, expected prototype:\nvoid glSamplerParameteriv(unsigned int sampler, unsigned int pname, const int * param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10769,8 +10443,7 @@ static int _bind_glSamplerParameteriv(lua_State *L) {
 // void glSamplerParameterf(unsigned int sampler, unsigned int pname, float param)
 static int _bind_glSamplerParameterf(lua_State *L) {
 	if (!_lg_typecheck_glSamplerParameterf(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSamplerParameterf(unsigned int sampler, unsigned int pname, float param) function, expected prototype:\nvoid glSamplerParameterf(unsigned int sampler, unsigned int pname, float param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSamplerParameterf(unsigned int sampler, unsigned int pname, float param) function, expected prototype:\nvoid glSamplerParameterf(unsigned int sampler, unsigned int pname, float param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10785,8 +10458,7 @@ static int _bind_glSamplerParameterf(lua_State *L) {
 // void glSamplerParameterfv(unsigned int sampler, unsigned int pname, const float * param)
 static int _bind_glSamplerParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glSamplerParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSamplerParameterfv(unsigned int sampler, unsigned int pname, const float * param) function, expected prototype:\nvoid glSamplerParameterfv(unsigned int sampler, unsigned int pname, const float * param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSamplerParameterfv(unsigned int sampler, unsigned int pname, const float * param) function, expected prototype:\nvoid glSamplerParameterfv(unsigned int sampler, unsigned int pname, const float * param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10801,8 +10473,7 @@ static int _bind_glSamplerParameterfv(lua_State *L) {
 // void glSamplerParameterIiv(unsigned int sampler, unsigned int pname, const int * param)
 static int _bind_glSamplerParameterIiv(lua_State *L) {
 	if (!_lg_typecheck_glSamplerParameterIiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSamplerParameterIiv(unsigned int sampler, unsigned int pname, const int * param) function, expected prototype:\nvoid glSamplerParameterIiv(unsigned int sampler, unsigned int pname, const int * param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSamplerParameterIiv(unsigned int sampler, unsigned int pname, const int * param) function, expected prototype:\nvoid glSamplerParameterIiv(unsigned int sampler, unsigned int pname, const int * param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10817,8 +10488,7 @@ static int _bind_glSamplerParameterIiv(lua_State *L) {
 // void glSamplerParameterIuiv(unsigned int sampler, unsigned int pname, const unsigned int * param)
 static int _bind_glSamplerParameterIuiv(lua_State *L) {
 	if (!_lg_typecheck_glSamplerParameterIuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSamplerParameterIuiv(unsigned int sampler, unsigned int pname, const unsigned int * param) function, expected prototype:\nvoid glSamplerParameterIuiv(unsigned int sampler, unsigned int pname, const unsigned int * param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSamplerParameterIuiv(unsigned int sampler, unsigned int pname, const unsigned int * param) function, expected prototype:\nvoid glSamplerParameterIuiv(unsigned int sampler, unsigned int pname, const unsigned int * param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10833,8 +10503,7 @@ static int _bind_glSamplerParameterIuiv(lua_State *L) {
 // void glGetSamplerParameteriv(unsigned int sampler, unsigned int pname, int * params)
 static int _bind_glGetSamplerParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetSamplerParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetSamplerParameteriv(unsigned int sampler, unsigned int pname, int * params) function, expected prototype:\nvoid glGetSamplerParameteriv(unsigned int sampler, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetSamplerParameteriv(unsigned int sampler, unsigned int pname, int * params) function, expected prototype:\nvoid glGetSamplerParameteriv(unsigned int sampler, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10849,8 +10518,7 @@ static int _bind_glGetSamplerParameteriv(lua_State *L) {
 // void glGetSamplerParameterIiv(unsigned int sampler, unsigned int pname, int * params)
 static int _bind_glGetSamplerParameterIiv(lua_State *L) {
 	if (!_lg_typecheck_glGetSamplerParameterIiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetSamplerParameterIiv(unsigned int sampler, unsigned int pname, int * params) function, expected prototype:\nvoid glGetSamplerParameterIiv(unsigned int sampler, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetSamplerParameterIiv(unsigned int sampler, unsigned int pname, int * params) function, expected prototype:\nvoid glGetSamplerParameterIiv(unsigned int sampler, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10865,8 +10533,7 @@ static int _bind_glGetSamplerParameterIiv(lua_State *L) {
 // void glGetSamplerParameterfv(unsigned int sampler, unsigned int pname, float * params)
 static int _bind_glGetSamplerParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glGetSamplerParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetSamplerParameterfv(unsigned int sampler, unsigned int pname, float * params) function, expected prototype:\nvoid glGetSamplerParameterfv(unsigned int sampler, unsigned int pname, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetSamplerParameterfv(unsigned int sampler, unsigned int pname, float * params) function, expected prototype:\nvoid glGetSamplerParameterfv(unsigned int sampler, unsigned int pname, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10881,8 +10548,7 @@ static int _bind_glGetSamplerParameterfv(lua_State *L) {
 // void glGetSamplerParameterIuiv(unsigned int sampler, unsigned int pname, unsigned int * params)
 static int _bind_glGetSamplerParameterIuiv(lua_State *L) {
 	if (!_lg_typecheck_glGetSamplerParameterIuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetSamplerParameterIuiv(unsigned int sampler, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetSamplerParameterIuiv(unsigned int sampler, unsigned int pname, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetSamplerParameterIuiv(unsigned int sampler, unsigned int pname, unsigned int * params) function, expected prototype:\nvoid glGetSamplerParameterIuiv(unsigned int sampler, unsigned int pname, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int sampler=(unsigned int)lua_tointeger(L,1);
@@ -10897,8 +10563,7 @@ static int _bind_glGetSamplerParameterIuiv(lua_State *L) {
 // void glQueryCounter(unsigned int id, unsigned int target)
 static int _bind_glQueryCounter(lua_State *L) {
 	if (!_lg_typecheck_glQueryCounter(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glQueryCounter(unsigned int id, unsigned int target) function, expected prototype:\nvoid glQueryCounter(unsigned int id, unsigned int target)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glQueryCounter(unsigned int id, unsigned int target) function, expected prototype:\nvoid glQueryCounter(unsigned int id, unsigned int target)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -10912,8 +10577,7 @@ static int _bind_glQueryCounter(lua_State *L) {
 // void glGetQueryObjecti64v(unsigned int id, unsigned int pname, __int64 * params)
 static int _bind_glGetQueryObjecti64v(lua_State *L) {
 	if (!_lg_typecheck_glGetQueryObjecti64v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetQueryObjecti64v(unsigned int id, unsigned int pname, __int64 * params) function, expected prototype:\nvoid glGetQueryObjecti64v(unsigned int id, unsigned int pname, __int64 * params)\nClass arguments details:\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glGetQueryObjecti64v(unsigned int id, unsigned int pname, __int64 * params) function, expected prototype:\nvoid glGetQueryObjecti64v(unsigned int id, unsigned int pname, __int64 * params)\nClass arguments details:\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -10928,8 +10592,7 @@ static int _bind_glGetQueryObjecti64v(lua_State *L) {
 // void glGetQueryObjectui64v(unsigned int id, unsigned int pname, __uint64 * params)
 static int _bind_glGetQueryObjectui64v(lua_State *L) {
 	if (!_lg_typecheck_glGetQueryObjectui64v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetQueryObjectui64v(unsigned int id, unsigned int pname, __uint64 * params) function, expected prototype:\nvoid glGetQueryObjectui64v(unsigned int id, unsigned int pname, __uint64 * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetQueryObjectui64v(unsigned int id, unsigned int pname, __uint64 * params) function, expected prototype:\nvoid glGetQueryObjectui64v(unsigned int id, unsigned int pname, __uint64 * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -10944,8 +10607,7 @@ static int _bind_glGetQueryObjectui64v(lua_State *L) {
 // void glVertexP2ui(unsigned int type, unsigned int value)
 static int _bind_glVertexP2ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexP2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexP2ui(unsigned int type, unsigned int value) function, expected prototype:\nvoid glVertexP2ui(unsigned int type, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexP2ui(unsigned int type, unsigned int value) function, expected prototype:\nvoid glVertexP2ui(unsigned int type, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -10959,8 +10621,7 @@ static int _bind_glVertexP2ui(lua_State *L) {
 // void glVertexP2uiv(unsigned int type, const unsigned int * value)
 static int _bind_glVertexP2uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexP2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexP2uiv(unsigned int type, const unsigned int * value) function, expected prototype:\nvoid glVertexP2uiv(unsigned int type, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexP2uiv(unsigned int type, const unsigned int * value) function, expected prototype:\nvoid glVertexP2uiv(unsigned int type, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -10974,8 +10635,7 @@ static int _bind_glVertexP2uiv(lua_State *L) {
 // void glVertexP3ui(unsigned int type, unsigned int value)
 static int _bind_glVertexP3ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexP3ui(unsigned int type, unsigned int value) function, expected prototype:\nvoid glVertexP3ui(unsigned int type, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexP3ui(unsigned int type, unsigned int value) function, expected prototype:\nvoid glVertexP3ui(unsigned int type, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -10989,8 +10649,7 @@ static int _bind_glVertexP3ui(lua_State *L) {
 // void glVertexP3uiv(unsigned int type, const unsigned int * value)
 static int _bind_glVertexP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexP3uiv(unsigned int type, const unsigned int * value) function, expected prototype:\nvoid glVertexP3uiv(unsigned int type, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexP3uiv(unsigned int type, const unsigned int * value) function, expected prototype:\nvoid glVertexP3uiv(unsigned int type, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11004,8 +10663,7 @@ static int _bind_glVertexP3uiv(lua_State *L) {
 // void glVertexP4ui(unsigned int type, unsigned int value)
 static int _bind_glVertexP4ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexP4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexP4ui(unsigned int type, unsigned int value) function, expected prototype:\nvoid glVertexP4ui(unsigned int type, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexP4ui(unsigned int type, unsigned int value) function, expected prototype:\nvoid glVertexP4ui(unsigned int type, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11019,8 +10677,7 @@ static int _bind_glVertexP4ui(lua_State *L) {
 // void glVertexP4uiv(unsigned int type, const unsigned int * value)
 static int _bind_glVertexP4uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexP4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexP4uiv(unsigned int type, const unsigned int * value) function, expected prototype:\nvoid glVertexP4uiv(unsigned int type, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexP4uiv(unsigned int type, const unsigned int * value) function, expected prototype:\nvoid glVertexP4uiv(unsigned int type, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11034,8 +10691,7 @@ static int _bind_glVertexP4uiv(lua_State *L) {
 // void glTexCoordP1ui(unsigned int type, unsigned int coords)
 static int _bind_glTexCoordP1ui(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP1ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP1ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP1ui(unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP1ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP1ui(unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11049,8 +10705,7 @@ static int _bind_glTexCoordP1ui(lua_State *L) {
 // void glTexCoordP1uiv(unsigned int type, const unsigned int * coords)
 static int _bind_glTexCoordP1uiv(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP1uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP1uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP1uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP1uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP1uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11064,8 +10719,7 @@ static int _bind_glTexCoordP1uiv(lua_State *L) {
 // void glTexCoordP2ui(unsigned int type, unsigned int coords)
 static int _bind_glTexCoordP2ui(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP2ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP2ui(unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP2ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP2ui(unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11079,8 +10733,7 @@ static int _bind_glTexCoordP2ui(lua_State *L) {
 // void glTexCoordP2uiv(unsigned int type, const unsigned int * coords)
 static int _bind_glTexCoordP2uiv(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP2uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP2uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP2uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP2uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11094,8 +10747,7 @@ static int _bind_glTexCoordP2uiv(lua_State *L) {
 // void glTexCoordP3ui(unsigned int type, unsigned int coords)
 static int _bind_glTexCoordP3ui(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP3ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP3ui(unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP3ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP3ui(unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11109,8 +10761,7 @@ static int _bind_glTexCoordP3ui(lua_State *L) {
 // void glTexCoordP3uiv(unsigned int type, const unsigned int * coords)
 static int _bind_glTexCoordP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP3uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP3uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP3uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP3uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11124,8 +10775,7 @@ static int _bind_glTexCoordP3uiv(lua_State *L) {
 // void glTexCoordP4ui(unsigned int type, unsigned int coords)
 static int _bind_glTexCoordP4ui(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP4ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP4ui(unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP4ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glTexCoordP4ui(unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11139,8 +10789,7 @@ static int _bind_glTexCoordP4ui(lua_State *L) {
 // void glTexCoordP4uiv(unsigned int type, const unsigned int * coords)
 static int _bind_glTexCoordP4uiv(lua_State *L) {
 	if (!_lg_typecheck_glTexCoordP4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexCoordP4uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP4uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexCoordP4uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glTexCoordP4uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11154,8 +10803,7 @@ static int _bind_glTexCoordP4uiv(lua_State *L) {
 // void glMultiTexCoordP1ui(unsigned int texture, unsigned int type, unsigned int coords)
 static int _bind_glMultiTexCoordP1ui(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP1ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP1ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP1ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP1ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP1ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11170,8 +10818,7 @@ static int _bind_glMultiTexCoordP1ui(lua_State *L) {
 // void glMultiTexCoordP1uiv(unsigned int texture, unsigned int type, const unsigned int * coords)
 static int _bind_glMultiTexCoordP1uiv(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP1uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP1uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP1uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP1uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP1uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11186,8 +10833,7 @@ static int _bind_glMultiTexCoordP1uiv(lua_State *L) {
 // void glMultiTexCoordP2ui(unsigned int texture, unsigned int type, unsigned int coords)
 static int _bind_glMultiTexCoordP2ui(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP2ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP2ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP2ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP2ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11202,8 +10848,7 @@ static int _bind_glMultiTexCoordP2ui(lua_State *L) {
 // void glMultiTexCoordP2uiv(unsigned int texture, unsigned int type, const unsigned int * coords)
 static int _bind_glMultiTexCoordP2uiv(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP2uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP2uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP2uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP2uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11218,8 +10863,7 @@ static int _bind_glMultiTexCoordP2uiv(lua_State *L) {
 // void glMultiTexCoordP3ui(unsigned int texture, unsigned int type, unsigned int coords)
 static int _bind_glMultiTexCoordP3ui(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP3ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP3ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP3ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP3ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11234,8 +10878,7 @@ static int _bind_glMultiTexCoordP3ui(lua_State *L) {
 // void glMultiTexCoordP3uiv(unsigned int texture, unsigned int type, const unsigned int * coords)
 static int _bind_glMultiTexCoordP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP3uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP3uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP3uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP3uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11250,8 +10893,7 @@ static int _bind_glMultiTexCoordP3uiv(lua_State *L) {
 // void glMultiTexCoordP4ui(unsigned int texture, unsigned int type, unsigned int coords)
 static int _bind_glMultiTexCoordP4ui(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP4ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP4ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP4ui(unsigned int texture, unsigned int type, unsigned int coords) function, expected prototype:\nvoid glMultiTexCoordP4ui(unsigned int texture, unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11266,8 +10908,7 @@ static int _bind_glMultiTexCoordP4ui(lua_State *L) {
 // void glMultiTexCoordP4uiv(unsigned int texture, unsigned int type, const unsigned int * coords)
 static int _bind_glMultiTexCoordP4uiv(lua_State *L) {
 	if (!_lg_typecheck_glMultiTexCoordP4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP4uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP4uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiTexCoordP4uiv(unsigned int texture, unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glMultiTexCoordP4uiv(unsigned int texture, unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -11282,8 +10923,7 @@ static int _bind_glMultiTexCoordP4uiv(lua_State *L) {
 // void glNormalP3ui(unsigned int type, unsigned int coords)
 static int _bind_glNormalP3ui(lua_State *L) {
 	if (!_lg_typecheck_glNormalP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glNormalP3ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glNormalP3ui(unsigned int type, unsigned int coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glNormalP3ui(unsigned int type, unsigned int coords) function, expected prototype:\nvoid glNormalP3ui(unsigned int type, unsigned int coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11297,8 +10937,7 @@ static int _bind_glNormalP3ui(lua_State *L) {
 // void glNormalP3uiv(unsigned int type, const unsigned int * coords)
 static int _bind_glNormalP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glNormalP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glNormalP3uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glNormalP3uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glNormalP3uiv(unsigned int type, const unsigned int * coords) function, expected prototype:\nvoid glNormalP3uiv(unsigned int type, const unsigned int * coords)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11312,8 +10951,7 @@ static int _bind_glNormalP3uiv(lua_State *L) {
 // void glColorP3ui(unsigned int type, unsigned int color)
 static int _bind_glColorP3ui(lua_State *L) {
 	if (!_lg_typecheck_glColorP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glColorP3ui(unsigned int type, unsigned int color) function, expected prototype:\nvoid glColorP3ui(unsigned int type, unsigned int color)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glColorP3ui(unsigned int type, unsigned int color) function, expected prototype:\nvoid glColorP3ui(unsigned int type, unsigned int color)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11327,8 +10965,7 @@ static int _bind_glColorP3ui(lua_State *L) {
 // void glColorP3uiv(unsigned int type, const unsigned int * color)
 static int _bind_glColorP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glColorP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glColorP3uiv(unsigned int type, const unsigned int * color) function, expected prototype:\nvoid glColorP3uiv(unsigned int type, const unsigned int * color)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glColorP3uiv(unsigned int type, const unsigned int * color) function, expected prototype:\nvoid glColorP3uiv(unsigned int type, const unsigned int * color)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11342,8 +10979,7 @@ static int _bind_glColorP3uiv(lua_State *L) {
 // void glColorP4ui(unsigned int type, unsigned int color)
 static int _bind_glColorP4ui(lua_State *L) {
 	if (!_lg_typecheck_glColorP4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glColorP4ui(unsigned int type, unsigned int color) function, expected prototype:\nvoid glColorP4ui(unsigned int type, unsigned int color)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glColorP4ui(unsigned int type, unsigned int color) function, expected prototype:\nvoid glColorP4ui(unsigned int type, unsigned int color)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11357,8 +10993,7 @@ static int _bind_glColorP4ui(lua_State *L) {
 // void glColorP4uiv(unsigned int type, const unsigned int * color)
 static int _bind_glColorP4uiv(lua_State *L) {
 	if (!_lg_typecheck_glColorP4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glColorP4uiv(unsigned int type, const unsigned int * color) function, expected prototype:\nvoid glColorP4uiv(unsigned int type, const unsigned int * color)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glColorP4uiv(unsigned int type, const unsigned int * color) function, expected prototype:\nvoid glColorP4uiv(unsigned int type, const unsigned int * color)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11372,8 +11007,7 @@ static int _bind_glColorP4uiv(lua_State *L) {
 // void glSecondaryColorP3ui(unsigned int type, unsigned int color)
 static int _bind_glSecondaryColorP3ui(lua_State *L) {
 	if (!_lg_typecheck_glSecondaryColorP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSecondaryColorP3ui(unsigned int type, unsigned int color) function, expected prototype:\nvoid glSecondaryColorP3ui(unsigned int type, unsigned int color)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSecondaryColorP3ui(unsigned int type, unsigned int color) function, expected prototype:\nvoid glSecondaryColorP3ui(unsigned int type, unsigned int color)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11387,8 +11021,7 @@ static int _bind_glSecondaryColorP3ui(lua_State *L) {
 // void glSecondaryColorP3uiv(unsigned int type, const unsigned int * color)
 static int _bind_glSecondaryColorP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glSecondaryColorP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glSecondaryColorP3uiv(unsigned int type, const unsigned int * color) function, expected prototype:\nvoid glSecondaryColorP3uiv(unsigned int type, const unsigned int * color)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glSecondaryColorP3uiv(unsigned int type, const unsigned int * color) function, expected prototype:\nvoid glSecondaryColorP3uiv(unsigned int type, const unsigned int * color)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int type=(unsigned int)lua_tointeger(L,1);
@@ -11402,8 +11035,7 @@ static int _bind_glSecondaryColorP3uiv(lua_State *L) {
 // void glVertexAttribP1ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)
 static int _bind_glVertexAttribP1ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP1ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP1ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP1ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP1ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP1ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11419,8 +11051,7 @@ static int _bind_glVertexAttribP1ui(lua_State *L) {
 // void glVertexAttribP1uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)
 static int _bind_glVertexAttribP1uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP1uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP1uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP1uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP1uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP1uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11436,8 +11067,7 @@ static int _bind_glVertexAttribP1uiv(lua_State *L) {
 // void glVertexAttribP2ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)
 static int _bind_glVertexAttribP2ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP2ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP2ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP2ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP2ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11453,8 +11083,7 @@ static int _bind_glVertexAttribP2ui(lua_State *L) {
 // void glVertexAttribP2uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)
 static int _bind_glVertexAttribP2uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP2uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP2uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP2uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP2uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11470,8 +11099,7 @@ static int _bind_glVertexAttribP2uiv(lua_State *L) {
 // void glVertexAttribP3ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)
 static int _bind_glVertexAttribP3ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP3ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP3ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP3ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP3ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11487,8 +11115,7 @@ static int _bind_glVertexAttribP3ui(lua_State *L) {
 // void glVertexAttribP3uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)
 static int _bind_glVertexAttribP3uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP3uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP3uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP3uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP3uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11504,8 +11131,7 @@ static int _bind_glVertexAttribP3uiv(lua_State *L) {
 // void glVertexAttribP4ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)
 static int _bind_glVertexAttribP4ui(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP4ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP4ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP4ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value) function, expected prototype:\nvoid glVertexAttribP4ui(unsigned int index, unsigned int type, unsigned char normalized, unsigned int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11521,8 +11147,7 @@ static int _bind_glVertexAttribP4ui(lua_State *L) {
 // void glVertexAttribP4uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)
 static int _bind_glVertexAttribP4uiv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribP4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribP4uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP4uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribP4uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value) function, expected prototype:\nvoid glVertexAttribP4uiv(unsigned int index, unsigned int type, unsigned char normalized, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -11538,12 +11163,11 @@ static int _bind_glVertexAttribP4uiv(lua_State *L) {
 // void glDrawArraysIndirect(unsigned int mode, const void * indirect)
 static int _bind_glDrawArraysIndirect(lua_State *L) {
 	if (!_lg_typecheck_glDrawArraysIndirect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawArraysIndirect(unsigned int mode, const void * indirect) function, expected prototype:\nvoid glDrawArraysIndirect(unsigned int mode, const void * indirect)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawArraysIndirect(unsigned int mode, const void * indirect) function, expected prototype:\nvoid glDrawArraysIndirect(unsigned int mode, const void * indirect)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
-	void* indirect=(Luna< void >::check(L,2));
+	const void* indirect=(Luna< void >::check(L,2));
 
 	::glDrawArraysIndirect(mode, indirect);
 
@@ -11553,13 +11177,12 @@ static int _bind_glDrawArraysIndirect(lua_State *L) {
 // void glDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect)
 static int _bind_glDrawElementsIndirect(lua_State *L) {
 	if (!_lg_typecheck_glDrawElementsIndirect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect) function, expected prototype:\nvoid glDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect) function, expected prototype:\nvoid glDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 	unsigned int type=(unsigned int)lua_tointeger(L,2);
-	void* indirect=(Luna< void >::check(L,3));
+	const void* indirect=(Luna< void >::check(L,3));
 
 	::glDrawElementsIndirect(mode, type, indirect);
 
@@ -11569,8 +11192,7 @@ static int _bind_glDrawElementsIndirect(lua_State *L) {
 // void glUniform1d(int location, double x)
 static int _bind_glUniform1d(lua_State *L) {
 	if (!_lg_typecheck_glUniform1d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1d(int location, double x) function, expected prototype:\nvoid glUniform1d(int location, double x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1d(int location, double x) function, expected prototype:\nvoid glUniform1d(int location, double x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11584,8 +11206,7 @@ static int _bind_glUniform1d(lua_State *L) {
 // void glUniform2d(int location, double x, double y)
 static int _bind_glUniform2d(lua_State *L) {
 	if (!_lg_typecheck_glUniform2d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2d(int location, double x, double y) function, expected prototype:\nvoid glUniform2d(int location, double x, double y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2d(int location, double x, double y) function, expected prototype:\nvoid glUniform2d(int location, double x, double y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11600,8 +11221,7 @@ static int _bind_glUniform2d(lua_State *L) {
 // void glUniform3d(int location, double x, double y, double z)
 static int _bind_glUniform3d(lua_State *L) {
 	if (!_lg_typecheck_glUniform3d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3d(int location, double x, double y, double z) function, expected prototype:\nvoid glUniform3d(int location, double x, double y, double z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3d(int location, double x, double y, double z) function, expected prototype:\nvoid glUniform3d(int location, double x, double y, double z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11617,8 +11237,7 @@ static int _bind_glUniform3d(lua_State *L) {
 // void glUniform4d(int location, double x, double y, double z, double w)
 static int _bind_glUniform4d(lua_State *L) {
 	if (!_lg_typecheck_glUniform4d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4d(int location, double x, double y, double z, double w) function, expected prototype:\nvoid glUniform4d(int location, double x, double y, double z, double w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4d(int location, double x, double y, double z, double w) function, expected prototype:\nvoid glUniform4d(int location, double x, double y, double z, double w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11635,8 +11254,7 @@ static int _bind_glUniform4d(lua_State *L) {
 // void glUniform1dv(int location, int count, const double * value)
 static int _bind_glUniform1dv(lua_State *L) {
 	if (!_lg_typecheck_glUniform1dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform1dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform1dv(int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform1dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform1dv(int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11651,8 +11269,7 @@ static int _bind_glUniform1dv(lua_State *L) {
 // void glUniform2dv(int location, int count, const double * value)
 static int _bind_glUniform2dv(lua_State *L) {
 	if (!_lg_typecheck_glUniform2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform2dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform2dv(int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform2dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform2dv(int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11667,8 +11284,7 @@ static int _bind_glUniform2dv(lua_State *L) {
 // void glUniform3dv(int location, int count, const double * value)
 static int _bind_glUniform3dv(lua_State *L) {
 	if (!_lg_typecheck_glUniform3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform3dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform3dv(int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform3dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform3dv(int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11683,8 +11299,7 @@ static int _bind_glUniform3dv(lua_State *L) {
 // void glUniform4dv(int location, int count, const double * value)
 static int _bind_glUniform4dv(lua_State *L) {
 	if (!_lg_typecheck_glUniform4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniform4dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform4dv(int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniform4dv(int location, int count, const double * value) function, expected prototype:\nvoid glUniform4dv(int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11699,8 +11314,7 @@ static int _bind_glUniform4dv(lua_State *L) {
 // void glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix2dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix2dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11716,8 +11330,7 @@ static int _bind_glUniformMatrix2dv(lua_State *L) {
 // void glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix3dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix3dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11733,8 +11346,7 @@ static int _bind_glUniformMatrix3dv(lua_State *L) {
 // void glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix4dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix4dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11750,8 +11362,7 @@ static int _bind_glUniformMatrix4dv(lua_State *L) {
 // void glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix2x3dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix2x3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix2x3dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11767,8 +11378,7 @@ static int _bind_glUniformMatrix2x3dv(lua_State *L) {
 // void glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix2x4dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix2x4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix2x4dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11784,8 +11394,7 @@ static int _bind_glUniformMatrix2x4dv(lua_State *L) {
 // void glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix3x2dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix3x2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix3x2dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11801,8 +11410,7 @@ static int _bind_glUniformMatrix3x2dv(lua_State *L) {
 // void glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix3x4dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix3x4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix3x4dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11818,8 +11426,7 @@ static int _bind_glUniformMatrix3x4dv(lua_State *L) {
 // void glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix4x2dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix4x2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix4x2dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11835,8 +11442,7 @@ static int _bind_glUniformMatrix4x2dv(lua_State *L) {
 // void glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value)
 static int _bind_glUniformMatrix4x3dv(lua_State *L) {
 	if (!_lg_typecheck_glUniformMatrix4x3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glUniformMatrix4x3dv(int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int location=(int)lua_tointeger(L,1);
@@ -11852,8 +11458,7 @@ static int _bind_glUniformMatrix4x3dv(lua_State *L) {
 // void glGetUniformdv(unsigned int program, int location, double * params)
 static int _bind_glGetUniformdv(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformdv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetUniformdv(unsigned int program, int location, double * params) function, expected prototype:\nvoid glGetUniformdv(unsigned int program, int location, double * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetUniformdv(unsigned int program, int location, double * params) function, expected prototype:\nvoid glGetUniformdv(unsigned int program, int location, double * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -11868,8 +11473,7 @@ static int _bind_glGetUniformdv(lua_State *L) {
 // int glGetSubroutineUniformLocation(unsigned int program, unsigned int shadertype, const char * name)
 static int _bind_glGetSubroutineUniformLocation(lua_State *L) {
 	if (!_lg_typecheck_glGetSubroutineUniformLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetSubroutineUniformLocation(unsigned int program, unsigned int shadertype, const char * name) function, expected prototype:\nint glGetSubroutineUniformLocation(unsigned int program, unsigned int shadertype, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetSubroutineUniformLocation(unsigned int program, unsigned int shadertype, const char * name) function, expected prototype:\nint glGetSubroutineUniformLocation(unsigned int program, unsigned int shadertype, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -11885,8 +11489,7 @@ static int _bind_glGetSubroutineUniformLocation(lua_State *L) {
 // unsigned int glGetSubroutineIndex(unsigned int program, unsigned int shadertype, const char * name)
 static int _bind_glGetSubroutineIndex(lua_State *L) {
 	if (!_lg_typecheck_glGetSubroutineIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetSubroutineIndex(unsigned int program, unsigned int shadertype, const char * name) function, expected prototype:\nunsigned int glGetSubroutineIndex(unsigned int program, unsigned int shadertype, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetSubroutineIndex(unsigned int program, unsigned int shadertype, const char * name) function, expected prototype:\nunsigned int glGetSubroutineIndex(unsigned int program, unsigned int shadertype, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -11902,8 +11505,7 @@ static int _bind_glGetSubroutineIndex(lua_State *L) {
 // void glGetActiveSubroutineUniformiv(unsigned int program, unsigned int shadertype, unsigned int index, unsigned int pname, int * values)
 static int _bind_glGetActiveSubroutineUniformiv(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveSubroutineUniformiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveSubroutineUniformiv(unsigned int program, unsigned int shadertype, unsigned int index, unsigned int pname, int * values) function, expected prototype:\nvoid glGetActiveSubroutineUniformiv(unsigned int program, unsigned int shadertype, unsigned int index, unsigned int pname, int * values)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveSubroutineUniformiv(unsigned int program, unsigned int shadertype, unsigned int index, unsigned int pname, int * values) function, expected prototype:\nvoid glGetActiveSubroutineUniformiv(unsigned int program, unsigned int shadertype, unsigned int index, unsigned int pname, int * values)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -11920,8 +11522,7 @@ static int _bind_glGetActiveSubroutineUniformiv(lua_State *L) {
 // void glGetActiveSubroutineUniformName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name)
 static int _bind_glGetActiveSubroutineUniformName(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveSubroutineUniformName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveSubroutineUniformName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name) function, expected prototype:\nvoid glGetActiveSubroutineUniformName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveSubroutineUniformName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name) function, expected prototype:\nvoid glGetActiveSubroutineUniformName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -11939,8 +11540,7 @@ static int _bind_glGetActiveSubroutineUniformName(lua_State *L) {
 // void glGetActiveSubroutineName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name)
 static int _bind_glGetActiveSubroutineName(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveSubroutineName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveSubroutineName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name) function, expected prototype:\nvoid glGetActiveSubroutineName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveSubroutineName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name) function, expected prototype:\nvoid glGetActiveSubroutineName(unsigned int program, unsigned int shadertype, unsigned int index, int bufsize, int * length, char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -11958,8 +11558,7 @@ static int _bind_glGetActiveSubroutineName(lua_State *L) {
 // void glUniformSubroutinesuiv(unsigned int shadertype, int count, const unsigned int * indices)
 static int _bind_glUniformSubroutinesuiv(lua_State *L) {
 	if (!_lg_typecheck_glUniformSubroutinesuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUniformSubroutinesuiv(unsigned int shadertype, int count, const unsigned int * indices) function, expected prototype:\nvoid glUniformSubroutinesuiv(unsigned int shadertype, int count, const unsigned int * indices)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUniformSubroutinesuiv(unsigned int shadertype, int count, const unsigned int * indices) function, expected prototype:\nvoid glUniformSubroutinesuiv(unsigned int shadertype, int count, const unsigned int * indices)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shadertype=(unsigned int)lua_tointeger(L,1);
@@ -11974,8 +11573,7 @@ static int _bind_glUniformSubroutinesuiv(lua_State *L) {
 // void glGetUniformSubroutineuiv(unsigned int shadertype, int location, unsigned int * params)
 static int _bind_glGetUniformSubroutineuiv(lua_State *L) {
 	if (!_lg_typecheck_glGetUniformSubroutineuiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetUniformSubroutineuiv(unsigned int shadertype, int location, unsigned int * params) function, expected prototype:\nvoid glGetUniformSubroutineuiv(unsigned int shadertype, int location, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetUniformSubroutineuiv(unsigned int shadertype, int location, unsigned int * params) function, expected prototype:\nvoid glGetUniformSubroutineuiv(unsigned int shadertype, int location, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shadertype=(unsigned int)lua_tointeger(L,1);
@@ -11990,8 +11588,7 @@ static int _bind_glGetUniformSubroutineuiv(lua_State *L) {
 // void glGetProgramStageiv(unsigned int program, unsigned int shadertype, unsigned int pname, int * values)
 static int _bind_glGetProgramStageiv(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramStageiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramStageiv(unsigned int program, unsigned int shadertype, unsigned int pname, int * values) function, expected prototype:\nvoid glGetProgramStageiv(unsigned int program, unsigned int shadertype, unsigned int pname, int * values)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramStageiv(unsigned int program, unsigned int shadertype, unsigned int pname, int * values) function, expected prototype:\nvoid glGetProgramStageiv(unsigned int program, unsigned int shadertype, unsigned int pname, int * values)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12007,8 +11604,7 @@ static int _bind_glGetProgramStageiv(lua_State *L) {
 // void glPatchParameteri(unsigned int pname, int value)
 static int _bind_glPatchParameteri(lua_State *L) {
 	if (!_lg_typecheck_glPatchParameteri(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPatchParameteri(unsigned int pname, int value) function, expected prototype:\nvoid glPatchParameteri(unsigned int pname, int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPatchParameteri(unsigned int pname, int value) function, expected prototype:\nvoid glPatchParameteri(unsigned int pname, int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -12022,8 +11618,7 @@ static int _bind_glPatchParameteri(lua_State *L) {
 // void glPatchParameterfv(unsigned int pname, const float * values)
 static int _bind_glPatchParameterfv(lua_State *L) {
 	if (!_lg_typecheck_glPatchParameterfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPatchParameterfv(unsigned int pname, const float * values) function, expected prototype:\nvoid glPatchParameterfv(unsigned int pname, const float * values)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPatchParameterfv(unsigned int pname, const float * values) function, expected prototype:\nvoid glPatchParameterfv(unsigned int pname, const float * values)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pname=(unsigned int)lua_tointeger(L,1);
@@ -12037,8 +11632,7 @@ static int _bind_glPatchParameterfv(lua_State *L) {
 // void glBindTransformFeedback(unsigned int target, unsigned int id)
 static int _bind_glBindTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glBindTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindTransformFeedback(unsigned int target, unsigned int id) function, expected prototype:\nvoid glBindTransformFeedback(unsigned int target, unsigned int id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindTransformFeedback(unsigned int target, unsigned int id) function, expected prototype:\nvoid glBindTransformFeedback(unsigned int target, unsigned int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -12052,8 +11646,7 @@ static int _bind_glBindTransformFeedback(lua_State *L) {
 // void glDeleteTransformFeedbacks(int n, const unsigned int * ids)
 static int _bind_glDeleteTransformFeedbacks(lua_State *L) {
 	if (!_lg_typecheck_glDeleteTransformFeedbacks(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteTransformFeedbacks(int n, const unsigned int * ids) function, expected prototype:\nvoid glDeleteTransformFeedbacks(int n, const unsigned int * ids)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteTransformFeedbacks(int n, const unsigned int * ids) function, expected prototype:\nvoid glDeleteTransformFeedbacks(int n, const unsigned int * ids)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -12067,8 +11660,7 @@ static int _bind_glDeleteTransformFeedbacks(lua_State *L) {
 // void glGenTransformFeedbacks(int n, unsigned int * ids)
 static int _bind_glGenTransformFeedbacks(lua_State *L) {
 	if (!_lg_typecheck_glGenTransformFeedbacks(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenTransformFeedbacks(int n, unsigned int * ids) function, expected prototype:\nvoid glGenTransformFeedbacks(int n, unsigned int * ids)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenTransformFeedbacks(int n, unsigned int * ids) function, expected prototype:\nvoid glGenTransformFeedbacks(int n, unsigned int * ids)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -12082,8 +11674,7 @@ static int _bind_glGenTransformFeedbacks(lua_State *L) {
 // unsigned char glIsTransformFeedback(unsigned int id)
 static int _bind_glIsTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glIsTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsTransformFeedback(unsigned int id) function, expected prototype:\nunsigned char glIsTransformFeedback(unsigned int id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsTransformFeedback(unsigned int id) function, expected prototype:\nunsigned char glIsTransformFeedback(unsigned int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int id=(unsigned int)lua_tointeger(L,1);
@@ -12097,8 +11688,7 @@ static int _bind_glIsTransformFeedback(lua_State *L) {
 // void glPauseTransformFeedback()
 static int _bind_glPauseTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glPauseTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPauseTransformFeedback() function, expected prototype:\nvoid glPauseTransformFeedback()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPauseTransformFeedback() function, expected prototype:\nvoid glPauseTransformFeedback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -12110,8 +11700,7 @@ static int _bind_glPauseTransformFeedback(lua_State *L) {
 // void glResumeTransformFeedback()
 static int _bind_glResumeTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glResumeTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glResumeTransformFeedback() function, expected prototype:\nvoid glResumeTransformFeedback()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glResumeTransformFeedback() function, expected prototype:\nvoid glResumeTransformFeedback()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -12123,8 +11712,7 @@ static int _bind_glResumeTransformFeedback(lua_State *L) {
 // void glDrawTransformFeedback(unsigned int mode, unsigned int id)
 static int _bind_glDrawTransformFeedback(lua_State *L) {
 	if (!_lg_typecheck_glDrawTransformFeedback(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedback(unsigned int mode, unsigned int id) function, expected prototype:\nvoid glDrawTransformFeedback(unsigned int mode, unsigned int id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedback(unsigned int mode, unsigned int id) function, expected prototype:\nvoid glDrawTransformFeedback(unsigned int mode, unsigned int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -12138,8 +11726,7 @@ static int _bind_glDrawTransformFeedback(lua_State *L) {
 // void glDrawTransformFeedbackStream(unsigned int mode, unsigned int id, unsigned int stream)
 static int _bind_glDrawTransformFeedbackStream(lua_State *L) {
 	if (!_lg_typecheck_glDrawTransformFeedbackStream(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedbackStream(unsigned int mode, unsigned int id, unsigned int stream) function, expected prototype:\nvoid glDrawTransformFeedbackStream(unsigned int mode, unsigned int id, unsigned int stream)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedbackStream(unsigned int mode, unsigned int id, unsigned int stream) function, expected prototype:\nvoid glDrawTransformFeedbackStream(unsigned int mode, unsigned int id, unsigned int stream)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -12154,8 +11741,7 @@ static int _bind_glDrawTransformFeedbackStream(lua_State *L) {
 // void glBeginQueryIndexed(unsigned int target, unsigned int index, unsigned int id)
 static int _bind_glBeginQueryIndexed(lua_State *L) {
 	if (!_lg_typecheck_glBeginQueryIndexed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBeginQueryIndexed(unsigned int target, unsigned int index, unsigned int id) function, expected prototype:\nvoid glBeginQueryIndexed(unsigned int target, unsigned int index, unsigned int id)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBeginQueryIndexed(unsigned int target, unsigned int index, unsigned int id) function, expected prototype:\nvoid glBeginQueryIndexed(unsigned int target, unsigned int index, unsigned int id)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -12170,8 +11756,7 @@ static int _bind_glBeginQueryIndexed(lua_State *L) {
 // void glEndQueryIndexed(unsigned int target, unsigned int index)
 static int _bind_glEndQueryIndexed(lua_State *L) {
 	if (!_lg_typecheck_glEndQueryIndexed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glEndQueryIndexed(unsigned int target, unsigned int index) function, expected prototype:\nvoid glEndQueryIndexed(unsigned int target, unsigned int index)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glEndQueryIndexed(unsigned int target, unsigned int index) function, expected prototype:\nvoid glEndQueryIndexed(unsigned int target, unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -12185,8 +11770,7 @@ static int _bind_glEndQueryIndexed(lua_State *L) {
 // void glGetQueryIndexediv(unsigned int target, unsigned int index, unsigned int pname, int * params)
 static int _bind_glGetQueryIndexediv(lua_State *L) {
 	if (!_lg_typecheck_glGetQueryIndexediv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetQueryIndexediv(unsigned int target, unsigned int index, unsigned int pname, int * params) function, expected prototype:\nvoid glGetQueryIndexediv(unsigned int target, unsigned int index, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetQueryIndexediv(unsigned int target, unsigned int index, unsigned int pname, int * params) function, expected prototype:\nvoid glGetQueryIndexediv(unsigned int target, unsigned int index, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -12202,8 +11786,7 @@ static int _bind_glGetQueryIndexediv(lua_State *L) {
 // void glReleaseShaderCompiler()
 static int _bind_glReleaseShaderCompiler(lua_State *L) {
 	if (!_lg_typecheck_glReleaseShaderCompiler(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glReleaseShaderCompiler() function, expected prototype:\nvoid glReleaseShaderCompiler()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glReleaseShaderCompiler() function, expected prototype:\nvoid glReleaseShaderCompiler()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -12215,14 +11798,13 @@ static int _bind_glReleaseShaderCompiler(lua_State *L) {
 // void glShaderBinary(int count, const unsigned int * shaders, unsigned int binaryformat, const void * binary, int length)
 static int _bind_glShaderBinary(lua_State *L) {
 	if (!_lg_typecheck_glShaderBinary(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glShaderBinary(int count, const unsigned int * shaders, unsigned int binaryformat, const void * binary, int length) function, expected prototype:\nvoid glShaderBinary(int count, const unsigned int * shaders, unsigned int binaryformat, const void * binary, int length)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glShaderBinary(int count, const unsigned int * shaders, unsigned int binaryformat, const void * binary, int length) function, expected prototype:\nvoid glShaderBinary(int count, const unsigned int * shaders, unsigned int binaryformat, const void * binary, int length)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int count=(int)lua_tointeger(L,1);
 	const unsigned int* shaders=(const unsigned int*)Luna< void >::check(L,2);
 	unsigned int binaryformat=(unsigned int)lua_tointeger(L,3);
-	void* binary=(Luna< void >::check(L,4));
+	const void* binary=(Luna< void >::check(L,4));
 	int length=(int)lua_tointeger(L,5);
 
 	::glShaderBinary(count, shaders, binaryformat, binary, length);
@@ -12233,8 +11815,7 @@ static int _bind_glShaderBinary(lua_State *L) {
 // void glGetShaderPrecisionFormat(unsigned int shadertype, unsigned int precisiontype, int * range, int * precision)
 static int _bind_glGetShaderPrecisionFormat(lua_State *L) {
 	if (!_lg_typecheck_glGetShaderPrecisionFormat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetShaderPrecisionFormat(unsigned int shadertype, unsigned int precisiontype, int * range, int * precision) function, expected prototype:\nvoid glGetShaderPrecisionFormat(unsigned int shadertype, unsigned int precisiontype, int * range, int * precision)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetShaderPrecisionFormat(unsigned int shadertype, unsigned int precisiontype, int * range, int * precision) function, expected prototype:\nvoid glGetShaderPrecisionFormat(unsigned int shadertype, unsigned int precisiontype, int * range, int * precision)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int shadertype=(unsigned int)lua_tointeger(L,1);
@@ -12250,8 +11831,7 @@ static int _bind_glGetShaderPrecisionFormat(lua_State *L) {
 // void glDepthRangef(float n, float f)
 static int _bind_glDepthRangef(lua_State *L) {
 	if (!_lg_typecheck_glDepthRangef(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDepthRangef(float n, float f) function, expected prototype:\nvoid glDepthRangef(float n, float f)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDepthRangef(float n, float f) function, expected prototype:\nvoid glDepthRangef(float n, float f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float n=(float)lua_tonumber(L,1);
@@ -12265,8 +11845,7 @@ static int _bind_glDepthRangef(lua_State *L) {
 // void glClearDepthf(float d)
 static int _bind_glClearDepthf(lua_State *L) {
 	if (!_lg_typecheck_glClearDepthf(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearDepthf(float d) function, expected prototype:\nvoid glClearDepthf(float d)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearDepthf(float d) function, expected prototype:\nvoid glClearDepthf(float d)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	float d=(float)lua_tonumber(L,1);
@@ -12279,8 +11858,7 @@ static int _bind_glClearDepthf(lua_State *L) {
 // void glGetProgramBinary(unsigned int program, int bufSize, int * length, unsigned int * binaryFormat, void * binary)
 static int _bind_glGetProgramBinary(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramBinary(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramBinary(unsigned int program, int bufSize, int * length, unsigned int * binaryFormat, void * binary) function, expected prototype:\nvoid glGetProgramBinary(unsigned int program, int bufSize, int * length, unsigned int * binaryFormat, void * binary)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramBinary(unsigned int program, int bufSize, int * length, unsigned int * binaryFormat, void * binary) function, expected prototype:\nvoid glGetProgramBinary(unsigned int program, int bufSize, int * length, unsigned int * binaryFormat, void * binary)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12297,13 +11875,12 @@ static int _bind_glGetProgramBinary(lua_State *L) {
 // void glProgramBinary(unsigned int program, unsigned int binaryFormat, const void * binary, int length)
 static int _bind_glProgramBinary(lua_State *L) {
 	if (!_lg_typecheck_glProgramBinary(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramBinary(unsigned int program, unsigned int binaryFormat, const void * binary, int length) function, expected prototype:\nvoid glProgramBinary(unsigned int program, unsigned int binaryFormat, const void * binary, int length)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramBinary(unsigned int program, unsigned int binaryFormat, const void * binary, int length) function, expected prototype:\nvoid glProgramBinary(unsigned int program, unsigned int binaryFormat, const void * binary, int length)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
 	unsigned int binaryFormat=(unsigned int)lua_tointeger(L,2);
-	void* binary=(Luna< void >::check(L,3));
+	const void* binary=(Luna< void >::check(L,3));
 	int length=(int)lua_tointeger(L,4);
 
 	::glProgramBinary(program, binaryFormat, binary, length);
@@ -12314,8 +11891,7 @@ static int _bind_glProgramBinary(lua_State *L) {
 // void glProgramParameteri(unsigned int program, unsigned int pname, int value)
 static int _bind_glProgramParameteri(lua_State *L) {
 	if (!_lg_typecheck_glProgramParameteri(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramParameteri(unsigned int program, unsigned int pname, int value) function, expected prototype:\nvoid glProgramParameteri(unsigned int program, unsigned int pname, int value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramParameteri(unsigned int program, unsigned int pname, int value) function, expected prototype:\nvoid glProgramParameteri(unsigned int program, unsigned int pname, int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12330,8 +11906,7 @@ static int _bind_glProgramParameteri(lua_State *L) {
 // void glUseProgramStages(unsigned int pipeline, unsigned int stages, unsigned int program)
 static int _bind_glUseProgramStages(lua_State *L) {
 	if (!_lg_typecheck_glUseProgramStages(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glUseProgramStages(unsigned int pipeline, unsigned int stages, unsigned int program) function, expected prototype:\nvoid glUseProgramStages(unsigned int pipeline, unsigned int stages, unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glUseProgramStages(unsigned int pipeline, unsigned int stages, unsigned int program) function, expected prototype:\nvoid glUseProgramStages(unsigned int pipeline, unsigned int stages, unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -12346,8 +11921,7 @@ static int _bind_glUseProgramStages(lua_State *L) {
 // void glActiveShaderProgram(unsigned int pipeline, unsigned int program)
 static int _bind_glActiveShaderProgram(lua_State *L) {
 	if (!_lg_typecheck_glActiveShaderProgram(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glActiveShaderProgram(unsigned int pipeline, unsigned int program) function, expected prototype:\nvoid glActiveShaderProgram(unsigned int pipeline, unsigned int program)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glActiveShaderProgram(unsigned int pipeline, unsigned int program) function, expected prototype:\nvoid glActiveShaderProgram(unsigned int pipeline, unsigned int program)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -12361,8 +11935,7 @@ static int _bind_glActiveShaderProgram(lua_State *L) {
 // void glBindProgramPipeline(unsigned int pipeline)
 static int _bind_glBindProgramPipeline(lua_State *L) {
 	if (!_lg_typecheck_glBindProgramPipeline(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindProgramPipeline(unsigned int pipeline) function, expected prototype:\nvoid glBindProgramPipeline(unsigned int pipeline)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindProgramPipeline(unsigned int pipeline) function, expected prototype:\nvoid glBindProgramPipeline(unsigned int pipeline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -12375,8 +11948,7 @@ static int _bind_glBindProgramPipeline(lua_State *L) {
 // void glDeleteProgramPipelines(int n, const unsigned int * pipelines)
 static int _bind_glDeleteProgramPipelines(lua_State *L) {
 	if (!_lg_typecheck_glDeleteProgramPipelines(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDeleteProgramPipelines(int n, const unsigned int * pipelines) function, expected prototype:\nvoid glDeleteProgramPipelines(int n, const unsigned int * pipelines)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDeleteProgramPipelines(int n, const unsigned int * pipelines) function, expected prototype:\nvoid glDeleteProgramPipelines(int n, const unsigned int * pipelines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -12390,8 +11962,7 @@ static int _bind_glDeleteProgramPipelines(lua_State *L) {
 // void glGenProgramPipelines(int n, unsigned int * pipelines)
 static int _bind_glGenProgramPipelines(lua_State *L) {
 	if (!_lg_typecheck_glGenProgramPipelines(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGenProgramPipelines(int n, unsigned int * pipelines) function, expected prototype:\nvoid glGenProgramPipelines(int n, unsigned int * pipelines)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGenProgramPipelines(int n, unsigned int * pipelines) function, expected prototype:\nvoid glGenProgramPipelines(int n, unsigned int * pipelines)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int n=(int)lua_tointeger(L,1);
@@ -12405,8 +11976,7 @@ static int _bind_glGenProgramPipelines(lua_State *L) {
 // unsigned char glIsProgramPipeline(unsigned int pipeline)
 static int _bind_glIsProgramPipeline(lua_State *L) {
 	if (!_lg_typecheck_glIsProgramPipeline(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned char glIsProgramPipeline(unsigned int pipeline) function, expected prototype:\nunsigned char glIsProgramPipeline(unsigned int pipeline)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned char glIsProgramPipeline(unsigned int pipeline) function, expected prototype:\nunsigned char glIsProgramPipeline(unsigned int pipeline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -12420,8 +11990,7 @@ static int _bind_glIsProgramPipeline(lua_State *L) {
 // void glGetProgramPipelineiv(unsigned int pipeline, unsigned int pname, int * params)
 static int _bind_glGetProgramPipelineiv(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramPipelineiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramPipelineiv(unsigned int pipeline, unsigned int pname, int * params) function, expected prototype:\nvoid glGetProgramPipelineiv(unsigned int pipeline, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramPipelineiv(unsigned int pipeline, unsigned int pname, int * params) function, expected prototype:\nvoid glGetProgramPipelineiv(unsigned int pipeline, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -12436,8 +12005,7 @@ static int _bind_glGetProgramPipelineiv(lua_State *L) {
 // void glProgramUniform1i(unsigned int program, int location, int v0)
 static int _bind_glProgramUniform1i(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1i(unsigned int program, int location, int v0) function, expected prototype:\nvoid glProgramUniform1i(unsigned int program, int location, int v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1i(unsigned int program, int location, int v0) function, expected prototype:\nvoid glProgramUniform1i(unsigned int program, int location, int v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12452,8 +12020,7 @@ static int _bind_glProgramUniform1i(lua_State *L) {
 // void glProgramUniform1iv(unsigned int program, int location, int count, const int * value)
 static int _bind_glProgramUniform1iv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform1iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform1iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12469,8 +12036,7 @@ static int _bind_glProgramUniform1iv(lua_State *L) {
 // void glProgramUniform1f(unsigned int program, int location, float v0)
 static int _bind_glProgramUniform1f(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1f(unsigned int program, int location, float v0) function, expected prototype:\nvoid glProgramUniform1f(unsigned int program, int location, float v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1f(unsigned int program, int location, float v0) function, expected prototype:\nvoid glProgramUniform1f(unsigned int program, int location, float v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12485,8 +12051,7 @@ static int _bind_glProgramUniform1f(lua_State *L) {
 // void glProgramUniform1fv(unsigned int program, int location, int count, const float * value)
 static int _bind_glProgramUniform1fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform1fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform1fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12502,8 +12067,7 @@ static int _bind_glProgramUniform1fv(lua_State *L) {
 // void glProgramUniform1d(unsigned int program, int location, double v0)
 static int _bind_glProgramUniform1d(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1d(unsigned int program, int location, double v0) function, expected prototype:\nvoid glProgramUniform1d(unsigned int program, int location, double v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1d(unsigned int program, int location, double v0) function, expected prototype:\nvoid glProgramUniform1d(unsigned int program, int location, double v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12518,8 +12082,7 @@ static int _bind_glProgramUniform1d(lua_State *L) {
 // void glProgramUniform1dv(unsigned int program, int location, int count, const double * value)
 static int _bind_glProgramUniform1dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform1dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform1dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12535,8 +12098,7 @@ static int _bind_glProgramUniform1dv(lua_State *L) {
 // void glProgramUniform1ui(unsigned int program, int location, unsigned int v0)
 static int _bind_glProgramUniform1ui(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1ui(unsigned int program, int location, unsigned int v0) function, expected prototype:\nvoid glProgramUniform1ui(unsigned int program, int location, unsigned int v0)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1ui(unsigned int program, int location, unsigned int v0) function, expected prototype:\nvoid glProgramUniform1ui(unsigned int program, int location, unsigned int v0)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12551,8 +12113,7 @@ static int _bind_glProgramUniform1ui(lua_State *L) {
 // void glProgramUniform1uiv(unsigned int program, int location, int count, const unsigned int * value)
 static int _bind_glProgramUniform1uiv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform1uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform1uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform1uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform1uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform1uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12568,8 +12129,7 @@ static int _bind_glProgramUniform1uiv(lua_State *L) {
 // void glProgramUniform2i(unsigned int program, int location, int v0, int v1)
 static int _bind_glProgramUniform2i(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2i(unsigned int program, int location, int v0, int v1) function, expected prototype:\nvoid glProgramUniform2i(unsigned int program, int location, int v0, int v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2i(unsigned int program, int location, int v0, int v1) function, expected prototype:\nvoid glProgramUniform2i(unsigned int program, int location, int v0, int v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12585,8 +12145,7 @@ static int _bind_glProgramUniform2i(lua_State *L) {
 // void glProgramUniform2iv(unsigned int program, int location, int count, const int * value)
 static int _bind_glProgramUniform2iv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform2iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform2iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12602,8 +12161,7 @@ static int _bind_glProgramUniform2iv(lua_State *L) {
 // void glProgramUniform2f(unsigned int program, int location, float v0, float v1)
 static int _bind_glProgramUniform2f(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2f(unsigned int program, int location, float v0, float v1) function, expected prototype:\nvoid glProgramUniform2f(unsigned int program, int location, float v0, float v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2f(unsigned int program, int location, float v0, float v1) function, expected prototype:\nvoid glProgramUniform2f(unsigned int program, int location, float v0, float v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12619,8 +12177,7 @@ static int _bind_glProgramUniform2f(lua_State *L) {
 // void glProgramUniform2fv(unsigned int program, int location, int count, const float * value)
 static int _bind_glProgramUniform2fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform2fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform2fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12636,8 +12193,7 @@ static int _bind_glProgramUniform2fv(lua_State *L) {
 // void glProgramUniform2d(unsigned int program, int location, double v0, double v1)
 static int _bind_glProgramUniform2d(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2d(unsigned int program, int location, double v0, double v1) function, expected prototype:\nvoid glProgramUniform2d(unsigned int program, int location, double v0, double v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2d(unsigned int program, int location, double v0, double v1) function, expected prototype:\nvoid glProgramUniform2d(unsigned int program, int location, double v0, double v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12653,8 +12209,7 @@ static int _bind_glProgramUniform2d(lua_State *L) {
 // void glProgramUniform2dv(unsigned int program, int location, int count, const double * value)
 static int _bind_glProgramUniform2dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform2dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform2dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12670,8 +12225,7 @@ static int _bind_glProgramUniform2dv(lua_State *L) {
 // void glProgramUniform2ui(unsigned int program, int location, unsigned int v0, unsigned int v1)
 static int _bind_glProgramUniform2ui(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2ui(unsigned int program, int location, unsigned int v0, unsigned int v1) function, expected prototype:\nvoid glProgramUniform2ui(unsigned int program, int location, unsigned int v0, unsigned int v1)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2ui(unsigned int program, int location, unsigned int v0, unsigned int v1) function, expected prototype:\nvoid glProgramUniform2ui(unsigned int program, int location, unsigned int v0, unsigned int v1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12687,8 +12241,7 @@ static int _bind_glProgramUniform2ui(lua_State *L) {
 // void glProgramUniform2uiv(unsigned int program, int location, int count, const unsigned int * value)
 static int _bind_glProgramUniform2uiv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform2uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform2uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform2uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform2uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform2uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12704,8 +12257,7 @@ static int _bind_glProgramUniform2uiv(lua_State *L) {
 // void glProgramUniform3i(unsigned int program, int location, int v0, int v1, int v2)
 static int _bind_glProgramUniform3i(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3i(unsigned int program, int location, int v0, int v1, int v2) function, expected prototype:\nvoid glProgramUniform3i(unsigned int program, int location, int v0, int v1, int v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3i(unsigned int program, int location, int v0, int v1, int v2) function, expected prototype:\nvoid glProgramUniform3i(unsigned int program, int location, int v0, int v1, int v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12722,8 +12274,7 @@ static int _bind_glProgramUniform3i(lua_State *L) {
 // void glProgramUniform3iv(unsigned int program, int location, int count, const int * value)
 static int _bind_glProgramUniform3iv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform3iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform3iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12739,8 +12290,7 @@ static int _bind_glProgramUniform3iv(lua_State *L) {
 // void glProgramUniform3f(unsigned int program, int location, float v0, float v1, float v2)
 static int _bind_glProgramUniform3f(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3f(unsigned int program, int location, float v0, float v1, float v2) function, expected prototype:\nvoid glProgramUniform3f(unsigned int program, int location, float v0, float v1, float v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3f(unsigned int program, int location, float v0, float v1, float v2) function, expected prototype:\nvoid glProgramUniform3f(unsigned int program, int location, float v0, float v1, float v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12757,8 +12307,7 @@ static int _bind_glProgramUniform3f(lua_State *L) {
 // void glProgramUniform3fv(unsigned int program, int location, int count, const float * value)
 static int _bind_glProgramUniform3fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform3fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform3fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12774,8 +12323,7 @@ static int _bind_glProgramUniform3fv(lua_State *L) {
 // void glProgramUniform3d(unsigned int program, int location, double v0, double v1, double v2)
 static int _bind_glProgramUniform3d(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3d(unsigned int program, int location, double v0, double v1, double v2) function, expected prototype:\nvoid glProgramUniform3d(unsigned int program, int location, double v0, double v1, double v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3d(unsigned int program, int location, double v0, double v1, double v2) function, expected prototype:\nvoid glProgramUniform3d(unsigned int program, int location, double v0, double v1, double v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12792,8 +12340,7 @@ static int _bind_glProgramUniform3d(lua_State *L) {
 // void glProgramUniform3dv(unsigned int program, int location, int count, const double * value)
 static int _bind_glProgramUniform3dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform3dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform3dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12809,8 +12356,7 @@ static int _bind_glProgramUniform3dv(lua_State *L) {
 // void glProgramUniform3ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2)
 static int _bind_glProgramUniform3ui(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2) function, expected prototype:\nvoid glProgramUniform3ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2) function, expected prototype:\nvoid glProgramUniform3ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12827,8 +12373,7 @@ static int _bind_glProgramUniform3ui(lua_State *L) {
 // void glProgramUniform3uiv(unsigned int program, int location, int count, const unsigned int * value)
 static int _bind_glProgramUniform3uiv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform3uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform3uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform3uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform3uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform3uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12844,8 +12389,7 @@ static int _bind_glProgramUniform3uiv(lua_State *L) {
 // void glProgramUniform4i(unsigned int program, int location, int v0, int v1, int v2, int v3)
 static int _bind_glProgramUniform4i(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4i(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4i(unsigned int program, int location, int v0, int v1, int v2, int v3) function, expected prototype:\nvoid glProgramUniform4i(unsigned int program, int location, int v0, int v1, int v2, int v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4i(unsigned int program, int location, int v0, int v1, int v2, int v3) function, expected prototype:\nvoid glProgramUniform4i(unsigned int program, int location, int v0, int v1, int v2, int v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12863,8 +12407,7 @@ static int _bind_glProgramUniform4i(lua_State *L) {
 // void glProgramUniform4iv(unsigned int program, int location, int count, const int * value)
 static int _bind_glProgramUniform4iv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4iv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform4iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4iv(unsigned int program, int location, int count, const int * value) function, expected prototype:\nvoid glProgramUniform4iv(unsigned int program, int location, int count, const int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12880,8 +12423,7 @@ static int _bind_glProgramUniform4iv(lua_State *L) {
 // void glProgramUniform4f(unsigned int program, int location, float v0, float v1, float v2, float v3)
 static int _bind_glProgramUniform4f(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4f(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4f(unsigned int program, int location, float v0, float v1, float v2, float v3) function, expected prototype:\nvoid glProgramUniform4f(unsigned int program, int location, float v0, float v1, float v2, float v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4f(unsigned int program, int location, float v0, float v1, float v2, float v3) function, expected prototype:\nvoid glProgramUniform4f(unsigned int program, int location, float v0, float v1, float v2, float v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12899,8 +12441,7 @@ static int _bind_glProgramUniform4f(lua_State *L) {
 // void glProgramUniform4fv(unsigned int program, int location, int count, const float * value)
 static int _bind_glProgramUniform4fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform4fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4fv(unsigned int program, int location, int count, const float * value) function, expected prototype:\nvoid glProgramUniform4fv(unsigned int program, int location, int count, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12916,8 +12457,7 @@ static int _bind_glProgramUniform4fv(lua_State *L) {
 // void glProgramUniform4d(unsigned int program, int location, double v0, double v1, double v2, double v3)
 static int _bind_glProgramUniform4d(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4d(unsigned int program, int location, double v0, double v1, double v2, double v3) function, expected prototype:\nvoid glProgramUniform4d(unsigned int program, int location, double v0, double v1, double v2, double v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4d(unsigned int program, int location, double v0, double v1, double v2, double v3) function, expected prototype:\nvoid glProgramUniform4d(unsigned int program, int location, double v0, double v1, double v2, double v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12935,8 +12475,7 @@ static int _bind_glProgramUniform4d(lua_State *L) {
 // void glProgramUniform4dv(unsigned int program, int location, int count, const double * value)
 static int _bind_glProgramUniform4dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform4dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4dv(unsigned int program, int location, int count, const double * value) function, expected prototype:\nvoid glProgramUniform4dv(unsigned int program, int location, int count, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12952,8 +12491,7 @@ static int _bind_glProgramUniform4dv(lua_State *L) {
 // void glProgramUniform4ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3)
 static int _bind_glProgramUniform4ui(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4ui(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3) function, expected prototype:\nvoid glProgramUniform4ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3) function, expected prototype:\nvoid glProgramUniform4ui(unsigned int program, int location, unsigned int v0, unsigned int v1, unsigned int v2, unsigned int v3)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12971,8 +12509,7 @@ static int _bind_glProgramUniform4ui(lua_State *L) {
 // void glProgramUniform4uiv(unsigned int program, int location, int count, const unsigned int * value)
 static int _bind_glProgramUniform4uiv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniform4uiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniform4uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform4uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniform4uiv(unsigned int program, int location, int count, const unsigned int * value) function, expected prototype:\nvoid glProgramUniform4uiv(unsigned int program, int location, int count, const unsigned int * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -12988,8 +12525,7 @@ static int _bind_glProgramUniform4uiv(lua_State *L) {
 // void glProgramUniformMatrix2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix2fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13006,8 +12542,7 @@ static int _bind_glProgramUniformMatrix2fv(lua_State *L) {
 // void glProgramUniformMatrix3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix3fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13024,8 +12559,7 @@ static int _bind_glProgramUniformMatrix3fv(lua_State *L) {
 // void glProgramUniformMatrix4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix4fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13042,8 +12576,7 @@ static int _bind_glProgramUniformMatrix4fv(lua_State *L) {
 // void glProgramUniformMatrix2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix2dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13060,8 +12593,7 @@ static int _bind_glProgramUniformMatrix2dv(lua_State *L) {
 // void glProgramUniformMatrix3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix3dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13078,8 +12610,7 @@ static int _bind_glProgramUniformMatrix3dv(lua_State *L) {
 // void glProgramUniformMatrix4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix4dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13096,8 +12627,7 @@ static int _bind_glProgramUniformMatrix4dv(lua_State *L) {
 // void glProgramUniformMatrix2x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix2x3fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix2x3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix2x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix2x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13114,8 +12644,7 @@ static int _bind_glProgramUniformMatrix2x3fv(lua_State *L) {
 // void glProgramUniformMatrix3x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix3x2fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix3x2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix3x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix3x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13132,8 +12661,7 @@ static int _bind_glProgramUniformMatrix3x2fv(lua_State *L) {
 // void glProgramUniformMatrix2x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix2x4fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix2x4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix2x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix2x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13150,8 +12678,7 @@ static int _bind_glProgramUniformMatrix2x4fv(lua_State *L) {
 // void glProgramUniformMatrix4x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix4x2fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix4x2fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix4x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix4x2fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13168,8 +12695,7 @@ static int _bind_glProgramUniformMatrix4x2fv(lua_State *L) {
 // void glProgramUniformMatrix3x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix3x4fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix3x4fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix3x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix3x4fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13186,8 +12712,7 @@ static int _bind_glProgramUniformMatrix3x4fv(lua_State *L) {
 // void glProgramUniformMatrix4x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)
 static int _bind_glProgramUniformMatrix4x3fv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix4x3fv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix4x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value) function, expected prototype:\nvoid glProgramUniformMatrix4x3fv(unsigned int program, int location, int count, unsigned char transpose, const float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13204,8 +12729,7 @@ static int _bind_glProgramUniformMatrix4x3fv(lua_State *L) {
 // void glProgramUniformMatrix2x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix2x3dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix2x3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix2x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix2x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13222,8 +12746,7 @@ static int _bind_glProgramUniformMatrix2x3dv(lua_State *L) {
 // void glProgramUniformMatrix3x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix3x2dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix3x2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix3x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix3x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13240,8 +12763,7 @@ static int _bind_glProgramUniformMatrix3x2dv(lua_State *L) {
 // void glProgramUniformMatrix2x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix2x4dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix2x4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix2x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix2x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix2x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13258,8 +12780,7 @@ static int _bind_glProgramUniformMatrix2x4dv(lua_State *L) {
 // void glProgramUniformMatrix4x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix4x2dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix4x2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix4x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix4x2dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13276,8 +12797,7 @@ static int _bind_glProgramUniformMatrix4x2dv(lua_State *L) {
 // void glProgramUniformMatrix3x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix3x4dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix3x4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix3x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix3x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix3x4dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13294,8 +12814,7 @@ static int _bind_glProgramUniformMatrix3x4dv(lua_State *L) {
 // void glProgramUniformMatrix4x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)
 static int _bind_glProgramUniformMatrix4x3dv(lua_State *L) {
 	if (!_lg_typecheck_glProgramUniformMatrix4x3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix4x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glProgramUniformMatrix4x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value) function, expected prototype:\nvoid glProgramUniformMatrix4x3dv(unsigned int program, int location, int count, unsigned char transpose, const double * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13312,8 +12831,7 @@ static int _bind_glProgramUniformMatrix4x3dv(lua_State *L) {
 // void glValidateProgramPipeline(unsigned int pipeline)
 static int _bind_glValidateProgramPipeline(lua_State *L) {
 	if (!_lg_typecheck_glValidateProgramPipeline(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glValidateProgramPipeline(unsigned int pipeline) function, expected prototype:\nvoid glValidateProgramPipeline(unsigned int pipeline)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glValidateProgramPipeline(unsigned int pipeline) function, expected prototype:\nvoid glValidateProgramPipeline(unsigned int pipeline)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -13326,8 +12844,7 @@ static int _bind_glValidateProgramPipeline(lua_State *L) {
 // void glGetProgramPipelineInfoLog(unsigned int pipeline, int bufSize, int * length, char * infoLog)
 static int _bind_glGetProgramPipelineInfoLog(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramPipelineInfoLog(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramPipelineInfoLog(unsigned int pipeline, int bufSize, int * length, char * infoLog) function, expected prototype:\nvoid glGetProgramPipelineInfoLog(unsigned int pipeline, int bufSize, int * length, char * infoLog)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramPipelineInfoLog(unsigned int pipeline, int bufSize, int * length, char * infoLog) function, expected prototype:\nvoid glGetProgramPipelineInfoLog(unsigned int pipeline, int bufSize, int * length, char * infoLog)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int pipeline=(unsigned int)lua_tointeger(L,1);
@@ -13343,8 +12860,7 @@ static int _bind_glGetProgramPipelineInfoLog(lua_State *L) {
 // void glVertexAttribL1d(unsigned int index, double x)
 static int _bind_glVertexAttribL1d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL1d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL1d(unsigned int index, double x) function, expected prototype:\nvoid glVertexAttribL1d(unsigned int index, double x)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL1d(unsigned int index, double x) function, expected prototype:\nvoid glVertexAttribL1d(unsigned int index, double x)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13358,8 +12874,7 @@ static int _bind_glVertexAttribL1d(lua_State *L) {
 // void glVertexAttribL2d(unsigned int index, double x, double y)
 static int _bind_glVertexAttribL2d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL2d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL2d(unsigned int index, double x, double y) function, expected prototype:\nvoid glVertexAttribL2d(unsigned int index, double x, double y)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL2d(unsigned int index, double x, double y) function, expected prototype:\nvoid glVertexAttribL2d(unsigned int index, double x, double y)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13374,8 +12889,7 @@ static int _bind_glVertexAttribL2d(lua_State *L) {
 // void glVertexAttribL3d(unsigned int index, double x, double y, double z)
 static int _bind_glVertexAttribL3d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL3d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL3d(unsigned int index, double x, double y, double z) function, expected prototype:\nvoid glVertexAttribL3d(unsigned int index, double x, double y, double z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL3d(unsigned int index, double x, double y, double z) function, expected prototype:\nvoid glVertexAttribL3d(unsigned int index, double x, double y, double z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13391,8 +12905,7 @@ static int _bind_glVertexAttribL3d(lua_State *L) {
 // void glVertexAttribL4d(unsigned int index, double x, double y, double z, double w)
 static int _bind_glVertexAttribL4d(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL4d(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL4d(unsigned int index, double x, double y, double z, double w) function, expected prototype:\nvoid glVertexAttribL4d(unsigned int index, double x, double y, double z, double w)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL4d(unsigned int index, double x, double y, double z, double w) function, expected prototype:\nvoid glVertexAttribL4d(unsigned int index, double x, double y, double z, double w)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13409,8 +12922,7 @@ static int _bind_glVertexAttribL4d(lua_State *L) {
 // void glVertexAttribL1dv(unsigned int index, const double * v)
 static int _bind_glVertexAttribL1dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL1dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL1dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL1dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL1dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL1dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13424,8 +12936,7 @@ static int _bind_glVertexAttribL1dv(lua_State *L) {
 // void glVertexAttribL2dv(unsigned int index, const double * v)
 static int _bind_glVertexAttribL2dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL2dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL2dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL2dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL2dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL2dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13439,8 +12950,7 @@ static int _bind_glVertexAttribL2dv(lua_State *L) {
 // void glVertexAttribL3dv(unsigned int index, const double * v)
 static int _bind_glVertexAttribL3dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL3dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL3dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL3dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL3dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL3dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13454,8 +12964,7 @@ static int _bind_glVertexAttribL3dv(lua_State *L) {
 // void glVertexAttribL4dv(unsigned int index, const double * v)
 static int _bind_glVertexAttribL4dv(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribL4dv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribL4dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL4dv(unsigned int index, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribL4dv(unsigned int index, const double * v) function, expected prototype:\nvoid glVertexAttribL4dv(unsigned int index, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13469,15 +12978,14 @@ static int _bind_glVertexAttribL4dv(lua_State *L) {
 // void glVertexAttribLPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer)
 static int _bind_glVertexAttribLPointer(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribLPointer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribLPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer) function, expected prototype:\nvoid glVertexAttribLPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribLPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer) function, expected prototype:\nvoid glVertexAttribLPointer(unsigned int index, int size, unsigned int type, int stride, const void * pointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
 	int size=(int)lua_tointeger(L,2);
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
 	int stride=(int)lua_tointeger(L,4);
-	void* pointer=(Luna< void >::check(L,5));
+	const void* pointer=(Luna< void >::check(L,5));
 
 	::glVertexAttribLPointer(index, size, type, stride, pointer);
 
@@ -13487,8 +12995,7 @@ static int _bind_glVertexAttribLPointer(lua_State *L) {
 // void glGetVertexAttribLdv(unsigned int index, unsigned int pname, double * params)
 static int _bind_glGetVertexAttribLdv(lua_State *L) {
 	if (!_lg_typecheck_glGetVertexAttribLdv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetVertexAttribLdv(unsigned int index, unsigned int pname, double * params) function, expected prototype:\nvoid glGetVertexAttribLdv(unsigned int index, unsigned int pname, double * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetVertexAttribLdv(unsigned int index, unsigned int pname, double * params) function, expected prototype:\nvoid glGetVertexAttribLdv(unsigned int index, unsigned int pname, double * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13503,8 +13010,7 @@ static int _bind_glGetVertexAttribLdv(lua_State *L) {
 // void glViewportArrayv(unsigned int first, int count, const float * v)
 static int _bind_glViewportArrayv(lua_State *L) {
 	if (!_lg_typecheck_glViewportArrayv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glViewportArrayv(unsigned int first, int count, const float * v) function, expected prototype:\nvoid glViewportArrayv(unsigned int first, int count, const float * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glViewportArrayv(unsigned int first, int count, const float * v) function, expected prototype:\nvoid glViewportArrayv(unsigned int first, int count, const float * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int first=(unsigned int)lua_tointeger(L,1);
@@ -13519,8 +13025,7 @@ static int _bind_glViewportArrayv(lua_State *L) {
 // void glViewportIndexedf(unsigned int index, float x, float y, float w, float h)
 static int _bind_glViewportIndexedf(lua_State *L) {
 	if (!_lg_typecheck_glViewportIndexedf(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glViewportIndexedf(unsigned int index, float x, float y, float w, float h) function, expected prototype:\nvoid glViewportIndexedf(unsigned int index, float x, float y, float w, float h)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glViewportIndexedf(unsigned int index, float x, float y, float w, float h) function, expected prototype:\nvoid glViewportIndexedf(unsigned int index, float x, float y, float w, float h)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13537,8 +13042,7 @@ static int _bind_glViewportIndexedf(lua_State *L) {
 // void glViewportIndexedfv(unsigned int index, const float * v)
 static int _bind_glViewportIndexedfv(lua_State *L) {
 	if (!_lg_typecheck_glViewportIndexedfv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glViewportIndexedfv(unsigned int index, const float * v) function, expected prototype:\nvoid glViewportIndexedfv(unsigned int index, const float * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glViewportIndexedfv(unsigned int index, const float * v) function, expected prototype:\nvoid glViewportIndexedfv(unsigned int index, const float * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13552,8 +13056,7 @@ static int _bind_glViewportIndexedfv(lua_State *L) {
 // void glScissorArrayv(unsigned int first, int count, const int * v)
 static int _bind_glScissorArrayv(lua_State *L) {
 	if (!_lg_typecheck_glScissorArrayv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glScissorArrayv(unsigned int first, int count, const int * v) function, expected prototype:\nvoid glScissorArrayv(unsigned int first, int count, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glScissorArrayv(unsigned int first, int count, const int * v) function, expected prototype:\nvoid glScissorArrayv(unsigned int first, int count, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int first=(unsigned int)lua_tointeger(L,1);
@@ -13568,8 +13071,7 @@ static int _bind_glScissorArrayv(lua_State *L) {
 // void glScissorIndexed(unsigned int index, int left, int bottom, int width, int height)
 static int _bind_glScissorIndexed(lua_State *L) {
 	if (!_lg_typecheck_glScissorIndexed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glScissorIndexed(unsigned int index, int left, int bottom, int width, int height) function, expected prototype:\nvoid glScissorIndexed(unsigned int index, int left, int bottom, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glScissorIndexed(unsigned int index, int left, int bottom, int width, int height) function, expected prototype:\nvoid glScissorIndexed(unsigned int index, int left, int bottom, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13586,8 +13088,7 @@ static int _bind_glScissorIndexed(lua_State *L) {
 // void glScissorIndexedv(unsigned int index, const int * v)
 static int _bind_glScissorIndexedv(lua_State *L) {
 	if (!_lg_typecheck_glScissorIndexedv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glScissorIndexedv(unsigned int index, const int * v) function, expected prototype:\nvoid glScissorIndexedv(unsigned int index, const int * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glScissorIndexedv(unsigned int index, const int * v) function, expected prototype:\nvoid glScissorIndexedv(unsigned int index, const int * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13601,8 +13102,7 @@ static int _bind_glScissorIndexedv(lua_State *L) {
 // void glDepthRangeArrayv(unsigned int first, int count, const double * v)
 static int _bind_glDepthRangeArrayv(lua_State *L) {
 	if (!_lg_typecheck_glDepthRangeArrayv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDepthRangeArrayv(unsigned int first, int count, const double * v) function, expected prototype:\nvoid glDepthRangeArrayv(unsigned int first, int count, const double * v)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDepthRangeArrayv(unsigned int first, int count, const double * v) function, expected prototype:\nvoid glDepthRangeArrayv(unsigned int first, int count, const double * v)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int first=(unsigned int)lua_tointeger(L,1);
@@ -13617,8 +13117,7 @@ static int _bind_glDepthRangeArrayv(lua_State *L) {
 // void glDepthRangeIndexed(unsigned int index, double n, double f)
 static int _bind_glDepthRangeIndexed(lua_State *L) {
 	if (!_lg_typecheck_glDepthRangeIndexed(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDepthRangeIndexed(unsigned int index, double n, double f) function, expected prototype:\nvoid glDepthRangeIndexed(unsigned int index, double n, double f)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDepthRangeIndexed(unsigned int index, double n, double f) function, expected prototype:\nvoid glDepthRangeIndexed(unsigned int index, double n, double f)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int index=(unsigned int)lua_tointeger(L,1);
@@ -13633,8 +13132,7 @@ static int _bind_glDepthRangeIndexed(lua_State *L) {
 // void glGetFloati_v(unsigned int target, unsigned int index, float * data)
 static int _bind_glGetFloati_v(lua_State *L) {
 	if (!_lg_typecheck_glGetFloati_v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetFloati_v(unsigned int target, unsigned int index, float * data) function, expected prototype:\nvoid glGetFloati_v(unsigned int target, unsigned int index, float * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetFloati_v(unsigned int target, unsigned int index, float * data) function, expected prototype:\nvoid glGetFloati_v(unsigned int target, unsigned int index, float * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -13649,8 +13147,7 @@ static int _bind_glGetFloati_v(lua_State *L) {
 // void glGetDoublei_v(unsigned int target, unsigned int index, double * data)
 static int _bind_glGetDoublei_v(lua_State *L) {
 	if (!_lg_typecheck_glGetDoublei_v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetDoublei_v(unsigned int target, unsigned int index, double * data) function, expected prototype:\nvoid glGetDoublei_v(unsigned int target, unsigned int index, double * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetDoublei_v(unsigned int target, unsigned int index, double * data) function, expected prototype:\nvoid glGetDoublei_v(unsigned int target, unsigned int index, double * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -13665,8 +13162,7 @@ static int _bind_glGetDoublei_v(lua_State *L) {
 // void glDebugMessageControlARB(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled)
 static int _bind_glDebugMessageControlARB(lua_State *L) {
 	if (!_lg_typecheck_glDebugMessageControlARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDebugMessageControlARB(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled) function, expected prototype:\nvoid glDebugMessageControlARB(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDebugMessageControlARB(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled) function, expected prototype:\nvoid glDebugMessageControlARB(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int source=(unsigned int)lua_tointeger(L,1);
@@ -13684,8 +13180,7 @@ static int _bind_glDebugMessageControlARB(lua_State *L) {
 // void glDebugMessageInsertARB(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf)
 static int _bind_glDebugMessageInsertARB(lua_State *L) {
 	if (!_lg_typecheck_glDebugMessageInsertARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDebugMessageInsertARB(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf) function, expected prototype:\nvoid glDebugMessageInsertARB(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDebugMessageInsertARB(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf) function, expected prototype:\nvoid glDebugMessageInsertARB(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int source=(unsigned int)lua_tointeger(L,1);
@@ -13703,8 +13198,7 @@ static int _bind_glDebugMessageInsertARB(lua_State *L) {
 // unsigned int glGetDebugMessageLogARB(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog)
 static int _bind_glGetDebugMessageLogARB(lua_State *L) {
 	if (!_lg_typecheck_glGetDebugMessageLogARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetDebugMessageLogARB(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog) function, expected prototype:\nunsigned int glGetDebugMessageLogARB(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetDebugMessageLogARB(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog) function, expected prototype:\nunsigned int glGetDebugMessageLogARB(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int count=(unsigned int)lua_tointeger(L,1);
@@ -13725,8 +13219,7 @@ static int _bind_glGetDebugMessageLogARB(lua_State *L) {
 // unsigned int glGetGraphicsResetStatusARB()
 static int _bind_glGetGraphicsResetStatusARB(lua_State *L) {
 	if (!_lg_typecheck_glGetGraphicsResetStatusARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetGraphicsResetStatusARB() function, expected prototype:\nunsigned int glGetGraphicsResetStatusARB()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetGraphicsResetStatusARB() function, expected prototype:\nunsigned int glGetGraphicsResetStatusARB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -13739,8 +13232,7 @@ static int _bind_glGetGraphicsResetStatusARB(lua_State *L) {
 // void glGetnTexImageARB(unsigned int target, int level, unsigned int format, unsigned int type, int bufSize, void * img)
 static int _bind_glGetnTexImageARB(lua_State *L) {
 	if (!_lg_typecheck_glGetnTexImageARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetnTexImageARB(unsigned int target, int level, unsigned int format, unsigned int type, int bufSize, void * img) function, expected prototype:\nvoid glGetnTexImageARB(unsigned int target, int level, unsigned int format, unsigned int type, int bufSize, void * img)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetnTexImageARB(unsigned int target, int level, unsigned int format, unsigned int type, int bufSize, void * img) function, expected prototype:\nvoid glGetnTexImageARB(unsigned int target, int level, unsigned int format, unsigned int type, int bufSize, void * img)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -13758,8 +13250,7 @@ static int _bind_glGetnTexImageARB(lua_State *L) {
 // void glReadnPixelsARB(int x, int y, int width, int height, unsigned int format, unsigned int type, int bufSize, void * data)
 static int _bind_glReadnPixelsARB(lua_State *L) {
 	if (!_lg_typecheck_glReadnPixelsARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glReadnPixelsARB(int x, int y, int width, int height, unsigned int format, unsigned int type, int bufSize, void * data) function, expected prototype:\nvoid glReadnPixelsARB(int x, int y, int width, int height, unsigned int format, unsigned int type, int bufSize, void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glReadnPixelsARB(int x, int y, int width, int height, unsigned int format, unsigned int type, int bufSize, void * data) function, expected prototype:\nvoid glReadnPixelsARB(int x, int y, int width, int height, unsigned int format, unsigned int type, int bufSize, void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	int x=(int)lua_tointeger(L,1);
@@ -13779,8 +13270,7 @@ static int _bind_glReadnPixelsARB(lua_State *L) {
 // void glGetnCompressedTexImageARB(unsigned int target, int lod, int bufSize, void * img)
 static int _bind_glGetnCompressedTexImageARB(lua_State *L) {
 	if (!_lg_typecheck_glGetnCompressedTexImageARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetnCompressedTexImageARB(unsigned int target, int lod, int bufSize, void * img) function, expected prototype:\nvoid glGetnCompressedTexImageARB(unsigned int target, int lod, int bufSize, void * img)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetnCompressedTexImageARB(unsigned int target, int lod, int bufSize, void * img) function, expected prototype:\nvoid glGetnCompressedTexImageARB(unsigned int target, int lod, int bufSize, void * img)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -13796,8 +13286,7 @@ static int _bind_glGetnCompressedTexImageARB(lua_State *L) {
 // void glGetnUniformfvARB(unsigned int program, int location, int bufSize, float * params)
 static int _bind_glGetnUniformfvARB(lua_State *L) {
 	if (!_lg_typecheck_glGetnUniformfvARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetnUniformfvARB(unsigned int program, int location, int bufSize, float * params) function, expected prototype:\nvoid glGetnUniformfvARB(unsigned int program, int location, int bufSize, float * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetnUniformfvARB(unsigned int program, int location, int bufSize, float * params) function, expected prototype:\nvoid glGetnUniformfvARB(unsigned int program, int location, int bufSize, float * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13813,8 +13302,7 @@ static int _bind_glGetnUniformfvARB(lua_State *L) {
 // void glGetnUniformivARB(unsigned int program, int location, int bufSize, int * params)
 static int _bind_glGetnUniformivARB(lua_State *L) {
 	if (!_lg_typecheck_glGetnUniformivARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetnUniformivARB(unsigned int program, int location, int bufSize, int * params) function, expected prototype:\nvoid glGetnUniformivARB(unsigned int program, int location, int bufSize, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetnUniformivARB(unsigned int program, int location, int bufSize, int * params) function, expected prototype:\nvoid glGetnUniformivARB(unsigned int program, int location, int bufSize, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13830,8 +13318,7 @@ static int _bind_glGetnUniformivARB(lua_State *L) {
 // void glGetnUniformuivARB(unsigned int program, int location, int bufSize, unsigned int * params)
 static int _bind_glGetnUniformuivARB(lua_State *L) {
 	if (!_lg_typecheck_glGetnUniformuivARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetnUniformuivARB(unsigned int program, int location, int bufSize, unsigned int * params) function, expected prototype:\nvoid glGetnUniformuivARB(unsigned int program, int location, int bufSize, unsigned int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetnUniformuivARB(unsigned int program, int location, int bufSize, unsigned int * params) function, expected prototype:\nvoid glGetnUniformuivARB(unsigned int program, int location, int bufSize, unsigned int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13847,8 +13334,7 @@ static int _bind_glGetnUniformuivARB(lua_State *L) {
 // void glGetnUniformdvARB(unsigned int program, int location, int bufSize, double * params)
 static int _bind_glGetnUniformdvARB(lua_State *L) {
 	if (!_lg_typecheck_glGetnUniformdvARB(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetnUniformdvARB(unsigned int program, int location, int bufSize, double * params) function, expected prototype:\nvoid glGetnUniformdvARB(unsigned int program, int location, int bufSize, double * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetnUniformdvARB(unsigned int program, int location, int bufSize, double * params) function, expected prototype:\nvoid glGetnUniformdvARB(unsigned int program, int location, int bufSize, double * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13864,8 +13350,7 @@ static int _bind_glGetnUniformdvARB(lua_State *L) {
 // void glDrawArraysInstancedBaseInstance(unsigned int mode, int first, int count, int instancecount, unsigned int baseinstance)
 static int _bind_glDrawArraysInstancedBaseInstance(lua_State *L) {
 	if (!_lg_typecheck_glDrawArraysInstancedBaseInstance(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawArraysInstancedBaseInstance(unsigned int mode, int first, int count, int instancecount, unsigned int baseinstance) function, expected prototype:\nvoid glDrawArraysInstancedBaseInstance(unsigned int mode, int first, int count, int instancecount, unsigned int baseinstance)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawArraysInstancedBaseInstance(unsigned int mode, int first, int count, int instancecount, unsigned int baseinstance) function, expected prototype:\nvoid glDrawArraysInstancedBaseInstance(unsigned int mode, int first, int count, int instancecount, unsigned int baseinstance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -13882,14 +13367,13 @@ static int _bind_glDrawArraysInstancedBaseInstance(lua_State *L) {
 // void glDrawElementsInstancedBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, unsigned int baseinstance)
 static int _bind_glDrawElementsInstancedBaseInstance(lua_State *L) {
 	if (!_lg_typecheck_glDrawElementsInstancedBaseInstance(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElementsInstancedBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, unsigned int baseinstance) function, expected prototype:\nvoid glDrawElementsInstancedBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, unsigned int baseinstance)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElementsInstancedBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, unsigned int baseinstance) function, expected prototype:\nvoid glDrawElementsInstancedBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, unsigned int baseinstance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 	int count=(int)lua_tointeger(L,2);
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
-	void* indices=(Luna< void >::check(L,4));
+	const void* indices=(Luna< void >::check(L,4));
 	int instancecount=(int)lua_tointeger(L,5);
 	unsigned int baseinstance=(unsigned int)lua_tointeger(L,6);
 
@@ -13901,14 +13385,13 @@ static int _bind_glDrawElementsInstancedBaseInstance(lua_State *L) {
 // void glDrawElementsInstancedBaseVertexBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex, unsigned int baseinstance)
 static int _bind_glDrawElementsInstancedBaseVertexBaseInstance(lua_State *L) {
 	if (!_lg_typecheck_glDrawElementsInstancedBaseVertexBaseInstance(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawElementsInstancedBaseVertexBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex, unsigned int baseinstance) function, expected prototype:\nvoid glDrawElementsInstancedBaseVertexBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex, unsigned int baseinstance)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawElementsInstancedBaseVertexBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex, unsigned int baseinstance) function, expected prototype:\nvoid glDrawElementsInstancedBaseVertexBaseInstance(unsigned int mode, int count, unsigned int type, const void * indices, int instancecount, int basevertex, unsigned int baseinstance)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 	int count=(int)lua_tointeger(L,2);
 	unsigned int type=(unsigned int)lua_tointeger(L,3);
-	void* indices=(Luna< void >::check(L,4));
+	const void* indices=(Luna< void >::check(L,4));
 	int instancecount=(int)lua_tointeger(L,5);
 	int basevertex=(int)lua_tointeger(L,6);
 	unsigned int baseinstance=(unsigned int)lua_tointeger(L,7);
@@ -13921,8 +13404,7 @@ static int _bind_glDrawElementsInstancedBaseVertexBaseInstance(lua_State *L) {
 // void glDrawTransformFeedbackInstanced(unsigned int mode, unsigned int id, int instancecount)
 static int _bind_glDrawTransformFeedbackInstanced(lua_State *L) {
 	if (!_lg_typecheck_glDrawTransformFeedbackInstanced(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedbackInstanced(unsigned int mode, unsigned int id, int instancecount) function, expected prototype:\nvoid glDrawTransformFeedbackInstanced(unsigned int mode, unsigned int id, int instancecount)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedbackInstanced(unsigned int mode, unsigned int id, int instancecount) function, expected prototype:\nvoid glDrawTransformFeedbackInstanced(unsigned int mode, unsigned int id, int instancecount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -13937,8 +13419,7 @@ static int _bind_glDrawTransformFeedbackInstanced(lua_State *L) {
 // void glDrawTransformFeedbackStreamInstanced(unsigned int mode, unsigned int id, unsigned int stream, int instancecount)
 static int _bind_glDrawTransformFeedbackStreamInstanced(lua_State *L) {
 	if (!_lg_typecheck_glDrawTransformFeedbackStreamInstanced(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedbackStreamInstanced(unsigned int mode, unsigned int id, unsigned int stream, int instancecount) function, expected prototype:\nvoid glDrawTransformFeedbackStreamInstanced(unsigned int mode, unsigned int id, unsigned int stream, int instancecount)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDrawTransformFeedbackStreamInstanced(unsigned int mode, unsigned int id, unsigned int stream, int instancecount) function, expected prototype:\nvoid glDrawTransformFeedbackStreamInstanced(unsigned int mode, unsigned int id, unsigned int stream, int instancecount)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
@@ -13954,8 +13435,7 @@ static int _bind_glDrawTransformFeedbackStreamInstanced(lua_State *L) {
 // void glGetInternalformativ(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, int * params)
 static int _bind_glGetInternalformativ(lua_State *L) {
 	if (!_lg_typecheck_glGetInternalformativ(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetInternalformativ(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, int * params) function, expected prototype:\nvoid glGetInternalformativ(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetInternalformativ(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, int * params) function, expected prototype:\nvoid glGetInternalformativ(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -13972,8 +13452,7 @@ static int _bind_glGetInternalformativ(lua_State *L) {
 // void glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params)
 static int _bind_glGetActiveAtomicCounterBufferiv(lua_State *L) {
 	if (!_lg_typecheck_glGetActiveAtomicCounterBufferiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params) function, expected prototype:\nvoid glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params) function, expected prototype:\nvoid glGetActiveAtomicCounterBufferiv(unsigned int program, unsigned int bufferIndex, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -13989,8 +13468,7 @@ static int _bind_glGetActiveAtomicCounterBufferiv(lua_State *L) {
 // void glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format)
 static int _bind_glBindImageTexture(lua_State *L) {
 	if (!_lg_typecheck_glBindImageTexture(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format) function, expected prototype:\nvoid glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format) function, expected prototype:\nvoid glBindImageTexture(unsigned int unit, unsigned int texture, int level, unsigned char layered, int layer, unsigned int access, unsigned int format)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int unit=(unsigned int)lua_tointeger(L,1);
@@ -14009,8 +13487,7 @@ static int _bind_glBindImageTexture(lua_State *L) {
 // void glMemoryBarrier(unsigned int barriers)
 static int _bind_glMemoryBarrier(lua_State *L) {
 	if (!_lg_typecheck_glMemoryBarrier(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMemoryBarrier(unsigned int barriers) function, expected prototype:\nvoid glMemoryBarrier(unsigned int barriers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMemoryBarrier(unsigned int barriers) function, expected prototype:\nvoid glMemoryBarrier(unsigned int barriers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int barriers=(unsigned int)lua_tointeger(L,1);
@@ -14023,8 +13500,7 @@ static int _bind_glMemoryBarrier(lua_State *L) {
 // void glTexStorage1D(unsigned int target, int levels, unsigned int internalformat, int width)
 static int _bind_glTexStorage1D(lua_State *L) {
 	if (!_lg_typecheck_glTexStorage1D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexStorage1D(unsigned int target, int levels, unsigned int internalformat, int width) function, expected prototype:\nvoid glTexStorage1D(unsigned int target, int levels, unsigned int internalformat, int width)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexStorage1D(unsigned int target, int levels, unsigned int internalformat, int width) function, expected prototype:\nvoid glTexStorage1D(unsigned int target, int levels, unsigned int internalformat, int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14040,8 +13516,7 @@ static int _bind_glTexStorage1D(lua_State *L) {
 // void glTexStorage2D(unsigned int target, int levels, unsigned int internalformat, int width, int height)
 static int _bind_glTexStorage2D(lua_State *L) {
 	if (!_lg_typecheck_glTexStorage2D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexStorage2D(unsigned int target, int levels, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glTexStorage2D(unsigned int target, int levels, unsigned int internalformat, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexStorage2D(unsigned int target, int levels, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glTexStorage2D(unsigned int target, int levels, unsigned int internalformat, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14058,8 +13533,7 @@ static int _bind_glTexStorage2D(lua_State *L) {
 // void glTexStorage3D(unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth)
 static int _bind_glTexStorage3D(lua_State *L) {
 	if (!_lg_typecheck_glTexStorage3D(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexStorage3D(unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth) function, expected prototype:\nvoid glTexStorage3D(unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexStorage3D(unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth) function, expected prototype:\nvoid glTexStorage3D(unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14077,8 +13551,7 @@ static int _bind_glTexStorage3D(lua_State *L) {
 // void glTextureStorage1DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width)
 static int _bind_glTextureStorage1DEXT(lua_State *L) {
 	if (!_lg_typecheck_glTextureStorage1DEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureStorage1DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width) function, expected prototype:\nvoid glTextureStorage1DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTextureStorage1DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width) function, expected prototype:\nvoid glTextureStorage1DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14095,8 +13568,7 @@ static int _bind_glTextureStorage1DEXT(lua_State *L) {
 // void glTextureStorage2DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height)
 static int _bind_glTextureStorage2DEXT(lua_State *L) {
 	if (!_lg_typecheck_glTextureStorage2DEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureStorage2DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glTextureStorage2DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTextureStorage2DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height) function, expected prototype:\nvoid glTextureStorage2DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14114,8 +13586,7 @@ static int _bind_glTextureStorage2DEXT(lua_State *L) {
 // void glTextureStorage3DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth)
 static int _bind_glTextureStorage3DEXT(lua_State *L) {
 	if (!_lg_typecheck_glTextureStorage3DEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureStorage3DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth) function, expected prototype:\nvoid glTextureStorage3DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTextureStorage3DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth) function, expected prototype:\nvoid glTextureStorage3DEXT(unsigned int texture, unsigned int target, int levels, unsigned int internalformat, int width, int height, int depth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14134,8 +13605,7 @@ static int _bind_glTextureStorage3DEXT(lua_State *L) {
 // void glDebugMessageControl(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled)
 static int _bind_glDebugMessageControl(lua_State *L) {
 	if (!_lg_typecheck_glDebugMessageControl(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDebugMessageControl(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled) function, expected prototype:\nvoid glDebugMessageControl(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDebugMessageControl(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled) function, expected prototype:\nvoid glDebugMessageControl(unsigned int source, unsigned int type, unsigned int severity, int count, const unsigned int * ids, unsigned char enabled)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int source=(unsigned int)lua_tointeger(L,1);
@@ -14153,8 +13623,7 @@ static int _bind_glDebugMessageControl(lua_State *L) {
 // void glDebugMessageInsert(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf)
 static int _bind_glDebugMessageInsert(lua_State *L) {
 	if (!_lg_typecheck_glDebugMessageInsert(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDebugMessageInsert(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf) function, expected prototype:\nvoid glDebugMessageInsert(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDebugMessageInsert(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf) function, expected prototype:\nvoid glDebugMessageInsert(unsigned int source, unsigned int type, unsigned int id, unsigned int severity, int length, const char * buf)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int source=(unsigned int)lua_tointeger(L,1);
@@ -14172,8 +13641,7 @@ static int _bind_glDebugMessageInsert(lua_State *L) {
 // unsigned int glGetDebugMessageLog(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog)
 static int _bind_glGetDebugMessageLog(lua_State *L) {
 	if (!_lg_typecheck_glGetDebugMessageLog(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetDebugMessageLog(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog) function, expected prototype:\nunsigned int glGetDebugMessageLog(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetDebugMessageLog(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog) function, expected prototype:\nunsigned int glGetDebugMessageLog(unsigned int count, int bufsize, unsigned int * sources, unsigned int * types, unsigned int * ids, unsigned int * severities, int * lengths, char * messageLog)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int count=(unsigned int)lua_tointeger(L,1);
@@ -14194,8 +13662,7 @@ static int _bind_glGetDebugMessageLog(lua_State *L) {
 // void glPushDebugGroup(unsigned int source, unsigned int id, int length, const char * message)
 static int _bind_glPushDebugGroup(lua_State *L) {
 	if (!_lg_typecheck_glPushDebugGroup(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glPushDebugGroup(unsigned int source, unsigned int id, int length, const char * message) function, expected prototype:\nvoid glPushDebugGroup(unsigned int source, unsigned int id, int length, const char * message)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glPushDebugGroup(unsigned int source, unsigned int id, int length, const char * message) function, expected prototype:\nvoid glPushDebugGroup(unsigned int source, unsigned int id, int length, const char * message)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int source=(unsigned int)lua_tointeger(L,1);
@@ -14211,8 +13678,7 @@ static int _bind_glPushDebugGroup(lua_State *L) {
 // void glObjectLabel(unsigned int identifier, unsigned int name, int length, const char * label)
 static int _bind_glObjectLabel(lua_State *L) {
 	if (!_lg_typecheck_glObjectLabel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glObjectLabel(unsigned int identifier, unsigned int name, int length, const char * label) function, expected prototype:\nvoid glObjectLabel(unsigned int identifier, unsigned int name, int length, const char * label)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glObjectLabel(unsigned int identifier, unsigned int name, int length, const char * label) function, expected prototype:\nvoid glObjectLabel(unsigned int identifier, unsigned int name, int length, const char * label)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int identifier=(unsigned int)lua_tointeger(L,1);
@@ -14228,8 +13694,7 @@ static int _bind_glObjectLabel(lua_State *L) {
 // void glGetObjectLabel(unsigned int identifier, unsigned int name, int bufSize, int * length, char * label)
 static int _bind_glGetObjectLabel(lua_State *L) {
 	if (!_lg_typecheck_glGetObjectLabel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetObjectLabel(unsigned int identifier, unsigned int name, int bufSize, int * length, char * label) function, expected prototype:\nvoid glGetObjectLabel(unsigned int identifier, unsigned int name, int bufSize, int * length, char * label)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetObjectLabel(unsigned int identifier, unsigned int name, int bufSize, int * length, char * label) function, expected prototype:\nvoid glGetObjectLabel(unsigned int identifier, unsigned int name, int bufSize, int * length, char * label)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int identifier=(unsigned int)lua_tointeger(L,1);
@@ -14243,11 +13708,10 @@ static int _bind_glGetObjectLabel(lua_State *L) {
 	return 0;
 }
 
-// void glObjectPtrLabel(const void * ptr, int length, const char * label)
+// void glObjectPtrLabel(void * ptr, int length, const char * label)
 static int _bind_glObjectPtrLabel(lua_State *L) {
 	if (!_lg_typecheck_glObjectPtrLabel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glObjectPtrLabel(const void * ptr, int length, const char * label) function, expected prototype:\nvoid glObjectPtrLabel(const void * ptr, int length, const char * label)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glObjectPtrLabel(void * ptr, int length, const char * label) function, expected prototype:\nvoid glObjectPtrLabel(void * ptr, int length, const char * label)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* ptr=(Luna< void >::check(L,1));
@@ -14259,11 +13723,10 @@ static int _bind_glObjectPtrLabel(lua_State *L) {
 	return 0;
 }
 
-// void glGetObjectPtrLabel(const void * ptr, int bufSize, int * length, char * label)
+// void glGetObjectPtrLabel(void * ptr, int bufSize, int * length, char * label)
 static int _bind_glGetObjectPtrLabel(lua_State *L) {
 	if (!_lg_typecheck_glGetObjectPtrLabel(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetObjectPtrLabel(const void * ptr, int bufSize, int * length, char * label) function, expected prototype:\nvoid glGetObjectPtrLabel(const void * ptr, int bufSize, int * length, char * label)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetObjectPtrLabel(void * ptr, int bufSize, int * length, char * label) function, expected prototype:\nvoid glGetObjectPtrLabel(void * ptr, int bufSize, int * length, char * label)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	void* ptr=(Luna< void >::check(L,1));
@@ -14279,15 +13742,14 @@ static int _bind_glGetObjectPtrLabel(lua_State *L) {
 // void glClearBufferData(unsigned int target, unsigned int internalformat, unsigned int format, unsigned int type, const void * data)
 static int _bind_glClearBufferData(lua_State *L) {
 	if (!_lg_typecheck_glClearBufferData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearBufferData(unsigned int target, unsigned int internalformat, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nvoid glClearBufferData(unsigned int target, unsigned int internalformat, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearBufferData(unsigned int target, unsigned int internalformat, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nvoid glClearBufferData(unsigned int target, unsigned int internalformat, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
 	unsigned int internalformat=(unsigned int)lua_tointeger(L,2);
 	unsigned int format=(unsigned int)lua_tointeger(L,3);
 	unsigned int type=(unsigned int)lua_tointeger(L,4);
-	void* data=(Luna< void >::check(L,5));
+	const void* data=(Luna< void >::check(L,5));
 
 	::glClearBufferData(target, internalformat, format, type, data);
 
@@ -14297,8 +13759,7 @@ static int _bind_glClearBufferData(lua_State *L) {
 // void glClearBufferSubData(unsigned int target, unsigned int internalformat, __int64 offset, __int64 size, unsigned int format, unsigned int type, const void * data)
 static int _bind_glClearBufferSubData(lua_State *L) {
 	if (!_lg_typecheck_glClearBufferSubData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearBufferSubData(unsigned int target, unsigned int internalformat, __int64 offset, __int64 size, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nvoid glClearBufferSubData(unsigned int target, unsigned int internalformat, __int64 offset, __int64 size, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\narg 3 ID = [unknown]\narg 4 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glClearBufferSubData(unsigned int target, unsigned int internalformat, __int64 offset, __int64 size, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nvoid glClearBufferSubData(unsigned int target, unsigned int internalformat, __int64 offset, __int64 size, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\narg 3 ID = [unknown]\narg 4 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14315,7 +13776,7 @@ static int _bind_glClearBufferSubData(lua_State *L) {
 	__int64 size=*size_ptr;
 	unsigned int format=(unsigned int)lua_tointeger(L,5);
 	unsigned int type=(unsigned int)lua_tointeger(L,6);
-	void* data=(Luna< void >::check(L,7));
+	const void* data=(Luna< void >::check(L,7));
 
 	::glClearBufferSubData(target, internalformat, offset, size, format, type, data);
 
@@ -14325,15 +13786,14 @@ static int _bind_glClearBufferSubData(lua_State *L) {
 // void glClearNamedBufferDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, const void * data)
 static int _bind_glClearNamedBufferDataEXT(lua_State *L) {
 	if (!_lg_typecheck_glClearNamedBufferDataEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearNamedBufferDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nvoid glClearNamedBufferDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glClearNamedBufferDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, const void * data) function, expected prototype:\nvoid glClearNamedBufferDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, const void * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
 	unsigned int internalformat=(unsigned int)lua_tointeger(L,2);
 	unsigned int format=(unsigned int)lua_tointeger(L,3);
 	unsigned int type=(unsigned int)lua_tointeger(L,4);
-	void* data=(Luna< void >::check(L,5));
+	const void* data=(Luna< void >::check(L,5));
 
 	::glClearNamedBufferDataEXT(buffer, internalformat, format, type, data);
 
@@ -14343,8 +13803,7 @@ static int _bind_glClearNamedBufferDataEXT(lua_State *L) {
 // void glClearNamedBufferSubDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, __int64 offset, __int64 size, const void * data)
 static int _bind_glClearNamedBufferSubDataEXT(lua_State *L) {
 	if (!_lg_typecheck_glClearNamedBufferSubDataEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glClearNamedBufferSubDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, __int64 offset, __int64 size, const void * data) function, expected prototype:\nvoid glClearNamedBufferSubDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, __int64 offset, __int64 size, const void * data)\nClass arguments details:\narg 5 ID = [unknown]\narg 6 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glClearNamedBufferSubDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, __int64 offset, __int64 size, const void * data) function, expected prototype:\nvoid glClearNamedBufferSubDataEXT(unsigned int buffer, unsigned int internalformat, unsigned int format, unsigned int type, __int64 offset, __int64 size, const void * data)\nClass arguments details:\narg 5 ID = [unknown]\narg 6 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -14361,7 +13820,7 @@ static int _bind_glClearNamedBufferSubDataEXT(lua_State *L) {
 		luaL_error(L, "Dereferencing NULL pointer for arg size in glClearNamedBufferSubDataEXT function");
 	}
 	__int64 size=*size_ptr;
-	void* data=(Luna< void >::check(L,7));
+	const void* data=(Luna< void >::check(L,7));
 
 	::glClearNamedBufferSubDataEXT(buffer, internalformat, format, type, offset, size, data);
 
@@ -14371,8 +13830,7 @@ static int _bind_glClearNamedBufferSubDataEXT(lua_State *L) {
 // void glDispatchCompute(unsigned int num_groups_x, unsigned int num_groups_y, unsigned int num_groups_z)
 static int _bind_glDispatchCompute(lua_State *L) {
 	if (!_lg_typecheck_glDispatchCompute(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDispatchCompute(unsigned int num_groups_x, unsigned int num_groups_y, unsigned int num_groups_z) function, expected prototype:\nvoid glDispatchCompute(unsigned int num_groups_x, unsigned int num_groups_y, unsigned int num_groups_z)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glDispatchCompute(unsigned int num_groups_x, unsigned int num_groups_y, unsigned int num_groups_z) function, expected prototype:\nvoid glDispatchCompute(unsigned int num_groups_x, unsigned int num_groups_y, unsigned int num_groups_z)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int num_groups_x=(unsigned int)lua_tointeger(L,1);
@@ -14387,8 +13845,7 @@ static int _bind_glDispatchCompute(lua_State *L) {
 // void glDispatchComputeIndirect(__int64 indirect)
 static int _bind_glDispatchComputeIndirect(lua_State *L) {
 	if (!_lg_typecheck_glDispatchComputeIndirect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glDispatchComputeIndirect(__int64 indirect) function, expected prototype:\nvoid glDispatchComputeIndirect(__int64 indirect)\nClass arguments details:\narg 1 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glDispatchComputeIndirect(__int64 indirect) function, expected prototype:\nvoid glDispatchComputeIndirect(__int64 indirect)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	__int64* indirect_ptr=(Luna< __int64 >::check(L,1));
@@ -14405,8 +13862,7 @@ static int _bind_glDispatchComputeIndirect(lua_State *L) {
 // void glCopyImageSubData(unsigned int srcName, unsigned int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, unsigned int dstName, unsigned int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth)
 static int _bind_glCopyImageSubData(lua_State *L) {
 	if (!_lg_typecheck_glCopyImageSubData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glCopyImageSubData(unsigned int srcName, unsigned int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, unsigned int dstName, unsigned int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) function, expected prototype:\nvoid glCopyImageSubData(unsigned int srcName, unsigned int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, unsigned int dstName, unsigned int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glCopyImageSubData(unsigned int srcName, unsigned int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, unsigned int dstName, unsigned int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth) function, expected prototype:\nvoid glCopyImageSubData(unsigned int srcName, unsigned int srcTarget, int srcLevel, int srcX, int srcY, int srcZ, unsigned int dstName, unsigned int dstTarget, int dstLevel, int dstX, int dstY, int dstZ, int srcWidth, int srcHeight, int srcDepth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int srcName=(unsigned int)lua_tointeger(L,1);
@@ -14433,8 +13889,7 @@ static int _bind_glCopyImageSubData(lua_State *L) {
 // void glTextureView(unsigned int texture, unsigned int target, unsigned int origtexture, unsigned int internalformat, unsigned int minlevel, unsigned int numlevels, unsigned int minlayer, unsigned int numlayers)
 static int _bind_glTextureView(lua_State *L) {
 	if (!_lg_typecheck_glTextureView(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureView(unsigned int texture, unsigned int target, unsigned int origtexture, unsigned int internalformat, unsigned int minlevel, unsigned int numlevels, unsigned int minlayer, unsigned int numlayers) function, expected prototype:\nvoid glTextureView(unsigned int texture, unsigned int target, unsigned int origtexture, unsigned int internalformat, unsigned int minlevel, unsigned int numlevels, unsigned int minlayer, unsigned int numlayers)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTextureView(unsigned int texture, unsigned int target, unsigned int origtexture, unsigned int internalformat, unsigned int minlevel, unsigned int numlevels, unsigned int minlayer, unsigned int numlayers) function, expected prototype:\nvoid glTextureView(unsigned int texture, unsigned int target, unsigned int origtexture, unsigned int internalformat, unsigned int minlevel, unsigned int numlevels, unsigned int minlayer, unsigned int numlayers)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14454,8 +13909,7 @@ static int _bind_glTextureView(lua_State *L) {
 // void glBindVertexBuffer(unsigned int bindingindex, unsigned int buffer, __int64 offset, int stride)
 static int _bind_glBindVertexBuffer(lua_State *L) {
 	if (!_lg_typecheck_glBindVertexBuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glBindVertexBuffer(unsigned int bindingindex, unsigned int buffer, __int64 offset, int stride) function, expected prototype:\nvoid glBindVertexBuffer(unsigned int bindingindex, unsigned int buffer, __int64 offset, int stride)\nClass arguments details:\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glBindVertexBuffer(unsigned int bindingindex, unsigned int buffer, __int64 offset, int stride) function, expected prototype:\nvoid glBindVertexBuffer(unsigned int bindingindex, unsigned int buffer, __int64 offset, int stride)\nClass arguments details:\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int bindingindex=(unsigned int)lua_tointeger(L,1);
@@ -14475,8 +13929,7 @@ static int _bind_glBindVertexBuffer(lua_State *L) {
 // void glVertexAttribFormat(unsigned int attribindex, int size, unsigned int type, unsigned char normalized, unsigned int relativeoffset)
 static int _bind_glVertexAttribFormat(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribFormat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribFormat(unsigned int attribindex, int size, unsigned int type, unsigned char normalized, unsigned int relativeoffset) function, expected prototype:\nvoid glVertexAttribFormat(unsigned int attribindex, int size, unsigned int type, unsigned char normalized, unsigned int relativeoffset)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribFormat(unsigned int attribindex, int size, unsigned int type, unsigned char normalized, unsigned int relativeoffset) function, expected prototype:\nvoid glVertexAttribFormat(unsigned int attribindex, int size, unsigned int type, unsigned char normalized, unsigned int relativeoffset)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int attribindex=(unsigned int)lua_tointeger(L,1);
@@ -14493,8 +13946,7 @@ static int _bind_glVertexAttribFormat(lua_State *L) {
 // void glVertexAttribIFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset)
 static int _bind_glVertexAttribIFormat(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribIFormat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribIFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset) function, expected prototype:\nvoid glVertexAttribIFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribIFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset) function, expected prototype:\nvoid glVertexAttribIFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int attribindex=(unsigned int)lua_tointeger(L,1);
@@ -14510,8 +13962,7 @@ static int _bind_glVertexAttribIFormat(lua_State *L) {
 // void glVertexAttribLFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset)
 static int _bind_glVertexAttribLFormat(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribLFormat(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribLFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset) function, expected prototype:\nvoid glVertexAttribLFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribLFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset) function, expected prototype:\nvoid glVertexAttribLFormat(unsigned int attribindex, int size, unsigned int type, unsigned int relativeoffset)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int attribindex=(unsigned int)lua_tointeger(L,1);
@@ -14527,8 +13978,7 @@ static int _bind_glVertexAttribLFormat(lua_State *L) {
 // void glVertexAttribBinding(unsigned int attribindex, unsigned int bindingindex)
 static int _bind_glVertexAttribBinding(lua_State *L) {
 	if (!_lg_typecheck_glVertexAttribBinding(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexAttribBinding(unsigned int attribindex, unsigned int bindingindex) function, expected prototype:\nvoid glVertexAttribBinding(unsigned int attribindex, unsigned int bindingindex)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexAttribBinding(unsigned int attribindex, unsigned int bindingindex) function, expected prototype:\nvoid glVertexAttribBinding(unsigned int attribindex, unsigned int bindingindex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int attribindex=(unsigned int)lua_tointeger(L,1);
@@ -14542,8 +13992,7 @@ static int _bind_glVertexAttribBinding(lua_State *L) {
 // void glVertexBindingDivisor(unsigned int bindingindex, unsigned int divisor)
 static int _bind_glVertexBindingDivisor(lua_State *L) {
 	if (!_lg_typecheck_glVertexBindingDivisor(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glVertexBindingDivisor(unsigned int bindingindex, unsigned int divisor) function, expected prototype:\nvoid glVertexBindingDivisor(unsigned int bindingindex, unsigned int divisor)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glVertexBindingDivisor(unsigned int bindingindex, unsigned int divisor) function, expected prototype:\nvoid glVertexBindingDivisor(unsigned int bindingindex, unsigned int divisor)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int bindingindex=(unsigned int)lua_tointeger(L,1);
@@ -14557,8 +14006,7 @@ static int _bind_glVertexBindingDivisor(lua_State *L) {
 // void glFramebufferParameteri(unsigned int target, unsigned int pname, int param)
 static int _bind_glFramebufferParameteri(lua_State *L) {
 	if (!_lg_typecheck_glFramebufferParameteri(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glFramebufferParameteri(unsigned int target, unsigned int pname, int param) function, expected prototype:\nvoid glFramebufferParameteri(unsigned int target, unsigned int pname, int param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glFramebufferParameteri(unsigned int target, unsigned int pname, int param) function, expected prototype:\nvoid glFramebufferParameteri(unsigned int target, unsigned int pname, int param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14573,8 +14021,7 @@ static int _bind_glFramebufferParameteri(lua_State *L) {
 // void glGetFramebufferParameteriv(unsigned int target, unsigned int pname, int * params)
 static int _bind_glGetFramebufferParameteriv(lua_State *L) {
 	if (!_lg_typecheck_glGetFramebufferParameteriv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetFramebufferParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetFramebufferParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetFramebufferParameteriv(unsigned int target, unsigned int pname, int * params) function, expected prototype:\nvoid glGetFramebufferParameteriv(unsigned int target, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14589,8 +14036,7 @@ static int _bind_glGetFramebufferParameteriv(lua_State *L) {
 // void glNamedFramebufferParameteriEXT(unsigned int framebuffer, unsigned int pname, int param)
 static int _bind_glNamedFramebufferParameteriEXT(lua_State *L) {
 	if (!_lg_typecheck_glNamedFramebufferParameteriEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glNamedFramebufferParameteriEXT(unsigned int framebuffer, unsigned int pname, int param) function, expected prototype:\nvoid glNamedFramebufferParameteriEXT(unsigned int framebuffer, unsigned int pname, int param)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glNamedFramebufferParameteriEXT(unsigned int framebuffer, unsigned int pname, int param) function, expected prototype:\nvoid glNamedFramebufferParameteriEXT(unsigned int framebuffer, unsigned int pname, int param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int framebuffer=(unsigned int)lua_tointeger(L,1);
@@ -14605,8 +14051,7 @@ static int _bind_glNamedFramebufferParameteriEXT(lua_State *L) {
 // void glGetNamedFramebufferParameterivEXT(unsigned int framebuffer, unsigned int pname, int * params)
 static int _bind_glGetNamedFramebufferParameterivEXT(lua_State *L) {
 	if (!_lg_typecheck_glGetNamedFramebufferParameterivEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetNamedFramebufferParameterivEXT(unsigned int framebuffer, unsigned int pname, int * params) function, expected prototype:\nvoid glGetNamedFramebufferParameterivEXT(unsigned int framebuffer, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetNamedFramebufferParameterivEXT(unsigned int framebuffer, unsigned int pname, int * params) function, expected prototype:\nvoid glGetNamedFramebufferParameterivEXT(unsigned int framebuffer, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int framebuffer=(unsigned int)lua_tointeger(L,1);
@@ -14621,8 +14066,7 @@ static int _bind_glGetNamedFramebufferParameterivEXT(lua_State *L) {
 // void glGetInternalformati64v(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, __int64 * params)
 static int _bind_glGetInternalformati64v(lua_State *L) {
 	if (!_lg_typecheck_glGetInternalformati64v(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetInternalformati64v(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, __int64 * params) function, expected prototype:\nvoid glGetInternalformati64v(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, __int64 * params)\nClass arguments details:\narg 5 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glGetInternalformati64v(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, __int64 * params) function, expected prototype:\nvoid glGetInternalformati64v(unsigned int target, unsigned int internalformat, unsigned int pname, int bufSize, __int64 * params)\nClass arguments details:\narg 5 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14639,8 +14083,7 @@ static int _bind_glGetInternalformati64v(lua_State *L) {
 // void glInvalidateTexSubImage(unsigned int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth)
 static int _bind_glInvalidateTexSubImage(lua_State *L) {
 	if (!_lg_typecheck_glInvalidateTexSubImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glInvalidateTexSubImage(unsigned int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) function, expected prototype:\nvoid glInvalidateTexSubImage(unsigned int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glInvalidateTexSubImage(unsigned int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth) function, expected prototype:\nvoid glInvalidateTexSubImage(unsigned int texture, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14660,8 +14103,7 @@ static int _bind_glInvalidateTexSubImage(lua_State *L) {
 // void glInvalidateTexImage(unsigned int texture, int level)
 static int _bind_glInvalidateTexImage(lua_State *L) {
 	if (!_lg_typecheck_glInvalidateTexImage(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glInvalidateTexImage(unsigned int texture, int level) function, expected prototype:\nvoid glInvalidateTexImage(unsigned int texture, int level)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glInvalidateTexImage(unsigned int texture, int level) function, expected prototype:\nvoid glInvalidateTexImage(unsigned int texture, int level)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14675,8 +14117,7 @@ static int _bind_glInvalidateTexImage(lua_State *L) {
 // void glInvalidateBufferSubData(unsigned int buffer, __int64 offset, __int64 length)
 static int _bind_glInvalidateBufferSubData(lua_State *L) {
 	if (!_lg_typecheck_glInvalidateBufferSubData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glInvalidateBufferSubData(unsigned int buffer, __int64 offset, __int64 length) function, expected prototype:\nvoid glInvalidateBufferSubData(unsigned int buffer, __int64 offset, __int64 length)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glInvalidateBufferSubData(unsigned int buffer, __int64 offset, __int64 length) function, expected prototype:\nvoid glInvalidateBufferSubData(unsigned int buffer, __int64 offset, __int64 length)\nClass arguments details:\narg 2 ID = [unknown]\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -14699,8 +14140,7 @@ static int _bind_glInvalidateBufferSubData(lua_State *L) {
 // void glInvalidateBufferData(unsigned int buffer)
 static int _bind_glInvalidateBufferData(lua_State *L) {
 	if (!_lg_typecheck_glInvalidateBufferData(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glInvalidateBufferData(unsigned int buffer) function, expected prototype:\nvoid glInvalidateBufferData(unsigned int buffer)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glInvalidateBufferData(unsigned int buffer) function, expected prototype:\nvoid glInvalidateBufferData(unsigned int buffer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int buffer=(unsigned int)lua_tointeger(L,1);
@@ -14713,8 +14153,7 @@ static int _bind_glInvalidateBufferData(lua_State *L) {
 // void glInvalidateFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments)
 static int _bind_glInvalidateFramebuffer(lua_State *L) {
 	if (!_lg_typecheck_glInvalidateFramebuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glInvalidateFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments) function, expected prototype:\nvoid glInvalidateFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glInvalidateFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments) function, expected prototype:\nvoid glInvalidateFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14729,8 +14168,7 @@ static int _bind_glInvalidateFramebuffer(lua_State *L) {
 // void glInvalidateSubFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments, int x, int y, int width, int height)
 static int _bind_glInvalidateSubFramebuffer(lua_State *L) {
 	if (!_lg_typecheck_glInvalidateSubFramebuffer(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glInvalidateSubFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments, int x, int y, int width, int height) function, expected prototype:\nvoid glInvalidateSubFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments, int x, int y, int width, int height)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glInvalidateSubFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments, int x, int y, int width, int height) function, expected prototype:\nvoid glInvalidateSubFramebuffer(unsigned int target, int numAttachments, const unsigned int * attachments, int x, int y, int width, int height)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14749,12 +14187,11 @@ static int _bind_glInvalidateSubFramebuffer(lua_State *L) {
 // void glMultiDrawArraysIndirect(unsigned int mode, const void * indirect, int drawcount, int stride)
 static int _bind_glMultiDrawArraysIndirect(lua_State *L) {
 	if (!_lg_typecheck_glMultiDrawArraysIndirect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiDrawArraysIndirect(unsigned int mode, const void * indirect, int drawcount, int stride) function, expected prototype:\nvoid glMultiDrawArraysIndirect(unsigned int mode, const void * indirect, int drawcount, int stride)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiDrawArraysIndirect(unsigned int mode, const void * indirect, int drawcount, int stride) function, expected prototype:\nvoid glMultiDrawArraysIndirect(unsigned int mode, const void * indirect, int drawcount, int stride)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
-	void* indirect=(Luna< void >::check(L,2));
+	const void* indirect=(Luna< void >::check(L,2));
 	int drawcount=(int)lua_tointeger(L,3);
 	int stride=(int)lua_tointeger(L,4);
 
@@ -14766,13 +14203,12 @@ static int _bind_glMultiDrawArraysIndirect(lua_State *L) {
 // void glMultiDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect, int drawcount, int stride)
 static int _bind_glMultiDrawElementsIndirect(lua_State *L) {
 	if (!_lg_typecheck_glMultiDrawElementsIndirect(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glMultiDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect, int drawcount, int stride) function, expected prototype:\nvoid glMultiDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect, int drawcount, int stride)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glMultiDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect, int drawcount, int stride) function, expected prototype:\nvoid glMultiDrawElementsIndirect(unsigned int mode, unsigned int type, const void * indirect, int drawcount, int stride)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int mode=(unsigned int)lua_tointeger(L,1);
 	unsigned int type=(unsigned int)lua_tointeger(L,2);
-	void* indirect=(Luna< void >::check(L,3));
+	const void* indirect=(Luna< void >::check(L,3));
 	int drawcount=(int)lua_tointeger(L,4);
 	int stride=(int)lua_tointeger(L,5);
 
@@ -14784,8 +14220,7 @@ static int _bind_glMultiDrawElementsIndirect(lua_State *L) {
 // void glGetProgramInterfaceiv(unsigned int program, unsigned int programInterface, unsigned int pname, int * params)
 static int _bind_glGetProgramInterfaceiv(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramInterfaceiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramInterfaceiv(unsigned int program, unsigned int programInterface, unsigned int pname, int * params) function, expected prototype:\nvoid glGetProgramInterfaceiv(unsigned int program, unsigned int programInterface, unsigned int pname, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramInterfaceiv(unsigned int program, unsigned int programInterface, unsigned int pname, int * params) function, expected prototype:\nvoid glGetProgramInterfaceiv(unsigned int program, unsigned int programInterface, unsigned int pname, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14801,8 +14236,7 @@ static int _bind_glGetProgramInterfaceiv(lua_State *L) {
 // unsigned int glGetProgramResourceIndex(unsigned int program, unsigned int programInterface, const char * name)
 static int _bind_glGetProgramResourceIndex(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramResourceIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in unsigned int glGetProgramResourceIndex(unsigned int program, unsigned int programInterface, const char * name) function, expected prototype:\nunsigned int glGetProgramResourceIndex(unsigned int program, unsigned int programInterface, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in unsigned int glGetProgramResourceIndex(unsigned int program, unsigned int programInterface, const char * name) function, expected prototype:\nunsigned int glGetProgramResourceIndex(unsigned int program, unsigned int programInterface, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14818,8 +14252,7 @@ static int _bind_glGetProgramResourceIndex(lua_State *L) {
 // void glGetProgramResourceName(unsigned int program, unsigned int programInterface, unsigned int index, int bufSize, int * length, char * name)
 static int _bind_glGetProgramResourceName(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramResourceName(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramResourceName(unsigned int program, unsigned int programInterface, unsigned int index, int bufSize, int * length, char * name) function, expected prototype:\nvoid glGetProgramResourceName(unsigned int program, unsigned int programInterface, unsigned int index, int bufSize, int * length, char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramResourceName(unsigned int program, unsigned int programInterface, unsigned int index, int bufSize, int * length, char * name) function, expected prototype:\nvoid glGetProgramResourceName(unsigned int program, unsigned int programInterface, unsigned int index, int bufSize, int * length, char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14837,8 +14270,7 @@ static int _bind_glGetProgramResourceName(lua_State *L) {
 // void glGetProgramResourceiv(unsigned int program, unsigned int programInterface, unsigned int index, int propCount, const unsigned int * props, int bufSize, int * length, int * params)
 static int _bind_glGetProgramResourceiv(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramResourceiv(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glGetProgramResourceiv(unsigned int program, unsigned int programInterface, unsigned int index, int propCount, const unsigned int * props, int bufSize, int * length, int * params) function, expected prototype:\nvoid glGetProgramResourceiv(unsigned int program, unsigned int programInterface, unsigned int index, int propCount, const unsigned int * props, int bufSize, int * length, int * params)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glGetProgramResourceiv(unsigned int program, unsigned int programInterface, unsigned int index, int propCount, const unsigned int * props, int bufSize, int * length, int * params) function, expected prototype:\nvoid glGetProgramResourceiv(unsigned int program, unsigned int programInterface, unsigned int index, int propCount, const unsigned int * props, int bufSize, int * length, int * params)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14858,8 +14290,7 @@ static int _bind_glGetProgramResourceiv(lua_State *L) {
 // int glGetProgramResourceLocation(unsigned int program, unsigned int programInterface, const char * name)
 static int _bind_glGetProgramResourceLocation(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramResourceLocation(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetProgramResourceLocation(unsigned int program, unsigned int programInterface, const char * name) function, expected prototype:\nint glGetProgramResourceLocation(unsigned int program, unsigned int programInterface, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetProgramResourceLocation(unsigned int program, unsigned int programInterface, const char * name) function, expected prototype:\nint glGetProgramResourceLocation(unsigned int program, unsigned int programInterface, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14875,8 +14306,7 @@ static int _bind_glGetProgramResourceLocation(lua_State *L) {
 // int glGetProgramResourceLocationIndex(unsigned int program, unsigned int programInterface, const char * name)
 static int _bind_glGetProgramResourceLocationIndex(lua_State *L) {
 	if (!_lg_typecheck_glGetProgramResourceLocationIndex(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glGetProgramResourceLocationIndex(unsigned int program, unsigned int programInterface, const char * name) function, expected prototype:\nint glGetProgramResourceLocationIndex(unsigned int program, unsigned int programInterface, const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glGetProgramResourceLocationIndex(unsigned int program, unsigned int programInterface, const char * name) function, expected prototype:\nint glGetProgramResourceLocationIndex(unsigned int program, unsigned int programInterface, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14892,8 +14322,7 @@ static int _bind_glGetProgramResourceLocationIndex(lua_State *L) {
 // void glShaderStorageBlockBinding(unsigned int program, unsigned int storageBlockIndex, unsigned int storageBlockBinding)
 static int _bind_glShaderStorageBlockBinding(lua_State *L) {
 	if (!_lg_typecheck_glShaderStorageBlockBinding(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glShaderStorageBlockBinding(unsigned int program, unsigned int storageBlockIndex, unsigned int storageBlockBinding) function, expected prototype:\nvoid glShaderStorageBlockBinding(unsigned int program, unsigned int storageBlockIndex, unsigned int storageBlockBinding)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glShaderStorageBlockBinding(unsigned int program, unsigned int storageBlockIndex, unsigned int storageBlockBinding) function, expected prototype:\nvoid glShaderStorageBlockBinding(unsigned int program, unsigned int storageBlockIndex, unsigned int storageBlockBinding)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int program=(unsigned int)lua_tointeger(L,1);
@@ -14908,8 +14337,7 @@ static int _bind_glShaderStorageBlockBinding(lua_State *L) {
 // void glTexBufferRange(unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size)
 static int _bind_glTexBufferRange(lua_State *L) {
 	if (!_lg_typecheck_glTexBufferRange(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexBufferRange(unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size) function, expected prototype:\nvoid glTexBufferRange(unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size)\nClass arguments details:\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glTexBufferRange(unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size) function, expected prototype:\nvoid glTexBufferRange(unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size)\nClass arguments details:\narg 4 ID = [unknown]\narg 5 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14934,8 +14362,7 @@ static int _bind_glTexBufferRange(lua_State *L) {
 // void glTextureBufferRangeEXT(unsigned int texture, unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size)
 static int _bind_glTextureBufferRangeEXT(lua_State *L) {
 	if (!_lg_typecheck_glTextureBufferRangeEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureBufferRangeEXT(unsigned int texture, unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size) function, expected prototype:\nvoid glTextureBufferRangeEXT(unsigned int texture, unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size)\nClass arguments details:\narg 5 ID = [unknown]\narg 6 ID = [unknown]\n");
+		luaL_error(L, "luna typecheck failed in void glTextureBufferRangeEXT(unsigned int texture, unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size) function, expected prototype:\nvoid glTextureBufferRangeEXT(unsigned int texture, unsigned int target, unsigned int internalformat, unsigned int buffer, __int64 offset, __int64 size)\nClass arguments details:\narg 5 ID = [unknown]\narg 6 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -14961,8 +14388,7 @@ static int _bind_glTextureBufferRangeEXT(lua_State *L) {
 // void glTexStorage2DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations)
 static int _bind_glTexStorage2DMultisample(lua_State *L) {
 	if (!_lg_typecheck_glTexStorage2DMultisample(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexStorage2DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexStorage2DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexStorage2DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexStorage2DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -14980,8 +14406,7 @@ static int _bind_glTexStorage2DMultisample(lua_State *L) {
 // void glTexStorage3DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)
 static int _bind_glTexStorage3DMultisample(lua_State *L) {
 	if (!_lg_typecheck_glTexStorage3DMultisample(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTexStorage3DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexStorage3DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTexStorage3DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTexStorage3DMultisample(unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int target=(unsigned int)lua_tointeger(L,1);
@@ -15000,8 +14425,7 @@ static int _bind_glTexStorage3DMultisample(lua_State *L) {
 // void glTextureStorage2DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations)
 static int _bind_glTextureStorage2DMultisampleEXT(lua_State *L) {
 	if (!_lg_typecheck_glTextureStorage2DMultisampleEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureStorage2DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTextureStorage2DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTextureStorage2DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTextureStorage2DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, unsigned char fixedsamplelocations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -15020,8 +14444,7 @@ static int _bind_glTextureStorage2DMultisampleEXT(lua_State *L) {
 // void glTextureStorage3DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)
 static int _bind_glTextureStorage3DMultisampleEXT(lua_State *L) {
 	if (!_lg_typecheck_glTextureStorage3DMultisampleEXT(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in void glTextureStorage3DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTextureStorage3DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in void glTextureStorage3DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations) function, expected prototype:\nvoid glTextureStorage3DMultisampleEXT(unsigned int texture, unsigned int target, int samples, unsigned int internalformat, int width, int height, int depth, unsigned char fixedsamplelocations)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	unsigned int texture=(unsigned int)lua_tointeger(L,1);
@@ -15041,8 +14464,7 @@ static int _bind_glTextureStorage3DMultisampleEXT(lua_State *L) {
 // int glewInit()
 static int _bind_glewInit(lua_State *L) {
 	if (!_lg_typecheck_glewInit(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glewInit() function, expected prototype:\nint glewInit()\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glewInit() function, expected prototype:\nint glewInit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 
@@ -15055,8 +14477,7 @@ static int _bind_glewInit(lua_State *L) {
 // int glewIsSupported(const char * name)
 static int _bind_glewIsSupported(lua_State *L) {
 	if (!_lg_typecheck_glewIsSupported(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glewIsSupported(const char * name) function, expected prototype:\nint glewIsSupported(const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glewIsSupported(const char * name) function, expected prototype:\nint glewIsSupported(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * name=(const char *)lua_tostring(L,1);
@@ -15070,8 +14491,7 @@ static int _bind_glewIsSupported(lua_State *L) {
 // int glewGetExtension(const char * name)
 static int _bind_glewGetExtension(lua_State *L) {
 	if (!_lg_typecheck_glewGetExtension(L)) {
-		luna_printStack(L);
-		luaL_error(L, "luna typecheck failed in int glewGetExtension(const char * name) function, expected prototype:\nint glewGetExtension(const char * name)\nClass arguments details:\n");
+		luaL_error(L, "luna typecheck failed in int glewGetExtension(const char * name) function, expected prototype:\nint glewGetExtension(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 	}
 
 	const char * name=(const char *)lua_tostring(L,1);

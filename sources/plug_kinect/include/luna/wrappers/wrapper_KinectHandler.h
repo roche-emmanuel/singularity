@@ -132,15 +132,13 @@ public:
 	// int KinectHandler::public_runNuiThread()
 	static int _bind_public_runNuiThread(lua_State *L) {
 		if (!_lg_typecheck_public_runNuiThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int KinectHandler::public_runNuiThread() function, expected prototype:\nint KinectHandler::public_runNuiThread()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int KinectHandler::public_runNuiThread() function, expected prototype:\nint KinectHandler::public_runNuiThread()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_KinectHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_KinectHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int KinectHandler::public_runNuiThread(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int KinectHandler::public_runNuiThread(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_runNuiThread();
 		lua_pushnumber(L,lret);
@@ -151,16 +149,14 @@ public:
 	// static int KinectHandler::public_nuiProcessThread(void * param)
 	static int _bind_public_nuiProcessThread(lua_State *L) {
 		if (!_lg_typecheck_public_nuiProcessThread(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static int KinectHandler::public_nuiProcessThread(void * param) function, expected prototype:\nstatic int KinectHandler::public_nuiProcessThread(void * param)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static int KinectHandler::public_nuiProcessThread(void * param) function, expected prototype:\nstatic int KinectHandler::public_nuiProcessThread(void * param)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* param=(Luna< void >::check(L,1));
 
 		wrapper_KinectHandler* self=Luna< osg::Referenced >::checkSubType< wrapper_KinectHandler >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static int KinectHandler::public_nuiProcessThread(void *). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static int KinectHandler::public_nuiProcessThread(void *). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_nuiProcessThread(param);
 		lua_pushnumber(L,lret);

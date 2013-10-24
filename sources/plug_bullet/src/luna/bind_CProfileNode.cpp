@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CProfileNode*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CProfileNode*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileNode* rhs =(Luna< CProfileNode >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileNode* self= (CProfileNode*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< CProfileNode >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,7 +99,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TSTRING ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,82492271)) ) return false;
 		return true;
 	}
@@ -113,7 +109,7 @@ public:
 	inline static bool _lg_typecheck_Get_Sub_Node(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -198,8 +194,7 @@ public:
 	// CProfileNode::CProfileNode(const char * name, CProfileNode * parent)
 	static CProfileNode* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in CProfileNode::CProfileNode(const char * name, CProfileNode * parent) function, expected prototype:\nCProfileNode::CProfileNode(const char * name, CProfileNode * parent)\nClass arguments details:\narg 2 ID = 82492271\n");
+			luaL_error(L, "luna typecheck failed in CProfileNode::CProfileNode(const char * name, CProfileNode * parent) function, expected prototype:\nCProfileNode::CProfileNode(const char * name, CProfileNode * parent)\nClass arguments details:\narg 2 ID = 82492271\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,1);
@@ -213,16 +208,14 @@ public:
 	// CProfileNode * CProfileNode::Get_Sub_Node(const char * name)
 	static int _bind_Get_Sub_Node(lua_State *L) {
 		if (!_lg_typecheck_Get_Sub_Node(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Sub_Node(const char * name) function, expected prototype:\nCProfileNode * CProfileNode::Get_Sub_Node(const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Sub_Node(const char * name) function, expected prototype:\nCProfileNode * CProfileNode::Get_Sub_Node(const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * name=(const char *)lua_tostring(L,2);
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Sub_Node(const char *). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Sub_Node(const char *). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		CProfileNode * lret = self->Get_Sub_Node(name);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -235,15 +228,13 @@ public:
 	// CProfileNode * CProfileNode::Get_Parent()
 	static int _bind_Get_Parent(lua_State *L) {
 		if (!_lg_typecheck_Get_Parent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Parent() function, expected prototype:\nCProfileNode * CProfileNode::Get_Parent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Parent() function, expected prototype:\nCProfileNode * CProfileNode::Get_Parent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Parent(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Parent(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		CProfileNode * lret = self->Get_Parent();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -256,15 +247,13 @@ public:
 	// CProfileNode * CProfileNode::Get_Sibling()
 	static int _bind_Get_Sibling(lua_State *L) {
 		if (!_lg_typecheck_Get_Sibling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Sibling() function, expected prototype:\nCProfileNode * CProfileNode::Get_Sibling()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Sibling() function, expected prototype:\nCProfileNode * CProfileNode::Get_Sibling()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Sibling(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Sibling(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		CProfileNode * lret = self->Get_Sibling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -277,15 +266,13 @@ public:
 	// CProfileNode * CProfileNode::Get_Child()
 	static int _bind_Get_Child(lua_State *L) {
 		if (!_lg_typecheck_Get_Child(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Child() function, expected prototype:\nCProfileNode * CProfileNode::Get_Child()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in CProfileNode * CProfileNode::Get_Child() function, expected prototype:\nCProfileNode * CProfileNode::Get_Child()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Child(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call CProfileNode * CProfileNode::Get_Child(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		CProfileNode * lret = self->Get_Child();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -298,15 +285,13 @@ public:
 	// void CProfileNode::CleanupMemory()
 	static int _bind_CleanupMemory(lua_State *L) {
 		if (!_lg_typecheck_CleanupMemory(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileNode::CleanupMemory() function, expected prototype:\nvoid CProfileNode::CleanupMemory()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileNode::CleanupMemory() function, expected prototype:\nvoid CProfileNode::CleanupMemory()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileNode::CleanupMemory(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileNode::CleanupMemory(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->CleanupMemory();
 
@@ -316,15 +301,13 @@ public:
 	// void CProfileNode::Reset()
 	static int _bind_Reset(lua_State *L) {
 		if (!_lg_typecheck_Reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileNode::Reset() function, expected prototype:\nvoid CProfileNode::Reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileNode::Reset() function, expected prototype:\nvoid CProfileNode::Reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileNode::Reset(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileNode::Reset(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Reset();
 
@@ -334,15 +317,13 @@ public:
 	// void CProfileNode::Call()
 	static int _bind_Call(lua_State *L) {
 		if (!_lg_typecheck_Call(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileNode::Call() function, expected prototype:\nvoid CProfileNode::Call()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileNode::Call() function, expected prototype:\nvoid CProfileNode::Call()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileNode::Call(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileNode::Call(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Call();
 
@@ -352,15 +333,13 @@ public:
 	// bool CProfileNode::Return()
 	static int _bind_Return(lua_State *L) {
 		if (!_lg_typecheck_Return(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool CProfileNode::Return() function, expected prototype:\nbool CProfileNode::Return()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool CProfileNode::Return() function, expected prototype:\nbool CProfileNode::Return()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool CProfileNode::Return(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool CProfileNode::Return(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Return();
 		lua_pushboolean(L,lret?1:0);
@@ -371,15 +350,13 @@ public:
 	// const char * CProfileNode::Get_Name()
 	static int _bind_Get_Name(lua_State *L) {
 		if (!_lg_typecheck_Get_Name(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * CProfileNode::Get_Name() function, expected prototype:\nconst char * CProfileNode::Get_Name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * CProfileNode::Get_Name() function, expected prototype:\nconst char * CProfileNode::Get_Name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * CProfileNode::Get_Name(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * CProfileNode::Get_Name(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Get_Name();
 		lua_pushstring(L,lret);
@@ -390,15 +367,13 @@ public:
 	// int CProfileNode::Get_Total_Calls()
 	static int _bind_Get_Total_Calls(lua_State *L) {
 		if (!_lg_typecheck_Get_Total_Calls(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int CProfileNode::Get_Total_Calls() function, expected prototype:\nint CProfileNode::Get_Total_Calls()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int CProfileNode::Get_Total_Calls() function, expected prototype:\nint CProfileNode::Get_Total_Calls()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int CProfileNode::Get_Total_Calls(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int CProfileNode::Get_Total_Calls(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Get_Total_Calls();
 		lua_pushnumber(L,lret);
@@ -409,15 +384,13 @@ public:
 	// float CProfileNode::Get_Total_Time()
 	static int _bind_Get_Total_Time(lua_State *L) {
 		if (!_lg_typecheck_Get_Total_Time(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float CProfileNode::Get_Total_Time() function, expected prototype:\nfloat CProfileNode::Get_Total_Time()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float CProfileNode::Get_Total_Time() function, expected prototype:\nfloat CProfileNode::Get_Total_Time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float CProfileNode::Get_Total_Time(). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float CProfileNode::Get_Total_Time(). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Get_Total_Time();
 		lua_pushnumber(L,lret);
@@ -428,15 +401,13 @@ public:
 	// void * CProfileNode::GetUserPointer() const
 	static int _bind_GetUserPointer(lua_State *L) {
 		if (!_lg_typecheck_GetUserPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * CProfileNode::GetUserPointer() const function, expected prototype:\nvoid * CProfileNode::GetUserPointer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * CProfileNode::GetUserPointer() const function, expected prototype:\nvoid * CProfileNode::GetUserPointer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * CProfileNode::GetUserPointer() const. Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * CProfileNode::GetUserPointer() const. Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->GetUserPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -449,16 +420,14 @@ public:
 	// void CProfileNode::SetUserPointer(void * ptr)
 	static int _bind_SetUserPointer(lua_State *L) {
 		if (!_lg_typecheck_SetUserPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileNode::SetUserPointer(void * ptr) function, expected prototype:\nvoid CProfileNode::SetUserPointer(void * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileNode::SetUserPointer(void * ptr) function, expected prototype:\nvoid CProfileNode::SetUserPointer(void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* ptr=(Luna< void >::check(L,2));
 
 		CProfileNode* self=(Luna< CProfileNode >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileNode::SetUserPointer(void *). Got : '%s'",typeid(Luna< CProfileNode >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileNode::SetUserPointer(void *). Got : '%s'\n%s",typeid(Luna< CProfileNode >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetUserPointer(ptr);
 

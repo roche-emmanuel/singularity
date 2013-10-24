@@ -75,15 +75,13 @@ public:
 	// static btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections()
 	static int _bind_public_getPenetrationDirections(lua_State *L) {
 		if (!_lg_typecheck_public_getPenetrationDirections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections() function, expected prototype:\nstatic btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections() function, expected prototype:\nstatic btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btMinkowskiPenetrationDepthSolver* self=Luna< btConvexPenetrationDepthSolver >::checkSubType< wrapper_btMinkowskiPenetrationDepthSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call static btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections(). Got : '%s'",typeid(Luna< btConvexPenetrationDepthSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call static btVector3 * btMinkowskiPenetrationDepthSolver::public_getPenetrationDirections(). Got : '%s'\n%s",typeid(Luna< btConvexPenetrationDepthSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 * lret = self->public_getPenetrationDirections();
 		if(!lret) return 0; // Do not write NULL pointers.

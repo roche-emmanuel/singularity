@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocVerbatim* self= (IDocVerbatim*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -118,8 +115,7 @@ public:
 	// IDocVerbatim::IDocVerbatim(lua_Table * data)
 	static IDocVerbatim* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocVerbatim::IDocVerbatim(lua_Table * data) function, expected prototype:\nIDocVerbatim::IDocVerbatim(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocVerbatim::IDocVerbatim(lua_Table * data) function, expected prototype:\nIDocVerbatim::IDocVerbatim(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -131,15 +127,13 @@ public:
 	// const IString * IDocVerbatim::text() const
 	static int _bind_text(lua_State *L) {
 		if (!_lg_typecheck_text(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const IString * IDocVerbatim::text() const function, expected prototype:\nconst IString * IDocVerbatim::text() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const IString * IDocVerbatim::text() const function, expected prototype:\nconst IString * IDocVerbatim::text() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocVerbatim* self=Luna< IDoc >::checkSubType< IDocVerbatim >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const IString * IDocVerbatim::text() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const IString * IDocVerbatim::text() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const IString * lret = self->text();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -152,15 +146,13 @@ public:
 	// IDocVerbatim::Types IDocVerbatim::type() const
 	static int _bind_type(lua_State *L) {
 		if (!_lg_typecheck_type(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocVerbatim::Types IDocVerbatim::type() const function, expected prototype:\nIDocVerbatim::Types IDocVerbatim::type() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocVerbatim::Types IDocVerbatim::type() const function, expected prototype:\nIDocVerbatim::Types IDocVerbatim::type() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocVerbatim* self=Luna< IDoc >::checkSubType< IDocVerbatim >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocVerbatim::Types IDocVerbatim::type() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocVerbatim::Types IDocVerbatim::type() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocVerbatim::Types lret = self->type();
 		lua_pushnumber(L,lret);

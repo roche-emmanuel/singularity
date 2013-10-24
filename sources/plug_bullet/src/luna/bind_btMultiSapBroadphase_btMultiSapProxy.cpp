@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMultiSapBroadphase::btMultiSapProxy* self= (btMultiSapBroadphase::btMultiSapProxy*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btBroadphaseProxy >::check(L,1));
@@ -68,10 +66,10 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		if( (lua_isnil(L,4)==0 && !Luna<void>::has_uniqueid(L,4,3625364)) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
-		if( (lua_isnumber(L,6)==0 || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
 		return true;
 	}
 
@@ -112,7 +110,7 @@ public:
 	inline static bool _lg_typecheck_setShapeType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -124,8 +122,7 @@ public:
 	// btMultiSapBroadphase::btMultiSapProxy::btMultiSapProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask)
 	static btMultiSapBroadphase::btMultiSapProxy* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMultiSapBroadphase::btMultiSapProxy::btMultiSapProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask) function, expected prototype:\nbtMultiSapBroadphase::btMultiSapProxy::btMultiSapProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btMultiSapBroadphase::btMultiSapProxy::btMultiSapProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask) function, expected prototype:\nbtMultiSapBroadphase::btMultiSapProxy::btMultiSapProxy(const btVector3 & aabbMin, const btVector3 & aabbMax, int shapeType, void * userPtr, short int collisionFilterGroup, short int collisionFilterMask)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* aabbMin_ptr=(Luna< btVector3 >::check(L,1));
@@ -151,15 +148,13 @@ public:
 	// btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin()
 	static int _bind_getAabbMin(lua_State *L) {
 		if (!_lg_typecheck_getAabbMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin() function, expected prototype:\nbtVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin() function, expected prototype:\nbtVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMultiSapBroadphase::btMultiSapProxy* self=Luna< btBroadphaseProxy >::checkSubType< btMultiSapBroadphase::btMultiSapProxy >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_aabbMin;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -172,15 +167,13 @@ public:
 	// btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax()
 	static int _bind_getAabbMax(lua_State *L) {
 		if (!_lg_typecheck_getAabbMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax() function, expected prototype:\nbtVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax() function, expected prototype:\nbtVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMultiSapBroadphase::btMultiSapProxy* self=Luna< btBroadphaseProxy >::checkSubType< btMultiSapBroadphase::btMultiSapProxy >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_aabbMax;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -193,15 +186,13 @@ public:
 	// int btMultiSapBroadphase::btMultiSapProxy::m_shapeType()
 	static int _bind_getShapeType(lua_State *L) {
 		if (!_lg_typecheck_getShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMultiSapBroadphase::btMultiSapProxy::m_shapeType() function, expected prototype:\nint btMultiSapBroadphase::btMultiSapProxy::m_shapeType()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMultiSapBroadphase::btMultiSapProxy::m_shapeType() function, expected prototype:\nint btMultiSapBroadphase::btMultiSapProxy::m_shapeType()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMultiSapBroadphase::btMultiSapProxy* self=Luna< btBroadphaseProxy >::checkSubType< btMultiSapBroadphase::btMultiSapProxy >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMultiSapBroadphase::btMultiSapProxy::m_shapeType(). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMultiSapBroadphase::btMultiSapProxy::m_shapeType(). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_shapeType;
 		lua_pushnumber(L,lret);
@@ -212,8 +203,7 @@ public:
 	// void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value)
 	static int _bind_setAabbMin(lua_State *L) {
 		if (!_lg_typecheck_setAabbMin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -224,8 +214,7 @@ public:
 
 		btMultiSapBroadphase::btMultiSapProxy* self=Luna< btBroadphaseProxy >::checkSubType< btMultiSapBroadphase::btMultiSapProxy >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMultiSapBroadphase::btMultiSapProxy::m_aabbMin(btVector3). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_aabbMin = value;
 
@@ -235,8 +224,7 @@ public:
 	// void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value)
 	static int _bind_setAabbMax(lua_State *L) {
 		if (!_lg_typecheck_setAabbMax(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -247,8 +235,7 @@ public:
 
 		btMultiSapBroadphase::btMultiSapProxy* self=Luna< btBroadphaseProxy >::checkSubType< btMultiSapBroadphase::btMultiSapProxy >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMultiSapBroadphase::btMultiSapProxy::m_aabbMax(btVector3). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_aabbMax = value;
 
@@ -258,16 +245,14 @@ public:
 	// void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value)
 	static int _bind_setShapeType(lua_State *L) {
 		if (!_lg_typecheck_setShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value) function, expected prototype:\nvoid btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btMultiSapBroadphase::btMultiSapProxy* self=Luna< btBroadphaseProxy >::checkSubType< btMultiSapBroadphase::btMultiSapProxy >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int). Got : '%s'",typeid(Luna< btBroadphaseProxy >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMultiSapBroadphase::btMultiSapProxy::m_shapeType(int). Got : '%s'\n%s",typeid(Luna< btBroadphaseProxy >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_shapeType = value;
 

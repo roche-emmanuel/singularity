@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* self=(Luna< b2Joint >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MouseJoint* self= (b2MouseJoint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Joint >::check(L,1));
@@ -106,14 +103,14 @@ public:
 	inline static bool _lg_typecheck_GetReactionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_GetReactionTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -133,7 +130,7 @@ public:
 	inline static bool _lg_typecheck_SetMaxForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -146,7 +143,7 @@ public:
 	inline static bool _lg_typecheck_SetFrequency(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -159,7 +156,7 @@ public:
 	inline static bool _lg_typecheck_SetDampingRatio(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -190,14 +187,14 @@ public:
 	inline static bool _lg_typecheck_base_GetReactionForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_GetReactionTorque(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -217,15 +214,13 @@ public:
 	// b2Vec2 b2MouseJoint::GetAnchorA() const
 	static int _bind_GetAnchorA(lua_State *L) {
 		if (!_lg_typecheck_GetAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::GetAnchorA() const function, expected prototype:\nb2Vec2 b2MouseJoint::GetAnchorA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::GetAnchorA() const function, expected prototype:\nb2Vec2 b2MouseJoint::GetAnchorA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::GetAnchorA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::GetAnchorA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetAnchorA();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -239,15 +234,13 @@ public:
 	// b2Vec2 b2MouseJoint::GetAnchorB() const
 	static int _bind_GetAnchorB(lua_State *L) {
 		if (!_lg_typecheck_GetAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::GetAnchorB() const function, expected prototype:\nb2Vec2 b2MouseJoint::GetAnchorB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::GetAnchorB() const function, expected prototype:\nb2Vec2 b2MouseJoint::GetAnchorB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::GetAnchorB() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::GetAnchorB() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetAnchorB();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -261,16 +254,14 @@ public:
 	// b2Vec2 b2MouseJoint::GetReactionForce(float inv_dt) const
 	static int _bind_GetReactionForce(lua_State *L) {
 		if (!_lg_typecheck_GetReactionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2MouseJoint::GetReactionForce(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2MouseJoint::GetReactionForce(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::GetReactionForce(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::GetReactionForce(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetReactionForce(inv_dt);
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -284,16 +275,14 @@ public:
 	// float b2MouseJoint::GetReactionTorque(float inv_dt) const
 	static int _bind_GetReactionTorque(lua_State *L) {
 		if (!_lg_typecheck_GetReactionTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2MouseJoint::GetReactionTorque(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2MouseJoint::GetReactionTorque(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetReactionTorque(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetReactionTorque(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetReactionTorque(inv_dt);
 		lua_pushnumber(L,lret);
@@ -304,8 +293,7 @@ public:
 	// void b2MouseJoint::SetTarget(const b2Vec2 & target)
 	static int _bind_SetTarget(lua_State *L) {
 		if (!_lg_typecheck_SetTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetTarget(const b2Vec2 & target) function, expected prototype:\nvoid b2MouseJoint::SetTarget(const b2Vec2 & target)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetTarget(const b2Vec2 & target) function, expected prototype:\nvoid b2MouseJoint::SetTarget(const b2Vec2 & target)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* target_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -316,8 +304,7 @@ public:
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetTarget(const b2Vec2 &). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetTarget(const b2Vec2 &). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetTarget(target);
 
@@ -327,15 +314,13 @@ public:
 	// const b2Vec2 & b2MouseJoint::GetTarget() const
 	static int _bind_GetTarget(lua_State *L) {
 		if (!_lg_typecheck_GetTarget(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2MouseJoint::GetTarget() const function, expected prototype:\nconst b2Vec2 & b2MouseJoint::GetTarget() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const b2Vec2 & b2MouseJoint::GetTarget() const function, expected prototype:\nconst b2Vec2 & b2MouseJoint::GetTarget() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const b2Vec2 & b2MouseJoint::GetTarget() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const b2Vec2 & b2MouseJoint::GetTarget() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->GetTarget();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -348,16 +333,14 @@ public:
 	// void b2MouseJoint::SetMaxForce(float force)
 	static int _bind_SetMaxForce(lua_State *L) {
 		if (!_lg_typecheck_SetMaxForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetMaxForce(float force) function, expected prototype:\nvoid b2MouseJoint::SetMaxForce(float force)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetMaxForce(float force) function, expected prototype:\nvoid b2MouseJoint::SetMaxForce(float force)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float force=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetMaxForce(float). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetMaxForce(float). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetMaxForce(force);
 
@@ -367,15 +350,13 @@ public:
 	// float b2MouseJoint::GetMaxForce() const
 	static int _bind_GetMaxForce(lua_State *L) {
 		if (!_lg_typecheck_GetMaxForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetMaxForce() const function, expected prototype:\nfloat b2MouseJoint::GetMaxForce() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetMaxForce() const function, expected prototype:\nfloat b2MouseJoint::GetMaxForce() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetMaxForce() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetMaxForce() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetMaxForce();
 		lua_pushnumber(L,lret);
@@ -386,16 +367,14 @@ public:
 	// void b2MouseJoint::SetFrequency(float hz)
 	static int _bind_SetFrequency(lua_State *L) {
 		if (!_lg_typecheck_SetFrequency(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetFrequency(float hz) function, expected prototype:\nvoid b2MouseJoint::SetFrequency(float hz)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetFrequency(float hz) function, expected prototype:\nvoid b2MouseJoint::SetFrequency(float hz)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float hz=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetFrequency(float). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetFrequency(float). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetFrequency(hz);
 
@@ -405,15 +384,13 @@ public:
 	// float b2MouseJoint::GetFrequency() const
 	static int _bind_GetFrequency(lua_State *L) {
 		if (!_lg_typecheck_GetFrequency(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetFrequency() const function, expected prototype:\nfloat b2MouseJoint::GetFrequency() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetFrequency() const function, expected prototype:\nfloat b2MouseJoint::GetFrequency() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetFrequency() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetFrequency() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetFrequency();
 		lua_pushnumber(L,lret);
@@ -424,16 +401,14 @@ public:
 	// void b2MouseJoint::SetDampingRatio(float ratio)
 	static int _bind_SetDampingRatio(lua_State *L) {
 		if (!_lg_typecheck_SetDampingRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetDampingRatio(float ratio) function, expected prototype:\nvoid b2MouseJoint::SetDampingRatio(float ratio)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MouseJoint::SetDampingRatio(float ratio) function, expected prototype:\nvoid b2MouseJoint::SetDampingRatio(float ratio)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float ratio=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetDampingRatio(float). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MouseJoint::SetDampingRatio(float). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetDampingRatio(ratio);
 
@@ -443,15 +418,13 @@ public:
 	// float b2MouseJoint::GetDampingRatio() const
 	static int _bind_GetDampingRatio(lua_State *L) {
 		if (!_lg_typecheck_GetDampingRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetDampingRatio() const function, expected prototype:\nfloat b2MouseJoint::GetDampingRatio() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MouseJoint::GetDampingRatio() const function, expected prototype:\nfloat b2MouseJoint::GetDampingRatio() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetDampingRatio() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MouseJoint::GetDampingRatio() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetDampingRatio();
 		lua_pushnumber(L,lret);
@@ -462,15 +435,13 @@ public:
 	// void b2MouseJoint::Dump()
 	static int _bind_Dump(lua_State *L) {
 		if (!_lg_typecheck_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MouseJoint::Dump() function, expected prototype:\nvoid b2MouseJoint::Dump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MouseJoint::Dump() function, expected prototype:\nvoid b2MouseJoint::Dump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MouseJoint::Dump(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MouseJoint::Dump(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Dump();
 
@@ -480,15 +451,13 @@ public:
 	// b2Vec2 b2MouseJoint::base_GetAnchorA() const
 	static int _bind_base_GetAnchorA(lua_State *L) {
 		if (!_lg_typecheck_base_GetAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::base_GetAnchorA() const function, expected prototype:\nb2Vec2 b2MouseJoint::base_GetAnchorA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::base_GetAnchorA() const function, expected prototype:\nb2Vec2 b2MouseJoint::base_GetAnchorA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::base_GetAnchorA() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::base_GetAnchorA() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->b2MouseJoint::GetAnchorA();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -502,15 +471,13 @@ public:
 	// b2Vec2 b2MouseJoint::base_GetAnchorB() const
 	static int _bind_base_GetAnchorB(lua_State *L) {
 		if (!_lg_typecheck_base_GetAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::base_GetAnchorB() const function, expected prototype:\nb2Vec2 b2MouseJoint::base_GetAnchorB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::base_GetAnchorB() const function, expected prototype:\nb2Vec2 b2MouseJoint::base_GetAnchorB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::base_GetAnchorB() const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::base_GetAnchorB() const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->b2MouseJoint::GetAnchorB();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -524,16 +491,14 @@ public:
 	// b2Vec2 b2MouseJoint::base_GetReactionForce(float inv_dt) const
 	static int _bind_base_GetReactionForce(lua_State *L) {
 		if (!_lg_typecheck_base_GetReactionForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::base_GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2MouseJoint::base_GetReactionForce(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2MouseJoint::base_GetReactionForce(float inv_dt) const function, expected prototype:\nb2Vec2 b2MouseJoint::base_GetReactionForce(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::base_GetReactionForce(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2MouseJoint::base_GetReactionForce(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->b2MouseJoint::GetReactionForce(inv_dt);
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -547,16 +512,14 @@ public:
 	// float b2MouseJoint::base_GetReactionTorque(float inv_dt) const
 	static int _bind_base_GetReactionTorque(lua_State *L) {
 		if (!_lg_typecheck_base_GetReactionTorque(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2MouseJoint::base_GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2MouseJoint::base_GetReactionTorque(float inv_dt) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2MouseJoint::base_GetReactionTorque(float inv_dt) const function, expected prototype:\nfloat b2MouseJoint::base_GetReactionTorque(float inv_dt) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float inv_dt=(float)lua_tonumber(L,2);
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2MouseJoint::base_GetReactionTorque(float) const. Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2MouseJoint::base_GetReactionTorque(float) const. Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->b2MouseJoint::GetReactionTorque(inv_dt);
 		lua_pushnumber(L,lret);
@@ -567,15 +530,13 @@ public:
 	// void b2MouseJoint::base_Dump()
 	static int _bind_base_Dump(lua_State *L) {
 		if (!_lg_typecheck_base_Dump(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2MouseJoint::base_Dump() function, expected prototype:\nvoid b2MouseJoint::base_Dump()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2MouseJoint::base_Dump() function, expected prototype:\nvoid b2MouseJoint::base_Dump()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2MouseJoint* self=Luna< b2Joint >::checkSubType< b2MouseJoint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2MouseJoint::base_Dump(). Got : '%s'",typeid(Luna< b2Joint >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2MouseJoint::base_Dump(). Got : '%s'\n%s",typeid(Luna< b2Joint >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2MouseJoint::Dump();
 

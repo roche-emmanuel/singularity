@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDoc* self=(Luna< IDoc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IDocProgramListing* self= (IDocProgramListing*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IDoc >::check(L,1));
@@ -112,8 +109,7 @@ public:
 	// IDocProgramListing::IDocProgramListing(lua_Table * data)
 	static IDocProgramListing* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocProgramListing::IDocProgramListing(lua_Table * data) function, expected prototype:\nIDocProgramListing::IDocProgramListing(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocProgramListing::IDocProgramListing(lua_Table * data) function, expected prototype:\nIDocProgramListing::IDocProgramListing(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -125,15 +121,13 @@ public:
 	// IDocIterator * IDocProgramListing::codeLines() const
 	static int _bind_codeLines(lua_State *L) {
 		if (!_lg_typecheck_codeLines(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IDocIterator * IDocProgramListing::codeLines() const function, expected prototype:\nIDocIterator * IDocProgramListing::codeLines() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IDocIterator * IDocProgramListing::codeLines() const function, expected prototype:\nIDocIterator * IDocProgramListing::codeLines() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IDocProgramListing* self=Luna< IDoc >::checkSubType< IDocProgramListing >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IDocIterator * IDocProgramListing::codeLines() const. Got : '%s'",typeid(Luna< IDoc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IDocIterator * IDocProgramListing::codeLines() const. Got : '%s'\n%s",typeid(Luna< IDoc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IDocIterator * lret = self->codeLines();
 		if(!lret) return 0; // Do not write NULL pointers.

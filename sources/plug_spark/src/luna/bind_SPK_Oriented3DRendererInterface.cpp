@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::Oriented3DRendererInterface*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(SPK::Oriented3DRendererInterface*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Oriented3DRendererInterface* rhs =(Luna< SPK::Oriented3DRendererInterface >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Oriented3DRendererInterface* self= (SPK::Oriented3DRendererInterface*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -144,16 +139,16 @@ public:
 	inline static bool _lg_typecheck_setOrientation_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setOrientation_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -211,8 +206,7 @@ public:
 	// SPK::Oriented3DRendererInterface::Oriented3DRendererInterface()
 	static SPK::Oriented3DRendererInterface* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface() function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface() function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -222,8 +216,7 @@ public:
 	// SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)
 	static SPK::Oriented3DRendererInterface* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data) function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data) function, expected prototype:\nSPK::Oriented3DRendererInterface::Oriented3DRendererInterface(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -244,8 +237,7 @@ public:
 	// void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation lookOrientation, SPK::UpOrientation upOrientation, SPK::LockedAxis lockedAxis)
 	static int _bind_setOrientation_overload_1(lua_State *L) {
 		if (!_lg_typecheck_setOrientation_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation lookOrientation, SPK::UpOrientation upOrientation, SPK::LockedAxis lockedAxis) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation lookOrientation, SPK::UpOrientation upOrientation, SPK::LockedAxis lockedAxis)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation lookOrientation, SPK::UpOrientation upOrientation, SPK::LockedAxis lockedAxis) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation lookOrientation, SPK::UpOrientation upOrientation, SPK::LockedAxis lockedAxis)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::LookOrientation lookOrientation=(SPK::LookOrientation)lua_tointeger(L,2);
@@ -254,8 +246,7 @@ public:
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation, SPK::UpOrientation, SPK::LockedAxis). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::LookOrientation, SPK::UpOrientation, SPK::LockedAxis). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOrientation(lookOrientation, upOrientation, lockedAxis);
 
@@ -265,16 +256,14 @@ public:
 	// void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset orientation)
 	static int _bind_setOrientation_overload_2(lua_State *L) {
 		if (!_lg_typecheck_setOrientation_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset orientation) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset orientation)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset orientation) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset orientation)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::OrientationPreset orientation=(SPK::OrientationPreset)lua_tointeger(L,2);
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void SPK::Oriented3DRendererInterface::setOrientation(SPK::OrientationPreset). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setOrientation(orientation);
 
@@ -293,15 +282,13 @@ public:
 	// SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const
 	static int _bind_getLookOrientation(lua_State *L) {
 		if (!_lg_typecheck_getLookOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const function, expected prototype:\nSPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const function, expected prototype:\nSPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::LookOrientation SPK::Oriented3DRendererInterface::getLookOrientation() const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::LookOrientation lret = self->getLookOrientation();
 		lua_pushnumber(L,lret);
@@ -312,15 +299,13 @@ public:
 	// SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const
 	static int _bind_getUpOrientation(lua_State *L) {
 		if (!_lg_typecheck_getUpOrientation(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const function, expected prototype:\nSPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const function, expected prototype:\nSPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::UpOrientation SPK::Oriented3DRendererInterface::getUpOrientation() const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::UpOrientation lret = self->getUpOrientation();
 		lua_pushnumber(L,lret);
@@ -331,15 +316,13 @@ public:
 	// SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const
 	static int _bind_getLockedAxis(lua_State *L) {
 		if (!_lg_typecheck_getLockedAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const function, expected prototype:\nSPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const function, expected prototype:\nSPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const. Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::LockedAxis SPK::Oriented3DRendererInterface::getLockedAxis() const. Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		SPK::LockedAxis lret = self->getLockedAxis();
 		lua_pushnumber(L,lret);
@@ -350,8 +333,7 @@ public:
 	// void SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)
 	static int _bind_setLookVector(lua_State *L) {
 		if (!_lg_typecheck_setLookVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 95637678\narg 2 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setLookVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 95637678\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Oriented3DRendererInterface* intf=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
@@ -365,8 +347,7 @@ public:
 	// void SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)
 	static int _bind_setUpVector(lua_State *L) {
 		if (!_lg_typecheck_setUpVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 95637678\narg 2 ID = 70092749\n");
+			luaL_error(L, "luna typecheck failed in void SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec) function, expected prototype:\nvoid SPK::Oriented3DRendererInterface::setUpVector(SPK::Oriented3DRendererInterface * intf, SPK::Vector3D * vec)\nClass arguments details:\narg 1 ID = 95637678\narg 2 ID = 70092749\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		SPK::Oriented3DRendererInterface* intf=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
@@ -380,15 +361,13 @@ public:
 	// SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector()
 	static int _bind_getLookVector(lua_State *L) {
 		if (!_lg_typecheck_getLookVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented3DRendererInterface::lookVector()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented3DRendererInterface::lookVector()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector(). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented3DRendererInterface::lookVector(). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->lookVector;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -401,15 +380,13 @@ public:
 	// SPK::Vector3D SPK::Oriented3DRendererInterface::upVector()
 	static int _bind_getUpVector(lua_State *L) {
 		if (!_lg_typecheck_getUpVector(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented3DRendererInterface::upVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented3DRendererInterface::upVector()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in SPK::Vector3D SPK::Oriented3DRendererInterface::upVector() function, expected prototype:\nSPK::Vector3D SPK::Oriented3DRendererInterface::upVector()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		SPK::Oriented3DRendererInterface* self=(Luna< SPK::Oriented3DRendererInterface >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented3DRendererInterface::upVector(). Got : '%s'",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call SPK::Vector3D SPK::Oriented3DRendererInterface::upVector(). Got : '%s'\n%s",typeid(Luna< SPK::Oriented3DRendererInterface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const SPK::Vector3D* lret = &self->upVector;
 		if(!lret) return 0; // Do not write NULL pointers.

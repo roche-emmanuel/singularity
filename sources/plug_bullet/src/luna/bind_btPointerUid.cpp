@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPointerUid*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPointerUid*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPointerUid* rhs =(Luna< btPointerUid >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPointerUid* self= (btPointerUid*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPointerUid >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -125,15 +121,13 @@ public:
 	// void * btPointerUid::m_ptr()
 	static int _bind_getPtr(lua_State *L) {
 		if (!_lg_typecheck_getPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btPointerUid::m_ptr() function, expected prototype:\nvoid * btPointerUid::m_ptr()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btPointerUid::m_ptr() function, expected prototype:\nvoid * btPointerUid::m_ptr()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPointerUid* self=(Luna< btPointerUid >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btPointerUid::m_ptr(). Got : '%s'",typeid(Luna< btPointerUid >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btPointerUid::m_ptr(). Got : '%s'\n%s",typeid(Luna< btPointerUid >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_ptr;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -146,16 +140,14 @@ public:
 	// void btPointerUid::m_ptr(void * value)
 	static int _bind_setPtr(lua_State *L) {
 		if (!_lg_typecheck_setPtr(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPointerUid::m_ptr(void * value) function, expected prototype:\nvoid btPointerUid::m_ptr(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPointerUid::m_ptr(void * value) function, expected prototype:\nvoid btPointerUid::m_ptr(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btPointerUid* self=(Luna< btPointerUid >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPointerUid::m_ptr(void *). Got : '%s'",typeid(Luna< btPointerUid >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPointerUid::m_ptr(void *). Got : '%s'\n%s",typeid(Luna< btPointerUid >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_ptr = value;
 

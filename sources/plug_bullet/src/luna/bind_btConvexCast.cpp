@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexCast* self=(Luna< btConvexCast >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexCast*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btConvexCast*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexCast* rhs =(Luna< btConvexCast >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexCast* self= (btConvexCast*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConvexCast >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -154,8 +149,7 @@ public:
 	// btConvexCast::btConvexCast(lua_Table * data)
 	static btConvexCast* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexCast::btConvexCast(lua_Table * data) function, expected prototype:\nbtConvexCast::btConvexCast(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexCast::btConvexCast(lua_Table * data) function, expected prototype:\nbtConvexCast::btConvexCast(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -167,8 +161,7 @@ public:
 	// bool btConvexCast::calcTimeOfImpact(const btTransform & fromA, const btTransform & toA, const btTransform & fromB, const btTransform & toB, btConvexCast::CastResult & result)
 	static int _bind_calcTimeOfImpact(lua_State *L) {
 		if (!_lg_typecheck_calcTimeOfImpact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btConvexCast::calcTimeOfImpact(const btTransform & fromA, const btTransform & toA, const btTransform & fromB, const btTransform & toB, btConvexCast::CastResult & result) function, expected prototype:\nbool btConvexCast::calcTimeOfImpact(const btTransform & fromA, const btTransform & toA, const btTransform & fromB, const btTransform & toB, btConvexCast::CastResult & result)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 13247377\narg 5 ID = 12958328\n");
+			luaL_error(L, "luna typecheck failed in bool btConvexCast::calcTimeOfImpact(const btTransform & fromA, const btTransform & toA, const btTransform & fromB, const btTransform & toB, btConvexCast::CastResult & result) function, expected prototype:\nbool btConvexCast::calcTimeOfImpact(const btTransform & fromA, const btTransform & toA, const btTransform & fromB, const btTransform & toB, btConvexCast::CastResult & result)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 13247377\narg 5 ID = 12958328\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* fromA_ptr=(Luna< btTransform >::check(L,2));
@@ -199,8 +192,7 @@ public:
 
 		btConvexCast* self=(Luna< btConvexCast >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btConvexCast::calcTimeOfImpact(const btTransform &, const btTransform &, const btTransform &, const btTransform &, btConvexCast::CastResult &). Got : '%s'",typeid(Luna< btConvexCast >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btConvexCast::calcTimeOfImpact(const btTransform &, const btTransform &, const btTransform &, const btTransform &, btConvexCast::CastResult &). Got : '%s'\n%s",typeid(Luna< btConvexCast >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->calcTimeOfImpact(fromA, toA, fromB, toB, result);
 		lua_pushboolean(L,lret?1:0);

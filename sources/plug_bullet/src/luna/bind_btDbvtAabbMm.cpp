@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvtAabbMm*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvtAabbMm*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvtAabbMm* rhs =(Luna< btDbvtAabbMm >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvtAabbMm* self= (btDbvtAabbMm*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDbvtAabbMm >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -157,8 +153,8 @@ public:
 		if( lua_gettop(L)!=4 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -166,7 +162,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -194,7 +190,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -210,7 +206,7 @@ public:
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,91544891)) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -224,15 +220,13 @@ public:
 	// btVector3 btDbvtAabbMm::Center() const
 	static int _bind_Center(lua_State *L) {
 		if (!_lg_typecheck_Center(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btDbvtAabbMm::Center() const function, expected prototype:\nbtVector3 btDbvtAabbMm::Center() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btDbvtAabbMm::Center() const function, expected prototype:\nbtVector3 btDbvtAabbMm::Center() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btDbvtAabbMm::Center() const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btDbvtAabbMm::Center() const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->Center();
 		btVector3* lret = new btVector3(stack_lret);
@@ -246,15 +240,13 @@ public:
 	// btVector3 btDbvtAabbMm::Lengths() const
 	static int _bind_Lengths(lua_State *L) {
 		if (!_lg_typecheck_Lengths(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btDbvtAabbMm::Lengths() const function, expected prototype:\nbtVector3 btDbvtAabbMm::Lengths() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btDbvtAabbMm::Lengths() const function, expected prototype:\nbtVector3 btDbvtAabbMm::Lengths() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btDbvtAabbMm::Lengths() const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btDbvtAabbMm::Lengths() const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->Lengths();
 		btVector3* lret = new btVector3(stack_lret);
@@ -268,15 +260,13 @@ public:
 	// btVector3 btDbvtAabbMm::Extents() const
 	static int _bind_Extents(lua_State *L) {
 		if (!_lg_typecheck_Extents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btDbvtAabbMm::Extents() const function, expected prototype:\nbtVector3 btDbvtAabbMm::Extents() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btDbvtAabbMm::Extents() const function, expected prototype:\nbtVector3 btDbvtAabbMm::Extents() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btDbvtAabbMm::Extents() const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btDbvtAabbMm::Extents() const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->Extents();
 		btVector3* lret = new btVector3(stack_lret);
@@ -290,15 +280,13 @@ public:
 	// const btVector3 & btDbvtAabbMm::Mins() const
 	static int _bind_Mins(lua_State *L) {
 		if (!_lg_typecheck_Mins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btDbvtAabbMm::Mins() const function, expected prototype:\nconst btVector3 & btDbvtAabbMm::Mins() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btDbvtAabbMm::Mins() const function, expected prototype:\nconst btVector3 & btDbvtAabbMm::Mins() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btDbvtAabbMm::Mins() const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btDbvtAabbMm::Mins() const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->Mins();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -311,15 +299,13 @@ public:
 	// const btVector3 & btDbvtAabbMm::Maxs() const
 	static int _bind_Maxs(lua_State *L) {
 		if (!_lg_typecheck_Maxs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btDbvtAabbMm::Maxs() const function, expected prototype:\nconst btVector3 & btDbvtAabbMm::Maxs() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btDbvtAabbMm::Maxs() const function, expected prototype:\nconst btVector3 & btDbvtAabbMm::Maxs() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btDbvtAabbMm::Maxs() const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btDbvtAabbMm::Maxs() const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->Maxs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -332,8 +318,7 @@ public:
 	// void btDbvtAabbMm::Expand(const btVector3 & e)
 	static int _bind_Expand(lua_State *L) {
 		if (!_lg_typecheck_Expand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvtAabbMm::Expand(const btVector3 & e) function, expected prototype:\nvoid btDbvtAabbMm::Expand(const btVector3 & e)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btDbvtAabbMm::Expand(const btVector3 & e) function, expected prototype:\nvoid btDbvtAabbMm::Expand(const btVector3 & e)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* e_ptr=(Luna< btVector3 >::check(L,2));
@@ -344,8 +329,7 @@ public:
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvtAabbMm::Expand(const btVector3 &). Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvtAabbMm::Expand(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Expand(e);
 
@@ -355,8 +339,7 @@ public:
 	// void btDbvtAabbMm::SignedExpand(const btVector3 & e)
 	static int _bind_SignedExpand(lua_State *L) {
 		if (!_lg_typecheck_SignedExpand(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvtAabbMm::SignedExpand(const btVector3 & e) function, expected prototype:\nvoid btDbvtAabbMm::SignedExpand(const btVector3 & e)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btDbvtAabbMm::SignedExpand(const btVector3 & e) function, expected prototype:\nvoid btDbvtAabbMm::SignedExpand(const btVector3 & e)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* e_ptr=(Luna< btVector3 >::check(L,2));
@@ -367,8 +350,7 @@ public:
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvtAabbMm::SignedExpand(const btVector3 &). Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvtAabbMm::SignedExpand(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SignedExpand(e);
 
@@ -378,8 +360,7 @@ public:
 	// bool btDbvtAabbMm::Contain(const btDbvtAabbMm & a) const
 	static int _bind_Contain(lua_State *L) {
 		if (!_lg_typecheck_Contain(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btDbvtAabbMm::Contain(const btDbvtAabbMm & a) const function, expected prototype:\nbool btDbvtAabbMm::Contain(const btDbvtAabbMm & a) const\nClass arguments details:\narg 1 ID = 88504824\n");
+			luaL_error(L, "luna typecheck failed in bool btDbvtAabbMm::Contain(const btDbvtAabbMm & a) const function, expected prototype:\nbool btDbvtAabbMm::Contain(const btDbvtAabbMm & a) const\nClass arguments details:\narg 1 ID = 88504824\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtAabbMm* a_ptr=(Luna< btDbvtAabbMm >::check(L,2));
@@ -390,8 +371,7 @@ public:
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btDbvtAabbMm::Contain(const btDbvtAabbMm &) const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btDbvtAabbMm::Contain(const btDbvtAabbMm &) const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Contain(a);
 		lua_pushboolean(L,lret?1:0);
@@ -402,8 +382,7 @@ public:
 	// int btDbvtAabbMm::Classify(const btVector3 & n, float o, int s) const
 	static int _bind_Classify(lua_State *L) {
 		if (!_lg_typecheck_Classify(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btDbvtAabbMm::Classify(const btVector3 & n, float o, int s) const function, expected prototype:\nint btDbvtAabbMm::Classify(const btVector3 & n, float o, int s) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in int btDbvtAabbMm::Classify(const btVector3 & n, float o, int s) const function, expected prototype:\nint btDbvtAabbMm::Classify(const btVector3 & n, float o, int s) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* n_ptr=(Luna< btVector3 >::check(L,2));
@@ -416,8 +395,7 @@ public:
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btDbvtAabbMm::Classify(const btVector3 &, float, int) const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btDbvtAabbMm::Classify(const btVector3 &, float, int) const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Classify(n, o, s);
 		lua_pushnumber(L,lret);
@@ -428,8 +406,7 @@ public:
 	// float btDbvtAabbMm::ProjectMinimum(const btVector3 & v, unsigned int signs) const
 	static int _bind_ProjectMinimum(lua_State *L) {
 		if (!_lg_typecheck_ProjectMinimum(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btDbvtAabbMm::ProjectMinimum(const btVector3 & v, unsigned int signs) const function, expected prototype:\nfloat btDbvtAabbMm::ProjectMinimum(const btVector3 & v, unsigned int signs) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btDbvtAabbMm::ProjectMinimum(const btVector3 & v, unsigned int signs) const function, expected prototype:\nfloat btDbvtAabbMm::ProjectMinimum(const btVector3 & v, unsigned int signs) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v_ptr=(Luna< btVector3 >::check(L,2));
@@ -441,8 +418,7 @@ public:
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btDbvtAabbMm::ProjectMinimum(const btVector3 &, unsigned int) const. Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btDbvtAabbMm::ProjectMinimum(const btVector3 &, unsigned int) const. Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->ProjectMinimum(v, signs);
 		lua_pushnumber(L,lret);
@@ -453,15 +429,13 @@ public:
 	// btVector3 & btDbvtAabbMm::tMins()
 	static int _bind_tMins(lua_State *L) {
 		if (!_lg_typecheck_tMins(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 & btDbvtAabbMm::tMins() function, expected prototype:\nbtVector3 & btDbvtAabbMm::tMins()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 & btDbvtAabbMm::tMins() function, expected prototype:\nbtVector3 & btDbvtAabbMm::tMins()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 & btDbvtAabbMm::tMins(). Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 & btDbvtAabbMm::tMins(). Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->tMins();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -474,15 +448,13 @@ public:
 	// btVector3 & btDbvtAabbMm::tMaxs()
 	static int _bind_tMaxs(lua_State *L) {
 		if (!_lg_typecheck_tMaxs(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 & btDbvtAabbMm::tMaxs() function, expected prototype:\nbtVector3 & btDbvtAabbMm::tMaxs()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 & btDbvtAabbMm::tMaxs() function, expected prototype:\nbtVector3 & btDbvtAabbMm::tMaxs()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btDbvtAabbMm* self=(Luna< btDbvtAabbMm >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 & btDbvtAabbMm::tMaxs(). Got : '%s'",typeid(Luna< btDbvtAabbMm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 & btDbvtAabbMm::tMaxs(). Got : '%s'\n%s",typeid(Luna< btDbvtAabbMm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->tMaxs();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -495,8 +467,7 @@ public:
 	// static btDbvtAabbMm btDbvtAabbMm::FromCE(const btVector3 & c, const btVector3 & e)
 	static int _bind_FromCE(lua_State *L) {
 		if (!_lg_typecheck_FromCE(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromCE(const btVector3 & c, const btVector3 & e) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromCE(const btVector3 & c, const btVector3 & e)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromCE(const btVector3 & c, const btVector3 & e) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromCE(const btVector3 & c, const btVector3 & e)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* c_ptr=(Luna< btVector3 >::check(L,1));
@@ -522,8 +493,7 @@ public:
 	// static btDbvtAabbMm btDbvtAabbMm::FromCR(const btVector3 & c, float r)
 	static int _bind_FromCR(lua_State *L) {
 		if (!_lg_typecheck_FromCR(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromCR(const btVector3 & c, float r) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromCR(const btVector3 & c, float r)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromCR(const btVector3 & c, float r) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromCR(const btVector3 & c, float r)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* c_ptr=(Luna< btVector3 >::check(L,1));
@@ -545,8 +515,7 @@ public:
 	// static btDbvtAabbMm btDbvtAabbMm::FromMM(const btVector3 & mi, const btVector3 & mx)
 	static int _bind_FromMM(lua_State *L) {
 		if (!_lg_typecheck_FromMM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromMM(const btVector3 & mi, const btVector3 & mx) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromMM(const btVector3 & mi, const btVector3 & mx)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromMM(const btVector3 & mi, const btVector3 & mx) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromMM(const btVector3 & mi, const btVector3 & mx)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* mi_ptr=(Luna< btVector3 >::check(L,1));
@@ -572,8 +541,7 @@ public:
 	// static btDbvtAabbMm btDbvtAabbMm::FromPoints(const btVector3 * pts, int n)
 	static int _bind_FromPoints(lua_State *L) {
 		if (!_lg_typecheck_FromPoints(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromPoints(const btVector3 * pts, int n) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromPoints(const btVector3 * pts, int n)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in static btDbvtAabbMm btDbvtAabbMm::FromPoints(const btVector3 * pts, int n) function, expected prototype:\nstatic btDbvtAabbMm btDbvtAabbMm::FromPoints(const btVector3 * pts, int n)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* pts=(Luna< btVector3 >::check(L,1));

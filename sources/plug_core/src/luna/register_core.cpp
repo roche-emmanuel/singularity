@@ -47,7 +47,6 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	luna_popModule(L);
 	luna_pushModule(L,"sgt");
 	Luna< osg::ref_ptr< osg::Referenced > >::Register(L);
-	Luna< OpenThreads::ScopedLock< OpenThreads::Mutex > >::Register(L);
 	Luna< sgt::Object >::Register(L);
 	Luna< sgt::Referenced >::Register(L);
 	Luna< sgt::TimeProvider >::Register(L);
@@ -71,6 +70,7 @@ int PLUG_EXPORT luaopen_core(lua_State* L) {
 	Luna< std::ostream >::Register(L);
 	luna_popModule(L);
 	luna_pushModule(L,"sgt");
+	Luna< OpenThreads::ScopedLock< OpenThreads::Mutex > >::Register(L);
 	Luna< std::vector< int > >::Register(L);
 	Luna< std::vector< float > >::Register(L);
 	Luna< std::vector< double > >::Register(L);

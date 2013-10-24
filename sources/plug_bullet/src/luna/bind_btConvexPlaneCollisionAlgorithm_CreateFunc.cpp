@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmCreateFunc* self=(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self= (btConvexPlaneCollisionAlgorithm::CreateFunc*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
@@ -128,14 +125,14 @@ public:
 	inline static bool _lg_typecheck_setNumPerturbationIterations(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setMinimumPointsPerturbationThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -156,8 +153,7 @@ public:
 	// btConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc()
 	static btConvexPlaneCollisionAlgorithm::CreateFunc* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc() function, expected prototype:\nbtConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc() function, expected prototype:\nbtConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -167,8 +163,7 @@ public:
 	// btConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc(lua_Table * data)
 	static btConvexPlaneCollisionAlgorithm::CreateFunc* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc(lua_Table * data) function, expected prototype:\nbtConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc(lua_Table * data) function, expected prototype:\nbtConvexPlaneCollisionAlgorithm::CreateFunc::CreateFunc(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -189,8 +184,7 @@ public:
 	// btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_CreateCollisionAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_CreateCollisionAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmConstructionInfo* ci_ptr=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,2));
@@ -203,8 +197,7 @@ public:
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self=Luna< btCollisionAlgorithmCreateFunc >::checkSubType< btConvexPlaneCollisionAlgorithm::CreateFunc >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionAlgorithm * lret = self->CreateCollisionAlgorithm(ci, body0Wrap, body1Wrap);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -217,15 +210,13 @@ public:
 	// int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations()
 	static int _bind_getNumPerturbationIterations(lua_State *L) {
 		if (!_lg_typecheck_getNumPerturbationIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations() function, expected prototype:\nint btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations() function, expected prototype:\nint btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self=Luna< btCollisionAlgorithmCreateFunc >::checkSubType< btConvexPlaneCollisionAlgorithm::CreateFunc >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_numPerturbationIterations;
 		lua_pushnumber(L,lret);
@@ -236,15 +227,13 @@ public:
 	// int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()
 	static int _bind_getMinimumPointsPerturbationThreshold(lua_State *L) {
 		if (!_lg_typecheck_getMinimumPointsPerturbationThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold() function, expected prototype:\nint btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold() function, expected prototype:\nint btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self=Luna< btCollisionAlgorithmCreateFunc >::checkSubType< btConvexPlaneCollisionAlgorithm::CreateFunc >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->m_minimumPointsPerturbationThreshold;
 		lua_pushnumber(L,lret);
@@ -255,16 +244,14 @@ public:
 	// void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value)
 	static int _bind_setNumPerturbationIterations(lua_State *L) {
 		if (!_lg_typecheck_setNumPerturbationIterations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value) function, expected prototype:\nvoid btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value) function, expected prototype:\nvoid btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self=Luna< btCollisionAlgorithmCreateFunc >::checkSubType< btConvexPlaneCollisionAlgorithm::CreateFunc >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPlaneCollisionAlgorithm::CreateFunc::m_numPerturbationIterations(int). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_numPerturbationIterations = value;
 
@@ -274,16 +261,14 @@ public:
 	// void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)
 	static int _bind_setMinimumPointsPerturbationThreshold(lua_State *L) {
 		if (!_lg_typecheck_setMinimumPointsPerturbationThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value) function, expected prototype:\nvoid btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value) function, expected prototype:\nvoid btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self=Luna< btCollisionAlgorithmCreateFunc >::checkSubType< btConvexPlaneCollisionAlgorithm::CreateFunc >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexPlaneCollisionAlgorithm::CreateFunc::m_minimumPointsPerturbationThreshold(int). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_minimumPointsPerturbationThreshold = value;
 
@@ -293,8 +278,7 @@ public:
 	// btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_base_CreateCollisionAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_base_CreateCollisionAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmConstructionInfo* ci_ptr=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,2));
@@ -307,8 +291,7 @@ public:
 
 		btConvexPlaneCollisionAlgorithm::CreateFunc* self=Luna< btCollisionAlgorithmCreateFunc >::checkSubType< btConvexPlaneCollisionAlgorithm::CreateFunc >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btConvexPlaneCollisionAlgorithm::CreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionAlgorithm * lret = self->CreateFunc::CreateCollisionAlgorithm(ci, body0Wrap, body1Wrap);
 		if(!lret) return 0; // Do not write NULL pointers.

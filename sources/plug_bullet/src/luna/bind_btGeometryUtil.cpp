@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGeometryUtil*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGeometryUtil*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGeometryUtil* rhs =(Luna< btGeometryUtil >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGeometryUtil* self= (btGeometryUtil*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btGeometryUtil >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -123,7 +119,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,89770050) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -132,7 +128,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,2,89770050) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -146,8 +142,7 @@ public:
 	// static void btGeometryUtil::getPlaneEquationsFromVertices(btAlignedObjectArray< btVector3 > & vertices, btAlignedObjectArray< btVector3 > & planeEquationsOut)
 	static int _bind_getPlaneEquationsFromVertices(lua_State *L) {
 		if (!_lg_typecheck_getPlaneEquationsFromVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void btGeometryUtil::getPlaneEquationsFromVertices(btAlignedObjectArray< btVector3 > & vertices, btAlignedObjectArray< btVector3 > & planeEquationsOut) function, expected prototype:\nstatic void btGeometryUtil::getPlaneEquationsFromVertices(btAlignedObjectArray< btVector3 > & vertices, btAlignedObjectArray< btVector3 > & planeEquationsOut)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in static void btGeometryUtil::getPlaneEquationsFromVertices(btAlignedObjectArray< btVector3 > & vertices, btAlignedObjectArray< btVector3 > & planeEquationsOut) function, expected prototype:\nstatic void btGeometryUtil::getPlaneEquationsFromVertices(btAlignedObjectArray< btVector3 > & vertices, btAlignedObjectArray< btVector3 > & planeEquationsOut)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* vertices_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,1));
@@ -169,8 +164,7 @@ public:
 	// static void btGeometryUtil::getVerticesFromPlaneEquations(const btAlignedObjectArray< btVector3 > & planeEquations, btAlignedObjectArray< btVector3 > & verticesOut)
 	static int _bind_getVerticesFromPlaneEquations(lua_State *L) {
 		if (!_lg_typecheck_getVerticesFromPlaneEquations(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void btGeometryUtil::getVerticesFromPlaneEquations(const btAlignedObjectArray< btVector3 > & planeEquations, btAlignedObjectArray< btVector3 > & verticesOut) function, expected prototype:\nstatic void btGeometryUtil::getVerticesFromPlaneEquations(const btAlignedObjectArray< btVector3 > & planeEquations, btAlignedObjectArray< btVector3 > & verticesOut)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in static void btGeometryUtil::getVerticesFromPlaneEquations(const btAlignedObjectArray< btVector3 > & planeEquations, btAlignedObjectArray< btVector3 > & verticesOut) function, expected prototype:\nstatic void btGeometryUtil::getVerticesFromPlaneEquations(const btAlignedObjectArray< btVector3 > & planeEquations, btAlignedObjectArray< btVector3 > & verticesOut)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btAlignedObjectArray< btVector3 >* planeEquations_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,1));
@@ -192,8 +186,7 @@ public:
 	// static bool btGeometryUtil::isPointInsidePlanes(const btAlignedObjectArray< btVector3 > & planeEquations, const btVector3 & point, float margin)
 	static int _bind_isPointInsidePlanes(lua_State *L) {
 		if (!_lg_typecheck_isPointInsidePlanes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btGeometryUtil::isPointInsidePlanes(const btAlignedObjectArray< btVector3 > & planeEquations, const btVector3 & point, float margin) function, expected prototype:\nstatic bool btGeometryUtil::isPointInsidePlanes(const btAlignedObjectArray< btVector3 > & planeEquations, const btVector3 & point, float margin)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in static bool btGeometryUtil::isPointInsidePlanes(const btAlignedObjectArray< btVector3 > & planeEquations, const btVector3 & point, float margin) function, expected prototype:\nstatic bool btGeometryUtil::isPointInsidePlanes(const btAlignedObjectArray< btVector3 > & planeEquations, const btVector3 & point, float margin)\nClass arguments details:\narg 1 ID = [unknown]\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btAlignedObjectArray< btVector3 >* planeEquations_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,1));
@@ -217,8 +210,7 @@ public:
 	// static bool btGeometryUtil::areVerticesBehindPlane(const btVector3 & planeNormal, const btAlignedObjectArray< btVector3 > & vertices, float margin)
 	static int _bind_areVerticesBehindPlane(lua_State *L) {
 		if (!_lg_typecheck_areVerticesBehindPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static bool btGeometryUtil::areVerticesBehindPlane(const btVector3 & planeNormal, const btAlignedObjectArray< btVector3 > & vertices, float margin) function, expected prototype:\nstatic bool btGeometryUtil::areVerticesBehindPlane(const btVector3 & planeNormal, const btAlignedObjectArray< btVector3 > & vertices, float margin)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in static bool btGeometryUtil::areVerticesBehindPlane(const btVector3 & planeNormal, const btAlignedObjectArray< btVector3 > & vertices, float margin) function, expected prototype:\nstatic bool btGeometryUtil::areVerticesBehindPlane(const btVector3 & planeNormal, const btAlignedObjectArray< btVector3 > & vertices, float margin)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* planeNormal_ptr=(Luna< btVector3 >::check(L,1));

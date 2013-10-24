@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btHashPtr*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btHashPtr*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btHashPtr* rhs =(Luna< btHashPtr >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btHashPtr* self= (btHashPtr*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btHashPtr >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -136,11 +132,10 @@ public:
 	// btHashPtr::btHashPtr(const void * ptr)
 	static btHashPtr* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btHashPtr::btHashPtr(const void * ptr) function, expected prototype:\nbtHashPtr::btHashPtr(const void * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btHashPtr::btHashPtr(const void * ptr) function, expected prototype:\nbtHashPtr::btHashPtr(const void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* ptr=(Luna< void >::check(L,1));
+		const void* ptr=(Luna< void >::check(L,1));
 
 		return new btHashPtr(ptr);
 	}
@@ -150,15 +145,13 @@ public:
 	// const void * btHashPtr::getPointer() const
 	static int _bind_getPointer(lua_State *L) {
 		if (!_lg_typecheck_getPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const void * btHashPtr::getPointer() const function, expected prototype:\nconst void * btHashPtr::getPointer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const void * btHashPtr::getPointer() const function, expected prototype:\nconst void * btHashPtr::getPointer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHashPtr* self=(Luna< btHashPtr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const void * btHashPtr::getPointer() const. Got : '%s'",typeid(Luna< btHashPtr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const void * btHashPtr::getPointer() const. Got : '%s'\n%s",typeid(Luna< btHashPtr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const void * lret = self->getPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -171,8 +164,7 @@ public:
 	// bool btHashPtr::equals(const btHashPtr & other) const
 	static int _bind_equals(lua_State *L) {
 		if (!_lg_typecheck_equals(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btHashPtr::equals(const btHashPtr & other) const function, expected prototype:\nbool btHashPtr::equals(const btHashPtr & other) const\nClass arguments details:\narg 1 ID = 66366932\n");
+			luaL_error(L, "luna typecheck failed in bool btHashPtr::equals(const btHashPtr & other) const function, expected prototype:\nbool btHashPtr::equals(const btHashPtr & other) const\nClass arguments details:\narg 1 ID = 66366932\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btHashPtr* other_ptr=(Luna< btHashPtr >::check(L,2));
@@ -183,8 +175,7 @@ public:
 
 		btHashPtr* self=(Luna< btHashPtr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btHashPtr::equals(const btHashPtr &) const. Got : '%s'",typeid(Luna< btHashPtr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btHashPtr::equals(const btHashPtr &) const. Got : '%s'\n%s",typeid(Luna< btHashPtr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->equals(other);
 		lua_pushboolean(L,lret?1:0);
@@ -195,15 +186,13 @@ public:
 	// unsigned int btHashPtr::getHash() const
 	static int _bind_getHash(lua_State *L) {
 		if (!_lg_typecheck_getHash(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int btHashPtr::getHash() const function, expected prototype:\nunsigned int btHashPtr::getHash() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int btHashPtr::getHash() const function, expected prototype:\nunsigned int btHashPtr::getHash() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btHashPtr* self=(Luna< btHashPtr >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int btHashPtr::getHash() const. Got : '%s'",typeid(Luna< btHashPtr >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int btHashPtr::getHash() const. Got : '%s'\n%s",typeid(Luna< btHashPtr >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->getHash();
 		lua_pushnumber(L,lret);

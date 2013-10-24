@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2GearJointDef* self= (b2GearJointDef*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2JointDef >::check(L,1));
@@ -106,7 +104,7 @@ public:
 	inline static bool _lg_typecheck_setRatio(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -118,8 +116,7 @@ public:
 	// b2GearJointDef::b2GearJointDef()
 	static b2GearJointDef* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2GearJointDef::b2GearJointDef() function, expected prototype:\nb2GearJointDef::b2GearJointDef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2GearJointDef::b2GearJointDef() function, expected prototype:\nb2GearJointDef::b2GearJointDef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -131,15 +128,13 @@ public:
 	// b2Joint * b2GearJointDef::joint1()
 	static int _bind_getJoint1(lua_State *L) {
 		if (!_lg_typecheck_getJoint1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Joint * b2GearJointDef::joint1() function, expected prototype:\nb2Joint * b2GearJointDef::joint1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Joint * b2GearJointDef::joint1() function, expected prototype:\nb2Joint * b2GearJointDef::joint1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2GearJointDef* self=Luna< b2JointDef >::checkSubType< b2GearJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Joint * b2GearJointDef::joint1(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Joint * b2GearJointDef::joint1(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Joint * lret = self->joint1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -152,15 +147,13 @@ public:
 	// b2Joint * b2GearJointDef::joint2()
 	static int _bind_getJoint2(lua_State *L) {
 		if (!_lg_typecheck_getJoint2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Joint * b2GearJointDef::joint2() function, expected prototype:\nb2Joint * b2GearJointDef::joint2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Joint * b2GearJointDef::joint2() function, expected prototype:\nb2Joint * b2GearJointDef::joint2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2GearJointDef* self=Luna< b2JointDef >::checkSubType< b2GearJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Joint * b2GearJointDef::joint2(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Joint * b2GearJointDef::joint2(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Joint * lret = self->joint2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -173,15 +166,13 @@ public:
 	// float b2GearJointDef::ratio()
 	static int _bind_getRatio(lua_State *L) {
 		if (!_lg_typecheck_getRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2GearJointDef::ratio() function, expected prototype:\nfloat b2GearJointDef::ratio()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2GearJointDef::ratio() function, expected prototype:\nfloat b2GearJointDef::ratio()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2GearJointDef* self=Luna< b2JointDef >::checkSubType< b2GearJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2GearJointDef::ratio(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2GearJointDef::ratio(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->ratio;
 		lua_pushnumber(L,lret);
@@ -192,16 +183,14 @@ public:
 	// void b2GearJointDef::joint1(b2Joint * value)
 	static int _bind_setJoint1(lua_State *L) {
 		if (!_lg_typecheck_setJoint1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2GearJointDef::joint1(b2Joint * value) function, expected prototype:\nvoid b2GearJointDef::joint1(b2Joint * value)\nClass arguments details:\narg 1 ID = 78564754\n");
+			luaL_error(L, "luna typecheck failed in void b2GearJointDef::joint1(b2Joint * value) function, expected prototype:\nvoid b2GearJointDef::joint1(b2Joint * value)\nClass arguments details:\narg 1 ID = 78564754\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* value=(Luna< b2Joint >::check(L,2));
 
 		b2GearJointDef* self=Luna< b2JointDef >::checkSubType< b2GearJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2GearJointDef::joint1(b2Joint *). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2GearJointDef::joint1(b2Joint *). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->joint1 = value;
 
@@ -211,16 +200,14 @@ public:
 	// void b2GearJointDef::joint2(b2Joint * value)
 	static int _bind_setJoint2(lua_State *L) {
 		if (!_lg_typecheck_setJoint2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2GearJointDef::joint2(b2Joint * value) function, expected prototype:\nvoid b2GearJointDef::joint2(b2Joint * value)\nClass arguments details:\narg 1 ID = 78564754\n");
+			luaL_error(L, "luna typecheck failed in void b2GearJointDef::joint2(b2Joint * value) function, expected prototype:\nvoid b2GearJointDef::joint2(b2Joint * value)\nClass arguments details:\narg 1 ID = 78564754\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Joint* value=(Luna< b2Joint >::check(L,2));
 
 		b2GearJointDef* self=Luna< b2JointDef >::checkSubType< b2GearJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2GearJointDef::joint2(b2Joint *). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2GearJointDef::joint2(b2Joint *). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->joint2 = value;
 
@@ -230,16 +217,14 @@ public:
 	// void b2GearJointDef::ratio(float value)
 	static int _bind_setRatio(lua_State *L) {
 		if (!_lg_typecheck_setRatio(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2GearJointDef::ratio(float value) function, expected prototype:\nvoid b2GearJointDef::ratio(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2GearJointDef::ratio(float value) function, expected prototype:\nvoid b2GearJointDef::ratio(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2GearJointDef* self=Luna< b2JointDef >::checkSubType< b2GearJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2GearJointDef::ratio(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2GearJointDef::ratio(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ratio = value;
 

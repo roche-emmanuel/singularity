@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		osg::Referenced* self=(Luna< osg::Referenced >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		BoolCallback* self= (BoolCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< osg::Referenced >::check(L,1));
@@ -135,8 +132,7 @@ public:
 	// BoolCallback::BoolCallback(lua_Table * data)
 	static BoolCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in BoolCallback::BoolCallback(lua_Table * data) function, expected prototype:\nBoolCallback::BoolCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in BoolCallback::BoolCallback(lua_Table * data) function, expected prototype:\nBoolCallback::BoolCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -148,11 +144,10 @@ public:
 	// static void BoolCallback::setCallback(const void * value, void * clientData)
 	static int _bind_setCallback(lua_State *L) {
 		if (!_lg_typecheck_setCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void BoolCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void BoolCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void BoolCallback::setCallback(const void * value, void * clientData) function, expected prototype:\nstatic void BoolCallback::setCallback(const void * value, void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* value=(Luna< void >::check(L,1));
+		const void* value=(Luna< void >::check(L,1));
 		void* clientData=(Luna< void >::check(L,2));
 
 		BoolCallback::setCallback(value, clientData);
@@ -163,8 +158,7 @@ public:
 	// static void BoolCallback::getCallback(void * value, void * clientData)
 	static int _bind_getCallback(lua_State *L) {
 		if (!_lg_typecheck_getCallback(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in static void BoolCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void BoolCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in static void BoolCallback::getCallback(void * value, void * clientData) function, expected prototype:\nstatic void BoolCallback::getCallback(void * value, void * clientData)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,1));
@@ -178,16 +172,14 @@ public:
 	// void BoolCallback::setValue(bool val)
 	static int _bind_setValue(lua_State *L) {
 		if (!_lg_typecheck_setValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void BoolCallback::setValue(bool val) function, expected prototype:\nvoid BoolCallback::setValue(bool val)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void BoolCallback::setValue(bool val) function, expected prototype:\nvoid BoolCallback::setValue(bool val)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool val=(bool)(lua_toboolean(L,2)==1);
 
 		BoolCallback* self=Luna< osg::Referenced >::checkSubType< BoolCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void BoolCallback::setValue(bool). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void BoolCallback::setValue(bool). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setValue(val);
 
@@ -197,15 +189,13 @@ public:
 	// bool BoolCallback::getValue()
 	static int _bind_getValue(lua_State *L) {
 		if (!_lg_typecheck_getValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool BoolCallback::getValue() function, expected prototype:\nbool BoolCallback::getValue()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool BoolCallback::getValue() function, expected prototype:\nbool BoolCallback::getValue()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		BoolCallback* self=Luna< osg::Referenced >::checkSubType< BoolCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool BoolCallback::getValue(). Got : '%s'",typeid(Luna< osg::Referenced >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool BoolCallback::getValue(). Got : '%s'\n%s",typeid(Luna< osg::Referenced >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getValue();
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::RayResultCallback* self=(Luna< btCollisionWorld::RayResultCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::AllHitsRayResultCallback* self= (btCollisionWorld::AllHitsRayResultCallback*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionWorld::RayResultCallback >::check(L,1));
@@ -221,8 +218,7 @@ public:
 	// btCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(const btVector3 & rayFromWorld, const btVector3 & rayToWorld)
 	static btCollisionWorld::AllHitsRayResultCallback* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(const btVector3 & rayFromWorld, const btVector3 & rayToWorld) function, expected prototype:\nbtCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(const btVector3 & rayFromWorld, const btVector3 & rayToWorld)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(const btVector3 & rayFromWorld, const btVector3 & rayToWorld) function, expected prototype:\nbtCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(const btVector3 & rayFromWorld, const btVector3 & rayToWorld)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFromWorld_ptr=(Luna< btVector3 >::check(L,1));
@@ -242,8 +238,7 @@ public:
 	// btCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(lua_Table * data, const btVector3 & rayFromWorld, const btVector3 & rayToWorld)
 	static btCollisionWorld::AllHitsRayResultCallback* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(lua_Table * data, const btVector3 & rayFromWorld, const btVector3 & rayToWorld) function, expected prototype:\nbtCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(lua_Table * data, const btVector3 & rayFromWorld, const btVector3 & rayToWorld)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(lua_Table * data, const btVector3 & rayFromWorld, const btVector3 & rayToWorld) function, expected prototype:\nbtCollisionWorld::AllHitsRayResultCallback::AllHitsRayResultCallback(lua_Table * data, const btVector3 & rayFromWorld, const btVector3 & rayToWorld)\nClass arguments details:\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFromWorld_ptr=(Luna< btVector3 >::check(L,2));
@@ -274,8 +269,7 @@ public:
 	// float btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace)
 	static int _bind_addSingleResult(lua_State *L) {
 		if (!_lg_typecheck_addSingleResult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace) function, expected prototype:\nfloat btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace)\nClass arguments details:\narg 1 ID = 32139575\n");
+			luaL_error(L, "luna typecheck failed in float btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace) function, expected prototype:\nfloat btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace)\nClass arguments details:\narg 1 ID = 32139575\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::LocalRayResult* rayResult_ptr=(Luna< btCollisionWorld::LocalRayResult >::check(L,2));
@@ -287,8 +281,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult &, bool). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btCollisionWorld::AllHitsRayResultCallback::addSingleResult(btCollisionWorld::LocalRayResult &, bool). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->addSingleResult(rayResult, normalInWorldSpace);
 		lua_pushnumber(L,lret);
@@ -299,15 +292,13 @@ public:
 	// btAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects()
 	static int _bind_getCollisionObjects(lua_State *L) {
 		if (!_lg_typecheck_getCollisionObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects() function, expected prototype:\nbtAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects() function, expected prototype:\nbtAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< const btCollisionObject * > btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< const btCollisionObject * >* lret = &self->m_collisionObjects;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -320,15 +311,13 @@ public:
 	// btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld()
 	static int _bind_getRayFromWorld(lua_State *L) {
 		if (!_lg_typecheck_getRayFromWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld() function, expected prototype:\nbtVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld() function, expected prototype:\nbtVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_rayFromWorld;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -341,15 +330,13 @@ public:
 	// btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld()
 	static int _bind_getRayToWorld(lua_State *L) {
 		if (!_lg_typecheck_getRayToWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld() function, expected prototype:\nbtVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld() function, expected prototype:\nbtVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_rayToWorld;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -362,15 +349,13 @@ public:
 	// btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld()
 	static int _bind_getHitNormalWorld(lua_State *L) {
 		if (!_lg_typecheck_getHitNormalWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->m_hitNormalWorld;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -383,15 +368,13 @@ public:
 	// btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld()
 	static int _bind_getHitPointWorld(lua_State *L) {
 		if (!_lg_typecheck_getHitPointWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld() function, expected prototype:\nbtAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< btVector3 > btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< btVector3 >* lret = &self->m_hitPointWorld;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -404,15 +387,13 @@ public:
 	// btAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions()
 	static int _bind_getHitFractions(lua_State *L) {
 		if (!_lg_typecheck_getHitFractions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions() function, expected prototype:\nbtAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions() function, expected prototype:\nbtAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAlignedObjectArray< float > btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btAlignedObjectArray< float >* lret = &self->m_hitFractions;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -425,8 +406,7 @@ public:
 	// void btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * > value)
 	static int _bind_setCollisionObjects(lua_State *L) {
 		if (!_lg_typecheck_setCollisionObjects(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< const btCollisionObject * >* value_ptr=(Luna< btAlignedObjectArray< const btCollisionObject * > >::check(L,2));
@@ -437,8 +417,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * >). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_collisionObjects(btAlignedObjectArray< const btCollisionObject * >). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_collisionObjects = value;
 
@@ -448,8 +427,7 @@ public:
 	// void btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3 value)
 	static int _bind_setRayFromWorld(lua_State *L) {
 		if (!_lg_typecheck_setRayFromWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -460,8 +438,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_rayFromWorld(btVector3). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_rayFromWorld = value;
 
@@ -471,8 +448,7 @@ public:
 	// void btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3 value)
 	static int _bind_setRayToWorld(lua_State *L) {
 		if (!_lg_typecheck_setRayToWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3 value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -483,8 +459,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_rayToWorld(btVector3). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_rayToWorld = value;
 
@@ -494,8 +469,7 @@ public:
 	// void btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setHitNormalWorld(lua_State *L) {
 		if (!_lg_typecheck_setHitNormalWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -506,8 +480,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_hitNormalWorld(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitNormalWorld = value;
 
@@ -517,8 +490,7 @@ public:
 	// void btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 > value)
 	static int _bind_setHitPointWorld(lua_State *L) {
 		if (!_lg_typecheck_setHitPointWorld(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< btVector3 >* value_ptr=(Luna< btAlignedObjectArray< btVector3 > >::check(L,2));
@@ -529,8 +501,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 >). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_hitPointWorld(btAlignedObjectArray< btVector3 >). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitPointWorld = value;
 
@@ -540,8 +511,7 @@ public:
 	// void btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float > value)
 	static int _bind_setHitFractions(lua_State *L) {
 		if (!_lg_typecheck_setHitFractions(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float > value)\nClass arguments details:\narg 1 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float > value) function, expected prototype:\nvoid btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float > value)\nClass arguments details:\narg 1 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btAlignedObjectArray< float >* value_ptr=(Luna< btAlignedObjectArray< float > >::check(L,2));
@@ -552,8 +522,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float >). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionWorld::AllHitsRayResultCallback::m_hitFractions(btAlignedObjectArray< float >). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hitFractions = value;
 
@@ -563,16 +532,14 @@ public:
 	// bool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const
 	static int _bind_base_needsCollision(lua_State *L) {
 		if (!_lg_typecheck_base_needsCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const function, expected prototype:\nbool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const\nClass arguments details:\narg 1 ID = 44086089\n");
+			luaL_error(L, "luna typecheck failed in bool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const function, expected prototype:\nbool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy * proxy0) const\nClass arguments details:\narg 1 ID = 44086089\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btBroadphaseProxy* proxy0=(Luna< btBroadphaseProxy >::check(L,2));
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy *) const. Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btCollisionWorld::AllHitsRayResultCallback::base_needsCollision(btBroadphaseProxy *) const. Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AllHitsRayResultCallback::needsCollision(proxy0);
 		lua_pushboolean(L,lret?1:0);
@@ -583,8 +550,7 @@ public:
 	// float btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace)
 	static int _bind_base_addSingleResult(lua_State *L) {
 		if (!_lg_typecheck_base_addSingleResult(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace) function, expected prototype:\nfloat btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace)\nClass arguments details:\narg 1 ID = 32139575\n");
+			luaL_error(L, "luna typecheck failed in float btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace) function, expected prototype:\nfloat btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult & rayResult, bool normalInWorldSpace)\nClass arguments details:\narg 1 ID = 32139575\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionWorld::LocalRayResult* rayResult_ptr=(Luna< btCollisionWorld::LocalRayResult >::check(L,2));
@@ -596,8 +562,7 @@ public:
 
 		btCollisionWorld::AllHitsRayResultCallback* self=Luna< btCollisionWorld::RayResultCallback >::checkSubType< btCollisionWorld::AllHitsRayResultCallback >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult &, bool). Got : '%s'",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btCollisionWorld::AllHitsRayResultCallback::base_addSingleResult(btCollisionWorld::LocalRayResult &, bool). Got : '%s'\n%s",typeid(Luna< btCollisionWorld::RayResultCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->AllHitsRayResultCallback::addSingleResult(rayResult, normalInWorldSpace);
 		lua_pushnumber(L,lret);

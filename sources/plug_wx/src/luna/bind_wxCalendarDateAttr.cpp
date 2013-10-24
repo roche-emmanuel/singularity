@@ -73,7 +73,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -108,7 +108,7 @@ public:
 		if( luatop>2 && (!(Luna< wxObject >::checkSubType< wxColour >(L,3))) ) return false;
 		if( luatop>3 && !Luna<void>::has_uniqueid(L,4,56813631) ) return false;
 		if( luatop>3 && (!(Luna< wxObject >::checkSubType< wxFont >(L,4))) ) return false;
-		if( luatop>4 && (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -116,7 +116,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		if( luatop>1 && !Luna<void>::has_uniqueid(L,2,56813631) ) return false;
 		if( luatop>1 && (!(Luna< wxObject >::checkSubType< wxColour >(L,2))) ) return false;
 		return true;
@@ -200,7 +200,7 @@ public:
 	inline static bool _lg_typecheck_SetBorder(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2SimplexCache*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2SimplexCache*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2SimplexCache* rhs =(Luna< b2SimplexCache >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2SimplexCache* self= (b2SimplexCache*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2SimplexCache >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -117,14 +113,14 @@ public:
 	inline static bool _lg_typecheck_setMetric(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// float b2SimplexCache::metric()
 	static int _bind_getMetric(lua_State *L) {
 		if (!_lg_typecheck_getMetric(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2SimplexCache::metric() function, expected prototype:\nfloat b2SimplexCache::metric()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2SimplexCache::metric() function, expected prototype:\nfloat b2SimplexCache::metric()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2SimplexCache* self=(Luna< b2SimplexCache >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2SimplexCache::metric(). Got : '%s'",typeid(Luna< b2SimplexCache >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2SimplexCache::metric(). Got : '%s'\n%s",typeid(Luna< b2SimplexCache >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->metric;
 		lua_pushnumber(L,lret);
@@ -157,15 +151,13 @@ public:
 	// unsigned short b2SimplexCache::count()
 	static int _bind_getCount(lua_State *L) {
 		if (!_lg_typecheck_getCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned short b2SimplexCache::count() function, expected prototype:\nunsigned short b2SimplexCache::count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned short b2SimplexCache::count() function, expected prototype:\nunsigned short b2SimplexCache::count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2SimplexCache* self=(Luna< b2SimplexCache >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned short b2SimplexCache::count(). Got : '%s'",typeid(Luna< b2SimplexCache >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned short b2SimplexCache::count(). Got : '%s'\n%s",typeid(Luna< b2SimplexCache >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned short lret = self->count;
 		lua_pushnumber(L,lret);
@@ -176,16 +168,14 @@ public:
 	// void b2SimplexCache::metric(float value)
 	static int _bind_setMetric(lua_State *L) {
 		if (!_lg_typecheck_setMetric(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2SimplexCache::metric(float value) function, expected prototype:\nvoid b2SimplexCache::metric(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2SimplexCache::metric(float value) function, expected prototype:\nvoid b2SimplexCache::metric(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2SimplexCache* self=(Luna< b2SimplexCache >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2SimplexCache::metric(float). Got : '%s'",typeid(Luna< b2SimplexCache >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2SimplexCache::metric(float). Got : '%s'\n%s",typeid(Luna< b2SimplexCache >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->metric = value;
 
@@ -195,16 +185,14 @@ public:
 	// void b2SimplexCache::count(unsigned short value)
 	static int _bind_setCount(lua_State *L) {
 		if (!_lg_typecheck_setCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2SimplexCache::count(unsigned short value) function, expected prototype:\nvoid b2SimplexCache::count(unsigned short value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2SimplexCache::count(unsigned short value) function, expected prototype:\nvoid b2SimplexCache::count(unsigned short value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned short value=(unsigned short)lua_tointeger(L,2);
 
 		b2SimplexCache* self=(Luna< b2SimplexCache >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2SimplexCache::count(unsigned short). Got : '%s'",typeid(Luna< b2SimplexCache >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2SimplexCache::count(unsigned short). Got : '%s'\n%s",typeid(Luna< b2SimplexCache >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->count = value;
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btWheelInfo::RaycastInfo*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btWheelInfo::RaycastInfo*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btWheelInfo::RaycastInfo* rhs =(Luna< btWheelInfo::RaycastInfo >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btWheelInfo::RaycastInfo* self= (btWheelInfo::RaycastInfo*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btWheelInfo::RaycastInfo >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -167,7 +163,7 @@ public:
 	inline static bool _lg_typecheck_setSuspensionLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -216,15 +212,13 @@ public:
 	// btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS()
 	static int _bind_getContactNormalWS(lua_State *L) {
 		if (!_lg_typecheck_getContactNormalWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_contactNormalWS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_contactNormalWS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_contactNormalWS(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_contactNormalWS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -237,15 +231,13 @@ public:
 	// btVector3 btWheelInfo::RaycastInfo::m_contactPointWS()
 	static int _bind_getContactPointWS(lua_State *L) {
 		if (!_lg_typecheck_getContactPointWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_contactPointWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_contactPointWS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_contactPointWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_contactPointWS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_contactPointWS(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_contactPointWS(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_contactPointWS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -258,15 +250,13 @@ public:
 	// float btWheelInfo::RaycastInfo::m_suspensionLength()
 	static int _bind_getSuspensionLength(lua_State *L) {
 		if (!_lg_typecheck_getSuspensionLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btWheelInfo::RaycastInfo::m_suspensionLength() function, expected prototype:\nfloat btWheelInfo::RaycastInfo::m_suspensionLength()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btWheelInfo::RaycastInfo::m_suspensionLength() function, expected prototype:\nfloat btWheelInfo::RaycastInfo::m_suspensionLength()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btWheelInfo::RaycastInfo::m_suspensionLength(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btWheelInfo::RaycastInfo::m_suspensionLength(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_suspensionLength;
 		lua_pushnumber(L,lret);
@@ -277,15 +267,13 @@ public:
 	// btVector3 btWheelInfo::RaycastInfo::m_hardPointWS()
 	static int _bind_getHardPointWS(lua_State *L) {
 		if (!_lg_typecheck_getHardPointWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_hardPointWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_hardPointWS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_hardPointWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_hardPointWS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_hardPointWS(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_hardPointWS(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_hardPointWS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -298,15 +286,13 @@ public:
 	// btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS()
 	static int _bind_getWheelDirectionWS(lua_State *L) {
 		if (!_lg_typecheck_getWheelDirectionWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_wheelDirectionWS(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_wheelDirectionWS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -319,15 +305,13 @@ public:
 	// btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS()
 	static int _bind_getWheelAxleWS(lua_State *L) {
 		if (!_lg_typecheck_getWheelAxleWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS() function, expected prototype:\nbtVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btWheelInfo::RaycastInfo::m_wheelAxleWS(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_wheelAxleWS;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -340,15 +324,13 @@ public:
 	// bool btWheelInfo::RaycastInfo::m_isInContact()
 	static int _bind_getIsInContact(lua_State *L) {
 		if (!_lg_typecheck_getIsInContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btWheelInfo::RaycastInfo::m_isInContact() function, expected prototype:\nbool btWheelInfo::RaycastInfo::m_isInContact()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btWheelInfo::RaycastInfo::m_isInContact() function, expected prototype:\nbool btWheelInfo::RaycastInfo::m_isInContact()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btWheelInfo::RaycastInfo::m_isInContact(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btWheelInfo::RaycastInfo::m_isInContact(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_isInContact;
 		lua_pushboolean(L,lret?1:0);
@@ -359,15 +341,13 @@ public:
 	// void * btWheelInfo::RaycastInfo::m_groundObject()
 	static int _bind_getGroundObject(lua_State *L) {
 		if (!_lg_typecheck_getGroundObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btWheelInfo::RaycastInfo::m_groundObject() function, expected prototype:\nvoid * btWheelInfo::RaycastInfo::m_groundObject()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btWheelInfo::RaycastInfo::m_groundObject() function, expected prototype:\nvoid * btWheelInfo::RaycastInfo::m_groundObject()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btWheelInfo::RaycastInfo::m_groundObject(). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btWheelInfo::RaycastInfo::m_groundObject(). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->m_groundObject;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -380,8 +360,7 @@ public:
 	// void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value)
 	static int _bind_setContactNormalWS(lua_State *L) {
 		if (!_lg_typecheck_setContactNormalWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -392,8 +371,7 @@ public:
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_contactNormalWS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactNormalWS = value;
 
@@ -403,8 +381,7 @@ public:
 	// void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value)
 	static int _bind_setContactPointWS(lua_State *L) {
 		if (!_lg_typecheck_setContactPointWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_contactPointWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -415,8 +392,7 @@ public:
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_contactPointWS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_contactPointWS = value;
 
@@ -426,16 +402,14 @@ public:
 	// void btWheelInfo::RaycastInfo::m_suspensionLength(float value)
 	static int _bind_setSuspensionLength(lua_State *L) {
 		if (!_lg_typecheck_setSuspensionLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_suspensionLength(float value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_suspensionLength(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_suspensionLength(float value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_suspensionLength(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_suspensionLength(float). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_suspensionLength(float). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_suspensionLength = value;
 
@@ -445,8 +419,7 @@ public:
 	// void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value)
 	static int _bind_setHardPointWS(lua_State *L) {
 		if (!_lg_typecheck_setHardPointWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_hardPointWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -457,8 +430,7 @@ public:
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_hardPointWS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hardPointWS = value;
 
@@ -468,8 +440,7 @@ public:
 	// void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value)
 	static int _bind_setWheelDirectionWS(lua_State *L) {
 		if (!_lg_typecheck_setWheelDirectionWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -480,8 +451,7 @@ public:
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_wheelDirectionWS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelDirectionWS = value;
 
@@ -491,8 +461,7 @@ public:
 	// void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value)
 	static int _bind_setWheelAxleWS(lua_State *L) {
 		if (!_lg_typecheck_setWheelAxleWS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -503,8 +472,7 @@ public:
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_wheelAxleWS(btVector3). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_wheelAxleWS = value;
 
@@ -514,16 +482,14 @@ public:
 	// void btWheelInfo::RaycastInfo::m_isInContact(bool value)
 	static int _bind_setIsInContact(lua_State *L) {
 		if (!_lg_typecheck_setIsInContact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_isInContact(bool value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_isInContact(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_isInContact(bool value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_isInContact(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_isInContact(bool). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_isInContact(bool). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_isInContact = value;
 
@@ -533,16 +499,14 @@ public:
 	// void btWheelInfo::RaycastInfo::m_groundObject(void * value)
 	static int _bind_setGroundObject(lua_State *L) {
 		if (!_lg_typecheck_setGroundObject(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_groundObject(void * value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_groundObject(void * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btWheelInfo::RaycastInfo::m_groundObject(void * value) function, expected prototype:\nvoid btWheelInfo::RaycastInfo::m_groundObject(void * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* value=(Luna< void >::check(L,2));
 
 		btWheelInfo::RaycastInfo* self=(Luna< btWheelInfo::RaycastInfo >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_groundObject(void *). Got : '%s'",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btWheelInfo::RaycastInfo::m_groundObject(void *). Got : '%s'\n%s",typeid(Luna< btWheelInfo::RaycastInfo >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_groundObject = value;
 

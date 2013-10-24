@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvt::ICollide*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btDbvt::ICollide*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::ICollide* rhs =(Luna< btDbvt::ICollide >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btDbvt::ICollide* self= (btDbvt::ICollide*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btDbvt::ICollide >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -164,7 +159,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91335778)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btDbvtNode >::check(L,2)) ) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -205,7 +200,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91335778)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btDbvtNode >::check(L,2)) ) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -231,8 +226,7 @@ public:
 	// btDbvt::ICollide::ICollide()
 	static btDbvt::ICollide* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDbvt::ICollide::ICollide() function, expected prototype:\nbtDbvt::ICollide::ICollide()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDbvt::ICollide::ICollide() function, expected prototype:\nbtDbvt::ICollide::ICollide()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -242,8 +236,7 @@ public:
 	// btDbvt::ICollide::ICollide(lua_Table * data)
 	static btDbvt::ICollide* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btDbvt::ICollide::ICollide(lua_Table * data) function, expected prototype:\nbtDbvt::ICollide::ICollide(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btDbvt::ICollide::ICollide(lua_Table * data) function, expected prototype:\nbtDbvt::ICollide::ICollide(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -264,8 +257,7 @@ public:
 	// void btDbvt::ICollide::Process(const btDbvtNode * arg1, const btDbvtNode * arg2)
 	static int _bind_Process_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Process_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::Process(const btDbvtNode * arg1, const btDbvtNode * arg2) function, expected prototype:\nvoid btDbvt::ICollide::Process(const btDbvtNode * arg1, const btDbvtNode * arg2)\nClass arguments details:\narg 1 ID = 91335778\narg 2 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::Process(const btDbvtNode * arg1, const btDbvtNode * arg2) function, expected prototype:\nvoid btDbvt::ICollide::Process(const btDbvtNode * arg1, const btDbvtNode * arg2)\nClass arguments details:\narg 1 ID = 91335778\narg 2 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
@@ -273,8 +265,7 @@ public:
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::Process(const btDbvtNode *, const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::Process(const btDbvtNode *, const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Process(_arg1, _arg2);
 
@@ -284,16 +275,14 @@ public:
 	// void btDbvt::ICollide::Process(const btDbvtNode * arg1)
 	static int _bind_Process_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Process_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::Process(const btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::ICollide::Process(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::Process(const btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::ICollide::Process(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::Process(const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::Process(const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Process(_arg1);
 
@@ -303,8 +292,7 @@ public:
 	// void btDbvt::ICollide::Process(const btDbvtNode * n, float arg2)
 	static int _bind_Process_overload_3(lua_State *L) {
 		if (!_lg_typecheck_Process_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::Process(const btDbvtNode * n, float arg2) function, expected prototype:\nvoid btDbvt::ICollide::Process(const btDbvtNode * n, float arg2)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::Process(const btDbvtNode * n, float arg2) function, expected prototype:\nvoid btDbvt::ICollide::Process(const btDbvtNode * n, float arg2)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* n=(Luna< btDbvtNode >::check(L,2));
@@ -312,8 +300,7 @@ public:
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::Process(const btDbvtNode *, float). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::Process(const btDbvtNode *, float). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Process(n, _arg2);
 
@@ -333,16 +320,14 @@ public:
 	// bool btDbvt::ICollide::Descent(const btDbvtNode * arg1)
 	static int _bind_Descent(lua_State *L) {
 		if (!_lg_typecheck_Descent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::Descent(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::Descent(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::Descent(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::Descent(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::Descent(const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::Descent(const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Descent(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -353,16 +338,14 @@ public:
 	// bool btDbvt::ICollide::AllLeaves(const btDbvtNode * arg1)
 	static int _bind_AllLeaves(lua_State *L) {
 		if (!_lg_typecheck_AllLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::AllLeaves(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::AllLeaves(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::AllLeaves(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::AllLeaves(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::AllLeaves(const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::AllLeaves(const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->AllLeaves(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -373,8 +356,7 @@ public:
 	// void btDbvt::ICollide::base_Process(const btDbvtNode * arg1, const btDbvtNode * arg2)
 	static int _bind_base_Process_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_Process_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::base_Process(const btDbvtNode * arg1, const btDbvtNode * arg2) function, expected prototype:\nvoid btDbvt::ICollide::base_Process(const btDbvtNode * arg1, const btDbvtNode * arg2)\nClass arguments details:\narg 1 ID = 91335778\narg 2 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::base_Process(const btDbvtNode * arg1, const btDbvtNode * arg2) function, expected prototype:\nvoid btDbvt::ICollide::base_Process(const btDbvtNode * arg1, const btDbvtNode * arg2)\nClass arguments details:\narg 1 ID = 91335778\narg 2 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
@@ -382,8 +364,7 @@ public:
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::base_Process(const btDbvtNode *, const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::base_Process(const btDbvtNode *, const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ICollide::Process(_arg1, _arg2);
 
@@ -393,16 +374,14 @@ public:
 	// void btDbvt::ICollide::base_Process(const btDbvtNode * arg1)
 	static int _bind_base_Process_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_Process_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::base_Process(const btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::ICollide::base_Process(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::base_Process(const btDbvtNode * arg1) function, expected prototype:\nvoid btDbvt::ICollide::base_Process(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::base_Process(const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::base_Process(const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ICollide::Process(_arg1);
 
@@ -412,8 +391,7 @@ public:
 	// void btDbvt::ICollide::base_Process(const btDbvtNode * n, float arg2)
 	static int _bind_base_Process_overload_3(lua_State *L) {
 		if (!_lg_typecheck_base_Process_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::base_Process(const btDbvtNode * n, float arg2) function, expected prototype:\nvoid btDbvt::ICollide::base_Process(const btDbvtNode * n, float arg2)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in void btDbvt::ICollide::base_Process(const btDbvtNode * n, float arg2) function, expected prototype:\nvoid btDbvt::ICollide::base_Process(const btDbvtNode * n, float arg2)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* n=(Luna< btDbvtNode >::check(L,2));
@@ -421,8 +399,7 @@ public:
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::base_Process(const btDbvtNode *, float). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDbvt::ICollide::base_Process(const btDbvtNode *, float). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ICollide::Process(n, _arg2);
 
@@ -442,16 +419,14 @@ public:
 	// bool btDbvt::ICollide::base_Descent(const btDbvtNode * arg1)
 	static int _bind_base_Descent(lua_State *L) {
 		if (!_lg_typecheck_base_Descent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::base_Descent(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::base_Descent(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::base_Descent(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::base_Descent(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::base_Descent(const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::base_Descent(const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ICollide::Descent(_arg1);
 		lua_pushboolean(L,lret?1:0);
@@ -462,16 +437,14 @@ public:
 	// bool btDbvt::ICollide::base_AllLeaves(const btDbvtNode * arg1)
 	static int _bind_base_AllLeaves(lua_State *L) {
 		if (!_lg_typecheck_base_AllLeaves(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::base_AllLeaves(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::base_AllLeaves(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n");
+			luaL_error(L, "luna typecheck failed in bool btDbvt::ICollide::base_AllLeaves(const btDbvtNode * arg1) function, expected prototype:\nbool btDbvt::ICollide::base_AllLeaves(const btDbvtNode * arg1)\nClass arguments details:\narg 1 ID = 91335778\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btDbvtNode* _arg1=(Luna< btDbvtNode >::check(L,2));
 
 		btDbvt::ICollide* self=(Luna< btDbvt::ICollide >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::base_AllLeaves(const btDbvtNode *). Got : '%s'",typeid(Luna< btDbvt::ICollide >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btDbvt::ICollide::base_AllLeaves(const btDbvtNode *). Got : '%s'\n%s",typeid(Luna< btDbvt::ICollide >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->ICollide::AllLeaves(_arg1);
 		lua_pushboolean(L,lret?1:0);

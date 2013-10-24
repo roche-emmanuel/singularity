@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2RopeDef*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2RopeDef*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RopeDef* rhs =(Luna< b2RopeDef >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RopeDef* self= (b2RopeDef*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2RopeDef >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -160,7 +156,7 @@ public:
 	inline static bool _lg_typecheck_setCount(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -181,21 +177,21 @@ public:
 	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setK2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setK3(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -207,8 +203,7 @@ public:
 	// b2RopeDef::b2RopeDef()
 	static b2RopeDef* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2RopeDef::b2RopeDef() function, expected prototype:\nb2RopeDef::b2RopeDef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2RopeDef::b2RopeDef() function, expected prototype:\nb2RopeDef::b2RopeDef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -220,15 +215,13 @@ public:
 	// b2Vec2 * b2RopeDef::vertices()
 	static int _bind_getVertices(lua_State *L) {
 		if (!_lg_typecheck_getVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 * b2RopeDef::vertices() function, expected prototype:\nb2Vec2 * b2RopeDef::vertices()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 * b2RopeDef::vertices() function, expected prototype:\nb2Vec2 * b2RopeDef::vertices()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 * b2RopeDef::vertices(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 * b2RopeDef::vertices(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 * lret = self->vertices;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -241,15 +234,13 @@ public:
 	// signed int b2RopeDef::count()
 	static int _bind_getCount(lua_State *L) {
 		if (!_lg_typecheck_getCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2RopeDef::count() function, expected prototype:\nsigned int b2RopeDef::count()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2RopeDef::count() function, expected prototype:\nsigned int b2RopeDef::count()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2RopeDef::count(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2RopeDef::count(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->count;
 		lua_pushnumber(L,lret);
@@ -260,15 +251,13 @@ public:
 	// float * b2RopeDef::masses()
 	static int _bind_getMasses(lua_State *L) {
 		if (!_lg_typecheck_getMasses(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float * b2RopeDef::masses() function, expected prototype:\nfloat * b2RopeDef::masses()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float * b2RopeDef::masses() function, expected prototype:\nfloat * b2RopeDef::masses()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float * b2RopeDef::masses(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float * b2RopeDef::masses(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float * lret = self->masses;
 		lua_pushnumber(L,*lret);
@@ -279,15 +268,13 @@ public:
 	// b2Vec2 b2RopeDef::gravity()
 	static int _bind_getGravity(lua_State *L) {
 		if (!_lg_typecheck_getGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2RopeDef::gravity() function, expected prototype:\nb2Vec2 b2RopeDef::gravity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2RopeDef::gravity() function, expected prototype:\nb2Vec2 b2RopeDef::gravity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2RopeDef::gravity(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2RopeDef::gravity(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->gravity;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -300,15 +287,13 @@ public:
 	// float b2RopeDef::damping()
 	static int _bind_getDamping(lua_State *L) {
 		if (!_lg_typecheck_getDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2RopeDef::damping() function, expected prototype:\nfloat b2RopeDef::damping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2RopeDef::damping() function, expected prototype:\nfloat b2RopeDef::damping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2RopeDef::damping(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2RopeDef::damping(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->damping;
 		lua_pushnumber(L,lret);
@@ -319,15 +304,13 @@ public:
 	// float b2RopeDef::k2()
 	static int _bind_getK2(lua_State *L) {
 		if (!_lg_typecheck_getK2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2RopeDef::k2() function, expected prototype:\nfloat b2RopeDef::k2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2RopeDef::k2() function, expected prototype:\nfloat b2RopeDef::k2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2RopeDef::k2(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2RopeDef::k2(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->k2;
 		lua_pushnumber(L,lret);
@@ -338,15 +321,13 @@ public:
 	// float b2RopeDef::k3()
 	static int _bind_getK3(lua_State *L) {
 		if (!_lg_typecheck_getK3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2RopeDef::k3() function, expected prototype:\nfloat b2RopeDef::k3()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2RopeDef::k3() function, expected prototype:\nfloat b2RopeDef::k3()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2RopeDef::k3(). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2RopeDef::k3(). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->k3;
 		lua_pushnumber(L,lret);
@@ -357,16 +338,14 @@ public:
 	// void b2RopeDef::vertices(b2Vec2 * value)
 	static int _bind_setVertices(lua_State *L) {
 		if (!_lg_typecheck_setVertices(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::vertices(b2Vec2 * value) function, expected prototype:\nvoid b2RopeDef::vertices(b2Vec2 * value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::vertices(b2Vec2 * value) function, expected prototype:\nvoid b2RopeDef::vertices(b2Vec2 * value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value=(Luna< b2Vec2 >::check(L,2));
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::vertices(b2Vec2 *). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::vertices(b2Vec2 *). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->vertices = value;
 
@@ -376,16 +355,14 @@ public:
 	// void b2RopeDef::count(signed int value)
 	static int _bind_setCount(lua_State *L) {
 		if (!_lg_typecheck_setCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::count(signed int value) function, expected prototype:\nvoid b2RopeDef::count(signed int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::count(signed int value) function, expected prototype:\nvoid b2RopeDef::count(signed int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		signed int value=(signed int)lua_tointeger(L,2);
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::count(signed int). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::count(signed int). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->count = value;
 
@@ -395,16 +372,14 @@ public:
 	// void b2RopeDef::masses(float * value)
 	static int _bind_setMasses(lua_State *L) {
 		if (!_lg_typecheck_setMasses(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::masses(float * value) function, expected prototype:\nvoid b2RopeDef::masses(float * value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::masses(float * value) function, expected prototype:\nvoid b2RopeDef::masses(float * value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float* value=(float*)Luna< void >::check(L,2);
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::masses(float *). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::masses(float *). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->masses = value;
 
@@ -414,8 +389,7 @@ public:
 	// void b2RopeDef::gravity(b2Vec2 value)
 	static int _bind_setGravity(lua_State *L) {
 		if (!_lg_typecheck_setGravity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::gravity(b2Vec2 value) function, expected prototype:\nvoid b2RopeDef::gravity(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::gravity(b2Vec2 value) function, expected prototype:\nvoid b2RopeDef::gravity(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -426,8 +400,7 @@ public:
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::gravity(b2Vec2). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::gravity(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->gravity = value;
 
@@ -437,16 +410,14 @@ public:
 	// void b2RopeDef::damping(float value)
 	static int _bind_setDamping(lua_State *L) {
 		if (!_lg_typecheck_setDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::damping(float value) function, expected prototype:\nvoid b2RopeDef::damping(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::damping(float value) function, expected prototype:\nvoid b2RopeDef::damping(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::damping(float). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::damping(float). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->damping = value;
 
@@ -456,16 +427,14 @@ public:
 	// void b2RopeDef::k2(float value)
 	static int _bind_setK2(lua_State *L) {
 		if (!_lg_typecheck_setK2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::k2(float value) function, expected prototype:\nvoid b2RopeDef::k2(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::k2(float value) function, expected prototype:\nvoid b2RopeDef::k2(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::k2(float). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::k2(float). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->k2 = value;
 
@@ -475,16 +444,14 @@ public:
 	// void b2RopeDef::k3(float value)
 	static int _bind_setK3(lua_State *L) {
 		if (!_lg_typecheck_setK3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeDef::k3(float value) function, expected prototype:\nvoid b2RopeDef::k3(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeDef::k3(float value) function, expected prototype:\nvoid b2RopeDef::k3(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2RopeDef* self=(Luna< b2RopeDef >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeDef::k3(float). Got : '%s'",typeid(Luna< b2RopeDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeDef::k3(float). Got : '%s'\n%s",typeid(Luna< b2RopeDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->k3 = value;
 

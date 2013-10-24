@@ -110,10 +110,10 @@ public:
 		if( lua_gettop(L)!=6 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,48453816) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( lua_isstring(L,4)==0 ) return false;
-		if( lua_isstring(L,5)==0 ) return false;
-		if( lua_isstring(L,6)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		if( lua_type(L,5)!=LUA_TSTRING ) return false;
+		if( lua_type(L,6)!=LUA_TSTRING ) return false;
 		return true;
 	}
 

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPositionAndRadius*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btPositionAndRadius*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPositionAndRadius* rhs =(Luna< btPositionAndRadius >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPositionAndRadius* self= (btPositionAndRadius*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btPositionAndRadius >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -124,7 +120,7 @@ public:
 	inline static bool _lg_typecheck_setRadius(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// btVector3FloatData btPositionAndRadius::m_pos()
 	static int _bind_getPos(lua_State *L) {
 		if (!_lg_typecheck_getPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3FloatData btPositionAndRadius::m_pos() function, expected prototype:\nbtVector3FloatData btPositionAndRadius::m_pos()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3FloatData btPositionAndRadius::m_pos() function, expected prototype:\nbtVector3FloatData btPositionAndRadius::m_pos()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPositionAndRadius* self=(Luna< btPositionAndRadius >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3FloatData btPositionAndRadius::m_pos(). Got : '%s'",typeid(Luna< btPositionAndRadius >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3FloatData btPositionAndRadius::m_pos(). Got : '%s'\n%s",typeid(Luna< btPositionAndRadius >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3FloatData* lret = &self->m_pos;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,15 +153,13 @@ public:
 	// float btPositionAndRadius::m_radius()
 	static int _bind_getRadius(lua_State *L) {
 		if (!_lg_typecheck_getRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btPositionAndRadius::m_radius() function, expected prototype:\nfloat btPositionAndRadius::m_radius()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btPositionAndRadius::m_radius() function, expected prototype:\nfloat btPositionAndRadius::m_radius()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btPositionAndRadius* self=(Luna< btPositionAndRadius >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btPositionAndRadius::m_radius(). Got : '%s'",typeid(Luna< btPositionAndRadius >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btPositionAndRadius::m_radius(). Got : '%s'\n%s",typeid(Luna< btPositionAndRadius >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_radius;
 		lua_pushnumber(L,lret);
@@ -178,8 +170,7 @@ public:
 	// void btPositionAndRadius::m_pos(btVector3FloatData value)
 	static int _bind_setPos(lua_State *L) {
 		if (!_lg_typecheck_setPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPositionAndRadius::m_pos(btVector3FloatData value) function, expected prototype:\nvoid btPositionAndRadius::m_pos(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n");
+			luaL_error(L, "luna typecheck failed in void btPositionAndRadius::m_pos(btVector3FloatData value) function, expected prototype:\nvoid btPositionAndRadius::m_pos(btVector3FloatData value)\nClass arguments details:\narg 1 ID = 96449857\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3FloatData* value_ptr=(Luna< btVector3FloatData >::check(L,2));
@@ -190,8 +181,7 @@ public:
 
 		btPositionAndRadius* self=(Luna< btPositionAndRadius >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPositionAndRadius::m_pos(btVector3FloatData). Got : '%s'",typeid(Luna< btPositionAndRadius >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPositionAndRadius::m_pos(btVector3FloatData). Got : '%s'\n%s",typeid(Luna< btPositionAndRadius >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_pos = value;
 
@@ -201,16 +191,14 @@ public:
 	// void btPositionAndRadius::m_radius(float value)
 	static int _bind_setRadius(lua_State *L) {
 		if (!_lg_typecheck_setRadius(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btPositionAndRadius::m_radius(float value) function, expected prototype:\nvoid btPositionAndRadius::m_radius(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btPositionAndRadius::m_radius(float value) function, expected prototype:\nvoid btPositionAndRadius::m_radius(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btPositionAndRadius* self=(Luna< btPositionAndRadius >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btPositionAndRadius::m_radius(float). Got : '%s'",typeid(Luna< btPositionAndRadius >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btPositionAndRadius::m_radius(float). Got : '%s'\n%s",typeid(Luna< btPositionAndRadius >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_radius = value;
 

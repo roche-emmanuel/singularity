@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactMeshShapePart* self= (btGImpactMeshShapePart*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -100,7 +97,7 @@ public:
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,56402633)) ) return false;
 		if( (lua_isnil(L,1)==0 && !(Luna< btStridingMeshInterface >::check(L,1)) ) ) return false;
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -117,7 +114,7 @@ public:
 		if( lua_istable(L,1)==0 ) return false;
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,56402633)) ) return false;
 		if( (lua_isnil(L,2)==0 && !(Luna< btStridingMeshInterface >::check(L,2)) ) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -150,28 +147,28 @@ public:
 	inline static bool _lg_typecheck_getChildShape_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getChildShape_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		return true;
 	}
@@ -191,7 +188,7 @@ public:
 	inline static bool _lg_typecheck_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -223,7 +220,7 @@ public:
 	inline static bool _lg_typecheck_getBulletTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -231,7 +228,7 @@ public:
 	inline static bool _lg_typecheck_getBulletTetrahedron(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -245,7 +242,7 @@ public:
 	inline static bool _lg_typecheck_getVertex(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -253,7 +250,7 @@ public:
 	inline static bool _lg_typecheck_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -295,7 +292,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -308,7 +305,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -327,7 +324,7 @@ public:
 	inline static bool _lg_typecheck_base_getChildAabb(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
@@ -391,28 +388,28 @@ public:
 	inline static bool _lg_typecheck_base_getChildShape_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getChildShape_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_getChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_setChildTransform(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		return true;
 	}
@@ -426,7 +423,7 @@ public:
 	inline static bool _lg_typecheck_base_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -458,7 +455,7 @@ public:
 	inline static bool _lg_typecheck_base_getBulletTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -466,7 +463,7 @@ public:
 	inline static bool _lg_typecheck_base_getBulletTetrahedron(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,58243831) ) return false;
 		return true;
 	}
@@ -474,7 +471,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -514,8 +511,7 @@ public:
 	// btGImpactMeshShapePart::btGImpactMeshShapePart()
 	static btGImpactMeshShapePart* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart() function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart() function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -525,8 +521,7 @@ public:
 	// btGImpactMeshShapePart::btGImpactMeshShapePart(btStridingMeshInterface * meshInterface, int part)
 	static btGImpactMeshShapePart* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart(btStridingMeshInterface * meshInterface, int part) function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart(btStridingMeshInterface * meshInterface, int part)\nClass arguments details:\narg 1 ID = 56402633\n");
+			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart(btStridingMeshInterface * meshInterface, int part) function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart(btStridingMeshInterface * meshInterface, int part)\nClass arguments details:\narg 1 ID = 56402633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,1));
@@ -538,8 +533,7 @@ public:
 	// btGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data)
 	static btGImpactMeshShapePart* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data) function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data) function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -549,8 +543,7 @@ public:
 	// btGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data, btStridingMeshInterface * meshInterface, int part)
 	static btGImpactMeshShapePart* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data, btStridingMeshInterface * meshInterface, int part) function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data, btStridingMeshInterface * meshInterface, int part)\nClass arguments details:\narg 2 ID = 56402633\n");
+			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data, btStridingMeshInterface * meshInterface, int part) function, expected prototype:\nbtGImpactMeshShapePart::btGImpactMeshShapePart(lua_Table * data, btStridingMeshInterface * meshInterface, int part)\nClass arguments details:\narg 2 ID = 56402633\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btStridingMeshInterface* meshInterface=(Luna< btStridingMeshInterface >::check(L,2));
@@ -575,15 +568,13 @@ public:
 	// bool btGImpactMeshShapePart::childrenHasTransform() const
 	static int _bind_childrenHasTransform(lua_State *L) {
 		if (!_lg_typecheck_childrenHasTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::childrenHasTransform() const function, expected prototype:\nbool btGImpactMeshShapePart::childrenHasTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::childrenHasTransform() const function, expected prototype:\nbool btGImpactMeshShapePart::childrenHasTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::childrenHasTransform() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::childrenHasTransform() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->childrenHasTransform();
 		lua_pushboolean(L,lret?1:0);
@@ -594,15 +585,13 @@ public:
 	// void btGImpactMeshShapePart::lockChildShapes() const
 	static int _bind_lockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_lockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::lockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::lockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::lockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::lockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::lockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::lockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->lockChildShapes();
 
@@ -612,15 +601,13 @@ public:
 	// void btGImpactMeshShapePart::unlockChildShapes() const
 	static int _bind_unlockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_unlockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::unlockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::unlockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::unlockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::unlockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::unlockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::unlockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->unlockChildShapes();
 
@@ -630,15 +617,13 @@ public:
 	// int btGImpactMeshShapePart::getNumChildShapes() const
 	static int _bind_getNumChildShapes(lua_State *L) {
 		if (!_lg_typecheck_getNumChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::getNumChildShapes() const function, expected prototype:\nint btGImpactMeshShapePart::getNumChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::getNumChildShapes() const function, expected prototype:\nint btGImpactMeshShapePart::getNumChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::getNumChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::getNumChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNumChildShapes();
 		lua_pushnumber(L,lret);
@@ -649,16 +634,14 @@ public:
 	// btCollisionShape * btGImpactMeshShapePart::getChildShape(int index)
 	static int _bind_getChildShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getChildShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactMeshShapePart::getChildShape(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactMeshShapePart::getChildShape(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactMeshShapePart::getChildShape(int). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactMeshShapePart::getChildShape(int). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionShape * lret = self->getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -671,16 +654,14 @@ public:
 	// const btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) const
 	static int _bind_getChildShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getChildShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactMeshShapePart::getChildShape(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactMeshShapePart::getChildShape(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactMeshShapePart::getChildShape(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionShape * lret = self->getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -702,16 +683,14 @@ public:
 	// btTransform btGImpactMeshShapePart::getChildTransform(int index) const
 	static int _bind_getChildTransform(lua_State *L) {
 		if (!_lg_typecheck_getChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btGImpactMeshShapePart::getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactMeshShapePart::getChildTransform(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btGImpactMeshShapePart::getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactMeshShapePart::getChildTransform(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btGImpactMeshShapePart::getChildTransform(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btGImpactMeshShapePart::getChildTransform(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->getChildTransform(index);
 		btTransform* lret = new btTransform(stack_lret);
@@ -725,8 +704,7 @@ public:
 	// void btGImpactMeshShapePart::setChildTransform(int index, const btTransform & transform)
 	static int _bind_setChildTransform(lua_State *L) {
 		if (!_lg_typecheck_setChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactMeshShapePart::setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactMeshShapePart::setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -738,8 +716,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::setChildTransform(int, const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::setChildTransform(int, const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setChildTransform(index, transform);
 
@@ -749,15 +726,13 @@ public:
 	// const btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const
 	static int _bind_getPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactMeshShapePart::getPrimitiveManager() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btPrimitiveManagerBase * lret = self->getPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -770,15 +745,13 @@ public:
 	// btGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager()
 	static int _bind_getTrimeshPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_getTrimeshPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager() function, expected prototype:\nbtGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager() function, expected prototype:\nbtGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btGImpactMeshShapePart::TrimeshPrimitiveManager * btGImpactMeshShapePart::getTrimeshPrimitiveManager(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btGImpactMeshShapePart::TrimeshPrimitiveManager * lret = self->getTrimeshPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -791,8 +764,7 @@ public:
 	// void btGImpactMeshShapePart::calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactMeshShapePart::calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactMeshShapePart::calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -804,8 +776,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateLocalInertia(mass, inertia);
 
@@ -815,15 +786,13 @@ public:
 	// const char * btGImpactMeshShapePart::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btGImpactMeshShapePart::getName() const function, expected prototype:\nconst char * btGImpactMeshShapePart::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btGImpactMeshShapePart::getName() const function, expected prototype:\nconst char * btGImpactMeshShapePart::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btGImpactMeshShapePart::getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btGImpactMeshShapePart::getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->getName();
 		lua_pushstring(L,lret);
@@ -834,15 +803,13 @@ public:
 	// eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const
 	static int _bind_getGImpactShapeType(lua_State *L) {
 		if (!_lg_typecheck_getGImpactShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::getGImpactShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		eGIMPACT_SHAPE_TYPE lret = self->getGImpactShapeType();
 		lua_pushnumber(L,lret);
@@ -853,15 +820,13 @@ public:
 	// bool btGImpactMeshShapePart::needsRetrieveTriangles() const
 	static int _bind_needsRetrieveTriangles(lua_State *L) {
 		if (!_lg_typecheck_needsRetrieveTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactMeshShapePart::needsRetrieveTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactMeshShapePart::needsRetrieveTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::needsRetrieveTriangles() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::needsRetrieveTriangles() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsRetrieveTriangles();
 		lua_pushboolean(L,lret?1:0);
@@ -872,15 +837,13 @@ public:
 	// bool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const
 	static int _bind_needsRetrieveTetrahedrons(lua_State *L) {
 		if (!_lg_typecheck_needsRetrieveTetrahedrons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::needsRetrieveTetrahedrons() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needsRetrieveTetrahedrons();
 		lua_pushboolean(L,lret?1:0);
@@ -891,8 +854,7 @@ public:
 	// void btGImpactMeshShapePart::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const
 	static int _bind_getBulletTriangle(lua_State *L) {
 		if (!_lg_typecheck_getBulletTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactMeshShapePart::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactMeshShapePart::getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -904,8 +866,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBulletTriangle(prim_index, triangle);
 
@@ -915,8 +876,7 @@ public:
 	// void btGImpactMeshShapePart::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const
 	static int _bind_getBulletTetrahedron(lua_State *L) {
 		if (!_lg_typecheck_getBulletTetrahedron(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactMeshShapePart::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactMeshShapePart::getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -928,8 +888,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getBulletTetrahedron(prim_index, tetrahedron);
 
@@ -939,15 +898,13 @@ public:
 	// int btGImpactMeshShapePart::getVertexCount() const
 	static int _bind_getVertexCount(lua_State *L) {
 		if (!_lg_typecheck_getVertexCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::getVertexCount() const function, expected prototype:\nint btGImpactMeshShapePart::getVertexCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::getVertexCount() const function, expected prototype:\nint btGImpactMeshShapePart::getVertexCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::getVertexCount() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::getVertexCount() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getVertexCount();
 		lua_pushnumber(L,lret);
@@ -958,8 +915,7 @@ public:
 	// void btGImpactMeshShapePart::getVertex(int vertex_index, btVector3 & vertex) const
 	static int _bind_getVertex(lua_State *L) {
 		if (!_lg_typecheck_getVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::getVertex(int vertex_index, btVector3 & vertex) const function, expected prototype:\nvoid btGImpactMeshShapePart::getVertex(int vertex_index, btVector3 & vertex) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::getVertex(int vertex_index, btVector3 & vertex) const function, expected prototype:\nvoid btGImpactMeshShapePart::getVertex(int vertex_index, btVector3 & vertex) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int vertex_index=(int)lua_tointeger(L,2);
@@ -971,8 +927,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::getVertex(int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::getVertex(int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getVertex(vertex_index, vertex);
 
@@ -982,16 +937,14 @@ public:
 	// void btGImpactMeshShapePart::setMargin(float margin)
 	static int _bind_setMargin(lua_State *L) {
 		if (!_lg_typecheck_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::setMargin(float margin) function, expected prototype:\nvoid btGImpactMeshShapePart::setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::setMargin(float margin) function, expected prototype:\nvoid btGImpactMeshShapePart::setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setMargin(margin);
 
@@ -1001,15 +954,13 @@ public:
 	// float btGImpactMeshShapePart::getMargin() const
 	static int _bind_getMargin(lua_State *L) {
 		if (!_lg_typecheck_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::getMargin() const function, expected prototype:\nfloat btGImpactMeshShapePart::getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::getMargin() const function, expected prototype:\nfloat btGImpactMeshShapePart::getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMargin();
 		lua_pushnumber(L,lret);
@@ -1020,8 +971,7 @@ public:
 	// void btGImpactMeshShapePart::setLocalScaling(const btVector3 & scaling)
 	static int _bind_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactMeshShapePart::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactMeshShapePart::setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -1032,8 +982,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLocalScaling(scaling);
 
@@ -1043,15 +992,13 @@ public:
 	// const btVector3 & btGImpactMeshShapePart::getLocalScaling() const
 	static int _bind_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactMeshShapePart::getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactMeshShapePart::getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactMeshShapePart::getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactMeshShapePart::getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactMeshShapePart::getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactMeshShapePart::getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1064,15 +1011,13 @@ public:
 	// int btGImpactMeshShapePart::getPart() const
 	static int _bind_getPart(lua_State *L) {
 		if (!_lg_typecheck_getPart(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::getPart() const function, expected prototype:\nint btGImpactMeshShapePart::getPart() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::getPart() const function, expected prototype:\nint btGImpactMeshShapePart::getPart() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::getPart() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::getPart() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getPart();
 		lua_pushnumber(L,lret);
@@ -1083,8 +1028,7 @@ public:
 	// void btGImpactMeshShapePart::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -1101,8 +1045,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processAllTriangles(callback, aabbMin, aabbMax);
 
@@ -1112,8 +1055,7 @@ public:
 	// void btGImpactMeshShapePart::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -1125,26 +1067,24 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btGImpactMeshShapePart::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::base_getAngularMotionDisc() const function, expected prototype:\nfloat btGImpactMeshShapePart::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::base_getAngularMotionDisc() const function, expected prototype:\nfloat btGImpactMeshShapePart::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactMeshShapePart::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -1155,16 +1095,14 @@ public:
 	// float btGImpactMeshShapePart::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btGImpactMeshShapePart::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btGImpactMeshShapePart::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactMeshShapePart::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -1175,15 +1113,13 @@ public:
 	// btVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btGImpactMeshShapePart::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btGImpactMeshShapePart::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -1197,15 +1133,13 @@ public:
 	// int btGImpactMeshShapePart::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGImpactMeshShapePart::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGImpactMeshShapePart::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactMeshShapePart::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -1216,8 +1150,7 @@ public:
 	// void btGImpactMeshShapePart::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getChildAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getChildAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getChildAabb(int child_index, const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int child_index=(int)lua_tointeger(L,2);
@@ -1239,8 +1172,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getChildAabb(int, const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::getChildAabb(child_index, t, aabbMin, aabbMax);
 
@@ -1250,8 +1182,7 @@ public:
 	// void btGImpactMeshShapePart::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -1272,8 +1203,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::getAabb(t, aabbMin, aabbMax);
 
@@ -1283,15 +1213,13 @@ public:
 	// void btGImpactMeshShapePart::base_postUpdate()
 	static int _bind_base_postUpdate(lua_State *L) {
 		if (!_lg_typecheck_base_postUpdate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_postUpdate() function, expected prototype:\nvoid btGImpactMeshShapePart::base_postUpdate()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_postUpdate() function, expected prototype:\nvoid btGImpactMeshShapePart::base_postUpdate()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_postUpdate(). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_postUpdate(). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::postUpdate();
 
@@ -1301,15 +1229,13 @@ public:
 	// int btGImpactMeshShapePart::base_getShapeType() const
 	static int _bind_base_getShapeType(lua_State *L) {
 		if (!_lg_typecheck_base_getShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::base_getShapeType() const function, expected prototype:\nint btGImpactMeshShapePart::base_getShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::base_getShapeType() const function, expected prototype:\nint btGImpactMeshShapePart::base_getShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::base_getShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::base_getShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactMeshShapePart::getShapeType();
 		lua_pushnumber(L,lret);
@@ -1320,8 +1246,7 @@ public:
 	// void btGImpactMeshShapePart::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const
 	static int _bind_base_rayTest(lua_State *L) {
 		if (!_lg_typecheck_base_rayTest(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_rayTest(const btVector3 & rayFrom, const btVector3 & rayTo, btCollisionWorld::RayResultCallback & resultCallback) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 44790882\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* rayFrom_ptr=(Luna< btVector3 >::check(L,2));
@@ -1342,8 +1267,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_rayTest(const btVector3 &, const btVector3 &, btCollisionWorld::RayResultCallback &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::rayTest(rayFrom, rayTo, resultCallback);
 
@@ -1353,15 +1277,13 @@ public:
 	// bool btGImpactMeshShapePart::base_childrenHasTransform() const
 	static int _bind_base_childrenHasTransform(lua_State *L) {
 		if (!_lg_typecheck_base_childrenHasTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::base_childrenHasTransform() const function, expected prototype:\nbool btGImpactMeshShapePart::base_childrenHasTransform() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::base_childrenHasTransform() const function, expected prototype:\nbool btGImpactMeshShapePart::base_childrenHasTransform() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::base_childrenHasTransform() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::base_childrenHasTransform() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btGImpactMeshShapePart::childrenHasTransform();
 		lua_pushboolean(L,lret?1:0);
@@ -1372,15 +1294,13 @@ public:
 	// void btGImpactMeshShapePart::base_lockChildShapes() const
 	static int _bind_base_lockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_lockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_lockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::base_lockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_lockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::base_lockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_lockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_lockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::lockChildShapes();
 
@@ -1390,15 +1310,13 @@ public:
 	// void btGImpactMeshShapePart::base_unlockChildShapes() const
 	static int _bind_base_unlockChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_unlockChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_unlockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::base_unlockChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_unlockChildShapes() const function, expected prototype:\nvoid btGImpactMeshShapePart::base_unlockChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_unlockChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_unlockChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::unlockChildShapes();
 
@@ -1408,15 +1326,13 @@ public:
 	// int btGImpactMeshShapePart::base_getNumChildShapes() const
 	static int _bind_base_getNumChildShapes(lua_State *L) {
 		if (!_lg_typecheck_base_getNumChildShapes(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::base_getNumChildShapes() const function, expected prototype:\nint btGImpactMeshShapePart::base_getNumChildShapes() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactMeshShapePart::base_getNumChildShapes() const function, expected prototype:\nint btGImpactMeshShapePart::base_getNumChildShapes() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::base_getNumChildShapes() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactMeshShapePart::base_getNumChildShapes() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGImpactMeshShapePart::getNumChildShapes();
 		lua_pushnumber(L,lret);
@@ -1427,16 +1343,14 @@ public:
 	// btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index)
 	static int _bind_base_getChildShape_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_getChildShape_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) function, expected prototype:\nbtCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionShape * lret = self->btGImpactMeshShapePart::getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1449,16 +1363,14 @@ public:
 	// const btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) const
 	static int _bind_base_getChildShape_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_getChildShape_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) const function, expected prototype:\nconst btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btCollisionShape * btGImpactMeshShapePart::base_getChildShape(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btCollisionShape * lret = self->btGImpactMeshShapePart::getChildShape(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1480,16 +1392,14 @@ public:
 	// btTransform btGImpactMeshShapePart::base_getChildTransform(int index) const
 	static int _bind_base_getChildTransform(lua_State *L) {
 		if (!_lg_typecheck_base_getChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform btGImpactMeshShapePart::base_getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactMeshShapePart::base_getChildTransform(int index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform btGImpactMeshShapePart::base_getChildTransform(int index) const function, expected prototype:\nbtTransform btGImpactMeshShapePart::base_getChildTransform(int index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform btGImpactMeshShapePart::base_getChildTransform(int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform btGImpactMeshShapePart::base_getChildTransform(int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTransform stack_lret = self->btGImpactMeshShapePart::getChildTransform(index);
 		btTransform* lret = new btTransform(stack_lret);
@@ -1503,8 +1413,7 @@ public:
 	// void btGImpactMeshShapePart::base_setChildTransform(int index, const btTransform & transform)
 	static int _bind_base_setChildTransform(lua_State *L) {
 		if (!_lg_typecheck_base_setChildTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactMeshShapePart::base_setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_setChildTransform(int index, const btTransform & transform) function, expected prototype:\nvoid btGImpactMeshShapePart::base_setChildTransform(int index, const btTransform & transform)\nClass arguments details:\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -1516,8 +1425,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_setChildTransform(int, const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_setChildTransform(int, const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::setChildTransform(index, transform);
 
@@ -1527,15 +1435,13 @@ public:
 	// const btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const
 	static int _bind_base_getPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_base_getPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const function, expected prototype:\nconst btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btPrimitiveManagerBase * btGImpactMeshShapePart::base_getPrimitiveManager() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btPrimitiveManagerBase * lret = self->btGImpactMeshShapePart::getPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1548,8 +1454,7 @@ public:
 	// void btGImpactMeshShapePart::base_calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_base_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_base_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -1561,8 +1466,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::calculateLocalInertia(mass, inertia);
 
@@ -1572,15 +1476,13 @@ public:
 	// const char * btGImpactMeshShapePart::base_getName() const
 	static int _bind_base_getName(lua_State *L) {
 		if (!_lg_typecheck_base_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btGImpactMeshShapePart::base_getName() const function, expected prototype:\nconst char * btGImpactMeshShapePart::base_getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btGImpactMeshShapePart::base_getName() const function, expected prototype:\nconst char * btGImpactMeshShapePart::base_getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btGImpactMeshShapePart::base_getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btGImpactMeshShapePart::base_getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->btGImpactMeshShapePart::getName();
 		lua_pushstring(L,lret);
@@ -1591,15 +1493,13 @@ public:
 	// eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const
 	static int _bind_base_getGImpactShapeType(lua_State *L) {
 		if (!_lg_typecheck_base_getGImpactShapeType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const function, expected prototype:\neGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call eGIMPACT_SHAPE_TYPE btGImpactMeshShapePart::base_getGImpactShapeType() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		eGIMPACT_SHAPE_TYPE lret = self->btGImpactMeshShapePart::getGImpactShapeType();
 		lua_pushnumber(L,lret);
@@ -1610,15 +1510,13 @@ public:
 	// bool btGImpactMeshShapePart::base_needsRetrieveTriangles() const
 	static int _bind_base_needsRetrieveTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_needsRetrieveTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::base_needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactMeshShapePart::base_needsRetrieveTriangles() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::base_needsRetrieveTriangles() const function, expected prototype:\nbool btGImpactMeshShapePart::base_needsRetrieveTriangles() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::base_needsRetrieveTriangles() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::base_needsRetrieveTriangles() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btGImpactMeshShapePart::needsRetrieveTriangles();
 		lua_pushboolean(L,lret?1:0);
@@ -1629,15 +1527,13 @@ public:
 	// bool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const
 	static int _bind_base_needsRetrieveTetrahedrons(lua_State *L) {
 		if (!_lg_typecheck_base_needsRetrieveTetrahedrons(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const function, expected prototype:\nbool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactMeshShapePart::base_needsRetrieveTetrahedrons() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->btGImpactMeshShapePart::needsRetrieveTetrahedrons();
 		lua_pushboolean(L,lret?1:0);
@@ -1648,8 +1544,7 @@ public:
 	// void btGImpactMeshShapePart::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const
 	static int _bind_base_getBulletTriangle(lua_State *L) {
 		if (!_lg_typecheck_base_getBulletTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getBulletTriangle(int prim_index, btTriangleShapeEx & triangle) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -1661,8 +1556,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getBulletTriangle(int, btTriangleShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::getBulletTriangle(prim_index, triangle);
 
@@ -1672,8 +1566,7 @@ public:
 	// void btGImpactMeshShapePart::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const
 	static int _bind_base_getBulletTetrahedron(lua_State *L) {
 		if (!_lg_typecheck_base_getBulletTetrahedron(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_getBulletTetrahedron(int prim_index, btTetrahedronShapeEx & tetrahedron) const\nClass arguments details:\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int prim_index=(int)lua_tointeger(L,2);
@@ -1685,8 +1578,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_getBulletTetrahedron(int, btTetrahedronShapeEx &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::getBulletTetrahedron(prim_index, tetrahedron);
 
@@ -1696,16 +1588,14 @@ public:
 	// void btGImpactMeshShapePart::base_setMargin(float margin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_setMargin(float margin) function, expected prototype:\nvoid btGImpactMeshShapePart::base_setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_setMargin(float margin) function, expected prototype:\nvoid btGImpactMeshShapePart::base_setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::setMargin(margin);
 
@@ -1715,15 +1605,13 @@ public:
 	// float btGImpactMeshShapePart::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::base_getMargin() const function, expected prototype:\nfloat btGImpactMeshShapePart::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGImpactMeshShapePart::base_getMargin() const function, expected prototype:\nfloat btGImpactMeshShapePart::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGImpactMeshShapePart::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGImpactMeshShapePart::getMargin();
 		lua_pushnumber(L,lret);
@@ -1734,8 +1622,7 @@ public:
 	// void btGImpactMeshShapePart::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactMeshShapePart::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btGImpactMeshShapePart::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -1746,8 +1633,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::setLocalScaling(scaling);
 
@@ -1757,15 +1643,13 @@ public:
 	// const btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btGImpactMeshShapePart::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btGImpactMeshShapePart::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1778,8 +1662,7 @@ public:
 	// void btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const
 	static int _bind_base_processAllTriangles(lua_State *L) {
 		if (!_lg_typecheck_base_processAllTriangles(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const function, expected prototype:\nvoid btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback * callback, const btVector3 & aabbMin, const btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 46793426\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTriangleCallback* callback=(Luna< btTriangleCallback >::check(L,2));
@@ -1796,8 +1679,7 @@ public:
 
 		btGImpactMeshShapePart* self=Luna< btCollisionShape >::checkSubType< btGImpactMeshShapePart >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactMeshShapePart::base_processAllTriangles(btTriangleCallback *, const btVector3 &, const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGImpactMeshShapePart::processAllTriangles(callback, aabbMin, aabbMax);
 

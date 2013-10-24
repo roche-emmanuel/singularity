@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2AABB*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2AABB*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* rhs =(Luna< b2AABB >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* self= (b2AABB*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2AABB >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -195,15 +191,13 @@ public:
 	// bool b2AABB::IsValid() const
 	static int _bind_IsValid(lua_State *L) {
 		if (!_lg_typecheck_IsValid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2AABB::IsValid() const function, expected prototype:\nbool b2AABB::IsValid() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2AABB::IsValid() const function, expected prototype:\nbool b2AABB::IsValid() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2AABB::IsValid() const. Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2AABB::IsValid() const. Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->IsValid();
 		lua_pushboolean(L,lret?1:0);
@@ -214,15 +208,13 @@ public:
 	// b2Vec2 b2AABB::GetCenter() const
 	static int _bind_GetCenter(lua_State *L) {
 		if (!_lg_typecheck_GetCenter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::GetCenter() const function, expected prototype:\nb2Vec2 b2AABB::GetCenter() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::GetCenter() const function, expected prototype:\nb2Vec2 b2AABB::GetCenter() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::GetCenter() const. Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::GetCenter() const. Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetCenter();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -236,15 +228,13 @@ public:
 	// b2Vec2 b2AABB::GetExtents() const
 	static int _bind_GetExtents(lua_State *L) {
 		if (!_lg_typecheck_GetExtents(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::GetExtents() const function, expected prototype:\nb2Vec2 b2AABB::GetExtents() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::GetExtents() const function, expected prototype:\nb2Vec2 b2AABB::GetExtents() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::GetExtents() const. Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::GetExtents() const. Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetExtents();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -258,15 +248,13 @@ public:
 	// float b2AABB::GetPerimeter() const
 	static int _bind_GetPerimeter(lua_State *L) {
 		if (!_lg_typecheck_GetPerimeter(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2AABB::GetPerimeter() const function, expected prototype:\nfloat b2AABB::GetPerimeter() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2AABB::GetPerimeter() const function, expected prototype:\nfloat b2AABB::GetPerimeter() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2AABB::GetPerimeter() const. Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2AABB::GetPerimeter() const. Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetPerimeter();
 		lua_pushnumber(L,lret);
@@ -277,8 +265,7 @@ public:
 	// void b2AABB::Combine(const b2AABB & aabb)
 	static int _bind_Combine_overload_1(lua_State *L) {
 		if (!_lg_typecheck_Combine_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2AABB::Combine(const b2AABB & aabb) function, expected prototype:\nvoid b2AABB::Combine(const b2AABB & aabb)\nClass arguments details:\narg 1 ID = 53833672\n");
+			luaL_error(L, "luna typecheck failed in void b2AABB::Combine(const b2AABB & aabb) function, expected prototype:\nvoid b2AABB::Combine(const b2AABB & aabb)\nClass arguments details:\narg 1 ID = 53833672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2AABB* aabb_ptr=(Luna< b2AABB >::check(L,2));
@@ -289,8 +276,7 @@ public:
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2AABB::Combine(const b2AABB &). Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2AABB::Combine(const b2AABB &). Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Combine(aabb);
 
@@ -300,8 +286,7 @@ public:
 	// void b2AABB::Combine(const b2AABB & aabb1, const b2AABB & aabb2)
 	static int _bind_Combine_overload_2(lua_State *L) {
 		if (!_lg_typecheck_Combine_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2AABB::Combine(const b2AABB & aabb1, const b2AABB & aabb2) function, expected prototype:\nvoid b2AABB::Combine(const b2AABB & aabb1, const b2AABB & aabb2)\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 53833672\n");
+			luaL_error(L, "luna typecheck failed in void b2AABB::Combine(const b2AABB & aabb1, const b2AABB & aabb2) function, expected prototype:\nvoid b2AABB::Combine(const b2AABB & aabb1, const b2AABB & aabb2)\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 53833672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2AABB* aabb1_ptr=(Luna< b2AABB >::check(L,2));
@@ -317,8 +302,7 @@ public:
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2AABB::Combine(const b2AABB &, const b2AABB &). Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2AABB::Combine(const b2AABB &, const b2AABB &). Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Combine(aabb1, aabb2);
 
@@ -337,8 +321,7 @@ public:
 	// bool b2AABB::Contains(const b2AABB & aabb) const
 	static int _bind_Contains(lua_State *L) {
 		if (!_lg_typecheck_Contains(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2AABB::Contains(const b2AABB & aabb) const function, expected prototype:\nbool b2AABB::Contains(const b2AABB & aabb) const\nClass arguments details:\narg 1 ID = 53833672\n");
+			luaL_error(L, "luna typecheck failed in bool b2AABB::Contains(const b2AABB & aabb) const function, expected prototype:\nbool b2AABB::Contains(const b2AABB & aabb) const\nClass arguments details:\narg 1 ID = 53833672\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2AABB* aabb_ptr=(Luna< b2AABB >::check(L,2));
@@ -349,8 +332,7 @@ public:
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2AABB::Contains(const b2AABB &) const. Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2AABB::Contains(const b2AABB &) const. Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Contains(aabb);
 		lua_pushboolean(L,lret?1:0);
@@ -361,8 +343,7 @@ public:
 	// bool b2AABB::RayCast(b2RayCastOutput * output, const b2RayCastInput & input) const
 	static int _bind_RayCast(lua_State *L) {
 		if (!_lg_typecheck_RayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2AABB::RayCast(b2RayCastOutput * output, const b2RayCastInput & input) const function, expected prototype:\nbool b2AABB::RayCast(b2RayCastOutput * output, const b2RayCastInput & input) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\n");
+			luaL_error(L, "luna typecheck failed in bool b2AABB::RayCast(b2RayCastOutput * output, const b2RayCastInput & input) const function, expected prototype:\nbool b2AABB::RayCast(b2RayCastOutput * output, const b2RayCastInput & input) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* output=(Luna< b2RayCastOutput >::check(L,2));
@@ -374,8 +355,7 @@ public:
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2AABB::RayCast(b2RayCastOutput *, const b2RayCastInput &) const. Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2AABB::RayCast(b2RayCastOutput *, const b2RayCastInput &) const. Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RayCast(output, input);
 		lua_pushboolean(L,lret?1:0);
@@ -386,15 +366,13 @@ public:
 	// b2Vec2 b2AABB::lowerBound()
 	static int _bind_getLowerBound(lua_State *L) {
 		if (!_lg_typecheck_getLowerBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::lowerBound() function, expected prototype:\nb2Vec2 b2AABB::lowerBound()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::lowerBound() function, expected prototype:\nb2Vec2 b2AABB::lowerBound()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::lowerBound(). Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::lowerBound(). Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->lowerBound;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -407,15 +385,13 @@ public:
 	// b2Vec2 b2AABB::upperBound()
 	static int _bind_getUpperBound(lua_State *L) {
 		if (!_lg_typecheck_getUpperBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::upperBound() function, expected prototype:\nb2Vec2 b2AABB::upperBound()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2AABB::upperBound() function, expected prototype:\nb2Vec2 b2AABB::upperBound()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::upperBound(). Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2AABB::upperBound(). Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->upperBound;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -428,8 +404,7 @@ public:
 	// void b2AABB::lowerBound(b2Vec2 value)
 	static int _bind_setLowerBound(lua_State *L) {
 		if (!_lg_typecheck_setLowerBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2AABB::lowerBound(b2Vec2 value) function, expected prototype:\nvoid b2AABB::lowerBound(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2AABB::lowerBound(b2Vec2 value) function, expected prototype:\nvoid b2AABB::lowerBound(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -440,8 +415,7 @@ public:
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2AABB::lowerBound(b2Vec2). Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2AABB::lowerBound(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->lowerBound = value;
 
@@ -451,8 +425,7 @@ public:
 	// void b2AABB::upperBound(b2Vec2 value)
 	static int _bind_setUpperBound(lua_State *L) {
 		if (!_lg_typecheck_setUpperBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2AABB::upperBound(b2Vec2 value) function, expected prototype:\nvoid b2AABB::upperBound(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2AABB::upperBound(b2Vec2 value) function, expected prototype:\nvoid b2AABB::upperBound(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -463,8 +436,7 @@ public:
 
 		b2AABB* self=(Luna< b2AABB >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2AABB::upperBound(b2Vec2). Got : '%s'",typeid(Luna< b2AABB >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2AABB::upperBound(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2AABB >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->upperBound = value;
 

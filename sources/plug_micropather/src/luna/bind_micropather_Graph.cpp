@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::Graph* self=(Luna< micropather::Graph >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(micropather::Graph*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(micropather::Graph*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::Graph* rhs =(Luna< micropather::Graph >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		micropather::Graph* self= (micropather::Graph*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< micropather::Graph >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -166,8 +161,7 @@ public:
 	// micropather::Graph::Graph(lua_Table * data)
 	static micropather::Graph* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in micropather::Graph::Graph(lua_Table * data) function, expected prototype:\nmicropather::Graph::Graph(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in micropather::Graph::Graph(lua_Table * data) function, expected prototype:\nmicropather::Graph::Graph(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -179,8 +173,7 @@ public:
 	// float micropather::Graph::LeastCostEstimate(void * stateStart, void * stateEnd)
 	static int _bind_LeastCostEstimate(lua_State *L) {
 		if (!_lg_typecheck_LeastCostEstimate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float micropather::Graph::LeastCostEstimate(void * stateStart, void * stateEnd) function, expected prototype:\nfloat micropather::Graph::LeastCostEstimate(void * stateStart, void * stateEnd)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float micropather::Graph::LeastCostEstimate(void * stateStart, void * stateEnd) function, expected prototype:\nfloat micropather::Graph::LeastCostEstimate(void * stateStart, void * stateEnd)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* stateStart=(Luna< void >::check(L,2));
@@ -188,8 +181,7 @@ public:
 
 		micropather::Graph* self=(Luna< micropather::Graph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float micropather::Graph::LeastCostEstimate(void *, void *). Got : '%s'",typeid(Luna< micropather::Graph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float micropather::Graph::LeastCostEstimate(void *, void *). Got : '%s'\n%s",typeid(Luna< micropather::Graph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->LeastCostEstimate(stateStart, stateEnd);
 		lua_pushnumber(L,lret);
@@ -200,8 +192,7 @@ public:
 	// void micropather::Graph::AdjacentCost(void * state, std::vector< micropather::StateCost > * adjacent)
 	static int _bind_AdjacentCost(lua_State *L) {
 		if (!_lg_typecheck_AdjacentCost(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::Graph::AdjacentCost(void * state, std::vector< micropather::StateCost > * adjacent) function, expected prototype:\nvoid micropather::Graph::AdjacentCost(void * state, std::vector< micropather::StateCost > * adjacent)\nClass arguments details:\narg 2 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in void micropather::Graph::AdjacentCost(void * state, std::vector< micropather::StateCost > * adjacent) function, expected prototype:\nvoid micropather::Graph::AdjacentCost(void * state, std::vector< micropather::StateCost > * adjacent)\nClass arguments details:\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* state=(Luna< void >::check(L,2));
@@ -209,8 +200,7 @@ public:
 
 		micropather::Graph* self=(Luna< micropather::Graph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::Graph::AdjacentCost(void *, std::vector< micropather::StateCost > *). Got : '%s'",typeid(Luna< micropather::Graph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::Graph::AdjacentCost(void *, std::vector< micropather::StateCost > *). Got : '%s'\n%s",typeid(Luna< micropather::Graph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->AdjacentCost(state, adjacent);
 
@@ -220,16 +210,14 @@ public:
 	// void micropather::Graph::PrintStateInfo(void * state)
 	static int _bind_PrintStateInfo(lua_State *L) {
 		if (!_lg_typecheck_PrintStateInfo(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void micropather::Graph::PrintStateInfo(void * state) function, expected prototype:\nvoid micropather::Graph::PrintStateInfo(void * state)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void micropather::Graph::PrintStateInfo(void * state) function, expected prototype:\nvoid micropather::Graph::PrintStateInfo(void * state)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* state=(Luna< void >::check(L,2));
 
 		micropather::Graph* self=(Luna< micropather::Graph >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void micropather::Graph::PrintStateInfo(void *). Got : '%s'",typeid(Luna< micropather::Graph >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void micropather::Graph::PrintStateInfo(void *). Got : '%s'\n%s",typeid(Luna< micropather::Graph >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->PrintStateInfo(state);
 

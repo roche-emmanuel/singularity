@@ -16,6 +16,7 @@
 #include <log/LogManager.h>
 #include <log/LogRecord.h>
 #include <log/StdLogger.h>
+#include <lunaCommon.h>
 
 // Class: __int64
 template<>
@@ -606,25 +607,6 @@ public:
 	static luna_ConverterType converters[];
 };
 
-// Class: OpenThreads::ScopedLock< OpenThreads::Mutex >
-template<>
-class LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > > {
-public:
-	static const char className[];
-	static const char fullName[];
-	static const char moduleName[];
-	static const char* parents[];
-	static const int uniqueIDs[];
-	static const int hash;
-	static luna_RegType methods[];
-	static luna_RegEnumType enumValues[];
-	static OpenThreads::ScopedLock< OpenThreads::Mutex >* _bind_ctor(lua_State *L);
-	static void _bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj);
-	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > parent_t;
-	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > base_t;
-	static luna_ConverterType converters[];
-};
-
 // Class: sgt::Object
 template<>
 class LunaTraits< sgt::Object > {
@@ -986,6 +968,25 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Class: OpenThreads::ScopedLock< OpenThreads::Mutex >
+template<>
+class LunaTraits< OpenThreads::ScopedLock< OpenThreads::Mutex > > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static OpenThreads::ScopedLock< OpenThreads::Mutex >* _bind_ctor(lua_State *L);
+	static void _bind_dtor(OpenThreads::ScopedLock< OpenThreads::Mutex >* obj);
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > parent_t;
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > base_t;
+	static luna_ConverterType converters[];
+};
+
 
 // Mapped type: std::vector< int >
 template<>
@@ -1238,13 +1239,6 @@ public:
 };
 
 template<>
-class LunaType< 77165148 > {
-public:
-	typedef sgt::sgtLock type;
-	
-};
-
-template<>
 class LunaType< 10949480 > {
 public:
 	typedef sgt::TimeManager type;
@@ -1308,6 +1302,13 @@ public:
 };
 
 template<>
+class LunaType< 21222894 > {
+public:
+	typedef sgtLock type;
+	
+};
+
+template<>
 class LunaType< 92299338 > {
 public:
 	typedef std::vector< int > type;
@@ -1357,13 +1358,6 @@ public:
 };
 
 template<>
-class LunaType< 84875541 > {
-public:
-	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
-	
-};
-
-template<>
 class LunaType< 20265607 > {
 public:
 	typedef std::vector< osg::ref_ptr< sgt::LogSink > > type;
@@ -1381,6 +1375,13 @@ template<>
 class LunaType< 74170402 > {
 public:
 	typedef std::set< std::string > type;
+	
+};
+
+template<>
+class LunaType< 84875541 > {
+public:
+	typedef OpenThreads::ScopedLock< OpenThreads::Mutex > type;
 	
 };
 

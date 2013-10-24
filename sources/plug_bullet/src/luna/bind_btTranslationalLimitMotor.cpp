@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTranslationalLimitMotor*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTranslationalLimitMotor*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTranslationalLimitMotor* rhs =(Luna< btTranslationalLimitMotor >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTranslationalLimitMotor* self= (btTranslationalLimitMotor*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTranslationalLimitMotor >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -119,35 +115,35 @@ public:
 	inline static bool _lg_typecheck_isLimited(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_needApplyForce(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_testLimitValue(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_solveLinearAxis(lua_State *L) {
 		if( lua_gettop(L)!=10 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,85758361) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,85758361) ) return false;
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,91544891) ) return false;
 		return true;
@@ -234,21 +230,21 @@ public:
 	inline static bool _lg_typecheck_setLimitSoftness(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDamping(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRestitution(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -330,8 +326,7 @@ public:
 	// btTranslationalLimitMotor::btTranslationalLimitMotor()
 	static btTranslationalLimitMotor* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTranslationalLimitMotor::btTranslationalLimitMotor() function, expected prototype:\nbtTranslationalLimitMotor::btTranslationalLimitMotor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTranslationalLimitMotor::btTranslationalLimitMotor() function, expected prototype:\nbtTranslationalLimitMotor::btTranslationalLimitMotor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -341,8 +336,7 @@ public:
 	// btTranslationalLimitMotor::btTranslationalLimitMotor(const btTranslationalLimitMotor & other)
 	static btTranslationalLimitMotor* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTranslationalLimitMotor::btTranslationalLimitMotor(const btTranslationalLimitMotor & other) function, expected prototype:\nbtTranslationalLimitMotor::btTranslationalLimitMotor(const btTranslationalLimitMotor & other)\nClass arguments details:\narg 1 ID = 31464826\n");
+			luaL_error(L, "luna typecheck failed in btTranslationalLimitMotor::btTranslationalLimitMotor(const btTranslationalLimitMotor & other) function, expected prototype:\nbtTranslationalLimitMotor::btTranslationalLimitMotor(const btTranslationalLimitMotor & other)\nClass arguments details:\narg 1 ID = 31464826\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTranslationalLimitMotor* other_ptr=(Luna< btTranslationalLimitMotor >::check(L,1));
@@ -368,16 +362,14 @@ public:
 	// bool btTranslationalLimitMotor::isLimited(int limitIndex)
 	static int _bind_isLimited(lua_State *L) {
 		if (!_lg_typecheck_isLimited(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btTranslationalLimitMotor::isLimited(int limitIndex) function, expected prototype:\nbool btTranslationalLimitMotor::isLimited(int limitIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btTranslationalLimitMotor::isLimited(int limitIndex) function, expected prototype:\nbool btTranslationalLimitMotor::isLimited(int limitIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int limitIndex=(int)lua_tointeger(L,2);
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btTranslationalLimitMotor::isLimited(int). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btTranslationalLimitMotor::isLimited(int). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLimited(limitIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -388,16 +380,14 @@ public:
 	// bool btTranslationalLimitMotor::needApplyForce(int limitIndex)
 	static int _bind_needApplyForce(lua_State *L) {
 		if (!_lg_typecheck_needApplyForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btTranslationalLimitMotor::needApplyForce(int limitIndex) function, expected prototype:\nbool btTranslationalLimitMotor::needApplyForce(int limitIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btTranslationalLimitMotor::needApplyForce(int limitIndex) function, expected prototype:\nbool btTranslationalLimitMotor::needApplyForce(int limitIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int limitIndex=(int)lua_tointeger(L,2);
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btTranslationalLimitMotor::needApplyForce(int). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btTranslationalLimitMotor::needApplyForce(int). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->needApplyForce(limitIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -408,8 +398,7 @@ public:
 	// int btTranslationalLimitMotor::testLimitValue(int limitIndex, float test_value)
 	static int _bind_testLimitValue(lua_State *L) {
 		if (!_lg_typecheck_testLimitValue(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTranslationalLimitMotor::testLimitValue(int limitIndex, float test_value) function, expected prototype:\nint btTranslationalLimitMotor::testLimitValue(int limitIndex, float test_value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTranslationalLimitMotor::testLimitValue(int limitIndex, float test_value) function, expected prototype:\nint btTranslationalLimitMotor::testLimitValue(int limitIndex, float test_value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int limitIndex=(int)lua_tointeger(L,2);
@@ -417,8 +406,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTranslationalLimitMotor::testLimitValue(int, float). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTranslationalLimitMotor::testLimitValue(int, float). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->testLimitValue(limitIndex, test_value);
 		lua_pushnumber(L,lret);
@@ -429,8 +417,7 @@ public:
 	// float btTranslationalLimitMotor::solveLinearAxis(float timeStep, float jacDiagABInv, btRigidBody & body1, const btVector3 & pointInA, btRigidBody & body2, const btVector3 & pointInB, int limit_index, const btVector3 & axis_normal_on_a, const btVector3 & anchorPos)
 	static int _bind_solveLinearAxis(lua_State *L) {
 		if (!_lg_typecheck_solveLinearAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::solveLinearAxis(float timeStep, float jacDiagABInv, btRigidBody & body1, const btVector3 & pointInA, btRigidBody & body2, const btVector3 & pointInB, int limit_index, const btVector3 & axis_normal_on_a, const btVector3 & anchorPos) function, expected prototype:\nfloat btTranslationalLimitMotor::solveLinearAxis(float timeStep, float jacDiagABInv, btRigidBody & body1, const btVector3 & pointInA, btRigidBody & body2, const btVector3 & pointInB, int limit_index, const btVector3 & axis_normal_on_a, const btVector3 & anchorPos)\nClass arguments details:\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 5 ID = 85758361\narg 6 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::solveLinearAxis(float timeStep, float jacDiagABInv, btRigidBody & body1, const btVector3 & pointInA, btRigidBody & body2, const btVector3 & pointInB, int limit_index, const btVector3 & axis_normal_on_a, const btVector3 & anchorPos) function, expected prototype:\nfloat btTranslationalLimitMotor::solveLinearAxis(float timeStep, float jacDiagABInv, btRigidBody & body1, const btVector3 & pointInA, btRigidBody & body2, const btVector3 & pointInB, int limit_index, const btVector3 & axis_normal_on_a, const btVector3 & anchorPos)\nClass arguments details:\narg 3 ID = 85758361\narg 4 ID = 91544891\narg 5 ID = 85758361\narg 6 ID = 91544891\narg 8 ID = 91544891\narg 9 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
@@ -469,8 +456,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::solveLinearAxis(float, float, btRigidBody &, const btVector3 &, btRigidBody &, const btVector3 &, int, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::solveLinearAxis(float, float, btRigidBody &, const btVector3 &, btRigidBody &, const btVector3 &, int, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->solveLinearAxis(timeStep, jacDiagABInv, body1, pointInA, body2, pointInB, limit_index, axis_normal_on_a, anchorPos);
 		lua_pushnumber(L,lret);
@@ -481,15 +467,13 @@ public:
 	// float btTranslationalLimitMotor::m_limitSoftness()
 	static int _bind_getLimitSoftness(lua_State *L) {
 		if (!_lg_typecheck_getLimitSoftness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_limitSoftness() function, expected prototype:\nfloat btTranslationalLimitMotor::m_limitSoftness()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_limitSoftness() function, expected prototype:\nfloat btTranslationalLimitMotor::m_limitSoftness()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::m_limitSoftness(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::m_limitSoftness(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_limitSoftness;
 		lua_pushnumber(L,lret);
@@ -500,15 +484,13 @@ public:
 	// float btTranslationalLimitMotor::m_damping()
 	static int _bind_getDamping(lua_State *L) {
 		if (!_lg_typecheck_getDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_damping() function, expected prototype:\nfloat btTranslationalLimitMotor::m_damping()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_damping() function, expected prototype:\nfloat btTranslationalLimitMotor::m_damping()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::m_damping(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::m_damping(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_damping;
 		lua_pushnumber(L,lret);
@@ -519,15 +501,13 @@ public:
 	// float btTranslationalLimitMotor::m_restitution()
 	static int _bind_getRestitution(lua_State *L) {
 		if (!_lg_typecheck_getRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_restitution() function, expected prototype:\nfloat btTranslationalLimitMotor::m_restitution()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btTranslationalLimitMotor::m_restitution() function, expected prototype:\nfloat btTranslationalLimitMotor::m_restitution()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::m_restitution(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btTranslationalLimitMotor::m_restitution(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->m_restitution;
 		lua_pushnumber(L,lret);
@@ -538,15 +518,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_normalCFM()
 	static int _bind_getNormalCFM(lua_State *L) {
 		if (!_lg_typecheck_getNormalCFM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_normalCFM() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_normalCFM()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_normalCFM() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_normalCFM()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_normalCFM(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_normalCFM(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_normalCFM;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -559,15 +537,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_stopERP()
 	static int _bind_getStopERP(lua_State *L) {
 		if (!_lg_typecheck_getStopERP(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_stopERP() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_stopERP()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_stopERP() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_stopERP()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_stopERP(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_stopERP(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_stopERP;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -580,15 +556,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_stopCFM()
 	static int _bind_getStopCFM(lua_State *L) {
 		if (!_lg_typecheck_getStopCFM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_stopCFM() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_stopCFM()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_stopCFM() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_stopCFM()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_stopCFM(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_stopCFM(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_stopCFM;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -601,15 +575,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_lowerLimit()
 	static int _bind_getLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_getLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_lowerLimit() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_lowerLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_lowerLimit() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_lowerLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_lowerLimit(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_lowerLimit(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_lowerLimit;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -622,15 +594,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_upperLimit()
 	static int _bind_getUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_getUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_upperLimit() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_upperLimit()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_upperLimit() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_upperLimit()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_upperLimit(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_upperLimit(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_upperLimit;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -643,15 +613,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_accumulatedImpulse()
 	static int _bind_getAccumulatedImpulse(lua_State *L) {
 		if (!_lg_typecheck_getAccumulatedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_accumulatedImpulse() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_accumulatedImpulse()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_accumulatedImpulse() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_accumulatedImpulse()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_accumulatedImpulse(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_accumulatedImpulse(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_accumulatedImpulse;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -664,15 +632,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_targetVelocity()
 	static int _bind_getTargetVelocity(lua_State *L) {
 		if (!_lg_typecheck_getTargetVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_targetVelocity() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_targetVelocity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_targetVelocity() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_targetVelocity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_targetVelocity(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_targetVelocity(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_targetVelocity;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -685,15 +651,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_maxMotorForce()
 	static int _bind_getMaxMotorForce(lua_State *L) {
 		if (!_lg_typecheck_getMaxMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_maxMotorForce() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_maxMotorForce()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_maxMotorForce() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_maxMotorForce()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_maxMotorForce(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_maxMotorForce(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_maxMotorForce;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -706,15 +670,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_currentLimitError()
 	static int _bind_getCurrentLimitError(lua_State *L) {
 		if (!_lg_typecheck_getCurrentLimitError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_currentLimitError() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_currentLimitError()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_currentLimitError() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_currentLimitError()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_currentLimitError(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_currentLimitError(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_currentLimitError;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -727,15 +689,13 @@ public:
 	// btVector3 btTranslationalLimitMotor::m_currentLinearDiff()
 	static int _bind_getCurrentLinearDiff(lua_State *L) {
 		if (!_lg_typecheck_getCurrentLinearDiff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_currentLinearDiff() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_currentLinearDiff()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btTranslationalLimitMotor::m_currentLinearDiff() function, expected prototype:\nbtVector3 btTranslationalLimitMotor::m_currentLinearDiff()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_currentLinearDiff(). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btTranslationalLimitMotor::m_currentLinearDiff(). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->m_currentLinearDiff;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -748,16 +708,14 @@ public:
 	// void btTranslationalLimitMotor::m_limitSoftness(float value)
 	static int _bind_setLimitSoftness(lua_State *L) {
 		if (!_lg_typecheck_setLimitSoftness(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_limitSoftness(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_limitSoftness(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_limitSoftness(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_limitSoftness(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_limitSoftness(float). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_limitSoftness(float). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_limitSoftness = value;
 
@@ -767,16 +725,14 @@ public:
 	// void btTranslationalLimitMotor::m_damping(float value)
 	static int _bind_setDamping(lua_State *L) {
 		if (!_lg_typecheck_setDamping(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_damping(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_damping(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_damping(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_damping(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_damping(float). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_damping(float). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_damping = value;
 
@@ -786,16 +742,14 @@ public:
 	// void btTranslationalLimitMotor::m_restitution(float value)
 	static int _bind_setRestitution(lua_State *L) {
 		if (!_lg_typecheck_setRestitution(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_restitution(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_restitution(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_restitution(float value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_restitution(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_restitution(float). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_restitution(float). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_restitution = value;
 
@@ -805,8 +759,7 @@ public:
 	// void btTranslationalLimitMotor::m_normalCFM(btVector3 value)
 	static int _bind_setNormalCFM(lua_State *L) {
 		if (!_lg_typecheck_setNormalCFM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_normalCFM(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_normalCFM(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_normalCFM(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_normalCFM(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -817,8 +770,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_normalCFM(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_normalCFM(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_normalCFM = value;
 
@@ -828,8 +780,7 @@ public:
 	// void btTranslationalLimitMotor::m_stopERP(btVector3 value)
 	static int _bind_setStopERP(lua_State *L) {
 		if (!_lg_typecheck_setStopERP(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_stopERP(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_stopERP(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_stopERP(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_stopERP(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -840,8 +791,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_stopERP(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_stopERP(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_stopERP = value;
 
@@ -851,8 +801,7 @@ public:
 	// void btTranslationalLimitMotor::m_stopCFM(btVector3 value)
 	static int _bind_setStopCFM(lua_State *L) {
 		if (!_lg_typecheck_setStopCFM(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_stopCFM(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_stopCFM(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_stopCFM(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_stopCFM(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -863,8 +812,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_stopCFM(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_stopCFM(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_stopCFM = value;
 
@@ -874,8 +822,7 @@ public:
 	// void btTranslationalLimitMotor::m_lowerLimit(btVector3 value)
 	static int _bind_setLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_setLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_lowerLimit(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_lowerLimit(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_lowerLimit(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_lowerLimit(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -886,8 +833,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_lowerLimit(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_lowerLimit(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_lowerLimit = value;
 
@@ -897,8 +843,7 @@ public:
 	// void btTranslationalLimitMotor::m_upperLimit(btVector3 value)
 	static int _bind_setUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_setUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_upperLimit(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_upperLimit(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_upperLimit(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_upperLimit(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -909,8 +854,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_upperLimit(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_upperLimit(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_upperLimit = value;
 
@@ -920,8 +864,7 @@ public:
 	// void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value)
 	static int _bind_setAccumulatedImpulse(lua_State *L) {
 		if (!_lg_typecheck_setAccumulatedImpulse(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_accumulatedImpulse(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -932,8 +875,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_accumulatedImpulse(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_accumulatedImpulse = value;
 
@@ -943,8 +885,7 @@ public:
 	// void btTranslationalLimitMotor::m_targetVelocity(btVector3 value)
 	static int _bind_setTargetVelocity(lua_State *L) {
 		if (!_lg_typecheck_setTargetVelocity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_targetVelocity(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_targetVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_targetVelocity(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_targetVelocity(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -955,8 +896,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_targetVelocity(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_targetVelocity(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_targetVelocity = value;
 
@@ -966,8 +906,7 @@ public:
 	// void btTranslationalLimitMotor::m_maxMotorForce(btVector3 value)
 	static int _bind_setMaxMotorForce(lua_State *L) {
 		if (!_lg_typecheck_setMaxMotorForce(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_maxMotorForce(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_maxMotorForce(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_maxMotorForce(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_maxMotorForce(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -978,8 +917,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_maxMotorForce(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_maxMotorForce(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_maxMotorForce = value;
 
@@ -989,8 +927,7 @@ public:
 	// void btTranslationalLimitMotor::m_currentLimitError(btVector3 value)
 	static int _bind_setCurrentLimitError(lua_State *L) {
 		if (!_lg_typecheck_setCurrentLimitError(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_currentLimitError(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_currentLimitError(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_currentLimitError(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_currentLimitError(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1001,8 +938,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_currentLimitError(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_currentLimitError(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_currentLimitError = value;
 
@@ -1012,8 +948,7 @@ public:
 	// void btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value)
 	static int _bind_setCurrentLinearDiff(lua_State *L) {
 		if (!_lg_typecheck_setCurrentLinearDiff(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value) function, expected prototype:\nvoid btTranslationalLimitMotor::m_currentLinearDiff(btVector3 value)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* value_ptr=(Luna< btVector3 >::check(L,2));
@@ -1024,8 +959,7 @@ public:
 
 		btTranslationalLimitMotor* self=(Luna< btTranslationalLimitMotor >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_currentLinearDiff(btVector3). Got : '%s'",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTranslationalLimitMotor::m_currentLinearDiff(btVector3). Got : '%s'\n%s",typeid(Luna< btTranslationalLimitMotor >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_currentLinearDiff = value;
 

@@ -50,7 +50,7 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
@@ -82,10 +82,10 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -94,7 +94,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,1,92303204) ) return false;
 		if( (!(Luna< osg::Vec3f >::check(L,1))) ) return false;
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -115,10 +115,10 @@ public:
 	inline static bool _lg_typecheck_set(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -260,6 +260,14 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_postmult(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,92303235)) ) return false;
+		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,18903838)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 15 valid operators)
@@ -287,14 +295,14 @@ public:
 	inline static bool _lg_typecheck_op_index_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_op_index_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -309,28 +317,28 @@ public:
 	inline static bool _lg_typecheck___mul_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_op_mult(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck___div(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_op_div(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -948,6 +956,24 @@ public:
 		return 1;
 	}
 
+	// osg::Vec4f osg::Vec4f::vec4f_premult(osg::Vec4f * vec, osg::Matrixd * mat)
+	static int _bind_postmult(lua_State *L) {
+		if (!_lg_typecheck_postmult(L)) {
+			luaL_error(L, "luna typecheck failed in osg::Vec4f osg::Vec4f::vec4f_premult(osg::Vec4f * vec, osg::Matrixd * mat) function, expected prototype:\nosg::Vec4f osg::Vec4f::vec4f_premult(osg::Vec4f * vec, osg::Matrixd * mat)\nClass arguments details:\narg 1 ID = 92303235\narg 2 ID = 18903838\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		osg::Vec4f* vec=(Luna< osg::Vec4f >::check(L,1));
+		osg::Matrixd* mat=(Luna< osg::Matrixd >::check(L,2));
+
+		osg::Vec4f stack_lret = vec4f_premult(vec, mat);
+		osg::Vec4f* lret = new osg::Vec4f(stack_lret);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< osg::Vec4f >::push(L,lret,true);
+
+		return 1;
+	}
+
 
 	// Operator binds:
 	// bool osg::Vec4f::operator==(const osg::Vec4f & v) const
@@ -1328,6 +1354,7 @@ luna_RegType LunaTraits< osg::Vec4f >::methods[] = {
 	{"length", &luna_wrapper_osg_Vec4f::_bind_length},
 	{"length2", &luna_wrapper_osg_Vec4f::_bind_length2},
 	{"normalize", &luna_wrapper_osg_Vec4f::_bind_normalize},
+	{"postmult", &luna_wrapper_osg_Vec4f::_bind_postmult},
 	{"__eq", &luna_wrapper_osg_Vec4f::_bind___eq},
 	{"op_neq", &luna_wrapper_osg_Vec4f::_bind_op_neq},
 	{"__lt", &luna_wrapper_osg_Vec4f::_bind___lt},

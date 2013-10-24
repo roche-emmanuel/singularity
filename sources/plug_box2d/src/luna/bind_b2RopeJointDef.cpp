@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RopeJointDef* self= (b2RopeJointDef*)(Luna< void >::check(L,1));
@@ -35,8 +34,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2JointDef >::check(L,1));
@@ -106,7 +104,7 @@ public:
 	inline static bool _lg_typecheck_setMaxLength(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -118,8 +116,7 @@ public:
 	// b2RopeJointDef::b2RopeJointDef()
 	static b2RopeJointDef* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2RopeJointDef::b2RopeJointDef() function, expected prototype:\nb2RopeJointDef::b2RopeJointDef()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2RopeJointDef::b2RopeJointDef() function, expected prototype:\nb2RopeJointDef::b2RopeJointDef()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -131,15 +128,13 @@ public:
 	// b2Vec2 b2RopeJointDef::localAnchorA()
 	static int _bind_getLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_getLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2RopeJointDef::localAnchorA() function, expected prototype:\nb2Vec2 b2RopeJointDef::localAnchorA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2RopeJointDef::localAnchorA() function, expected prototype:\nb2Vec2 b2RopeJointDef::localAnchorA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeJointDef* self=Luna< b2JointDef >::checkSubType< b2RopeJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2RopeJointDef::localAnchorA(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2RopeJointDef::localAnchorA(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localAnchorA;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -152,15 +147,13 @@ public:
 	// b2Vec2 b2RopeJointDef::localAnchorB()
 	static int _bind_getLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_getLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2RopeJointDef::localAnchorB() function, expected prototype:\nb2Vec2 b2RopeJointDef::localAnchorB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2RopeJointDef::localAnchorB() function, expected prototype:\nb2Vec2 b2RopeJointDef::localAnchorB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeJointDef* self=Luna< b2JointDef >::checkSubType< b2RopeJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2RopeJointDef::localAnchorB(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2RopeJointDef::localAnchorB(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->localAnchorB;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -173,15 +166,13 @@ public:
 	// float b2RopeJointDef::maxLength()
 	static int _bind_getMaxLength(lua_State *L) {
 		if (!_lg_typecheck_getMaxLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2RopeJointDef::maxLength() function, expected prototype:\nfloat b2RopeJointDef::maxLength()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2RopeJointDef::maxLength() function, expected prototype:\nfloat b2RopeJointDef::maxLength()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2RopeJointDef* self=Luna< b2JointDef >::checkSubType< b2RopeJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2RopeJointDef::maxLength(). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2RopeJointDef::maxLength(). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->maxLength;
 		lua_pushnumber(L,lret);
@@ -192,8 +183,7 @@ public:
 	// void b2RopeJointDef::localAnchorA(b2Vec2 value)
 	static int _bind_setLocalAnchorA(lua_State *L) {
 		if (!_lg_typecheck_setLocalAnchorA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeJointDef::localAnchorA(b2Vec2 value) function, expected prototype:\nvoid b2RopeJointDef::localAnchorA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeJointDef::localAnchorA(b2Vec2 value) function, expected prototype:\nvoid b2RopeJointDef::localAnchorA(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -204,8 +194,7 @@ public:
 
 		b2RopeJointDef* self=Luna< b2JointDef >::checkSubType< b2RopeJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeJointDef::localAnchorA(b2Vec2). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeJointDef::localAnchorA(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localAnchorA = value;
 
@@ -215,8 +204,7 @@ public:
 	// void b2RopeJointDef::localAnchorB(b2Vec2 value)
 	static int _bind_setLocalAnchorB(lua_State *L) {
 		if (!_lg_typecheck_setLocalAnchorB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeJointDef::localAnchorB(b2Vec2 value) function, expected prototype:\nvoid b2RopeJointDef::localAnchorB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeJointDef::localAnchorB(b2Vec2 value) function, expected prototype:\nvoid b2RopeJointDef::localAnchorB(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -227,8 +215,7 @@ public:
 
 		b2RopeJointDef* self=Luna< b2JointDef >::checkSubType< b2RopeJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeJointDef::localAnchorB(b2Vec2). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeJointDef::localAnchorB(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->localAnchorB = value;
 
@@ -238,16 +225,14 @@ public:
 	// void b2RopeJointDef::maxLength(float value)
 	static int _bind_setMaxLength(lua_State *L) {
 		if (!_lg_typecheck_setMaxLength(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2RopeJointDef::maxLength(float value) function, expected prototype:\nvoid b2RopeJointDef::maxLength(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2RopeJointDef::maxLength(float value) function, expected prototype:\nvoid b2RopeJointDef::maxLength(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2RopeJointDef* self=Luna< b2JointDef >::checkSubType< b2RopeJointDef >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2RopeJointDef::maxLength(float). Got : '%s'",typeid(Luna< b2JointDef >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2RopeJointDef::maxLength(float). Got : '%s'\n%s",typeid(Luna< b2JointDef >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->maxLength = value;
 

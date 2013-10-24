@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(FANN::training_data*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(FANN::training_data*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		FANN::training_data* rhs =(Luna< FANN::training_data >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		FANN::training_data* self= (FANN::training_data*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< FANN::training_data >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -125,22 +121,22 @@ public:
 	inline static bool _lg_typecheck_read_train_from_file(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_save_train(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_save_train_to_fixed(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -178,32 +174,32 @@ public:
 	inline static bool _lg_typecheck_scale_input_train_data(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_scale_output_train_data(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_scale_train_data(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_subset_train_data(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -215,8 +211,7 @@ public:
 	// FANN::training_data::training_data()
 	static FANN::training_data* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in FANN::training_data::training_data() function, expected prototype:\nFANN::training_data::training_data()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in FANN::training_data::training_data() function, expected prototype:\nFANN::training_data::training_data()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -226,8 +221,7 @@ public:
 	// FANN::training_data::training_data(const FANN::training_data & data)
 	static FANN::training_data* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in FANN::training_data::training_data(const FANN::training_data & data) function, expected prototype:\nFANN::training_data::training_data(const FANN::training_data & data)\nClass arguments details:\narg 1 ID = 45173508\n");
+			luaL_error(L, "luna typecheck failed in FANN::training_data::training_data(const FANN::training_data & data) function, expected prototype:\nFANN::training_data::training_data(const FANN::training_data & data)\nClass arguments details:\narg 1 ID = 45173508\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const FANN::training_data* data_ptr=(Luna< FANN::training_data >::check(L,1));
@@ -253,15 +247,13 @@ public:
 	// void FANN::training_data::destroy_train()
 	static int _bind_destroy_train(lua_State *L) {
 		if (!_lg_typecheck_destroy_train(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::destroy_train() function, expected prototype:\nvoid FANN::training_data::destroy_train()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::destroy_train() function, expected prototype:\nvoid FANN::training_data::destroy_train()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::destroy_train(). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::destroy_train(). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->destroy_train();
 
@@ -271,16 +263,14 @@ public:
 	// bool FANN::training_data::read_train_from_file(const std::string & filename)
 	static int _bind_read_train_from_file(lua_State *L) {
 		if (!_lg_typecheck_read_train_from_file(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool FANN::training_data::read_train_from_file(const std::string & filename) function, expected prototype:\nbool FANN::training_data::read_train_from_file(const std::string & filename)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool FANN::training_data::read_train_from_file(const std::string & filename) function, expected prototype:\nbool FANN::training_data::read_train_from_file(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::training_data::read_train_from_file(const std::string &). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool FANN::training_data::read_train_from_file(const std::string &). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->read_train_from_file(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -291,16 +281,14 @@ public:
 	// bool FANN::training_data::save_train(const std::string & filename)
 	static int _bind_save_train(lua_State *L) {
 		if (!_lg_typecheck_save_train(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool FANN::training_data::save_train(const std::string & filename) function, expected prototype:\nbool FANN::training_data::save_train(const std::string & filename)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool FANN::training_data::save_train(const std::string & filename) function, expected prototype:\nbool FANN::training_data::save_train(const std::string & filename)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::training_data::save_train(const std::string &). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool FANN::training_data::save_train(const std::string &). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->save_train(filename);
 		lua_pushboolean(L,lret?1:0);
@@ -311,8 +299,7 @@ public:
 	// bool FANN::training_data::save_train_to_fixed(const std::string & filename, unsigned int decimal_point)
 	static int _bind_save_train_to_fixed(lua_State *L) {
 		if (!_lg_typecheck_save_train_to_fixed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool FANN::training_data::save_train_to_fixed(const std::string & filename, unsigned int decimal_point) function, expected prototype:\nbool FANN::training_data::save_train_to_fixed(const std::string & filename, unsigned int decimal_point)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool FANN::training_data::save_train_to_fixed(const std::string & filename, unsigned int decimal_point) function, expected prototype:\nbool FANN::training_data::save_train_to_fixed(const std::string & filename, unsigned int decimal_point)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
@@ -320,8 +307,7 @@ public:
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool FANN::training_data::save_train_to_fixed(const std::string &, unsigned int). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool FANN::training_data::save_train_to_fixed(const std::string &, unsigned int). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->save_train_to_fixed(filename, decimal_point);
 		lua_pushboolean(L,lret?1:0);
@@ -332,15 +318,13 @@ public:
 	// void FANN::training_data::shuffle_train_data()
 	static int _bind_shuffle_train_data(lua_State *L) {
 		if (!_lg_typecheck_shuffle_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::shuffle_train_data() function, expected prototype:\nvoid FANN::training_data::shuffle_train_data()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::shuffle_train_data() function, expected prototype:\nvoid FANN::training_data::shuffle_train_data()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::shuffle_train_data(). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::shuffle_train_data(). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->shuffle_train_data();
 
@@ -350,8 +334,7 @@ public:
 	// void FANN::training_data::merge_train_data(const FANN::training_data & data)
 	static int _bind_merge_train_data(lua_State *L) {
 		if (!_lg_typecheck_merge_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::merge_train_data(const FANN::training_data & data) function, expected prototype:\nvoid FANN::training_data::merge_train_data(const FANN::training_data & data)\nClass arguments details:\narg 1 ID = 45173508\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::merge_train_data(const FANN::training_data & data) function, expected prototype:\nvoid FANN::training_data::merge_train_data(const FANN::training_data & data)\nClass arguments details:\narg 1 ID = 45173508\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const FANN::training_data* data_ptr=(Luna< FANN::training_data >::check(L,2));
@@ -362,8 +345,7 @@ public:
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::merge_train_data(const FANN::training_data &). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::merge_train_data(const FANN::training_data &). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->merge_train_data(data);
 
@@ -373,15 +355,13 @@ public:
 	// unsigned int FANN::training_data::length_train_data()
 	static int _bind_length_train_data(lua_State *L) {
 		if (!_lg_typecheck_length_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int FANN::training_data::length_train_data() function, expected prototype:\nunsigned int FANN::training_data::length_train_data()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int FANN::training_data::length_train_data() function, expected prototype:\nunsigned int FANN::training_data::length_train_data()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::training_data::length_train_data(). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int FANN::training_data::length_train_data(). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->length_train_data();
 		lua_pushnumber(L,lret);
@@ -392,15 +372,13 @@ public:
 	// unsigned int FANN::training_data::num_input_train_data()
 	static int _bind_num_input_train_data(lua_State *L) {
 		if (!_lg_typecheck_num_input_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int FANN::training_data::num_input_train_data() function, expected prototype:\nunsigned int FANN::training_data::num_input_train_data()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int FANN::training_data::num_input_train_data() function, expected prototype:\nunsigned int FANN::training_data::num_input_train_data()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::training_data::num_input_train_data(). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int FANN::training_data::num_input_train_data(). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->num_input_train_data();
 		lua_pushnumber(L,lret);
@@ -411,15 +389,13 @@ public:
 	// unsigned int FANN::training_data::num_output_train_data()
 	static int _bind_num_output_train_data(lua_State *L) {
 		if (!_lg_typecheck_num_output_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned int FANN::training_data::num_output_train_data() function, expected prototype:\nunsigned int FANN::training_data::num_output_train_data()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned int FANN::training_data::num_output_train_data() function, expected prototype:\nunsigned int FANN::training_data::num_output_train_data()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned int FANN::training_data::num_output_train_data(). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned int FANN::training_data::num_output_train_data(). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned int lret = self->num_output_train_data();
 		lua_pushnumber(L,lret);
@@ -430,8 +406,7 @@ public:
 	// void FANN::training_data::scale_input_train_data(float new_min, float new_max)
 	static int _bind_scale_input_train_data(lua_State *L) {
 		if (!_lg_typecheck_scale_input_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::scale_input_train_data(float new_min, float new_max) function, expected prototype:\nvoid FANN::training_data::scale_input_train_data(float new_min, float new_max)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::scale_input_train_data(float new_min, float new_max) function, expected prototype:\nvoid FANN::training_data::scale_input_train_data(float new_min, float new_max)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float new_min=(float)lua_tonumber(L,2);
@@ -439,8 +414,7 @@ public:
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::scale_input_train_data(float, float). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::scale_input_train_data(float, float). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->scale_input_train_data(new_min, new_max);
 
@@ -450,8 +424,7 @@ public:
 	// void FANN::training_data::scale_output_train_data(float new_min, float new_max)
 	static int _bind_scale_output_train_data(lua_State *L) {
 		if (!_lg_typecheck_scale_output_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::scale_output_train_data(float new_min, float new_max) function, expected prototype:\nvoid FANN::training_data::scale_output_train_data(float new_min, float new_max)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::scale_output_train_data(float new_min, float new_max) function, expected prototype:\nvoid FANN::training_data::scale_output_train_data(float new_min, float new_max)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float new_min=(float)lua_tonumber(L,2);
@@ -459,8 +432,7 @@ public:
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::scale_output_train_data(float, float). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::scale_output_train_data(float, float). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->scale_output_train_data(new_min, new_max);
 
@@ -470,8 +442,7 @@ public:
 	// void FANN::training_data::scale_train_data(float new_min, float new_max)
 	static int _bind_scale_train_data(lua_State *L) {
 		if (!_lg_typecheck_scale_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::scale_train_data(float new_min, float new_max) function, expected prototype:\nvoid FANN::training_data::scale_train_data(float new_min, float new_max)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::scale_train_data(float new_min, float new_max) function, expected prototype:\nvoid FANN::training_data::scale_train_data(float new_min, float new_max)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float new_min=(float)lua_tonumber(L,2);
@@ -479,8 +450,7 @@ public:
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::scale_train_data(float, float). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::scale_train_data(float, float). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->scale_train_data(new_min, new_max);
 
@@ -490,8 +460,7 @@ public:
 	// void FANN::training_data::subset_train_data(unsigned int pos, unsigned int length)
 	static int _bind_subset_train_data(lua_State *L) {
 		if (!_lg_typecheck_subset_train_data(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void FANN::training_data::subset_train_data(unsigned int pos, unsigned int length) function, expected prototype:\nvoid FANN::training_data::subset_train_data(unsigned int pos, unsigned int length)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void FANN::training_data::subset_train_data(unsigned int pos, unsigned int length) function, expected prototype:\nvoid FANN::training_data::subset_train_data(unsigned int pos, unsigned int length)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		unsigned int pos=(unsigned int)lua_tointeger(L,2);
@@ -499,8 +468,7 @@ public:
 
 		FANN::training_data* self=(Luna< FANN::training_data >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void FANN::training_data::subset_train_data(unsigned int, unsigned int). Got : '%s'",typeid(Luna< FANN::training_data >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void FANN::training_data::subset_train_data(unsigned int, unsigned int). Got : '%s'\n%s",typeid(Luna< FANN::training_data >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->subset_train_data(pos, length);
 

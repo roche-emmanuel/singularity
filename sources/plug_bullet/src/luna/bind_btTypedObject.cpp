@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTypedObject*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btTypedObject*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedObject* rhs =(Luna< btTypedObject >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedObject* self= (btTypedObject*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedObject >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -103,7 +99,7 @@ public:
 	inline static bool _lg_typecheck_ctor(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( (lua_isnumber(L,1)==0 || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+		if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 		return true;
 	}
 
@@ -118,7 +114,7 @@ public:
 	inline static bool _lg_typecheck_setObjectType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -130,8 +126,7 @@ public:
 	// btTypedObject::btTypedObject(int objectType)
 	static btTypedObject* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTypedObject::btTypedObject(int objectType) function, expected prototype:\nbtTypedObject::btTypedObject(int objectType)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTypedObject::btTypedObject(int objectType) function, expected prototype:\nbtTypedObject::btTypedObject(int objectType)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int objectType=(int)lua_tointeger(L,1);
@@ -144,15 +139,13 @@ public:
 	// int btTypedObject::getObjectType() const
 	static int _bind_getObjectType(lua_State *L) {
 		if (!_lg_typecheck_getObjectType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btTypedObject::getObjectType() const function, expected prototype:\nint btTypedObject::getObjectType() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btTypedObject::getObjectType() const function, expected prototype:\nint btTypedObject::getObjectType() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btTypedObject::getObjectType() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btTypedObject::getObjectType() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getObjectType();
 		lua_pushnumber(L,lret);
@@ -163,16 +156,14 @@ public:
 	// void btTypedObject::m_objectType(int value)
 	static int _bind_setObjectType(lua_State *L) {
 		if (!_lg_typecheck_setObjectType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btTypedObject::m_objectType(int value) function, expected prototype:\nvoid btTypedObject::m_objectType(int value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btTypedObject::m_objectType(int value) function, expected prototype:\nvoid btTypedObject::m_objectType(int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int value=(int)lua_tointeger(L,2);
 
 		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btTypedObject::m_objectType(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btTypedObject::m_objectType(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_objectType = value;
 

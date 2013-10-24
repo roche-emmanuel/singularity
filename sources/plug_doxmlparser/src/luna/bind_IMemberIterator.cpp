@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IMemberIterator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(IMemberIterator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IMemberIterator* rhs =(Luna< IMemberIterator >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		IMemberIterator* self= (IMemberIterator*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< IMemberIterator >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -179,8 +174,7 @@ public:
 	// IMemberIterator::IMemberIterator(lua_Table * data)
 	static IMemberIterator* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMemberIterator::IMemberIterator(lua_Table * data) function, expected prototype:\nIMemberIterator::IMemberIterator(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMemberIterator::IMemberIterator(lua_Table * data) function, expected prototype:\nIMemberIterator::IMemberIterator(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -192,15 +186,13 @@ public:
 	// IMember * IMemberIterator::toFirst()
 	static int _bind_toFirst(lua_State *L) {
 		if (!_lg_typecheck_toFirst(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toFirst() function, expected prototype:\nIMember * IMemberIterator::toFirst()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toFirst() function, expected prototype:\nIMember * IMemberIterator::toFirst()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toFirst(). Got : '%s'",typeid(Luna< IMemberIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toFirst(). Got : '%s'\n%s",typeid(Luna< IMemberIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->toFirst();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -213,15 +205,13 @@ public:
 	// IMember * IMemberIterator::toLast()
 	static int _bind_toLast(lua_State *L) {
 		if (!_lg_typecheck_toLast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toLast() function, expected prototype:\nIMember * IMemberIterator::toLast()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toLast() function, expected prototype:\nIMember * IMemberIterator::toLast()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toLast(). Got : '%s'",typeid(Luna< IMemberIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toLast(). Got : '%s'\n%s",typeid(Luna< IMemberIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->toLast();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -234,15 +224,13 @@ public:
 	// IMember * IMemberIterator::toNext()
 	static int _bind_toNext(lua_State *L) {
 		if (!_lg_typecheck_toNext(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toNext() function, expected prototype:\nIMember * IMemberIterator::toNext()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toNext() function, expected prototype:\nIMember * IMemberIterator::toNext()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toNext(). Got : '%s'",typeid(Luna< IMemberIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toNext(). Got : '%s'\n%s",typeid(Luna< IMemberIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->toNext();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -255,15 +243,13 @@ public:
 	// IMember * IMemberIterator::toPrev()
 	static int _bind_toPrev(lua_State *L) {
 		if (!_lg_typecheck_toPrev(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toPrev() function, expected prototype:\nIMember * IMemberIterator::toPrev()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::toPrev() function, expected prototype:\nIMember * IMemberIterator::toPrev()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toPrev(). Got : '%s'",typeid(Luna< IMemberIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::toPrev(). Got : '%s'\n%s",typeid(Luna< IMemberIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->toPrev();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -276,15 +262,13 @@ public:
 	// IMember * IMemberIterator::current() const
 	static int _bind_current(lua_State *L) {
 		if (!_lg_typecheck_current(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::current() const function, expected prototype:\nIMember * IMemberIterator::current() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in IMember * IMemberIterator::current() const function, expected prototype:\nIMember * IMemberIterator::current() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::current() const. Got : '%s'",typeid(Luna< IMemberIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call IMember * IMemberIterator::current() const. Got : '%s'\n%s",typeid(Luna< IMemberIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		IMember * lret = self->current();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -297,15 +281,13 @@ public:
 	// void IMemberIterator::release()
 	static int _bind_release(lua_State *L) {
 		if (!_lg_typecheck_release(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void IMemberIterator::release() function, expected prototype:\nvoid IMemberIterator::release()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void IMemberIterator::release() function, expected prototype:\nvoid IMemberIterator::release()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		IMemberIterator* self=(Luna< IMemberIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void IMemberIterator::release(). Got : '%s'",typeid(Luna< IMemberIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void IMemberIterator::release(). Got : '%s'\n%s",typeid(Luna< IMemberIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->release();
 

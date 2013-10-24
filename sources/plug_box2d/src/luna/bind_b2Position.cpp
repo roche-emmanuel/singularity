@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Position*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Position*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Position* rhs =(Luna< b2Position >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Position* self= (b2Position*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Position >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -124,7 +120,7 @@ public:
 	inline static bool _lg_typecheck_setA(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -138,15 +134,13 @@ public:
 	// b2Vec2 b2Position::c()
 	static int _bind_getC(lua_State *L) {
 		if (!_lg_typecheck_getC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Position::c() function, expected prototype:\nb2Vec2 b2Position::c()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Position::c() function, expected prototype:\nb2Vec2 b2Position::c()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Position* self=(Luna< b2Position >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Position::c(). Got : '%s'",typeid(Luna< b2Position >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Position::c(). Got : '%s'\n%s",typeid(Luna< b2Position >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->c;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -159,15 +153,13 @@ public:
 	// float b2Position::a()
 	static int _bind_getA(lua_State *L) {
 		if (!_lg_typecheck_getA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Position::a() function, expected prototype:\nfloat b2Position::a()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Position::a() function, expected prototype:\nfloat b2Position::a()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Position* self=(Luna< b2Position >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Position::a(). Got : '%s'",typeid(Luna< b2Position >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Position::a(). Got : '%s'\n%s",typeid(Luna< b2Position >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->a;
 		lua_pushnumber(L,lret);
@@ -178,8 +170,7 @@ public:
 	// void b2Position::c(b2Vec2 value)
 	static int _bind_setC(lua_State *L) {
 		if (!_lg_typecheck_setC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Position::c(b2Vec2 value) function, expected prototype:\nvoid b2Position::c(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2Position::c(b2Vec2 value) function, expected prototype:\nvoid b2Position::c(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -190,8 +181,7 @@ public:
 
 		b2Position* self=(Luna< b2Position >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Position::c(b2Vec2). Got : '%s'",typeid(Luna< b2Position >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Position::c(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Position >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->c = value;
 
@@ -201,16 +191,14 @@ public:
 	// void b2Position::a(float value)
 	static int _bind_setA(lua_State *L) {
 		if (!_lg_typecheck_setA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Position::a(float value) function, expected prototype:\nvoid b2Position::a(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Position::a(float value) function, expected prototype:\nvoid b2Position::a(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Position* self=(Luna< b2Position >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Position::a(float). Got : '%s'",typeid(Luna< b2Position >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Position::a(float). Got : '%s'\n%s",typeid(Luna< b2Position >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->a = value;
 

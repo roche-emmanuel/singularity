@@ -63,7 +63,7 @@ public:
 	inline static bool _lg_typecheck_public_failback_alloc(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -79,15 +79,13 @@ public:
 	// btGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool()
 	static int _bind_public_push_new_pool(lua_State *L) {
 		if (!_lg_typecheck_public_push_new_pool(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool() function, expected prototype:\nbtGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool() function, expected prototype:\nbtGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btGenericPoolAllocator* self=Luna< btGenericPoolAllocator >::checkSubType< wrapper_btGenericPoolAllocator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool(). Got : '%s'",typeid(Luna< btGenericPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btGenericMemoryPool * btGenericPoolAllocator::public_push_new_pool(). Got : '%s'\n%s",typeid(Luna< btGenericPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btGenericMemoryPool * lret = self->public_push_new_pool();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -100,16 +98,14 @@ public:
 	// void * btGenericPoolAllocator::public_failback_alloc(size_t size_bytes)
 	static int _bind_public_failback_alloc(lua_State *L) {
 		if (!_lg_typecheck_public_failback_alloc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btGenericPoolAllocator::public_failback_alloc(size_t size_bytes) function, expected prototype:\nvoid * btGenericPoolAllocator::public_failback_alloc(size_t size_bytes)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btGenericPoolAllocator::public_failback_alloc(size_t size_bytes) function, expected prototype:\nvoid * btGenericPoolAllocator::public_failback_alloc(size_t size_bytes)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size_bytes=(size_t)lua_tointeger(L,2);
 
 		wrapper_btGenericPoolAllocator* self=Luna< btGenericPoolAllocator >::checkSubType< wrapper_btGenericPoolAllocator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btGenericPoolAllocator::public_failback_alloc(size_t). Got : '%s'",typeid(Luna< btGenericPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btGenericPoolAllocator::public_failback_alloc(size_t). Got : '%s'\n%s",typeid(Luna< btGenericPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->public_failback_alloc(size_bytes);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -122,16 +118,14 @@ public:
 	// bool btGenericPoolAllocator::public_failback_free(void * pointer)
 	static int _bind_public_failback_free(lua_State *L) {
 		if (!_lg_typecheck_public_failback_free(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGenericPoolAllocator::public_failback_free(void * pointer) function, expected prototype:\nbool btGenericPoolAllocator::public_failback_free(void * pointer)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGenericPoolAllocator::public_failback_free(void * pointer) function, expected prototype:\nbool btGenericPoolAllocator::public_failback_free(void * pointer)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* pointer=(Luna< void >::check(L,2));
 
 		wrapper_btGenericPoolAllocator* self=Luna< btGenericPoolAllocator >::checkSubType< wrapper_btGenericPoolAllocator >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGenericPoolAllocator::public_failback_free(void *). Got : '%s'",typeid(Luna< btGenericPoolAllocator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGenericPoolAllocator::public_failback_free(void *). Got : '%s'\n%s",typeid(Luna< btGenericPoolAllocator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->public_failback_free(pointer);
 		lua_pushboolean(L,lret?1:0);

@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btIDebugDraw*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btIDebugDraw*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* rhs =(Luna< btIDebugDraw >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btIDebugDraw* self= (btIDebugDraw*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btIDebugDraw >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -164,7 +159,7 @@ public:
 	inline static bool _lg_typecheck_drawSphere_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( (!(Luna< btTransform >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
@@ -177,7 +172,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,4))) ) return false;
 		return true;
@@ -200,7 +195,7 @@ public:
 		if( (!(Luna< btVector3 >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,8))) ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -215,7 +210,7 @@ public:
 		if( (!(Luna< btVector3 >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,5))) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -224,8 +219,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
 	}
@@ -233,7 +228,7 @@ public:
 	inline static bool _lg_typecheck_reportErrorWarning(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -241,14 +236,14 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setDebugMode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -271,7 +266,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -282,13 +277,13 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,91544891) ) return false;
 		if( lua_isboolean(L,10)==0 ) return false;
-		if( luatop>10 && lua_isnumber(L,11)==0 ) return false;
+		if( luatop>10 && lua_type(L,11)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -299,13 +294,13 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,91544891) ) return false;
-		if( luatop>10 && lua_isnumber(L,11)==0 ) return false;
+		if( luatop>10 && lua_type(L,11)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -338,9 +333,9 @@ public:
 	inline static bool _lg_typecheck_drawCapsule(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
@@ -349,9 +344,9 @@ public:
 	inline static bool _lg_typecheck_drawCylinder(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
@@ -360,9 +355,9 @@ public:
 	inline static bool _lg_typecheck_drawCone(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
@@ -372,7 +367,7 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		return true;
@@ -391,7 +386,7 @@ public:
 	inline static bool _lg_typecheck_base_drawSphere_overload_1(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,13247377) ) return false;
 		if( (!(Luna< btTransform >::check(L,3))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
@@ -404,7 +399,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,2))) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,4))) ) return false;
 		return true;
@@ -427,7 +422,7 @@ public:
 		if( (!(Luna< btVector3 >::check(L,7))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,8))) ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -442,7 +437,7 @@ public:
 		if( (!(Luna< btVector3 >::check(L,4))) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		if( (!(Luna< btVector3 >::check(L,5))) ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -459,7 +454,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -470,13 +465,13 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,9,91544891) ) return false;
 		if( lua_isboolean(L,10)==0 ) return false;
-		if( luatop>10 && lua_isnumber(L,11)==0 ) return false;
+		if( luatop>10 && lua_type(L,11)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -487,13 +482,13 @@ public:
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,91544891) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
-		if( lua_isnumber(L,6)==0 ) return false;
-		if( lua_isnumber(L,7)==0 ) return false;
-		if( lua_isnumber(L,8)==0 ) return false;
-		if( lua_isnumber(L,9)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,6)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,7)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,8)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,9)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,10,91544891) ) return false;
-		if( luatop>10 && lua_isnumber(L,11)==0 ) return false;
+		if( luatop>10 && lua_type(L,11)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -526,9 +521,9 @@ public:
 	inline static bool _lg_typecheck_base_drawCapsule(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
@@ -537,9 +532,9 @@ public:
 	inline static bool _lg_typecheck_base_drawCylinder(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
@@ -548,9 +543,9 @@ public:
 	inline static bool _lg_typecheck_base_drawCone(lua_State *L) {
 		if( lua_gettop(L)!=6 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,6,91544891) ) return false;
 		return true;
@@ -560,7 +555,7 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,5,91544891) ) return false;
 		return true;
@@ -574,8 +569,7 @@ public:
 	// btIDebugDraw::btIDebugDraw(lua_Table * data)
 	static btIDebugDraw* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btIDebugDraw::btIDebugDraw(lua_Table * data) function, expected prototype:\nbtIDebugDraw::btIDebugDraw(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btIDebugDraw::btIDebugDraw(lua_Table * data) function, expected prototype:\nbtIDebugDraw::btIDebugDraw(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -587,8 +581,7 @@ public:
 	// void btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & color)
 	static int _bind_drawLine_overload_1(lua_State *L) {
 		if (!_lg_typecheck_drawLine_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -609,8 +602,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawLine(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawLine(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawLine(from, to, color);
 
@@ -620,8 +612,7 @@ public:
 	// void btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor)
 	static int _bind_drawLine_overload_2(lua_State *L) {
 		if (!_lg_typecheck_drawLine_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor) function, expected prototype:\nvoid btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor) function, expected prototype:\nvoid btIDebugDraw::drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -647,8 +638,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawLine(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawLine(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawLine(from, to, fromColor, toColor);
 
@@ -667,8 +657,7 @@ public:
 	// void btIDebugDraw::drawSphere(float radius, const btTransform & transform, const btVector3 & color)
 	static int _bind_drawSphere_overload_1(lua_State *L) {
 		if (!_lg_typecheck_drawSphere_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawSphere(float radius, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawSphere(float radius, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawSphere(float radius, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawSphere(float radius, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -685,8 +674,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawSphere(float, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawSphere(float, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawSphere(radius, transform, color);
 
@@ -696,8 +684,7 @@ public:
 	// void btIDebugDraw::drawSphere(const btVector3 & p, float radius, const btVector3 & color)
 	static int _bind_drawSphere_overload_2(lua_State *L) {
 		if (!_lg_typecheck_drawSphere_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawSphere(const btVector3 & p, float radius, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawSphere(const btVector3 & p, float radius, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawSphere(const btVector3 & p, float radius, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawSphere(const btVector3 & p, float radius, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* p_ptr=(Luna< btVector3 >::check(L,2));
@@ -714,8 +701,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawSphere(const btVector3 &, float, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawSphere(const btVector3 &, float, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawSphere(p, radius, color);
 
@@ -734,8 +720,7 @@ public:
 	// void btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha)
 	static int _bind_drawTriangle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_drawTriangle_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha) function, expected prototype:\nvoid btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha) function, expected prototype:\nvoid btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v0_ptr=(Luna< btVector3 >::check(L,2));
@@ -777,8 +762,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawTriangle(v0, v1, v2, _arg4, _arg5, _arg6, color, alpha);
 
@@ -788,8 +772,7 @@ public:
 	// void btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5)
 	static int _bind_drawTriangle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_drawTriangle_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5) function, expected prototype:\nvoid btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5) function, expected prototype:\nvoid btIDebugDraw::drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v0_ptr=(Luna< btVector3 >::check(L,2));
@@ -816,8 +799,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawTriangle(v0, v1, v2, color, _arg5);
 
@@ -836,8 +818,7 @@ public:
 	// void btIDebugDraw::drawContactPoint(const btVector3 & PointOnB, const btVector3 & normalOnB, float distance, int lifeTime, const btVector3 & color)
 	static int _bind_drawContactPoint(lua_State *L) {
 		if (!_lg_typecheck_drawContactPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawContactPoint(const btVector3 & PointOnB, const btVector3 & normalOnB, float distance, int lifeTime, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawContactPoint(const btVector3 & PointOnB, const btVector3 & normalOnB, float distance, int lifeTime, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawContactPoint(const btVector3 & PointOnB, const btVector3 & normalOnB, float distance, int lifeTime, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawContactPoint(const btVector3 & PointOnB, const btVector3 & normalOnB, float distance, int lifeTime, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* PointOnB_ptr=(Luna< btVector3 >::check(L,2));
@@ -860,8 +841,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawContactPoint(const btVector3 &, const btVector3 &, float, int, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawContactPoint(const btVector3 &, const btVector3 &, float, int, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawContactPoint(PointOnB, normalOnB, distance, lifeTime, color);
 
@@ -871,16 +851,14 @@ public:
 	// void btIDebugDraw::reportErrorWarning(const char * warningString)
 	static int _bind_reportErrorWarning(lua_State *L) {
 		if (!_lg_typecheck_reportErrorWarning(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::reportErrorWarning(const char * warningString) function, expected prototype:\nvoid btIDebugDraw::reportErrorWarning(const char * warningString)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::reportErrorWarning(const char * warningString) function, expected prototype:\nvoid btIDebugDraw::reportErrorWarning(const char * warningString)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * warningString=(const char *)lua_tostring(L,2);
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::reportErrorWarning(const char *). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::reportErrorWarning(const char *). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reportErrorWarning(warningString);
 
@@ -890,8 +868,7 @@ public:
 	// void btIDebugDraw::draw3dText(const btVector3 & location, const char * textString)
 	static int _bind_draw3dText(lua_State *L) {
 		if (!_lg_typecheck_draw3dText(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::draw3dText(const btVector3 & location, const char * textString) function, expected prototype:\nvoid btIDebugDraw::draw3dText(const btVector3 & location, const char * textString)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::draw3dText(const btVector3 & location, const char * textString) function, expected prototype:\nvoid btIDebugDraw::draw3dText(const btVector3 & location, const char * textString)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* location_ptr=(Luna< btVector3 >::check(L,2));
@@ -903,8 +880,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::draw3dText(const btVector3 &, const char *). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::draw3dText(const btVector3 &, const char *). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->draw3dText(location, textString);
 
@@ -914,16 +890,14 @@ public:
 	// void btIDebugDraw::setDebugMode(int debugMode)
 	static int _bind_setDebugMode(lua_State *L) {
 		if (!_lg_typecheck_setDebugMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::setDebugMode(int debugMode) function, expected prototype:\nvoid btIDebugDraw::setDebugMode(int debugMode)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::setDebugMode(int debugMode) function, expected prototype:\nvoid btIDebugDraw::setDebugMode(int debugMode)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int debugMode=(int)lua_tointeger(L,2);
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::setDebugMode(int). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::setDebugMode(int). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setDebugMode(debugMode);
 
@@ -933,15 +907,13 @@ public:
 	// int btIDebugDraw::getDebugMode() const
 	static int _bind_getDebugMode(lua_State *L) {
 		if (!_lg_typecheck_getDebugMode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btIDebugDraw::getDebugMode() const function, expected prototype:\nint btIDebugDraw::getDebugMode() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btIDebugDraw::getDebugMode() const function, expected prototype:\nint btIDebugDraw::getDebugMode() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btIDebugDraw::getDebugMode() const. Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btIDebugDraw::getDebugMode() const. Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getDebugMode();
 		lua_pushnumber(L,lret);
@@ -952,8 +924,7 @@ public:
 	// void btIDebugDraw::drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color)
 	static int _bind_drawAabb(lua_State *L) {
 		if (!_lg_typecheck_drawAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -974,8 +945,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawAabb(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawAabb(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawAabb(from, to, color);
 
@@ -985,8 +955,7 @@ public:
 	// void btIDebugDraw::drawTransform(const btTransform & transform, float orthoLen)
 	static int _bind_drawTransform(lua_State *L) {
 		if (!_lg_typecheck_drawTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawTransform(const btTransform & transform, float orthoLen) function, expected prototype:\nvoid btIDebugDraw::drawTransform(const btTransform & transform, float orthoLen)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawTransform(const btTransform & transform, float orthoLen) function, expected prototype:\nvoid btIDebugDraw::drawTransform(const btTransform & transform, float orthoLen)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transform_ptr=(Luna< btTransform >::check(L,2));
@@ -998,8 +967,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawTransform(const btTransform &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawTransform(const btTransform &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawTransform(transform, orthoLen);
 
@@ -1009,8 +977,7 @@ public:
 	// void btIDebugDraw::drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f))
 	static int _bind_drawArc(lua_State *L) {
 		if (!_lg_typecheck_drawArc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 8 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 8 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1044,8 +1011,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawArc(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, const btVector3 &, bool, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawArc(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, const btVector3 &, bool, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawArc(center, normal, axis, radiusA, radiusB, minAngle, maxAngle, color, drawSect, stepDegrees);
 
@@ -1055,8 +1021,7 @@ public:
 	// void btIDebugDraw::drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f))
 	static int _bind_drawSpherePatch(lua_State *L) {
 		if (!_lg_typecheck_drawSpherePatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 9 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 9 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1090,8 +1055,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawSpherePatch(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, float, const btVector3 &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawSpherePatch(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, float, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawSpherePatch(center, up, axis, radius, minTh, maxTh, minPs, maxPs, color, stepDegrees);
 
@@ -1101,8 +1065,7 @@ public:
 	// void btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color)
 	static int _bind_drawBox_overload_1(lua_State *L) {
 		if (!_lg_typecheck_drawBox_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* bbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -1123,8 +1086,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawBox(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawBox(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawBox(bbMin, bbMax, color);
 
@@ -1134,8 +1096,7 @@ public:
 	// void btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color)
 	static int _bind_drawBox_overload_2(lua_State *L) {
 		if (!_lg_typecheck_drawBox_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* bbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -1161,8 +1122,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawBox(const btVector3 &, const btVector3 &, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawBox(const btVector3 &, const btVector3 &, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawBox(bbMin, bbMax, trans, color);
 
@@ -1181,8 +1141,7 @@ public:
 	// void btIDebugDraw::drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)
 	static int _bind_drawCapsule(lua_State *L) {
 		if (!_lg_typecheck_drawCapsule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1201,8 +1160,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawCapsule(float, float, int, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawCapsule(float, float, int, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawCapsule(radius, halfHeight, upAxis, transform, color);
 
@@ -1212,8 +1170,7 @@ public:
 	// void btIDebugDraw::drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)
 	static int _bind_drawCylinder(lua_State *L) {
 		if (!_lg_typecheck_drawCylinder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1232,8 +1189,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawCylinder(float, float, int, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawCylinder(float, float, int, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawCylinder(radius, halfHeight, upAxis, transform, color);
 
@@ -1243,8 +1199,7 @@ public:
 	// void btIDebugDraw::drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color)
 	static int _bind_drawCone(lua_State *L) {
 		if (!_lg_typecheck_drawCone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1263,8 +1218,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawCone(float, float, int, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawCone(float, float, int, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawCone(radius, height, upAxis, transform, color);
 
@@ -1274,8 +1228,7 @@ public:
 	// void btIDebugDraw::drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color)
 	static int _bind_drawPlane(lua_State *L) {
 		if (!_lg_typecheck_drawPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* planeNormal_ptr=(Luna< btVector3 >::check(L,2));
@@ -1297,8 +1250,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawPlane(const btVector3 &, float, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::drawPlane(const btVector3 &, float, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->drawPlane(planeNormal, planeConst, transform, color);
 
@@ -1308,8 +1260,7 @@ public:
 	// void btIDebugDraw::base_drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor)
 	static int _bind_base_drawLine(lua_State *L) {
 		if (!_lg_typecheck_base_drawLine(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor) function, expected prototype:\nvoid btIDebugDraw::base_drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor) function, expected prototype:\nvoid btIDebugDraw::base_drawLine(const btVector3 & from, const btVector3 & to, const btVector3 & fromColor, const btVector3 & toColor)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -1335,8 +1286,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawLine(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawLine(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawLine(from, to, fromColor, toColor);
 
@@ -1346,8 +1296,7 @@ public:
 	// void btIDebugDraw::base_drawSphere(float radius, const btTransform & transform, const btVector3 & color)
 	static int _bind_base_drawSphere_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_drawSphere_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawSphere(float radius, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawSphere(float radius, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawSphere(float radius, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawSphere(float radius, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 2 ID = 13247377\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1364,8 +1313,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawSphere(float, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawSphere(float, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawSphere(radius, transform, color);
 
@@ -1375,8 +1323,7 @@ public:
 	// void btIDebugDraw::base_drawSphere(const btVector3 & p, float radius, const btVector3 & color)
 	static int _bind_base_drawSphere_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_drawSphere_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawSphere(const btVector3 & p, float radius, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawSphere(const btVector3 & p, float radius, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawSphere(const btVector3 & p, float radius, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawSphere(const btVector3 & p, float radius, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* p_ptr=(Luna< btVector3 >::check(L,2));
@@ -1393,8 +1340,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawSphere(const btVector3 &, float, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawSphere(const btVector3 &, float, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawSphere(p, radius, color);
 
@@ -1413,8 +1359,7 @@ public:
 	// void btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha)
 	static int _bind_base_drawTriangle_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_drawTriangle_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha) function, expected prototype:\nvoid btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha) function, expected prototype:\nvoid btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & arg4, const btVector3 & arg5, const btVector3 & arg6, const btVector3 & color, float alpha)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v0_ptr=(Luna< btVector3 >::check(L,2));
@@ -1456,8 +1401,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawTriangle(v0, v1, v2, _arg4, _arg5, _arg6, color, alpha);
 
@@ -1467,8 +1411,7 @@ public:
 	// void btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5)
 	static int _bind_base_drawTriangle_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_drawTriangle_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5) function, expected prototype:\nvoid btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5) function, expected prototype:\nvoid btIDebugDraw::base_drawTriangle(const btVector3 & v0, const btVector3 & v1, const btVector3 & v2, const btVector3 & color, float arg5)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* v0_ptr=(Luna< btVector3 >::check(L,2));
@@ -1495,8 +1438,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawTriangle(const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawTriangle(v0, v1, v2, color, _arg5);
 
@@ -1515,8 +1457,7 @@ public:
 	// void btIDebugDraw::base_drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color)
 	static int _bind_base_drawAabb(lua_State *L) {
 		if (!_lg_typecheck_base_drawAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawAabb(const btVector3 & from, const btVector3 & to, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* from_ptr=(Luna< btVector3 >::check(L,2));
@@ -1537,8 +1478,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawAabb(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawAabb(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawAabb(from, to, color);
 
@@ -1548,8 +1488,7 @@ public:
 	// void btIDebugDraw::base_drawTransform(const btTransform & transform, float orthoLen)
 	static int _bind_base_drawTransform(lua_State *L) {
 		if (!_lg_typecheck_base_drawTransform(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawTransform(const btTransform & transform, float orthoLen) function, expected prototype:\nvoid btIDebugDraw::base_drawTransform(const btTransform & transform, float orthoLen)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawTransform(const btTransform & transform, float orthoLen) function, expected prototype:\nvoid btIDebugDraw::base_drawTransform(const btTransform & transform, float orthoLen)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transform_ptr=(Luna< btTransform >::check(L,2));
@@ -1561,8 +1500,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawTransform(const btTransform &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawTransform(const btTransform &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawTransform(transform, orthoLen);
 
@@ -1572,8 +1510,7 @@ public:
 	// void btIDebugDraw::base_drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f))
 	static int _bind_base_drawArc(lua_State *L) {
 		if (!_lg_typecheck_base_drawArc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::base_drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 8 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::base_drawArc(const btVector3 & center, const btVector3 & normal, const btVector3 & axis, float radiusA, float radiusB, float minAngle, float maxAngle, const btVector3 & color, bool drawSect, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 8 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1607,8 +1544,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawArc(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, const btVector3 &, bool, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawArc(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, const btVector3 &, bool, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawArc(center, normal, axis, radiusA, radiusB, minAngle, maxAngle, color, drawSect, stepDegrees);
 
@@ -1618,8 +1554,7 @@ public:
 	// void btIDebugDraw::base_drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f))
 	static int _bind_base_drawSpherePatch(lua_State *L) {
 		if (!_lg_typecheck_base_drawSpherePatch(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::base_drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 9 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f)) function, expected prototype:\nvoid btIDebugDraw::base_drawSpherePatch(const btVector3 & center, const btVector3 & up, const btVector3 & axis, float radius, float minTh, float maxTh, float minPs, float maxPs, const btVector3 & color, float stepDegrees = float (10.f))\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\narg 9 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1653,8 +1588,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawSpherePatch(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, float, const btVector3 &, float). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawSpherePatch(const btVector3 &, const btVector3 &, const btVector3 &, float, float, float, float, float, const btVector3 &, float). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawSpherePatch(center, up, axis, radius, minTh, maxTh, minPs, maxPs, color, stepDegrees);
 
@@ -1664,8 +1598,7 @@ public:
 	// void btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color)
 	static int _bind_base_drawBox_overload_1(lua_State *L) {
 		if (!_lg_typecheck_base_drawBox_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* bbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -1686,8 +1619,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawBox(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawBox(const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawBox(bbMin, bbMax, color);
 
@@ -1697,8 +1629,7 @@ public:
 	// void btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color)
 	static int _bind_base_drawBox_overload_2(lua_State *L) {
 		if (!_lg_typecheck_base_drawBox_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawBox(const btVector3 & bbMin, const btVector3 & bbMax, const btTransform & trans, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* bbMin_ptr=(Luna< btVector3 >::check(L,2));
@@ -1724,8 +1655,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawBox(const btVector3 &, const btVector3 &, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawBox(const btVector3 &, const btVector3 &, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawBox(bbMin, bbMax, trans, color);
 
@@ -1744,8 +1674,7 @@ public:
 	// void btIDebugDraw::base_drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)
 	static int _bind_base_drawCapsule(lua_State *L) {
 		if (!_lg_typecheck_base_drawCapsule(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawCapsule(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1764,8 +1693,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawCapsule(float, float, int, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawCapsule(float, float, int, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawCapsule(radius, halfHeight, upAxis, transform, color);
 
@@ -1775,8 +1703,7 @@ public:
 	// void btIDebugDraw::base_drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)
 	static int _bind_base_drawCylinder(lua_State *L) {
 		if (!_lg_typecheck_base_drawCylinder(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawCylinder(float radius, float halfHeight, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1795,8 +1722,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawCylinder(float, float, int, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawCylinder(float, float, int, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawCylinder(radius, halfHeight, upAxis, transform, color);
 
@@ -1806,8 +1732,7 @@ public:
 	// void btIDebugDraw::base_drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color)
 	static int _bind_base_drawCone(lua_State *L) {
 		if (!_lg_typecheck_base_drawCone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawCone(float radius, float height, int upAxis, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 4 ID = 13247377\narg 5 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float radius=(float)lua_tonumber(L,2);
@@ -1826,8 +1751,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawCone(float, float, int, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawCone(float, float, int, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawCone(radius, height, upAxis, transform, color);
 
@@ -1837,8 +1761,7 @@ public:
 	// void btIDebugDraw::base_drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color)
 	static int _bind_base_drawPlane(lua_State *L) {
 		if (!_lg_typecheck_base_drawPlane(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btIDebugDraw::base_drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color) function, expected prototype:\nvoid btIDebugDraw::base_drawPlane(const btVector3 & planeNormal, float planeConst, const btTransform & transform, const btVector3 & color)\nClass arguments details:\narg 1 ID = 91544891\narg 3 ID = 13247377\narg 4 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* planeNormal_ptr=(Luna< btVector3 >::check(L,2));
@@ -1860,8 +1783,7 @@ public:
 
 		btIDebugDraw* self=(Luna< btIDebugDraw >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawPlane(const btVector3 &, float, const btTransform &, const btVector3 &). Got : '%s'",typeid(Luna< btIDebugDraw >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btIDebugDraw::base_drawPlane(const btVector3 &, float, const btTransform &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btIDebugDraw >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btIDebugDraw::drawPlane(planeNormal, planeConst, transform, color);
 

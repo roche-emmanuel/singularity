@@ -8,7 +8,7 @@ function Class:initialize(options)
 	self._data = {}
 	self._modules = require("std.Vector")();
 	
-	self:append("#include <sgtCommon.h>\n")
+	self:append("#include <lunaCommon.h>\n")
 	self:append("#include <lua/ModuleProvider.h>\n\n")
 	
 	-- add the default source folders:
@@ -121,7 +121,7 @@ static Loader_${1} loader_object;
 	file:write((str1:gsub("%${1}",self._packageName)))
 	for _,v in self._modules:sequence() do
 		local name = "buf_" .. v:gsub("[%.%-]","_")
-		file:write('\t\tsgtModuleProvider::registerModule("'.. v ..'",sgt::String((const char*)'.. name ..',sizeof('..name..')));\n')
+		file:write('\t\tsgtModuleProvider::registerModule("'.. v ..'",std::string((const char*)'.. name ..',sizeof('..name..')));\n')
 	end
 	file:write((str2:gsub("%${1}",self._packageName)))
 	

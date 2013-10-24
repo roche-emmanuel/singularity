@@ -206,15 +206,15 @@ public:
 	inline static bool _lg_typecheck_public_getReverseType(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_public_initDNA(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -223,15 +223,13 @@ public:
 	// void btDefaultSerializer::public_writeDNA()
 	static int _bind_public_writeDNA(lua_State *L) {
 		if (!_lg_typecheck_public_writeDNA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultSerializer::public_writeDNA() function, expected prototype:\nvoid btDefaultSerializer::public_writeDNA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultSerializer::public_writeDNA() function, expected prototype:\nvoid btDefaultSerializer::public_writeDNA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		wrapper_btDefaultSerializer* self=Luna< btSerializer >::checkSubType< wrapper_btDefaultSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultSerializer::public_writeDNA(). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultSerializer::public_writeDNA(). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_writeDNA();
 
@@ -241,16 +239,14 @@ public:
 	// int btDefaultSerializer::public_getReverseType(const char * type) const
 	static int _bind_public_getReverseType(lua_State *L) {
 		if (!_lg_typecheck_public_getReverseType(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btDefaultSerializer::public_getReverseType(const char * type) const function, expected prototype:\nint btDefaultSerializer::public_getReverseType(const char * type) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btDefaultSerializer::public_getReverseType(const char * type) const function, expected prototype:\nint btDefaultSerializer::public_getReverseType(const char * type) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * type=(const char *)lua_tostring(L,2);
 
 		wrapper_btDefaultSerializer* self=Luna< btSerializer >::checkSubType< wrapper_btDefaultSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btDefaultSerializer::public_getReverseType(const char *) const. Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btDefaultSerializer::public_getReverseType(const char *) const. Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->public_getReverseType(type);
 		lua_pushnumber(L,lret);
@@ -261,8 +257,7 @@ public:
 	// void btDefaultSerializer::public_initDNA(const char * bdnaOrg, int dnalen)
 	static int _bind_public_initDNA(lua_State *L) {
 		if (!_lg_typecheck_public_initDNA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btDefaultSerializer::public_initDNA(const char * bdnaOrg, int dnalen) function, expected prototype:\nvoid btDefaultSerializer::public_initDNA(const char * bdnaOrg, int dnalen)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btDefaultSerializer::public_initDNA(const char * bdnaOrg, int dnalen) function, expected prototype:\nvoid btDefaultSerializer::public_initDNA(const char * bdnaOrg, int dnalen)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const char * bdnaOrg=(const char *)lua_tostring(L,2);
@@ -270,8 +265,7 @@ public:
 
 		wrapper_btDefaultSerializer* self=Luna< btSerializer >::checkSubType< wrapper_btDefaultSerializer >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btDefaultSerializer::public_initDNA(const char *, int). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btDefaultSerializer::public_initDNA(const char *, int). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->public_initDNA(bdnaOrg, dnalen);
 

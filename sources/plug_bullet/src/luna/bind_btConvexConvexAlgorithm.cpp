@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithm* self=(Luna< btCollisionAlgorithm >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConvexConvexAlgorithm* self= (btConvexConvexAlgorithm*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionAlgorithm >::check(L,1));
@@ -104,8 +101,8 @@ public:
 		if( (lua_isnil(L,5)==0 && !(Luna< btVoronoiSimplexSolver >::check(L,5)) ) ) return false;
 		if( (lua_isnil(L,6)==0 && !Luna<void>::has_uniqueid(L,6,62802517)) ) return false;
 		if( (lua_isnil(L,6)==0 && !(Luna< btConvexPenetrationDepthSolver >::check(L,6)) ) ) return false;
-		if( (lua_isnumber(L,7)==0 || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,7)!=LUA_TNUMBER || lua_tointeger(L,7) != lua_tonumber(L,7)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
 		return true;
 	}
 
@@ -125,8 +122,8 @@ public:
 		if( (lua_isnil(L,6)==0 && !(Luna< btVoronoiSimplexSolver >::check(L,6)) ) ) return false;
 		if( (lua_isnil(L,7)==0 && !Luna<void>::has_uniqueid(L,7,62802517)) ) return false;
 		if( (lua_isnil(L,7)==0 && !(Luna< btConvexPenetrationDepthSolver >::check(L,7)) ) ) return false;
-		if( (lua_isnumber(L,8)==0 || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
-		if( (lua_isnumber(L,9)==0 || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
+		if( (lua_type(L,8)!=LUA_TNUMBER || lua_tointeger(L,8) != lua_tonumber(L,8)) ) return false;
+		if( (lua_type(L,9)!=LUA_TNUMBER || lua_tointeger(L,9) != lua_tonumber(L,9)) ) return false;
 		return true;
 	}
 
@@ -207,8 +204,7 @@ public:
 	// btConvexConvexAlgorithm::btConvexConvexAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold)
 	static btConvexConvexAlgorithm* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexConvexAlgorithm::btConvexConvexAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold) function, expected prototype:\nbtConvexConvexAlgorithm::btConvexConvexAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold)\nClass arguments details:\narg 1 ID = 66271199\narg 2 ID = 61780402\narg 3 ID = 32391296\narg 4 ID = 32391296\narg 5 ID = 95428271\narg 6 ID = 62802517\n");
+			luaL_error(L, "luna typecheck failed in btConvexConvexAlgorithm::btConvexConvexAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold) function, expected prototype:\nbtConvexConvexAlgorithm::btConvexConvexAlgorithm(btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold)\nClass arguments details:\narg 1 ID = 66271199\narg 2 ID = 61780402\narg 3 ID = 32391296\narg 4 ID = 32391296\narg 5 ID = 95428271\narg 6 ID = 62802517\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* mf=(Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,1));
@@ -230,8 +226,7 @@ public:
 	// btConvexConvexAlgorithm::btConvexConvexAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold)
 	static btConvexConvexAlgorithm* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btConvexConvexAlgorithm::btConvexConvexAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold) function, expected prototype:\nbtConvexConvexAlgorithm::btConvexConvexAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold)\nClass arguments details:\narg 2 ID = 66271199\narg 3 ID = 61780402\narg 4 ID = 32391296\narg 5 ID = 32391296\narg 6 ID = 95428271\narg 7 ID = 62802517\n");
+			luaL_error(L, "luna typecheck failed in btConvexConvexAlgorithm::btConvexConvexAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold) function, expected prototype:\nbtConvexConvexAlgorithm::btConvexConvexAlgorithm(lua_Table * data, btPersistentManifold * mf, const btCollisionAlgorithmConstructionInfo & ci, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, btVoronoiSimplexSolver * simplexSolver, btConvexPenetrationDepthSolver * pdSolver, int numPerturbationIterations, int minimumPointsPerturbationThreshold)\nClass arguments details:\narg 2 ID = 66271199\narg 3 ID = 61780402\narg 4 ID = 32391296\narg 5 ID = 32391296\narg 6 ID = 95428271\narg 7 ID = 62802517\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPersistentManifold* mf=(Luna< btTypedObject >::checkSubType< btPersistentManifold >(L,2));
@@ -264,8 +259,7 @@ public:
 	// void btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_processCollision(lua_State *L) {
 		if (!_lg_typecheck_processCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -279,8 +273,7 @@ public:
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->processCollision(body0Wrap, body1Wrap, dispatchInfo, resultOut);
 
@@ -290,8 +283,7 @@ public:
 	// float btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_calculateTimeOfImpact(lua_State *L) {
 		if (!_lg_typecheck_calculateTimeOfImpact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in float btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* body0=(Luna< btCollisionObject >::check(L,2));
@@ -305,8 +297,7 @@ public:
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexConvexAlgorithm::calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->calculateTimeOfImpact(body0, body1, dispatchInfo, resultOut);
 		lua_pushnumber(L,lret);
@@ -317,8 +308,7 @@ public:
 	// void btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray)
 	static int _bind_getAllContactManifolds(lua_State *L) {
 		if (!_lg_typecheck_getAllContactManifolds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n");
+			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldArray* manifoldArray_ptr=(Luna< btAlignedObjectArray< btPersistentManifold * > >::checkSubType< btManifoldArray >(L,2));
@@ -329,8 +319,7 @@ public:
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray &). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::getAllContactManifolds(btManifoldArray &). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAllContactManifolds(manifoldArray);
 
@@ -340,16 +329,14 @@ public:
 	// void btConvexConvexAlgorithm::setLowLevelOfDetail(bool useLowLevel)
 	static int _bind_setLowLevelOfDetail(lua_State *L) {
 		if (!_lg_typecheck_setLowLevelOfDetail(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::setLowLevelOfDetail(bool useLowLevel) function, expected prototype:\nvoid btConvexConvexAlgorithm::setLowLevelOfDetail(bool useLowLevel)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::setLowLevelOfDetail(bool useLowLevel) function, expected prototype:\nvoid btConvexConvexAlgorithm::setLowLevelOfDetail(bool useLowLevel)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool useLowLevel=(bool)(lua_toboolean(L,2)==1);
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::setLowLevelOfDetail(bool). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::setLowLevelOfDetail(bool). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLowLevelOfDetail(useLowLevel);
 
@@ -359,15 +346,13 @@ public:
 	// const btPersistentManifold * btConvexConvexAlgorithm::getManifold()
 	static int _bind_getManifold(lua_State *L) {
 		if (!_lg_typecheck_getManifold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btPersistentManifold * btConvexConvexAlgorithm::getManifold() function, expected prototype:\nconst btPersistentManifold * btConvexConvexAlgorithm::getManifold()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btPersistentManifold * btConvexConvexAlgorithm::getManifold() function, expected prototype:\nconst btPersistentManifold * btConvexConvexAlgorithm::getManifold()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btPersistentManifold * btConvexConvexAlgorithm::getManifold(). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btPersistentManifold * btConvexConvexAlgorithm::getManifold(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btPersistentManifold * lret = self->getManifold();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -380,8 +365,7 @@ public:
 	// void btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_base_processCollision(lua_State *L) {
 		if (!_lg_typecheck_base_processCollision(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nvoid btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 32391296\narg 2 ID = 32391296\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btCollisionObjectWrapper* body0Wrap=(Luna< btCollisionObjectWrapper >::check(L,2));
@@ -395,8 +379,7 @@ public:
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::base_processCollision(const btCollisionObjectWrapper *, const btCollisionObjectWrapper *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexConvexAlgorithm::processCollision(body0Wrap, body1Wrap, dispatchInfo, resultOut);
 
@@ -406,8 +389,7 @@ public:
 	// float btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)
 	static int _bind_base_calculateTimeOfImpact(lua_State *L) {
 		if (!_lg_typecheck_base_calculateTimeOfImpact(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n");
+			luaL_error(L, "luna typecheck failed in float btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut) function, expected prototype:\nfloat btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject * body0, btCollisionObject * body1, const btDispatcherInfo & dispatchInfo, btManifoldResult * resultOut)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 95201256\narg 4 ID = 25324514\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionObject* body0=(Luna< btCollisionObject >::check(L,2));
@@ -421,8 +403,7 @@ public:
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btConvexConvexAlgorithm::base_calculateTimeOfImpact(btCollisionObject *, btCollisionObject *, const btDispatcherInfo &, btManifoldResult *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btConvexConvexAlgorithm::calculateTimeOfImpact(body0, body1, dispatchInfo, resultOut);
 		lua_pushnumber(L,lret);
@@ -433,8 +414,7 @@ public:
 	// void btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray)
 	static int _bind_base_getAllContactManifolds(lua_State *L) {
 		if (!_lg_typecheck_base_getAllContactManifolds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n");
+			luaL_error(L, "luna typecheck failed in void btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray) function, expected prototype:\nvoid btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray & manifoldArray)\nClass arguments details:\narg 1 ID = 41484542\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btManifoldArray* manifoldArray_ptr=(Luna< btAlignedObjectArray< btPersistentManifold * > >::checkSubType< btManifoldArray >(L,2));
@@ -445,8 +425,7 @@ public:
 
 		btConvexConvexAlgorithm* self=Luna< btCollisionAlgorithm >::checkSubType< btConvexConvexAlgorithm >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray &). Got : '%s'",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btConvexConvexAlgorithm::base_getAllContactManifolds(btManifoldArray &). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithm >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btConvexConvexAlgorithm::getAllContactManifolds(manifoldArray);
 

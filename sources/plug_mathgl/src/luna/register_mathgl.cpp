@@ -65,7 +65,6 @@ int PLUG_EXPORT luaopen_mathgl(lua_State* L) {
 	Luna< std::vector< mglPrim > >::Register(L);
 	Luna< std::vector< mglGlyph > >::Register(L);
 	Luna< std::vector< mglTexture > >::Register(L);
-	Luna< std::vector< long > >::Register(L);
 	luna_popModule(L);
 
 	luna_pushModule(L,"mathgl");

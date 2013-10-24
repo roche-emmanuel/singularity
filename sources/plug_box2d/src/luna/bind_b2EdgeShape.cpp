@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Shape* self=(Luna< b2Shape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2EdgeShape* self= (b2EdgeShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Shape >::check(L,1));
@@ -139,7 +136,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78839054)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,74209205) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,44090970) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -148,7 +145,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,53833672)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,44090970) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -156,7 +153,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,24760292)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -265,7 +262,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,78839054)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,74209205) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,44090970) ) return false;
-		if( (lua_isnumber(L,5)==0 || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
 		return true;
 	}
 
@@ -274,7 +271,7 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,53833672)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,44090970) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -282,7 +279,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,24760292)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -294,8 +291,7 @@ public:
 	// b2EdgeShape::b2EdgeShape()
 	static b2EdgeShape* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2EdgeShape::b2EdgeShape() function, expected prototype:\nb2EdgeShape::b2EdgeShape()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2EdgeShape::b2EdgeShape() function, expected prototype:\nb2EdgeShape::b2EdgeShape()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -305,8 +301,7 @@ public:
 	// b2EdgeShape::b2EdgeShape(lua_Table * data)
 	static b2EdgeShape* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2EdgeShape::b2EdgeShape(lua_Table * data) function, expected prototype:\nb2EdgeShape::b2EdgeShape(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2EdgeShape::b2EdgeShape(lua_Table * data) function, expected prototype:\nb2EdgeShape::b2EdgeShape(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -327,8 +322,7 @@ public:
 	// void b2EdgeShape::Set(const b2Vec2 & v1, const b2Vec2 & v2)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::Set(const b2Vec2 & v1, const b2Vec2 & v2) function, expected prototype:\nvoid b2EdgeShape::Set(const b2Vec2 & v1, const b2Vec2 & v2)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::Set(const b2Vec2 & v1, const b2Vec2 & v2) function, expected prototype:\nvoid b2EdgeShape::Set(const b2Vec2 & v1, const b2Vec2 & v2)\nClass arguments details:\narg 1 ID = 54494886\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Vec2* v1_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -344,8 +338,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::Set(const b2Vec2 &, const b2Vec2 &). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::Set(const b2Vec2 &, const b2Vec2 &). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(v1, v2);
 
@@ -355,16 +348,14 @@ public:
 	// b2Shape * b2EdgeShape::Clone(b2BlockAllocator * allocator) const
 	static int _bind_Clone(lua_State *L) {
 		if (!_lg_typecheck_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Shape * b2EdgeShape::Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2EdgeShape::Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in b2Shape * b2EdgeShape::Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2EdgeShape::Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2BlockAllocator* allocator=(Luna< b2BlockAllocator >::check(L,2));
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Shape * b2EdgeShape::Clone(b2BlockAllocator *) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Shape * b2EdgeShape::Clone(b2BlockAllocator *) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Shape * lret = self->Clone(allocator);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -377,15 +368,13 @@ public:
 	// signed int b2EdgeShape::GetChildCount() const
 	static int _bind_GetChildCount(lua_State *L) {
 		if (!_lg_typecheck_GetChildCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2EdgeShape::GetChildCount() const function, expected prototype:\nsigned int b2EdgeShape::GetChildCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2EdgeShape::GetChildCount() const function, expected prototype:\nsigned int b2EdgeShape::GetChildCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2EdgeShape::GetChildCount() const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2EdgeShape::GetChildCount() const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->GetChildCount();
 		lua_pushnumber(L,lret);
@@ -396,8 +385,7 @@ public:
 	// bool b2EdgeShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const
 	static int _bind_TestPoint(lua_State *L) {
 		if (!_lg_typecheck_TestPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2EdgeShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2EdgeShape::TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Transform* transform_ptr=(Luna< b2Transform >::check(L,2));
@@ -413,8 +401,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2EdgeShape::TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2EdgeShape::TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->TestPoint(transform, p);
 		lua_pushboolean(L,lret?1:0);
@@ -425,8 +412,7 @@ public:
 	// bool b2EdgeShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const
 	static int _bind_RayCast(lua_State *L) {
 		if (!_lg_typecheck_RayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2EdgeShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2EdgeShape::RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* output=(Luna< b2RayCastOutput >::check(L,2));
@@ -444,8 +430,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2EdgeShape::RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2EdgeShape::RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->RayCast(output, input, transform, childIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -456,8 +441,7 @@ public:
 	// void b2EdgeShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const
 	static int _bind_ComputeAABB(lua_State *L) {
 		if (!_lg_typecheck_ComputeAABB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2EdgeShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2EdgeShape::ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* aabb=(Luna< b2AABB >::check(L,2));
@@ -470,8 +454,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ComputeAABB(aabb, transform, childIndex);
 
@@ -481,8 +464,7 @@ public:
 	// void b2EdgeShape::ComputeMass(b2MassData * massData, float density) const
 	static int _bind_ComputeMass(lua_State *L) {
 		if (!_lg_typecheck_ComputeMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2EdgeShape::ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2EdgeShape::ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* massData=(Luna< b2MassData >::check(L,2));
@@ -490,8 +472,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::ComputeMass(b2MassData *, float) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::ComputeMass(b2MassData *, float) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->ComputeMass(massData, density);
 
@@ -501,15 +482,13 @@ public:
 	// b2Vec2 b2EdgeShape::m_vertex1()
 	static int _bind_getVertex1(lua_State *L) {
 		if (!_lg_typecheck_getVertex1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex1() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex1()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex1() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex1()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex1(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex1(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->m_vertex1;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -522,15 +501,13 @@ public:
 	// b2Vec2 b2EdgeShape::m_vertex2()
 	static int _bind_getVertex2(lua_State *L) {
 		if (!_lg_typecheck_getVertex2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex2() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex2() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex2(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex2(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->m_vertex2;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -543,15 +520,13 @@ public:
 	// b2Vec2 b2EdgeShape::m_vertex0()
 	static int _bind_getVertex0(lua_State *L) {
 		if (!_lg_typecheck_getVertex0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex0() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex0() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex0(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex0(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->m_vertex0;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -564,15 +539,13 @@ public:
 	// b2Vec2 b2EdgeShape::m_vertex3()
 	static int _bind_getVertex3(lua_State *L) {
 		if (!_lg_typecheck_getVertex3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex3() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex3()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2EdgeShape::m_vertex3() function, expected prototype:\nb2Vec2 b2EdgeShape::m_vertex3()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex3(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2EdgeShape::m_vertex3(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const b2Vec2* lret = &self->m_vertex3;
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -585,15 +558,13 @@ public:
 	// bool b2EdgeShape::m_hasVertex0()
 	static int _bind_getHasVertex0(lua_State *L) {
 		if (!_lg_typecheck_getHasVertex0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::m_hasVertex0() function, expected prototype:\nbool b2EdgeShape::m_hasVertex0()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::m_hasVertex0() function, expected prototype:\nbool b2EdgeShape::m_hasVertex0()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2EdgeShape::m_hasVertex0(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2EdgeShape::m_hasVertex0(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_hasVertex0;
 		lua_pushboolean(L,lret?1:0);
@@ -604,15 +575,13 @@ public:
 	// bool b2EdgeShape::m_hasVertex3()
 	static int _bind_getHasVertex3(lua_State *L) {
 		if (!_lg_typecheck_getHasVertex3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::m_hasVertex3() function, expected prototype:\nbool b2EdgeShape::m_hasVertex3()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::m_hasVertex3() function, expected prototype:\nbool b2EdgeShape::m_hasVertex3()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2EdgeShape::m_hasVertex3(). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2EdgeShape::m_hasVertex3(). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_hasVertex3;
 		lua_pushboolean(L,lret?1:0);
@@ -623,8 +592,7 @@ public:
 	// void b2EdgeShape::m_vertex1(b2Vec2 value)
 	static int _bind_setVertex1(lua_State *L) {
 		if (!_lg_typecheck_setVertex1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex1(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex1(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex1(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex1(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -635,8 +603,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex1(b2Vec2). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex1(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertex1 = value;
 
@@ -646,8 +613,7 @@ public:
 	// void b2EdgeShape::m_vertex2(b2Vec2 value)
 	static int _bind_setVertex2(lua_State *L) {
 		if (!_lg_typecheck_setVertex2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex2(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex2(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex2(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex2(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -658,8 +624,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex2(b2Vec2). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex2(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertex2 = value;
 
@@ -669,8 +634,7 @@ public:
 	// void b2EdgeShape::m_vertex0(b2Vec2 value)
 	static int _bind_setVertex0(lua_State *L) {
 		if (!_lg_typecheck_setVertex0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex0(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex0(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex0(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex0(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -681,8 +645,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex0(b2Vec2). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex0(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertex0 = value;
 
@@ -692,8 +655,7 @@ public:
 	// void b2EdgeShape::m_vertex3(b2Vec2 value)
 	static int _bind_setVertex3(lua_State *L) {
 		if (!_lg_typecheck_setVertex3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex3(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex3(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_vertex3(b2Vec2 value) function, expected prototype:\nvoid b2EdgeShape::m_vertex3(b2Vec2 value)\nClass arguments details:\narg 1 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Vec2* value_ptr=(Luna< b2Vec2 >::check(L,2));
@@ -704,8 +666,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex3(b2Vec2). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_vertex3(b2Vec2). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_vertex3 = value;
 
@@ -715,16 +676,14 @@ public:
 	// void b2EdgeShape::m_hasVertex0(bool value)
 	static int _bind_setHasVertex0(lua_State *L) {
 		if (!_lg_typecheck_setHasVertex0(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_hasVertex0(bool value) function, expected prototype:\nvoid b2EdgeShape::m_hasVertex0(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_hasVertex0(bool value) function, expected prototype:\nvoid b2EdgeShape::m_hasVertex0(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_hasVertex0(bool). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_hasVertex0(bool). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hasVertex0 = value;
 
@@ -734,16 +693,14 @@ public:
 	// void b2EdgeShape::m_hasVertex3(bool value)
 	static int _bind_setHasVertex3(lua_State *L) {
 		if (!_lg_typecheck_setHasVertex3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_hasVertex3(bool value) function, expected prototype:\nvoid b2EdgeShape::m_hasVertex3(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::m_hasVertex3(bool value) function, expected prototype:\nvoid b2EdgeShape::m_hasVertex3(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_hasVertex3(bool). Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::m_hasVertex3(bool). Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_hasVertex3 = value;
 
@@ -753,16 +710,14 @@ public:
 	// b2Shape * b2EdgeShape::base_Clone(b2BlockAllocator * allocator) const
 	static int _bind_base_Clone(lua_State *L) {
 		if (!_lg_typecheck_base_Clone(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Shape * b2EdgeShape::base_Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2EdgeShape::base_Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n");
+			luaL_error(L, "luna typecheck failed in b2Shape * b2EdgeShape::base_Clone(b2BlockAllocator * allocator) const function, expected prototype:\nb2Shape * b2EdgeShape::base_Clone(b2BlockAllocator * allocator) const\nClass arguments details:\narg 1 ID = 76186022\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2BlockAllocator* allocator=(Luna< b2BlockAllocator >::check(L,2));
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Shape * b2EdgeShape::base_Clone(b2BlockAllocator *) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Shape * b2EdgeShape::base_Clone(b2BlockAllocator *) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Shape * lret = self->b2EdgeShape::Clone(allocator);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -775,15 +730,13 @@ public:
 	// signed int b2EdgeShape::base_GetChildCount() const
 	static int _bind_base_GetChildCount(lua_State *L) {
 		if (!_lg_typecheck_base_GetChildCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in signed int b2EdgeShape::base_GetChildCount() const function, expected prototype:\nsigned int b2EdgeShape::base_GetChildCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in signed int b2EdgeShape::base_GetChildCount() const function, expected prototype:\nsigned int b2EdgeShape::base_GetChildCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call signed int b2EdgeShape::base_GetChildCount() const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call signed int b2EdgeShape::base_GetChildCount() const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		signed int lret = self->b2EdgeShape::GetChildCount();
 		lua_pushnumber(L,lret);
@@ -794,8 +747,7 @@ public:
 	// bool b2EdgeShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const
 	static int _bind_base_TestPoint(lua_State *L) {
 		if (!_lg_typecheck_base_TestPoint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2EdgeShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const function, expected prototype:\nbool b2EdgeShape::base_TestPoint(const b2Transform & transform, const b2Vec2 & p) const\nClass arguments details:\narg 1 ID = 44090970\narg 2 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const b2Transform* transform_ptr=(Luna< b2Transform >::check(L,2));
@@ -811,8 +763,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2EdgeShape::base_TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2EdgeShape::base_TestPoint(const b2Transform &, const b2Vec2 &) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->b2EdgeShape::TestPoint(transform, p);
 		lua_pushboolean(L,lret?1:0);
@@ -823,8 +774,7 @@ public:
 	// bool b2EdgeShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const
 	static int _bind_base_RayCast(lua_State *L) {
 		if (!_lg_typecheck_base_RayCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2EdgeShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in bool b2EdgeShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nbool b2EdgeShape::base_RayCast(b2RayCastOutput * output, const b2RayCastInput & input, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 78839054\narg 2 ID = 74209205\narg 3 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastOutput* output=(Luna< b2RayCastOutput >::check(L,2));
@@ -842,8 +792,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool b2EdgeShape::base_RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool b2EdgeShape::base_RayCast(b2RayCastOutput *, const b2RayCastInput &, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->b2EdgeShape::RayCast(output, input, transform, childIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -854,8 +803,7 @@ public:
 	// void b2EdgeShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const
 	static int _bind_base_ComputeAABB(lua_State *L) {
 		if (!_lg_typecheck_base_ComputeAABB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2EdgeShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const function, expected prototype:\nvoid b2EdgeShape::base_ComputeAABB(b2AABB * aabb, const b2Transform & transform, signed int childIndex) const\nClass arguments details:\narg 1 ID = 53833672\narg 2 ID = 44090970\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2AABB* aabb=(Luna< b2AABB >::check(L,2));
@@ -868,8 +816,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::base_ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::base_ComputeAABB(b2AABB *, const b2Transform &, signed int) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2EdgeShape::ComputeAABB(aabb, transform, childIndex);
 
@@ -879,8 +826,7 @@ public:
 	// void b2EdgeShape::base_ComputeMass(b2MassData * massData, float density) const
 	static int _bind_base_ComputeMass(lua_State *L) {
 		if (!_lg_typecheck_base_ComputeMass(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2EdgeShape::base_ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2EdgeShape::base_ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n");
+			luaL_error(L, "luna typecheck failed in void b2EdgeShape::base_ComputeMass(b2MassData * massData, float density) const function, expected prototype:\nvoid b2EdgeShape::base_ComputeMass(b2MassData * massData, float density) const\nClass arguments details:\narg 1 ID = 24760292\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2MassData* massData=(Luna< b2MassData >::check(L,2));
@@ -888,8 +834,7 @@ public:
 
 		b2EdgeShape* self=Luna< b2Shape >::checkSubType< b2EdgeShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2EdgeShape::base_ComputeMass(b2MassData *, float) const. Got : '%s'",typeid(Luna< b2Shape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2EdgeShape::base_ComputeMass(b2MassData *, float) const. Got : '%s'\n%s",typeid(Luna< b2Shape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->b2EdgeShape::ComputeMass(massData, density);
 

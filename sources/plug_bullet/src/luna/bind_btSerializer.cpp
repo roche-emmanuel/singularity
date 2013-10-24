@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSerializer*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btSerializer*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSerializer* rhs =(Luna< btSerializer >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSerializer* self= (btSerializer*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btSerializer >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -150,8 +145,8 @@ public:
 	inline static bool _lg_typecheck_allocate(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -159,8 +154,8 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,61426957)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		if( (lua_isnil(L,5)==0 && !Luna<void>::has_uniqueid(L,5,3625364)) ) return false;
 		return true;
 	}
@@ -202,7 +197,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,3625364)) ) return false;
-		if( lua_isstring(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
 		return true;
 	}
 
@@ -215,7 +210,7 @@ public:
 	inline static bool _lg_typecheck_setSerializationFlags(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -227,8 +222,7 @@ public:
 	// btSerializer::btSerializer(lua_Table * data)
 	static btSerializer* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSerializer::btSerializer(lua_Table * data) function, expected prototype:\nbtSerializer::btSerializer(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSerializer::btSerializer(lua_Table * data) function, expected prototype:\nbtSerializer::btSerializer(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -240,15 +234,13 @@ public:
 	// const unsigned char * btSerializer::getBufferPointer() const
 	static int _bind_getBufferPointer(lua_State *L) {
 		if (!_lg_typecheck_getBufferPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const unsigned char * btSerializer::getBufferPointer() const function, expected prototype:\nconst unsigned char * btSerializer::getBufferPointer() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const unsigned char * btSerializer::getBufferPointer() const function, expected prototype:\nconst unsigned char * btSerializer::getBufferPointer() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const unsigned char * btSerializer::getBufferPointer() const. Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const unsigned char * btSerializer::getBufferPointer() const. Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const unsigned char * lret = self->getBufferPointer();
 		luaL_error(L,"Trying to convert pointer on unsigned char lret to lua. This usage should be clarifierd.");
@@ -259,15 +251,13 @@ public:
 	// int btSerializer::getCurrentBufferSize() const
 	static int _bind_getCurrentBufferSize(lua_State *L) {
 		if (!_lg_typecheck_getCurrentBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSerializer::getCurrentBufferSize() const function, expected prototype:\nint btSerializer::getCurrentBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSerializer::getCurrentBufferSize() const function, expected prototype:\nint btSerializer::getCurrentBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSerializer::getCurrentBufferSize() const. Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSerializer::getCurrentBufferSize() const. Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getCurrentBufferSize();
 		lua_pushnumber(L,lret);
@@ -278,8 +268,7 @@ public:
 	// btChunk * btSerializer::allocate(size_t size, int numElements)
 	static int _bind_allocate(lua_State *L) {
 		if (!_lg_typecheck_allocate(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btChunk * btSerializer::allocate(size_t size, int numElements) function, expected prototype:\nbtChunk * btSerializer::allocate(size_t size, int numElements)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btChunk * btSerializer::allocate(size_t size, int numElements) function, expected prototype:\nbtChunk * btSerializer::allocate(size_t size, int numElements)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		size_t size=(size_t)lua_tointeger(L,2);
@@ -287,8 +276,7 @@ public:
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btChunk * btSerializer::allocate(size_t, int). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btChunk * btSerializer::allocate(size_t, int). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btChunk * lret = self->allocate(size, numElements);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -301,8 +289,7 @@ public:
 	// void btSerializer::finalizeChunk(btChunk * chunk, const char * structType, int chunkCode, void * oldPtr)
 	static int _bind_finalizeChunk(lua_State *L) {
 		if (!_lg_typecheck_finalizeChunk(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSerializer::finalizeChunk(btChunk * chunk, const char * structType, int chunkCode, void * oldPtr) function, expected prototype:\nvoid btSerializer::finalizeChunk(btChunk * chunk, const char * structType, int chunkCode, void * oldPtr)\nClass arguments details:\narg 1 ID = 61426957\n");
+			luaL_error(L, "luna typecheck failed in void btSerializer::finalizeChunk(btChunk * chunk, const char * structType, int chunkCode, void * oldPtr) function, expected prototype:\nvoid btSerializer::finalizeChunk(btChunk * chunk, const char * structType, int chunkCode, void * oldPtr)\nClass arguments details:\narg 1 ID = 61426957\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btChunk* chunk=(Luna< btChunk >::check(L,2));
@@ -312,8 +299,7 @@ public:
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSerializer::finalizeChunk(btChunk *, const char *, int, void *). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSerializer::finalizeChunk(btChunk *, const char *, int, void *). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->finalizeChunk(chunk, structType, chunkCode, oldPtr);
 
@@ -323,16 +309,14 @@ public:
 	// void * btSerializer::findPointer(void * oldPtr)
 	static int _bind_findPointer(lua_State *L) {
 		if (!_lg_typecheck_findPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btSerializer::findPointer(void * oldPtr) function, expected prototype:\nvoid * btSerializer::findPointer(void * oldPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btSerializer::findPointer(void * oldPtr) function, expected prototype:\nvoid * btSerializer::findPointer(void * oldPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* oldPtr=(Luna< void >::check(L,2));
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btSerializer::findPointer(void *). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btSerializer::findPointer(void *). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->findPointer(oldPtr);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -345,16 +329,14 @@ public:
 	// void * btSerializer::getUniquePointer(void * oldPtr)
 	static int _bind_getUniquePointer(lua_State *L) {
 		if (!_lg_typecheck_getUniquePointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * btSerializer::getUniquePointer(void * oldPtr) function, expected prototype:\nvoid * btSerializer::getUniquePointer(void * oldPtr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * btSerializer::getUniquePointer(void * oldPtr) function, expected prototype:\nvoid * btSerializer::getUniquePointer(void * oldPtr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* oldPtr=(Luna< void >::check(L,2));
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * btSerializer::getUniquePointer(void *). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * btSerializer::getUniquePointer(void *). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->getUniquePointer(oldPtr);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -367,15 +349,13 @@ public:
 	// void btSerializer::startSerialization()
 	static int _bind_startSerialization(lua_State *L) {
 		if (!_lg_typecheck_startSerialization(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSerializer::startSerialization() function, expected prototype:\nvoid btSerializer::startSerialization()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSerializer::startSerialization() function, expected prototype:\nvoid btSerializer::startSerialization()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSerializer::startSerialization(). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSerializer::startSerialization(). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->startSerialization();
 
@@ -385,15 +365,13 @@ public:
 	// void btSerializer::finishSerialization()
 	static int _bind_finishSerialization(lua_State *L) {
 		if (!_lg_typecheck_finishSerialization(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSerializer::finishSerialization() function, expected prototype:\nvoid btSerializer::finishSerialization()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSerializer::finishSerialization() function, expected prototype:\nvoid btSerializer::finishSerialization()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSerializer::finishSerialization(). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSerializer::finishSerialization(). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->finishSerialization();
 
@@ -403,16 +381,14 @@ public:
 	// const char * btSerializer::findNameForPointer(const void * ptr) const
 	static int _bind_findNameForPointer(lua_State *L) {
 		if (!_lg_typecheck_findNameForPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btSerializer::findNameForPointer(const void * ptr) const function, expected prototype:\nconst char * btSerializer::findNameForPointer(const void * ptr) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btSerializer::findNameForPointer(const void * ptr) const function, expected prototype:\nconst char * btSerializer::findNameForPointer(const void * ptr) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* ptr=(Luna< void >::check(L,2));
+		const void* ptr=(Luna< void >::check(L,2));
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btSerializer::findNameForPointer(const void *) const. Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btSerializer::findNameForPointer(const void *) const. Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->findNameForPointer(ptr);
 		lua_pushstring(L,lret);
@@ -423,17 +399,15 @@ public:
 	// void btSerializer::registerNameForPointer(const void * ptr, const char * name)
 	static int _bind_registerNameForPointer(lua_State *L) {
 		if (!_lg_typecheck_registerNameForPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSerializer::registerNameForPointer(const void * ptr, const char * name) function, expected prototype:\nvoid btSerializer::registerNameForPointer(const void * ptr, const char * name)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSerializer::registerNameForPointer(const void * ptr, const char * name) function, expected prototype:\nvoid btSerializer::registerNameForPointer(const void * ptr, const char * name)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		void* ptr=(Luna< void >::check(L,2));
+		const void* ptr=(Luna< void >::check(L,2));
 		const char * name=(const char *)lua_tostring(L,3);
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSerializer::registerNameForPointer(const void *, const char *). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSerializer::registerNameForPointer(const void *, const char *). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->registerNameForPointer(ptr, name);
 
@@ -443,15 +417,13 @@ public:
 	// int btSerializer::getSerializationFlags() const
 	static int _bind_getSerializationFlags(lua_State *L) {
 		if (!_lg_typecheck_getSerializationFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSerializer::getSerializationFlags() const function, expected prototype:\nint btSerializer::getSerializationFlags() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSerializer::getSerializationFlags() const function, expected prototype:\nint btSerializer::getSerializationFlags() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSerializer::getSerializationFlags() const. Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSerializer::getSerializationFlags() const. Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getSerializationFlags();
 		lua_pushnumber(L,lret);
@@ -462,16 +434,14 @@ public:
 	// void btSerializer::setSerializationFlags(int flags)
 	static int _bind_setSerializationFlags(lua_State *L) {
 		if (!_lg_typecheck_setSerializationFlags(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSerializer::setSerializationFlags(int flags) function, expected prototype:\nvoid btSerializer::setSerializationFlags(int flags)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSerializer::setSerializationFlags(int flags) function, expected prototype:\nvoid btSerializer::setSerializationFlags(int flags)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int flags=(int)lua_tointeger(L,2);
 
 		btSerializer* self=(Luna< btSerializer >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSerializer::setSerializationFlags(int). Got : '%s'",typeid(Luna< btSerializer >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSerializer::setSerializationFlags(int). Got : '%s'\n%s",typeid(Luna< btSerializer >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setSerializationFlags(flags);
 

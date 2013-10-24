@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastCallback* self=(Luna< b2RayCastCallback >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2RayCastCallback*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2RayCastCallback*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastCallback* rhs =(Luna< b2RayCastCallback >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2RayCastCallback* self= (b2RayCastCallback*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2RayCastCallback >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -141,7 +136,7 @@ public:
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,92969381)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,54494886) ) return false;
 		if( !Luna<void>::has_uniqueid(L,4,54494886) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -153,8 +148,7 @@ public:
 	// b2RayCastCallback::b2RayCastCallback(lua_Table * data)
 	static b2RayCastCallback* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2RayCastCallback::b2RayCastCallback(lua_Table * data) function, expected prototype:\nb2RayCastCallback::b2RayCastCallback(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2RayCastCallback::b2RayCastCallback(lua_Table * data) function, expected prototype:\nb2RayCastCallback::b2RayCastCallback(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -166,8 +160,7 @@ public:
 	// float b2RayCastCallback::ReportFixture(b2Fixture * fixture, const b2Vec2 & point, const b2Vec2 & normal, float fraction)
 	static int _bind_ReportFixture(lua_State *L) {
 		if (!_lg_typecheck_ReportFixture(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2RayCastCallback::ReportFixture(b2Fixture * fixture, const b2Vec2 & point, const b2Vec2 & normal, float fraction) function, expected prototype:\nfloat b2RayCastCallback::ReportFixture(b2Fixture * fixture, const b2Vec2 & point, const b2Vec2 & normal, float fraction)\nClass arguments details:\narg 1 ID = 92969381\narg 2 ID = 54494886\narg 3 ID = 54494886\n");
+			luaL_error(L, "luna typecheck failed in float b2RayCastCallback::ReportFixture(b2Fixture * fixture, const b2Vec2 & point, const b2Vec2 & normal, float fraction) function, expected prototype:\nfloat b2RayCastCallback::ReportFixture(b2Fixture * fixture, const b2Vec2 & point, const b2Vec2 & normal, float fraction)\nClass arguments details:\narg 1 ID = 92969381\narg 2 ID = 54494886\narg 3 ID = 54494886\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Fixture* fixture=(Luna< b2Fixture >::check(L,2));
@@ -185,8 +178,7 @@ public:
 
 		b2RayCastCallback* self=(Luna< b2RayCastCallback >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2RayCastCallback::ReportFixture(b2Fixture *, const b2Vec2 &, const b2Vec2 &, float). Got : '%s'",typeid(Luna< b2RayCastCallback >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2RayCastCallback::ReportFixture(b2Fixture *, const b2Vec2 &, const b2Vec2 &, float). Got : '%s'\n%s",typeid(Luna< b2RayCastCallback >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->ReportFixture(fixture, point, normal, fraction);
 		lua_pushnumber(L,lret);

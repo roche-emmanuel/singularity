@@ -1,15 +1,13 @@
 #ifndef _DXSURFACE_H_
 #define _DXSURFACE_H_
 
-#include <sgtCommon.h>
+#include <lunaCommon.h>
 #include <Awesomium/Surface.h>
 
 #include <d3d9.h>
 #include <d3dx9.h>
 #include <DxErr.h>
 
-#define CHECK_RESULT(val,msg) { HRESULT hr = (val); if(FAILED(hr)) { logERROR(msg << ", err=" << DXGetErrorString(hr) << ", desc=" << DXGetErrorDescription(hr)); return; } }
-#define CHECK_RESULT_RET(val,ret,msg) { HRESULT hr = (val); if(FAILED(hr)) { logERROR(msg << ", err=" << DXGetErrorString(hr) << ", desc=" << DXGetErrorDescription(hr)); return ret; } }
 #define SafeRelease(x) if(x) x->Release();
 
 

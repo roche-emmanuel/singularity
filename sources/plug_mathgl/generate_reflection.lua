@@ -33,6 +33,7 @@ ReflectionGenerator.generate{
 		"mglCanvas::IsSame",
 		"mglFormula::GetError",
 		"mglFormulaC::GetError",
+		"mglGroup::p%(%)",
 		"mglTexture::Set",
 		"mgl_set_pal_color",
 		"mgl_set_pal_num",

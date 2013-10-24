@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGImpactBvh*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btGImpactBvh*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactBvh* rhs =(Luna< btGImpactBvh >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGImpactBvh* self= (btGImpactBvh*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btGImpactBvh >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -175,21 +171,21 @@ public:
 	inline static bool _lg_typecheck_isLeafNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getNodeData(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getNodeBound(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -197,7 +193,7 @@ public:
 	inline static bool _lg_typecheck_setNodeBound(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,14786052) ) return false;
 		return true;
 	}
@@ -205,28 +201,28 @@ public:
 	inline static bool _lg_typecheck_getLeftNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getRightNode(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getEscapeNodeIndex(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getNodeTriangle(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,79712881) ) return false;
 		return true;
 	}
@@ -235,7 +231,7 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<1 || luatop>2 ) return false;
 
-		if( luatop>1 && (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>1 && (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -266,8 +262,7 @@ public:
 	// btGImpactBvh::btGImpactBvh()
 	static btGImpactBvh* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactBvh::btGImpactBvh() function, expected prototype:\nbtGImpactBvh::btGImpactBvh()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btGImpactBvh::btGImpactBvh() function, expected prototype:\nbtGImpactBvh::btGImpactBvh()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -277,8 +272,7 @@ public:
 	// btGImpactBvh::btGImpactBvh(btPrimitiveManagerBase * primitive_manager)
 	static btGImpactBvh* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGImpactBvh::btGImpactBvh(btPrimitiveManagerBase * primitive_manager) function, expected prototype:\nbtGImpactBvh::btGImpactBvh(btPrimitiveManagerBase * primitive_manager)\nClass arguments details:\narg 1 ID = 85935800\n");
+			luaL_error(L, "luna typecheck failed in btGImpactBvh::btGImpactBvh(btPrimitiveManagerBase * primitive_manager) function, expected prototype:\nbtGImpactBvh::btGImpactBvh(btPrimitiveManagerBase * primitive_manager)\nClass arguments details:\narg 1 ID = 85935800\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveManagerBase* primitive_manager=(Luna< btPrimitiveManagerBase >::check(L,1));
@@ -300,15 +294,13 @@ public:
 	// void btGImpactBvh::update()
 	static int _bind_update(lua_State *L) {
 		if (!_lg_typecheck_update(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactBvh::update() function, expected prototype:\nvoid btGImpactBvh::update()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactBvh::update() function, expected prototype:\nvoid btGImpactBvh::update()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactBvh::update(). Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactBvh::update(). Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->update();
 
@@ -318,15 +310,13 @@ public:
 	// void btGImpactBvh::buildSet()
 	static int _bind_buildSet(lua_State *L) {
 		if (!_lg_typecheck_buildSet(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactBvh::buildSet() function, expected prototype:\nvoid btGImpactBvh::buildSet()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactBvh::buildSet() function, expected prototype:\nvoid btGImpactBvh::buildSet()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactBvh::buildSet(). Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactBvh::buildSet(). Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildSet();
 
@@ -336,8 +326,7 @@ public:
 	// bool btGImpactBvh::boxQuery(const btAABB & box, btAlignedObjectArray< int > & collided_results) const
 	static int _bind_boxQuery(lua_State *L) {
 		if (!_lg_typecheck_boxQuery(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::boxQuery(const btAABB & box, btAlignedObjectArray< int > & collided_results) const function, expected prototype:\nbool btGImpactBvh::boxQuery(const btAABB & box, btAlignedObjectArray< int > & collided_results) const\nClass arguments details:\narg 1 ID = 14786052\narg 2 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::boxQuery(const btAABB & box, btAlignedObjectArray< int > & collided_results) const function, expected prototype:\nbool btGImpactBvh::boxQuery(const btAABB & box, btAlignedObjectArray< int > & collided_results) const\nClass arguments details:\narg 1 ID = 14786052\narg 2 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btAABB* box_ptr=(Luna< btAABB >::check(L,2));
@@ -353,8 +342,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactBvh::boxQuery(const btAABB &, btAlignedObjectArray< int > &) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactBvh::boxQuery(const btAABB &, btAlignedObjectArray< int > &) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->boxQuery(box, collided_results);
 		lua_pushboolean(L,lret?1:0);
@@ -365,8 +353,7 @@ public:
 	// bool btGImpactBvh::boxQueryTrans(const btAABB & box, const btTransform & transform, btAlignedObjectArray< int > & collided_results) const
 	static int _bind_boxQueryTrans(lua_State *L) {
 		if (!_lg_typecheck_boxQueryTrans(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::boxQueryTrans(const btAABB & box, const btTransform & transform, btAlignedObjectArray< int > & collided_results) const function, expected prototype:\nbool btGImpactBvh::boxQueryTrans(const btAABB & box, const btTransform & transform, btAlignedObjectArray< int > & collided_results) const\nClass arguments details:\narg 1 ID = 14786052\narg 2 ID = 13247377\narg 3 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::boxQueryTrans(const btAABB & box, const btTransform & transform, btAlignedObjectArray< int > & collided_results) const function, expected prototype:\nbool btGImpactBvh::boxQueryTrans(const btAABB & box, const btTransform & transform, btAlignedObjectArray< int > & collided_results) const\nClass arguments details:\narg 1 ID = 14786052\narg 2 ID = 13247377\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btAABB* box_ptr=(Luna< btAABB >::check(L,2));
@@ -387,8 +374,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactBvh::boxQueryTrans(const btAABB &, const btTransform &, btAlignedObjectArray< int > &) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactBvh::boxQueryTrans(const btAABB &, const btTransform &, btAlignedObjectArray< int > &) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->boxQueryTrans(box, transform, collided_results);
 		lua_pushboolean(L,lret?1:0);
@@ -399,8 +385,7 @@ public:
 	// bool btGImpactBvh::rayQuery(const btVector3 & ray_dir, const btVector3 & ray_origin, btAlignedObjectArray< int > & collided_results) const
 	static int _bind_rayQuery(lua_State *L) {
 		if (!_lg_typecheck_rayQuery(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::rayQuery(const btVector3 & ray_dir, const btVector3 & ray_origin, btAlignedObjectArray< int > & collided_results) const function, expected prototype:\nbool btGImpactBvh::rayQuery(const btVector3 & ray_dir, const btVector3 & ray_origin, btAlignedObjectArray< int > & collided_results) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = [unknown]\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::rayQuery(const btVector3 & ray_dir, const btVector3 & ray_origin, btAlignedObjectArray< int > & collided_results) const function, expected prototype:\nbool btGImpactBvh::rayQuery(const btVector3 & ray_dir, const btVector3 & ray_origin, btAlignedObjectArray< int > & collided_results) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\narg 3 ID = [unknown]\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* ray_dir_ptr=(Luna< btVector3 >::check(L,2));
@@ -421,8 +406,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactBvh::rayQuery(const btVector3 &, const btVector3 &, btAlignedObjectArray< int > &) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactBvh::rayQuery(const btVector3 &, const btVector3 &, btAlignedObjectArray< int > &) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->rayQuery(ray_dir, ray_origin, collided_results);
 		lua_pushboolean(L,lret?1:0);
@@ -433,15 +417,13 @@ public:
 	// bool btGImpactBvh::hasHierarchy() const
 	static int _bind_hasHierarchy(lua_State *L) {
 		if (!_lg_typecheck_hasHierarchy(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::hasHierarchy() const function, expected prototype:\nbool btGImpactBvh::hasHierarchy() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::hasHierarchy() const function, expected prototype:\nbool btGImpactBvh::hasHierarchy() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactBvh::hasHierarchy() const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactBvh::hasHierarchy() const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->hasHierarchy();
 		lua_pushboolean(L,lret?1:0);
@@ -452,15 +434,13 @@ public:
 	// bool btGImpactBvh::isTrimesh() const
 	static int _bind_isTrimesh(lua_State *L) {
 		if (!_lg_typecheck_isTrimesh(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::isTrimesh() const function, expected prototype:\nbool btGImpactBvh::isTrimesh() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::isTrimesh() const function, expected prototype:\nbool btGImpactBvh::isTrimesh() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactBvh::isTrimesh() const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactBvh::isTrimesh() const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isTrimesh();
 		lua_pushboolean(L,lret?1:0);
@@ -471,15 +451,13 @@ public:
 	// int btGImpactBvh::getNodeCount() const
 	static int _bind_getNodeCount(lua_State *L) {
 		if (!_lg_typecheck_getNodeCount(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getNodeCount() const function, expected prototype:\nint btGImpactBvh::getNodeCount() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getNodeCount() const function, expected prototype:\nint btGImpactBvh::getNodeCount() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactBvh::getNodeCount() const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactBvh::getNodeCount() const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNodeCount();
 		lua_pushnumber(L,lret);
@@ -490,16 +468,14 @@ public:
 	// bool btGImpactBvh::isLeafNode(int nodeindex) const
 	static int _bind_isLeafNode(lua_State *L) {
 		if (!_lg_typecheck_isLeafNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::isLeafNode(int nodeindex) const function, expected prototype:\nbool btGImpactBvh::isLeafNode(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGImpactBvh::isLeafNode(int nodeindex) const function, expected prototype:\nbool btGImpactBvh::isLeafNode(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGImpactBvh::isLeafNode(int) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGImpactBvh::isLeafNode(int) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLeafNode(nodeindex);
 		lua_pushboolean(L,lret?1:0);
@@ -510,16 +486,14 @@ public:
 	// int btGImpactBvh::getNodeData(int nodeindex) const
 	static int _bind_getNodeData(lua_State *L) {
 		if (!_lg_typecheck_getNodeData(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getNodeData(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getNodeData(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getNodeData(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getNodeData(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactBvh::getNodeData(int) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactBvh::getNodeData(int) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getNodeData(nodeindex);
 		lua_pushnumber(L,lret);
@@ -530,8 +504,7 @@ public:
 	// void btGImpactBvh::getNodeBound(int nodeindex, btAABB & bound) const
 	static int _bind_getNodeBound(lua_State *L) {
 		if (!_lg_typecheck_getNodeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactBvh::getNodeBound(int nodeindex, btAABB & bound) const function, expected prototype:\nvoid btGImpactBvh::getNodeBound(int nodeindex, btAABB & bound) const\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactBvh::getNodeBound(int nodeindex, btAABB & bound) const function, expected prototype:\nvoid btGImpactBvh::getNodeBound(int nodeindex, btAABB & bound) const\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
@@ -543,8 +516,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactBvh::getNodeBound(int, btAABB &) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactBvh::getNodeBound(int, btAABB &) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getNodeBound(nodeindex, bound);
 
@@ -554,8 +526,7 @@ public:
 	// void btGImpactBvh::setNodeBound(int nodeindex, const btAABB & bound)
 	static int _bind_setNodeBound(lua_State *L) {
 		if (!_lg_typecheck_setNodeBound(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactBvh::setNodeBound(int nodeindex, const btAABB & bound) function, expected prototype:\nvoid btGImpactBvh::setNodeBound(int nodeindex, const btAABB & bound)\nClass arguments details:\narg 2 ID = 14786052\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactBvh::setNodeBound(int nodeindex, const btAABB & bound) function, expected prototype:\nvoid btGImpactBvh::setNodeBound(int nodeindex, const btAABB & bound)\nClass arguments details:\narg 2 ID = 14786052\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
@@ -567,8 +538,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactBvh::setNodeBound(int, const btAABB &). Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactBvh::setNodeBound(int, const btAABB &). Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setNodeBound(nodeindex, bound);
 
@@ -578,16 +548,14 @@ public:
 	// int btGImpactBvh::getLeftNode(int nodeindex) const
 	static int _bind_getLeftNode(lua_State *L) {
 		if (!_lg_typecheck_getLeftNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getLeftNode(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getLeftNode(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getLeftNode(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getLeftNode(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactBvh::getLeftNode(int) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactBvh::getLeftNode(int) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getLeftNode(nodeindex);
 		lua_pushnumber(L,lret);
@@ -598,16 +566,14 @@ public:
 	// int btGImpactBvh::getRightNode(int nodeindex) const
 	static int _bind_getRightNode(lua_State *L) {
 		if (!_lg_typecheck_getRightNode(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getRightNode(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getRightNode(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getRightNode(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getRightNode(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactBvh::getRightNode(int) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactBvh::getRightNode(int) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getRightNode(nodeindex);
 		lua_pushnumber(L,lret);
@@ -618,16 +584,14 @@ public:
 	// int btGImpactBvh::getEscapeNodeIndex(int nodeindex) const
 	static int _bind_getEscapeNodeIndex(lua_State *L) {
 		if (!_lg_typecheck_getEscapeNodeIndex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getEscapeNodeIndex(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getEscapeNodeIndex(int nodeindex) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGImpactBvh::getEscapeNodeIndex(int nodeindex) const function, expected prototype:\nint btGImpactBvh::getEscapeNodeIndex(int nodeindex) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGImpactBvh::getEscapeNodeIndex(int) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGImpactBvh::getEscapeNodeIndex(int) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->getEscapeNodeIndex(nodeindex);
 		lua_pushnumber(L,lret);
@@ -638,8 +602,7 @@ public:
 	// void btGImpactBvh::getNodeTriangle(int nodeindex, btPrimitiveTriangle & triangle) const
 	static int _bind_getNodeTriangle(lua_State *L) {
 		if (!_lg_typecheck_getNodeTriangle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactBvh::getNodeTriangle(int nodeindex, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactBvh::getNodeTriangle(int nodeindex, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactBvh::getNodeTriangle(int nodeindex, btPrimitiveTriangle & triangle) const function, expected prototype:\nvoid btGImpactBvh::getNodeTriangle(int nodeindex, btPrimitiveTriangle & triangle) const\nClass arguments details:\narg 2 ID = 79712881\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int nodeindex=(int)lua_tointeger(L,2);
@@ -651,8 +614,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactBvh::getNodeTriangle(int, btPrimitiveTriangle &) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactBvh::getNodeTriangle(int, btPrimitiveTriangle &) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getNodeTriangle(nodeindex, triangle);
 
@@ -662,8 +624,7 @@ public:
 	// const GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int index = 0) const
 	static int _bind_get_node_pointer(lua_State *L) {
 		if (!_lg_typecheck_get_node_pointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int index = 0) const function, expected prototype:\nconst GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int index = 0) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int index = 0) const function, expected prototype:\nconst GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int index = 0) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -672,8 +633,7 @@ public:
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int) const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const GIM_BVH_TREE_NODE * btGImpactBvh::get_node_pointer(int) const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const GIM_BVH_TREE_NODE * lret = self->get_node_pointer(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -686,15 +646,13 @@ public:
 	// btAABB btGImpactBvh::getGlobalBox() const
 	static int _bind_getGlobalBox(lua_State *L) {
 		if (!_lg_typecheck_getGlobalBox(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btAABB btGImpactBvh::getGlobalBox() const function, expected prototype:\nbtAABB btGImpactBvh::getGlobalBox() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btAABB btGImpactBvh::getGlobalBox() const function, expected prototype:\nbtAABB btGImpactBvh::getGlobalBox() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btAABB btGImpactBvh::getGlobalBox() const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btAABB btGImpactBvh::getGlobalBox() const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btAABB stack_lret = self->getGlobalBox();
 		btAABB* lret = new btAABB(stack_lret);
@@ -708,16 +666,14 @@ public:
 	// void btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase * primitive_manager)
 	static int _bind_setPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_setPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase * primitive_manager) function, expected prototype:\nvoid btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase * primitive_manager)\nClass arguments details:\narg 1 ID = 85935800\n");
+			luaL_error(L, "luna typecheck failed in void btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase * primitive_manager) function, expected prototype:\nvoid btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase * primitive_manager)\nClass arguments details:\narg 1 ID = 85935800\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btPrimitiveManagerBase* primitive_manager=(Luna< btPrimitiveManagerBase >::check(L,2));
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase *). Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGImpactBvh::setPrimitiveManager(btPrimitiveManagerBase *). Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setPrimitiveManager(primitive_manager);
 
@@ -727,15 +683,13 @@ public:
 	// btPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const
 	static int _bind_getPrimitiveManager(lua_State *L) {
 		if (!_lg_typecheck_getPrimitiveManager(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const function, expected prototype:\nbtPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const function, expected prototype:\nbtPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGImpactBvh* self=(Luna< btGImpactBvh >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const. Got : '%s'",typeid(Luna< btGImpactBvh >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btPrimitiveManagerBase * btGImpactBvh::getPrimitiveManager() const. Got : '%s'\n%s",typeid(Luna< btGImpactBvh >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btPrimitiveManagerBase * lret = self->getPrimitiveManager();
 		if(!lret) return 0; // Do not write NULL pointers.

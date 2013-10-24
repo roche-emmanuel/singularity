@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmCreateFunc* self=(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionAlgorithmCreateFunc*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btCollisionAlgorithmCreateFunc*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmCreateFunc* rhs =(Luna< btCollisionAlgorithmCreateFunc >::check(L,2));
@@ -63,8 +61,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmCreateFunc* self= (btCollisionAlgorithmCreateFunc*)(Luna< void >::check(L,1));
@@ -85,8 +82,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
@@ -102,14 +98,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -180,8 +175,7 @@ public:
 	// btCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc()
 	static btCollisionAlgorithmCreateFunc* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc() function, expected prototype:\nbtCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc() function, expected prototype:\nbtCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -191,8 +185,7 @@ public:
 	// btCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc(lua_Table * data)
 	static btCollisionAlgorithmCreateFunc* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc(lua_Table * data) function, expected prototype:\nbtCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc(lua_Table * data) function, expected prototype:\nbtCollisionAlgorithmCreateFunc::btCollisionAlgorithmCreateFunc(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -213,8 +206,7 @@ public:
 	// btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_CreateCollisionAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_CreateCollisionAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmConstructionInfo* _arg1_ptr=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,2));
@@ -227,8 +219,7 @@ public:
 
 		btCollisionAlgorithmCreateFunc* self=(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionAlgorithm * lret = self->CreateCollisionAlgorithm(_arg1, body0Wrap, body1Wrap);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -241,15 +232,13 @@ public:
 	// bool btCollisionAlgorithmCreateFunc::m_swapped()
 	static int _bind_getSwapped(lua_State *L) {
 		if (!_lg_typecheck_getSwapped(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btCollisionAlgorithmCreateFunc::m_swapped() function, expected prototype:\nbool btCollisionAlgorithmCreateFunc::m_swapped()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btCollisionAlgorithmCreateFunc::m_swapped() function, expected prototype:\nbool btCollisionAlgorithmCreateFunc::m_swapped()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btCollisionAlgorithmCreateFunc* self=(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btCollisionAlgorithmCreateFunc::m_swapped(). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btCollisionAlgorithmCreateFunc::m_swapped(). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_swapped;
 		lua_pushboolean(L,lret?1:0);
@@ -260,16 +249,14 @@ public:
 	// void btCollisionAlgorithmCreateFunc::m_swapped(bool value)
 	static int _bind_setSwapped(lua_State *L) {
 		if (!_lg_typecheck_setSwapped(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmCreateFunc::m_swapped(bool value) function, expected prototype:\nvoid btCollisionAlgorithmCreateFunc::m_swapped(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btCollisionAlgorithmCreateFunc::m_swapped(bool value) function, expected prototype:\nvoid btCollisionAlgorithmCreateFunc::m_swapped(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btCollisionAlgorithmCreateFunc* self=(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btCollisionAlgorithmCreateFunc::m_swapped(bool). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btCollisionAlgorithmCreateFunc::m_swapped(bool). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_swapped = value;
 
@@ -279,8 +266,7 @@ public:
 	// btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)
 	static int _bind_base_CreateCollisionAlgorithm(lua_State *L) {
 		if (!_lg_typecheck_base_CreateCollisionAlgorithm(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n");
+			luaL_error(L, "luna typecheck failed in btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap) function, expected prototype:\nbtCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo & arg1, const btCollisionObjectWrapper * body0Wrap, const btCollisionObjectWrapper * body1Wrap)\nClass arguments details:\narg 1 ID = 61780402\narg 2 ID = 32391296\narg 3 ID = 32391296\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionAlgorithmConstructionInfo* _arg1_ptr=(Luna< btCollisionAlgorithmConstructionInfo >::check(L,2));
@@ -293,8 +279,7 @@ public:
 
 		btCollisionAlgorithmCreateFunc* self=(Luna< btCollisionAlgorithmCreateFunc >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btCollisionAlgorithm * btCollisionAlgorithmCreateFunc::base_CreateCollisionAlgorithm(btCollisionAlgorithmConstructionInfo &, const btCollisionObjectWrapper *, const btCollisionObjectWrapper *). Got : '%s'\n%s",typeid(Luna< btCollisionAlgorithmCreateFunc >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btCollisionAlgorithm * lret = self->btCollisionAlgorithmCreateFunc::CreateCollisionAlgorithm(_arg1, body0Wrap, body1Wrap);
 		if(!lret) return 0; // Do not write NULL pointers.

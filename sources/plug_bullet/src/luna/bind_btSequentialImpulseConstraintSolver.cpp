@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintSolver* self=(Luna< btConstraintSolver >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSequentialImpulseConstraintSolver* self= (btSequentialImpulseConstraintSolver*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btConstraintSolver >::check(L,1));
@@ -113,14 +110,14 @@ public:
 	inline static bool _lg_typecheck_btRandInt2(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setRandSeed(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -133,8 +130,8 @@ public:
 	inline static bool _lg_typecheck_base_prepareSolve(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -161,8 +158,7 @@ public:
 	// btSequentialImpulseConstraintSolver::btSequentialImpulseConstraintSolver(lua_Table * data)
 	static btSequentialImpulseConstraintSolver* _bind_ctor(lua_State *L) {
 		if (!_lg_typecheck_ctor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btSequentialImpulseConstraintSolver::btSequentialImpulseConstraintSolver(lua_Table * data) function, expected prototype:\nbtSequentialImpulseConstraintSolver::btSequentialImpulseConstraintSolver(lua_Table * data)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btSequentialImpulseConstraintSolver::btSequentialImpulseConstraintSolver(lua_Table * data) function, expected prototype:\nbtSequentialImpulseConstraintSolver::btSequentialImpulseConstraintSolver(lua_Table * data)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -174,15 +170,13 @@ public:
 	// void btSequentialImpulseConstraintSolver::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::reset() function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::reset() function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::reset(). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::reset(). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -192,15 +186,13 @@ public:
 	// unsigned long btSequentialImpulseConstraintSolver::btRand2()
 	static int _bind_btRand2(lua_State *L) {
 		if (!_lg_typecheck_btRand2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long btSequentialImpulseConstraintSolver::btRand2() function, expected prototype:\nunsigned long btSequentialImpulseConstraintSolver::btRand2()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long btSequentialImpulseConstraintSolver::btRand2() function, expected prototype:\nunsigned long btSequentialImpulseConstraintSolver::btRand2()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long btSequentialImpulseConstraintSolver::btRand2(). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long btSequentialImpulseConstraintSolver::btRand2(). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long lret = self->btRand2();
 		lua_pushnumber(L,lret);
@@ -211,16 +203,14 @@ public:
 	// int btSequentialImpulseConstraintSolver::btRandInt2(int n)
 	static int _bind_btRandInt2(lua_State *L) {
 		if (!_lg_typecheck_btRandInt2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btSequentialImpulseConstraintSolver::btRandInt2(int n) function, expected prototype:\nint btSequentialImpulseConstraintSolver::btRandInt2(int n)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btSequentialImpulseConstraintSolver::btRandInt2(int n) function, expected prototype:\nint btSequentialImpulseConstraintSolver::btRandInt2(int n)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int n=(int)lua_tointeger(L,2);
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btSequentialImpulseConstraintSolver::btRandInt2(int). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btSequentialImpulseConstraintSolver::btRandInt2(int). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btRandInt2(n);
 		lua_pushnumber(L,lret);
@@ -231,16 +221,14 @@ public:
 	// void btSequentialImpulseConstraintSolver::setRandSeed(unsigned long seed)
 	static int _bind_setRandSeed(lua_State *L) {
 		if (!_lg_typecheck_setRandSeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::setRandSeed(unsigned long seed) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::setRandSeed(unsigned long seed)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::setRandSeed(unsigned long seed) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::setRandSeed(unsigned long seed)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
-		unsigned long seed=(unsigned long)lua_tointeger(L,2);
+		unsigned long seed=(unsigned long)lua_tonumber(L,2);
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::setRandSeed(unsigned long). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::setRandSeed(unsigned long). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setRandSeed(seed);
 
@@ -250,15 +238,13 @@ public:
 	// unsigned long btSequentialImpulseConstraintSolver::getRandSeed() const
 	static int _bind_getRandSeed(lua_State *L) {
 		if (!_lg_typecheck_getRandSeed(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long btSequentialImpulseConstraintSolver::getRandSeed() const function, expected prototype:\nunsigned long btSequentialImpulseConstraintSolver::getRandSeed() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long btSequentialImpulseConstraintSolver::getRandSeed() const function, expected prototype:\nunsigned long btSequentialImpulseConstraintSolver::getRandSeed() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long btSequentialImpulseConstraintSolver::getRandSeed() const. Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long btSequentialImpulseConstraintSolver::getRandSeed() const. Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long lret = self->getRandSeed();
 		lua_pushnumber(L,lret);
@@ -269,8 +255,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::base_prepareSolve(int arg1, int arg2)
 	static int _bind_base_prepareSolve(lua_State *L) {
 		if (!_lg_typecheck_base_prepareSolve(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::base_prepareSolve(int arg1, int arg2) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::base_prepareSolve(int arg1, int arg2)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::base_prepareSolve(int arg1, int arg2) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::base_prepareSolve(int arg1, int arg2)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int _arg1=(int)lua_tointeger(L,2);
@@ -278,8 +263,7 @@ public:
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::base_prepareSolve(int, int). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::base_prepareSolve(int, int). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSequentialImpulseConstraintSolver::prepareSolve(_arg1, _arg2);
 
@@ -289,8 +273,7 @@ public:
 	// void btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo & arg1, class btIDebugDraw * arg2, btStackAlloc * arg3)
 	static int _bind_base_allSolved(lua_State *L) {
 		if (!_lg_typecheck_base_allSolved(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo & arg1, class btIDebugDraw * arg2, btStackAlloc * arg3) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo & arg1, class btIDebugDraw * arg2, btStackAlloc * arg3)\nClass arguments details:\narg 1 ID = 5410878\narg 2 ID = 63441741\narg 3 ID = 46980417\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo & arg1, class btIDebugDraw * arg2, btStackAlloc * arg3) function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo & arg1, class btIDebugDraw * arg2, btStackAlloc * arg3)\nClass arguments details:\narg 1 ID = 5410878\narg 2 ID = 63441741\narg 3 ID = 46980417\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btContactSolverInfo* _arg1_ptr=(Luna< btContactSolverInfoData >::checkSubType< btContactSolverInfo >(L,2));
@@ -303,8 +286,7 @@ public:
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo &, class btIDebugDraw *, btStackAlloc *). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::base_allSolved(const btContactSolverInfo &, class btIDebugDraw *, btStackAlloc *). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSequentialImpulseConstraintSolver::allSolved(_arg1, _arg2, _arg3);
 
@@ -314,15 +296,13 @@ public:
 	// void btSequentialImpulseConstraintSolver::base_reset()
 	static int _bind_base_reset(lua_State *L) {
 		if (!_lg_typecheck_base_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::base_reset() function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::base_reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btSequentialImpulseConstraintSolver::base_reset() function, expected prototype:\nvoid btSequentialImpulseConstraintSolver::base_reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btSequentialImpulseConstraintSolver* self=Luna< btConstraintSolver >::checkSubType< btSequentialImpulseConstraintSolver >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::base_reset(). Got : '%s'",typeid(Luna< btConstraintSolver >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btSequentialImpulseConstraintSolver::base_reset(). Got : '%s'\n%s",typeid(Luna< btConstraintSolver >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btSequentialImpulseConstraintSolver::reset();
 

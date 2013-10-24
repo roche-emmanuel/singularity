@@ -179,13 +179,6 @@ struct luna_caster<osg::ref_ptr< osg::Referenced >,dstType> {
 };
 
 template <typename dstType>
-struct luna_caster<OpenThreads::ScopedLock< OpenThreads::Mutex >,dstType> {
-	static inline dstType* cast(OpenThreads::ScopedLock< OpenThreads::Mutex >* ptr) {
-		return static_cast<dstType*>(ptr);
-	};
-};
-
-template <typename dstType>
 struct luna_caster<sgt::TimeManager,dstType> {
 	static inline dstType* cast(sgt::TimeManager* ptr) {
 		return static_cast<dstType*>(ptr);
@@ -244,6 +237,13 @@ struct luna_caster<std::istream,dstType> {
 template <typename dstType>
 struct luna_caster<std::ostream,dstType> {
 	static inline dstType* cast(std::ostream* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<OpenThreads::ScopedLock< OpenThreads::Mutex >,dstType> {
+	static inline dstType* cast(OpenThreads::ScopedLock< OpenThreads::Mutex >* ptr) {
 		return static_cast<dstType*>(ptr);
 	};
 };

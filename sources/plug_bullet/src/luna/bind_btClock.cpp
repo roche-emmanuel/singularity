@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btClock*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(btClock*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btClock* rhs =(Luna< btClock >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btClock* self= (btClock*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btClock >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -149,8 +145,7 @@ public:
 	// btClock::btClock()
 	static btClock* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btClock::btClock() function, expected prototype:\nbtClock::btClock()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btClock::btClock() function, expected prototype:\nbtClock::btClock()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -160,8 +155,7 @@ public:
 	// btClock::btClock(const btClock & other)
 	static btClock* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btClock::btClock(const btClock & other) function, expected prototype:\nbtClock::btClock(const btClock & other)\nClass arguments details:\narg 1 ID = 61540014\n");
+			luaL_error(L, "luna typecheck failed in btClock::btClock(const btClock & other) function, expected prototype:\nbtClock::btClock(const btClock & other)\nClass arguments details:\narg 1 ID = 61540014\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btClock* other_ptr=(Luna< btClock >::check(L,1));
@@ -187,15 +181,13 @@ public:
 	// void btClock::reset()
 	static int _bind_reset(lua_State *L) {
 		if (!_lg_typecheck_reset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btClock::reset() function, expected prototype:\nvoid btClock::reset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btClock::reset() function, expected prototype:\nvoid btClock::reset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btClock* self=(Luna< btClock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btClock::reset(). Got : '%s'",typeid(Luna< btClock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btClock::reset(). Got : '%s'\n%s",typeid(Luna< btClock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->reset();
 
@@ -205,15 +197,13 @@ public:
 	// unsigned long int btClock::getTimeMilliseconds()
 	static int _bind_getTimeMilliseconds(lua_State *L) {
 		if (!_lg_typecheck_getTimeMilliseconds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long int btClock::getTimeMilliseconds() function, expected prototype:\nunsigned long int btClock::getTimeMilliseconds()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long int btClock::getTimeMilliseconds() function, expected prototype:\nunsigned long int btClock::getTimeMilliseconds()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btClock* self=(Luna< btClock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long int btClock::getTimeMilliseconds(). Got : '%s'",typeid(Luna< btClock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long int btClock::getTimeMilliseconds(). Got : '%s'\n%s",typeid(Luna< btClock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long int lret = self->getTimeMilliseconds();
 		lua_pushnumber(L,lret);
@@ -224,15 +214,13 @@ public:
 	// unsigned long int btClock::getTimeMicroseconds()
 	static int _bind_getTimeMicroseconds(lua_State *L) {
 		if (!_lg_typecheck_getTimeMicroseconds(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in unsigned long int btClock::getTimeMicroseconds() function, expected prototype:\nunsigned long int btClock::getTimeMicroseconds()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in unsigned long int btClock::getTimeMicroseconds() function, expected prototype:\nunsigned long int btClock::getTimeMicroseconds()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btClock* self=(Luna< btClock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call unsigned long int btClock::getTimeMicroseconds(). Got : '%s'",typeid(Luna< btClock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call unsigned long int btClock::getTimeMicroseconds(). Got : '%s'\n%s",typeid(Luna< btClock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		unsigned long int lret = self->getTimeMicroseconds();
 		lua_pushnumber(L,lret);
@@ -245,8 +233,7 @@ public:
 	// btClock & btClock::operator=(const btClock & other)
 	static int _bind_op_assign(lua_State *L) {
 		if (!_lg_typecheck_op_assign(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btClock & btClock::operator=(const btClock & other) function, expected prototype:\nbtClock & btClock::operator=(const btClock & other)\nClass arguments details:\narg 1 ID = 61540014\n");
+			luaL_error(L, "luna typecheck failed in btClock & btClock::operator=(const btClock & other) function, expected prototype:\nbtClock & btClock::operator=(const btClock & other)\nClass arguments details:\narg 1 ID = 61540014\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btClock* other_ptr=(Luna< btClock >::check(L,2));
@@ -257,8 +244,7 @@ public:
 
 		btClock* self=(Luna< btClock >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btClock & btClock::operator=(const btClock &). Got : '%s'",typeid(Luna< btClock >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btClock & btClock::operator=(const btClock &). Got : '%s'\n%s",typeid(Luna< btClock >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btClock* lret = &self->operator=(other);
 		if(!lret) return 0; // Do not write NULL pointers.

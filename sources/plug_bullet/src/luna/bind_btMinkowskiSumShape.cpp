@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btCollisionShape* self=(Luna< btCollisionShape >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btMinkowskiSumShape* self= (btMinkowskiSumShape*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btCollisionShape >::check(L,1));
@@ -124,14 +121,14 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,91544891)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -190,7 +187,7 @@ public:
 		if( lua_gettop(L)!=3 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,91544891) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -203,7 +200,7 @@ public:
 	inline static bool _lg_typecheck_base_getContactBreakingThreshold(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -218,8 +215,8 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,13247377) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -264,7 +261,7 @@ public:
 	inline static bool _lg_typecheck_base_setMargin(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -277,7 +274,7 @@ public:
 	inline static bool _lg_typecheck_base_getPreferredPenetrationDirection(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -300,14 +297,14 @@ public:
 
 		if( (lua_isnil(L,2)==0 && !Luna<void>::has_uniqueid(L,2,91544891)) ) return false;
 		if( (lua_isnil(L,3)==0 && !Luna<void>::has_uniqueid(L,3,91544891)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_base_calculateLocalInertia(lua_State *L) {
 		if( lua_gettop(L)!=3 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,91544891) ) return false;
 		return true;
 	}
@@ -332,8 +329,7 @@ public:
 	// btMinkowskiSumShape::btMinkowskiSumShape(const btConvexShape * shapeA, const btConvexShape * shapeB)
 	static btMinkowskiSumShape* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMinkowskiSumShape::btMinkowskiSumShape(const btConvexShape * shapeA, const btConvexShape * shapeB) function, expected prototype:\nbtMinkowskiSumShape::btMinkowskiSumShape(const btConvexShape * shapeA, const btConvexShape * shapeB)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btMinkowskiSumShape::btMinkowskiSumShape(const btConvexShape * shapeA, const btConvexShape * shapeB) function, expected prototype:\nbtMinkowskiSumShape::btMinkowskiSumShape(const btConvexShape * shapeA, const btConvexShape * shapeB)\nClass arguments details:\narg 1 ID = 58243831\narg 2 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexShape* shapeA=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,1));
@@ -345,8 +341,7 @@ public:
 	// btMinkowskiSumShape::btMinkowskiSumShape(lua_Table * data, const btConvexShape * shapeA, const btConvexShape * shapeB)
 	static btMinkowskiSumShape* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btMinkowskiSumShape::btMinkowskiSumShape(lua_Table * data, const btConvexShape * shapeA, const btConvexShape * shapeB) function, expected prototype:\nbtMinkowskiSumShape::btMinkowskiSumShape(lua_Table * data, const btConvexShape * shapeA, const btConvexShape * shapeB)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 58243831\n");
+			luaL_error(L, "luna typecheck failed in btMinkowskiSumShape::btMinkowskiSumShape(lua_Table * data, const btConvexShape * shapeA, const btConvexShape * shapeB) function, expected prototype:\nbtMinkowskiSumShape::btMinkowskiSumShape(lua_Table * data, const btConvexShape * shapeA, const btConvexShape * shapeB)\nClass arguments details:\narg 2 ID = 58243831\narg 3 ID = 58243831\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btConvexShape* shapeA=(Luna< btCollisionShape >::checkSubType< btConvexShape >(L,2));
@@ -369,8 +364,7 @@ public:
 	// btVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const
 	static int _bind_localGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_localGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -381,8 +375,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->localGetSupportingVertexWithoutMargin(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -396,8 +389,7 @@ public:
 	// void btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const
 	static int _bind_batchedUnitVectorGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_batchedUnitVectorGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vectors=(Luna< btVector3 >::check(L,2));
@@ -406,8 +398,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->batchedUnitVectorGetSupportingVertexWithoutMargin(vectors, supportVerticesOut, numVectors);
 
@@ -417,8 +408,7 @@ public:
 	// void btMinkowskiSumShape::calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btMinkowskiSumShape::calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btMinkowskiSumShape::calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -430,8 +420,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateLocalInertia(mass, inertia);
 
@@ -441,8 +430,7 @@ public:
 	// void btMinkowskiSumShape::setTransformA(const btTransform & transA)
 	static int _bind_setTransformA(lua_State *L) {
 		if (!_lg_typecheck_setTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::setTransformA(const btTransform & transA) function, expected prototype:\nvoid btMinkowskiSumShape::setTransformA(const btTransform & transA)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::setTransformA(const btTransform & transA) function, expected prototype:\nvoid btMinkowskiSumShape::setTransformA(const btTransform & transA)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transA_ptr=(Luna< btTransform >::check(L,2));
@@ -453,8 +441,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::setTransformA(const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::setTransformA(const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTransformA(transA);
 
@@ -464,8 +451,7 @@ public:
 	// void btMinkowskiSumShape::setTransformB(const btTransform & transB)
 	static int _bind_setTransformB(lua_State *L) {
 		if (!_lg_typecheck_setTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::setTransformB(const btTransform & transB) function, expected prototype:\nvoid btMinkowskiSumShape::setTransformB(const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::setTransformB(const btTransform & transB) function, expected prototype:\nvoid btMinkowskiSumShape::setTransformB(const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transB_ptr=(Luna< btTransform >::check(L,2));
@@ -476,8 +462,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::setTransformB(const btTransform &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::setTransformB(const btTransform &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTransformB(transB);
 
@@ -487,15 +472,13 @@ public:
 	// const btTransform & btMinkowskiSumShape::getTransformA() const
 	static int _bind_getTransformA(lua_State *L) {
 		if (!_lg_typecheck_getTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btMinkowskiSumShape::getTransformA() const function, expected prototype:\nconst btTransform & btMinkowskiSumShape::getTransformA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btMinkowskiSumShape::getTransformA() const function, expected prototype:\nconst btTransform & btMinkowskiSumShape::getTransformA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btMinkowskiSumShape::getTransformA() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btMinkowskiSumShape::getTransformA() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getTransformA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -508,15 +491,13 @@ public:
 	// const btTransform & btMinkowskiSumShape::GetTransformB() const
 	static int _bind_GetTransformB(lua_State *L) {
 		if (!_lg_typecheck_GetTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btMinkowskiSumShape::GetTransformB() const function, expected prototype:\nconst btTransform & btMinkowskiSumShape::GetTransformB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btMinkowskiSumShape::GetTransformB() const function, expected prototype:\nconst btTransform & btMinkowskiSumShape::GetTransformB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btMinkowskiSumShape::GetTransformB() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btMinkowskiSumShape::GetTransformB() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->GetTransformB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -529,15 +510,13 @@ public:
 	// float btMinkowskiSumShape::getMargin() const
 	static int _bind_getMargin(lua_State *L) {
 		if (!_lg_typecheck_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::getMargin() const function, expected prototype:\nfloat btMinkowskiSumShape::getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::getMargin() const function, expected prototype:\nfloat btMinkowskiSumShape::getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getMargin();
 		lua_pushnumber(L,lret);
@@ -548,15 +527,13 @@ public:
 	// const btConvexShape * btMinkowskiSumShape::getShapeA() const
 	static int _bind_getShapeA(lua_State *L) {
 		if (!_lg_typecheck_getShapeA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btConvexShape * btMinkowskiSumShape::getShapeA() const function, expected prototype:\nconst btConvexShape * btMinkowskiSumShape::getShapeA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btConvexShape * btMinkowskiSumShape::getShapeA() const function, expected prototype:\nconst btConvexShape * btMinkowskiSumShape::getShapeA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btConvexShape * btMinkowskiSumShape::getShapeA() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btConvexShape * btMinkowskiSumShape::getShapeA() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btConvexShape * lret = self->getShapeA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -569,15 +546,13 @@ public:
 	// const btConvexShape * btMinkowskiSumShape::getShapeB() const
 	static int _bind_getShapeB(lua_State *L) {
 		if (!_lg_typecheck_getShapeB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btConvexShape * btMinkowskiSumShape::getShapeB() const function, expected prototype:\nconst btConvexShape * btMinkowskiSumShape::getShapeB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btConvexShape * btMinkowskiSumShape::getShapeB() const function, expected prototype:\nconst btConvexShape * btMinkowskiSumShape::getShapeB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btConvexShape * btMinkowskiSumShape::getShapeB() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btConvexShape * btMinkowskiSumShape::getShapeB() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btConvexShape * lret = self->getShapeB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -590,15 +565,13 @@ public:
 	// const char * btMinkowskiSumShape::getName() const
 	static int _bind_getName(lua_State *L) {
 		if (!_lg_typecheck_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btMinkowskiSumShape::getName() const function, expected prototype:\nconst char * btMinkowskiSumShape::getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btMinkowskiSumShape::getName() const function, expected prototype:\nconst char * btMinkowskiSumShape::getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btMinkowskiSumShape::getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btMinkowskiSumShape::getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->getName();
 		lua_pushstring(L,lret);
@@ -609,8 +582,7 @@ public:
 	// void btMinkowskiSumShape::base_getBoundingSphere(btVector3 & center, float & radius) const
 	static int _bind_base_getBoundingSphere(lua_State *L) {
 		if (!_lg_typecheck_base_getBoundingSphere(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getBoundingSphere(btVector3 & center, float & radius) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getBoundingSphere(btVector3 & center, float & radius) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* center_ptr=(Luna< btVector3 >::check(L,2));
@@ -622,26 +594,24 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getBoundingSphere(btVector3 &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::getBoundingSphere(center, radius);
 
-		return 0;
+		lua_pushnumber(L,radius);
+		return 1;
 	}
 
 	// float btMinkowskiSumShape::base_getAngularMotionDisc() const
 	static int _bind_base_getAngularMotionDisc(lua_State *L) {
 		if (!_lg_typecheck_base_getAngularMotionDisc(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btMinkowskiSumShape::base_getAngularMotionDisc() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::base_getAngularMotionDisc() const function, expected prototype:\nfloat btMinkowskiSumShape::base_getAngularMotionDisc() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::base_getAngularMotionDisc() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::base_getAngularMotionDisc() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btMinkowskiSumShape::getAngularMotionDisc();
 		lua_pushnumber(L,lret);
@@ -652,16 +622,14 @@ public:
 	// float btMinkowskiSumShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const
 	static int _bind_base_getContactBreakingThreshold(lua_State *L) {
 		if (!_lg_typecheck_base_getContactBreakingThreshold(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btMinkowskiSumShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const function, expected prototype:\nfloat btMinkowskiSumShape::base_getContactBreakingThreshold(float defaultContactThresholdFactor) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float defaultContactThresholdFactor=(float)lua_tonumber(L,2);
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::base_getContactBreakingThreshold(float) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::base_getContactBreakingThreshold(float) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btMinkowskiSumShape::getContactBreakingThreshold(defaultContactThresholdFactor);
 		lua_pushnumber(L,lret);
@@ -672,15 +640,13 @@ public:
 	// btVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const
 	static int _bind_base_getAnisotropicRollingFrictionDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getAnisotropicRollingFrictionDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const function, expected prototype:\nbtVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::base_getAnisotropicRollingFrictionDirection() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btMinkowskiSumShape::getAnisotropicRollingFrictionDirection();
 		btVector3* lret = new btVector3(stack_lret);
@@ -694,8 +660,7 @@ public:
 	// void btMinkowskiSumShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const
 	static int _bind_base_project(lua_State *L) {
 		if (!_lg_typecheck_base_project(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const function, expected prototype:\nvoid btMinkowskiSumShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const function, expected prototype:\nvoid btMinkowskiSumShape::base_project(const btTransform & trans, const btVector3 & dir, float & min, float & max) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* trans_ptr=(Luna< btTransform >::check(L,2));
@@ -713,19 +678,19 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_project(const btTransform &, const btVector3 &, float &, float &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_project(const btTransform &, const btVector3 &, float &, float &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::project(trans, dir, min, max);
 
-		return 0;
+		lua_pushnumber(L,min);
+		lua_pushnumber(L,max);
+		return 2;
 	}
 
 	// btVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertex(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertex(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 & vec) const function, expected prototype:\nbtVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -736,8 +701,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::base_localGetSupportingVertex(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btMinkowskiSumShape::localGetSupportingVertex(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -751,8 +715,7 @@ public:
 	// void btMinkowskiSumShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabb(lua_State *L) {
 		if (!_lg_typecheck_base_getAabb(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getAabb(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -773,8 +736,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getAabb(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::getAabb(t, aabbMin, aabbMax);
 
@@ -784,8 +746,7 @@ public:
 	// void btMinkowskiSumShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const
 	static int _bind_base_getAabbSlow(lua_State *L) {
 		if (!_lg_typecheck_base_getAabbSlow(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getAabbSlow(const btTransform & t, btVector3 & aabbMin, btVector3 & aabbMax) const\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 91544891\narg 3 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* t_ptr=(Luna< btTransform >::check(L,2));
@@ -806,8 +767,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getAabbSlow(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getAabbSlow(const btTransform &, btVector3 &, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::getAabbSlow(t, aabbMin, aabbMax);
 
@@ -817,8 +777,7 @@ public:
 	// void btMinkowskiSumShape::base_setLocalScaling(const btVector3 & scaling)
 	static int _bind_base_setLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_setLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btMinkowskiSumShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_setLocalScaling(const btVector3 & scaling) function, expected prototype:\nvoid btMinkowskiSumShape::base_setLocalScaling(const btVector3 & scaling)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* scaling_ptr=(Luna< btVector3 >::check(L,2));
@@ -829,8 +788,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_setLocalScaling(const btVector3 &). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_setLocalScaling(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::setLocalScaling(scaling);
 
@@ -840,15 +798,13 @@ public:
 	// const btVector3 & btMinkowskiSumShape::base_getLocalScaling() const
 	static int _bind_base_getLocalScaling(lua_State *L) {
 		if (!_lg_typecheck_base_getLocalScaling(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btVector3 & btMinkowskiSumShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btMinkowskiSumShape::base_getLocalScaling() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btVector3 & btMinkowskiSumShape::base_getLocalScaling() const function, expected prototype:\nconst btVector3 & btMinkowskiSumShape::base_getLocalScaling() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btVector3 & btMinkowskiSumShape::base_getLocalScaling() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btVector3 & btMinkowskiSumShape::base_getLocalScaling() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btVector3* lret = &self->btMinkowskiSumShape::getLocalScaling();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -861,16 +817,14 @@ public:
 	// void btMinkowskiSumShape::base_setMargin(float margin)
 	static int _bind_base_setMargin(lua_State *L) {
 		if (!_lg_typecheck_base_setMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_setMargin(float margin) function, expected prototype:\nvoid btMinkowskiSumShape::base_setMargin(float margin)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_setMargin(float margin) function, expected prototype:\nvoid btMinkowskiSumShape::base_setMargin(float margin)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float margin=(float)lua_tonumber(L,2);
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_setMargin(float). Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_setMargin(float). Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::setMargin(margin);
 
@@ -880,15 +834,13 @@ public:
 	// int btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const
 	static int _bind_base_getNumPreferredPenetrationDirections(lua_State *L) {
 		if (!_lg_typecheck_base_getNumPreferredPenetrationDirections(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const function, expected prototype:\nint btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const function, expected prototype:\nint btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMinkowskiSumShape::base_getNumPreferredPenetrationDirections() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btMinkowskiSumShape::getNumPreferredPenetrationDirections();
 		lua_pushnumber(L,lret);
@@ -899,8 +851,7 @@ public:
 	// void btMinkowskiSumShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const
 	static int _bind_base_getPreferredPenetrationDirection(lua_State *L) {
 		if (!_lg_typecheck_base_getPreferredPenetrationDirection(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const function, expected prototype:\nvoid btMinkowskiSumShape::base_getPreferredPenetrationDirection(int index, btVector3 & penetrationVector) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
@@ -912,8 +863,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getPreferredPenetrationDirection(int, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_getPreferredPenetrationDirection(int, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::getPreferredPenetrationDirection(index, penetrationVector);
 
@@ -923,15 +873,13 @@ public:
 	// int btMinkowskiSumShape::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btMinkowskiSumShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btMinkowskiSumShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btMinkowskiSumShape::base_calculateSerializeBufferSize() const function, expected prototype:\nint btMinkowskiSumShape::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btMinkowskiSumShape::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btMinkowskiSumShape::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btMinkowskiSumShape::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -942,8 +890,7 @@ public:
 	// btVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const
 	static int _bind_base_localGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_base_localGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const function, expected prototype:\nbtVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 & vec) const\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vec_ptr=(Luna< btVector3 >::check(L,2));
@@ -954,8 +901,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btMinkowskiSumShape::base_localGetSupportingVertexWithoutMargin(const btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->btMinkowskiSumShape::localGetSupportingVertexWithoutMargin(vec);
 		btVector3* lret = new btVector3(stack_lret);
@@ -969,8 +915,7 @@ public:
 	// void btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const
 	static int _bind_base_batchedUnitVectorGetSupportingVertexWithoutMargin(lua_State *L) {
 		if (!_lg_typecheck_base_batchedUnitVectorGetSupportingVertexWithoutMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const function, expected prototype:\nvoid btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 * vectors, btVector3 * supportVerticesOut, int numVectors) const\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* vectors=(Luna< btVector3 >::check(L,2));
@@ -979,8 +924,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_batchedUnitVectorGetSupportingVertexWithoutMargin(const btVector3 *, btVector3 *, int) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::batchedUnitVectorGetSupportingVertexWithoutMargin(vectors, supportVerticesOut, numVectors);
 
@@ -990,8 +934,7 @@ public:
 	// void btMinkowskiSumShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const
 	static int _bind_base_calculateLocalInertia(lua_State *L) {
 		if (!_lg_typecheck_base_calculateLocalInertia(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btMinkowskiSumShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btMinkowskiSumShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const function, expected prototype:\nvoid btMinkowskiSumShape::base_calculateLocalInertia(float mass, btVector3 & inertia) const\nClass arguments details:\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float mass=(float)lua_tonumber(L,2);
@@ -1003,8 +946,7 @@ public:
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btMinkowskiSumShape::base_calculateLocalInertia(float, btVector3 &) const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btMinkowskiSumShape::calculateLocalInertia(mass, inertia);
 
@@ -1014,15 +956,13 @@ public:
 	// float btMinkowskiSumShape::base_getMargin() const
 	static int _bind_base_getMargin(lua_State *L) {
 		if (!_lg_typecheck_base_getMargin(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::base_getMargin() const function, expected prototype:\nfloat btMinkowskiSumShape::base_getMargin() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btMinkowskiSumShape::base_getMargin() const function, expected prototype:\nfloat btMinkowskiSumShape::base_getMargin() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::base_getMargin() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btMinkowskiSumShape::base_getMargin() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btMinkowskiSumShape::getMargin();
 		lua_pushnumber(L,lret);
@@ -1033,15 +973,13 @@ public:
 	// const char * btMinkowskiSumShape::base_getName() const
 	static int _bind_base_getName(lua_State *L) {
 		if (!_lg_typecheck_base_getName(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * btMinkowskiSumShape::base_getName() const function, expected prototype:\nconst char * btMinkowskiSumShape::base_getName() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * btMinkowskiSumShape::base_getName() const function, expected prototype:\nconst char * btMinkowskiSumShape::base_getName() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btMinkowskiSumShape* self=Luna< btCollisionShape >::checkSubType< btMinkowskiSumShape >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * btMinkowskiSumShape::base_getName() const. Got : '%s'",typeid(Luna< btCollisionShape >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * btMinkowskiSumShape::base_getName() const. Got : '%s'\n%s",typeid(Luna< btCollisionShape >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->btMinkowskiSumShape::getName();
 		lua_pushstring(L,lret);

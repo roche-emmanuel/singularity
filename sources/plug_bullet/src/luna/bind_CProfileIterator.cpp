@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CProfileIterator*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(CProfileIterator*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileIterator* rhs =(Luna< CProfileIterator >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		CProfileIterator* self= (CProfileIterator*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< CProfileIterator >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -129,7 +125,7 @@ public:
 	inline static bool _lg_typecheck_Enter_Child(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -198,15 +194,13 @@ public:
 	// void CProfileIterator::First()
 	static int _bind_First(lua_State *L) {
 		if (!_lg_typecheck_First(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileIterator::First() function, expected prototype:\nvoid CProfileIterator::First()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileIterator::First() function, expected prototype:\nvoid CProfileIterator::First()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileIterator::First(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileIterator::First(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->First();
 
@@ -216,15 +210,13 @@ public:
 	// void CProfileIterator::Next()
 	static int _bind_Next(lua_State *L) {
 		if (!_lg_typecheck_Next(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileIterator::Next() function, expected prototype:\nvoid CProfileIterator::Next()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileIterator::Next() function, expected prototype:\nvoid CProfileIterator::Next()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileIterator::Next(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileIterator::Next(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Next();
 
@@ -234,15 +226,13 @@ public:
 	// bool CProfileIterator::Is_Done()
 	static int _bind_Is_Done(lua_State *L) {
 		if (!_lg_typecheck_Is_Done(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool CProfileIterator::Is_Done() function, expected prototype:\nbool CProfileIterator::Is_Done()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool CProfileIterator::Is_Done() function, expected prototype:\nbool CProfileIterator::Is_Done()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool CProfileIterator::Is_Done(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool CProfileIterator::Is_Done(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Is_Done();
 		lua_pushboolean(L,lret?1:0);
@@ -253,15 +243,13 @@ public:
 	// bool CProfileIterator::Is_Root()
 	static int _bind_Is_Root(lua_State *L) {
 		if (!_lg_typecheck_Is_Root(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool CProfileIterator::Is_Root() function, expected prototype:\nbool CProfileIterator::Is_Root()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool CProfileIterator::Is_Root() function, expected prototype:\nbool CProfileIterator::Is_Root()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool CProfileIterator::Is_Root(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool CProfileIterator::Is_Root(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->Is_Root();
 		lua_pushboolean(L,lret?1:0);
@@ -272,16 +260,14 @@ public:
 	// void CProfileIterator::Enter_Child(int index)
 	static int _bind_Enter_Child(lua_State *L) {
 		if (!_lg_typecheck_Enter_Child(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileIterator::Enter_Child(int index) function, expected prototype:\nvoid CProfileIterator::Enter_Child(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileIterator::Enter_Child(int index) function, expected prototype:\nvoid CProfileIterator::Enter_Child(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileIterator::Enter_Child(int). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileIterator::Enter_Child(int). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Enter_Child(index);
 
@@ -291,15 +277,13 @@ public:
 	// void CProfileIterator::Enter_Parent()
 	static int _bind_Enter_Parent(lua_State *L) {
 		if (!_lg_typecheck_Enter_Parent(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileIterator::Enter_Parent() function, expected prototype:\nvoid CProfileIterator::Enter_Parent()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileIterator::Enter_Parent() function, expected prototype:\nvoid CProfileIterator::Enter_Parent()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileIterator::Enter_Parent(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileIterator::Enter_Parent(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Enter_Parent();
 
@@ -309,15 +293,13 @@ public:
 	// const char * CProfileIterator::Get_Current_Name()
 	static int _bind_Get_Current_Name(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_Name(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * CProfileIterator::Get_Current_Name() function, expected prototype:\nconst char * CProfileIterator::Get_Current_Name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * CProfileIterator::Get_Current_Name() function, expected prototype:\nconst char * CProfileIterator::Get_Current_Name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * CProfileIterator::Get_Current_Name(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * CProfileIterator::Get_Current_Name(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Get_Current_Name();
 		lua_pushstring(L,lret);
@@ -328,15 +310,13 @@ public:
 	// int CProfileIterator::Get_Current_Total_Calls()
 	static int _bind_Get_Current_Total_Calls(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_Total_Calls(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int CProfileIterator::Get_Current_Total_Calls() function, expected prototype:\nint CProfileIterator::Get_Current_Total_Calls()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int CProfileIterator::Get_Current_Total_Calls() function, expected prototype:\nint CProfileIterator::Get_Current_Total_Calls()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int CProfileIterator::Get_Current_Total_Calls(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int CProfileIterator::Get_Current_Total_Calls(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Get_Current_Total_Calls();
 		lua_pushnumber(L,lret);
@@ -347,15 +327,13 @@ public:
 	// float CProfileIterator::Get_Current_Total_Time()
 	static int _bind_Get_Current_Total_Time(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_Total_Time(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float CProfileIterator::Get_Current_Total_Time() function, expected prototype:\nfloat CProfileIterator::Get_Current_Total_Time()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float CProfileIterator::Get_Current_Total_Time() function, expected prototype:\nfloat CProfileIterator::Get_Current_Total_Time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float CProfileIterator::Get_Current_Total_Time(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float CProfileIterator::Get_Current_Total_Time(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Get_Current_Total_Time();
 		lua_pushnumber(L,lret);
@@ -366,15 +344,13 @@ public:
 	// void * CProfileIterator::Get_Current_UserPointer()
 	static int _bind_Get_Current_UserPointer(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_UserPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void * CProfileIterator::Get_Current_UserPointer() function, expected prototype:\nvoid * CProfileIterator::Get_Current_UserPointer()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void * CProfileIterator::Get_Current_UserPointer() function, expected prototype:\nvoid * CProfileIterator::Get_Current_UserPointer()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void * CProfileIterator::Get_Current_UserPointer(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void * CProfileIterator::Get_Current_UserPointer(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		void * lret = self->Get_Current_UserPointer();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -387,16 +363,14 @@ public:
 	// void CProfileIterator::Set_Current_UserPointer(void * ptr)
 	static int _bind_Set_Current_UserPointer(lua_State *L) {
 		if (!_lg_typecheck_Set_Current_UserPointer(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void CProfileIterator::Set_Current_UserPointer(void * ptr) function, expected prototype:\nvoid CProfileIterator::Set_Current_UserPointer(void * ptr)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void CProfileIterator::Set_Current_UserPointer(void * ptr) function, expected prototype:\nvoid CProfileIterator::Set_Current_UserPointer(void * ptr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* ptr=(Luna< void >::check(L,2));
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void CProfileIterator::Set_Current_UserPointer(void *). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void CProfileIterator::Set_Current_UserPointer(void *). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set_Current_UserPointer(ptr);
 
@@ -406,15 +380,13 @@ public:
 	// const char * CProfileIterator::Get_Current_Parent_Name()
 	static int _bind_Get_Current_Parent_Name(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_Parent_Name(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const char * CProfileIterator::Get_Current_Parent_Name() function, expected prototype:\nconst char * CProfileIterator::Get_Current_Parent_Name()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const char * CProfileIterator::Get_Current_Parent_Name() function, expected prototype:\nconst char * CProfileIterator::Get_Current_Parent_Name()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const char * CProfileIterator::Get_Current_Parent_Name(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const char * CProfileIterator::Get_Current_Parent_Name(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const char * lret = self->Get_Current_Parent_Name();
 		lua_pushstring(L,lret);
@@ -425,15 +397,13 @@ public:
 	// int CProfileIterator::Get_Current_Parent_Total_Calls()
 	static int _bind_Get_Current_Parent_Total_Calls(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_Parent_Total_Calls(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int CProfileIterator::Get_Current_Parent_Total_Calls() function, expected prototype:\nint CProfileIterator::Get_Current_Parent_Total_Calls()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int CProfileIterator::Get_Current_Parent_Total_Calls() function, expected prototype:\nint CProfileIterator::Get_Current_Parent_Total_Calls()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int CProfileIterator::Get_Current_Parent_Total_Calls(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int CProfileIterator::Get_Current_Parent_Total_Calls(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->Get_Current_Parent_Total_Calls();
 		lua_pushnumber(L,lret);
@@ -444,15 +414,13 @@ public:
 	// float CProfileIterator::Get_Current_Parent_Total_Time()
 	static int _bind_Get_Current_Parent_Total_Time(lua_State *L) {
 		if (!_lg_typecheck_Get_Current_Parent_Total_Time(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float CProfileIterator::Get_Current_Parent_Total_Time() function, expected prototype:\nfloat CProfileIterator::Get_Current_Parent_Total_Time()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float CProfileIterator::Get_Current_Parent_Total_Time() function, expected prototype:\nfloat CProfileIterator::Get_Current_Parent_Total_Time()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		CProfileIterator* self=(Luna< CProfileIterator >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float CProfileIterator::Get_Current_Parent_Total_Time(). Got : '%s'",typeid(Luna< CProfileIterator >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float CProfileIterator::Get_Current_Parent_Total_Time(). Got : '%s'\n%s",typeid(Luna< CProfileIterator >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->Get_Current_Parent_Total_Time();
 		lua_pushnumber(L,lret);

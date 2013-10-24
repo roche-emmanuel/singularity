@@ -13,8 +13,7 @@ public:
 	
 	static int _bind_getTable(lua_State *L) {
 		if (!_lg_typecheck_getTable(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable()");
+			luaL_error(L, "luna typecheck failed in getTable function, expected prototype:\ngetTable(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedObject* self=(Luna< btTypedObject >::check(L,1));
@@ -39,8 +38,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btGeneric6DofConstraint* self= (btGeneric6DofConstraint*)(Luna< void >::check(L,1));
@@ -61,8 +59,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< btTypedObject >::check(L,1));
@@ -240,28 +237,28 @@ public:
 	inline static bool _lg_typecheck_updateRHS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getAxis(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getAngle(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_getRelativePivotPosition(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -276,7 +273,7 @@ public:
 	inline static bool _lg_typecheck_testAngularLimitMotor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -339,7 +336,7 @@ public:
 	inline static bool _lg_typecheck_getRotationalLimitMotor(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -352,16 +349,16 @@ public:
 	inline static bool _lg_typecheck_setLimit(lua_State *L) {
 		if( lua_gettop(L)!=4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_isLimited(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
 		return true;
 	}
 
@@ -383,10 +380,10 @@ public:
 		if( !Luna<void>::has_uniqueid(L,7,91544891) ) return false;
 		if( !Luna<void>::has_uniqueid(L,8,91544891) ) return false;
 		if( (lua_isnil(L,9)==0 && !Luna<void>::has_uniqueid(L,9,17243936)) ) return false;
-		if( (lua_isnumber(L,10)==0 || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
+		if( (lua_type(L,10)!=LUA_TNUMBER || lua_tointeger(L,10) != lua_tonumber(L,10)) ) return false;
 		if( !Luna<void>::has_uniqueid(L,11,91544891) ) return false;
-		if( (lua_isnumber(L,12)==0 || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
-		if( luatop>12 && (lua_isnumber(L,13)==0 || lua_tointeger(L,13) != lua_tonumber(L,13)) ) return false;
+		if( (lua_type(L,12)!=LUA_TNUMBER || lua_tointeger(L,12) != lua_tonumber(L,12)) ) return false;
+		if( luatop>12 && (lua_type(L,13)!=LUA_TNUMBER || lua_tointeger(L,13) != lua_tonumber(L,13)) ) return false;
 		return true;
 	}
 
@@ -407,9 +404,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -417,8 +414,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -453,9 +450,9 @@ public:
 		if( lua_gettop(L)!=5 ) return false;
 
 		if( !Luna<void>::has_uniqueid(L,2,36629303) ) return false;
-		if( (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
-		if( lua_isnumber(L,5)==0 ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( lua_type(L,5)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -464,7 +461,7 @@ public:
 
 		if( !Luna<void>::has_uniqueid(L,2,65712094) ) return false;
 		if( !Luna<void>::has_uniqueid(L,3,65712094) ) return false;
-		if( lua_isnumber(L,4)==0 ) return false;
+		if( lua_type(L,4)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -498,9 +495,9 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( lua_isnumber(L,3)==0 ) return false;
-		if( luatop>3 && (lua_isnumber(L,4)==0 || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
 		return true;
 	}
 
@@ -508,8 +505,8 @@ public:
 		int luatop = lua_gettop(L);
 		if( luatop<2 || luatop>3 ) return false;
 
-		if( (lua_isnumber(L,2)==0 || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( luatop>2 && (lua_isnumber(L,3)==0 || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
 		return true;
 	}
 
@@ -527,8 +524,7 @@ public:
 	// btGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btGeneric6DofConstraint* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 85758361\narg 3 ID = 13247377\narg 4 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbA_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -559,8 +555,7 @@ public:
 	// btGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)
 	static btGeneric6DofConstraint* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 1 ID = 85758361\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbB_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,1));
@@ -581,8 +576,7 @@ public:
 	// btGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)
 	static btGeneric6DofConstraint* _bind_ctor_overload_3(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_3(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbA, btRigidBody & rbB, const btTransform & frameInA, const btTransform & frameInB, bool useLinearReferenceFrameA)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 85758361\narg 4 ID = 13247377\narg 5 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbA_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -613,8 +607,7 @@ public:
 	// btGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)
 	static btGeneric6DofConstraint* _bind_ctor_overload_4(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_4(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in btGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB) function, expected prototype:\nbtGeneric6DofConstraint::btGeneric6DofConstraint(lua_Table * data, btRigidBody & rbB, const btTransform & frameInB, bool useLinearReferenceFrameB)\nClass arguments details:\narg 2 ID = 85758361\narg 3 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btRigidBody* rbB_ptr=(Luna< btCollisionObject >::checkSubType< btRigidBody >(L,2));
@@ -648,8 +641,7 @@ public:
 	// void btGeneric6DofConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB)
 	static int _bind_calculateTransforms_overload_1(lua_State *L) {
 		if (!_lg_typecheck_calculateTransforms_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btGeneric6DofConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB) function, expected prototype:\nvoid btGeneric6DofConstraint::calculateTransforms(const btTransform & transA, const btTransform & transB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* transA_ptr=(Luna< btTransform >::check(L,2));
@@ -665,8 +657,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::calculateTransforms(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::calculateTransforms(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateTransforms(transA, transB);
 
@@ -676,15 +667,13 @@ public:
 	// void btGeneric6DofConstraint::calculateTransforms()
 	static int _bind_calculateTransforms_overload_2(lua_State *L) {
 		if (!_lg_typecheck_calculateTransforms_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::calculateTransforms() function, expected prototype:\nvoid btGeneric6DofConstraint::calculateTransforms()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::calculateTransforms() function, expected prototype:\nvoid btGeneric6DofConstraint::calculateTransforms()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::calculateTransforms(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::calculateTransforms(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calculateTransforms();
 
@@ -703,15 +692,13 @@ public:
 	// const btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const
 	static int _bind_getCalculatedTransformA(lua_State *L) {
 		if (!_lg_typecheck_getCalculatedTransformA(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getCalculatedTransformA() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getCalculatedTransformA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -724,15 +711,13 @@ public:
 	// const btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const
 	static int _bind_getCalculatedTransformB(lua_State *L) {
 		if (!_lg_typecheck_getCalculatedTransformB(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getCalculatedTransformB() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getCalculatedTransformB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -745,15 +730,13 @@ public:
 	// const btTransform & btGeneric6DofConstraint::getFrameOffsetA() const
 	static int _bind_getFrameOffsetA_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetA_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getFrameOffsetA() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getFrameOffsetA() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getFrameOffsetA() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getFrameOffsetA() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getFrameOffsetA() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getFrameOffsetA() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -766,15 +749,13 @@ public:
 	// btTransform & btGeneric6DofConstraint::getFrameOffsetA()
 	static int _bind_getFrameOffsetA_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetA_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btGeneric6DofConstraint::getFrameOffsetA() function, expected prototype:\nbtTransform & btGeneric6DofConstraint::getFrameOffsetA()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btGeneric6DofConstraint::getFrameOffsetA() function, expected prototype:\nbtTransform & btGeneric6DofConstraint::getFrameOffsetA()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btGeneric6DofConstraint::getFrameOffsetA(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btGeneric6DofConstraint::getFrameOffsetA(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetA();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -796,15 +777,13 @@ public:
 	// const btTransform & btGeneric6DofConstraint::getFrameOffsetB() const
 	static int _bind_getFrameOffsetB_overload_1(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetB_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getFrameOffsetB() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getFrameOffsetB() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in const btTransform & btGeneric6DofConstraint::getFrameOffsetB() const function, expected prototype:\nconst btTransform & btGeneric6DofConstraint::getFrameOffsetB() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getFrameOffsetB() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call const btTransform & btGeneric6DofConstraint::getFrameOffsetB() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -817,15 +796,13 @@ public:
 	// btTransform & btGeneric6DofConstraint::getFrameOffsetB()
 	static int _bind_getFrameOffsetB_overload_2(lua_State *L) {
 		if (!_lg_typecheck_getFrameOffsetB_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTransform & btGeneric6DofConstraint::getFrameOffsetB() function, expected prototype:\nbtTransform & btGeneric6DofConstraint::getFrameOffsetB()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTransform & btGeneric6DofConstraint::getFrameOffsetB() function, expected prototype:\nbtTransform & btGeneric6DofConstraint::getFrameOffsetB()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTransform & btGeneric6DofConstraint::getFrameOffsetB(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTransform & btGeneric6DofConstraint::getFrameOffsetB(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		const btTransform* lret = &self->getFrameOffsetB();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -847,15 +824,13 @@ public:
 	// void btGeneric6DofConstraint::buildJacobian()
 	static int _bind_buildJacobian(lua_State *L) {
 		if (!_lg_typecheck_buildJacobian(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::buildJacobian() function, expected prototype:\nvoid btGeneric6DofConstraint::buildJacobian()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::buildJacobian() function, expected prototype:\nvoid btGeneric6DofConstraint::buildJacobian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::buildJacobian(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::buildJacobian(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->buildJacobian();
 
@@ -865,16 +840,14 @@ public:
 	// void btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo1(info);
 
@@ -884,16 +857,14 @@ public:
 	// void btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_getInfo1NonVirtual(lua_State *L) {
 		if (!_lg_typecheck_getInfo1NonVirtual(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo1NonVirtual(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo1NonVirtual(info);
 
@@ -903,16 +874,14 @@ public:
 	// void btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2(info);
 
@@ -922,8 +891,7 @@ public:
 	// void btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB)
 	static int _bind_getInfo2NonVirtual(lua_State *L) {
 		if (!_lg_typecheck_getInfo2NonVirtual(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB) function, expected prototype:\nvoid btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 * info, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB)\nClass arguments details:\narg 1 ID = 17243936\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
@@ -960,8 +928,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getInfo2NonVirtual(btTypedConstraint::btConstraintInfo2 *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getInfo2NonVirtual(info, transA, transB, linVelA, linVelB, angVelA, angVelB);
 
@@ -971,16 +938,14 @@ public:
 	// void btGeneric6DofConstraint::updateRHS(float timeStep)
 	static int _bind_updateRHS(lua_State *L) {
 		if (!_lg_typecheck_updateRHS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::updateRHS(float timeStep) function, expected prototype:\nvoid btGeneric6DofConstraint::updateRHS(float timeStep)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::updateRHS(float timeStep) function, expected prototype:\nvoid btGeneric6DofConstraint::updateRHS(float timeStep)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float timeStep=(float)lua_tonumber(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::updateRHS(float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::updateRHS(float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->updateRHS(timeStep);
 
@@ -990,16 +955,14 @@ public:
 	// btVector3 btGeneric6DofConstraint::getAxis(int axis_index) const
 	static int _bind_getAxis(lua_State *L) {
 		if (!_lg_typecheck_getAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btVector3 btGeneric6DofConstraint::getAxis(int axis_index) const function, expected prototype:\nbtVector3 btGeneric6DofConstraint::getAxis(int axis_index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btVector3 btGeneric6DofConstraint::getAxis(int axis_index) const function, expected prototype:\nbtVector3 btGeneric6DofConstraint::getAxis(int axis_index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int axis_index=(int)lua_tointeger(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btVector3 btGeneric6DofConstraint::getAxis(int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btVector3 btGeneric6DofConstraint::getAxis(int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btVector3 stack_lret = self->getAxis(axis_index);
 		btVector3* lret = new btVector3(stack_lret);
@@ -1013,16 +976,14 @@ public:
 	// float btGeneric6DofConstraint::getAngle(int axis_index) const
 	static int _bind_getAngle(lua_State *L) {
 		if (!_lg_typecheck_getAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::getAngle(int axis_index) const function, expected prototype:\nfloat btGeneric6DofConstraint::getAngle(int axis_index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::getAngle(int axis_index) const function, expected prototype:\nfloat btGeneric6DofConstraint::getAngle(int axis_index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int axis_index=(int)lua_tointeger(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::getAngle(int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::getAngle(int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getAngle(axis_index);
 		lua_pushnumber(L,lret);
@@ -1033,16 +994,14 @@ public:
 	// float btGeneric6DofConstraint::getRelativePivotPosition(int axis_index) const
 	static int _bind_getRelativePivotPosition(lua_State *L) {
 		if (!_lg_typecheck_getRelativePivotPosition(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::getRelativePivotPosition(int axis_index) const function, expected prototype:\nfloat btGeneric6DofConstraint::getRelativePivotPosition(int axis_index) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::getRelativePivotPosition(int axis_index) const function, expected prototype:\nfloat btGeneric6DofConstraint::getRelativePivotPosition(int axis_index) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int axis_index=(int)lua_tointeger(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::getRelativePivotPosition(int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::getRelativePivotPosition(int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getRelativePivotPosition(axis_index);
 		lua_pushnumber(L,lret);
@@ -1053,8 +1012,7 @@ public:
 	// void btGeneric6DofConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)
 	static int _bind_setFrames(lua_State *L) {
 		if (!_lg_typecheck_setFrames(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setFrames(const btTransform & frameA, const btTransform & frameB) function, expected prototype:\nvoid btGeneric6DofConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setFrames(const btTransform & frameA, const btTransform & frameB) function, expected prototype:\nvoid btGeneric6DofConstraint::setFrames(const btTransform & frameA, const btTransform & frameB)\nClass arguments details:\narg 1 ID = 13247377\narg 2 ID = 13247377\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btTransform* frameA_ptr=(Luna< btTransform >::check(L,2));
@@ -1070,8 +1028,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setFrames(const btTransform &, const btTransform &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setFrames(const btTransform &, const btTransform &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setFrames(frameA, frameB);
 
@@ -1081,16 +1038,14 @@ public:
 	// bool btGeneric6DofConstraint::testAngularLimitMotor(int axis_index)
 	static int _bind_testAngularLimitMotor(lua_State *L) {
 		if (!_lg_typecheck_testAngularLimitMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::testAngularLimitMotor(int axis_index) function, expected prototype:\nbool btGeneric6DofConstraint::testAngularLimitMotor(int axis_index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::testAngularLimitMotor(int axis_index) function, expected prototype:\nbool btGeneric6DofConstraint::testAngularLimitMotor(int axis_index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int axis_index=(int)lua_tointeger(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::testAngularLimitMotor(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::testAngularLimitMotor(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->testAngularLimitMotor(axis_index);
 		lua_pushboolean(L,lret?1:0);
@@ -1101,8 +1056,7 @@ public:
 	// void btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 & linearLower)
 	static int _bind_setLinearLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_setLinearLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 & linearLower) function, expected prototype:\nvoid btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 & linearLower)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 & linearLower) function, expected prototype:\nvoid btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 & linearLower)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* linearLower_ptr=(Luna< btVector3 >::check(L,2));
@@ -1113,8 +1067,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setLinearLowerLimit(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLinearLowerLimit(linearLower);
 
@@ -1124,8 +1077,7 @@ public:
 	// void btGeneric6DofConstraint::getLinearLowerLimit(btVector3 & linearLower)
 	static int _bind_getLinearLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_getLinearLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getLinearLowerLimit(btVector3 & linearLower) function, expected prototype:\nvoid btGeneric6DofConstraint::getLinearLowerLimit(btVector3 & linearLower)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getLinearLowerLimit(btVector3 & linearLower) function, expected prototype:\nvoid btGeneric6DofConstraint::getLinearLowerLimit(btVector3 & linearLower)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* linearLower_ptr=(Luna< btVector3 >::check(L,2));
@@ -1136,8 +1088,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getLinearLowerLimit(btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getLinearLowerLimit(btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getLinearLowerLimit(linearLower);
 
@@ -1147,8 +1098,7 @@ public:
 	// void btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 & linearUpper)
 	static int _bind_setLinearUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_setLinearUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 & linearUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 & linearUpper)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 & linearUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 & linearUpper)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* linearUpper_ptr=(Luna< btVector3 >::check(L,2));
@@ -1159,8 +1109,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setLinearUpperLimit(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLinearUpperLimit(linearUpper);
 
@@ -1170,8 +1119,7 @@ public:
 	// void btGeneric6DofConstraint::getLinearUpperLimit(btVector3 & linearUpper)
 	static int _bind_getLinearUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_getLinearUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getLinearUpperLimit(btVector3 & linearUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::getLinearUpperLimit(btVector3 & linearUpper)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getLinearUpperLimit(btVector3 & linearUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::getLinearUpperLimit(btVector3 & linearUpper)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* linearUpper_ptr=(Luna< btVector3 >::check(L,2));
@@ -1182,8 +1130,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getLinearUpperLimit(btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getLinearUpperLimit(btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getLinearUpperLimit(linearUpper);
 
@@ -1193,8 +1140,7 @@ public:
 	// void btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 & angularLower)
 	static int _bind_setAngularLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_setAngularLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 & angularLower) function, expected prototype:\nvoid btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 & angularLower)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 & angularLower) function, expected prototype:\nvoid btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 & angularLower)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* angularLower_ptr=(Luna< btVector3 >::check(L,2));
@@ -1205,8 +1151,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setAngularLowerLimit(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAngularLowerLimit(angularLower);
 
@@ -1216,8 +1161,7 @@ public:
 	// void btGeneric6DofConstraint::getAngularLowerLimit(btVector3 & angularLower)
 	static int _bind_getAngularLowerLimit(lua_State *L) {
 		if (!_lg_typecheck_getAngularLowerLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getAngularLowerLimit(btVector3 & angularLower) function, expected prototype:\nvoid btGeneric6DofConstraint::getAngularLowerLimit(btVector3 & angularLower)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getAngularLowerLimit(btVector3 & angularLower) function, expected prototype:\nvoid btGeneric6DofConstraint::getAngularLowerLimit(btVector3 & angularLower)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* angularLower_ptr=(Luna< btVector3 >::check(L,2));
@@ -1228,8 +1172,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getAngularLowerLimit(btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getAngularLowerLimit(btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAngularLowerLimit(angularLower);
 
@@ -1239,8 +1182,7 @@ public:
 	// void btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 & angularUpper)
 	static int _bind_setAngularUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_setAngularUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 & angularUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 & angularUpper)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 & angularUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 & angularUpper)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* angularUpper_ptr=(Luna< btVector3 >::check(L,2));
@@ -1251,8 +1193,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setAngularUpperLimit(const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAngularUpperLimit(angularUpper);
 
@@ -1262,8 +1203,7 @@ public:
 	// void btGeneric6DofConstraint::getAngularUpperLimit(btVector3 & angularUpper)
 	static int _bind_getAngularUpperLimit(lua_State *L) {
 		if (!_lg_typecheck_getAngularUpperLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getAngularUpperLimit(btVector3 & angularUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::getAngularUpperLimit(btVector3 & angularUpper)\nClass arguments details:\narg 1 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::getAngularUpperLimit(btVector3 & angularUpper) function, expected prototype:\nvoid btGeneric6DofConstraint::getAngularUpperLimit(btVector3 & angularUpper)\nClass arguments details:\narg 1 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btVector3* angularUpper_ptr=(Luna< btVector3 >::check(L,2));
@@ -1274,8 +1214,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getAngularUpperLimit(btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::getAngularUpperLimit(btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->getAngularUpperLimit(angularUpper);
 
@@ -1285,16 +1224,14 @@ public:
 	// btRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int index)
 	static int _bind_getRotationalLimitMotor(lua_State *L) {
 		if (!_lg_typecheck_getRotationalLimitMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int index) function, expected prototype:\nbtRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int index)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int index) function, expected prototype:\nbtRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int index=(int)lua_tointeger(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btRotationalLimitMotor * btGeneric6DofConstraint::getRotationalLimitMotor(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btRotationalLimitMotor * lret = self->getRotationalLimitMotor(index);
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1307,15 +1244,13 @@ public:
 	// btTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor()
 	static int _bind_getTranslationalLimitMotor(lua_State *L) {
 		if (!_lg_typecheck_getTranslationalLimitMotor(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in btTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor() function, expected prototype:\nbtTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in btTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor() function, expected prototype:\nbtTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call btTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call btTranslationalLimitMotor * btGeneric6DofConstraint::getTranslationalLimitMotor(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		btTranslationalLimitMotor * lret = self->getTranslationalLimitMotor();
 		if(!lret) return 0; // Do not write NULL pointers.
@@ -1328,8 +1263,7 @@ public:
 	// void btGeneric6DofConstraint::setLimit(int axis, float lo, float hi)
 	static int _bind_setLimit(lua_State *L) {
 		if (!_lg_typecheck_setLimit(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setLimit(int axis, float lo, float hi) function, expected prototype:\nvoid btGeneric6DofConstraint::setLimit(int axis, float lo, float hi)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setLimit(int axis, float lo, float hi) function, expected prototype:\nvoid btGeneric6DofConstraint::setLimit(int axis, float lo, float hi)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int axis=(int)lua_tointeger(L,2);
@@ -1338,8 +1272,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setLimit(int, float, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setLimit(int, float, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setLimit(axis, lo, hi);
 
@@ -1349,16 +1282,14 @@ public:
 	// bool btGeneric6DofConstraint::isLimited(int limitIndex)
 	static int _bind_isLimited(lua_State *L) {
 		if (!_lg_typecheck_isLimited(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::isLimited(int limitIndex) function, expected prototype:\nbool btGeneric6DofConstraint::isLimited(int limitIndex)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::isLimited(int limitIndex) function, expected prototype:\nbool btGeneric6DofConstraint::isLimited(int limitIndex)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int limitIndex=(int)lua_tointeger(L,2);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::isLimited(int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::isLimited(int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->isLimited(limitIndex);
 		lua_pushboolean(L,lret?1:0);
@@ -1369,15 +1300,13 @@ public:
 	// void btGeneric6DofConstraint::calcAnchorPos()
 	static int _bind_calcAnchorPos(lua_State *L) {
 		if (!_lg_typecheck_calcAnchorPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::calcAnchorPos() function, expected prototype:\nvoid btGeneric6DofConstraint::calcAnchorPos()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::calcAnchorPos() function, expected prototype:\nvoid btGeneric6DofConstraint::calcAnchorPos()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::calcAnchorPos(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::calcAnchorPos(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->calcAnchorPos();
 
@@ -1387,8 +1316,7 @@ public:
 	// int btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor * limot, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB, btTypedConstraint::btConstraintInfo2 * info, int row, btVector3 & ax1, int rotational, int rotAllowed = false)
 	static int _bind_get_limit_motor_info2(lua_State *L) {
 		if (!_lg_typecheck_get_limit_motor_info2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor * limot, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB, btTypedConstraint::btConstraintInfo2 * info, int row, btVector3 & ax1, int rotational, int rotAllowed = false) function, expected prototype:\nint btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor * limot, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB, btTypedConstraint::btConstraintInfo2 * info, int row, btVector3 & ax1, int rotational, int rotAllowed = false)\nClass arguments details:\narg 1 ID = 86737843\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 17243936\narg 10 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor * limot, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB, btTypedConstraint::btConstraintInfo2 * info, int row, btVector3 & ax1, int rotational, int rotAllowed = false) function, expected prototype:\nint btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor * limot, const btTransform & transA, const btTransform & transB, const btVector3 & linVelA, const btVector3 & linVelB, const btVector3 & angVelA, const btVector3 & angVelB, btTypedConstraint::btConstraintInfo2 * info, int row, btVector3 & ax1, int rotational, int rotAllowed = false)\nClass arguments details:\narg 1 ID = 86737843\narg 2 ID = 13247377\narg 3 ID = 13247377\narg 4 ID = 91544891\narg 5 ID = 91544891\narg 6 ID = 91544891\narg 7 ID = 91544891\narg 8 ID = 17243936\narg 10 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1436,8 +1364,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, btTypedConstraint::btConstraintInfo2 *, int, btVector3 &, int, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGeneric6DofConstraint::get_limit_motor_info2(btRotationalLimitMotor *, const btTransform &, const btTransform &, const btVector3 &, const btVector3 &, const btVector3 &, const btVector3 &, btTypedConstraint::btConstraintInfo2 *, int, btVector3 &, int, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->get_limit_motor_info2(limot, transA, transB, linVelA, linVelB, angVelA, angVelB, info, row, ax1, rotational, rotAllowed);
 		lua_pushnumber(L,lret);
@@ -1448,15 +1375,13 @@ public:
 	// bool btGeneric6DofConstraint::getUseFrameOffset()
 	static int _bind_getUseFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_getUseFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::getUseFrameOffset() function, expected prototype:\nbool btGeneric6DofConstraint::getUseFrameOffset()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::getUseFrameOffset() function, expected prototype:\nbool btGeneric6DofConstraint::getUseFrameOffset()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::getUseFrameOffset(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::getUseFrameOffset(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->getUseFrameOffset();
 		lua_pushboolean(L,lret?1:0);
@@ -1467,16 +1392,14 @@ public:
 	// void btGeneric6DofConstraint::setUseFrameOffset(bool frameOffsetOnOff)
 	static int _bind_setUseFrameOffset(lua_State *L) {
 		if (!_lg_typecheck_setUseFrameOffset(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setUseFrameOffset(bool frameOffsetOnOff) function, expected prototype:\nvoid btGeneric6DofConstraint::setUseFrameOffset(bool frameOffsetOnOff)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setUseFrameOffset(bool frameOffsetOnOff) function, expected prototype:\nvoid btGeneric6DofConstraint::setUseFrameOffset(bool frameOffsetOnOff)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool frameOffsetOnOff=(bool)(lua_toboolean(L,2)==1);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setUseFrameOffset(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setUseFrameOffset(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setUseFrameOffset(frameOffsetOnOff);
 
@@ -1486,8 +1409,7 @@ public:
 	// void btGeneric6DofConstraint::setParam(int num, float value, int axis = -1)
 	static int _bind_setParam(lua_State *L) {
 		if (!_lg_typecheck_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btGeneric6DofConstraint::setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btGeneric6DofConstraint::setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1498,8 +1420,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setParam(num, value, axis);
 
@@ -1509,8 +1430,7 @@ public:
 	// float btGeneric6DofConstraint::getParam(int num, int axis = -1) const
 	static int _bind_getParam(lua_State *L) {
 		if (!_lg_typecheck_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::getParam(int num, int axis = -1) const function, expected prototype:\nfloat btGeneric6DofConstraint::getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::getParam(int num, int axis = -1) const function, expected prototype:\nfloat btGeneric6DofConstraint::getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1520,8 +1440,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -1532,8 +1451,7 @@ public:
 	// void btGeneric6DofConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2)
 	static int _bind_setAxis(lua_State *L) {
 		if (!_lg_typecheck_setAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2) function, expected prototype:\nvoid btGeneric6DofConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2) function, expected prototype:\nvoid btGeneric6DofConstraint::setAxis(const btVector3 & axis1, const btVector3 & axis2)\nClass arguments details:\narg 1 ID = 91544891\narg 2 ID = 91544891\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		const btVector3* axis1_ptr=(Luna< btVector3 >::check(L,2));
@@ -1549,8 +1467,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setAxis(const btVector3 &, const btVector3 &). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::setAxis(const btVector3 &, const btVector3 &). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setAxis(axis1, axis2);
 
@@ -1560,15 +1477,13 @@ public:
 	// int btGeneric6DofConstraint::calculateSerializeBufferSize() const
 	static int _bind_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraint::calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofConstraint::calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGeneric6DofConstraint::calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGeneric6DofConstraint::calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);
@@ -1579,15 +1494,13 @@ public:
 	// bool btGeneric6DofConstraint::m_useSolveConstraintObsolete()
 	static int _bind_getUseSolveConstraintObsolete(lua_State *L) {
 		if (!_lg_typecheck_getUseSolveConstraintObsolete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::m_useSolveConstraintObsolete() function, expected prototype:\nbool btGeneric6DofConstraint::m_useSolveConstraintObsolete()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in bool btGeneric6DofConstraint::m_useSolveConstraintObsolete() function, expected prototype:\nbool btGeneric6DofConstraint::m_useSolveConstraintObsolete()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::m_useSolveConstraintObsolete(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call bool btGeneric6DofConstraint::m_useSolveConstraintObsolete(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		bool lret = self->m_useSolveConstraintObsolete;
 		lua_pushboolean(L,lret?1:0);
@@ -1598,16 +1511,14 @@ public:
 	// void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value)
 	static int _bind_setUseSolveConstraintObsolete(lua_State *L) {
 		if (!_lg_typecheck_setUseSolveConstraintObsolete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value) function, expected prototype:\nvoid btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value) function, expected prototype:\nvoid btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		bool value=(bool)(lua_toboolean(L,2)==1);
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::m_useSolveConstraintObsolete(bool). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->m_useSolveConstraintObsolete = value;
 
@@ -1617,8 +1528,7 @@ public:
 	// void btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)
 	static int _bind_base_setupSolverConstraint(lua_State *L) {
 		if (!_lg_typecheck_base_setupSolverConstraint(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep) function, expected prototype:\nvoid btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray & ca, int solverBodyA, int solverBodyB, float timeStep)\nClass arguments details:\narg 1 ID = 1318117\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btConstraintArray* ca_ptr=(Luna< btAlignedObjectArray< btSolverConstraint > >::checkSubType< btConstraintArray >(L,2));
@@ -1632,8 +1542,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_setupSolverConstraint(btConstraintArray &, int, int, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::setupSolverConstraint(ca, solverBodyA, solverBodyB, timeStep);
 
@@ -1643,8 +1552,7 @@ public:
 	// void btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)
 	static int _bind_base_solveConstraintObsolete(lua_State *L) {
 		if (!_lg_typecheck_base_solveConstraintObsolete(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3) function, expected prototype:\nvoid btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody & arg1, btSolverBody & arg2, float arg3)\nClass arguments details:\narg 1 ID = 65712094\narg 2 ID = 65712094\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btSolverBody* _arg1_ptr=(Luna< btSolverBody >::check(L,2));
@@ -1661,8 +1569,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_solveConstraintObsolete(btSolverBody &, btSolverBody &, float). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::solveConstraintObsolete(_arg1, _arg2, _arg3);
 
@@ -1672,15 +1579,13 @@ public:
 	// void btGeneric6DofConstraint::base_buildJacobian()
 	static int _bind_base_buildJacobian(lua_State *L) {
 		if (!_lg_typecheck_base_buildJacobian(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_buildJacobian() function, expected prototype:\nvoid btGeneric6DofConstraint::base_buildJacobian()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_buildJacobian() function, expected prototype:\nvoid btGeneric6DofConstraint::base_buildJacobian()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_buildJacobian(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_buildJacobian(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::buildJacobian();
 
@@ -1690,16 +1595,14 @@ public:
 	// void btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)
 	static int _bind_base_getInfo1(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 * info)\nClass arguments details:\narg 1 ID = 17243935\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo1* info=(Luna< btTypedConstraint::btConstraintInfo1 >::check(L,2));
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_getInfo1(btTypedConstraint::btConstraintInfo1 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::getInfo1(info);
 
@@ -1709,16 +1612,14 @@ public:
 	// void btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)
 	static int _bind_base_getInfo2(lua_State *L) {
 		if (!_lg_typecheck_base_getInfo2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info) function, expected prototype:\nvoid btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 * info)\nClass arguments details:\narg 1 ID = 17243936\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		btTypedConstraint::btConstraintInfo2* info=(Luna< btTypedConstraint::btConstraintInfo2 >::check(L,2));
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_getInfo2(btTypedConstraint::btConstraintInfo2 *). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::getInfo2(info);
 
@@ -1728,15 +1629,13 @@ public:
 	// void btGeneric6DofConstraint::base_calcAnchorPos()
 	static int _bind_base_calcAnchorPos(lua_State *L) {
 		if (!_lg_typecheck_base_calcAnchorPos(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_calcAnchorPos() function, expected prototype:\nvoid btGeneric6DofConstraint::base_calcAnchorPos()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_calcAnchorPos() function, expected prototype:\nvoid btGeneric6DofConstraint::base_calcAnchorPos()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_calcAnchorPos(). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_calcAnchorPos(). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::calcAnchorPos();
 
@@ -1746,8 +1645,7 @@ public:
 	// void btGeneric6DofConstraint::base_setParam(int num, float value, int axis = -1)
 	static int _bind_base_setParam(lua_State *L) {
 		if (!_lg_typecheck_base_setParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btGeneric6DofConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void btGeneric6DofConstraint::base_setParam(int num, float value, int axis = -1) function, expected prototype:\nvoid btGeneric6DofConstraint::base_setParam(int num, float value, int axis = -1)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1758,8 +1656,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_setParam(int, float, int). Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void btGeneric6DofConstraint::base_setParam(int, float, int). Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->btGeneric6DofConstraint::setParam(num, value, axis);
 
@@ -1769,8 +1666,7 @@ public:
 	// float btGeneric6DofConstraint::base_getParam(int num, int axis = -1) const
 	static int _bind_base_getParam(lua_State *L) {
 		if (!_lg_typecheck_base_getParam(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btGeneric6DofConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float btGeneric6DofConstraint::base_getParam(int num, int axis = -1) const function, expected prototype:\nfloat btGeneric6DofConstraint::base_getParam(int num, int axis = -1) const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		int luatop = lua_gettop(L);
@@ -1780,8 +1676,7 @@ public:
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::base_getParam(int, int) const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float btGeneric6DofConstraint::base_getParam(int, int) const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->btGeneric6DofConstraint::getParam(num, axis);
 		lua_pushnumber(L,lret);
@@ -1792,15 +1687,13 @@ public:
 	// int btGeneric6DofConstraint::base_calculateSerializeBufferSize() const
 	static int _bind_base_calculateSerializeBufferSize(lua_State *L) {
 		if (!_lg_typecheck_base_calculateSerializeBufferSize(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in int btGeneric6DofConstraint::base_calculateSerializeBufferSize() const function, expected prototype:\nint btGeneric6DofConstraint::base_calculateSerializeBufferSize() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		btGeneric6DofConstraint* self=Luna< btTypedObject >::checkSubType< btGeneric6DofConstraint >(L,1);
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call int btGeneric6DofConstraint::base_calculateSerializeBufferSize() const. Got : '%s'",typeid(Luna< btTypedObject >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call int btGeneric6DofConstraint::base_calculateSerializeBufferSize() const. Got : '%s'\n%s",typeid(Luna< btTypedObject >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		int lret = self->btGeneric6DofConstraint::calculateSerializeBufferSize();
 		lua_pushnumber(L,lret);

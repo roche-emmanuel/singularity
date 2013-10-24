@@ -13,8 +13,7 @@ public:
 	
 	static int _bind___eq(lua_State *L) {
 		if (!_lg_typecheck___eq(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Rot*)");
+			luaL_error(L, "luna typecheck failed in __eq function, expected prototype:\n__eq(b2Rot*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Rot* rhs =(Luna< b2Rot >::check(L,2));
@@ -37,8 +36,7 @@ public:
 	
 	static int _bind_fromVoid(lua_State *L) {
 		if (!_lg_typecheck_fromVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*)");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nfromVoid(void*). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		b2Rot* self= (b2Rot*)(Luna< void >::check(L,1));
@@ -59,8 +57,7 @@ public:
 	
 	static int _bind_asVoid(lua_State *L) {
 		if (!_lg_typecheck_asVoid(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid()");
+			luaL_error(L, "luna typecheck failed in fromVoid function, expected prototype:\nasVoid(). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		void* self= (void*)(Luna< b2Rot >::check(L,1));
@@ -76,14 +73,13 @@ public:
 	inline static bool _lg_typecheck_dynCast(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isstring(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
 		return true;
 	}
 	
 	static int _bind_dynCast(lua_State *L) {
 		if (!_lg_typecheck_dynCast(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &)");
+			luaL_error(L, "luna typecheck failed in dynCast function, expected prototype:\ndynCast(const std::string &). Got arguments:\n%s",luna_dumpStack(L).c_str());
 		}
 
 		std::string name(lua_tostring(L,2),lua_objlen(L,2));
@@ -109,7 +105,7 @@ public:
 	inline static bool _lg_typecheck_ctor_overload_2(lua_State *L) {
 		if( lua_gettop(L)!=1 ) return false;
 
-		if( lua_isnumber(L,1)==0 ) return false;
+		if( lua_type(L,1)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -118,7 +114,7 @@ public:
 	inline static bool _lg_typecheck_Set(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -161,14 +157,14 @@ public:
 	inline static bool _lg_typecheck_setS(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
 	inline static bool _lg_typecheck_setC(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
-		if( lua_isnumber(L,2)==0 ) return false;
+		if( lua_type(L,2)!=LUA_TNUMBER ) return false;
 		return true;
 	}
 
@@ -180,8 +176,7 @@ public:
 	// b2Rot::b2Rot()
 	static b2Rot* _bind_ctor_overload_1(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_1(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Rot::b2Rot() function, expected prototype:\nb2Rot::b2Rot()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Rot::b2Rot() function, expected prototype:\nb2Rot::b2Rot()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
@@ -191,8 +186,7 @@ public:
 	// b2Rot::b2Rot(float angle)
 	static b2Rot* _bind_ctor_overload_2(lua_State *L) {
 		if (!_lg_typecheck_ctor_overload_2(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Rot::b2Rot(float angle) function, expected prototype:\nb2Rot::b2Rot(float angle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Rot::b2Rot(float angle) function, expected prototype:\nb2Rot::b2Rot(float angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,1);
@@ -214,16 +208,14 @@ public:
 	// void b2Rot::Set(float angle)
 	static int _bind_Set(lua_State *L) {
 		if (!_lg_typecheck_Set(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Rot::Set(float angle) function, expected prototype:\nvoid b2Rot::Set(float angle)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Rot::Set(float angle) function, expected prototype:\nvoid b2Rot::Set(float angle)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float angle=(float)lua_tonumber(L,2);
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Rot::Set(float). Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Rot::Set(float). Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->Set(angle);
 
@@ -233,15 +225,13 @@ public:
 	// void b2Rot::SetIdentity()
 	static int _bind_SetIdentity(lua_State *L) {
 		if (!_lg_typecheck_SetIdentity(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Rot::SetIdentity() function, expected prototype:\nvoid b2Rot::SetIdentity()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Rot::SetIdentity() function, expected prototype:\nvoid b2Rot::SetIdentity()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Rot::SetIdentity(). Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Rot::SetIdentity(). Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->SetIdentity();
 
@@ -251,15 +241,13 @@ public:
 	// float b2Rot::GetAngle() const
 	static int _bind_GetAngle(lua_State *L) {
 		if (!_lg_typecheck_GetAngle(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Rot::GetAngle() const function, expected prototype:\nfloat b2Rot::GetAngle() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Rot::GetAngle() const function, expected prototype:\nfloat b2Rot::GetAngle() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Rot::GetAngle() const. Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Rot::GetAngle() const. Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->GetAngle();
 		lua_pushnumber(L,lret);
@@ -270,15 +258,13 @@ public:
 	// b2Vec2 b2Rot::GetXAxis() const
 	static int _bind_GetXAxis(lua_State *L) {
 		if (!_lg_typecheck_GetXAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Rot::GetXAxis() const function, expected prototype:\nb2Vec2 b2Rot::GetXAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Rot::GetXAxis() const function, expected prototype:\nb2Vec2 b2Rot::GetXAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Rot::GetXAxis() const. Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Rot::GetXAxis() const. Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetXAxis();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -292,15 +278,13 @@ public:
 	// b2Vec2 b2Rot::GetYAxis() const
 	static int _bind_GetYAxis(lua_State *L) {
 		if (!_lg_typecheck_GetYAxis(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in b2Vec2 b2Rot::GetYAxis() const function, expected prototype:\nb2Vec2 b2Rot::GetYAxis() const\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in b2Vec2 b2Rot::GetYAxis() const function, expected prototype:\nb2Vec2 b2Rot::GetYAxis() const\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call b2Vec2 b2Rot::GetYAxis() const. Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call b2Vec2 b2Rot::GetYAxis() const. Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		b2Vec2 stack_lret = self->GetYAxis();
 		b2Vec2* lret = new b2Vec2(stack_lret);
@@ -314,15 +298,13 @@ public:
 	// float b2Rot::s()
 	static int _bind_getS(lua_State *L) {
 		if (!_lg_typecheck_getS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Rot::s() function, expected prototype:\nfloat b2Rot::s()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Rot::s() function, expected prototype:\nfloat b2Rot::s()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Rot::s(). Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Rot::s(). Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->s;
 		lua_pushnumber(L,lret);
@@ -333,15 +315,13 @@ public:
 	// float b2Rot::c()
 	static int _bind_getC(lua_State *L) {
 		if (!_lg_typecheck_getC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in float b2Rot::c() function, expected prototype:\nfloat b2Rot::c()\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in float b2Rot::c() function, expected prototype:\nfloat b2Rot::c()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call float b2Rot::c(). Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call float b2Rot::c(). Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		float lret = self->c;
 		lua_pushnumber(L,lret);
@@ -352,16 +332,14 @@ public:
 	// void b2Rot::s(float value)
 	static int _bind_setS(lua_State *L) {
 		if (!_lg_typecheck_setS(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Rot::s(float value) function, expected prototype:\nvoid b2Rot::s(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Rot::s(float value) function, expected prototype:\nvoid b2Rot::s(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Rot::s(float). Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Rot::s(float). Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->s = value;
 
@@ -371,16 +349,14 @@ public:
 	// void b2Rot::c(float value)
 	static int _bind_setC(lua_State *L) {
 		if (!_lg_typecheck_setC(L)) {
-			luna_printStack(L);
-			luaL_error(L, "luna typecheck failed in void b2Rot::c(float value) function, expected prototype:\nvoid b2Rot::c(float value)\nClass arguments details:\n");
+			luaL_error(L, "luna typecheck failed in void b2Rot::c(float value) function, expected prototype:\nvoid b2Rot::c(float value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
 		}
 
 		float value=(float)lua_tonumber(L,2);
 
 		b2Rot* self=(Luna< b2Rot >::check(L,1));
 		if(!self) {
-			luna_printStack(L);
-			luaL_error(L, "Invalid object in function call void b2Rot::c(float). Got : '%s'",typeid(Luna< b2Rot >::check(L,1)).name());
+			luaL_error(L, "Invalid object in function call void b2Rot::c(float). Got : '%s'\n%s",typeid(Luna< b2Rot >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->c = value;
 
