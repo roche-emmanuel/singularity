@@ -127,4 +127,16 @@ function Class:call(mname,...)
 	self:checkErrors(self._controller)
 end
 
+function Class:syncCall(mname,...)
+	if not self._controller then
+		self:warn("Controller is not ready yet.")
+		return
+	end
+	
+	local args = awe.JSArray.fromTable{...}
+	
+	self._controller:Invoke(mname,args)
+	self:checkErrors(self._controller)
+end
+
 return Class

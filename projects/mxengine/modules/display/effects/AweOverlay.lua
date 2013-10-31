@@ -1,7 +1,10 @@
-local Class = require("classBuilder"){name="AweOverlay",bases={"display.Effect","mx.overlays.OverlayListener","mx.menus.MenuListener"}};
+local Class = require("classBuilder"){name="AweOverlay",bases={"mx.overlays.BasicOverlay","mx.overlays.OverlayListener","mx.menus.MenuListener"}};
 local awe = require "Awesomium"
 
 local Enums = require "mx.Enums"
+local Event = require "base.Event"
+
+local dman = require "aw.DXWebManager"
 
 --[[
 Class: display.effects.AweOverlay
@@ -43,15 +46,19 @@ function Class:initialize(options)
 		self:performFullRefresh()
 	end)
 	
+	self._prevNorth = 0
+	self._prevAz = 0
+	self._prevElev = 0	
+	
 	-- local TextureObject = require "dx.TextureObject"	
 	-- fx:setTextureObject(TextureObject{file="test_logo"},1)
 	local Turret = require "mx.Turret"
 	
 	self:getTurret():addListener{Turret.EVT_RELEASE,function()
 		self:notice("Releasing WebView for discarded turret...")
-		fx:setTextureObject(nil,1)
-		self._webView = nil
-		tobj:releaseWebView()
+		fx:setTextureObject(nil,1) 
+		self._webView:releaseWebView()
+		
 	end}	
 	
 	self:getTurret():addListener{Turret.EVT_POST_UPDATE,function()
@@ -62,6 +69,12 @@ function Class:initialize(options)
 		self:updateSourceStream()
 		--self:updateOverlayContent()
 	end}	
+	
+
+	self:getEventManager():addListener{Event.APP_CLOSING,function()
+		self._webView:releaseWebView()
+	end,front=true}	
+	
 end
 
 function Class:getOutputChannel()
@@ -161,6 +174,20 @@ function Class:performFullRefresh()
 	end
 	
 	self:onPOILocationUnitUpdated(mm:getPOILocationUnit())
+	
+	self._prevNorth = om:getNorthIndicatorAngle()
+	self:onNorthIndicatorUpdated(self._prevNorth)
+	self._prevAz = om:getGimbalAzimuthAngle()
+	self:onGimbalAzimuthUpdated(self._prevAz)
+	self._prevElev = om:getGimbalElevationAngle()
+	self:onGimbalElevationUpdated(self._prevElev)
+	self:onPictoFOVUpdated(om:getPictoFOVAngle())
+	self:onDestabilizationStateUpdated(om:getDestabilizationEnabled())
+	
+	local gstatus = self:getOverlayGroupStatus()
+	for gid,status in pairs(gstatus) do
+		self:doSetOverlayGroupStatus(gid,status)
+	end
 end
 
 
@@ -215,6 +242,44 @@ end
 
 function Class:onStreamHighlightUpdated(sname, item_name, value)
 	self._webView:call("setStreamHighlight",sname,item_name, value)
+end
+
+-- The following values are changing quickly and are far away on the 
+-- display, that's why we use syncCall instead of call to ensure
+-- that the value area gets updated on this one and will not share 
+-- a paint area with other far away fields.
+function Class:onNorthIndicatorUpdated(value)
+	if(math.abs(self._prevNorth - value) < 0.01) then return end
+	self._prevNorth = value
+	self._webView:call("setNorthIndicatorAngle",value)
+	-- dman:update()
+end
+
+function Class:onGimbalAzimuthUpdated(value)
+	if(math.abs(self._prevAz - value) < 0.01) then return end
+	self._prevAz = value
+	self._webView:call("setGimbalAzimuthAngle",value)
+	-- dman:update()
+end
+
+function Class:onGimbalElevationUpdated(value)
+	if(math.abs(self._prevElev - value) < 0.01) then return end
+	self._prevElev = value
+	self._webView:call("setGimbalElevationAngle",-value)
+	-- dman:update()
+end
+
+function Class:onPictoFOVUpdated(value)
+	self._webView:call("setPictoFOVAngle",value)
+end
+
+function Class:onDestabilizationStateUpdated(value)
+	self._webView:call("setDestabilizationEnabled",value)
+end
+
+function Class:doSetOverlayGroupStatus(gid,status)
+	-- self:info("Setting group ",gid," to ",status)
+	self._webView:call("setOverlayGroupStatus",gid,status)
 end
 
 return Class

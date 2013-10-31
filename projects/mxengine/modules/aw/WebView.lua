@@ -13,7 +13,9 @@ function Class:createSurface(options)
 	self:check(self._textureObject,"Invalid WebView texture object.")
 	-- self:info("Updating texture object size...")		
 	self._textureObject:setSize(options.width,options.height) -- ensure the textureObject gets invalidated here is needed.
-	-- self:info("Done creating surface for webview.")	
+	-- self:info("Done creating surface for webview.")
+	
+	
 end
 
 --[[
@@ -23,7 +25,9 @@ Method called to release the resources created for this WebView
 ]]
 function Class:releaseWebView()
 	if self._webView then
+		self:releaseController()
 		wman:destroyWebView(self._webView)
+		self._webView = nil
 	end
 end
 

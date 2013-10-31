@@ -26,6 +26,11 @@ loaders.high_level = function(data)
 	
 	log:info("Starting thread ", data.threadName,"...")
 	
+	-- local status, res = pcall(data.threadFunc,unpack(data.args))
+	-- if not status then
+		-- log:error("Error in thread execution: ",res)
+	-- end
+	
 	local res = #data.args >0 and data.threadFunc(unpack(data.args)) or data.threadFunc()
 	
 	log:info("Finishing thread ",data.threadName,".")
@@ -82,7 +87,9 @@ function Class:__call(...)
 	local tman = require "base.ThreadManager"
 	tman:registerThread(self)
 	
+	-- log:info("Starting thread lane...")
 	self._handle = self._lane(data)
+	-- log:info("Thread lane started.")
 	return self._handle
 end
 
@@ -126,11 +133,11 @@ function Class:cancel(timeout, kill)
 	
 	timeout = timeout or self._timeout
 	
-	local res = self._handle:cancel(timeout, kill)
+	local res, msg = self._handle:cancel(timeout, kill)
 	-- res = self:join(timeout) -- try to join to retrieve errors.
 
 	if not res then
-		self:warn("Could not stop thread ", self._name," gracefully, now trying to kill it...")
+		self:warn("Could not stop thread ", self._name," gracefully, msg='",msg,"'. Now trying to kill it...")
 		self._handle:cancel(0.0, true);
 		local stat = self:getStatus()
 		self:check(stat=="killed" or stat=="cancelled","Invalid thread status after kill: ", stat)
@@ -139,6 +146,8 @@ function Class:cancel(timeout, kill)
 	
 	local tman = require "base.ThreadManager"
 	tman:unregisterThread(self)
+	
+	self:info("Thread ",self._name," stopped properly.")
 	
 	-- remove the handle:
 	self._handle = nil;

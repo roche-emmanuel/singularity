@@ -1,5 +1,7 @@
 local Class = require("classBuilder"){name="TurretControllerPage",bases="gui.BasicTurretComponent"};
 
+Class.EVT_TURRETS_CHANGED = "turrets_changed"
+
 function Class:buildComponent(intf)	
 	local turrets = {
 	};
@@ -63,7 +65,11 @@ function Class:buildComponent(intf)
 		end
 		intf:updateProviders()
 		
-	end}	
+	end}
+	
+	intf:addListener{Class.EVT_TURRETS_CHANGED,function()
+		self:updateTurretList()
+	end}
 end
 
 function Class:updateTurretList()

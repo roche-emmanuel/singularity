@@ -36,6 +36,7 @@ function Class:initialize(options)
 	intf:popParent()
 
 	require "gui.LogPanel" {intf}
+	require "gui.JoystickPanel" {intf}
 	
 	intf:popParent(true)
 	

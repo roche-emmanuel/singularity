@@ -1,5 +1,5 @@
 // Simple definition of a logger module.
-define(['log','jquery','config',"raphael","raphaelsvg","canvg"],function(log,$,cfg,raphael,rsvg,canvg) {
+define(['log','jquery','config',"raphael","raphaelsvg","canvg","format"],function(log,$,cfg,raphael,rsvg,canvg,fmt) {
 	var res = {};
 	
 	var ww = $(window).width();
@@ -12,6 +12,7 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg"],function(log,$,c
 
 	var xr = ww/sw;
 	var yr = hh/sh;
+	log.debug("Block size is: "+xr+"x"+yr);
 	
 	// Compute the letter-spacing value and padding in pixels:
 	var ls = 0.0;
@@ -280,17 +281,37 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg"],function(log,$,c
 		return typeof variable !== 'undefined' ? variable : defVal;
 	};
 	
-	res.Move = function(x,y) {
-		return "M "+(x*xr)+" "+(y*yr)+" ";
+	res.Move = function(x,y,iso) {
+		var iyr = (iso==true ? xr : yr)
+		return "M "+(x*xr)+" "+(y*iyr)+" ";
 	};
 	
-	res.Line = function(x,y) {
-		return "L "+(x*xr)+" "+(y*yr)+" ";
+	res.Line = function(x,y,iso) {
+		var iyr = (iso==true ? xr : yr)
+		return "L "+(x*xr)+" "+(y*iyr)+" ";
 	};
 
 	res.Close = function() {
 		return "Z ";
 	};
+	
+	res.Arc = function(rx,ry,x,y,large_arc,sweep,iso) {
+		var iyr = (iso==true ? xr : yr)
+		return "A "+(rx*xr)+" "+(ry*iyr)+" 0 "+large_arc+" "+sweep+" "+(x*xr)+" "+(y*iyr)+" ";
+	};
+
+	res.Curve = function(x1,y1,x2,y2,x,y,iso) {
+		var iyr = (iso==true ? xr : yr)
+		return "C "+(x1*xr)+" "+(y1*iyr)+" "+(x2*xr)+" "+(y2*iyr)+" "+(x*xr)+" "+(y*iyr)+" ";
+	};
+	
+	res.showElement = function(el,enabled) {
+		el = $(el);
+		if(enabled) 
+			el.removeClass("hidden");
+		else
+			el.addClass("hidden");
+	}
 	
 	res.toggleVisibility = function(el) {
 		el = $(el);
@@ -386,6 +407,26 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg"],function(log,$,c
 		  this.restore();
 		}           
 	};
+	
+	res.getSize = function(el,inpixel) {
+		el = $(el);
+		inpixel = res.defVal(inpixel,false)
+		
+		var ww = el.width();
+		var hh = el.height();
+		
+		return inpixel ? { width: ww, height: hh} : {width: ww/xr, height: hh/yr}
+	};
+	
+	res.createRaphaelPaper = function(parent,ww,hh) {
+		var el = $(parent)
+		var size = res.getSize(el)
+		ww = res.defVal(ww,size.width)
+		hh = res.defVal(hh,size.height)
+		
+		var paper = raphael(el.get(0),ww*xr,hh*yr)
+		return paper
+	}
 	
 	res.createMenuShapes = function() {
 		// Use el as a temporary parent for a block canvas:

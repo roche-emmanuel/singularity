@@ -44,6 +44,8 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			var xr = tools.getBlockWidth();
 			var yr = tools.getBlockHeight();
 			
+			var baspect = yr/xr; // The height of the block is greater than its width.
+			
 			var fsize = tools.getFontSize();
 			var ls = tools.getLetterSpacing()
 			var pad = ls/2.0;
@@ -141,24 +143,30 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			setLeft('.target_r4',69,10)
 			setLeft('.target_r5',68,6)
 			
-			$('img').each(function(index,item) {
-				log.info("Calling setImageColor...");
-				// tintImage(this)
-				log.info("setImageColor done.");
-			});
+			setLeft('.illuminator',1,20)
+			setBottom('.illuminator',5)
+						
+			var hh1 = 6/baspect
+			var hh2 = 4/baspect
+			var d0 = (hh1 - hh2)/2.0
+			var d1 = 6 - 6/baspect
+			var d2 = 4 - 4/baspect
+			setPos('#az_pict_frame, #az_pict_fov',1,19+d2,4,hh2);
+			setPos('#elev_pict_frame',1,11+d1,4,hh1);
+			setPos('#elev_pict_fov',1,11+d0+d1,4,hh2);
+			setPos('.elev_pict_value',1,16,5,1);
+			setPos('.az_pict_value',2,23,4,1);
 			
-			setPos('#az_pict_frame, #az_pict_fov',1,19,4,4);
-			setPos('#elev_pict_frame',1,11,4,6);
-			setPos('#elev_pict_fov',1,13.5,4,1);
-			setPos('.elev_pict_value',1,17,5,1);
-			setPos('.az_pict_value',2,24,4,1);
+			setPos('#az_scale',34,31,13,2);
+			setPos('#az_indicator',40,31,1,3);
+			setPos('#elev_scale',1,12,2,10);
+			setPos('#elev_indicator',0,16.5,4,1);
 
 			setPos('#north_arrow',1,5,4,4)
 			setPos('.north_indicator',2.5,6.5,1,1)
 			setPos('#destabilization',40,3,1,1)
 			setPos('.gated_imaging',69,20,10)
-			setPos('.laser',68,23,11)
-			setPos('.illuminator',1,29,18)
+			setPos('.laser',68,23,11)			
 			setPos('.strata',73,4,6)
 			
 			$('#hand_controller1, #hand_controller2, #mission_grip_alt' ).css({width: Math.floor(xr), height: Math.floor(yr), padding:0, border:0, marginRight:0})

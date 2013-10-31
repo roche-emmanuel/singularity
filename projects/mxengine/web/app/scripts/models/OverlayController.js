@@ -20,7 +20,12 @@ define(["log","backbone"],function(log,Backbone) {
 		"range_source",
 		"target_bearing",
 		"target_latitude",
-		"target_longitude"];
+		"target_longitude",
+		"illum_line1",
+		"illum_line2",
+		"illum_line3",
+		"illum_line4"
+		];
 	
 	var streamFields = [
 		"spatial_processing",

@@ -4,7 +4,7 @@ define(["backbone","underscore","base/LayoutManager",
 function(Backbone,_,lman,tpl,manager) {
 		
 	var Overlay = Backbone.View.extend({
-		el: $('#overlays'),
+		el: $('#main_overlay_group'),
 		
 		initialize: function() {
 			console.log("Wahoo!");

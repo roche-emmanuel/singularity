@@ -58,6 +58,11 @@ function Class:buildComponent(intf,options)
 					handler="updateLevel",validItemOnly=true}
 		intf:addStateChoiceEntry{name=sname..".scene_setup",prop=0,caption="Scene setup",
 			choices=scene_setup_list, handler="updateSceneSetup"}
+
+		intf:addBoolEntry{name=sname..".temporal_processing",caption="Temporal processing enabled",
+						  handler="updateTemporalProcessing",validItemOnly=true, style=0}
+		intf:addBoolEntry{name=sname..".spatial_processing",caption="Spatial processing enabled",
+						  handler="updateSpatialProcessing",validItemOnly=true, style=0}
 	end}
 end
 
@@ -196,6 +201,8 @@ end
 
 function Class:updateCameraFields(cam)
 	self:setEntryValue(self._sname..".auto_sensitivity",cam:isAutoSensitivity())
+	self:setEntryValue(self._sname..".temporal_processing",cam:getTemporalProcessing()==Enums.TEMPORAL_PROCESSING_ON)
+	self:setEntryValue(self._sname..".spatial_processing",cam:getSpatialProcessing()==Enums.SPATIAL_PROCESSING_ON)
 	
 	self:setEntryValue(self._sname..".sensitivity",cam:getSensitivity(),cam:getSensitivityRange())
 	self:setEntryValue(self._sname..".level",cam:getBlackLevel()*100.0)
@@ -205,6 +212,28 @@ end
 function Class:updateSelectedCamera(data)
 	local cam = self:getSelectedCamera(data)
 	if not cam then return end;
+	
+	self:updateCameraFields(cam)
+end
+
+function Class:updateTemporalProcessing(data)
+	local cam = self:getSelectedCamera(data)
+	if not cam then
+		return -- no matching camera.
+	end
+	
+	cam:setTemporalProcessing(data.value and Enums.TEMPORAL_PROCESSING_ON or Enums.TEMPORAL_PROCESSING_OFF)
+	
+	self:updateCameraFields(cam)
+end
+
+function Class:updateSpatialProcessing(data)
+	local cam = self:getSelectedCamera(data)
+	if not cam then
+		return -- no matching camera.
+	end
+	
+	cam:setSpatialProcessing(data.value and Enums.SPATIAL_PROCESSING_ON or Enums.SPATIAL_PROCESSING_OFF)
 	
 	self:updateCameraFields(cam)
 end

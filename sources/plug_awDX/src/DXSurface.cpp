@@ -42,7 +42,7 @@ void DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect &clip_rec
 void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomium::Rect &src_rect, const Awesomium::Rect &dest_rect) {
 	// logINFO("Painting rect: x="<<dest_rect.x<<", y="<<dest_rect.y<<", w="<<dest_rect.width<<", h="<<dest_rect.height);
 	
-	osg::Timer_t startTick = osg::Timer::instance()->tick();
+	// osg::Timer_t startTick = osg::Timer::instance()->tick();
 	
 	CHECK(_surface,"Invalid DirectX Surface in DXSurface::Paint()")
 	
@@ -63,26 +63,23 @@ void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomi
 	
 	unsigned char* src = src_buffer + src_rect.y * src_row_span + src_rect.x * 4;
 	unsigned char* dest = (unsigned char *)locked.pBits;
-	unsigned char* line;
+	unsigned char* line = src;
 
 	int height = src_rect.height;
 	int width = src_rect.width;
-	int offset = (_surfaceWidth-width)*4;
-	
+	int width4 = width*4;
+	int offset = _surfaceWidth*4;
+
 	for(int row=0; row<height; ++row) {
-		line = src + src_row_span*row;
-		for(int i=0; i<width; ++i) {
-			*dest++ = *line++;
-			*dest++ = *line++;
-			*dest++ = *line++;
-			*dest++ = *line++;
-		}
-		dest += offset;		
+		// line = src + src_row_span*row;
+		memcpy(dest,line,width4);
+		dest += offset;	
+		line += src_row_span;
 	}
 	
 	CHECK_RESULT(_surface->UnlockRect(),"Could not unlock surface data");
 	
-	double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
+	// double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
 	// logINFO("Painted in " << elapsed*1000 << " ms");
 };
 

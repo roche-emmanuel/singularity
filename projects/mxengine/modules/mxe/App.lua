@@ -29,13 +29,18 @@ function Class:initialize(options)
 	
 	-- Set this frame as master application frame:
 	wx.wxGetApp():SetTopWindow(frame)
-    wx.wxGetApp():SetExitOnFrameDelete(true)
+    -- wx.wxGetApp():SetExitOnFrameDelete(true)
     
+	self._destroying = false;
+	
     self._frame:connect(wx.wxID_ANY,wx.wxEVT_CLOSE_WINDOW,function(event)
-		self:getEventManager():fireEvent(Event.APP_CLOSING)
-		self:debug("Exiting...");
-		self._frame:Destroy();
-		fh:exitVBS()		
+		if not self._destroying then
+			self._destroying = true
+			self:getEventManager():fireEvent(Event.APP_CLOSING)
+			self:debug("Exiting...");
+			self._frame:Destroy();
+			fh:exitVBS()		
+		end
 	end)
 	
     --[[self._frame:connect(wx.wxID_ANY,wx.wxEVT_IDLE,function(event)

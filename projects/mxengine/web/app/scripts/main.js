@@ -8,6 +8,8 @@ require.config({
 		"rgbcolor": "libs/rgbcolor",		
 		"canvg": "external/canvg",		
 		"text": "vendor/requirejs-text/text",
+		"format": "vendor/string-format/string-format",
+		"sprintf": "vendor/sprintf/src/sprintf",
 		"log": "base/Logger",
 	},
 	
@@ -16,6 +18,9 @@ require.config({
             //These script dependencies should be loaded before loading
             deps: ['raphael'],
         },
+		'sprintf': {
+			exports: "sprintf"
+		},
 	}
 });
 

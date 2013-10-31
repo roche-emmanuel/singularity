@@ -1,6 +1,14 @@
 // Simple implementation of a Controller system for the overlay display.
 
-define(["log","jquery","backbone","models/OverlayController","base/Tools"],function(log,$,Backbone,Controller,tools) {
+define(["log","jquery","backbone","models/OverlayController","base/Tools",
+	"models/AzPictBase",
+	"models/AzPictFov",
+	"models/ElevPictBase",
+	"models/ElevPictFov",
+	"models/Destabilization",
+	"models/AzScale",
+	"models/ElevScale"
+],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,ElevFov,Destab,AzScale,ElevScale) {
 	
 	var con = new Controller;
 	
@@ -48,7 +56,37 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools"],funct
 				target_name: "TGT",
 				platform_name: "ACFT",
 				time : "12:22:22",
+				illum_line1: "",
+				illum_line2: "",
+				illum_line3: "",
+				illum_line4: "",
 			});
+			
+			this._azBase = new AzBase()
+			this._azFov = new AzFov()
+			this._elevBase = new ElevBase()
+			this._elevFov = new ElevFov()
+			this._destab = new Destab()
+			this._azScale = new AzScale()
+			this._elevScale = new ElevScale()
+			
+			$("#picto_group").addClass("hidden")
+		},
+		
+		setGimbalAzimuthAngle: function(angle) {
+			$("#az_pict_fov").css({transform: 'rotate('+angle+'deg)'})			
+			if (angle<0) { angle += 360.0; }
+			this._azScale.setAngle(angle)
+		},
+		
+		setGimbalElevationAngle: function(angle) {
+			$("#elev_pict_fov").css({transform: 'rotate('+angle+'deg)'})	
+			this._elevScale.setAngle(angle)
+		},
+		
+		setPictoFOVAngle: function(angle) {
+			this._azFov.setFOVAngle(angle)
+			this._elevFov.setFOVAngle(angle)
 		},
 		
 		setField : function(field,value) {

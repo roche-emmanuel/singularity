@@ -1,11 +1,13 @@
-<!--img id="myImage" src="css/images/az_pict_fov2.png"/-->
+<div class="block" id="destabilization"></div>
 
-<div class="block" id="destabilization"><!--img src="css/images/destabilization_2.png"/--></div>
-
-<div class="block top left" id="date_group">
+<div class="block top left" id="datetime_group">
 	<div id="date">date</div>
 	<div id="time">time</div>
 	<div id="utc_offset">utc_offset</div>
+</div>
+
+<div id="los_reticle">
+
 </div>
 
 <div id="sensor_group">
@@ -54,14 +56,7 @@
 	</div>		
 </div>
 
-<div id="aicraft_group">
-	<div class="block elev_pict_value right" >		
-		<div id="elevation_pict">picto_elevation</div>
-	</div>
-	<div class="block az_pict_value right" >		
-		<div id="azimuth_pict">picto_azimuth</div>
-	</div>
-
+<div id="platform_group">
 	<div class="block platform_l0" >		
 		<div id="platform_name">ACFT</div>
 	</div>
@@ -105,15 +100,29 @@
 	</div>
 </div>
 
-<div id="scales_group">
-	<div class="block" id="az_pict_frame"><!--img src="css/images/az_pict_frame.png"/--></div>
-	<div class="block" id="az_pict_fov"><!--img src="css/images/az_pict_fov.png"/--></div>
-	<div class="block" id="elev_pict_frame"><!--img src="css/images/elev_pict_frame.png"/--></div>
-	<div class="block" id="elev_pict_fov"><!--img src="css/images/elev_pict_fov.png"/--></div>
+<div id="picto_group">
+	<div class="block elev_pict_value right" >		
+		<div id="elevation_pict">picto_elevation</div>
+	</div>
+	<div class="block az_pict_value right" >		
+		<div id="azimuth_pict">picto_azimuth</div>
+	</div>
+	
+	<div class="block" id="az_pict_frame"></div>
+	<div class="block" id="az_pict_fov"></div>
+	<div class="block" id="elev_pict_frame"></div>
+	<div class="block" id="elev_pict_fov"></div>
+</div>
+
+<div id="wheel_group">
+	<div class="block" id="az_scale"></div>
+	<div class="block" id="az_indicator"></div>
+	<div class="block" id="elev_scale"></div>
+	<div class="block" id="elev_indicator"></div>
 </div>
 
 <div id="north_indicator_group">
-	<div class="block" id="north_arrow"><!--img src="css/images/north_arrow.png"/--></div>
+	<div class="block" id="north_arrow"></div>
 	<div class="block north_indicator center" >		
 		<div>N</div>
 	</div>
@@ -138,15 +147,17 @@
 		<div id="lrf_mode">AUTO VALID</div>
 		<div id="gtd_mode">GTD VALID</div>
 	</div>
-	<div class="block illuminator" >
-		<div id="l1_mode">W : HIGH-TIME LMT</div>
-		<div id="l2_mode">UN: PULSE-TIME LMT</div>
+	<div class="block bottom illuminator" >
+		<div id="illum_line4"></div>
+		<div id="illum_line3"></div>
+		<div id="illum_line2"></div>
+		<div id="illum_line1"></div>
 	</div>			
 </div>
 
 <div id="strata_group">
 	<div class="block strata right" >
-		<div id="strata_waypoint"><!--img src="css/images/strata_waypoint.png"/--></div>
+		<div id="strata_waypoint"></div>
 		<div id="strata_dtk">DTKW12</div>
 		<div id="strata_dist">2KM</div>
 		<div id="strata_state">OFF</div>

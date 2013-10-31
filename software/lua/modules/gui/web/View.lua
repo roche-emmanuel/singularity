@@ -266,6 +266,7 @@ local err_map = {
 function Class:checkErrors(obj)
 	local err = (obj or self._webView):last_error()
 	if err ~= awe.kError_None  then
+		-- self:backtrace()
 		self:error("Error occured in last call: ",err_map[err] or "Unknown error?")
 	end
 end

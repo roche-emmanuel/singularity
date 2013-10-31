@@ -9,6 +9,8 @@
 		"requirejs-text": null,
 		"almond": null,
 		"raphael": null,
-		"raphael.export": null
+		"raphael.export": null,
+		"string-format": null,
+		"sprintf": null
 	}
 }

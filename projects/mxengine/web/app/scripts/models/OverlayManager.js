@@ -30,7 +30,7 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 		},
 
 		toggleOverlays : function() {
-			tools.toggleVisibility("#overlays");
+			tools.toggleVisibility("#main_overlay");
 		},
 		
 		toggleMenus : function() {
@@ -82,6 +82,44 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 		setPOILocationMode: function(dm) {
 			var menu = mm.getMenu("menu.steering_modes.points_of_interest")
 			menu.setDisplayMode(dm)
+		},
+		
+		setNorthIndicatorAngle: function(angle) {
+			// Need to rotate the north indicator arrow:
+			$("#north_arrow").css({transform: 'rotate('+angle+'deg)'})
+		},
+		
+		setGimbalAzimuthAngle: function(angle) {
+			om.setGimbalAzimuthAngle(angle);
+		},
+
+		setGimbalElevationAngle: function(angle) {
+			om.setGimbalElevationAngle(angle)
+		},
+		
+		setPictoFOVAngle: function(angle) {
+			om.setPictoFOVAngle(angle);
+		},
+		
+		setDestabilizationEnabled: function(enabled) {
+			if(enabled) {
+				$("#destabilization").removeClass("hidden")
+			}
+			else {
+				$("#destabilization").addClass("hidden")
+			}
+		},
+		
+		setOverlayGroupStatus: function (gid, status) {
+			//log.info("Toggling group "+gid+" to "+status)
+			
+			if (gid=="scales_group") {
+				tools.showElement("#picto_group",status==2)
+				tools.showElement("#wheel_group",status==1)
+			}
+			else {
+				tools.showElement("#"+gid,status==1);
+			}
 		},
 	});
 	
