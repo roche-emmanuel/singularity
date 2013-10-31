@@ -25,7 +25,7 @@ ADD_SUBDIRECTORY(sgtLuna)
 # ADD_SUBDIRECTORY(sgtLand)
 # ADD_SUBDIRECTORY(sgtProland)
 
-# ADD_SUBDIRECTORY(lua_core)
+ADD_SUBDIRECTORY(lua_core)
 # ADD_SUBDIRECTORY(lua_externals)
 # ADD_SUBDIRECTORY(lua_cog)
 # ADD_SUBDIRECTORY(lua_seed)
@@ -74,7 +74,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_spice)
 # ADD_SUBDIRECTORY(plug_norad)
 
-ADD_SUBDIRECTORY(sgt_launcher)
+# ADD_SUBDIRECTORY(sgt_launcher)
 # ADD_SUBDIRECTORY(tests/virtual_base)
 
 # ADD_SUBDIRECTORY(wx)

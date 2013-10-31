@@ -23,6 +23,10 @@
 
 #define D3D_OK      0
 
+#define D3DUSAGE_RENDERTARGET       0
+#define D3DUSAGE_DEPTHSTENCIL       0
+#define D3DUSAGE_DYNAMIC            0
+
 #define D3DERR_WRONGTEXTUREFORMAT               0
 #define D3DERR_UNSUPPORTEDCOLOROPERATION        0
 #define D3DERR_UNSUPPORTEDCOLORARG              0

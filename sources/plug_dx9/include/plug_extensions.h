@@ -2,6 +2,7 @@
 #define _PLUG_EXTENSION_H_
 
 #include "luna/luna.h"
+#include <osg/Timer>
 
 /** LUNA_CLASS_EXTENSION */
 ID3DXBuffer* compileShaderFromFile(IDirect3DDevice9* device, const std::string& filename, const std::string& func, const std::string& profile);
@@ -93,14 +94,11 @@ inline IDirect3DTexture9* createTextureFromFile(IDirect3DDevice9* device, const 
 }
 
 /** LUNA_CLASS_EXTENSION */
-inline IDirect3DTexture9* createTexture(IDirect3DDevice9* device, unsigned int width, unsigned int height, D3DFORMAT fmt = D3DFMT_A8R8G8B8, bool dynamic = false )
+inline IDirect3DTexture9* createTexture(IDirect3DDevice9* device, unsigned int width, unsigned int height, D3DFORMAT fmt = D3DFMT_A8R8G8B8, int usage = D3DUSAGE_RENDERTARGET, D3DPOOL pool = D3DPOOL_DEFAULT )
 {
 	IDirect3DTexture9* tex = NULL;
-	// int usage = (fmt==D3DFMT_D24S8 || fmt==D3DFMT_R32F) ? D3DUSAGE_DEPTHSTENCIL : D3DUSAGE_RENDERTARGET;
-	int usage = D3DUSAGE_RENDERTARGET;
-	HRESULT result = device->CreateTexture(width, height, 1, dynamic ? D3DUSAGE_DYNAMIC : usage, fmt, D3DPOOL_DEFAULT, &tex, NULL);
-	// HRESULT result = device->CreateTexture(width, height, 1, sysmem ? 0 : D3DUSAGE_RENDERTARGET, 
-										   // fmt, sysmen ? D3DPOOL_SYSTEMMEM : D3DPOOL_DEFAULT, &tex, NULL);
+
+	HRESULT result = device->CreateTexture(width, height, 1, usage, fmt, pool, &tex, NULL);
 	CHECK_RESULT_RET(result,NULL,"Error while calling CreateTexture()");
 
 	return tex;
@@ -115,6 +113,20 @@ inline IDirect3DSurface9* createDepthSurface(IDirect3DDevice9* device, unsigned 
 	CHECK_RESULT_RET(result,NULL,"Error while calling CreateDepthStencilSurface()");
 
 	return tex;
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline void updateTexture(IDirect3DDevice9* device, IDirect3DTexture9* src, IDirect3DTexture9* dest)
+{
+	CHECK(src,"Invalid source texture")
+	CHECK(dest,"Invalid dest texture");
+	
+	// osg::Timer_t startTick = osg::Timer::instance()->tick();
+	HRESULT result = device->UpdateTexture(src,dest);
+	// double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
+	
+	CHECK_RESULT(result,"Error while calling UpdateTexture()");
+	// logINFO("Texture updated in " << elapsed*1000 << " ms");
 }
 
 /** LUNA_CLASS_EXTENSION */

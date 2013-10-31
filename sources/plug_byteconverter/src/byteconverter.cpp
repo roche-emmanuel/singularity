@@ -1,5 +1,5 @@
 
-#include "sgtCommon.h"
+#include "lunaCommon.h"
 
 // This module will contain only byte conversion methods and register them in lua:
 #if defined(_MSC_VER) || defined(__CYGWIN__) || defined(__MINGW32__) || defined( __BCPLUSPLUS__)  || defined( __MWERKS__)

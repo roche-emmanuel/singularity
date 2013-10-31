@@ -26,6 +26,9 @@ void register_defines(lua_State* L) {
 	lua_pushnumber(L,DT_NOPREFIX); lua_setfield(L,-2,"DT_NOPREFIX");
 	lua_pushnumber(L,DT_INTERNAL); lua_setfield(L,-2,"DT_INTERNAL");
 	lua_pushnumber(L,D3D_OK); lua_setfield(L,-2,"D3D_OK");
+	lua_pushnumber(L,D3DUSAGE_RENDERTARGET); lua_setfield(L,-2,"D3DUSAGE_RENDERTARGET");
+	lua_pushnumber(L,D3DUSAGE_DEPTHSTENCIL); lua_setfield(L,-2,"D3DUSAGE_DEPTHSTENCIL");
+	lua_pushnumber(L,D3DUSAGE_DYNAMIC); lua_setfield(L,-2,"D3DUSAGE_DYNAMIC");
 	lua_pushnumber(L,D3DERR_WRONGTEXTUREFORMAT); lua_setfield(L,-2,"D3DERR_WRONGTEXTUREFORMAT");
 	lua_pushnumber(L,D3DERR_UNSUPPORTEDCOLOROPERATION); lua_setfield(L,-2,"D3DERR_UNSUPPORTEDCOLOROPERATION");
 	lua_pushnumber(L,D3DERR_UNSUPPORTEDCOLORARG); lua_setfield(L,-2,"D3DERR_UNSUPPORTEDCOLORARG");
