@@ -24,6 +24,8 @@ function Class:initialize(options)
 		end	
 	};
 		
+	self._sink:setName("wx_log_panel_sink")
+	
 	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:create()

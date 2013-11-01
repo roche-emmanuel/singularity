@@ -14,7 +14,7 @@
  --[[
  ===============================================================================
 
- Copyright (C) 2011-2012 Benoit Germain <bnt.germain@gmail.com>
+ Copyright (C) 2011-2013 Benoit Germain <bnt.germain@gmail.com>
 
  Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
@@ -41,7 +41,6 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdint.h>
 #include <ctype.h>
 
 #include "lua.h"
@@ -51,7 +50,6 @@
 #include "tools.h"
 #include "keeper.h"
 
-#if KEEPER_MODEL == KEEPER_MODEL_C
 //###################################################################################
 // Keeper implementation
 //###################################################################################
@@ -71,7 +69,7 @@ typedef struct
 static keeper_fifo* prepare_fifo_access( lua_State* L, int idx)
 {
 	keeper_fifo* fifo = (keeper_fifo*) lua_touserdata( L, idx);
-	if( fifo)
+	if( fifo != NULL)
 	{
 		idx = lua_absindex( L, idx);
 		STACK_GROW( L, 1);
@@ -163,7 +161,7 @@ static void* const fifos_key = (void*) prepare_fifo_access;
 static void push_table( lua_State* L, int idx)
 {
 	STACK_GROW( L, 4);
-	STACK_CHECK( L)
+	STACK_CHECK( L);
 	idx = lua_absindex( L, idx);
 	lua_pushlightuserdata( L, fifos_key);        // ud fifos_key
 	lua_rawget( L, LUA_REGISTRYINDEX);           // ud fifos
@@ -186,40 +184,47 @@ static void push_table( lua_State* L, int idx)
 int keeper_push_linda_storage( lua_State* L, void* ptr)
 {
 	struct s_Keeper* K = keeper_acquire( ptr);
-	STACK_CHECK( K->L)
-	lua_pushlightuserdata( K->L, fifos_key);                      // fifos_key
-	lua_rawget( K->L, LUA_REGISTRYINDEX);                         // fifos
-	lua_pushlightuserdata( K->L, ptr);                            // fifos ud
-	lua_rawget( K->L, -2);                                        // fifos storage
-	lua_remove( K->L, -2);                                        // storage
-	if( !lua_istable( K->L, -1))
+	lua_State* KL = K->L;
+	STACK_CHECK( KL);
+	lua_pushlightuserdata( KL, fifos_key);                      // fifos_key
+	lua_rawget( KL, LUA_REGISTRYINDEX);                         // fifos
+	lua_pushlightuserdata( KL, ptr);                            // fifos ud
+	lua_rawget( KL, -2);                                        // fifos storage
+	lua_remove( KL, -2);                                        // storage
+	if( !lua_istable( KL, -1))
 	{
-		lua_pop( K->L, 1);                                          //
-		STACK_MID( K->L, 0);
+		lua_pop( KL, 1);                                          //
+		STACK_MID( KL, 0);
 		return 0;
 	}
-	lua_pushnil( K->L);                                           // storage nil
+	// move data from keeper to destination state                  KEEPER                       MAIN
+	lua_pushnil( KL);                                           // storage nil
+	STACK_CHECK( L);
 	lua_newtable( L);                                                                        // out
-	while( lua_next( K->L, -2))                                   // storage key fifo
+	while( lua_next( KL, -2))                                   // storage key fifo
 	{
-		keeper_fifo* fifo = prepare_fifo_access( K->L, -1);         // storage key fifo
-		lua_pushvalue( K->L, -2);                                   // storage key fifo key
-		luaG_inter_move( K->L, L, 1);                               // storage key fifo        // out key
-		STACK_CHECK( L)
+		keeper_fifo* fifo = prepare_fifo_access( KL, -1);         // storage key fifo
+		lua_pushvalue( KL, -2);                                   // storage key fifo key
+		luaG_inter_move( KL, L, 1, eLM_FromKeeper);               // storage key fifo          // out key
+		STACK_MID( L, 2);
 		lua_newtable( L);                                                                      // out key keyout
-		luaG_inter_move( K->L, L, 1);                               // storage key             // out key keyout fifo
+		luaG_inter_move( KL, L, 1, eLM_FromKeeper);               // storage key               // out key keyout fifo
 		lua_pushinteger( L, fifo->first);                                                      // out key keyout fifo first
+		STACK_MID( L, 5);
 		lua_setfield( L, -3, "first");                                                         // out key keyout fifo
 		lua_pushinteger( L, fifo->count);                                                      // out key keyout fifo count
+		STACK_MID( L, 5);
 		lua_setfield( L, -3, "count");                                                         // out key keyout fifo
 		lua_pushinteger( L, fifo->limit);                                                      // out key keyout fifo limit
+		STACK_MID( L, 5);
 		lua_setfield( L, -3, "limit");                                                         // out key keyout fifo
 		lua_setfield( L, -2, "fifo");                                                          // out key keyout
 		lua_rawset( L, -3);                                                                    // out
-		STACK_END( L, 0)
+		STACK_MID( L, 1);
 	}
-	lua_pop( K->L, 1);                                            //
-	STACK_END( K->L, 0)
+	STACK_END( L, 1);
+	lua_pop( KL, 1);                                            //
+	STACK_END( KL, 0);
 	keeper_release( K);
 	return 1;
 }
@@ -280,15 +285,15 @@ int keepercall_receive( lua_State* L)
 {
 	int top = lua_gettop( L);
 	int i;
-	keeper_fifo* fifo;
 	push_table( L, 1);                           // ud keys fifos
 	lua_replace( L, 1);                          // fifos keys
 	for( i = 2; i <= top; ++ i)
 	{
+		keeper_fifo* fifo;
 		lua_pushvalue( L, i);                      // fifos keys key[i]
 		lua_rawget( L, 1);                         // fifos keys fifo
 		fifo = prepare_fifo_access( L, -1);        // fifos keys fifo
-		if( fifo && fifo->count > 0)
+		if( fifo != NULL && fifo->count > 0)
 		{
 			fifo_pop( L, fifo, 1);                   // fifos keys val
 			if( !lua_isnil( L, -1))
@@ -326,7 +331,7 @@ int keepercall_receive_batched( lua_State* L)
 		lua_rawget( L, 2);                                    // key fifos fifo
 		lua_remove( L, 2);                                    // key fifo
 		fifo = prepare_fifo_access( L, 2);                    // key fifo
-		if( fifo && fifo->count >= min_count)
+		if( fifo != NULL && fifo->count >= min_count)
 		{
 			fifo_pop( L, fifo, __min( max_count, fifo->count)); // key ...
 		}
@@ -354,7 +359,7 @@ int keepercall_limit( lua_State* L)
 	lua_pushvalue( L, -1);                             // fifos key key
 	lua_rawget( L, -3);                                // fifos key fifo
 	fifo = (keeper_fifo*) lua_touserdata( L, -1);
-	if( !fifo)
+	if( fifo ==  NULL)
 	{
 		lua_pop( L, 1);                                  // fifos key
 		fifo_new( L);                                    // fifos key fifo
@@ -368,28 +373,57 @@ int keepercall_limit( lua_State* L)
 //in: linda_ud key [val]
 int keepercall_set( lua_State* L)
 {
+	STACK_GROW( L, 6);
 	// make sure we have a value on the stack
-	if( lua_gettop( L) == 2)
+	if( lua_gettop( L) == 2)                          // ud key val?
 	{
-		lua_pushnil( L);
+		lua_pushnil( L);                                // ud key nil
 	}
+
+	// retrieve fifos associated with the linda
 	push_table( L, 1);                                // ud key val fifos
 	lua_replace( L, 1);                               // fifos key val
-	if( !lua_isnil( L, 3)) // replace contents stored at the specified key?
+
+	if( !lua_isnil( L, 3)) // set/replace contents stored at the specified key?
 	{
 		keeper_fifo* fifo;
-		fifo_new( L);                                   // fifos key val fifo
-		lua_pushvalue( L, 2);                           // fifos key val fifo key
-		lua_pushvalue( L, -2);                          // fifos key val fifo key fifo
-		lua_rawset( L, 1);                              // fifos key val fifo
+		lua_pushvalue( L, -2);                          // fifos key val key
+		lua_rawget( L, 1);                              // fifos key val fifo|nil
+		fifo = (keeper_fifo*) lua_touserdata( L, -1);
+		if( fifo == NULL) // might be NULL if we set a nonexistent key to nil
+		{
+			lua_pop( L, 1);                               // fifos key val
+			fifo_new( L);                                 // fifos key val fifo
+			lua_pushvalue( L, 2);                         // fifos key val fifo key
+			lua_pushvalue( L, -2);                        // fifos key val fifo key fifo
+			lua_rawset( L, 1);                            // fifos key val fifo
+		}
+		else // the fifo exists, we just want to clear its contents
+		{
+			// empty the fifo for the specified key: replace uservalue with a virgin table, reset counters, but leave limit unchanged!
+			lua_newtable( L);                             // fifos key val fifo {}
+			lua_setuservalue( L, -2);                     // fifos key val fifo
+			fifo->first = 1;
+			fifo->count = 0;
+		}
 		fifo = prepare_fifo_access( L, -1);
 		lua_insert( L, -2);                             // fifos key fifo val
 		fifo_push( L, fifo, 1);                         // fifos key fifo
 	}
-	else
+	else // val == nil                                // fifos key nil
 	{
-		// val == nil => stack contents: fifos key nil => remove the fifo associated with the current key
-		lua_rawset( L, 1);                                // fifos
+		keeper_fifo* fifo;
+		lua_pop( L, 1);                                 // fifos key
+		lua_rawget( L, 1);                              // fifos fifo|nil
+		// empty the fifo for the specified key: replace uservalue with a virgin table, reset counters, but leave limit unchanged!
+		fifo = (keeper_fifo*) lua_touserdata( L, -1);
+		if( fifo != NULL) // might be NULL if we set a nonexistent key to nil
+		{
+			lua_newtable( L);                             // fifos fifo {}
+			lua_setuservalue( L, -2);                     // fifos fifo
+			fifo->first = 1;
+			fifo->count = 0;
+		}
 	}
 	return 0;
 }
@@ -402,7 +436,7 @@ int keepercall_get( lua_State* L)
 	lua_replace( L, 1);                               // fifos key
 	lua_rawget( L, 1);                                // fifos fifo
 	fifo = prepare_fifo_access( L, -1);               // fifos fifo
-	if( fifo && fifo->count > 0)
+	if( fifo != NULL && fifo->count > 0)
 	{
 		lua_remove( L, 1);                              // fifo
 		// read one value off the fifo
@@ -462,7 +496,7 @@ int keepercall_count( lua_State* L)
 			lua_rawget( L, 2);                               // out fifos keys fifo
 			fifo = prepare_fifo_access( L, -1);              // out fifos keys fifo
 			lua_pop( L, 1);                                  // out fifos keys
-			if( fifo)
+			if( fifo != NULL)
 			{
 				lua_pushinteger( L, fifo->count);              // out fifos keys count
 				lua_rawset( L, 1);                             // out fifos keys
@@ -476,7 +510,6 @@ int keepercall_count( lua_State* L)
 	}
 	return 1;
 }
-#endif // KEEPER_MODEL == KEEPER_MODEL_C
 
 //###################################################################################
 // Keeper API, accessed from linda methods
@@ -495,21 +528,28 @@ int keepercall_count( lua_State* L)
 static struct s_Keeper *GKeepers = NULL;
 static int GNbKeepers = 0;
 
-static void atexit_close_keepers(void)
+#if HAVE_KEEPER_ATEXIT_DESINIT
+static void atexit_close_keepers( void)
+#else // HAVE_KEEPER_ATEXIT_DESINIT
+void close_keepers( void)
+#endif // HAVE_KEEPER_ATEXIT_DESINIT
 {
 	int i;
 	// 2-pass close, in case a keeper holds a reference to a linda bound to another keeoer
 	for( i = 0; i < GNbKeepers; ++ i)
 	{
 		lua_State* L = GKeepers[i].L;
-		GKeepers[i].L = 0;
+		GKeepers[i].L = NULL;
 		lua_close( L);
 	}
 	for( i = 0; i < GNbKeepers; ++ i)
 	{
 		MUTEX_FREE( &GKeepers[i].lock_);
 	}
-	if( GKeepers) free( GKeepers);
+	if( GKeepers != NULL)
+	{
+		free( GKeepers);
+	}
 	GKeepers = NULL;
 	GNbKeepers = 0;
 }
@@ -522,119 +562,53 @@ static void atexit_close_keepers(void)
 * Note: Any problems would be design flaws; the created Lua state is left
 *       unclosed, because it does not really matter. In production code, this
 *       function never fails.
+* settings table is at position 1 on the stack
 */
-char const* init_keepers( int const _nbKeepers, lua_CFunction _on_state_create)
+char const* init_keepers( lua_State* L)
 {
 	int i;
-	assert( _nbKeepers >= 1);
-	GNbKeepers = _nbKeepers;
-	GKeepers = malloc( _nbKeepers * sizeof( struct s_Keeper));
-	for( i = 0; i < _nbKeepers; ++ i)
+	void* allocUD;
+	lua_Alloc allocF = lua_getallocf( L, &allocUD);
+
+	STACK_CHECK( L);
+	lua_getfield( L, 1, "nb_keepers");
+	GNbKeepers = lua_tointeger( L, -1);
+	lua_pop( L, 1);
+	STACK_END( L, 0);
+	assert( GNbKeepers >= 1);
+
+	GKeepers = malloc( GNbKeepers * sizeof( struct s_Keeper));
+	for( i = 0; i < GNbKeepers; ++ i)
 	{
+		lua_State* K = lua_newstate( allocF, allocUD);
+		if( K == NULL)
+		{
+			(void) luaL_error( L, "'lua_newstate()' failed while creating keeper state; out of memory");
+		}
+		STACK_CHECK( K);
 
-		// Initialize Keeper states with bare minimum of libs (those required by 'keeper.lua')
-		// 
-		// 'io' for debugging messages, 'package' because we need to require modules exporting idfuncs
-		// the others because they export functions that we may store in a keeper for transfer between lanes
-		lua_State* K = luaG_newstate( "*", _on_state_create);
-		if (!K)
-			return "out of memory";
-
-		STACK_CHECK( K)
 		// to see VM name in Decoda debugger
 		lua_pushliteral( K, "Keeper #");
 		lua_pushinteger( K, i + 1);
 		lua_concat( K, 2);
 		lua_setglobal( K, "decoda_name");
 
-#if KEEPER_MODEL == KEEPER_MODEL_C
 		// create the fifos table in the keeper state
 		lua_pushlightuserdata( K, fifos_key);
 		lua_newtable( K);
 		lua_rawset( K, LUA_REGISTRYINDEX);
-#endif // KEEPER_MODEL == KEEPER_MODEL_C
 
-#if KEEPER_MODEL == KEEPER_MODEL_LUA
-		// use package.loaders[2] to find keeper microcode
-		lua_getglobal( K, "package");                  // package
-		lua_getfield( K, -1, "loaders");               // package package.loaders
-		lua_rawgeti( K, -1, 2);                        // package package.loaders package.loaders[2]
-		lua_pushliteral( K, "lanes-keeper");           // package package.loaders package.loaders[2] "lanes-keeper"
-		STACK_MID( K, 4);
-		// first pcall loads lanes-keeper.lua, second one runs the chunk
-		if( lua_pcall( K, 1 /*args*/, 1 /*results*/, 0 /*errfunc*/) || lua_pcall( K, 0 /*args*/, 0 /*results*/, 0 /*errfunc*/))
-		{
-			// LUA_ERRRUN / LUA_ERRMEM / LUA_ERRERR
-			//
-			char const* err = lua_tostring( K, -1);
-			assert( err);
-			return err;
-		}                                              // package package.loaders
-		STACK_MID( K, 2);
-		lua_pop( K, 2);
-#endif // KEEPER_MODEL == KEEPER_MODEL_LUA
-		STACK_END( K, 0)
+		STACK_END( K, 0);
 		MUTEX_INIT( &GKeepers[i].lock_);
 		GKeepers[i].L = K;
-		//GKeepers[i].count = 0;
 	}
-	// call close_keepers at the very last as we want to be sure no thread is GCing after.
-	// (and therefore may perform linda object dereferencing after keepers are gone)
-	// problem: maybe on some platforms atexit() is called after DLL/so are unloaded...
+#if HAVE_KEEPER_ATEXIT_DESINIT
 	atexit( atexit_close_keepers);
-	return NULL;    // ok
+#endif // HAVE_KEEPER_ATEXIT_DESINIT
+	return NULL; // ok
 }
 
-// cause each keeper state to populate its database of transferable functions with those from the specified module
-void populate_keepers( lua_State *L)
-{
-	size_t name_len;
-	char const *name = luaL_checklstring( L, -1, &name_len);
-	size_t package_path_len;
-	char const *package_path;
-	size_t package_cpath_len;
-	char const *package_cpath;
-	int i;
-
-	// we need to make sure that package.path & package.cpath are the same in the keepers
-// than what is currently in use when the module is required in the caller's Lua state
-	STACK_CHECK(L)
-	STACK_GROW( L, 3);
-	lua_getglobal( L, "package");
-	lua_getfield( L, -1, "path");
-	package_path = luaL_checklstring( L, -1, &package_path_len);
-	lua_getfield( L, -2, "cpath");
-	package_cpath = luaL_checklstring( L, -1, &package_cpath_len);
-
-	for( i = 0; i < GNbKeepers; ++ i)
-	{
-		lua_State *K = GKeepers[i].L;
-		int res;
-		MUTEX_LOCK( &GKeepers[i].lock_);
-		STACK_CHECK(K)
-		STACK_GROW( K, 2);
-		lua_getglobal( K, "package");
-		lua_pushlstring( K, package_path, package_path_len);
-		lua_setfield( K, -2, "path");
-		lua_pushlstring( K, package_cpath, package_cpath_len);
-		lua_setfield( K, -2, "cpath");
-		lua_pop( K, 1);
-		lua_getglobal( K, "require");
-		lua_pushlstring( K, name, name_len);
-		res = lua_pcall( K, 1, 0, 0);
-		if( res != 0)
-		{
-			char const *err = luaL_checkstring( K, -1);
-			luaL_error( L, "error requiring '%s' in keeper state: %s", name, err);
-		}
-		STACK_END(K, 0)
-		MUTEX_UNLOCK( &GKeepers[i].lock_);
-	}
-	lua_pop( L, 3);
-	STACK_END(L, 0)
-}
-
-struct s_Keeper *keeper_acquire( const void *ptr)
+struct s_Keeper* keeper_acquire( void const* ptr)
 {
 	// can be 0 if this happens during main state shutdown (lanes is being GC'ed -> no keepers)
 	if( GNbKeepers == 0)
@@ -658,19 +632,19 @@ struct s_Keeper *keeper_acquire( const void *ptr)
 	}
 }
 
-void keeper_release( struct s_Keeper *K)
+void keeper_release( struct s_Keeper* K)
 {
 	//-- K->count;
 	if( K) MUTEX_UNLOCK( &K->lock_);
 }
 
-void keeper_toggle_nil_sentinels( lua_State *L, int _val_i, int _nil_to_sentinel)
+void keeper_toggle_nil_sentinels( lua_State* L, int _val_i, int _nil_to_sentinel)
 {
 	int i, n = lua_gettop( L);
 	/* We could use an empty table in 'keeper.lua' as the sentinel, but maybe
 	* checking for a lightuserdata is faster. (any unique value will do -> take the address of some global of ours)
 	*/
-	void *nil_sentinel = &GNbKeepers;
+	void* nil_sentinel = &GNbKeepers;
 	for( i = _val_i; i <= n; ++ i)
 	{
 		if( _nil_to_sentinel)
@@ -713,12 +687,12 @@ int keeper_call( lua_State *K, keeper_api_t _func, lua_State *L, void *linda, ui
 
 	lua_pushlightuserdata( K, linda);
 
-	if( (args == 0) || luaG_inter_copy( L, K, args) == 0) // L->K
+	if( (args == 0) || luaG_inter_copy( L, K, args, eLM_ToKeeper) == 0) // L->K
 	{
 		lua_call( K, 1 + args, LUA_MULTRET);
 
 		retvals = lua_gettop( K) - Ktos;
-		if( (retvals > 0) && luaG_inter_move( K, L, retvals) != 0) // K->L
+		if( (retvals > 0) && luaG_inter_move( K, L, retvals, eLM_FromKeeper) != 0) // K->L
 		{
 			retvals = -1;
 		}

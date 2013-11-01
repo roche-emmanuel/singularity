@@ -4,7 +4,7 @@ local loaders = {}
 local apr = require "apr"
 
 local lanes = require "lanes"
-lanes.configure({with_timers=false})
+lanes.configure({protect_allocator=true, with_timers=false})
 
 loaders.high_level = function(data) 
 	_G.flavor = data.flavor
@@ -41,11 +41,11 @@ loaders.high_level = function(data)
 end
 
 loaders.low_level = function(data)
-	log:info("Starting thread ", data.threadName,"...")
+	-- log:info("Starting thread ", data.threadName,"...")
 	
 	local res = #data.args >0 and data.threadFunc(unpack(data.args)) or data.threadFunc()
 	
-	log:info("Finishing thread ",data.threadName,".")
+	-- log:info("Finishing thread ",data.threadName,".")
 	return res~=nil and res or true; -- do not send nil result.
 end
 
@@ -78,7 +78,7 @@ function Class:__call(...)
 	self:check(not self._handle,"Thread already started.")
 	
 	local data = {}
-	data.root_path = root_path
+	data.root_path = sgt_root or root_path
 	data.flavor = flavor
 	data.threadName = self._name
 	data.threadFunc = self._func
@@ -87,9 +87,9 @@ function Class:__call(...)
 	local tman = require "base.ThreadManager"
 	tman:registerThread(self)
 	
-	-- log:info("Starting thread lane...")
+	log:info("Starting thread lane for ",self._name)
 	self._handle = self._lane(data)
-	-- log:info("Thread lane started.")
+	log:info("lane started.")
 	return self._handle
 end
 
