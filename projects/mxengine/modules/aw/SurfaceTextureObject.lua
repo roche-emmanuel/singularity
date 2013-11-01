@@ -2,13 +2,57 @@ local Class = require("classBuilder"){name="SurfaceTextureObject",bases="dx.Text
 
 local awDX = require "awDX"
 
+local useThread = true
+
 function Class:initialize()
 	-- create the internal DXSurface:
 	self._aweSurface = awDX.DXSurface()
+	
+	if useThread then
+		-- setup the threading system
+		local Thread = require "base.Thread"
+		
+		local linda = Thread.newLinda()
+		self._linda = linda;
+		
+		self._thread = Thread{name="update_texture_thread",timeout=0.3,func=function(interval)
+			
+			require "dx9"
+			
+			local getObject = function(key,class)
+				local lptr = linda:get(key)
+				if lptr~= nil then
+					local ptr = sgt.fromLightUserdata(lptr)
+					return class.fromVoid(ptr)
+				end
+			end
+
+			-- first wait for input data to arrive:
+			local device,sysMemTexture,gpuTexture;
+			while not (device and sysMemTexture and gpuTexture) do
+				local key,v= linda:receive( interval, "test_key")
+			
+				device = getObject("device",dx9.IDirect3DDevice9)
+				sysMemTexture = getObject("sysMemTexture",dx9.IDirect3DTexture9)
+				gpuTexture = getObject("gpuTexture",dx9.IDirect3DTexture9)			
+			end
+			
+			-- now process continuously:
+			while true do
+				local key,v= linda:receive( interval, "test_key")
+				
+				device:updateTexture(sysMemTexture,gpuTexture)
+			end 
+		end}
+	end
 end
 
 function Class:doInvalidate()
-	self._aweSurface:setTargetSurface(nil)	
+	self._aweSurface:setTargetSurface(nil)
+	if useThread then
+		self._thread:cancel()
+	end
+	
 	self:release{"_sysMemTexture","_sysMemSurface"}
 	
 	self.super.doInvalidate(self)	
@@ -36,6 +80,21 @@ function Class:doCreate(device)
 	-- we will see if this crashes...
 	self._device = device
 	
+	if useThread then
+		-- we may now start the updater thread:
+		self._thread(0.05)
+		
+		local setObject = function(key,obj)
+			local ptr = obj:asVoid()
+			local lptr = sgt.toLightUserdata(ptr)
+			self._linda:set(key,lptr)
+		end
+			
+		setObject("device",self._device)
+		setObject("sysMemTexture",self._sysMemTexture)
+		setObject("gpuTexture",self._texture)
+	end
+	
 	return true
 end
 
@@ -57,8 +116,10 @@ function Class:setSize(width,height)
 end
 
 function Class:doApply(slot,cbi)
-	-- update the texture content here:
-	self._device:updateTexture(self._sysMemTexture,self._texture)
+	if not useThread then
+		-- update the texture content here:
+		self._device:updateTexture(self._sysMemTexture,self._texture)
+	end
 	
 	return self.super.doApply(self,slot,cbi)
 end

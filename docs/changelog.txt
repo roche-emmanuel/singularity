@@ -92,6 +92,7 @@
 - Cutting MXEngine interface into interface components.
 - Externalized sgtLuna module.
 - Commit before work on Threading system.
+- Added threading support for MXE updateTexture.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

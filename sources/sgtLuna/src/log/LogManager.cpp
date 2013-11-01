@@ -26,7 +26,7 @@ void LogManager::log(int level, std::string trace, std::string msg)
 void LogManager::doLog(int level, std::string trace, std::string msg)
 {	
 	if(_sinks.empty())
-		_sinks.push_back(new StdLogger); // add a console logger by default.
+		_sinks.push_back(new StdLogger("default_console_sink")); // add a console logger by default.
 
 	// iterate on all the available sinks:
 	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
@@ -88,6 +88,8 @@ void LogManager::addSink(LogSink * sink)
   // Bouml preserved body begin 0002F00B
 	if(sink)
 		_sinks.push_back(sink);
+
+	// DEBUG_MSG("Adding sink " + sink->getName())
   // Bouml preserved body end 0002F00B
 }
 
@@ -97,6 +99,7 @@ bool LogManager::removeSink(LogSink * sink) {
 
 	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
 		if((*it) == sink) {
+			// DEBUG_MSG("Removing sink " + sink->getName())
 			_sinks.erase(it);
 			return true;
 		}
@@ -107,6 +110,7 @@ bool LogManager::removeSink(LogSink * sink) {
 bool LogManager::removeSink(const std::string& name) {
 	for(SinkVector::iterator it = _sinks.begin(); it != _sinks.end(); ++it) {
 		if((*it)->getName() == name) {
+			// DEBUG_MSG("Removing sink " + name)
 			_sinks.erase(it);
 			return true;
 		}
@@ -115,6 +119,7 @@ bool LogManager::removeSink(const std::string& name) {
 }
 
 bool LogManager::removeAllSinks() {
+	// DEBUG_MSG("Removing all sinks")
 	_sinks.clear();
 	return true;
 };
@@ -224,7 +229,7 @@ LogManager& LogManager::instance() {
 void LogManager::destroy() {
 	if(singleton) {
 		// destroy the singleton:
-		trINFO_V("LogManager","Destroying LogManager singleton");
+		// trINFO_V("LogManager","Destroying LogManager singleton");
 		singleton = NULL;
 	}
 }

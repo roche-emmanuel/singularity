@@ -73,6 +73,8 @@ typedef OpenThreads::ScopedLock<sgtMutex> sgtLock;
 // Removes only if predicate returns true:
 #define REMOVE_IF(cont,pred) cont.erase(std::remove_if(cont.begin(), cont.end(), pred), cont.end());
 
+#define DEBUG_MSG(msg) MessageBox(NULL,std::string(msg).c_str(),"Debug message",MB_OK);
+
 // Debugging macros:
 #define THROW_IF(cond,msg) if(cond) { std::ostringstream os; os << msg; logERROR("Throwing exception: " << msg); throw sgtException(os.str()); }
 #define CHECK_EQ(val,expected,msg) if((val)!=(expected)) { logERROR(msg << " (Expected: " << (expected) << " and got: " << (val) << ")"); return; }

@@ -37,7 +37,8 @@ local setupLogManager = function(file)
 	lman:setVerbose(true);
 	lman:setNotifyLevel(sgt.LogManager.DEBUG0); -- Log until DEBUG0 level only.
 
-	lman:addSink(sgt.FileLogger(file));
+	-- WARNING: if we add the file sink below we get a crash when exiting the application while verbose is enabled.
+	-- lman:addSink(sgt.FileLogger(file,false,"mxengine_log_file_sink"));
 	-- lman:addSink(sgt.StdLogger());
 end
 

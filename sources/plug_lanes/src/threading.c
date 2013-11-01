@@ -1,5 +1,6 @@
 /*
- * THREADING.C   	                    Copyright (c) 2007-10, Asko Kauppi
+ * THREADING.C                        Copyright (c) 2007-08, Asko Kauppi
+ *                                    Copyright (C) 2009-13, Benoit Germain
  *
  * Lua Lanes OS threading specific code.
  *
@@ -41,7 +42,7 @@ THE SOFTWARE.
 #include "threading.h"
 #include "lua.h"
 
-#if !defined( PLATFORM_WIN32) && !defined( PLATFORM_POCKETPC)
+#if !defined( PLATFORM_XBOX) && !defined( PLATFORM_WIN32) && !defined( PLATFORM_POCKETPC)
 # include <sys/time.h>
 #endif // non-WIN32 timing
 
@@ -57,6 +58,17 @@ THE SOFTWARE.
   volatile bool_t sudo;
 #endif
 
+/* Linux with older glibc (such as Debian) don't have pthread_setname_np, but have prctl
+*/
+#if defined PLATFORM_LINUX
+#if defined __GNU_LIBRARY__ && __GLIBC__ >= 2 && __GLIBC_MINOR__ >= 12
+#define LINUX_USE_PTHREAD_SETNAME_NP 1
+#else // glibc without pthread_setname_np
+#include <sys/prctl.h>
+#define LINUX_USE_PTHREAD_SETNAME_NP 0
+#endif // glibc without pthread_setname_np
+#endif // PLATFORM_LINUX
+
 #ifdef _MSC_VER
 // ".. selected for automatic inline expansion" (/O2 option)
 # pragma warning( disable : 4711 )
@@ -71,9 +83,10 @@ THE SOFTWARE.
 * FAIL is for unexpected API return values - essentially programming 
 * error in _this_ code. 
 */
-#if defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
-static void FAIL( const char *funcname, int rc ) {
-    fprintf( stderr, "%s() failed! (%d)\n", funcname, rc );
+#if defined( PLATFORM_XBOX) || defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
+static void FAIL( char const* funcname, int rc)
+{
+	fprintf( stderr, "%s() failed! (%d)\n", funcname, rc );
 #ifdef _MSC_VER
     __debugbreak(); // give a chance to the debugger!
 #endif // _MSC_VER
@@ -90,7 +103,7 @@ static void FAIL( const char *funcname, int rc ) {
 */
 time_d now_secs(void) {
 
-#if defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
+#if defined( PLATFORM_XBOX) || defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC)
     /*
     * Windows FILETIME values are "100-nanosecond intervals since 
     * January 1, 1601 (UTC)" (MSDN). Well, we'd want Unix Epoch as
@@ -214,7 +227,7 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
 //                      valid values N * 4KB
 //
 #ifndef _THREAD_STACK_SIZE
-# if (defined PLATFORM_WIN32) || (defined PLATFORM_POCKETPC) || (defined PLATFORM_CYGWIN)
+# if defined( PLATFORM_XBOX) || defined( PLATFORM_WIN32) || defined( PLATFORM_POCKETPC) || defined( PLATFORM_CYGWIN)
 #  define _THREAD_STACK_SIZE 0
       // Win32: does it work with less?
 # elif (defined PLATFORM_OSX)
@@ -231,6 +244,8 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
 #endif
 
 #if THREADAPI == THREADAPI_WINDOWS
+
+#if WINVER <= 0x0400 // Windows NT4: Use Mutexes with Events
   //
   void MUTEX_INIT( MUTEX_T *ref ) {
      *ref= CreateMutex( NULL /*security attr*/, FALSE /*not locked*/, NULL );
@@ -248,6 +263,8 @@ static void prepare_timeout( struct timespec *ts, time_d abs_secs ) {
     if (!ReleaseMutex(*ref))
         FAIL( "ReleaseMutex", GetLastError() );
   }
+#endif // Windows NT4
+
     /* MSDN: "If you would like to use the CRT in ThreadProc, use the
               _beginthreadex function instead (of CreateThread)."
        MSDN: "you can create at most 2028 threads"
@@ -299,10 +316,15 @@ bool_t THREAD_WAIT_IMPL( THREAD_T *ref, double secs)
     return TRUE;
   }
   //
-  void THREAD_KILL( THREAD_T *ref ) {
-    if (!TerminateThread( *ref, 0 )) FAIL("TerminateThread", GetLastError());
-    *ref= NULL;
-  }
+	void THREAD_KILL( THREAD_T *ref )
+	{
+		// nonexistent on Xbox360, simply disable until a better solution is found
+		#if !defined( PLATFORM_XBOX)
+		// in theory no-one should call this as it is very dangerous (memory and mutex leaks, no notification of DLLs, etc.)
+		if (!TerminateThread( *ref, 0 )) FAIL("TerminateThread", GetLastError());
+		#endif // PLATFORM_XBOX
+		*ref= NULL;
+	}
 
 #if !defined __GNUC__
 	//see http://msdn.microsoft.com/en-us/library/xcb2z8hs.aspx
@@ -337,78 +359,158 @@ bool_t THREAD_WAIT_IMPL( THREAD_T *ref, double secs)
 #endif // !__GNUC__
 	}
 
+#if WINVER <= 0x0400 // Windows NT4
 
-  //
-  void SIGNAL_INIT( SIGNAL_T *ref ) {
-    // 'manual reset' event type selected, to be able to wake up all the
-    // waiting threads.
-    //
-    HANDLE h= CreateEvent( NULL,    // security attributes
-                           TRUE,    // TRUE: manual event
-                           FALSE,   // Initial state
-                           NULL );  // name
+	void SIGNAL_INIT( SIGNAL_T* ref)
+	{
+		InitializeCriticalSection( &ref->signalCS);
+		InitializeCriticalSection( &ref->countCS);
+		if( 0 == (ref->waitEvent = CreateEvent( 0, TRUE, FALSE, 0)))     // manual-reset
+			FAIL( "CreateEvent", GetLastError());
+		if( 0 == (ref->waitDoneEvent = CreateEvent( 0, FALSE, FALSE, 0)))    // auto-reset
+			FAIL( "CreateEvent", GetLastError());
+		ref->waitersCount = 0;
+	}
 
-    if (h == NULL) FAIL( "CreateEvent", GetLastError() );
-    *ref= h;
-  }
-  void SIGNAL_FREE( SIGNAL_T *ref ) {
-    if (!CloseHandle(*ref)) FAIL( "CloseHandle (event)", GetLastError() );
-    *ref= NULL;
-  }
-  //
-  bool_t SIGNAL_WAIT( SIGNAL_T *ref, MUTEX_T *mu_ref, time_d abs_secs ) {
-    DWORD rc;
-    long ms;
-    
-    if (abs_secs<0.0)
-        ms= INFINITE;
-    else if (abs_secs==0.0)
-        ms= 0;
-    else {
-        ms= (long) ((abs_secs - now_secs())*1000.0 + 0.5);
-        
-        // If the time already passed, still try once (ms==0). A short timeout
-        // may have turned negative or 0 because of the two time samples done.
-        //
-        if (ms<0) ms= 0;
-    }
+	void SIGNAL_FREE( SIGNAL_T* ref)
+	{
+		CloseHandle( ref->waitDoneEvent);
+		CloseHandle( ref->waitEvent);
+		DeleteCriticalSection( &ref->countCS);
+		DeleteCriticalSection( &ref->signalCS);
+	}
 
-    // Unlock and start a wait, atomically (like condition variables do)
-    //
-    rc= SignalObjectAndWait( *mu_ref,   // "object to signal" (unlock)
-                             *ref,      // "object to wait on"
-                             ms,
-                             FALSE );   // not alertable
+	bool_t SIGNAL_WAIT( SIGNAL_T* ref, MUTEX_T* mu_ref, time_d abs_secs)
+	{
+		DWORD errc;
+		DWORD ms;
 
-    // All waiting locks are woken here; each competes for the lock in turn.
-    //
-    // Note: We must get the lock even if we've timed out; it makes upper
-    //       level code equivalent to how PThread does it.
-    //
-    MUTEX_LOCK(mu_ref);
+		if( abs_secs < 0.0)
+			ms = INFINITE;
+		else if( abs_secs == 0.0)
+			ms = 0;
+		else 
+		{
+			time_d msd = (abs_secs - now_secs()) * 1000.0 + 0.5;
+			// If the time already passed, still try once (ms==0). A short timeout
+			// may have turned negative or 0 because of the two time samples done.
+			ms = msd <= 0.0 ? 0 : (DWORD)msd;
+		}
 
-    if (rc==WAIT_TIMEOUT) return FALSE;
-    if (rc!=0) FAIL( "SignalObjectAndWait", rc );
-    return TRUE;
-  }
-  void SIGNAL_ALL( SIGNAL_T *ref ) {
-/* 
- * MSDN tries to scare that 'PulseEvent' is bad, unreliable and should not be
- * used. Use condition variables instead (wow, they have that!?!); which will
- * ONLY WORK on Vista and 2008 Server, it seems... so MS, isn't it.
- * 
- * I refuse to believe that; using 'PulseEvent' is probably just as good as
- * using Windows (XP) in the first place. Just don't use APC's (asynchronous
- * process calls) in your C side coding.
- */
-    // PulseEvent on manual event:
-    //
-    // Release ALL threads waiting for it (and go instantly back to unsignalled
-    // status = future threads to start a wait will wait)
-    //
-    if (!PulseEvent( *ref ))
-        FAIL( "PulseEvent", GetLastError() );
-  }
+		EnterCriticalSection( &ref->signalCS);
+		EnterCriticalSection( &ref->countCS);
+		++ ref->waitersCount;
+		LeaveCriticalSection( &ref->countCS);
+		LeaveCriticalSection( &ref->signalCS);
+
+		errc = SignalObjectAndWait( *mu_ref, ref->waitEvent, ms, FALSE);
+
+		EnterCriticalSection( &ref->countCS);
+		if( 0 == -- ref->waitersCount)
+		{
+			// we're the last one leaving...
+			ResetEvent( ref->waitEvent);
+			SetEvent( ref->waitDoneEvent);
+		}
+		LeaveCriticalSection( &ref->countCS);
+		MUTEX_LOCK( mu_ref);
+
+		switch( errc)
+		{
+			case WAIT_TIMEOUT:
+			return FALSE;
+			case WAIT_OBJECT_0:
+			return TRUE;
+		}
+
+		FAIL( "SignalObjectAndWait", GetLastError());
+		return FALSE;
+	}
+
+	void SIGNAL_ALL( SIGNAL_T* ref)
+	{
+		DWORD errc = WAIT_OBJECT_0;
+
+		EnterCriticalSection( &ref->signalCS);
+		EnterCriticalSection( &ref->countCS);
+
+		if( ref->waitersCount > 0)
+		{
+			ResetEvent( ref->waitDoneEvent);
+			SetEvent( ref->waitEvent);
+			LeaveCriticalSection( &ref->countCS);
+			errc = WaitForSingleObject( ref->waitDoneEvent, INFINITE);
+		}
+		else
+		{
+			LeaveCriticalSection( &ref->countCS);
+		}
+
+		LeaveCriticalSection( &ref->signalCS);
+
+		if( WAIT_OBJECT_0 != errc)
+			FAIL( "WaitForSingleObject", GetLastError());
+	}
+
+#else // Windows Vista and above: condition variables exist, use them
+
+	//
+	void SIGNAL_INIT( SIGNAL_T *ref )
+	{
+		InitializeConditionVariable( ref);
+	}
+
+	void SIGNAL_FREE( SIGNAL_T *ref )
+	{
+		// nothing to do
+		ref;
+	}
+
+	bool_t SIGNAL_WAIT( SIGNAL_T *ref, MUTEX_T *mu_ref, time_d abs_secs)
+	{
+		long ms;
+
+		if( abs_secs < 0.0)
+			ms = INFINITE;
+		else if( abs_secs == 0.0)
+			ms = 0;
+		else
+		{
+			ms = (long) ((abs_secs - now_secs())*1000.0 + 0.5);
+
+			// If the time already passed, still try once (ms==0). A short timeout
+			// may have turned negative or 0 because of the two time samples done.
+			//
+			if( ms < 0)
+				ms = 0;
+		}
+
+		if( !SleepConditionVariableCS( ref, mu_ref, ms))
+		{
+			if( GetLastError() == ERROR_TIMEOUT)
+			{
+				return FALSE;
+			}
+			else
+			{
+				FAIL( "SleepConditionVariableCS", GetLastError());
+			}
+		}
+		return TRUE;
+	}
+
+	void SIGNAL_ONE( SIGNAL_T *ref )
+	{
+		WakeConditionVariable( ref);
+	}
+
+	void SIGNAL_ALL( SIGNAL_T *ref )
+	{
+		WakeAllConditionVariable( ref);
+	}
+
+#endif // Windows Vista and above
+
 #else // THREADAPI == THREADAPI_PTHREAD
   // PThread (Linux, OS X, ...)
   //
@@ -777,8 +879,14 @@ bool_t THREAD_WAIT( THREAD_T *ref, double secs , SIGNAL_T *signal_ref, MUTEX_T *
 		// if you need to fix the build, or if you know how to fill a hole, tell me (bnt.germain@gmail.com) so that I can submit the fix in github.
 #if defined PLATFORM_BSD
 		pthread_set_name_np( pthread_self(), _name);
-#elif defined PLATFORM_LINUX || defined PLATFORM_QNX || defined PLATFORM_CYGWIN
-		//pthread_setname_np(_name pthread_self(), _name);
+#elif defined PLATFORM_LINUX
+	#if LINUX_USE_PTHREAD_SETNAME_NP
+		pthread_setname_np( pthread_self(), _name);
+	#else // LINUX_USE_PTHREAD_SETNAME_NP
+		 prctl(PR_SET_NAME, _name, 0, 0, 0);
+	#endif // LINUX_USE_PTHREAD_SETNAME_NP
+#elif defined PLATFORM_QNX || defined PLATFORM_CYGWIN
+		pthread_setname_np( pthread_self(), _name);
 #elif defined PLATFORM_OSX
 		pthread_setname_np(_name);
 #elif defined PLATFORM_WIN32 || defined PLATFORM_POCKETPC
