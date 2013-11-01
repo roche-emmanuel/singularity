@@ -93,6 +93,7 @@
 - Externalized sgtLuna module.
 - Commit before work on Threading system.
 - Added threading support for MXE updateTexture.
+- Removed obsolete lane_orig plugin.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
