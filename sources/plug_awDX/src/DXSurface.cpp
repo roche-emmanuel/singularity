@@ -4,6 +4,9 @@
 
 void DXSurface::setTargetSurface(IDirect3DSurface9* surface)
 {
+#ifdef USE_COPY_THREAD
+	_thread->setTargetSurface(surface);
+#else
 	_surface = surface;
 	_surfaceWidth = 0;
 	_surfaceHeight = 0;
@@ -17,8 +20,10 @@ void DXSurface::setTargetSurface(IDirect3DSurface9* surface)
 
 	_surfaceWidth = desc.Width;
 	_surfaceHeight = desc.Height;	
+#endif
 }
 
+#if 0
 void DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect &clip_rect, Awesomium::Rect& result) {
 	// logINFO("Initial rect: x="<<clip_rect.x<<", y="<<clip_rect.y<<", w="<<clip_rect.width<<", h="<<clip_rect.height<<", with dx="<<dx<<", dy="<<dy);
 
@@ -38,9 +43,17 @@ void DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect &clip_rec
 	
 	// logINFO("Validated rect: x="<<result.x<<", y="<<result.y<<", w="<<result.width<<", h="<<result.height);
 };
-	
+#endif
+
 void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomium::Rect &src_rect, const Awesomium::Rect &dest_rect) {
+#ifdef USE_COPY_THREAD
+	// Create a new Area object:
+	Area* area = new Area(src_buffer,src_row_span,src_rect,dest_rect);
+	_thread->addArea(area);
+#else
 	// logINFO("Painting rect: x="<<dest_rect.x<<", y="<<dest_rect.y<<", w="<<dest_rect.width<<", h="<<dest_rect.height);
+	
+	// logINFO("Painting surface "<<(const void*)_surface<<" from source "<<(const void*)src_buffer)
 	
 	// osg::Timer_t startTick = osg::Timer::instance()->tick();
 	
@@ -49,14 +62,20 @@ void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomi
 	CHECK(src_rect.width==dest_rect.width,"mismatch in src and dest width: src_ww="<<src_rect.width<<", dest_ww="<<dest_rect.width);
 	CHECK(src_rect.height==dest_rect.height,"mismatch in src and dest height: src_hh="<<src_rect.height<<", dest_hh="<<dest_rect.height);
 
-
 	D3DLOCKED_RECT locked;
 	RECT rect;
 	rect.left = dest_rect.x;
 	rect.top = dest_rect.y;
 	rect.right = dest_rect.x+dest_rect.width;
 	rect.bottom = dest_rect.y+dest_rect.height;
+
+	int height = src_rect.height;
+	int width = src_rect.width;
 	
+	// if(height>100) {
+		// logWARN("Painting rect of size "<<width<<"x"<<height);
+	// }
+
 	CHECK_RESULT(_surface->LockRect(&locked,&rect,D3DLOCK_NOSYSLOCK),"Could not lock surface data");
 	
 	CHECK(locked.Pitch==_surfaceWidth*4,"Invalid Pitch value, expected:"<< _surfaceWidth*4<<", got: "<<locked.Pitch);
@@ -64,31 +83,34 @@ void DXSurface::Paint(unsigned char *src_buffer, int src_row_span, const Awesomi
 	unsigned char* src = src_buffer + src_rect.y * src_row_span + src_rect.x * 4;
 	unsigned char* dest = (unsigned char *)locked.pBits;
 	unsigned char* line = src;
-
-	int height = src_rect.height;
-	int width = src_rect.width;
+	
 	int width4 = width*4;
 	int offset = _surfaceWidth*4;
 
+
+	// osg::Timer_t startTick2 = osg::Timer::instance()->tick();
+
 	for(int row=0; row<height; ++row) {
-		// line = src + src_row_span*row;
 		memcpy(dest,line,width4);
 		dest += offset;	
 		line += src_row_span;
 	}
 	
+	// double elapsed2 = osg::Timer::instance()->delta_s(startTick2,osg::Timer::instance()->tick());
+	// logINFO("Copied in " << elapsed2*1000 << " ms");
+	
 	CHECK_RESULT(_surface->UnlockRect(),"Could not unlock surface data");
 	
 	// double elapsed = osg::Timer::instance()->delta_s(startTick,osg::Timer::instance()->tick());
-	// logINFO("Painted in " << elapsed*1000 << " ms");
+	// logINFO("Painted in " << elapsed*1000 << " ms, copied in " << elapsed2*1000 << " ms ( =" << floor((elapsed2/elapsed)*100)<< "%");
+#endif
 };
 
 void DXSurface::Scroll(int dx, int dy, const Awesomium::Rect &clip_rect) {
+	CHECK(false,"DXSurface::Scroll() is not implemented yet.");	
+#if 0
 	CHECK(_surface,"Invalid DirectX Surface in DXSurface::Scroll()")
 
-	CHECK(false,"DXSurface::Scroll() is not implemented yet.");
-	
-#if 0
 	Awesomium::Rect area;
 	validateClipRect(dx,dy,clip_rect,area);
 	

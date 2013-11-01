@@ -26,10 +26,7 @@ function Class:initialize(options)
 	
 	local Thread = require "base.Thread"
 	
-	local linda = Thread.newLinda()
-	self._linda = linda;
-	
-	self._thread = Thread{name="timer_thread",timeout=0.1,func=function(h,id,interval)
+	self._thread = Thread{name="timer_thread",timeout=0.1,func=function(linda,h,id,interval)
 		log:info("Entering timer thread...")
 		
 		log:info("Retrieving void pointer from ",tostring(h))
@@ -67,7 +64,7 @@ function Class:initialize(options)
 		while true do
 			-- sgt.doLog(sgt.LogManager.INFO,"Performing timer cycle "..count)
 			-- log:info("Performing timer cycle "..count)
-			local key,v= linda:receive( interval, "test_key")
+			local key,v= linda:wait( interval)
 			-- apr.sleep(interval);
 			
 			-- log:info("Creating new event...")

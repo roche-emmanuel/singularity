@@ -230,6 +230,7 @@ end
 
 function Class:onFieldUpdated(item_name, value)
 	self._webView:call("setField",item_name, value)
+	dman:update()
 end
 
 function Class:onHighlightUpdated(item_name, value)
@@ -238,6 +239,7 @@ end
 
 function Class:onStreamFieldUpdated(sname, item_name, value)
 	self._webView:call("setStreamField",sname,item_name, value)
+	dman:update()
 end
 
 function Class:onStreamHighlightUpdated(sname, item_name, value)
@@ -252,25 +254,26 @@ function Class:onNorthIndicatorUpdated(value)
 	if(math.abs(self._prevNorth - value) < 0.01) then return end
 	self._prevNorth = value
 	self._webView:call("setNorthIndicatorAngle",value)
-	-- dman:update()
+	dman:update()
 end
 
 function Class:onGimbalAzimuthUpdated(value)
 	if(math.abs(self._prevAz - value) < 0.01) then return end
 	self._prevAz = value
 	self._webView:call("setGimbalAzimuthAngle",value)
-	-- dman:update()
+	dman:update()
 end
 
 function Class:onGimbalElevationUpdated(value)
 	if(math.abs(self._prevElev - value) < 0.01) then return end
 	self._prevElev = value
 	self._webView:call("setGimbalElevationAngle",-value)
-	-- dman:update()
+	dman:update()
 end
 
 function Class:onPictoFOVUpdated(value)
 	self._webView:call("setPictoFOVAngle",value)
+	dman:update()
 end
 
 function Class:onDestabilizationStateUpdated(value)

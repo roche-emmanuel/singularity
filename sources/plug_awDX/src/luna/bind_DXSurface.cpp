@@ -76,16 +76,6 @@ public:
 		return true;
 	}
 
-	inline static bool _lg_typecheck_validateClipRect(lua_State *L) {
-		if( lua_gettop(L)!=5 ) return false;
-
-		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
-		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
-		if( !Luna<void>::has_uniqueid(L,4,8907551) ) return false;
-		if( !Luna<void>::has_uniqueid(L,5,8907551) ) return false;
-		return true;
-	}
-
 	inline static bool _lg_typecheck_Paint(lua_State *L) {
 		if( lua_gettop(L)!=5 ) return false;
 
@@ -135,34 +125,6 @@ public:
 			luaL_error(L, "Invalid object in function call void DXSurface::setTargetSurface(IDirect3DSurface9 *). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
 		}
 		self->setTargetSurface(surface);
-
-		return 0;
-	}
-
-	// void DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Awesomium::Rect & result)
-	static int _bind_validateClipRect(lua_State *L) {
-		if (!_lg_typecheck_validateClipRect(L)) {
-			luaL_error(L, "luna typecheck failed in void DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Awesomium::Rect & result) function, expected prototype:\nvoid DXSurface::validateClipRect(int dx, int dy, const Awesomium::Rect & clip_rect, Awesomium::Rect & result)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
-		}
-
-		int dx=(int)lua_tointeger(L,2);
-		int dy=(int)lua_tointeger(L,3);
-		const Awesomium::Rect* clip_rect_ptr=(Luna< Awesomium::Rect >::check(L,4));
-		if( !clip_rect_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg clip_rect in DXSurface::validateClipRect function");
-		}
-		const Awesomium::Rect & clip_rect=*clip_rect_ptr;
-		Awesomium::Rect* result_ptr=(Luna< Awesomium::Rect >::check(L,5));
-		if( !result_ptr ) {
-			luaL_error(L, "Dereferencing NULL pointer for arg result in DXSurface::validateClipRect function");
-		}
-		Awesomium::Rect & result=*result_ptr;
-
-		DXSurface* self=Luna< Awesomium::Surface >::checkSubType< DXSurface >(L,1);
-		if(!self) {
-			luaL_error(L, "Invalid object in function call void DXSurface::validateClipRect(int, int, const Awesomium::Rect &, Awesomium::Rect &). Got : '%s'\n%s",typeid(Luna< Awesomium::Surface >::check(L,1)).name(),luna_dumpStack(L).c_str());
-		}
-		self->validateClipRect(dx, dy, clip_rect, result);
 
 		return 0;
 	}
@@ -240,7 +202,6 @@ const int LunaTraits< DXSurface >::uniqueIDs[] = {23910648,0};
 
 luna_RegType LunaTraits< DXSurface >::methods[] = {
 	{"setTargetSurface", &luna_wrapper_DXSurface::_bind_setTargetSurface},
-	{"validateClipRect", &luna_wrapper_DXSurface::_bind_validateClipRect},
 	{"Paint", &luna_wrapper_DXSurface::_bind_Paint},
 	{"Scroll", &luna_wrapper_DXSurface::_bind_Scroll},
 	{"fromVoid", &luna_wrapper_DXSurface::_bind_fromVoid},

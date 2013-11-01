@@ -94,6 +94,7 @@
 - Commit before work on Threading system.
 - Added threading support for MXE updateTexture.
 - Removed obsolete lane_orig plugin.
+- Tested threaded awDX copy.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

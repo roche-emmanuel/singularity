@@ -12,34 +12,23 @@ function Class:initialize()
 		-- setup the threading system
 		local Thread = require "base.Thread"
 		
-		local linda = Thread.newLinda()
-		self._linda = linda;
-		
-		self._thread = Thread{name="update_texture_thread",timeout=0.3,func=function(interval)
+		self._thread = Thread{name="update_texture_thread",timeout=0.3,func=function(th,interval)
 			
 			require "dx9"
-			
-			local getObject = function(key,class)
-				local lptr = linda:get(key)
-				if lptr~= nil then
-					local ptr = sgt.fromLightUserdata(lptr)
-					return class.fromVoid(ptr)
-				end
-			end
 
 			-- first wait for input data to arrive:
 			local device,sysMemTexture,gpuTexture;
 			while not (device and sysMemTexture and gpuTexture) do
-				local key,v= linda:receive( interval, "test_key")
+				local key,v= th:wait(interval)
 			
-				device = getObject("device",dx9.IDirect3DDevice9)
-				sysMemTexture = getObject("sysMemTexture",dx9.IDirect3DTexture9)
-				gpuTexture = getObject("gpuTexture",dx9.IDirect3DTexture9)			
+				device = th:getObject("device",dx9.IDirect3DDevice9)
+				sysMemTexture = th:getObject("sysMemTexture",dx9.IDirect3DTexture9)
+				gpuTexture = th:getObject("gpuTexture",dx9.IDirect3DTexture9)			
 			end
 			
 			-- now process continuously:
 			while true do
-				local key,v= linda:receive( interval, "test_key")
+				local key,v= th:wait(interval)
 				
 				device:updateTexture(sysMemTexture,gpuTexture)
 			end 
@@ -83,16 +72,10 @@ function Class:doCreate(device)
 	if useThread then
 		-- we may now start the updater thread:
 		self._thread(0.05)
-		
-		local setObject = function(key,obj)
-			local ptr = obj:asVoid()
-			local lptr = sgt.toLightUserdata(ptr)
-			self._linda:set(key,lptr)
-		end
 			
-		setObject("device",self._device)
-		setObject("sysMemTexture",self._sysMemTexture)
-		setObject("gpuTexture",self._texture)
+		self._thread:setObject("device",self._device)
+		self._thread:setObject("sysMemTexture",self._sysMemTexture)
+		self._thread:setObject("gpuTexture",self._texture)
 	end
 	
 	return true
