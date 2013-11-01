@@ -24,6 +24,9 @@ loaders.high_level = function(data)
 	local res = func()
 	package.loaded[modName] = package.loaded[modName] or res or true
 	
+	-- Now provide the wrapper for the main linda:
+	local wrapper = require "core.Linda" {data.linda}
+	
 	log:info("Starting thread ", data.threadName,"...")
 	
 	-- local status, res = pcall(data.threadFunc,unpack(data.args))
@@ -31,7 +34,8 @@ loaders.high_level = function(data)
 		-- log:error("Error in thread execution: ",res)
 	-- end
 	
-	local res = #data.args >0 and data.threadFunc(unpack(data.args)) or data.threadFunc()
+	-- local res = #data.args >0 and data.threadFunc(unpack(data.args)) or data.threadFunc()
+	local res = data.threadFunc(wrapper,unpack(data.args))
 	
 	log:info("Finishing thread ",data.threadName,".")
 	return res~=nil and res or true; -- do not send nil result.
@@ -43,7 +47,8 @@ end
 loaders.low_level = function(data)
 	-- log:info("Starting thread ", data.threadName,"...")
 	
-	local res = #data.args >0 and data.threadFunc(unpack(data.args)) or data.threadFunc()
+	-- local res = #data.args >0 and data.threadFunc(wrapper,unpack(data.args)) or data.threadFunc(wrapper)
+	local res = data.threadFunc(unpack(data.args))
 	
 	-- log:info("Finishing thread ",data.threadName,".")
 	return res~=nil and res or true; -- do not send nil result.
@@ -70,6 +75,8 @@ function Class:initialize(options)
 	self._timeout = options.timeout or 1.0
 
 	self._lane = lanes.gen( libs, glb, loaders[loader]);
+	
+	self._linda = lanes.linda()
 end
 
 function Class:__call(...)
@@ -82,6 +89,7 @@ function Class:__call(...)
 	data.flavor = flavor
 	data.threadName = self._name
 	data.threadFunc = self._func
+	data.linda = self._linda
 	data.args = {...}
 	
 	local tman = require "base.ThreadManager"
@@ -159,6 +167,17 @@ end
 
 function Class.getTime()
 	return lanes.now_secs()
+end
+
+function Class:setObject(key,obj)
+	if obj == nil then
+		self._linda:set(key,nil)
+		return
+	end
+	
+	local ptr = obj:asVoid()
+	local lptr = sgt.toLightUserdata(ptr)
+	self._linda:set(key,lptr)
 end
 
 return Class

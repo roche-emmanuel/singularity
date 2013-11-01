@@ -45,6 +45,7 @@
 #include <osg/Math>
 #include <OpenThreads/Mutex>
 #include <OpenThreads/ScopedLock>
+#include <OpenThreads/Thread>
 
 #ifndef _MSC_VER
 typedef boost::int64_t __int64;

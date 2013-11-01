@@ -68,6 +68,7 @@ Group: Core  {
 
    File: base.Exception  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Exception.lua)
    File: core.DataMap  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/DataMap.lua)
+   File: core.Linda  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Linda.lua)
    File: core.Object  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Object.lua)
    }  # Group: Core
 
