@@ -7,6 +7,10 @@ getLuaID
 setEnv
 fromLightUserdata
 toLightUserdata
+newIntArray
+deleteIntArray
+getIntArrayAt
+setIntArrayAt
 module=boost
 boost::gregorian::to_simple_string
 boost::gregorian::from_string

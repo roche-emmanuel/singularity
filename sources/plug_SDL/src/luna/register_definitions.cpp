@@ -8,10 +8,8 @@
 #include <SDL_events.h>
 #include <SDL_joystick.h>
 #include <SDL_keyboard.h>
-#include <SDL_keysym.h>
 #include <SDL_mouse.h>
 #include <SDL_mutex.h>
-#include <SDL_opengl.h>
 #include <SDL_version.h>
 #include <SDL_video.h>
 

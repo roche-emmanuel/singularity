@@ -63,8 +63,8 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
 # ADD_SUBDIRECTORY(plug_opengl)
-# ADD_SUBDIRECTORY(plug_dx9)
-ADD_SUBDIRECTORY(plug_awDX)
+ADD_SUBDIRECTORY(plug_dx9)
+# ADD_SUBDIRECTORY(plug_awDX)
 
 
 # ToDo:

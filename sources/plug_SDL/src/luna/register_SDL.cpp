@@ -13,10 +13,6 @@ extern void register_global_functions(lua_State* L);
 int PLUG_EXPORT luaopen_SDL(lua_State* L) {
 	luna_open(L);
 
-	luna_pushModule(L,"luna");
-	Luna< void >::Register(L);
-	luna_popModule(L);
-
 	luna_pushModule(L,"SDL");
 	Luna< SDL_ActiveEvent >::Register(L);
 	Luna< SDL_AudioCVT >::Register(L);
@@ -47,7 +43,6 @@ int PLUG_EXPORT luaopen_SDL(lua_State* L) {
 	Luna< SDL_ResizeEvent >::Register(L);
 	Luna< SDL_sem >::Register(L);
 	Luna< SDL_Surface >::Register(L);
-	Luna< SDL_SysWMEvent >::Register(L);
 	Luna< SDL_Thread >::Register(L);
 	Luna< SDL_UserEvent >::Register(L);
 	Luna< SDL_version >::Register(L);
@@ -60,9 +55,9 @@ int PLUG_EXPORT luaopen_SDL(lua_State* L) {
 
 	register_enums(L);
 
-	register_global_functions(L);
-
 	luna_popModule(L);
+
+	register_global_functions(L);
 
 	luna_copyParents(L,"SDL");
 

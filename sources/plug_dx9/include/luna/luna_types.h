@@ -1013,6 +1013,139 @@ public:
 	static luna_ConverterType converters[];
 };
 
+// Referenced external: osg::Vec4d
+template<>
+class LunaTraits< osg::Vec4d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec4d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec4d* obj);
+	typedef osg::Vec4d parent_t;
+	typedef osg::Vec4d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec2f
+template<>
+class LunaTraits< osg::Vec2f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec2f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec2f* obj);
+	typedef osg::Vec2f parent_t;
+	typedef osg::Vec2f base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec2d
+template<>
+class LunaTraits< osg::Vec2d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec2d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec2d* obj);
+	typedef osg::Vec2d parent_t;
+	typedef osg::Vec2d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec3f
+template<>
+class LunaTraits< osg::Vec3f > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3f* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3f* obj);
+	typedef osg::Vec3f parent_t;
+	typedef osg::Vec3f base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Vec3d
+template<>
+class LunaTraits< osg::Vec3d > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Vec3d* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Vec3d* obj);
+	typedef osg::Vec3d parent_t;
+	typedef osg::Vec3d base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Matrixf
+template<>
+class LunaTraits< osg::Matrixf > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrixf* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrixf* obj);
+	typedef osg::Matrixf parent_t;
+	typedef osg::Matrixf base_t;
+	static luna_ConverterType converters[];
+};
+
+// Referenced external: osg::Matrixd
+template<>
+class LunaTraits< osg::Matrixd > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static osg::Matrixd* _bind_ctor(lua_State *L);
+	static void _bind_dtor(osg::Matrixd* obj);
+	typedef osg::Matrixd parent_t;
+	typedef osg::Matrixd base_t;
+	static luna_ConverterType converters[];
+};
+
 template<>
 class LunaType< 34471055 > {
 public:
@@ -1381,6 +1514,55 @@ template<>
 class LunaType< 35833861 > {
 public:
 	typedef osg::Vec4Array type;
+	
+};
+
+template<>
+class LunaType< 92303233 > {
+public:
+	typedef osg::Vec4d type;
+	
+};
+
+template<>
+class LunaType< 92303173 > {
+public:
+	typedef osg::Vec2f type;
+	
+};
+
+template<>
+class LunaType< 92303171 > {
+public:
+	typedef osg::Vec2d type;
+	
+};
+
+template<>
+class LunaType< 92303204 > {
+public:
+	typedef osg::Vec3f type;
+	
+};
+
+template<>
+class LunaType< 92303202 > {
+public:
+	typedef osg::Vec3d type;
+	
+};
+
+template<>
+class LunaType< 18903840 > {
+public:
+	typedef osg::Matrixf type;
+	
+};
+
+template<>
+class LunaType< 18903838 > {
+public:
+	typedef osg::Matrixd type;
 	
 };
 

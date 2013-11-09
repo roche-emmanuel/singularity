@@ -28,9 +28,7 @@ SDL_Rect => SDL_Rect
 SDL_ResizeEvent => SDL_ResizeEvent
 SDL_sem => SDL_sem
 SDL_Surface => SDL_Surface
-SDL_SysWMEvent => SDL_SysWMEvent
 SDL_Thread => SDL_Thread
 SDL_UserEvent => SDL_UserEvent
 SDL_version => SDL_version
 SDL_VideoInfo => SDL_VideoInfo
-
