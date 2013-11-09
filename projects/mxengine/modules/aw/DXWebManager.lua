@@ -35,45 +35,38 @@ function Class:registerListeners()
 	end}	
 	
 	if false then
+	
 		-- threading test section. Not working for now : core:Update() is not thread safe.
 		local Thread = require "base.Thread"
 		
-		local linda = Thread.newLinda()
-		self._linda = linda;
-		
-		self._thread = Thread{name="webcore_thread",timeout=0.1,func=function(interval)
-			log:info("Entering WebCore thread...")
-			
+		self._thread = Thread{name="webcore_thread",timeout=0.3,func=function(th,interval)
+
 			local awe = require "Awesomium"
-			local core = awe.WebCore.instance()
+		
+			-- first wait for input data to arrive:
+			local core;
+			while not (core) do
+				local key,v= th:wait(interval)
 			
-			-- log:info("Starting timer loop with interval=",interval)
-			local do_update = 0;
+				core = th:getObject("core",awe.WebCore)
+			end
 			
+			-- now process continuously:
 			while true do
-				local key,v= linda:receive( interval, "test_key")
+				local key,v= th:wait(interval)
 				
-				do_update = linda:get("do_update")
-				-- apr.sleep(interval);
-				
-				if do_update==1 then
-					log:info("Updating core...")
-					core:Update()
-					log:info("core updated.")
-				else
-					log:info("Not doing core update.")
-				end
+				log:info("Updating WebCore...")
+				core:Update()
+				log:info("WebCore updated.")
 			end 
-			
-			log:info("Exiting webcore thread.")
 		end}
 
 		log:info("Starting webcore thread...")
-		-- self._thread(0.1)
-			
+		self._thread(0.1)
+		
 		self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
 			log:info("Cancelling webcore thread...")
-			-- self._thread:cancel()
+			self._thread:cancel()
 		end}	
 	end
 	
@@ -81,7 +74,7 @@ function Class:registerListeners()
 end
 
 function Class:update()
-	if self._core then
+	if self._core and not self._thread then
 		self._core:Update()
 	end
 end
@@ -107,6 +100,10 @@ function Class:onFrame()
 	end
 	
 	-- self._linda:set("do_update",1)
+	
+	if self._thread then
+		self._thread:setObject("core",self._core)
+	end
 	
 	-- self:info("Calling WebCore:Update()")
 	-- self:backtrace()
