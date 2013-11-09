@@ -62,6 +62,8 @@ struct D3DPSHADERCAPS2_0
 
 struct D3DCAPS9
 {
+	D3DCAPS9();
+		
     /* Device Info */
     D3DDEVTYPE  DeviceType;
     UINT        AdapterOrdinal;

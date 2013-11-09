@@ -65,6 +65,37 @@ inline static bool _lg_typecheck_toLightUserdata(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_newIntArray(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_deleteIntArray(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_getIntArrayAt(lua_State *L) {
+	if( lua_gettop(L)!=2 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_setIntArrayAt(lua_State *L) {
+	if( lua_gettop(L)!=3 ) return false;
+
+	if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,3625364)) ) return false;
+	if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+	if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	return true;
+}
+
 
 // Function binds:
 // void doLog(int level, const std::string & msg)
@@ -176,6 +207,65 @@ static int _bind_toLightUserdata(lua_State *L) {
 	void* obj=(Luna< void >::check(L,1));
 
 	return ::toLightUserdata(obj, L);
+}
+
+// void * newIntArray(unsigned int size)
+static int _bind_newIntArray(lua_State *L) {
+	if (!_lg_typecheck_newIntArray(L)) {
+		luaL_error(L, "luna typecheck failed in void * newIntArray(unsigned int size) function, expected prototype:\nvoid * newIntArray(unsigned int size)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+	unsigned int size=(unsigned int)lua_tointeger(L,1);
+
+	void * lret = ::newIntArray(size);
+	if(!lret) return 0; // Do not write NULL pointers.
+
+	Luna< void >::push(L,lret,false);
+
+	return 1;
+}
+
+// void deleteIntArray(int * arr)
+static int _bind_deleteIntArray(lua_State *L) {
+	if (!_lg_typecheck_deleteIntArray(L)) {
+		luaL_error(L, "luna typecheck failed in void deleteIntArray(int * arr) function, expected prototype:\nvoid deleteIntArray(int * arr)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+	int* arr=(int*)Luna< void >::check(L,1);
+
+	::deleteIntArray(arr);
+
+	return 0;
+}
+
+// int getIntArrayAt(int * arr, unsigned int index)
+static int _bind_getIntArrayAt(lua_State *L) {
+	if (!_lg_typecheck_getIntArrayAt(L)) {
+		luaL_error(L, "luna typecheck failed in int getIntArrayAt(int * arr, unsigned int index) function, expected prototype:\nint getIntArrayAt(int * arr, unsigned int index)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+	int* arr=(int*)Luna< void >::check(L,1);
+	unsigned int index=(unsigned int)lua_tointeger(L,2);
+
+	int lret = ::getIntArrayAt(arr, index);
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
+// void setIntArrayAt(int * arr, unsigned int index, int value)
+static int _bind_setIntArrayAt(lua_State *L) {
+	if (!_lg_typecheck_setIntArrayAt(L)) {
+		luaL_error(L, "luna typecheck failed in void setIntArrayAt(int * arr, unsigned int index, int value) function, expected prototype:\nvoid setIntArrayAt(int * arr, unsigned int index, int value)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+	int* arr=(int*)Luna< void >::check(L,1);
+	unsigned int index=(unsigned int)lua_tointeger(L,2);
+	int value=(int)lua_tointeger(L,3);
+
+	::setIntArrayAt(arr, index, value);
+
+	return 0;
 }
 
 
@@ -787,6 +877,10 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_setEnv); lua_setfield(L,-2,"setEnv");
 	lua_pushcfunction(L, _bind_fromLightUserdata); lua_setfield(L,-2,"fromLightUserdata");
 	lua_pushcfunction(L, _bind_toLightUserdata); lua_setfield(L,-2,"toLightUserdata");
+	lua_pushcfunction(L, _bind_newIntArray); lua_setfield(L,-2,"newIntArray");
+	lua_pushcfunction(L, _bind_deleteIntArray); lua_setfield(L,-2,"deleteIntArray");
+	lua_pushcfunction(L, _bind_getIntArrayAt); lua_setfield(L,-2,"getIntArrayAt");
+	lua_pushcfunction(L, _bind_setIntArrayAt); lua_setfield(L,-2,"setIntArrayAt");
 	luna_popModule(L);
 	luna_pushModule(L,"boost");
 	lua_pushcfunction(L, _bind_date_period_to_simple_string); lua_setfield(L,-2,"date_period_to_simple_string");

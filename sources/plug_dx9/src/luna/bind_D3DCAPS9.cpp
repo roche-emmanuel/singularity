@@ -96,6 +96,12 @@ public:
 
 
 	// Constructor checkers:
+	inline static bool _lg_typecheck_ctor(lua_State *L) {
+		if( lua_gettop(L)!=0 ) return false;
+
+		return true;
+	}
+
 
 	// Function checkers:
 	inline static bool _lg_typecheck_getDeviceType(lua_State *L) {
@@ -1000,6 +1006,16 @@ public:
 	// (found 0 valid operators)
 
 	// Constructor binds:
+	// D3DCAPS9::D3DCAPS9()
+	static D3DCAPS9* _bind_ctor(lua_State *L) {
+		if (!_lg_typecheck_ctor(L)) {
+			luaL_error(L, "luna typecheck failed in D3DCAPS9::D3DCAPS9() function, expected prototype:\nD3DCAPS9::D3DCAPS9()\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+
+		return new D3DCAPS9();
+	}
+
 
 	// Function binds:
 	// D3DDEVTYPE D3DCAPS9::DeviceType()
@@ -3366,7 +3382,7 @@ public:
 };
 
 D3DCAPS9* LunaTraits< D3DCAPS9 >::_bind_ctor(lua_State *L) {
-	return NULL; // No valid default constructor.
+	return luna_wrapper_D3DCAPS9::_bind_ctor(L);
 }
 
 void LunaTraits< D3DCAPS9 >::_bind_dtor(D3DCAPS9* obj) {

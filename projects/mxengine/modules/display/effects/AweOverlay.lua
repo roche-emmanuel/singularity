@@ -188,6 +188,21 @@ function Class:performFullRefresh()
 	for gid,status in pairs(gstatus) do
 		self:doSetOverlayGroupStatus(gid,status)
 	end
+	
+	local rstatus = self:getReticleStatus()
+	for rid,status in pairs(rstatus) do
+		self:doSetReticleStatus(rid,status)
+	end
+	
+	local rpos = self:getReticlePosition()
+	for rid,pos in pairs(rpos) do
+		self:doSetReticlePosition(rid,pos)
+	end
+
+	local rsize = self:getReticleSize()
+	for rid,size in pairs(rsize) do
+		self:doSetReticleSize(rid,size)
+	end
 end
 
 
@@ -215,17 +230,20 @@ local unit_map = {
 
 function Class:onCurrentStreamUpdated(sname)
 	self._webView:call("setCurrentStream",sname)
+	dman:update()
 end
 
 function Class:onPOILocationUnitUpdated(unit)
 	local val = unit_map[unit]
 	self:check(val,"Invalid mapping for POI location unit: ",unit)
 	self._webView:call("setPOILocationMode",val)
+	dman:update()
 end
 
 function Class:onOverlayVisibilityUpdated(visible)
 	-- self:info("Updating Overlay visibility to: ",visible)
 	self._webView:call("enableOverlays",visible)
+	dman:update()
 end
 
 function Class:onFieldUpdated(item_name, value)
@@ -235,6 +253,7 @@ end
 
 function Class:onHighlightUpdated(item_name, value)
 	self._webView:call("setHighlight", item_name, value)
+	dman:update()
 end
 
 function Class:onStreamFieldUpdated(sname, item_name, value)
@@ -244,6 +263,7 @@ end
 
 function Class:onStreamHighlightUpdated(sname, item_name, value)
 	self._webView:call("setStreamHighlight",sname,item_name, value)
+	dman:update()
 end
 
 -- The following values are changing quickly and are far away on the 
@@ -278,11 +298,28 @@ end
 
 function Class:onDestabilizationStateUpdated(value)
 	self._webView:call("setDestabilizationEnabled",value)
+	dman:update()
 end
 
 function Class:doSetOverlayGroupStatus(gid,status)
 	-- self:info("Setting group ",gid," to ",status)
 	self._webView:call("setOverlayGroupStatus",gid,status)
+	dman:update()
+end
+
+function Class:doSetReticleStatus(rid,enabled)
+	self._webView:call("setReticuleStatus",rid,enabled and 1 or 0)
+	dman:update()
+end
+
+function Class:doSetReticlePosition(rid,pos)
+	self._webView:call("setReticlePosition",rid,pos:x(),pos:y())
+	dman:update()
+end
+
+function Class:doSetReticleSize(rid,size)
+	self._webView:call("setReticleSize",rid,size:x(),size:y())
+	dman:update()
 end
 
 return Class

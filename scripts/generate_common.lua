@@ -17,3 +17,6 @@ end
 
 package.cpath = package.cpath..";".. root_path .. "bin/".. flavor .."/modules/?.sgp;".. root_path .. "bin/".. flavor .."/libraries/?.".. shared_ext
 package.path = package.path..";".. root_path .. "lua/modules/?.lua;".. root_path .. "lua/libraries/?.lua;".. sgt_path .."sources/lua_core/modules/?.lua;".. sgt_path .."sources/lua_externals/modules/?.lua;"
+
+require "core"
+

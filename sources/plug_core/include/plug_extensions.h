@@ -24,39 +24,6 @@ unsigned int map_uint_get(std::map< std::string, unsigned int >* data, const std
 
 void setEnv(const std::string& var, const std::string& value);
 
-#if 0
-/** LUNA_CLASS_EXTENSION */
-inline void push_back(std::vector<int>* vec, int val) {
-	vec->push_back(val);
-}
-
-/** LUNA_CLASS_EXTENSION */
-inline unsigned int size(std::vector<int>* vec) {
-	return vec->size();
-}
-
-/** LUNA_CLASS_EXTENSION */
-inline void push_back(std::vector<float>* vec, float val) {
-	vec->push_back(val);
-}
-
-/** LUNA_CLASS_EXTENSION */
-inline unsigned int size(std::vector<float>* vec) {
-	return vec->size();
-}
-
-/** LUNA_CLASS_EXTENSION */
-inline void push_back(std::vector<double>* vec, double val) {
-	vec->push_back(val);
-}
-
-/** LUNA_CLASS_EXTENSION */
-inline unsigned int size(std::vector<double>* vec) {
-	return vec->size();
-}
-
-#endif
-
 class BaseClass {
 public:	
 	BaseClass() {};
@@ -66,5 +33,27 @@ public:
 void* fromLightUserdata(lua_Any* dum, lua_State* L);
 
 int toLightUserdata(void* obj, lua_State* L);
+
+#define PRIMITIVE_ARRAY(type,name) \
+inline void* new##name##Array(unsigned type size) { \
+	CHECK_RET(size>0,NULL,"Invalid array size.") \
+	return (void*)new type[size]; \
+} \
+inline void delete##name##Array(type* arr) { \
+	delete arr; \
+	arr = NULL; \
+} \
+inline type get##name##ArrayAt(type* arr, unsigned int index) { \
+	CHECK_RET(arr,type(),"Invalid arr") \
+	return arr[index]; \
+} \
+inline void set##name##ArrayAt(type* arr, unsigned int index, type value) { \
+	CHECK(arr,"Invalid arr") \
+	arr[index] = value; \
+}
+
+
+PRIMITIVE_ARRAY(int,Int)
+
 
 #endif

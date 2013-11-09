@@ -1,6 +1,7 @@
 local Class = require("classBuilder"){name="SurfaceTextureObject",bases="dx.TextureObject"};
 
 local awDX = require "awDX"
+local Event = require "base.Event"
 
 local useThread = true
 
@@ -33,12 +34,19 @@ function Class:initialize()
 				device:updateTexture(sysMemTexture,gpuTexture)
 			end 
 		end}
+		
+		self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
+			if self._thread then
+				self._thread:cancel()
+				self._thread = nil; -- ensure that the thread will not be started again by a post call to doCreate.
+			end
+		end}		
 	end
 end
 
 function Class:doInvalidate()
 	self._aweSurface:setTargetSurface(nil)
-	if useThread then
+	if useThread and self._thread then
 		self._thread:cancel()
 	end
 	
@@ -69,8 +77,9 @@ function Class:doCreate(device)
 	-- we will see if this crashes...
 	self._device = device
 	
-	if useThread then
+	if useThread and self._thread then
 		-- we may now start the updater thread:
+		-- self:showMessage("Now starting update_texture_thread")
 		self._thread(0.05)
 			
 		self._thread:setObject("device",self._device)

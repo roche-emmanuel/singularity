@@ -110,6 +110,19 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 			}
 		},
 		
+		setReticuleStatus: function(rid,status) {
+			tools.showElement("#"+rid,status==1)
+		},
+		
+		setReticlePosition: function(rid,xpos,ypos) {
+			om.setReticlePosition(rid,xpos,ypos);
+		},
+		
+		setReticleSize: function(rid,ww,hh) {
+			// log.info("Setting reticle "+rid+" size to "+ww+"x"+hh)
+			om.setReticleSize(rid,ww,hh);
+		},
+
 		setOverlayGroupStatus: function (gid, status) {
 			//log.info("Toggling group "+gid+" to "+status)
 			

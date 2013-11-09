@@ -908,6 +908,131 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_setDefaultState(lua_State *L) {
+		if( lua_gettop(L)!=1 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_1(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_isboolean(L,3)==0 ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_2(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( lua_type(L,3)!=LUA_TNUMBER ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_3(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303235) ) return false;
+		if( (!(Luna< osg::Vec4f >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_4(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303233) ) return false;
+		if( (!(Luna< osg::Vec4d >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_5(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303173) ) return false;
+		if( (!(Luna< osg::Vec2f >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_6(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303171) ) return false;
+		if( (!(Luna< osg::Vec2d >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_7(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303204) ) return false;
+		if( (!(Luna< osg::Vec3f >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_8(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,92303202) ) return false;
+		if( (!(Luna< osg::Vec3d >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_9(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903840) ) return false;
+		if( (!(Luna< osg::Matrixf >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_setUniform_overload_10(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_isnil(L,1)==0 && !(Luna< IDirect3DDevice9 >::check(L,1)) ) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( !Luna<void>::has_uniqueid(L,3,18903838) ) return false;
+		if( (!(Luna< osg::Matrixd >::check(L,3))) ) return false;
+		if( (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		return true;
+	}
+
 
 	// Operator checkers:
 	// (found 0 valid operators)
@@ -2801,6 +2926,228 @@ public:
 		return 1;
 	}
 
+	// void IDirect3DDevice9::setDefaultState(IDirect3DDevice9 * d3dd)
+	static int _bind_setDefaultState(lua_State *L) {
+		if (!_lg_typecheck_setDefaultState(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setDefaultState(IDirect3DDevice9 * d3dd) function, expected prototype:\nvoid IDirect3DDevice9::setDefaultState(IDirect3DDevice9 * d3dd)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* d3dd=(Luna< IDirect3DDevice9 >::check(L,1));
+
+		setDefaultState(d3dd);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, bool val, int target)
+	static int _bind_setUniform_overload_1(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_1(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, bool val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, bool val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		bool val=(bool)(lua_toboolean(L,3)==1);
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, float val, int target)
+	static int _bind_setUniform_overload_2(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_2(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, float val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, float val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		float val=(float)lua_tonumber(L,3);
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec4f val, int target)
+	static int _bind_setUniform_overload_3(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_3(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec4f val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec4f val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Vec4f* val_ptr=(Luna< osg::Vec4f >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Vec4f val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec4d val, int target)
+	static int _bind_setUniform_overload_4(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_4(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec4d val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec4d val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Vec4d* val_ptr=(Luna< osg::Vec4d >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Vec4d val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec2f val, int target)
+	static int _bind_setUniform_overload_5(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_5(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec2f val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec2f val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Vec2f* val_ptr=(Luna< osg::Vec2f >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Vec2f val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec2d val, int target)
+	static int _bind_setUniform_overload_6(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_6(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec2d val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec2d val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Vec2d* val_ptr=(Luna< osg::Vec2d >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Vec2d val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec3f val, int target)
+	static int _bind_setUniform_overload_7(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_7(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec3f val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec3f val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Vec3f* val_ptr=(Luna< osg::Vec3f >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Vec3f val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec3d val, int target)
+	static int _bind_setUniform_overload_8(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_8(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec3d val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Vec3d val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Vec3d* val_ptr=(Luna< osg::Vec3d >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Vec3d val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Matrixf val, int target)
+	static int _bind_setUniform_overload_9(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_9(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Matrixf val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Matrixf val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Matrixf* val_ptr=(Luna< osg::Matrixf >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Matrixf val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Matrixd val, int target)
+	static int _bind_setUniform_overload_10(lua_State *L) {
+		if (!_lg_typecheck_setUniform_overload_10(L)) {
+			luaL_error(L, "luna typecheck failed in void IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Matrixd val, int target) function, expected prototype:\nvoid IDirect3DDevice9::setUniform(IDirect3DDevice9 * cbi, unsigned int reg, osg::Matrixd val, int target)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* cbi=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int reg=(unsigned int)lua_tointeger(L,2);
+		osg::Matrixd* val_ptr=(Luna< osg::Matrixd >::check(L,3));
+		if( !val_ptr ) {
+			luaL_error(L, "Dereferencing NULL pointer for arg val in IDirect3DDevice9::setUniform function");
+		}
+		osg::Matrixd val=*val_ptr;
+		int target=(int)lua_tointeger(L,4);
+
+		setUniform(cbi, reg, val, target);
+
+		return 0;
+	}
+
+	// Overload binder for IDirect3DDevice9::setUniform
+	static int _bind_setUniform(lua_State *L) {
+		if (_lg_typecheck_setUniform_overload_1(L)) return _bind_setUniform_overload_1(L);
+		if (_lg_typecheck_setUniform_overload_2(L)) return _bind_setUniform_overload_2(L);
+		if (_lg_typecheck_setUniform_overload_3(L)) return _bind_setUniform_overload_3(L);
+		if (_lg_typecheck_setUniform_overload_4(L)) return _bind_setUniform_overload_4(L);
+		if (_lg_typecheck_setUniform_overload_5(L)) return _bind_setUniform_overload_5(L);
+		if (_lg_typecheck_setUniform_overload_6(L)) return _bind_setUniform_overload_6(L);
+		if (_lg_typecheck_setUniform_overload_7(L)) return _bind_setUniform_overload_7(L);
+		if (_lg_typecheck_setUniform_overload_8(L)) return _bind_setUniform_overload_8(L);
+		if (_lg_typecheck_setUniform_overload_9(L)) return _bind_setUniform_overload_9(L);
+		if (_lg_typecheck_setUniform_overload_10(L)) return _bind_setUniform_overload_10(L);
+
+		luaL_error(L, "error in function setUniform, cannot match any of the overloads for function setUniform:\n  setUniform(IDirect3DDevice9 *, unsigned int, bool, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, float, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Vec4f, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Vec4d, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Vec2f, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Vec2d, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Vec3f, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Vec3d, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Matrixf, int)\n  setUniform(IDirect3DDevice9 *, unsigned int, osg::Matrixd, int)\n");
+		return 0;
+	}
+
 
 	// Operator binds:
 
@@ -2920,6 +3267,8 @@ luna_RegType LunaTraits< IDirect3DDevice9 >::methods[] = {
 	{"createDepthSurface", &luna_wrapper_IDirect3DDevice9::_bind_createDepthSurface},
 	{"updateTexture", &luna_wrapper_IDirect3DDevice9::_bind_updateTexture},
 	{"createFont", &luna_wrapper_IDirect3DDevice9::_bind_createFont},
+	{"setDefaultState", &luna_wrapper_IDirect3DDevice9::_bind_setDefaultState},
+	{"setUniform", &luna_wrapper_IDirect3DDevice9::_bind_setUniform},
 	{"dynCast", &luna_wrapper_IDirect3DDevice9::_bind_dynCast},
 	{"__eq", &luna_wrapper_IDirect3DDevice9::_bind___eq},
 	{"fromVoid", &luna_wrapper_IDirect3DDevice9::_bind_fromVoid},

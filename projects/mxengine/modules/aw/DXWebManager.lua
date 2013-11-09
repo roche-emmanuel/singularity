@@ -81,7 +81,9 @@ function Class:registerListeners()
 end
 
 function Class:update()
-	self._core:Update()
+	if self._core then
+		self._core:Update()
+	end
 end
 
 function Class:onFrame()

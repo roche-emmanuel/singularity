@@ -7,8 +7,10 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 	"models/ElevPictFov",
 	"models/Destabilization",
 	"models/AzScale",
-	"models/ElevScale"
-],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,ElevFov,Destab,AzScale,ElevScale) {
+	"models/ElevScale",
+	"models/reticles/Standard",
+	"models/reticles/MalteseCross"
+],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle) {
 	
 	var con = new Controller;
 	
@@ -25,6 +27,7 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			
 			this._streamFields = {};
 			this._streamHighlights = {};
+			this._reticles = [];
 			this._currentStream = "VIC"
 		},
 	
@@ -69,8 +72,27 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._destab = new Destab()
 			this._azScale = new AzScale()
 			this._elevScale = new ElevScale()
+			this._reticles.push(new StdReticle())
+			this._reticles.push(new MalteseReticle())
 			
+			tools.showElement("#reticle_standard",false)
 			$("#picto_group").addClass("hidden")
+		},
+		
+		setReticlePosition: function(rid,xpos,ypos) {
+			for(var i in this._reticles) {
+				if (this._reticles[i].getName()==rid) {
+					this._reticles[i].setPosition(xpos,ypos);
+				}
+			}
+		},
+		
+		setReticleSize: function(rid,ww,hh) {
+			for(var i in this._reticles) {
+				if (this._reticles[i].getName()==rid) {
+					this._reticles[i].setSize(ww,hh);
+				}
+			}
 		},
 		
 		setGimbalAzimuthAngle: function(angle) {

@@ -1,5 +1,6 @@
 #include <plug_common.h>
 
+#include <plug_extensions.h>
 
 #ifdef __cplusplus
 extern "C" {
@@ -836,6 +837,19 @@ void register_enums(lua_State* L) {
 	lua_pushnumber(L,::D3DBLEND_SRCCOLOR2); lua_setfield(L,-2,"D3DBLEND_SRCCOLOR2");
 	lua_pushnumber(L,::D3DBLEND_INVSRCCOLOR2); lua_setfield(L,-2,"D3DBLEND_INVSRCCOLOR2");
 	lua_pushnumber(L,::D3DBLEND_FORCE_DWORD); lua_setfield(L,-2,"D3DBLEND_FORCE_DWORD");
+
+
+	lua_newtable(L); // enum UniformTarget
+
+	lua_pushnumber(L,::TARGET_FRAGMENT); lua_setfield(L,-2,"TARGET_FRAGMENT");
+	lua_pushnumber(L,::TARGET_VERTEX); lua_setfield(L,-2,"TARGET_VERTEX");
+	lua_pushnumber(L,::TARGET_BOTH); lua_setfield(L,-2,"TARGET_BOTH");
+
+	lua_setfield(L,-2,"UniformTarget");
+
+	lua_pushnumber(L,::TARGET_FRAGMENT); lua_setfield(L,-2,"TARGET_FRAGMENT");
+	lua_pushnumber(L,::TARGET_VERTEX); lua_setfield(L,-2,"TARGET_VERTEX");
+	lua_pushnumber(L,::TARGET_BOTH); lua_setfield(L,-2,"TARGET_BOTH");
 
 
 }

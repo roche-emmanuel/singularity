@@ -47,7 +47,7 @@ function Class:buildComponent(intf)
 		intf:addSingleChoiceEntry{name="single_turret.turret_model",prop=1,caption="Turret model",
 			-- choices={"MX15HDi","MX15DiD","MX15DiD_SOCOM","basic_turret","awe_turret"},
 			choices=turretList,
-			defaultValue="MX15DiD_SOCOM",
+			defaultValue="MX10", --"MX15DiD_SOCOM",
 			handler="onTurretModelChanged"}
 		intf:addSingleChoiceEntry{name="single_turret.platform_model",prop=1,caption="Platform model",
 			-- choices={"basic_platform","basic_platform_2","basic_platform_offset1"},
@@ -71,7 +71,7 @@ function Class:buildComponent(intf)
 	
 	intf:addSingleChoiceEntry{name="single_turret.overlay_class",prop=1,caption="Overlay class",
 		choices={"Overlay","AweOverlay","NoOverlay"},
-		defaultValue="Overlay",
+		defaultValue="AweOverlay", --"Overlay",
 		handler="onOverlayChanged"}
 			
 	-- intf:addBoolEntry{name="override_overlays",caption="Use Awesomium overlays",style=0,

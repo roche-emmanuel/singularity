@@ -1,5 +1,7 @@
 local Class = require("classBuilder"){name="DebugPanel",bases="gui.wx.InterfaceComponent"};
 
+local vbsDX = require "vbsDX"
+
 function Class:buildComponent(intf)
 	
 	intf:pushSizer{text="Debugging",orient=wx.wxVERTICAL,prop=0,flags=wx.wxEXPAND}
@@ -20,7 +22,7 @@ function Class:buildComponent(intf)
 		intf:popSizer()
 	intf:popSizer()
 	
-	self:connectFPSTimer()
+	self:connectFPSTimer()	
 end
 
 function Class:connectFPSTimer()

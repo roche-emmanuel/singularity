@@ -165,6 +165,7 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			setPos('#north_arrow',1,5,4,4)
 			setPos('.north_indicator',2.5,6.5,1,1)
 			setPos('#destabilization',40,3,1,1)
+						
 			setPos('.gated_imaging',69,20,10)
 			setPos('.laser',68,23,11)			
 			setPos('.strata',73,4,6)
