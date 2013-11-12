@@ -4,6 +4,10 @@
 #include "luna/luna.h"
 #include "base/Container.h"
 
+// #ifdef WIN32
+int showMessageBox(const std::string& text, const std::string& caption, unsigned int code = MB_ICONERROR|MB_OK);
+// #endif
+
 std::string getLuaID(lua_Any* dum, lua_State* L);
 
 /** LUNA_CLASS_EXTENSION LUNA_RENAME __tostring */
@@ -31,6 +35,8 @@ public:
 };
 
 void* fromLightUserdata(lua_Any* dum, lua_State* L);
+
+bool isLightUserdata(lua_Any* dum, lua_State* L);
 
 int toLightUserdata(void* obj, lua_State* L);
 

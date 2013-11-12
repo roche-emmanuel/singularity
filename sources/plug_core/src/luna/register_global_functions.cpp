@@ -38,6 +38,16 @@ inline static bool _lg_typecheck_doTraceV(lua_State *L) {
 	return true;
 }
 
+inline static bool _lg_typecheck_showMessageBox(lua_State *L) {
+	int luatop = lua_gettop(L);
+	if( luatop<2 || luatop>3 ) return false;
+
+	if( lua_type(L,1)!=LUA_TSTRING ) return false;
+	if( lua_type(L,2)!=LUA_TSTRING ) return false;
+	if( luatop>2 && (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+	return true;
+}
+
 inline static bool _lg_typecheck_getLuaID(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
@@ -53,6 +63,12 @@ inline static bool _lg_typecheck_setEnv(lua_State *L) {
 }
 
 inline static bool _lg_typecheck_fromLightUserdata(lua_State *L) {
+	if( lua_gettop(L)!=1 ) return false;
+
+	return true;
+}
+
+inline static bool _lg_typecheck_isLightUserdata(lua_State *L) {
 	if( lua_gettop(L)!=1 ) return false;
 
 	return true;
@@ -156,6 +172,24 @@ static int _bind_doTraceV(lua_State *L) {
 	return 0;
 }
 
+// int showMessageBox(const std::string & text, const std::string & caption, unsigned int code = MB_ICONERROR|MB_OK)
+static int _bind_showMessageBox(lua_State *L) {
+	if (!_lg_typecheck_showMessageBox(L)) {
+		luaL_error(L, "luna typecheck failed in int showMessageBox(const std::string & text, const std::string & caption, unsigned int code = MB_ICONERROR|MB_OK) function, expected prototype:\nint showMessageBox(const std::string & text, const std::string & caption, unsigned int code = MB_ICONERROR|MB_OK)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+	int luatop = lua_gettop(L);
+
+	std::string text(lua_tostring(L,1),lua_objlen(L,1));
+	std::string caption(lua_tostring(L,2),lua_objlen(L,2));
+	unsigned int code=luatop>2 ? (unsigned int)lua_tointeger(L,3) : (unsigned int)MB_ICONERROR|MB_OK;
+
+	int lret = ::showMessageBox(text, caption, code);
+	lua_pushnumber(L,lret);
+
+	return 1;
+}
+
 // std::string getLuaID(lua_Any * dum, lua_State * L)
 static int _bind_getLuaID(lua_State *L) {
 	if (!_lg_typecheck_getLuaID(L)) {
@@ -194,6 +228,19 @@ static int _bind_fromLightUserdata(lua_State *L) {
 	if(!lret) return 0; // Do not write NULL pointers.
 
 	Luna< void >::push(L,lret,false);
+
+	return 1;
+}
+
+// bool isLightUserdata(lua_Any * dum, lua_State * L)
+static int _bind_isLightUserdata(lua_State *L) {
+	if (!_lg_typecheck_isLightUserdata(L)) {
+		luaL_error(L, "luna typecheck failed in bool isLightUserdata(lua_Any * dum, lua_State * L) function, expected prototype:\nbool isLightUserdata(lua_Any * dum, lua_State * L)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+
+	bool lret = ::isLightUserdata(NULL, L);
+	lua_pushboolean(L,lret?1:0);
 
 	return 1;
 }
@@ -873,9 +920,11 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_doLogV); lua_setfield(L,-2,"doLogV");
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
+	lua_pushcfunction(L, _bind_showMessageBox); lua_setfield(L,-2,"showMessageBox");
 	lua_pushcfunction(L, _bind_getLuaID); lua_setfield(L,-2,"getLuaID");
 	lua_pushcfunction(L, _bind_setEnv); lua_setfield(L,-2,"setEnv");
 	lua_pushcfunction(L, _bind_fromLightUserdata); lua_setfield(L,-2,"fromLightUserdata");
+	lua_pushcfunction(L, _bind_isLightUserdata); lua_setfield(L,-2,"isLightUserdata");
 	lua_pushcfunction(L, _bind_toLightUserdata); lua_setfield(L,-2,"toLightUserdata");
 	lua_pushcfunction(L, _bind_newIntArray); lua_setfield(L,-2,"newIntArray");
 	lua_pushcfunction(L, _bind_deleteIntArray); lua_setfield(L,-2,"deleteIntArray");

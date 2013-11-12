@@ -80,7 +80,7 @@ local writeString = function(obj,quote)
 		else
 			return getID(obj) .. " " .. writeTable(obj)
 		end
-	elseif objt == "userdata" and obj._CLASSNAME_ then
+	elseif objt == "userdata" and not sgt.isLightUserdata(obj) and obj._CLASSNAME_ then
 		if obj.__tostring then
 			return tostring(obj)
 		else

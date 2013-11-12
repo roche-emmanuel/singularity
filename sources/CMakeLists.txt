@@ -21,7 +21,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(osgdb_freeimage)
 
 ADD_SUBDIRECTORY(sgtLuna)
-# ADD_SUBDIRECTORY(sgtCore)
+ADD_SUBDIRECTORY(sgtCore)
 # ADD_SUBDIRECTORY(sgtLand)
 # ADD_SUBDIRECTORY(sgtProland)
 
@@ -43,7 +43,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_lanes)
 # ADD_SUBDIRECTORY(plug_ssl)
 
-# ADD_SUBDIRECTORY(plug_core)
+ADD_SUBDIRECTORY(plug_core)
 # ADD_SUBDIRECTORY(plug_doxmlparser)
 # ADD_SUBDIRECTORY(plug_osg)
 IF(MSVC)
@@ -63,7 +63,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
 # ADD_SUBDIRECTORY(plug_opengl)
-ADD_SUBDIRECTORY(plug_dx9)
+# ADD_SUBDIRECTORY(plug_dx9)
 # ADD_SUBDIRECTORY(plug_awDX)
 
 

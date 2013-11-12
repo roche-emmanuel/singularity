@@ -1,10 +1,11 @@
-local Class = require("classBuilder"){name="Thread",bases="base.Object"};
+local Class = createClass{name="Thread",bases="core.Linda"};
 
 local loaders = {}
-local apr = require "apr"
 
 local lanes = require "lanes"
-lanes.configure({protect_allocator=true, with_timers=false})
+if lanes.configure then
+	lanes.configure({protect_allocator=true, with_timers=false})
+end
 
 loaders.high_level = function(data) 
 	_G.flavor = data.flavor
@@ -76,7 +77,7 @@ function Class:initialize(options)
 
 	self._lane = lanes.gen( libs, glb, loaders[loader]);
 	
-	self._linda = lanes.linda()
+	self._linda = self._linda or lanes.linda()
 end
 
 function Class:__call(...)
@@ -119,6 +120,13 @@ function Class:getStatus()
 	end
 	
 	return self._handle.status
+end
+
+function Class:checkStatus()
+	if self:getStatus() == "error" then
+		self:cancel()
+		self:throw("Error occured in thread ".. self:getName())
+	end
 end
 
 function Class:getName()
@@ -167,17 +175,6 @@ end
 
 function Class.getTime()
 	return lanes.now_secs()
-end
-
-function Class:setObject(key,obj)
-	if obj == nil then
-		self._linda:set(key,nil)
-		return
-	end
-	
-	local ptr = obj:asVoid()
-	local lptr = sgt.toLightUserdata(ptr)
-	self._linda:set(key,lptr)
 end
 
 return Class

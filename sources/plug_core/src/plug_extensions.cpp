@@ -5,6 +5,12 @@
 
 using namespace sgt;
 
+int showMessageBox(const std::string& text, const std::string& caption, unsigned int code)
+{
+	return MessageBox(NULL,text.c_str(),caption.c_str(),code);
+}
+
+
 std::string getLuaID(lua_Any* dum, lua_State* L) {
 	const void *ptr = lua_topointer (L, 1);
 	if(!ptr)
@@ -134,6 +140,10 @@ void* fromLightUserdata(lua_Any* dum, lua_State* L) {
 	
 	return lua_touserdata(L,1);
 };
+
+bool isLightUserdata(lua_Any* dum, lua_State* L) {
+	return lua_islightuserdata(L,1)==1;
+}
 
 int toLightUserdata(void* obj, lua_State* L) {
 	if(!obj)
