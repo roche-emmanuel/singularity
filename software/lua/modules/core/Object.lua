@@ -4,6 +4,7 @@ local oo = require "loop.cached"
 local log = require "log"
 local assert = require "utils.assert"
 local base = require "utils.base"
+local write = require "utils.tostring"
 
 --[[
 Class: core.Object
@@ -128,6 +129,12 @@ Parameters:
 ]]
 function Object:check(val,...)
 	return assert(val,...)
+end
+
+function Object:showMessage(...)
+	local msg = write(...)
+	log.debug(msg)
+	sgt.showMessageBox(msg,self._TRACE_)
 end
 
 return Object

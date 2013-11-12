@@ -41,13 +41,14 @@ function Class:reloadWebPages(data)
 	local dmap = data.item
 	local turret = dmap:fetch("turret")
 
-	local AweOverlay = require "display.effects.AweOverlay"
+	local Overlay = require "mx.overlays.BasicOverlay"
 	
 	-- find all the webView components, and reload them:
 	turret:getComponents():foreach(function(comp)
-		if comp:isInstanceOf(AweOverlay) then
+		if comp:isInstanceOf(Overlay) and comp.reload then
 			comp:reload()
 		end
+		
 	end)
 end
 

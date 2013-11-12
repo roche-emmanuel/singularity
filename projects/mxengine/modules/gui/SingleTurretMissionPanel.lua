@@ -7,6 +7,8 @@ local Controller = require "gui.TurretControllerPage"
 overlay_cfg = {}
 overlay_cfg.NoOverlay = DataMap()
 overlay_cfg.NoOverlay:set("Overlay.class_name","")
+overlay_cfg.MTOverlay = DataMap()
+overlay_cfg.MTOverlay:set("Overlay.class_name","MTOverlay")
 overlay_cfg.Overlay = DataMap()
 overlay_cfg.Overlay:set("Overlay.class_name","Overlay")
 overlay_cfg.AweOverlay = DataMap()
@@ -70,7 +72,7 @@ function Class:buildComponent(intf)
 	end}
 	
 	intf:addSingleChoiceEntry{name="single_turret.overlay_class",prop=1,caption="Overlay class",
-		choices={"Overlay","AweOverlay","NoOverlay"},
+		choices={"Overlay","AweOverlay","MTOverlay"},
 		defaultValue="AweOverlay", --"Overlay",
 		handler="onOverlayChanged"}
 			

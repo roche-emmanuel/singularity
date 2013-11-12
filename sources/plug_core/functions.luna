@@ -3,9 +3,11 @@ doLog
 doLogV
 doTrace
 doTraceV
+showMessageBox
 getLuaID
 setEnv
 fromLightUserdata
+isLightUserdata
 toLightUserdata
 newIntArray
 deleteIntArray

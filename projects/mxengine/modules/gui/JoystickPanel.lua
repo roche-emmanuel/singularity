@@ -11,15 +11,17 @@ function Class:buildComponent(intf)
 	-- we prepare a base behavior when not in a mission, and a mission behavior:
 	self._missionBehavior = require "mx.behaviors.JoyMissionBehavior" ()
 	
-	local mm = self:getMissionManager()
-	mm:addListener{mm.EVT_STARTED_MISSION,function()
-		-- self:showMessage("Adding mission behavior")
-		self._joy:pushBehavior(self._missionBehavior)
-	end}
-	
-	mm:addListener{mm.EVT_ENDING_MISSION,function()
-		self._joy:popBehavior()
-	end}	
+	if self._joy then
+		local mm = self:getMissionManager()
+		mm:addListener{mm.EVT_STARTED_MISSION,function()
+			-- self:showMessage("Adding mission behavior")
+			self._joy:pushBehavior(self._missionBehavior)
+		end}
+		
+		mm:addListener{mm.EVT_ENDING_MISSION,function()
+			self._joy:popBehavior()
+		end}
+	end
 end
 
 function Class:onTurretChanged(turret, data)

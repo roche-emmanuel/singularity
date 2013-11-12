@@ -1,7 +1,7 @@
 1.52
 Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebPage.lua	1379450556	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebPage.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebPanel.lua	1379660890	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebPanel.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebPanel.lua	1384086828	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebPanel.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/gui.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/gui.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Action.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Action.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ThreadTimer.lua	1383311826	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ThreadTimer.lua
@@ -28,7 +28,7 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/sources/lua_seed/src/CMakeLists.txt	1372279239	0	/cygdrive/w/Cloud/Projects/singularity/sources/lua_seed/src/CMakeLists.txt
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/DataMap.lua	1375170757	1	core.DataMap
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/DataManager.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/DataManager.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/sdl/Joystick.lua	1383748351	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/sdl/Joystick.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/sdl/Joystick.lua	1383986133	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/sdl/Joystick.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/TestApp3.lua	1367858800	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/TestApp3.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Message.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Message.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WindowManager.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WindowManager.lua
@@ -42,14 +42,15 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/BasicNode.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/BasicNode.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/dir.lua	1374095973	1	utils.dir
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/ProviderHolder.lua	1375174188	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/ProviderHolder.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/BasicView.lua	1384254425	1	gui.web.View
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/kinect/TestApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/kinect/TestApp.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/JSHandler.lua	1365488987	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/JSHandler.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebTexture.lua	1379593877	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebTexture.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebTexture.lua	1384086811	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebTexture.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/File.lua	1346186367	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/File.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebImage.lua	1377292393	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebImage.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebImage.lua	1384086801	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebImage.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/NumericalEntry.lua	1374306040	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/NumericalEntry.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/dev/utils_base.lua	1374088889	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/dev/utils_base.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebManager.lua	1377638707	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebManager.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebManager.lua	1384188163	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebManager.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/JSObject.lua	1365488987	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/JSObject.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/SimpleApp.lua	1374306287	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/SimpleApp.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/base.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/base.lua
@@ -67,12 +68,13 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Exception.lua	1375103015	1	base.Exception
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/DMap.lua	1365488987	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/DMap.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/LicensedBase.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/LicensedBase.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Object.lua	1375132001	1	core.Object
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Object.lua	1384176688	1	core.Object
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/test/Suite.lua	1372670825	1	test.Suite
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/SourceDB.lua	1346250121	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/SourceDB.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/Languages.lua	1346236620	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/Languages.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/BasicWebManager.lua	1379627455	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/BasicWebManager.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/mathgl/TestApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/mathgl/TestApp.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/sdl/JoystickBehavior.lua	1383947094	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/sdl/JoystickBehavior.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Selector.lua	1375168286	1	gui.Selector
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/objects/Logger.lua	1365488987	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/objects/Logger.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/TestApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/TestApp.lua
@@ -81,6 +83,7 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/misc/FrequencyTestApp.lua	1359722261	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/misc/FrequencyTestApp.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/TerrainQuad.lua	1366266138	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/TerrainQuad.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/lanes.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/lanes.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/MTWebManager.lua	1379627455	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/MTWebManager.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/Manager.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/atb/Manager.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/MainFrame.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/MainFrame.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebTile.lua	1379451481	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebTile.lua
@@ -90,10 +93,11 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/compat.lua	1373311631	1	utils.compat
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Enum.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Enum.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/proland/TestApp.lua	1365492863	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/proland/TestApp.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/Enums.lua	1384253919	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/Enums.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/sockets.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/sockets.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/BasicWindow.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/BasicWindow.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/TypeTree.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/TypeTree.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Linda.lua	1383329314	1	core.Linda
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/core/Linda.lua	1384253776	1	core.Linda
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/SceneManager.lua	1366147291	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/land/SceneManager.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/box2d/TestApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/box2d/TestApp.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/lpeg.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/lpeg.lua
@@ -119,7 +123,7 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/DummyEntry.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/DummyEntry.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/combo.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/combo.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/WildCard.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/WildCard.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/View.lua	1383244315	1	gui.web.View
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/View.lua	1383991943	1	gui.web.View
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Scheduler.lua	1374479845	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Scheduler.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/SingleChoiceEntry.lua	1378386359	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/entries/SingleChoiceEntry.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/ItemContainer.lua	1375174605	1	gui.ITemContainer
@@ -142,14 +146,16 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/Parser.lua	1346252288	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/docgen/Parser.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/jit.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/jit.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/misc/RedBirdDumpApp.lua	1360071361	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/misc/RedBirdDumpApp.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebThread.lua	1384255391	1	destroyWebView
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/BreadthFirstIterator.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/BreadthFirstIterator.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/components/LogPanel.lua	1383343226	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/components/LogPanel.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebOverlay.lua	1379661101	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebOverlay.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebOverlay.lua	1384086821	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/WebOverlay.lua
 /cygdrive/w/Cloud/Projects/singularity/sources/lua_seed/CMakeLists.txt	1372481979	0	/cygdrive/w/Cloud/Projects/singularity/sources/lua_seed/CMakeLists.txt
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/SelectorProvider.lua	1376379250	1	gui.SelectorProvider
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/components/JoystickPanel.lua	1383748023	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/components/JoystickPanel.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/components/JoystickPanel.lua	1383948001	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/components/JoystickPanel.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Vertex.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Vertex.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/LeafIterator.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/tree/LeafIterator.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebInterface.lua	1384255345	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebInterface.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Timer.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/Timer.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/fann.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/fann.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/OSGTestApp.lua	1379487206	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/osg/OSGTestApp.lua
@@ -160,6 +166,7 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/finance/yahoo/SymbolTable.lua	1366207364	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/finance/yahoo/SymbolTable.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/OutputPanel.lua	1383260918	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/OutputPanel.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/std.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/std.lua
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/GLWebManager.lua	1384080279	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/GLWebManager.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/sgtlog.lua	1372494136	1	utils.sgtlog
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Perception.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/Perception.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/base.lua	1375780393	1	utils.base
@@ -172,7 +179,7 @@ Lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/NotebookApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/NotebookApp.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/yahoo_finance.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/tests/suites/yahoo_finance.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/TestApp.lua	1365492899	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/TestApp.lua
-/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/tostring.lua	1372451762	1	utils.tostring
+/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/utils/tostring.lua	1384256492	1	utils.tostring
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/wx/ImageManager.lua	1376996918	1	gui.wx.ImageManager
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/ActionSymbol.lua	1365488831	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/combo/ActionSymbol.lua
 /cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/Queue.lua	1365493365	0	/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/std/Queue.lua

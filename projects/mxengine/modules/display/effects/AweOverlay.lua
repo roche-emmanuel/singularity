@@ -42,7 +42,6 @@ function Class:initialize(options)
 	
 	-- assign a callback for overlay ready state:
 	self._webView:onOverlayReady(function()
-		--self:updateOverlayContent(true) -- force complete update.
 		self:performFullRefresh()
 	end)
 	
@@ -67,7 +66,6 @@ function Class:initialize(options)
 		end
 		
 		self:updateSourceStream()
-		--self:updateOverlayContent()
 	end}	
 	
 
@@ -95,33 +93,6 @@ function Class:updateSourceStream()
 		self._currentStreamName = sname
 		self:onCurrentStreamUpdated(sname)
 	end 
-end
-
---[[
-Function: updateOverlayContent
-
-Thie method is called in the turret post update to.
-retrieve all the updated overlay values from the turret
-for this cycle.
-]]
-function Class:updateOverlayContent(all)
-	local src = self:getOutputChannel():getSource()
-	
-	local sname = src:getName()	
-	
-	if self._currentStreamName~=sname or all then
-		self._currentStreamName = sname
-		self._webView:setFields{current_stream=sname}
-	end 
-	
-	local changes = all and self:getTurret():getOverlayFields() or self:getTurret():getUpdatedOverlayFields()
-	
-	-- if sname=="VIC" then
-		-- self:warn("Setting overlay updates:",changes:getTable())
-	-- end
-	
-	--changes:set("overlay_source","EOW")
-	self._webView:setFields(changes:getTable());
 end
 
 function Class:performFullRefresh() 
