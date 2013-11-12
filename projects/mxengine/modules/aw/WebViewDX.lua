@@ -11,7 +11,7 @@ function Class:setTargetSurface(surface)
 		self._isReady = true;
 		-- only register the proxy when the target surface is available as this
 		-- will trigger a paint operation.
-		-- self:registerTurretProxy()
+		self:registerTurretProxy()
 		
 		-- self:showMessage("Loading web page...")
 		-- self:loadURL("http://www.google.fr")
