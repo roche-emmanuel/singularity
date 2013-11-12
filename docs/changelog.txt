@@ -98,6 +98,7 @@
 - Added initial support for joystick in MXEngine.
 - Tested thread for DXWebManager.
 - Firs working implementation for MTOverlay. Still need to provide support for interactions.
+- Enabling setup turret proxy.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
