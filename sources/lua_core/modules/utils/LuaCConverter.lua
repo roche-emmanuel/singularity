@@ -62,7 +62,7 @@ function Class:processFile(file,modName,compiled)
 	
 	if compiled then
 		-- just read the content of the file:
-		local f = io.open(file)
+		local f = io.open(file,"rb")
 		data = f:read("*a")
 		f:close()
 	else

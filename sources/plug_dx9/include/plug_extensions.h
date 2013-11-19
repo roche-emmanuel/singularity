@@ -8,6 +8,9 @@
 ID3DXBuffer* compileShaderFromFile(IDirect3DDevice9* device, const std::string& filename, const std::string& func, const std::string& profile);
 
 /** LUNA_CLASS_EXTENSION */
+ID3DXBuffer* compileShaderFromMemory(IDirect3DDevice9* device, const std::string& src, const std::string& func, const std::string& profile);
+
+/** LUNA_CLASS_EXTENSION */
 IDirect3DVertexShader9* createVertexShader(IDirect3DDevice9* device, ID3DXBuffer* code);
 
 /** LUNA_CLASS_EXTENSION */
@@ -89,6 +92,16 @@ inline IDirect3DTexture9* createTextureFromFile(IDirect3DDevice9* device, const 
 	IDirect3DTexture9* tex = NULL;
 	HRESULT result = D3DXCreateTextureFromFile(device, filename.c_str(), &tex); //,"Cannot read texture file "<<path);
 	CHECK_RESULT_RET(result,NULL,"Could not create texture from file "<<filename)
+
+	return tex;
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline IDirect3DTexture9* createTextureFromMemory(IDirect3DDevice9* device, const std::string& image)
+{
+	IDirect3DTexture9* tex = NULL;
+	HRESULT result = D3DXCreateTextureFromFileInMemory(device,image.data(),image.size(),&tex);
+	CHECK_RESULT_RET(result,NULL,"Could not create texture from memory data. size="<<image.size())
 
 	return tex;
 }

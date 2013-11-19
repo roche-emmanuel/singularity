@@ -1,60 +1,63 @@
-_G.requireLua = _G.require
 
 local sgt = require "core"
 local level = sgt.LogManager.INFO
 local root_dir = sgt_root or root_path
 
-sgt.doLog(level,"Updating require function.")
+if not _G.requireLua then 
+	sgt.doLog(level,"Updating require function.")
+	_G.requireLua = _G.require
 
-local loadModule = function(content,modName)
-	-- sgt.doLog(level,"Found internal content for module ",modName)
-	
-	-- load the module content:
-	local func, msg = loadstring(content,modName)
-	if not func then
-		sgt.doLog(sgt.LogManager.ERROR,"Cannot load content for module ", modName,": ",msg)
-		return
-	end
-	
-	-- the function is loaded properly, now call it:
-	local res = func()
-	-- if not res and not package.loaded[modName] then
-		-- sgt.doLog(sgt.LogManager.ERROR,"No result when loading module "..modName)		
-	-- end
-	
-	package.loaded[modName] = package.loaded[modName] or res or true
-	return package.loaded[modName]
-end
-
-_G.require = function(modName)
-	-- sgt.doLog(level,"Requiring module ",modName)
-	if package.loaded[modName] then
+	local loadModule = function(content,modName)
+		-- sgt.doLog(level,"Found internal content for module ",modName)
+		
+		-- load the module content:
+		local func, msg = loadstring(content,modName)
+		if not func then
+			sgt.doLog(sgt.LogManager.ERROR,"Cannot load content for module ", modName,": ",msg)
+			return
+		end
+		
+		-- the function is loaded properly, now call it:
+		local res = func()
+		-- if not res and not package.loaded[modName] then
+			-- sgt.doLog(sgt.LogManager.ERROR,"No result when loading module "..modName)		
+		-- end
+		
+		package.loaded[modName] = package.loaded[modName] or res or true
 		return package.loaded[modName]
 	end
-	
-	local res;
-	
-	local content = sgt.ModuleManager.instance().getModule(modName)
-	if content=="" then
-		res = _G.requireLua(modName)
-	else
-		res = loadModule(content,modName)		
-	end
-	
-	-- check if we have extensions for this module:
-	--sgt.doLog(level,"Trying to load extensions:  extensions."..modName)
-	local ext = sgt.ModuleManager.instance().getModule("extensions." .. modName)
-	if ext ~= "" then
-		sgt.doLog(level,"Loading extensions for module "..modName)
-		loadModule(ext,"extensions." .. modName)
-	end
-		
-	return res;
-end
 
--- This function can be used to load a package easily:
-_G.requirePackage = function(packName)
-	sgt.ModuleProvider.loadPackage(root_dir .. "bin/" .. flavor .. "/packages/" .. packName .. ".lpak")
+	_G.require = function(modName)
+		-- sgt.doLog(level,"Requiring module ",modName)
+		if package.loaded[modName] then
+			return package.loaded[modName]
+		end
+		
+		local res;
+		
+		local content = sgt.ModuleManager.instance().getModule(modName)
+		if content=="" then
+			res = _G.requireLua(modName)
+		else
+			res = loadModule(content,modName)		
+		end
+		
+		-- check if we have extensions for this module:
+		--sgt.doLog(level,"Trying to load extensions:  extensions."..modName)
+		local ext = sgt.ModuleManager.instance().getModule("extensions." .. modName)
+		if ext ~= "" then
+			sgt.doLog(level,"Loading extensions for module "..modName)
+			loadModule(ext,"extensions." .. modName)
+		end
+			
+		return res;
+	end
+
+	-- This function can be used to load a package easily:
+	_G.requirePackage = function(packName,path)
+		path = path or root_dir .. "bin/" .. flavor .. "/packages/"
+		sgt.ModuleProvider.loadPackage(path .. packName .. ".lpak")
+	end	
 end
 
 -- function used to add a search path for lua module:
@@ -88,9 +91,9 @@ sgt.LogManager.instance():setVerbose(config.log_verbose)
 sgt.LogManager.instance():setDefaultLevelFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 sgt.LogManager.instance():setDefaultTraceFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 
-
 sgt.doLog(level,"Loading external package...")
-requirePackage "externals"
+
+requirePackage("externals",sgt_root.. "bin/win32/packages/")
 
 require "luna"
 

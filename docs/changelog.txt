@@ -96,6 +96,7 @@
 - Removed obsolete lane_orig plugin.
 - Tested threaded awDX copy.
 - Added initial support for joystick in MXEngine.
+- minor changes for MXEngine.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

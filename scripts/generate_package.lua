@@ -19,9 +19,10 @@ local fs = require "base.FileSystem"
 -- check if we have a specific generation command in the parent folder:
 if fs:exists(src_path.."../generate.lua") then
 	dofile(src_path.."../generate.lua")
+else
+	require("utils.LuaCConverter"){src_folder=src_path,package=project}
 end
 
-require("utils.LuaCConverter"){src_folder=src_path,package=project}
 
 collectgarbage('collect')
 
