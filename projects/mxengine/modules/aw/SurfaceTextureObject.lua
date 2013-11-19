@@ -35,7 +35,8 @@ function Class:initialize()
 			end 
 		end}
 		
-		self:getEventManager():addListener{event=Event.APP_CLOSING,func=function()
+		local eman = require "base.EventManager"
+		eman:addListener{event=Event.APP_CLOSING,func=function()
 			if self._thread then
 				self._thread:cancel()
 				self._thread = nil; -- ensure that the thread will not be started again by a post call to doCreate.

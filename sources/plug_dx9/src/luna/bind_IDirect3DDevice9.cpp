@@ -805,6 +805,16 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_compileShaderFromMemory(lua_State *L) {
+		if( lua_gettop(L)!=4 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		if( lua_type(L,3)!=LUA_TSTRING ) return false;
+		if( lua_type(L,4)!=LUA_TSTRING ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_createVertexShader(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
@@ -856,6 +866,14 @@ public:
 	}
 
 	inline static bool _lg_typecheck_createTextureFromFile(lua_State *L) {
+		if( lua_gettop(L)!=2 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( lua_type(L,2)!=LUA_TSTRING ) return false;
+		return true;
+	}
+
+	inline static bool _lg_typecheck_createTextureFromMemory(lua_State *L) {
 		if( lua_gettop(L)!=2 ) return false;
 
 		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
@@ -2712,6 +2730,25 @@ public:
 		return 1;
 	}
 
+	// ID3DXBuffer * IDirect3DDevice9::compileShaderFromMemory(IDirect3DDevice9 * device, const std::string & src, const std::string & func, const std::string & profile)
+	static int _bind_compileShaderFromMemory(lua_State *L) {
+		if (!_lg_typecheck_compileShaderFromMemory(L)) {
+			luaL_error(L, "luna typecheck failed in ID3DXBuffer * IDirect3DDevice9::compileShaderFromMemory(IDirect3DDevice9 * device, const std::string & src, const std::string & func, const std::string & profile) function, expected prototype:\nID3DXBuffer * IDirect3DDevice9::compileShaderFromMemory(IDirect3DDevice9 * device, const std::string & src, const std::string & func, const std::string & profile)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* device=(Luna< IDirect3DDevice9 >::check(L,1));
+		std::string src(lua_tostring(L,2),lua_objlen(L,2));
+		std::string func(lua_tostring(L,3),lua_objlen(L,3));
+		std::string profile(lua_tostring(L,4),lua_objlen(L,4));
+
+		ID3DXBuffer * lret = compileShaderFromMemory(device, src, func, profile);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< ID3DXBuffer >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// IDirect3DVertexShader9 * IDirect3DDevice9::createVertexShader(IDirect3DDevice9 * device, ID3DXBuffer * code)
 	static int _bind_createVertexShader(lua_State *L) {
 		if (!_lg_typecheck_createVertexShader(L)) {
@@ -2839,6 +2876,23 @@ public:
 		std::string filename(lua_tostring(L,2),lua_objlen(L,2));
 
 		IDirect3DTexture9 * lret = createTextureFromFile(device, filename);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< IDirect3DTexture9 >::push(L,lret,false);
+
+		return 1;
+	}
+
+	// IDirect3DTexture9 * IDirect3DDevice9::createTextureFromMemory(IDirect3DDevice9 * device, const std::string & image)
+	static int _bind_createTextureFromMemory(lua_State *L) {
+		if (!_lg_typecheck_createTextureFromMemory(L)) {
+			luaL_error(L, "luna typecheck failed in IDirect3DTexture9 * IDirect3DDevice9::createTextureFromMemory(IDirect3DDevice9 * device, const std::string & image) function, expected prototype:\nIDirect3DTexture9 * IDirect3DDevice9::createTextureFromMemory(IDirect3DDevice9 * device, const std::string & image)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		IDirect3DDevice9* device=(Luna< IDirect3DDevice9 >::check(L,1));
+		std::string image(lua_tostring(L,2),lua_objlen(L,2));
+
+		IDirect3DTexture9 * lret = createTextureFromMemory(device, image);
 		if(!lret) return 0; // Do not write NULL pointers.
 
 		Luna< IDirect3DTexture9 >::push(L,lret,false);
@@ -3257,12 +3311,14 @@ luna_RegType LunaTraits< IDirect3DDevice9 >::methods[] = {
 	{"DrawTriPatch", &luna_wrapper_IDirect3DDevice9::_bind_DrawTriPatch},
 	{"DeletePatch", &luna_wrapper_IDirect3DDevice9::_bind_DeletePatch},
 	{"compileShaderFromFile", &luna_wrapper_IDirect3DDevice9::_bind_compileShaderFromFile},
+	{"compileShaderFromMemory", &luna_wrapper_IDirect3DDevice9::_bind_compileShaderFromMemory},
 	{"createVertexShader", &luna_wrapper_IDirect3DDevice9::_bind_createVertexShader},
 	{"createPixelShader", &luna_wrapper_IDirect3DDevice9::_bind_createPixelShader},
 	{"createVec3Declaration", &luna_wrapper_IDirect3DDevice9::_bind_createVec3Declaration},
 	{"createVec4Declaration", &luna_wrapper_IDirect3DDevice9::_bind_createVec4Declaration},
 	{"createVertexBuffer", &luna_wrapper_IDirect3DDevice9::_bind_createVertexBuffer},
 	{"createTextureFromFile", &luna_wrapper_IDirect3DDevice9::_bind_createTextureFromFile},
+	{"createTextureFromMemory", &luna_wrapper_IDirect3DDevice9::_bind_createTextureFromMemory},
 	{"createTexture", &luna_wrapper_IDirect3DDevice9::_bind_createTexture},
 	{"createDepthSurface", &luna_wrapper_IDirect3DDevice9::_bind_createDepthSurface},
 	{"updateTexture", &luna_wrapper_IDirect3DDevice9::_bind_updateTexture},

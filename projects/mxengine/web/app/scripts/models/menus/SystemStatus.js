@@ -5,7 +5,7 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 		setupMenu: function() {
 			MenuBase.prototype.setupMenu.apply(this, arguments);
 			
-			log.info("Calling SystemStatus.setupMenu()");
+			// log.info("Calling SystemStatus.setupMenu()");
 			this._name = "menu"
 			this.setFrameSize(45,1);
 		},

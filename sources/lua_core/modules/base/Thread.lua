@@ -10,6 +10,7 @@ loaders.high_level = function(data)
 	_G.flavor = data.flavor
 	_G.root_path = data.root_path
 	
+	
 	local sgt = require "core"
 	local modName = "StartModule"
 	local content = sgt.ModuleManager.instance().getModule(modName);

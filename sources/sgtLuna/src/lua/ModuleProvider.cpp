@@ -13,7 +13,10 @@ bool ModuleProvider::hasModule(const std::string& moduleName) {
 }
 
 bool ModuleProvider::registerModule(const std::string& moduleName, const std::string& data) {
-	CHECK_RET(!hasModule(moduleName),false,"The module named " << moduleName << " was already registered.")
+	// CHECK_RET(!hasModule(moduleName),false,"The module named " << moduleName << " was already registered.")
+	if (hasModule(moduleName)) {
+		logWARN("Overriding content for module " << moduleName << ".");
+	}
 	
 	ModuleProvider& prov = sgtModuleManager::instance();
 	prov._modules[moduleName]=data;

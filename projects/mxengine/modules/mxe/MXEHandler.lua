@@ -37,6 +37,8 @@ end
 
 function Class:onLoad()
 	
+	-- core2.showMessageBox("Calling onLoad for MXEngine.","Loading")
+	
 	local loader = function()
 		self:info("Now loading...")
 

@@ -71,7 +71,8 @@ function Class:initialize(options)
 	end}	
 	
 
-	self:getEventManager():addListener{Event.APP_CLOSING,function()
+	local eman = require "base.EventManager"
+	eman:addListener{Event.APP_CLOSING,function()
 		self._webView:releaseWebView()
 	end,front=true}	
 	

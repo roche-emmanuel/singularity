@@ -1,5 +1,8 @@
 local vlog = require "logger"
 
+
+--core2.showMessageBox("Starting MXEngine extension...","Loading")
+
 vlog:notice "Starting MXEngine extension..."
 
 sgt_root="W:/Cloud/Projects/singularity/software/"
@@ -22,8 +25,10 @@ local setupPackagePaths = function()
 end
 
 local setupLogManager = function(file)
+	--core2.showMessageBox("requiring core","Loading")
 	require "core"
 	--require "extensions.core"
+	--core2.showMessageBox("getting log manager","Loading")
 
 	local lman = sgt.LogManager.instance()
 	
@@ -42,9 +47,13 @@ local setupLogManager = function(file)
 	-- lman:addSink(sgt.StdLogger());
 end
 
+--core2.showMessageBox("Enumerating packages","Loading")
+
 for k,v in pairs(package.loaded) do
 	vlog:info("Already loaded package: ", k)
 end
+
+--core2.showMessageBox("requiring base.object","Loading")
 
 local mxObj = require "base.Object"
 
@@ -66,13 +75,27 @@ local toYPR = osg.Quat.toYPR
 -- local toLLA = osg.Vec3d.toLLA
 -- local toUTM = osg.Vec3d.toUTM
 
+--core2.showMessageBox("Setting up package paths","Loading")
+
 setupPackagePaths()
+
+--core2.showMessageBox("Setting up logger","Loading")
+
 setupLogManager("mxengine.log")
 
-sgt.ModuleProvider.loadPackage(sgt_root.. "bin/win32/packages/core.lpak");
+--core2.showMessageBox("Loading core pak","Loading")
+
+requirePackage("core",sgt_root.. "bin/win32/packages/")
+
+-- sgt.ModuleProvider.loadPackage(sgt_root.. "bin/win32/packages/core.lpak");
+
+--core2.showMessageBox("Retrieving start module","Loading")
 
 local startModule = sgt.ModuleProvider.getModule("StartModule");
 local func = loadstring(startModule,"startModule")
+
+--core2.showMessageBox("Executing start module","Loading")
+
 local res, err = pcall(func)
 if not res then
 	error("Executing start module failed with error: "..err)
@@ -96,7 +119,9 @@ end
 addLuaPath(mxe_root.."?.lua")
 
 -- reload the extensions from MX project:
+--core2.showMessageBox("loading osg module","Loading")
 require "osg"
+--core2.showMessageBox("loading extensions module","Loading")
 package.loaded["extensions"] = nil
 require "extensions"
 
@@ -113,7 +138,7 @@ local loader = function()
 	
 	require "mxe.MXEHandler"
 	vlog:info "MXEngine extension started."
-	log:info("This message should be in the mxengine.log file.")
+	vlog:info("This message should be in the mxengine.log file.")
 	
 	require "wx"
 	
@@ -121,7 +146,11 @@ local loader = function()
 	im:addImagePath(mxe_assets.."images/")
 end
 
+--core2.showMessageBox("Calling loader","Loading")
+
 local res, err = pcall(loader)
 if not res then
 	vlog:error("Loading MXEHandler failed with error: "..err)
 end
+
+--core2.showMessageBox("MXEngine extension started.","Loading")

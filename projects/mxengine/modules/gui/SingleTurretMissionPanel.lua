@@ -34,7 +34,7 @@ end
 
 function Class:buildComponent(intf)
 	-- first retrieve the list of turret/output/network/platform models
-	local prefix = root_path .. "/lua/modules/vbsng/models/"
+	local prefix = root_path .. "/../modules/mxcore/models/"
 
 	local turretList = self:findModels(prefix .."turret/")
 	self:findModels(mxe_root .. "models/turret/",turretList)

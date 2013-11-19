@@ -21,7 +21,7 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 		},
 		
 		setupMenu: function() {
-			log.info("Calling BaseMenu.setupMenu()");
+			// log.info("Calling BaseMenu.setupMenu()");
 		},
 		
 		setFrameBorders: function(borders) {
@@ -207,7 +207,7 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 				}
 				
 				y = hh - y - height;
-				log.info("using bottom y of: "+y)
+				// log.info("using bottom y of: "+y)
 			}
 			else if(ref=="frame") {
 				// We need to offset the position by the frame origin and border:

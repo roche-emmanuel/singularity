@@ -4,7 +4,7 @@ define(["log","jquery","backbone","base/Tools","models/MenuBase"],function(log,$
 		
 		setupMenu: function() {
 			MenuBase.prototype.setupMenu.apply(this, arguments);
-			log.info("Calling Level1Menu.setupMenu()");
+			// log.info("Calling Level1Menu.setupMenu()");
 			
 			this.setFrameBorders({top: 4})
 			this._level = 1
