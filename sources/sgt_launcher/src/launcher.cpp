@@ -228,6 +228,9 @@ int main(int argc, char *argv[]) {
 
 		luaL_openlibs(L);
 
+		// open lanes:
+		openLanes(L);
+		
 		// Setup the package paths:
 		if(!setupLuaEnv(L,path)) {
 			logERROR("Could not setup lua environment.");

@@ -16,15 +16,12 @@ function Class:initialize(options)
 
 	self._timers = Set();
 	
-	local apr = require "apr"
-	
 	evtman:addListener{event=Event.APP_CLOSING,object=self}
 	
 	self:addTimer{frequency=config.master_framerate,callback=function(event) 
 		--self:info("Handing frame timer event...");
 		prof:start("Frame event")
 		evtman:fireEvent(Event.FRAME) 
-		--apr.sleep(0.2);
 		--wx.wxGetApp():Yield(); -- useless ?
 		
 		prof:start("garbage step")

@@ -9,7 +9,7 @@ local oo = require "loop.cached"
 
 local log = require "tracer"
 
-if not config or config.use_stack_plus then
+if config and config.use_stack_plus then
 	local STP = require "StackTracePlus"
 	debug.traceback = STP.stacktrace
 end

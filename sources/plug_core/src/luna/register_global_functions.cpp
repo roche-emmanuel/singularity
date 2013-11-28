@@ -1,5 +1,6 @@
 #include <plug_common.h>
 
+#include <lunaCommon.h>
 #include <plug_extensions.h>
 #include <osg/Referenced>
 
@@ -35,6 +36,12 @@ inline static bool _lg_typecheck_doTraceV(lua_State *L) {
 	if( (lua_type(L,1)!=LUA_TNUMBER || lua_tointeger(L,1) != lua_tonumber(L,1)) ) return false;
 	if( lua_type(L,2)!=LUA_TSTRING ) return false;
 	if( lua_type(L,3)!=LUA_TSTRING ) return false;
+	return true;
+}
+
+inline static bool _lg_typecheck_openLanes(lua_State *L) {
+	if( lua_gettop(L)!=0 ) return false;
+
 	return true;
 }
 
@@ -152,6 +159,18 @@ static int _bind_doTraceV(lua_State *L) {
 	std::string msg(lua_tostring(L,3),lua_objlen(L,3));
 
 	::doTraceV(level, trace, msg);
+
+	return 0;
+}
+
+// void openLanes(lua_State * L)
+static int _bind_openLanes(lua_State *L) {
+	if (!_lg_typecheck_openLanes(L)) {
+		luaL_error(L, "luna typecheck failed in void openLanes(lua_State * L) function, expected prototype:\nvoid openLanes(lua_State * L)\nClass arguments details:\n\n%s",luna_dumpStack(L).c_str());
+	}
+
+
+	::openLanes(L);
 
 	return 0;
 }
@@ -873,6 +892,7 @@ void register_global_functions(lua_State* L) {
 	lua_pushcfunction(L, _bind_doLogV); lua_setfield(L,-2,"doLogV");
 	lua_pushcfunction(L, _bind_doTrace); lua_setfield(L,-2,"doTrace");
 	lua_pushcfunction(L, _bind_doTraceV); lua_setfield(L,-2,"doTraceV");
+	lua_pushcfunction(L, _bind_openLanes); lua_setfield(L,-2,"openLanes");
 	lua_pushcfunction(L, _bind_getLuaID); lua_setfield(L,-2,"getLuaID");
 	lua_pushcfunction(L, _bind_setEnv); lua_setfield(L,-2,"setEnv");
 	lua_pushcfunction(L, _bind_fromLightUserdata); lua_setfield(L,-2,"fromLightUserdata");
