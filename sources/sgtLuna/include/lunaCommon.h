@@ -74,7 +74,7 @@ typedef OpenThreads::ScopedLock<sgtMutex> sgtLock;
 // Removes only if predicate returns true:
 #define REMOVE_IF(cont,pred) cont.erase(std::remove_if(cont.begin(), cont.end(), pred), cont.end());
 
-#define DEBUG_MSG(msg) MessageBox(NULL,std::string(msg).c_str(),"Debug message",MB_OK);
+#define DEBUG_MSG(msg) { std::ostringstream os; os << msg; MessageBox(NULL,os.str().c_str(),"Debug message",MB_OK);
 
 // Debugging macros:
 #define THROW_IF(cond,msg) if(cond) { std::ostringstream os; os << msg; logERROR("Throwing exception: " << msg); throw sgtException(os.str()); }
@@ -99,5 +99,13 @@ typedef OpenThreads::ScopedLock<sgtMutex> sgtLock;
 		logERROR("Unknown exception " << msg << "."); \
 	}
 
+typedef int (* EnvInit_t)(lua_State* L);
+
+extern "C" {
+
+SGTLUNA_EXPORT void openLanes(lua_State* L);
+SGTLUNA_EXPORT void setLuaEnvInitFunction(EnvInit_t func);
+
+}
 
 #endif

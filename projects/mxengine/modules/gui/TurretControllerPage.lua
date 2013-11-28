@@ -23,22 +23,26 @@ function Class:buildComponent(intf)
 	-- intf:addSingleChoiceEntry{name="controlled_turret",prop=1,caption="Current turret",choices={""}}
 	-- intf:addDoubleEntry{name="my_double",caption="My double"}
 	intf:pushSizerH{prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
-		require "gui.SteeringPanel" {intf};
+		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
+			require "gui.SteeringPanel" {intf};
+			require "gui.PlatformPanel" {intf};
+		end}
 		
 		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
 			require "gui.VICPanel" {intf};			
 			require "gui.MenuPanel" {intf};
+			require "gui.TurretDebugPanel" {intf};
 		end}
 		
-		require "gui.SensorBookPanel" {intf};
+		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
+			require "gui.SensorBookPanel" {intf};
+			require "gui.IlluminatorPanel" {intf};
+		end}
 		
 		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
 			require "gui.ConfigPanel" {intf};			
-			require "gui.PlatformPanel" {intf};
 		end}		
 	end}
-
-	require "gui.TurretDebugPanel" {intf};
 	
 	-- self._grid = intf:addGrid{prop=1,flags=wx.wxALL+wx.wxEXPAND}
 	

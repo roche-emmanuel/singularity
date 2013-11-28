@@ -91,26 +91,40 @@ sgt.LogManager.instance():setVerbose(config.log_verbose)
 sgt.LogManager.instance():setDefaultLevelFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 sgt.LogManager.instance():setDefaultTraceFlags(sgt.LogManager.TIME_STAMP+sgt.LogManager.THREAD_ID)
 
-sgt.doLog(level,"Loading external package...")
 
-requirePackage("externals",sgt_root.. "bin/win32/packages/")
+sgt.doLog(level,"Loading external package...")
+requirePackage("externals",root_dir .. "bin/win32/packages/")
 
 require "luna"
 
 local v = require "version"
 sgt.doLog(level,("Starting Singularity v%d.%d.%d build %d - %s"):format(v.major,v.minor,v.patch,v.build,v.date));
 
+-- core2.showMessageBox("loading extensions","Loading")
 require "extensions.core" -- this one should be loaded manually.
 
+-- core2.showMessageBox("loading utils.buildclass","Loading")
 require "utils.buildclass" -- load the new class builder system.
 
+-- core2.showMessageBox("loading logger","Loading")
 _G.log = require "logger"
 
+-- core2.showMessageBox("loading filesystem","Loading")
 _G.fs = require "base.FileSystem"
 
+require "osg" -- osg will be loaded by the profiler anyway.
+
+-- core2.showMessageBox("loading profiler","Loading")
 _G.profiler = require "debugging.Profiler"
 
+-- core2.showMessageBox("loading lpeg","Loading")
+local lpeg = require "lpeg"
+
+-- core2.showMessageBox("loading utils","Loading")
+
 _G.utils = require "utils"
+
+-- core2.showMessageBox("Creating start module class","Loading")
 
 sgt.doLog(level,"Creating StartModule class.")
 local Class = require("classBuilder"){name="StartModule",bases="base.Object"};
@@ -119,4 +133,6 @@ function Class:initialize(options)
 	self:debug2("Initializing start module.")
 end
 
+-- core2.showMessageBox("returning start module class","Loading")
 return Class()
+

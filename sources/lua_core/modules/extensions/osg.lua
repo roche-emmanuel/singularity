@@ -43,6 +43,11 @@ osg.Vec4f.__tostring = function(self)
 	return "("..self:x()..", "..self:y()..", "..self:z()..", "..self:w()..")"
 end
 
+-- component wise multiplication:
+function osg.Vec4f.mult(self,x,y,z,w)
+	return osg.Vec4f(self:x()*(x or 1.0),self:y()*(y or 1.0), self:z()*(z or 1.0), self:w()*(w or 1.0))
+end
+
 osg.Vec4f.toColour = function(self)
 	local wx = require "wx"
 	
@@ -251,3 +256,35 @@ __luna.copyAllParents(osgParticle);
 -- local elapsed = osg.Timer.instance():delta_s(tick, osg.Timer.instance():tick())
 
 -- log:info("OSG parents updated in ", elapsed, " secs.")
+
+function osg.Quat.__tostring(self)
+	return "("..self:x()..", "..self:y()..", "..self:z()..", "..self:w()..")"
+end
+
+function osg.Quat.fromVectors(forward,up)
+	forward:normalize()
+	local left = up:cross(forward)
+
+	if left:length() < 0.000001 then
+		log:error("Quat","Cannot compute quaternion from forward=",forward," and up=",up)
+		return osg.Quat(); -- return dummy attitude.
+	end
+	
+	-- now perform the actual attitude computation:
+	left:normalize()
+	
+	up = forward:cross(left)
+	up:normalize()
+	
+	local mat = osg.Matrixd(forward:x(),forward:y(),forward:z(),0.0,
+							left:x(),left:y(),left:z(),0.0,
+							up:x(),up:y(),up:z(),0.0,
+							0.0,0.0,0.0,1.0)
+							
+	-- return the attitude:
+	return mat:getRotate()
+end
+
+function osg.Vec2f.__tostring(self)
+	return "("..self:x()..", "..self:y()..")"
+end

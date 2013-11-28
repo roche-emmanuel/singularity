@@ -9,6 +9,16 @@ function Class:buildComponent(intf,options)
 							handler="updateAutoExposure", validItemOnly=true}
 		intf:addIntegerEntry{name="destabilization_amplitude",caption="Destabilization", unit=" mrads",range={0,30.0}, 
 							handler="updateDestabilization", validItemOnly=true}
+		intf:pushSizerV{text="Long Pass shader",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+			intf:addDoubleEntry{name="lp_target_wl",caption="Target wavelength", range={700.0,2000.0}, 
+								handler="updateLPTargetWavelength", validItemOnly=true}
+			intf:addDoubleEntry{name="lp_scale",caption="Scale", range={0.0,20.0}, 
+								handler="updateLPScale", validItemOnly=true}
+			intf:addDoubleEntry{name="lp_offset",caption="Offset", range={0.0,10.0}, 
+								handler="updateLPOffset", validItemOnly=true}
+			intf:addDoubleEntry{name="lp_power",caption="Power", range={0.0,10.0}, 
+								handler="updateLPPower", validItemOnly=true}
+		end}
 		intf:pushSizerH{text="Temporal processing",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
 			intf:pushSizerV{text="ON",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
 				intf:addDoubleEntry{name="temporal_range_on",caption="Input range", range={0.0,0.5}, 
@@ -54,6 +64,47 @@ function Class:onInitTurretMap(dmap,turret)
 	dmap:set("spatial_scale_on",turret:getConfig():fetch("Filters.SpatialProcessing.noise_scale")[Enums.ON])
 	dmap:set("spatial_range_off",turret:getConfig():fetch("Filters.SpatialProcessing.input_range")[Enums.OFF])
 	dmap:set("spatial_scale_off",turret:getConfig():fetch("Filters.SpatialProcessing.noise_scale")[Enums.OFF])
+	
+	dmap:set("lp_target_wl",turret:getConfig():fetch("Filters.LongPass.target_wavelength"))
+	dmap:set("lp_scale",turret:getConfig():fetch("Filters.LongPass.scale"))
+	dmap:set("lp_offset",turret:getConfig():fetch("Filters.LongPass.offset"))
+	dmap:set("lp_power",turret:getConfig():fetch("Filters.LongPass.power"))
+end
+
+function Class:updateLPTargetWavelength(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	turret:foreachComponent("display.effects.LongPass",function(fx)
+		fx:getProgram():setTargetWavelength(data.value)
+	end)
+end
+
+function Class:updateLPScale(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	turret:foreachComponent("display.effects.LongPass",function(fx)
+		fx:getProgram():setScale(data.value)
+	end)
+end
+
+function Class:updateLPOffset(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	turret:foreachComponent("display.effects.LongPass",function(fx)
+		fx:getProgram():setOffset(data.value)
+	end)
+end
+
+function Class:updateLPPower(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	turret:foreachComponent("display.effects.LongPass",function(fx)
+		fx:getProgram():setPower(data.value)
+	end)
 end
 
 function Class:updateTemporalInputRange(data)

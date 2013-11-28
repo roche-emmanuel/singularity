@@ -1,14 +1,23 @@
 local Class = require("classBuilder"){name="Thread",bases="base.Object"};
 
 local loaders = {}
-local apr = require "apr"
 
-local lanes = require "lanes"
-lanes.configure({protect_allocator=true, with_timers=false})
+-- local lanes = require "lanes"
+if lanes.configure then
+	lanes.configure({protect_allocator=true, with_timers=false})
+end
+
+-- local local_env = _G.environment 
 
 loaders.high_level = function(data) 
 	_G.flavor = data.flavor
 	_G.root_path = data.root_path
+	
+	_G.environment = data.env
+	if data.env then
+		-- initialize the lua environment for this thread.
+		data.env:init()
+	end
 	
 	
 	local sgt = require "core"
@@ -47,6 +56,14 @@ end
 
 loaders.low_level = function(data)
 	-- log:info("Starting thread ", data.threadName,"...")
+	_G.environment = data.env
+	_G.flavor = data.flavor
+	_G.root_path = data.root_path
+	
+	if data.env then
+		-- initialize the lua environment for this thread.
+		data.env:init()
+	end
 	
 	-- local res = #data.args >0 and data.threadFunc(wrapper,unpack(data.args)) or data.threadFunc(wrapper)
 	local res = data.threadFunc(unpack(data.args))
@@ -85,6 +102,12 @@ function Class:__call(...)
 	self:check(self._lane,"Invalid lane");
 	self:check(not self._handle,"Thread already started.")
 	
+	if not _G.environment then
+		self:notice("Creating Lua state environment...")
+		_G.environment = createEnv()
+		_G.environment:init()
+	end
+	
 	local data = {}
 	data.root_path = sgt_root or root_path
 	data.flavor = flavor
@@ -92,6 +115,9 @@ function Class:__call(...)
 	data.threadFunc = self._func
 	data.linda = self._linda
 	data.args = {...}
+	data.env = _G.environment
+	
+	self:check(data.env,"Invalid environment for thread creation.")
 	
 	local tman = require "base.ThreadManager"
 	tman:registerThread(self)

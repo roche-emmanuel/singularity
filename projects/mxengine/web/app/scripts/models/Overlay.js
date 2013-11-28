@@ -9,8 +9,11 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 	"models/AzScale",
 	"models/ElevScale",
 	"models/reticles/Standard",
-	"models/reticles/MalteseCross"
-],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle) {
+	"models/reticles/MalteseCross",
+	"models/reticles/Illuminator1",
+	"models/reticles/Illuminator2"
+],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,
+	ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle,Illum1Ret,Illum2Ret) {
 	
 	var con = new Controller;
 	
@@ -74,6 +77,8 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._elevScale = new ElevScale()
 			this._reticles.push(new StdReticle())
 			this._reticles.push(new MalteseReticle())
+			this._reticles.push(new Illum1Ret())
+			this._reticles.push(new Illum2Ret())
 			
 			tools.showElement("#reticle_standard",false)
 			$("#picto_group").addClass("hidden")

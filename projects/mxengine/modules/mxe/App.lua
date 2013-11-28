@@ -33,10 +33,11 @@ function Class:initialize(options)
     
 	self._destroying = false;
 	
+	local eman = require "base.EventManager"
     self._frame:connect(wx.wxID_ANY,wx.wxEVT_CLOSE_WINDOW,function(event)
 		if not self._destroying then
 			self._destroying = true
-			self:getEventManager():fireEvent(Event.APP_CLOSING)
+			eman:fireEvent(Event.APP_CLOSING)
 			self:debug("Exiting...");
 			self._frame:Destroy();
 			fh:exitVBS()		

@@ -7,7 +7,8 @@ local Event = require "base.Event"
 function Class:initialize(options)
 	self._threads = Set();
 	
-	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+	local eman = require "base.EventManager"
+	eman:addListener{event=Event.APP_CLOSING,object=self}
 end
 
 function Class:registerThread(thread)

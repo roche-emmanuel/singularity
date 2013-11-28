@@ -89,21 +89,23 @@ requirePackage("core",sgt_root.. "bin/win32/packages/")
 
 -- sgt.ModuleProvider.loadPackage(sgt_root.. "bin/win32/packages/core.lpak");
 
---core2.showMessageBox("Retrieving start module","Loading")
+-- core2.showMessageBox("Retrieving start module","Loading")
 
 local startModule = sgt.ModuleProvider.getModule("StartModule");
 local func = loadstring(startModule,"startModule")
 
---core2.showMessageBox("Executing start module","Loading")
+-- core2.showMessageBox("Executing start module","Loading")
 
 local res, err = pcall(func)
 if not res then
 	error("Executing start module failed with error: "..err)
 end
 
+-- core2.showMessageBox("retrieving base.Object","Loading")
+
 local realObj = require "base.Object"
 
--- package.loaded["base.Object"] = mxObj
+package.loaded["base.Object"] = mxObj
 
 -- force integrating the MX base object functions into our base Object:
 local oo = require "loop.cached"
@@ -116,12 +118,17 @@ for k,v in oo.allmembers(mxObj) do
 	end
 end
 
+for k,v in oo.allmembers(realObj) do
+	if not mxObj[k] then
+		log:info("Copying (real) base.Object member '",k,"'")
+		mxObj[k] = v
+	end
+end
+
 addLuaPath(mxe_root.."?.lua")
 
 -- reload the extensions from MX project:
---core2.showMessageBox("loading osg module","Loading")
-require "osg"
---core2.showMessageBox("loading extensions module","Loading")
+-- core2.showMessageBox("loading extensions module","Loading")
 package.loaded["extensions"] = nil
 require "extensions"
 
@@ -135,6 +142,10 @@ osg.Quat.toYPR = toYPR
 
 local loader = function()
 	local res = osg.Vec4f(1.0,0.0,1.0,0.5):toDXColor()
+	
+	-- core2.showMessageBox("loading sdl module","Loading")
+	-- require "sdl"
+	-- core2.showMessageBox("Done loading sdl module","Loading")
 	
 	require "mxe.MXEHandler"
 	vlog:info "MXEngine extension started."

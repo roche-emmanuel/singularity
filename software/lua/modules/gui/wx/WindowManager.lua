@@ -11,7 +11,8 @@ function Class:initialize(options)
 	self._interfaces = Set();
 	self._lastID = wx.wxID_HIGHEST+100
 	
-	self:getEventManager():addListener{event=Event.APP_CLOSING,object=self}
+	local eman = require "base.EventManager"
+	eman:addListener{event=Event.APP_CLOSING,object=self}
 end
 
 function Class:onAppClosing()

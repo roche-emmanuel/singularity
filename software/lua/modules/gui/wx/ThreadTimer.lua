@@ -59,13 +59,10 @@ function Class:initialize(options)
 		log:info("Starting timer loop with interval=",interval,", timerID=",id)
 		--log:info("Handler name=",handler:GetName())
 		
-		-- local apr = require "apr"
-		
 		while true do
 			-- sgt.doLog(sgt.LogManager.INFO,"Performing timer cycle "..count)
 			-- log:info("Performing timer cycle "..count)
 			local key,v= linda:wait( interval)
-			-- apr.sleep(interval);
 			
 			-- log:info("Creating new event...")
 			local event = wx.wxCommandEvent:new(sgtEVT_THREAD_TIMER,id);

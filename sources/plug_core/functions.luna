@@ -3,6 +3,7 @@ doLog
 doLogV
 doTrace
 doTraceV
+openLanes
 getLuaID
 setEnv
 fromLightUserdata
