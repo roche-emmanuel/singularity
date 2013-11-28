@@ -29,9 +29,8 @@ define(["log","jquery","backbone","base/Tools"],function(log,$,Backbone,tools) {
 			cont.css({position: "absolute"});
 			
 			this._cont = cont;
-			this._paper = tools.createRaphaelPaper(cont);
-			
 			this.setPosition(0.5,0.5)
+			this._paper = tools.createRaphaelPaper(cont);
 			this.setSize(10/1280,10/720);
 		},
 		
@@ -51,7 +50,7 @@ define(["log","jquery","backbone","base/Tools"],function(log,$,Backbone,tools) {
 			var yy = this._y*wsize.y;
 			var size = this._size
 			
-			tools.setPosition(cont,(xx - size/2)/bsize.x,(yy - size/2)/bsize.y, size/bsize.x,size/bsize.y);
+			tools.setPosition(this._cont,(xx - size/2)/bsize.x,(yy - size/2)/bsize.y, size/bsize.x,size/bsize.y);
 		},
 		
 		setSize: function(ww,hh) {

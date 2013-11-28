@@ -9,6 +9,8 @@ function Class:buildComponent(intf,options)
 							handler="updateAutoExposure", validItemOnly=true}
 		intf:addIntegerEntry{name="destabilization_amplitude",caption="Destabilization", unit=" mrads",range={0,30.0}, 
 							handler="updateDestabilization", validItemOnly=true}
+		intf:addDoubleEntry{name="illum_power_ratio",caption="Illum. power ratio",range={0,5.0}, 
+							handler="updateIllumPowerRatio", validItemOnly=true}							
 		intf:pushSizerV{text="Long Pass shader",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
 			intf:addDoubleEntry{name="lp_target_wl",caption="Target wavelength", range={700.0,2000.0}, 
 								handler="updateLPTargetWavelength", validItemOnly=true}
@@ -54,6 +56,7 @@ end
 function Class:onInitTurretMap(dmap,turret)
 	dmap:set("camera_auto_exposure",turret:getConfig():fetch("Camera.auto_exposure"))
 	dmap:set("destabilization_amplitude",turret:getConfig():get("Destabilization.amplitude",0))
+	dmap:set("illum_power_ratio",turret:getConfig():get("Illuminator.power_ratio",0))
 	
 	dmap:set("temporal_range_on",turret:getConfig():fetch("Filters.TemporalProcessing.input_range")[Enums.ON])
 	dmap:set("temporal_scale_on",turret:getConfig():fetch("Filters.TemporalProcessing.noise_scale")[Enums.ON])
@@ -156,6 +159,18 @@ function Class:updateAutoExposure(data)
 	
 	turret:foreachCamera(function(cam)
 		cam:updateExposure()
+	end)
+end
+
+function Class:updateIllumPowerRatio(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	-- self:info("Setting Camera auto exposure to:", data.value)
+	turret:getConfig():set("Illuminator.power_ratio",data.value)
+	
+	turret:foreachIlluminator(function(illum)
+		turret:fireEvent(turret.EVT_ILLUMINATOR_UPDATED,illum)
 	end)
 end
 
