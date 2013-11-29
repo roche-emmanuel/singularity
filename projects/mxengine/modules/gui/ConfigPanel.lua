@@ -5,12 +5,20 @@ local Enums = require "mx.Enums"
 function Class:buildComponent(intf,options)
 	
 	intf:pushSizerV{text="Config",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+		intf:addDoubleEntry{name="frustum_near",caption="Frustum near", range={0.0001,1.0}, 
+							handler="updateFrustumNear", validItemOnly=true}
 		intf:addDoubleEntry{name="camera_auto_exposure",caption="Auto exposure", range={0.1,5.0}, 
 							handler="updateAutoExposure", validItemOnly=true}
 		intf:addIntegerEntry{name="destabilization_amplitude",caption="Destabilization", unit=" mrads",range={0,30.0}, 
 							handler="updateDestabilization", validItemOnly=true}
-		intf:addDoubleEntry{name="illum_power_ratio",caption="Illum. power ratio",range={0,5.0}, 
-							handler="updateIllumPowerRatio", validItemOnly=true}							
+		intf:pushSizerV{text="Illuminators",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+			intf:addDoubleEntry{name="illum_power_ratio",caption="Power ratio",range={0,5.0}, 
+								handler="updateIllumPowerRatio", validItemOnly=true}							
+			intf:addDoubleEntry{name="illum_color_power",caption="Color power",range={0,5.0}, 
+								handler="updateIllumColorPower", validItemOnly=true}	
+			intf:addDoubleEntry{name="illum_falloff",caption="Falloff ratio",range={0,1.0}, 
+								handler="updateIllumFalloff", validItemOnly=true}	
+		end}
 		intf:pushSizerV{text="Long Pass shader",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
 			intf:addDoubleEntry{name="lp_target_wl",caption="Target wavelength", range={700.0,2000.0}, 
 								handler="updateLPTargetWavelength", validItemOnly=true}
@@ -57,6 +65,8 @@ function Class:onInitTurretMap(dmap,turret)
 	dmap:set("camera_auto_exposure",turret:getConfig():fetch("Camera.auto_exposure"))
 	dmap:set("destabilization_amplitude",turret:getConfig():get("Destabilization.amplitude",0))
 	dmap:set("illum_power_ratio",turret:getConfig():get("Illuminator.power_ratio",0))
+	dmap:set("illum_color_power",turret:getConfig():get("Illuminator.color_power",0))
+	dmap:set("illum_falloff",turret:getConfig():get("Illuminator.falloff_ratio",0))
 	
 	dmap:set("temporal_range_on",turret:getConfig():fetch("Filters.TemporalProcessing.input_range")[Enums.ON])
 	dmap:set("temporal_scale_on",turret:getConfig():fetch("Filters.TemporalProcessing.noise_scale")[Enums.ON])
@@ -174,6 +184,30 @@ function Class:updateIllumPowerRatio(data)
 	end)
 end
 
+function Class:updateIllumColorPower(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	-- self:info("Setting Camera auto exposure to:", data.value)
+	turret:getConfig():set("Illuminator.color_power",data.value)
+	
+	turret:foreachIlluminator(function(illum)
+		turret:fireEvent(turret.EVT_ILLUMINATOR_UPDATED,illum)
+	end)
+end
+
+function Class:updateIllumFalloff(data)
+	local dmap = data.item	
+	local turret = dmap:fetch("turret")
+	
+	-- self:info("Setting Camera auto exposure to:", data.value)
+	turret:getConfig():set("Illuminator.falloff_ratio",data.value)
+	
+	turret:foreachIlluminator(function(illum)
+		turret:fireEvent(turret.EVT_ILLUMINATOR_UPDATED,illum)
+	end)
+end
+
 function Class:updateDestabilization(data)
 	local dmap = data.item	
 	local turret = dmap:fetch("turret")
@@ -183,6 +217,12 @@ function Class:updateDestabilization(data)
 	if destab then
 		destab:setDestabilizationAmplitude(data.value)
 	end
+end
+
+function Class:updateFrustumNear(data)	
+	local handler = require "engine.DefaultHandler"
+	
+	handler._nearPlane = data.value;
 end
 
 return Class 

@@ -118,6 +118,9 @@ inline IDirect3DTexture9* createTexture(IDirect3DDevice9* device, unsigned int w
 }
 
 /** LUNA_CLASS_EXTENSION */
+IDirect3DTexture9* createNoiseTexture(IDirect3DDevice9* device, unsigned int width, unsigned int height, D3DFORMAT fmt = D3DFMT_A8R8G8B8, int usage = D3DUSAGE_DYNAMIC, D3DPOOL pool = D3DPOOL_DEFAULT );
+
+/** LUNA_CLASS_EXTENSION */
 inline IDirect3DSurface9* createDepthSurface(IDirect3DDevice9* device, unsigned int width, unsigned int height, D3DFORMAT fmt = D3DFMT_D24S8)
 {
 	IDirect3DSurface9* tex = NULL;
