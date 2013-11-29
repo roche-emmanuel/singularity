@@ -894,6 +894,19 @@ public:
 		return true;
 	}
 
+	inline static bool _lg_typecheck_createNoiseTexture(lua_State *L) {
+		int luatop = lua_gettop(L);
+		if( luatop<3 || luatop>6 ) return false;
+
+		if( (lua_isnil(L,1)==0 && !Luna<void>::has_uniqueid(L,1,44522754)) ) return false;
+		if( (lua_type(L,2)!=LUA_TNUMBER || lua_tointeger(L,2) != lua_tonumber(L,2)) ) return false;
+		if( (lua_type(L,3)!=LUA_TNUMBER || lua_tointeger(L,3) != lua_tonumber(L,3)) ) return false;
+		if( luatop>3 && (lua_type(L,4)!=LUA_TNUMBER || lua_tointeger(L,4) != lua_tonumber(L,4)) ) return false;
+		if( luatop>4 && (lua_type(L,5)!=LUA_TNUMBER || lua_tointeger(L,5) != lua_tonumber(L,5)) ) return false;
+		if( luatop>5 && (lua_type(L,6)!=LUA_TNUMBER || lua_tointeger(L,6) != lua_tonumber(L,6)) ) return false;
+		return true;
+	}
+
 	inline static bool _lg_typecheck_createDepthSurface(lua_State *L) {
 		int luatop = lua_gettop(L);
 		if( luatop<3 || luatop>4 ) return false;
@@ -2923,6 +2936,29 @@ public:
 		return 1;
 	}
 
+	// IDirect3DTexture9 * IDirect3DDevice9::createNoiseTexture(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_A8R8G8B8, int usage = D3DUSAGE_DYNAMIC, D3DPOOL pool = ::D3DPOOL_DEFAULT)
+	static int _bind_createNoiseTexture(lua_State *L) {
+		if (!_lg_typecheck_createNoiseTexture(L)) {
+			luaL_error(L, "luna typecheck failed in IDirect3DTexture9 * IDirect3DDevice9::createNoiseTexture(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_A8R8G8B8, int usage = D3DUSAGE_DYNAMIC, D3DPOOL pool = ::D3DPOOL_DEFAULT) function, expected prototype:\nIDirect3DTexture9 * IDirect3DDevice9::createNoiseTexture(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_A8R8G8B8, int usage = D3DUSAGE_DYNAMIC, D3DPOOL pool = ::D3DPOOL_DEFAULT)\nClass arguments details:\narg 1 ID = 44522754\n\n%s",luna_dumpStack(L).c_str());
+		}
+
+		int luatop = lua_gettop(L);
+
+		IDirect3DDevice9* device=(Luna< IDirect3DDevice9 >::check(L,1));
+		unsigned int width=(unsigned int)lua_tointeger(L,2);
+		unsigned int height=(unsigned int)lua_tointeger(L,3);
+		D3DFORMAT fmt=luatop>3 ? (D3DFORMAT)lua_tointeger(L,4) : (D3DFORMAT)::D3DFMT_A8R8G8B8;
+		int usage=luatop>4 ? (int)lua_tointeger(L,5) : (int)D3DUSAGE_DYNAMIC;
+		D3DPOOL pool=luatop>5 ? (D3DPOOL)lua_tointeger(L,6) : (D3DPOOL)::D3DPOOL_DEFAULT;
+
+		IDirect3DTexture9 * lret = createNoiseTexture(device, width, height, fmt, usage, pool);
+		if(!lret) return 0; // Do not write NULL pointers.
+
+		Luna< IDirect3DTexture9 >::push(L,lret,false);
+
+		return 1;
+	}
+
 	// IDirect3DSurface9 * IDirect3DDevice9::createDepthSurface(IDirect3DDevice9 * device, unsigned int width, unsigned int height, D3DFORMAT fmt = ::D3DFMT_D24S8)
 	static int _bind_createDepthSurface(lua_State *L) {
 		if (!_lg_typecheck_createDepthSurface(L)) {
@@ -3320,6 +3356,7 @@ luna_RegType LunaTraits< IDirect3DDevice9 >::methods[] = {
 	{"createTextureFromFile", &luna_wrapper_IDirect3DDevice9::_bind_createTextureFromFile},
 	{"createTextureFromMemory", &luna_wrapper_IDirect3DDevice9::_bind_createTextureFromMemory},
 	{"createTexture", &luna_wrapper_IDirect3DDevice9::_bind_createTexture},
+	{"createNoiseTexture", &luna_wrapper_IDirect3DDevice9::_bind_createNoiseTexture},
 	{"createDepthSurface", &luna_wrapper_IDirect3DDevice9::_bind_createDepthSurface},
 	{"updateTexture", &luna_wrapper_IDirect3DDevice9::_bind_updateTexture},
 	{"createFont", &luna_wrapper_IDirect3DDevice9::_bind_createFont},
