@@ -96,6 +96,7 @@ function Class:connectMissionEvents(intf)
 			-- self:warn("Setting up mission before start...")
 			data = data.single_turret
 			self:updateTurretModel(data.turret_model,1)
+			self:updateTurretModel(overlay_cfg[data.overlay_class],2)
 
 			local mobj = self:getMissionManager():getMissionObject()			
 			mobj:setPlatformModel({data.platform_model})

@@ -3,7 +3,8 @@ define(["log","jquery","backbone","base/Tools",
 "models/menus/Gimbal",
 "models/menus/EOW",
 "models/menus/IR",
-"models/menus/ELRF",
+"models/menus/EON",
+"models/menus/LRF",
 "models/menus/AVT",
 "models/menus/Illum1",
 "models/menus/VideoIO",
@@ -17,10 +18,17 @@ define(["log","jquery","backbone","base/Tools",
 "models/menus/EOW_misc",
 "models/menus/IR_misc",
 "models/menus/GeoScan",
-"models/menus/POI"
+"models/menus/POI",
+"models/menus/LDR",
+"models/menus/DigitalTX",
+"models/menus/AnalogTX",
+"models/menus/EditEncryption",
+"models/menus/MXPOD",
+"models/menus/Waypoints"
 ],
-function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,ELRF,AVT,Illum1,VideoIO,OpGimbal,OpPayload,Mission,
-		 DigitalOverlays,AnalogOverlays,SteeringModes,Profiles,EOW_misc,IR_misc,GeoScan,POI) {
+function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,VideoIO,OpGimbal,OpPayload,Mission,
+		 DigitalOverlays,AnalogOverlays,SteeringModes,Profiles,EOW_misc,IR_misc,GeoScan,POI,LDR,
+		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints) {
 		
 	var Class = Backbone.Model.extend({
 		
@@ -36,7 +44,8 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,ELRF,AVT,Illum1,VideoIO
 			this.menus.push(new Gimbal());
 			this.menus.push(new EOW());
 			this.menus.push(new IR());
-			this.menus.push(new ELRF());
+			this.menus.push(new EON());
+			this.menus.push(new LRF());
 			this.menus.push(new AVT());
 			this.menus.push(new Illum1());
 			this.menus.push(new VideoIO());
@@ -51,6 +60,12 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,ELRF,AVT,Illum1,VideoIO
 			this.menus.push(new IR_misc());
 			this.menus.push(new GeoScan());
 			this.menus.push(new POI());
+			this.menus.push(new LDR());
+			this.menus.push(new DigitalTX());
+			this.menus.push(new AnalogTX());
+			this.menus.push(new EditEncryption());
+			this.menus.push(new MXPOD());
+			this.menus.push(new Waypoints());
 			
 			// this.showMenu("menu");
 			this.showMenu("menu.gimbal");

@@ -24,6 +24,16 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 			// log.info("Calling BaseMenu.setupMenu()");
 		},
 		
+		hasItem: function(mname) {
+			// check if the given menu is available or not:
+			if (typeof turretProxy != 'undefined') {
+				return turretProxy.hasItem(this._name+"." +mname);
+			}
+			
+			// be default show the item:
+			return true;
+		},
+		
 		setFrameBorders: function(borders) {
 			this._borders.left = tools.defVal(borders.left,this._borders.left);
 			this._borders.right = tools.defVal(borders.right,this._borders.right);

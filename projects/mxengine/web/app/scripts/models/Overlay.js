@@ -11,9 +11,13 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 	"models/reticles/Standard",
 	"models/reticles/MalteseCross",
 	"models/reticles/Illuminator1",
-	"models/reticles/Illuminator2"
+	"models/reticles/Illuminator2",
+	"models/TransmitterBase",
+	"models/TransmitterFov",
+	"models/TransmitterKey"
 ],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,
-	ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle,Illum1Ret,Illum2Ret) {
+	ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle,Illum1Ret,Illum2Ret,
+	TXBase,TXFov,TXKey) {
 	
 	var con = new Controller;
 	
@@ -75,6 +79,9 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._destab = new Destab()
 			this._azScale = new AzScale()
 			this._elevScale = new ElevScale()
+			this._txBase = new TXBase()
+			this._txFov = new TXFov()
+			this._txKey = new TXKey()
 			this._reticles.push(new StdReticle())
 			this._reticles.push(new MalteseReticle())
 			this._reticles.push(new Illum1Ret())
@@ -116,6 +123,14 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._elevFov.setFOVAngle(angle)
 		},
 		
+		setTransmitterAngle: function(angle) {
+			$("#transmitter_waypoint_fov").css({transform: 'rotate('+angle+'deg)'})	
+		},
+		
+		setTransmitterMode: function(mode) {
+			this._txFov.setMode(mode);
+		},
+
 		setField : function(field,value) {
 			tools.setItemContent("#"+field,value)			
 		},

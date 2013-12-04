@@ -27,9 +27,39 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 			this.addModule("gimbal","GIMBAL");
 			this.addModule("EOW","EO");
 			this.addModule("IR","IR");
-			// this.addModule("ELRF","RANGEFINDER");
-			this.addModule("AVT","AVT");
-			this.addModule("illuminator1","ILLUMINATOR-D");
+			
+			if (this.hasItem("EON")) {
+				this.addModule("EON","EON");
+			}
+			
+			if (this.hasItem("LRF")) {
+				this.addModule("LRF","RANGEFINDER");
+			}
+			
+			if (this.hasItem("AVT")) {
+				this.addModule("AVT","AVT");
+			}
+			
+			if (this.hasItem("analog_transmitter")) {
+				this.addModule("analog_transmitter","TX-ANALOG");
+			}
+			
+			if (this.hasItem("digital_transmitter")) {
+				this.addModule("digital_transmitter","TX-DIGITAL");
+			}
+
+			if (this.hasItem("mx_pod")) {
+				this.addModule("mx_pod","MX POD");
+			}
+			
+			if (this.hasItem("illuminator1")) {
+				this.addModule("illuminator1","ILLUMINATOR-D");
+			}
+			
+			if (this.hasItem("LDR")) {
+				this.addModule("LDR","LDR");
+			}
+			
 			// this.addModule("transmitter","TRANSMITTER");
 			// this.addModule("mx_pod","MX POD");
 			this.addModule("video_io","VIDEO I/O");

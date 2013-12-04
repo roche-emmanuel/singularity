@@ -31,7 +31,7 @@ function Class:initialize(options)
 	local size = self:getTurret():getRenderSize()
 	
 	self:info("Creating webview...")
-	local tobj = require "aw.WebView" {width = size:x(), height = size:y(), transparent=true}
+	local tobj = require "aw.WebView" {turret = self:getTurret(), width = size:x(), height = size:y(), transparent=true}
 	self:info("Setting up texture Object")
 	
 	tobj:getTextureObject():setLinearFiltering()	
@@ -176,14 +176,15 @@ function Class:performFullRefresh()
 	
 	self:onPOILocationUnitUpdated(mm:getPOILocationUnit())
 	
-	self._prevNorth = om:getNorthIndicatorAngle()
-	self:onNorthIndicatorUpdated(self._prevNorth)
-	self._prevAz = om:getGimbalAzimuthAngle()
-	self:onGimbalAzimuthUpdated(self._prevAz)
-	self._prevElev = om:getGimbalElevationAngle()
-	self:onGimbalElevationUpdated(self._prevElev)
+
+	self:onNorthIndicatorUpdated(om:getNorthIndicatorAngle())
+	self:onGimbalAzimuthUpdated(om:getGimbalAzimuthAngle())
+	self:onGimbalElevationUpdated(om:getGimbalElevationAngle())
 	self:onPictoFOVUpdated(om:getPictoFOVAngle())
 	self:onDestabilizationStateUpdated(om:getDestabilizationEnabled())
+	self:onTXEncryptionStateUpdated(om:getTXEncryptionEnabled())
+	self:onMXPODBearingUpdated(om:getMXPODBearing())
+	self:onMXPODAntennaModeUpdated(om:getMXPODAntennaMode())
 	
 	local gstatus = self:getOverlayGroupStatus()
 	for gid,status in pairs(gstatus) do
@@ -272,21 +273,36 @@ end
 -- that the value area gets updated on this one and will not share 
 -- a paint area with other far away fields.
 function Class:onNorthIndicatorUpdated(value)
-	if(math.abs(self._prevNorth - value) < 0.01) then return end
+	if(self._prevNorth and math.abs(self._prevNorth - value) < 0.01) then return end
 	self._prevNorth = value
 	self._webView:call("setNorthIndicatorAngle",value)
 	dman:update()
 end
 
+function Class:onMXPODBearingUpdated(value)
+	self._webView:call("setMXPODBearingAngle",value)
+end
+
+local antenna_modes = {
+	[Class.MX_POD_ANTENNA_AUTO] = "auto",
+	[Class.MX_POD_ANTENNA_HIGH] = "high",
+	[Class.MX_POD_ANTENNA_OMNI] = "omni",
+	[Class.MX_POD_ANTENNA_COUPLED] = "coupled",
+}
+
+function Class:onMXPODAntennaModeUpdated(value)
+	self._webView:call("setMXPODAntennaMode",antenna_modes[value])
+end
+
 function Class:onGimbalAzimuthUpdated(value)
-	if(math.abs(self._prevAz - value) < 0.01) then return end
+	if(self._prevAz and math.abs(self._prevAz - value) < 0.01) then return end
 	self._prevAz = value
 	self._webView:call("setGimbalAzimuthAngle",value)
 	dman:update()
 end
 
 function Class:onGimbalElevationUpdated(value)
-	if(math.abs(self._prevElev - value) < 0.01) then return end
+	if(self._prevElev and math.abs(self._prevElev - value) < 0.01) then return end
 	self._prevElev = value
 	self._webView:call("setGimbalElevationAngle",-value)
 	dman:update()
@@ -299,6 +315,11 @@ end
 
 function Class:onDestabilizationStateUpdated(value)
 	self._webView:call("setDestabilizationEnabled",value)
+	dman:update()
+end
+
+function Class:onTXEncryptionStateUpdated(value)
+	self._webView:call("setTXEncryptionEnabled",value)
 	dman:update()
 end
 

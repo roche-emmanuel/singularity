@@ -36,6 +36,20 @@ function Class:registerTurretProxy()
 					self._onOverlayReady()
 				end
 			end
+		},{
+			-- methods returning values:
+			hasItem = function(mname)
+				-- check if the menu given by its name is available or not:
+				if not self.getTurret then
+					self:notice("No turret in OverlayViewExtension:hasItem(), just returning true by default.")
+					return true; -- No turret so for now just return true:
+				end
+				
+				local mm = self:getTurret():getMenuManager():getMainMenu()
+				local res = (mm:findChildByName(mname)~=nil) 
+				self:debug("Looking for menu item: ",mname," returning ",res)
+				return res
+			end
 		})
 	end
 end

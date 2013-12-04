@@ -24,7 +24,19 @@ define(["log","backbone"],function(log,Backbone) {
 		"illum_line1",
 		"illum_line2",
 		"illum_line3",
-		"illum_line4"
+		"illum_line4",
+		"lrf_range",
+		"desig_function",
+		"desig_wavelength",
+		"desig_state",
+		"desig_status",
+		"desig_code",
+		"desig_boresight",
+		"desig_range",
+		"waypoint_id",
+		"waypoint_range",
+		"transmitter_state",
+		"transmitter_channel"
 		];
 	
 	var streamFields = [
@@ -241,6 +253,7 @@ define(["log","backbone"],function(log,Backbone) {
 				var name = this.allNames[j];
 				// log.info("Initializing span for "+name);
 				$("#"+name).html("<span>"+name+"</span>");
+				// $("#"+name).html("<span></span>");
 				// $('<span></span>').appendTo("#"+name); //.html("<span>"+name+"</span>");
 			}		
 			// $(".block > div").html("<span>fuck</span>");

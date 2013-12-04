@@ -14,11 +14,15 @@ function Class:buildComponent(intf)
 	local mm = self:getMissionManager()
 	mm:addListener{mm.EVT_STARTED_MISSION,function()
 		-- self:showMessage("Adding mission behavior")
-		self._joy:pushBehavior(self._missionBehavior)
+		if self._joy then
+			self._joy:pushBehavior(self._missionBehavior)
+		end
 	end}
 	
 	mm:addListener{mm.EVT_ENDING_MISSION,function()
-		self._joy:popBehavior()
+		if self._joy then
+			self._joy:popBehavior()
+		end
 	end}	
 end
 

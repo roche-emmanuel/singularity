@@ -134,6 +134,23 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 				tools.showElement("#"+gid,status==1);
 			}
 		},
+		
+		setMXPODBearingAngle: function(angle) {
+			om.setTransmitterAngle(angle);
+		},
+		
+		setMXPODAntennaMode: function(mode) {
+			om.setTransmitterMode(mode);
+		},		
+		
+		setTXEncryptionEnabled: function(enabled) {
+			if(enabled) {
+				$("#transmitter_encryption").removeClass("hidden")
+			}
+			else {
+				$("#transmitter_encryption").addClass("hidden")
+			}
+		},		
 	});
 	
 	// Return an instance of the class:

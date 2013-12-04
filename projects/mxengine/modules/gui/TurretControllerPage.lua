@@ -32,11 +32,13 @@ function Class:buildComponent(intf)
 			require "gui.VICPanel" {intf};			
 			require "gui.MenuPanel" {intf};
 			require "gui.TurretDebugPanel" {intf};
+			require "gui.LDRPanel" {intf};
 		end}
 		
 		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
 			require "gui.SensorBookPanel" {intf};
 			require "gui.IlluminatorPanel" {intf};
+			require "gui.LRFPanel" {intf};
 		end}
 		
 		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()

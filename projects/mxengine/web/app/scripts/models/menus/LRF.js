@@ -5,7 +5,7 @@ define(["log","jquery","backbone","base/Tools","models/Level2Menu"],function(log
 		setupMenu: function() {
 			MenuBase.prototype.setupMenu.apply(this, arguments);
 			this.setFrameBorders({left: 2, right: 2, top: 4, bottom: 2})
-			this._name = "menu.ELRF";
+			this._name = "menu.LRF";
 			this.setFrameSize(49,1);
 		},
 				

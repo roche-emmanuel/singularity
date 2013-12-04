@@ -4,7 +4,8 @@ local awe = require "Awesomium"
 local wman = require "aw.DXWebManager"
 
 function Class:initialize(options)
-	
+	self:check(options and options.turret,"Invalid turret object.")
+	self._turret = options.turret
 end
 
 function Class:createSurface(options)
@@ -14,8 +15,10 @@ function Class:createSurface(options)
 	-- self:info("Updating texture object size...")		
 	self._textureObject:setSize(options.width,options.height) -- ensure the textureObject gets invalidated here is needed.
 	-- self:info("Done creating surface for webview.")
-	
-	
+end
+
+function Class:getTurret()
+	return self._turret
 end
 
 --[[

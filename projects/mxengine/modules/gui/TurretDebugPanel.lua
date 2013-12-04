@@ -16,6 +16,11 @@ function Class:buildComponent(intf)
 		intf:addSpacer{prop=1}
 		intf:addActionButtonEntry{name="reload_web_pages",caption="reload",src="reload",tip="Reload all web views",handler="reloadWebPages",validItemOnly=true}
 	end}
+	
+	intf:pushSizerV{text="MXPOD",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+		intf:addDoubleEntry{name="mx_pod_bearing",range={0,360},caption="Bearing",handler="updateBearing",
+							validItemOnly=true}	
+	end}
 end
 
 function Class:dumpTurretState(data)
@@ -35,6 +40,19 @@ function Class:dumpTurretState(data)
 		end}
 		dmap:set("dumpStateCB",cb)
 	end
+end
+
+function Class:updateBearing(data)
+	local dmap = data.item
+	local turret = dmap:fetch("turret")
+	
+	local pod = turret:getModule(turret.MODULE_MX_POD)
+	if not pod then
+		self:warn("No MXPOD module in this turret")
+		return;
+	end
+	
+	pod:setBearingToWaypoint(data.value)
 end
 
 function Class:reloadWebPages(data)

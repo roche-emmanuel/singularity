@@ -98,6 +98,11 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 				$(select).css('width', width*xr);
 			}
 
+			var setRight = function(select,pos,width) {
+				$(select).css('right', pos*xr);
+				$(select).css('width', width*xr);
+			}
+			
 			var setTop = function(select,pos,height) {
 				$(select).css('top', pos*yr);
 				if(height!=undefined) {
@@ -145,7 +150,24 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			
 			setLeft('.illuminator',1,20)
 			setBottom('.illuminator',5)
-						
+			
+			setRight('.lrf',1,10)
+			setBottom('.lrf',5)
+			
+			setRight('.designator',1,12)
+			setBottom('.designator',6)
+			
+			setRight("#transmitter_waypoint",1,6);
+			setTop("#transmitter_waypoint",4,5);			
+			setRight("#transmitter_waypoint_fov",1,6);
+			setTop("#transmitter_waypoint_fov",4,5);
+			
+			setRight("#transmitter_encryption",4,2);
+			setTop("#transmitter_encryption",11,1);
+			
+			setRight('.transmitter',1,6)
+			setTop('.transmitter',9)
+			
 			var hh1 = 6/baspect
 			var hh2 = 4/baspect
 			var d0 = (hh1 - hh2)/2.0

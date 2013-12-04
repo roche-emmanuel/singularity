@@ -4,23 +4,23 @@ local vbsDX = require "vbsDX"
 
 function Class:buildComponent(intf)
 	
-	intf:pushSizer{text="Debugging",orient=wx.wxVERTICAL,prop=0,flags=wx.wxEXPAND}
+	intf:pushSizerV{text="Debugging",prop=0,flags=wx.wxEXPAND,function()
 		self._fpsSt = intf:addStaticText{text="Current framerate: 0 FPS"}
-		intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
-		intf:addCheckBox{text="Debug textures",tip="Toggle VBSHook debug outputs",
-							 handler="toggleVBSHookDebug"}
-		intf:addCheckBox{text="With Depth surfaces",tip="Toggle VBSHook depth surfaces display",
-						 handler="toggleVBSHookDepthSurface"}								 
-							 
-		intf:addSpacer{prop=1}
-		intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
-							 -- flags=wx.wxALIGN_RIGHT,
-							 handler="performMissionUnitTests"}
-		intf:addBitmapButton{src="check@earth",tip="Perform global level unit tests",
-							 -- flags=wx.wxALIGN_RIGHT,
-							 handler="performGlobalUnitTests"}
-		intf:popSizer()
-	intf:popSizer()
+		intf:pushSizerH{prop=0,flags=wx.wxEXPAND,function()
+			intf:addCheckBox{text="Debug textures",tip="Toggle VBSHook debug outputs",
+								 handler="toggleVBSHookDebug"}
+			intf:addCheckBox{text="With Depth surfaces",tip="Toggle VBSHook depth surfaces display",
+							 handler="toggleVBSHookDepthSurface"}								 
+								 
+			intf:addSpacer{prop=1}
+			intf:addBitmapButton{src="check",tip="Perform mission level unit tests",
+								 -- flags=wx.wxALIGN_RIGHT,
+								 handler="performMissionUnitTests"}
+			intf:addBitmapButton{src="check@earth",tip="Perform global level unit tests",
+								 -- flags=wx.wxALIGN_RIGHT,
+								 handler="performGlobalUnitTests"}
+		end}
+	end}
 	
 	self:connectFPSTimer()	
 end
