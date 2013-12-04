@@ -185,7 +185,11 @@ function Class:isEnabled()
     
     return self._enabled;
 end
-       
+      
+function Class:setEnabled(enabled)
+    self._enabled = enabled;
+end
+	  
 function Class:enable(enabled)
     self._enabled = enabled;
 end

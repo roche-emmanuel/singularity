@@ -356,8 +356,8 @@ function Class:setupJSHandler()
 		
 		OnMethodCallWithReturnValue = function(tt, obj, caller, objectId, method_name, args)
 			local res = self:onMethodCall(caller, objectId, method_name, args:asTable(), obj)
-			self:check(res,"Invalid return value for method call: ",method_name)
-			return res -- awe.JSValue.Null()
+			self:check(res~=nil,"Invalid return value for method call: ",method_name)
+			return awe.JSValue.box(res) --res==nil and awe.JSValue.Null() or
 		end,
 	}
 	
