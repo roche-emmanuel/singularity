@@ -24,11 +24,12 @@ define(["log","jquery","backbone","base/Tools",
 "models/menus/AnalogTX",
 "models/menus/EditEncryption",
 "models/menus/MXPOD",
-"models/menus/Waypoints"
+"models/menus/Waypoints",
+"models/menus/SeeSpot"
 ],
 function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,VideoIO,OpGimbal,OpPayload,Mission,
 		 DigitalOverlays,AnalogOverlays,SteeringModes,Profiles,EOW_misc,IR_misc,GeoScan,POI,LDR,
-		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints) {
+		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints,SeeSpot) {
 		
 	var Class = Backbone.Model.extend({
 		
@@ -66,6 +67,7 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Vide
 			this.menus.push(new EditEncryption());
 			this.menus.push(new MXPOD());
 			this.menus.push(new Waypoints());
+			this.menus.push(new SeeSpot());
 			
 			// this.showMenu("menu");
 			this.showMenu("menu.gimbal");

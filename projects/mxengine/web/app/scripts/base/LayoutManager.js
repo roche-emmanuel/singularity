@@ -153,6 +153,9 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			
 			setRight('.lrf',1,10)
 			setBottom('.lrf',5)
+
+			setRight('.see',1,11)
+			setBottom('.see',4)
 			
 			setRight('.designator',1,12)
 			setBottom('.designator',6)

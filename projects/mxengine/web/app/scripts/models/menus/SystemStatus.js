@@ -63,6 +63,11 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 			// this.addModule("transmitter","TRANSMITTER");
 			// this.addModule("mx_pod","MX POD");
 			this.addModule("video_io","VIDEO I/O");
+			
+			if (this.hasItem("seespot")) {
+				this.addButton("seespot","SEE-SPOT");
+			}
+			
 			// this.addButton("image_blending","IMAGE BLENDING");
 			this.addButton("operator_gimbal","OPERATOR GIMBAL");
 			this.addButton("operator_payload","OPERATOR PAYLOAD");

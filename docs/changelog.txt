@@ -101,6 +101,7 @@
 - Added illuminator reticles.
 - Rebuild dx9 with procedural noise generation support.
 - Added support for transmitters and mxpod components.
+- Added support for see spot menu.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

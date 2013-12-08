@@ -31,7 +31,6 @@ define(["log","backbone"],function(log,Backbone) {
 		"desig_state",
 		"desig_status",
 		"desig_code",
-		"desig_boresight",
 		"desig_range",
 		"waypoint_id",
 		"waypoint_range",
@@ -50,7 +49,9 @@ define(["log","backbone"],function(log,Backbone) {
 		"black_level",
 		"focus",
 		"focus_trim",
-		"camera_extender"
+		"camera_extender",
+		"boresight_validity",
+		"see_validity"
 	];
 	
 	var stdHighlights = [
