@@ -6,6 +6,7 @@ define(["log","jquery","backbone","base/Tools","models/MenuBase"],function(log,$
 			MenuBase.prototype.setupMenu.apply(this, arguments);
 			this.setFrameBorders({left: 2, right: 2, top: 5, bottom: 2})
 			this._level = 3
+			this._with_parent = true
 			this._parentLines = []
 			this._separatorLines = []
 			// this._hlines.push(2.5)
@@ -33,8 +34,10 @@ define(["log","jquery","backbone","base/Tools","models/MenuBase"],function(log,$
 			frame.drawLine(pww-offset,3-offset,pww-offset,4-offset)
 
 			frame.drawRect(1,3,size.x-1,size.y-3);
-
-			frame.drawLine(1+offset,5+offset,size.x-offset,5+offset)
+			
+			if(this._with_title) {
+				frame.drawLine(1+offset,5+offset,size.x-offset,5+offset)
+			}
 			
 			for(var i in this._parentLines) {
 				var y = this._parentLines[i]

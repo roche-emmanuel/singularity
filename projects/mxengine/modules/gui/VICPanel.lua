@@ -2,7 +2,7 @@ local Class = require("classBuilder"){name="VICPanel",bases="gui.BasicTurretComp
 
 local Enums = require "mx.Enums"
 
-local vics = {"EOW","IR","EON","SEE"}
+local vics = {"EOW","IR","EON","SEE","BLD"}
 local EOW_subs = {"DL","LL"}
 local EON_subs = {"DL","LL", "SWIR"}
 
@@ -72,7 +72,7 @@ function Class:updateVIC(data)
 	local sname = data.value
 	self:info("Setting VIC to ",sname)
 	local turret = data.item:fetch("turret")
-	local stream = turret:getStreamByName(sname)
+	local stream = turret:getStream(Enums["VIDEO_"..sname])
 	if not stream then
 		self:warn("Stream ",sname," is not available.")
 		return
@@ -88,7 +88,7 @@ function Class:updateSubVIC(data)
 	self:info("Setting SubVIC to ",subId," for sensor ",sname)
 	
 	local turret = data.item:fetch("turret")
-	local stream = turret:getStreamByName(sname)
+	local stream = turret:getStream(Enums["VIDEO_"..sname])
 	if not stream then
 		self:warn("Sensor ",sname," is not available.")
 		return

@@ -148,15 +148,16 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg","format"],functio
 		return str;
 	}
 	
-	res.highlightPart = function(el,p1,p2) {
+	res.highlightPart = function(el,p1,p2,withFlash) {
 		el = res.getItem(el);
 		
 		var txt = el.text();
 		
 		var str = txt;
+		var classes = withFlash ? "highlighted flashing" : "highlighted";
 		
 		if (p1 > 0 && p2 <= txt.length) {
-			str = txt.substring(0,p1-1) + "<em class='highlighted'>" + txt.substring(p1-1,p2) + "</em>" + txt.substring(p2);
+			str = txt.substring(0,p1-1) + "<em class='"+classes+"'>" + txt.substring(p1-1,p2) + "</em>" + txt.substring(p2);
 		}
 		else {
 			log.error("Invalid highlight range:"+p1+", "+p2+" with length="+txt.length);
@@ -165,9 +166,45 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg","format"],functio
 		el.html(str);
 	}
 
-	res.highlightItem = function(item,state) {
+	res.flashPart = function(el,p1,p2) {
+		el = res.getItem(el);
+		
+		var txt = el.text();
+		
+		var str = txt;
+		
+		if (p1 > 0 && p2 <= txt.length) {
+			str = txt.substring(0,p1-1) + "<em class='flashing'>" + txt.substring(p1-1,p2) + "</em>" + txt.substring(p2);
+		}
+		else {
+			log.error("Invalid flash range:"+p1+", "+p2+" with length="+txt.length);
+		}
+
+		el.html(str);
+	}
+	
+	res.selectPart = function(el,p1,p2) {
+		//el = res.getItem(el);
+		var txt = el.text();
+		// log.info("Element text: "+txt);
+		
+		var str = txt;
+		
+		if (p1 > 0 && p2 <= txt.length) {
+			str = txt.substring(0,p1-1) + "<em class='selected'>" + txt.substring(p1-1,p2) + "</em>" + txt.substring(p2);
+		}
+		else {
+			log.error("Invalid select range:"+p1+", "+p2+" with length="+txt.length);
+		}
+
+		el.html(str);
+	}
+	
+	res.highlightItem = function(item,state,fstate) {
 		el = res.getItem(item);
 
+		fstate = res.defVal(fstate,false)
+		
 		if(typeof state == "boolean") {
 			if(state) {
 				el.addClass("highlighted");
@@ -176,13 +213,49 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg","format"],functio
 				el.removeClass("highlighted");
 				el.html(el.text()) // remove internal highlight if any.
 			}
+			// here we may just handle the flashing normally.
+			res.flashItem(item,fstate);
+		}				
+		else {
+			// the highlight request is a table, 
+			// but the flashing request could still be a boolean, and
+			// in that case we can still handle it "normally":
+			if(typeof fstate=="boolean") {
+				res.flashItem(item,fstate);
+				// the state is an array:
+				var p1 = state[0];
+				var p2 = state[1];
+				// log.info("Should highlight the range: "+ p1+" to "+p2);
+				res.highlightPart(item,p1,p2,false);
+			}
+			else {
+				// both request are arrays. so we assume they are using the same coordinates!
+				var p1 = state[0];
+				var p2 = state[1];
+				// log.info("Should highlight the range: "+ p1+" to "+p2);
+				res.highlightPart(item,p1,p2,true);				
+			}
+		}		
+	}
+	
+	res.flashItem = function(item,state) {
+		el = res.getItem(item);
+
+		if(typeof state == "boolean") {
+			if(state) {
+				el.addClass("flashing");
+			}
+			else {
+				el.removeClass("flashing");
+				el.html(el.text()) // remove internal highlight if any.
+			}
 		}
 		else {
 			// the state is an array:
 			var p1 = state[0];
 			var p2 = state[1];
 			// log.info("Should highlight the range: "+ p1+" to "+p2);
-			res.highlightPart(item,p1,p2);
+			res.flashPart(item,p1,p2);
 		}		
 	}
 	
@@ -218,14 +291,27 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg","format"],functio
 	}
 	
 	res.unselectAll = function() {
+		var el = $(".select_container")
+		el.html(el.text()); // remove internal selection if any
+		el.removeClass("select_container");
+
 		$(".selected").removeClass("selected");
 	}
 	
-	res.selectItem = function(el) {
+	res.selectItem = function(el,sub_index) {
 		res.unselectAll();
 		var el = res.getItem(el)
-		el.addClass("selected")
 		
+		sub_index = res.defVal(sub_index,0)
+		if (sub_index > 0) {
+			// log.info("Should select sub index "+ sub_index);
+			res.selectPart(el,sub_index,sub_index);
+			// This is now the selection container
+			el.addClass("select_container")
+		}
+		else {
+			el.addClass("selected")
+		}
 		// var offset = el.offset()
 		// var caret = $("#caret")
 		// caret.css({position: "absolute", left: offset.left, top: offset.top, width: el.width(), height: el.height()})
@@ -247,7 +333,7 @@ define(['log','jquery','config',"raphael","raphaelsvg","canvg","format"],functio
 			el.css('top', y*yr);
 		}
 		if (typeof ww !== 'undefined') {
-			el.css('width', ww*xr);
+			el.css('width', ww=="auto" ? ww : ww*xr);
 		}
 		if (typeof hh !== 'undefined') {
 			el.css('height', hh*yr);

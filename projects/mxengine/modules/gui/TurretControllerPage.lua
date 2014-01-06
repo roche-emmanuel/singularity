@@ -25,25 +25,51 @@ function Class:buildComponent(intf)
 	intf:pushSizerH{prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
 		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
 			require "gui.SteeringPanel" {intf};
-			require "gui.PlatformPanel" {intf};
 		end}
 		
-		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
-			require "gui.VICPanel" {intf};			
-			require "gui.MenuPanel" {intf};
-			require "gui.TurretDebugPanel" {intf};
-			require "gui.LDRPanel" {intf};
-		end}
-		
-		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
-			require "gui.SensorBookPanel" {intf};
-			require "gui.IlluminatorPanel" {intf};
-			require "gui.LRFPanel" {intf};
-		end}
-		
-		intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()
-			require "gui.ConfigPanel" {intf};			
-		end}		
+		intf:pushNotebook{prop=1,flags=wx.wxALL+wx.wxEXPAND}
+			intf:pushBookPage{caption="Basic control"}	
+				intf:pushSizerH{prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.VICPanel" {intf};			
+						require "gui.MenuPanel" {intf};
+					end}
+					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.SensorBookPanel" {intf};
+					end}
+					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.SEEPanel" {intf};
+						require "gui.FSDPanel" {intf};
+					end}					
+				end}
+			intf:popParent(true)
+			
+			intf:pushBookPage{caption="Lasers"}	
+				intf:pushSizerH{prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.LDRPanel" {intf};
+						require "gui.LRFPanel" {intf};	
+					end}
+					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.IlluminatorPanel" {intf};	
+					end}					
+				end}			
+			intf:popParent(true)
+			
+			intf:pushBookPage{caption="Debug"}
+				intf:pushSizerV{prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.ConfigPanel" {intf};	
+					end}
+					intf:pushSizerH{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.PlatformPanel" {intf};	
+						require "gui.TurretDebugPanel" {intf};
+						require "gui.AlarmPanel" {intf};	
+					end}					
+				end}			
+				
+			intf:popParent(true)
+		intf:popParent()		
 	end}
 	
 	-- self._grid = intf:addGrid{prop=1,flags=wx.wxALL+wx.wxEXPAND}

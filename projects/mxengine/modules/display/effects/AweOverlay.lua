@@ -27,10 +27,16 @@ function Class:initialize(options)
 	
 	local fx = self:addFilter{"AddLayer"}
 	
-	-- Add the overlay texture on slot 1:
-	local size = self:getTurret():getRenderSize()
+	-- get the render size from the output channel itself:
+	local output = self:getProcessor()
 	
-	self:info("Creating webview...")
+	-- Add the overlay texture on slot 1:
+	-- local size = self:getTurret():getRenderSize()
+	
+	local res = output:getResolution()
+	local size = self.resolutionSizeMap[res]
+	
+	self:info("Creating webview of size ",size:x(),"x",size:y())
 	local tobj = require "aw.WebView" {turret = self:getTurret(), width = size:x(), height = size:y(), transparent=true}
 	self:info("Setting up texture Object")
 	
@@ -154,8 +160,9 @@ function Class:performFullRefresh()
 	end	
 
 	fields = om:getHighlights()
+	local flashes = om:getFlashes()
 	for iname, value in pairs(fields) do
-		self:onHighlightUpdated(iname,value)
+		self:onHighlightUpdated(iname,value,flashes[iname] or false)
 	end	
 
 	fields = om:getStreamFields()
@@ -253,8 +260,20 @@ function Class:onFieldUpdated(item_name, value)
 	dman:update()
 end
 
-function Class:onHighlightUpdated(item_name, value)
-	self._webView:call("setHighlight", item_name, value)
+function Class:onHighlightUpdated(item_name, value, flashValue)
+	-- flashValue = flashValue or false;
+	self:check(flashValue~=nil,"Invalid flash value !")
+	
+	if type(flashValue)=="table" and type(value)=="table" then
+		self:check(value[1]==flashValue[1] and value[2]==flashValue[2],"mismatch in highlight and flashing details.")
+	end
+	
+	self._webView:call("setHighlight", item_name, value, flashValue)
+	dman:update()
+end
+
+function Class:onFlashingUpdated(item_name, value)
+	self._webView:call("setFlashing", item_name, value)
 	dman:update()
 end
 
@@ -268,10 +287,7 @@ function Class:onStreamHighlightUpdated(sname, item_name, value)
 	dman:update()
 end
 
--- The following values are changing quickly and are far away on the 
--- display, that's why we use syncCall instead of call to ensure
--- that the value area gets updated on this one and will not share 
--- a paint area with other far away fields.
+
 function Class:onNorthIndicatorUpdated(value)
 	if(self._prevNorth and math.abs(self._prevNorth - value) < 0.01) then return end
 	self._prevNorth = value

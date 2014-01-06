@@ -59,9 +59,14 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 			om.setField(iname,value);
 		},
 
-		setHighlight: function(iname,value) {
+		setHighlight: function(iname,value, flashValue) {
 			//log.warn("Calling setHighlight("+iname+", "+value+")")
-			om.setHighlight(iname,value);
+			om.setHighlight(iname,value, flashValue);
+		},
+		
+		setFlashing: function(iname,value) {
+			//log.warn("Calling setHighlight("+iname+", "+value+")")
+			om.setFlashing(iname,value);
 		},
 		
 		setStreamField: function(sname,iname,value) {

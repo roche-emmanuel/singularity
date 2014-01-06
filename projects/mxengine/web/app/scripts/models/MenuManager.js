@@ -7,6 +7,7 @@ define(["log","jquery","backbone","base/Tools",
 "models/menus/LRF",
 "models/menus/AVT",
 "models/menus/Illum1",
+"models/menus/Illum2",
 "models/menus/VideoIO",
 "models/menus/OperatorGimbal",
 "models/menus/OperatorPayload",
@@ -25,11 +26,13 @@ define(["log","jquery","backbone","base/Tools",
 "models/menus/EditEncryption",
 "models/menus/MXPOD",
 "models/menus/Waypoints",
-"models/menus/SeeSpot"
+"models/menus/SeeSpot",
+"models/menus/ImageBlending",
+"models/menus/Alarms"
 ],
-function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,VideoIO,OpGimbal,OpPayload,Mission,
+function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Illum2,VideoIO,OpGimbal,OpPayload,Mission,
 		 DigitalOverlays,AnalogOverlays,SteeringModes,Profiles,EOW_misc,IR_misc,GeoScan,POI,LDR,
-		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints,SeeSpot) {
+		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints,SeeSpot,ImageBlending,Alarms) {
 		
 	var Class = Backbone.Model.extend({
 		
@@ -49,6 +52,7 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Vide
 			this.menus.push(new LRF());
 			this.menus.push(new AVT());
 			this.menus.push(new Illum1());
+			this.menus.push(new Illum2());
 			this.menus.push(new VideoIO());
 			this.menus.push(new OpGimbal());
 			this.menus.push(new OpPayload());
@@ -68,6 +72,14 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Vide
 			this.menus.push(new MXPOD());
 			this.menus.push(new Waypoints());
 			this.menus.push(new SeeSpot());
+			this.menus.push(new ImageBlending());
+			
+			// Alarm pages:
+			this.menus.push(new Alarms({name:"menu.alarms", parent_title:"SYSTEM STATUS", level: 2}));
+			this.menus.push(new Alarms({name:"menu.gimbal.alarms", parent_title:"GIMBAL"}));
+			this.menus.push(new Alarms({name:"menu.EOW.alarms", parent_title:"EOW"}));
+			this.menus.push(new Alarms({name:"menu.IR.alarms", parent_title:"IR"}));
+			this.menus.push(new Alarms({name:"menu.EON.alarms", parent_title:"EON"}));
 			
 			// this.showMenu("menu");
 			this.showMenu("menu.gimbal");
@@ -99,9 +111,9 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Vide
 		
 		},
 		
-		selectItem: function(menu_name,item_name) {
+		selectItem: function(menu_name,item_name,sub_index) {
 			this.showMenu(menu_name)
-			tools.selectItem("#"+menu_name+"."+item_name)
+			tools.selectItem("#"+menu_name+"."+item_name,sub_index)
 		},
 		
 		setField : function(mname,field,value) {

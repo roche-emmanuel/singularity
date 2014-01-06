@@ -2,24 +2,26 @@ local Class = require("classBuilder"){name="TurretDebugPanel",bases="gui.BasicTu
 
 
 function Class:buildComponent(intf)	
-	intf:pushSizerH{text="Debugging",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
-		intf:addBoolEntry{name="dump_state",caption="Dump state",style=0,
-						  flags=wx.wxALIGN_CENTER_VERTICAL,
-						  tip="Dump the turret state", 
-						  handler="dumpTurretState", validItemOnly=true,
-						  }
-		intf:addBoolEntry{name="grid_state",caption="Fill state grid",style=0,
-						  flags=wx.wxALIGN_CENTER_VERTICAL,
-						  tip="Use the turret state to fill the state grid", 
-						  --handler="toggleFillGrid", validItemOnly=true,
-						  }
-		intf:addSpacer{prop=1}
-		intf:addActionButtonEntry{name="reload_web_pages",caption="reload",src="reload",tip="Reload all web views",handler="reloadWebPages",validItemOnly=true}
-	end}
-	
-	intf:pushSizerV{text="MXPOD",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
-		intf:addDoubleEntry{name="mx_pod_bearing",range={0,360},caption="Bearing",handler="updateBearing",
-							validItemOnly=true}	
+	intf:pushSizerV{text="Debugging",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+		intf:pushSizerH{text="Debugging",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+			intf:addBoolEntry{name="dump_state",caption="Dump state",style=0,
+							  flags=wx.wxALIGN_CENTER_VERTICAL,
+							  tip="Dump the turret state", 
+							  handler="dumpTurretState", validItemOnly=true,
+							  }
+			intf:addBoolEntry{name="grid_state",caption="Fill state grid",style=0,
+							  flags=wx.wxALIGN_CENTER_VERTICAL,
+							  tip="Use the turret state to fill the state grid", 
+							  --handler="toggleFillGrid", validItemOnly=true,
+							  }
+			intf:addSpacer{prop=1}
+			intf:addActionButtonEntry{name="reload_web_pages",caption="reload",src="reload",tip="Reload all web views",handler="reloadWebPages",validItemOnly=true}
+		end}
+		
+		intf:pushSizerV{text="MXPOD",prop=0,flags=wx.wxALL+wx.wxEXPAND, function()
+			intf:addDoubleEntry{name="mx_pod_bearing",range={0,360},caption="Bearing",handler="updateBearing",
+								validItemOnly=true}	
+		end}
 	end}
 end
 

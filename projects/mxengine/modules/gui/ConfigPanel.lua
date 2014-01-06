@@ -5,56 +5,63 @@ local Enums = require "mx.Enums"
 function Class:buildComponent(intf,options)
 	
 	intf:pushSizerV{text="Config",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-		intf:addDoubleEntry{name="frustum_near",caption="Frustum near", range={0.0001,1.0}, 
-							handler="updateFrustumNear", validItemOnly=true}
-		intf:addDoubleEntry{name="camera_auto_exposure",caption="Auto exposure", range={0.1,5.0}, 
-							handler="updateAutoExposure", validItemOnly=true}
-		intf:addIntegerEntry{name="destabilization_amplitude",caption="Destabilization", unit=" mrads",range={0,30.0}, 
-							handler="updateDestabilization", validItemOnly=true}
-		intf:pushSizerV{text="Illuminators",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-			intf:addDoubleEntry{name="illum_power_ratio",caption="Power ratio",range={0,5.0}, 
-								handler="updateIllumPowerRatio", validItemOnly=true}							
-			intf:addDoubleEntry{name="illum_color_power",caption="Color power",range={0,5.0}, 
-								handler="updateIllumColorPower", validItemOnly=true}	
-			intf:addDoubleEntry{name="illum_falloff",caption="Falloff ratio",range={0,1.0}, 
-								handler="updateIllumFalloff", validItemOnly=true}	
-		end}
-		intf:pushSizerV{text="Long Pass shader",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-			intf:addDoubleEntry{name="lp_target_wl",caption="Target wavelength", range={700.0,2000.0}, 
-								handler="updateLPTargetWavelength", validItemOnly=true}
-			intf:addDoubleEntry{name="lp_scale",caption="Scale", range={0.0,20.0}, 
-								handler="updateLPScale", validItemOnly=true}
-			intf:addDoubleEntry{name="lp_offset",caption="Offset", range={0.0,10.0}, 
-								handler="updateLPOffset", validItemOnly=true}
-			intf:addDoubleEntry{name="lp_power",caption="Power", range={0.0,10.0}, 
-								handler="updateLPPower", validItemOnly=true}
-		end}
-		intf:pushSizerH{text="Temporal processing",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-			intf:pushSizerV{text="ON",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-				intf:addDoubleEntry{name="temporal_range_on",caption="Input range", range={0.0,0.5}, 
-									handler="updateTemporalInputRange", validItemOnly=true}
-				intf:addDoubleEntry{name="temporal_scale_on",caption="Noise scale", range={0.0,0.5}, 
-									handler="updateTemporalNoiseScale", validItemOnly=true}
+		intf:pushSizerH{prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+			intf:pushSizerV{prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+				intf:addDoubleEntry{name="frustum_near",caption="Frustum near", range={0.0001,1.0}, 
+									handler="updateFrustumNear", validItemOnly=true}
+				intf:addDoubleEntry{name="camera_auto_exposure",caption="Auto exposure", range={0.1,5.0}, 
+									handler="updateAutoExposure", validItemOnly=true}
+				intf:addIntegerEntry{name="destabilization_amplitude",caption="Destabilization", unit=" mrads",range={0,30.0}, 
+									handler="updateDestabilization", validItemOnly=true}
 			end}
-			intf:pushSizerV{text="OFF",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-				intf:addDoubleEntry{name="temporal_range_off",caption="Input range", range={0.0,0.5}, 
-									handler="updateTemporalInputRange", validItemOnly=true}
-				intf:addDoubleEntry{name="temporal_scale_off",caption="Noise scale", range={0.0,0.5}, 
-									handler="updateTemporalNoiseScale", validItemOnly=true}
+			intf:pushSizerV{text="Illuminators",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+				intf:addDoubleEntry{name="illum_power_ratio",caption="Power ratio",range={0,5.0}, 
+									handler="updateIllumPowerRatio", validItemOnly=true}							
+				intf:addDoubleEntry{name="illum_color_power",caption="Color power",range={0,5.0}, 
+									handler="updateIllumColorPower", validItemOnly=true}	
+				intf:addDoubleEntry{name="illum_falloff",caption="Falloff ratio",range={0,1.0}, 
+									handler="updateIllumFalloff", validItemOnly=true}	
+			end}
+			intf:pushSizerV{text="Long Pass shader",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+				intf:addDoubleEntry{name="lp_target_wl",caption="Target wavelength", range={700.0,2000.0}, 
+									handler="updateLPTargetWavelength", validItemOnly=true}
+				intf:addDoubleEntry{name="lp_scale",caption="Scale", range={0.0,20.0}, 
+									handler="updateLPScale", validItemOnly=true}
+				intf:addDoubleEntry{name="lp_offset",caption="Offset", range={0.0,10.0}, 
+									handler="updateLPOffset", validItemOnly=true}
+				intf:addDoubleEntry{name="lp_power",caption="Power", range={0.0,10.0}, 
+									handler="updateLPPower", validItemOnly=true}
 			end}
 		end}
-		intf:pushSizerH{text="Spatial processing",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-			intf:pushSizerV{text="ON",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-				intf:addDoubleEntry{name="spatial_range_on",caption="Input range", range={0.0,0.5}, 
-									handler="updateSpatialInputRange", validItemOnly=true}
-				intf:addDoubleEntry{name="spatial_scale_on",caption="Noise scale", range={0.0,0.5}, 
-									handler="updateSpatialNoiseScale", validItemOnly=true}
+	
+		intf:pushSizerH{prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+			intf:pushSizerH{text="Temporal processing",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+				intf:pushSizerV{text="ON",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+					intf:addDoubleEntry{name="temporal_range_on",caption="Input range", range={0.0,0.5}, 
+										handler="updateTemporalInputRange", validItemOnly=true}
+					intf:addDoubleEntry{name="temporal_scale_on",caption="Noise scale", range={0.0,0.5}, 
+										handler="updateTemporalNoiseScale", validItemOnly=true}
+				end}
+				intf:pushSizerV{text="OFF",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+					intf:addDoubleEntry{name="temporal_range_off",caption="Input range", range={0.0,0.5}, 
+										handler="updateTemporalInputRange", validItemOnly=true}
+					intf:addDoubleEntry{name="temporal_scale_off",caption="Noise scale", range={0.0,0.5}, 
+										handler="updateTemporalNoiseScale", validItemOnly=true}
+				end}
 			end}
-			intf:pushSizerV{text="OFF",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
-				intf:addDoubleEntry{name="spatial_range_off",caption="Input range", range={0.0,0.5}, 
-									handler="updateSpatialInputRange", validItemOnly=true}
-				intf:addDoubleEntry{name="spatial_scale_off",caption="Noise scale", range={0.0,0.5}, 
-									handler="updateSpatialNoiseScale", validItemOnly=true}
+			intf:pushSizerH{text="Spatial processing",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+				intf:pushSizerV{text="ON",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+					intf:addDoubleEntry{name="spatial_range_on",caption="Input range", range={0.0,0.5}, 
+										handler="updateSpatialInputRange", validItemOnly=true}
+					intf:addDoubleEntry{name="spatial_scale_on",caption="Noise scale", range={0.0,0.5}, 
+										handler="updateSpatialNoiseScale", validItemOnly=true}
+				end}
+				intf:pushSizerV{text="OFF",prop=0,flags=wx.wxALL+wx.wxEXPAND,function()
+					intf:addDoubleEntry{name="spatial_range_off",caption="Input range", range={0.0,0.5}, 
+										handler="updateSpatialInputRange", validItemOnly=true}
+					intf:addDoubleEntry{name="spatial_scale_off",caption="Noise scale", range={0.0,0.5}, 
+										handler="updateSpatialNoiseScale", validItemOnly=true}
+				end}
 			end}
 		end}
 	end}

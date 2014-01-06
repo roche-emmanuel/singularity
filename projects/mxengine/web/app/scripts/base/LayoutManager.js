@@ -171,6 +171,9 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			setRight('.transmitter',1,6)
 			setTop('.transmitter',9)
 			
+			setPos('.alarm_slot',10,5,cfg.block_width - 2*10)
+			setPos('.status_slot',10,28,cfg.block_width - 2*10)
+			
 			var hh1 = 6/baspect
 			var hh2 = 4/baspect
 			var d0 = (hh1 - hh2)/2.0

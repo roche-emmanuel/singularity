@@ -26,7 +26,7 @@ end
 function Class:registerTurretProxy()
 	if not self:getObject("turretProxy") then
 		self:info("Registering turret proxy...")
-		self:registerObject("turretProxy",{
+		local obj = self:registerObject("turretProxy",{
 			onOverlayReady = function(controller)
 				self:check(controller,"Invalid controller object")
 				self._controller = awe.JSObject(controller); -- keep a reference properly!
@@ -38,19 +38,34 @@ function Class:registerTurretProxy()
 			end
 		},{
 			-- methods returning values:
-			hasItem = function(mname)
+			-- hasItem = function(mname)
 				-- check if the menu given by its name is available or not:
-				if not self.getTurret then
-					self:notice("No turret in OverlayViewExtension:hasItem(), just returning true by default.")
-					return true; -- No turret so for now just return true:
+				-- if not self.getTurret then
+					-- self:notice("No turret in OverlayViewExtension:hasItem(), just returning true by default.")
+					-- return true; -- No turret so for now just return true:
+				-- end
+				
+				-- local mm = self:getTurret():getMenuManager():getMainMenu()
+				-- local res = (mm:findChildByName(mname)~=nil) 
+				-- self:debug("Looking for menu item: ",mname," returning ",res)
+				-- return res
+			-- end,
+			
+			getMenuMap = function()
+				if self._turret then					
+					-- Now fill the array:
+					-- if we have a valid turret at this point, then we should retrieve the menu map from it:				
+					local mm = self._turret:getMenuManager():getMainMenu()
+					local map = mm:getChildrenMap()
+					-- self:debug("Got the children map: ",map)			
+					return map;
 				end
 				
-				local mm = self:getTurret():getMenuManager():getMainMenu()
-				local res = (mm:findChildByName(mname)~=nil) 
-				self:debug("Looking for menu item: ",mname," returning ",res)
-				return res
-			end
+				return awe.JSValue.Undefined()
+			end			
 		})
+		
+
 	end
 end
 

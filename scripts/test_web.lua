@@ -6,7 +6,11 @@ log:notice "Executing init script..."
 local App = require "gui.web.BookApp"
 local app = App{profileFile="test_web_profile.log",
 	pages={
-		{"http://www.google.fr"},
+		-- {"http://www.google.fr"},
+		-- {"http://alexandre.alapetite.fr/doc-alex/html5-webcam/"},
+		{"http://www.html5rocks.com/en/tutorials/masking/adobe/"},
+		-- {"http://jsfiddle.net/kseso/nmPuV/2/"},
+		-- {"http://jsfiddle.net/xr9Wa/"},
 		-- {fs:getRootPath(true).."tests/data/web/test4.html"},
 		-- {fs:getRootPath(true).."tests/data/web/test5.html"},
 		-- {fs:getRootPath(true).."tests/data/web/test6.html"},

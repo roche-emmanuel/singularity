@@ -5,7 +5,7 @@ define(["log","jquery","backbone","base/Tools","models/Level2Menu"],function(log
 		setupMenu: function() {
 			MenuBase.prototype.setupMenu.apply(this, arguments);
 			this.setFrameBorders({left: 2, right: 2, top: 4, bottom: 2})
-			this._name = "menu.illuminator1";
+			this._name = "menu.illuminator2";
 			this.setFrameSize(41,1);
 		},
 				
@@ -33,7 +33,6 @@ define(["log","jquery","backbone","base/Tools","models/Level2Menu"],function(log
 			if(this.hasItem("mode_narrow")) {
 				this.addValue("mode_narrow","XXXXX",{label: "MODE - NARROW", x: 1, width: 5});
 			}
-			
 			this.fixFrameHeight()
 				
 			this.addButtonLine(["done","bit","alarms"],[],4,

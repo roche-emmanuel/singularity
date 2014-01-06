@@ -31,6 +31,7 @@ body {
 	border: 0;
 	letter-spacing: 0px;
 	user-select: none;
+	overflow: hidden;
 }
 
 svg {
@@ -54,6 +55,21 @@ div {
 .hidden {
 	display: none;
 }
+
+.flashing {
+	animation: flash_anim 1s step-end infinite;
+}
+
+@keyframes flash_anim {
+	0% { opacity: 1.0 }
+	50% { opacity: 0.0 }
+}
+
+//@keyframes flash_anim {
+//	0% { clip-path: none }
+//	50% { clip-path: rectangle(<x>, <y>, <width>, <height> [, <rx>, <ry>]) }
+//}
+
 
 .selected {
 	animation: select_anim 1s step-end infinite;

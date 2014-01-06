@@ -12,7 +12,7 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 		
 		addModule: function(id,name) {
 
-			this.addButton(id,name);
+			this.addButton(id,name,{width:"auto"});
 			this._currentYPos--;
 			this.addStatus(id+"_error_level","OK",{x: 13, width: 5, align: "right", textAlign: "right"})
 			this._currentYPos--;
@@ -25,7 +25,7 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 			this.setTitle("SYSTEM STATUS");
 			
 			this.addModule("gimbal","GIMBAL");
-			this.addModule("EOW","EO");
+			this.addModule("EOW","EOW");
 			this.addModule("IR","IR");
 			
 			if (this.hasItem("EON")) {
@@ -53,9 +53,13 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 			}
 			
 			if (this.hasItem("illuminator1")) {
-				this.addModule("illuminator1","ILLUMINATOR-D");
+				this.addModule("illuminator1","ILLUMINATOR-1");
 			}
 			
+			if (this.hasItem("illuminator2")) {
+				this.addModule("illuminator2","ILLUMINATOR-2");
+			}
+
 			if (this.hasItem("LDR")) {
 				this.addModule("LDR","LDR");
 			}
@@ -63,6 +67,10 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 			// this.addModule("transmitter","TRANSMITTER");
 			// this.addModule("mx_pod","MX POD");
 			this.addModule("video_io","VIDEO I/O");
+			
+			if (this.hasItem("image_blending")) {
+				this.addButton("image_blending","IMAGE BLENDING");
+			}
 			
 			if (this.hasItem("seespot")) {
 				this.addButton("seespot","SEE-SPOT");

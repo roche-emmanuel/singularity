@@ -3,12 +3,13 @@ local Class = require("classBuilder"){name="GenesisApp",bases="osg.OSGTestApp"};
 local awe = require "Awesomium"
 
 local menu_list = { "menu", "menu.gimbal", "menu.EOW", "menu.IR", "menu.EON", "menu.ELRF", "menu.AVT",
-				    "menu.illuminator1", "menu.video_io", "menu.operator_gimbal", "menu.operator_payload",
+				    "menu.illuminator1", "menu.illuminator2", "menu.video_io", "menu.operator_gimbal", "menu.operator_payload",
 					"menu.mission", "menu.digital_overlays", "menu.analog_overlays", "menu.steering_modes",
 					"menu.profiles","menu.EOW.misc", "menu.IR.misc","menu.steering_modes.geoscan",
 					"menu.steering_modes.points_of_interest", "menu.LDR", "menu.digital_transmitter",
 					"menu.analog_transmitter", "menu.digital_transmitter.edit_encryption_id", "menu.mx_pod",
-					"menu.mx_pod.edit_waypoints","menu.seespot"}
+					"menu.mx_pod.edit_waypoints","menu.seespot","menu.image_blending",
+					"menu.alarms","menu.gimbal.alarms","menu.EOW.alarms","menu.IR.alarms","menu.EON.alarms"}
 
 function Class:new(options)
 	self:info("Calling new for GenesisApp.")

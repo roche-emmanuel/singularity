@@ -135,10 +135,14 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			tools.setItemContent("#"+field,value)			
 		},
 		
-		setHighlight: function(field, value) {
-			tools.highlightItem("#"+field,value)
+		setHighlight: function(field, value, flashValue) {
+			tools.highlightItem("#"+field,value, flashValue)
 		},
 
+		setFlashing: function(field, value) {
+			tools.flashItem("#"+field,value)
+		},
+		
 		getStreamMap: function(list,sname) {
 			var map = list[sname]
 			if (typeof map == "undefined") {

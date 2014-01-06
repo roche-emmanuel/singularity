@@ -1,5 +1,10 @@
 define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,$,Backbone,tools,MenuFrame) {
-		
+	
+	var menu_map;
+	if (typeof turretProxy != 'undefined') {
+		menu_map = turretProxy.getMenuMap();
+	}
+	
 	var Class = Backbone.Model.extend({
 
 		initialize: function() {
@@ -22,13 +27,30 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 		
 		setupMenu: function() {
 			// log.info("Calling BaseMenu.setupMenu()");
+			this._with_title = true
 		},
 		
 		hasItem: function(mname) {
-			// check if the given menu is available or not:
-			if (typeof turretProxy != 'undefined') {
-				return turretProxy.hasItem(this._name+"." +mname);
+			if (typeof menu_map != 'undefined') {
+				var fname = this._name+"." +mname;
+				// log.info("Menu map is valid, looking for item "+fname);
+				
+				var num = menu_map.length;
+				// log.info("Menu map length: "+num);
+				for(i=0;i<num;++i) {
+					if(menu_map[i]==fname) {
+						// log.info("Found item "+fname);
+						return true;
+					}
+				}
+				// log.info("NOT Found item "+fname);
+				return false;
 			}
+			
+			// check if the given menu is available or not:
+			// if (typeof turretProxy != 'undefined') {
+				// return turretProxy.hasItem(this._name+"." +mname);
+			// }
 			
 			// be default show the item:
 			return true;
@@ -116,9 +138,12 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 			var pt = this.getOriginPoint()
 			// Create the title place holder:
 			var ptt = this.getTitlePosition();
-			tools.createTextItem(el,name+".title","","MENU TITLE",pt.x+ptt.x,pt.y+ptt.y,this.getFrameSize().x)
 			
-			if(this._level==3) {
+			if(this._with_title) {
+				tools.createTextItem(el,name+".title","","MENU TITLE",pt.x+ptt.x,pt.y+ptt.y,this.getFrameSize().x)
+			}
+			
+			if(this._with_parent) {
 				// level 3 menus also have a parent title:
 				tools.createTextItem(el,this.getName()+".parent_title","","MENU TITLE",pt.x+ptt.x-1,pt.y+ptt.y-3,this.getFrameSize().x)
 			}
@@ -235,7 +260,9 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 			var spanWidth = width;
 			if(decoSize> 0.0) {
 				x -= decoSize;
-				width += 2.0*decoSize;
+				if(width!="auto") {
+					width += 2.0*decoSize;
+				}
 			}
 			
 			return {el: el, x: x, y: y, width: width, height: options.height, classes: classes, spanWidth: spanWidth};

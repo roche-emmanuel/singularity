@@ -35,7 +35,10 @@ define(["log","backbone"],function(log,Backbone) {
 		"waypoint_id",
 		"waypoint_range",
 		"transmitter_state",
-		"transmitter_channel"
+		"transmitter_channel",
+		"alpha_blend",
+		"blend_mode",
+		"alarm_message"
 		];
 	
 	var streamFields = [
@@ -62,7 +65,7 @@ define(["log","backbone"],function(log,Backbone) {
 		"video_in_control"
 	];
 	
-	var streams = [ "VIC", "EOW", "IR", "EON" ];
+	var streams = [ "VIC", "EOW", "IR", "EON", "SEE", "FSD" ];
 	
 	var proto = {
 		allFields : ["current_stream"],
