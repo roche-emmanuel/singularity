@@ -103,6 +103,7 @@
 - Added support for transmitters and mxpod components.
 - Added support for see spot menu.
 - Added page view support.
+- Added support for KLVController mockup server.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
