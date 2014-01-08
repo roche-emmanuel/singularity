@@ -30,7 +30,7 @@ ADD_SUBDIRECTORY(sgtLuna)
 # ADD_SUBDIRECTORY(lua_cog)
 # ADD_SUBDIRECTORY(lua_seed)
 
-# ADD_SUBDIRECTORY(plug_byteconverter)
+ADD_SUBDIRECTORY(plug_byteconverter)
 # ADD_SUBDIRECTORY(plug_lpeg)
 # ADD_SUBDIRECTORY(plug_lfs)
 # ADD_SUBDIRECTORY(plug_sql)
@@ -63,7 +63,7 @@ ENDIF()
 # ADD_SUBDIRECTORY(plug_micropather)
 # ADD_SUBDIRECTORY(plug_mathgl)
 # ADD_SUBDIRECTORY(plug_opengl)
-ADD_SUBDIRECTORY(plug_dx9)
+# ADD_SUBDIRECTORY(plug_dx9)
 # ADD_SUBDIRECTORY(plug_awDX)
 
 

@@ -17,6 +17,75 @@
 #include "lua.hpp"
 #include <sstream>
 #include <boost/cstdint.hpp>
+#include <luna/luna.h>
+
+// Luan types:
+// Class: __int64
+template<>
+class LunaTraits< __int64 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static __int64* _bind_ctor(lua_State *L);
+	static void _bind_dtor(__int64* obj);
+	typedef __int64 parent_t;
+	typedef __int64 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Class: __uint64
+template<>
+class LunaTraits< __uint64 > {
+public:
+	static const char className[];
+	static const char fullName[];
+	static const char moduleName[];
+	static const char* parents[];
+	static const int uniqueIDs[];
+	static const int hash;
+	static luna_RegType methods[];
+	static luna_RegEnumType enumValues[];
+	static __uint64* _bind_ctor(lua_State *L);
+	static void _bind_dtor(__uint64* obj);
+	typedef __uint64 parent_t;
+	typedef __uint64 base_t;
+	static luna_ConverterType converters[];
+};
+
+// Casters:
+template <typename dstType>
+struct luna_caster<__int64,dstType> {
+	static inline dstType* cast(__int64* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+template <typename dstType>
+struct luna_caster<__uint64,dstType> {
+	static inline dstType* cast(__uint64* ptr) {
+		return static_cast<dstType*>(ptr);
+	};
+};
+
+// External definitions:
+const char LunaTraits< __int64 >::className[] = "int64";
+const char LunaTraits< __int64 >::fullName[] = "__int64";
+const char LunaTraits< __int64 >::moduleName[] = "sgt";
+const int LunaTraits< __int64 >::hash = 32973728;
+const int LunaTraits< __int64 >::uniqueIDs[] = {32973728,0};
+
+const char LunaTraits< __uint64 >::className[] = "uint64";
+const char LunaTraits< __uint64 >::fullName[] = "__uint64";
+const char LunaTraits< __uint64 >::moduleName[] = "sgt";
+const int LunaTraits< __uint64 >::hash = 60998621;
+const int LunaTraits< __uint64 >::uniqueIDs[] = {60998621,0};
+
 
 enum Endian
 {
@@ -98,6 +167,67 @@ int bytesToNumber(lua_State * L)
 	}
 
 	lua_pushnumber(L,val);
+	return 1;
+}
+
+template<typename T>
+int bigNumberToBytes(lua_State * L) {
+	int top = lua_gettop(L);
+	CHECK_RET(top>0,0,"Invalid top value"); // check top>0
+
+	// retrieve the value as a int64 class:
+	T* val = Luna< T >::check(L,1);
+	if(!val) {
+		luna_printStack(L);
+		luaL_error(L, "Invalid big number value in bigNumberToBytes. Got : '%s'",typeid(Luna< T >::check(L,1)).name());
+	}
+			
+	int tsize = sizeof(T);
+
+	T nval = *val;
+	
+	// Retrieve the byte order if specified:
+	int order = (top>1 && (lua_toboolean(L,2)!=0)) ? BigEndian : LittleEndian;
+	if(getCpuByteOrder()!=order) {
+		swapBytes((char*)&nval,tsize);
+	}
+
+	// now write the value:
+	std::ostringstream os;
+	os.write((char*)&nval,tsize);
+
+	// now write this string back to lua:
+	CHECK_EQ_RET(os.str().size(),tsize,0,"Invalid string size");
+
+	lua_pushlstring(L,os.str().c_str(),tsize);
+	return 1;
+}
+
+template <typename T>
+int bytesToBigNumber(lua_State * L)
+{
+	int top = lua_gettop(L);
+	CHECK_RET(top>0,0,"Invalid top value"); // check top>0
+
+	size_t len;
+	const char* ss = lua_tolstring(L,1,&len);
+	int tsize = sizeof(T);
+
+	// Ensure we have the correct size:
+	CHECK_EQ_RET(len,tsize,0,"Invalid byte array size"); // string as the proper size:
+
+	T val = 0;
+	memcpy((void*)&val,ss,tsize);
+
+	// Retrieve the byte order if specified:
+	int order = (top>1 && (lua_toboolean(L,2)!=0)) ? BigEndian : LittleEndian;
+	if(getCpuByteOrder()!=order) {
+		swapBytes((char*)&val,tsize);
+	}
+	
+	// Now psuh this value on the stack:
+	T* nval = new T(val);
+	Luna< T >::push(L,nval,true);		
 	return 1;
 }
 
@@ -361,6 +491,26 @@ int uintToBitfield(lua_State* L)
 	return 1;
 }
 
+
+template <typename T>
+int bigNumberToHiLow(lua_State* L)
+{
+	// retrieve the value as a int64 class:
+	T* val = Luna< T >::check(L,1);
+	if(!val) {
+		luna_printStack(L);
+		luaL_error(L, "Invalid big number value in bigNumberToBytes. Got : '%s'",typeid(Luna< T >::check(L,1)).name());
+	}
+	
+	boost::uint32_t high = *val >> 32;
+	boost::uint32_t low = (boost::uint32_t)(*val);
+
+	lua_pushnumber(L,(double)high);
+	lua_pushnumber(L,(double)low);
+	return 2;
+}
+
+
 typedef int (*lua_mfp)(lua_State *L);
 typedef struct { const char *name; lua_mfp mfunc; } lua_RegType;
 
@@ -391,6 +541,11 @@ int PLUG_EXPORT luaopen_byteconverter(lua_State* L) {
 		{"bytesToFloat",bytesToNumber<float>},
 		{"bytesToDouble",bytesToNumber<double>},
 		
+		{"int64ToBytes",bigNumberToBytes<boost::int64_t>},
+		{"uint64ToBytes",bigNumberToBytes<boost::uint64_t>},
+		{"bytesToInt64",bytesToBigNumber<boost::int64_t>},
+		{"bytesToUInt64",bytesToBigNumber<boost::uint64_t>},
+
 		{"doubleToQ",doubleToQ},
 		{"qToDouble",qToDouble},
 		{"qDoubleToBytes",qToBytes},
@@ -402,6 +557,9 @@ int PLUG_EXPORT luaopen_byteconverter(lua_State* L) {
 		{"uint16ToBitfield",uintToBitfield<boost::uint16_t>},
 		{"bitfieldToUInt32",bitfieldToUInt<boost::uint32_t>},
 		{"uint32ToBitfield",uintToBitfield<boost::uint32_t>},
+		
+		{"uint64ToHiLow",bigNumberToHiLow<boost::uint64_t>},
+		{"int64ToHiLow",bigNumberToHiLow<boost::int64_t>},
 		
 		{0,0}
 	};
