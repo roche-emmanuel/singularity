@@ -104,6 +104,7 @@
 - Added support for see spot menu.
 - Added page view support.
 - Added support for KLVController mockup server.
+- Added snippets for AVT tests.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

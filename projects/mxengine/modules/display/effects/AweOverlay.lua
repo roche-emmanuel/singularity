@@ -212,6 +212,8 @@ function Class:performFullRefresh()
 	for rid,size in pairs(rsize) do
 		self:doSetReticleSize(rid,size)
 	end
+
+	self:doSetAcquisitionWindowState(self:getAcquisitionWindowState())
 end
 
 
@@ -357,6 +359,16 @@ end
 
 function Class:doSetReticleSize(rid,size)
 	self._webView:call("setReticleSize",rid,size:x(),size:y())
+	dman:update()
+end
+
+--[[
+Function: doSetAcquisitionWindowState
+
+Re-implementation to actually show/hide the acquisition window on the overlays.
+]]
+function Class:doSetAcquisitionWindowState(visible, size)
+	self._webView:call("setAcquisitionWindowState",visible,size:x(),size:y())
 	dman:update()
 end
 

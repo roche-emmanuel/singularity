@@ -38,6 +38,7 @@ function Class:buildComponent(intf)
 						require "gui.SensorBookPanel" {intf};
 					end}
 					intf:pushSizerV{prop=0,flags=wx.wxEXPAND,function()			
+						require "gui.AVTPanel" {intf};
 						require "gui.SEEPanel" {intf};
 						require "gui.FSDPanel" {intf};
 					end}					

@@ -1,9 +1,6 @@
 define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,$,Backbone,tools,MenuFrame) {
 	
 	var menu_map;
-	if (typeof turretProxy != 'undefined') {
-		menu_map = turretProxy.getMenuMap();
-	}
 	
 	var Class = Backbone.Model.extend({
 
@@ -31,7 +28,11 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 		},
 		
 		hasItem: function(mname) {
-			if (typeof menu_map != 'undefined') {
+			if (typeof turretProxy != 'undefined') {
+				if (typeof menu_map == 'undefined') {
+					menu_map = turretProxy.getMenuMap();
+				}
+
 				var fname = this._name+"." +mname;
 				// log.info("Menu map is valid, looking for item "+fname);
 				

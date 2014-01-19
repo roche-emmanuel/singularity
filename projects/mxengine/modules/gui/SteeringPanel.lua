@@ -14,6 +14,8 @@ function Class:buildComponent(intf)
 								  handler="updateSteeringMode"}
 		intf:addActionButtonEntry{name="STEERING_AUTO",caption="AUTO",
 								  handler="updateSteeringMode"}
+		intf:addActionButtonEntry{name="STEERING_AVT",caption="AVT",
+								  handler="updateSteeringMode"}
 								  
 		intf:popSizer()
 		intf:addSpacer{prop=1}

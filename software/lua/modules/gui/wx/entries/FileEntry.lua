@@ -1,8 +1,8 @@
 local Class = require("classBuilder"){name="FileEntry",bases="gui.wx.Entry"};
 
 function Class:initialize(options)
-    self:check(options and options.caption,"A valid 'caption' is needed to build a File entry.");
-
+    self:check(options.caption,"A valid caption is needed to build a file entry.")
+    
     -- overrride some values:
     self._type = "string"
     self._defaultValue = self._defaultValue or ""

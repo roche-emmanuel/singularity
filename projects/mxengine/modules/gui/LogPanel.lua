@@ -29,11 +29,21 @@ function Class:buildComponent(intf)
 		intf:popSizer()
 		
 		intf:pushSizer{orient=wx.wxVERTICAL,prop=1,flags=wx.wxEXPAND}
-			self._execTc = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,
-											style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
-			intf:addBitmapButton{src="execute", flags=wx.wxALL+wx.wxALIGN_RIGHT,
-								 tip="Execute the content of the script console",
-								 handler="executeScript"}
+			intf:pushSizer{orient=wx.wxHORIZONTAL,prop=1,flags=wx.wxEXPAND}
+				self._execTc = intf:addTextCtrl{prop=1,flags=wx.wxALL+wx.wxEXPAND,
+												style=bit.bor(wx.wxTE_MULTILINE,wx.wxTE_BESTWRAP,wx.wxTE_RICH2)}
+				intf:addBitmapButton{src="execute", flags=wx.wxALL+wx.wxALIGN_RIGHT,
+									 tip="Execute the content of the script console",
+									 handler="executeScript"}
+			intf:popSizer()
+
+			intf:pushSizer{orient=wx.wxHORIZONTAL,prop=0,flags=wx.wxEXPAND}
+				intf:addFileEntry{name="exec_file", prop=1, caption="Execute file", message="Select file to execute",wildcard="*.lua",
+					defaultValue="W:\\Cloud\\Projects\\singularity\\projects\\mxengine\\snippets\\helloturret.lua"}
+				intf:addActionButtonEntry{name="execute_file", src="execute", flags=wx.wxALL+wx.wxALIGN_RIGHT,
+									 tip="Execute the content of the script console",
+									 handler="executeFile"}
+			intf:popSizer()			
 		intf:popSizer()
 	intf:popSizer()
 end
@@ -83,6 +93,13 @@ function Class:executeScript()
 	if not status then
 		self:error("Error while executing lua chunk: ",msg)
 	end
+end
+
+function Class:executeFile(data)
+	local dmap = data.item	
+	local filename = dmap:fetch("exec_file")
+	-- self:debug("Should execute file: ",filename)
+	dofile(filename)
 end
 
 return Class 

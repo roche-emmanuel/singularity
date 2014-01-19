@@ -14,10 +14,11 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 	"models/reticles/Illuminator2",
 	"models/TransmitterBase",
 	"models/TransmitterFov",
-	"models/TransmitterKey"
+	"models/TransmitterKey",
+	"models/AcqWin"
 ],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,
 	ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle,Illum1Ret,Illum2Ret,
-	TXBase,TXFov,TXKey) {
+	TXBase,TXFov,TXKey,AcqWin) {
 	
 	var con = new Controller;
 	
@@ -86,7 +87,8 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._reticles.push(new MalteseReticle())
 			this._reticles.push(new Illum1Ret())
 			this._reticles.push(new Illum2Ret())
-			
+			this._acqWin = new AcqWin()
+
 			tools.showElement("#reticle_standard",false)
 			$("#picto_group").addClass("hidden")
 		},
@@ -107,6 +109,11 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			}
 		},
 		
+		setAcquisitionWindowState: function(visible, ww, hh) {
+			this._acqWin.setSize(ww,hh)
+			tools.showElement("#acq_win",visible)
+		},
+
 		setGimbalAzimuthAngle: function(angle) {
 			$("#az_pict_fov").css({transform: 'rotate('+angle+'deg)'})			
 			if (angle<0) { angle += 360.0; }

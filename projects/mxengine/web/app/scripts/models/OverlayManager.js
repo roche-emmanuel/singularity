@@ -128,6 +128,11 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 			om.setReticleSize(rid,ww,hh);
 		},
 
+		setAcquisitionWindowState: function(visible,ww,hh) {
+			// log.info("Should set acq win to visible="+visible+", size to "+ww+"x"+hh)
+			om.setAcquisitionWindowState(visible,ww,hh);
+		},
+
 		setOverlayGroupStatus: function (gid, status) {
 			//log.info("Toggling group "+gid+" to "+status)
 			
