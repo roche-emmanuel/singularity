@@ -726,11 +726,21 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
 	local luaName = self:extractNewName(desc and desc:contents())
 	func:setLuaName(luaName) -- may be nil.
 	
-	if func:getName()== "LUNA_IMPLEMENT_VECTOR" then
-		self:implementVector(func)
+    if func:getName()== "LUNA_IMPLEMENT_VECTOR" then
+        self:implementVector(func)
+        return;
+    end
+
+	if func:getName()== "LUNA_IMPLEMENT_LIST" then
+		self:implementList(func)
 		return;
 	end
 	
+    if func:getName()== "LUNA_IMPLEMENT_MAP" then
+        self:implementMap(func)
+        return;
+    end
+
 	-- Now decide where to store this function:
 	-- it could be a regular function or a class extension.
 	-- check the detailed description to find out:	
@@ -764,21 +774,131 @@ function ReflectionGenerator:addScopeFunction(scope,mem)
 end
 
 function ReflectionGenerator:implementVector(func)
+    local params = func:getParameters()
+    
+    self:check(params:size()>0,"Invalid parameter list size.")
+    
+    local baseType = func:getParameters():at(1):getType();
+    baseType:parse();
+    
+    self:warn("Implementing vector for type ",baseType:getName())
+    
+    local target = nil
+    local targetType = nil
+    
+    if params:size() >1 then
+        -- the second parameter is the type description:
+        local btype = func:getParameters():at(2):getType() -- assume there are enough parameters!!!
+        btype:parse()
+        local bclass = btype:getBase()
+        if bclass.isClass and bclass:isClass() then
+            target = bclass
+            targetType = bclass:asType()
+        else
+            target = btype
+            targetType = target:clone()
+        end
+    else
+        -- We have to create the target type ourself:
+        target = Type.createFromString("std::vector< " .. baseType:getName() .. " >")
+    end
+    
+    -- targetType:setIsReference(true) -- for referencing.
+    
+    -- Now we should create the vector specific functions:
+    local voidType = Type.createFromString("void")
+    local boolType = Type.createFromString("bool")
+    local uintType = Type.createFromString("unsigned int")
+    
+    self:createSimpleMethod(target,voidType,"assign",uintType,baseType)
+    -- self:createSimpleMethod(target,voidType,"insert",uintType,baseType) -- iterator needed.
+    self:createSimpleMethod(target,baseType,"at",uintType)
+    self:createSimpleMethod(target,baseType,"back")
+    self:createSimpleMethod(target,baseType,"front")
+    self:createSimpleMethod(target,voidType,"clear")
+    self:createSimpleMethod(target,boolType,"empty")
+    self:createSimpleMethod(target,uintType,"size")
+    self:createSimpleMethod(target,voidType,"resize",uintType)
+    self:createSimpleMethod(target,voidType,"pop_back")
+    self:createSimpleMethod(target,voidType,"push_back",baseType)
+    -- self:createSimpleMethod(target,voidType,"swap",targetType)
+    self:createSimpleMethod(target,baseType,"operator[]",uintType)
+    
+end
+
+function ReflectionGenerator:implementList(func)
+    local params = func:getParameters()
+    
+    self:check(params:size()>0,"Invalid parameter list size.")
+    
+    local baseType = func:getParameters():at(1):getType();
+    baseType:parse();
+    
+    self:warn("Implementing list for type ",baseType:getName())
+    
+    local target = nil
+    local targetType = nil
+    
+    if params:size() >1 then
+        -- the second parameter is the type description:
+        local btype = func:getParameters():at(2):getType() -- assume there are enough parameters!!!
+        btype:parse()
+        local bclass = btype:getBase()
+        if bclass.isClass and bclass:isClass() then
+            target = bclass
+            targetType = bclass:asType()
+        else
+            target = btype
+            targetType = target:clone()
+        end
+    else
+        -- We have to create the target type ourself:
+        target = Type.createFromString("std::list< " .. baseType:getName() .. " >")
+    end
+    
+    -- targetType:setIsReference(true) -- for referencing.
+    
+    -- Now we should create the list specific functions:
+    local voidType = Type.createFromString("void")
+    local boolType = Type.createFromString("bool")
+    local uintType = Type.createFromString("unsigned int")
+    
+    self:createSimpleMethod(target,voidType,"assign",uintType,baseType)
+    -- self:createSimpleMethod(target,voidType,"insert",uintType,baseType) -- iterator needed.
+    -- self:createSimpleMethod(target,baseType,"at",uintType)
+    self:createSimpleMethod(target,baseType,"back")
+    self:createSimpleMethod(target,baseType,"front")
+    self:createSimpleMethod(target,voidType,"clear")
+    self:createSimpleMethod(target,boolType,"empty")
+    self:createSimpleMethod(target,uintType,"size")
+    self:createSimpleMethod(target,voidType,"resize",uintType)
+    self:createSimpleMethod(target,voidType,"pop_back")
+    self:createSimpleMethod(target,voidType,"push_back",baseType)
+    self:createSimpleMethod(target,voidType,"pop_front")
+    self:createSimpleMethod(target,voidType,"push_front",baseType)
+    -- self:createSimpleMethod(target,voidType,"swap",targetType)
+    -- self:createSimpleMethod(target,baseType,"operator[]",uintType)
+end
+
+function ReflectionGenerator:implementMap(func)
 	local params = func:getParameters()
 	
 	self:check(params:size()>0,"Invalid parameter list size.")
 	
-	local baseType = func:getParameters():at(1):getType();
+    local keyType = func:getParameters():at(1):getType();
+    keyType:parse();
+
+	local baseType = func:getParameters():at(2):getType();
 	baseType:parse();
 	
-	self:warn("Implementing vector for type ",baseType:getName())
+	self:warn("Implementing list for type ",baseType:getName())
 	
 	local target = nil
 	local targetType = nil
 	
 	if params:size() >1 then
 		-- the second parameter is the type description:
-		local btype = func:getParameters():at(2):getType() -- assume there are enough parameters!!!
+		local btype = func:getParameters():at(3):getType() -- assume there are enough parameters!!!
 		btype:parse()
 		local bclass = btype:getBase()
 		if bclass.isClass and bclass:isClass() then
@@ -790,30 +910,33 @@ function ReflectionGenerator:implementVector(func)
 		end
 	else
 		-- We have to create the target type ourself:
-		target = Type.createFromString("std::vector< " .. baseType:getName() .. " >")
+		target = Type.createFromString("std::map< " .. keyType:getName() .. ", " .. baseType:getName() .. " >")
 	end
 	
 	-- targetType:setIsReference(true) -- for referencing.
 	
-	-- Now we should create the vector specific functions:
+	-- Now we should create the list specific functions:
 	local voidType = Type.createFromString("void")
 	local boolType = Type.createFromString("bool")
 	local uintType = Type.createFromString("unsigned int")
 	
-	self:createSimpleMethod(target,voidType,"assign",uintType,baseType)
+	-- self:createSimpleMethod(target,voidType,"assign",uintType,baseType)
 	-- self:createSimpleMethod(target,voidType,"insert",uintType,baseType) -- iterator needed.
-	self:createSimpleMethod(target,baseType,"at",uintType)
-	self:createSimpleMethod(target,baseType,"back")
-	self:createSimpleMethod(target,baseType,"front")
+	self:createSimpleMethod(target,baseType,"at",keyType)
+	-- self:createSimpleMethod(target,baseType,"back")
+	-- self:createSimpleMethod(target,baseType,"front")
 	self:createSimpleMethod(target,voidType,"clear")
 	self:createSimpleMethod(target,boolType,"empty")
-	self:createSimpleMethod(target,uintType,"size")
-	self:createSimpleMethod(target,voidType,"resize",uintType)
-	self:createSimpleMethod(target,voidType,"pop_back")
-	self:createSimpleMethod(target,voidType,"push_back",baseType)
+    self:createSimpleMethod(target,uintType,"size")
+    self:createSimpleMethod(target,uintType,"count",keyType)
+	self:createSimpleMethod(target,voidType,"erase",keyType)
+	-- self:createSimpleMethod(target,voidType,"resize",uintType)
+    -- self:createSimpleMethod(target,voidType,"pop_back")
+    -- self:createSimpleMethod(target,voidType,"push_back",baseType)
+	-- self:createSimpleMethod(target,voidType,"pop_front")
+	-- self:createSimpleMethod(target,voidType,"push_front",baseType)
 	-- self:createSimpleMethod(target,voidType,"swap",targetType)
-	self:createSimpleMethod(target,baseType,"operator[]",uintType)
-	
+	self:createSimpleMethod(target,baseType,"operator[]",keyType)
 end
 
 function ReflectionGenerator:createSimpleMethod(targetType,returnType,fname,...)

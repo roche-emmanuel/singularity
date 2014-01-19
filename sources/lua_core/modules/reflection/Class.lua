@@ -358,6 +358,12 @@ function Class:getDeleter()
 end
 
 function Class:getModule()
+	local mtype = self:getMappedType() and self:getMappedType():getName()
+	if mtype and self:isRecursivePublic() then
+		-- In case there a mapped type for this class, we when to register it directly in the default module.
+		-- the mapped type is going to be some king of std template composition.
+		return rm:getDefaultModuleName()
+	end
 	return self.externalModule or tm:getModule(self) or tm:getMappedModuleName(self)
 end
 
