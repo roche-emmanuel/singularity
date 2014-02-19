@@ -14,8 +14,8 @@ function Class:buildComponent(intf)
 								  handler="updateSteeringMode"}
 		intf:addActionButtonEntry{name="STEERING_AUTO",caption="AUTO",
 								  handler="updateSteeringMode"}
-		intf:addActionButtonEntry{name="STEERING_AVT",caption="AVT",
-								  handler="updateSteeringMode"}
+		-- intf:addActionButtonEntry{name="STEERING_AVT",caption="AVT",
+		-- 						  handler="updateSteeringMode"}
 								  
 		intf:popSizer()
 		intf:addSpacer{prop=1}
@@ -39,6 +39,12 @@ function Class:updateSteeringMode(data)
 	self:info("Updating current steering mode...")
 	local turret = data.item:fetch("turret")
 	local gimbal = turret:getGimbal()
+	
+	local avt = turret:getModule(turret.MODULE_AVT)
+	if avt then
+		-- ensure that we are not locked into AVT:
+		avt:setTrackStatus(turret.AVT_TRACK_OFF)
+	end
 	
 	-- set th turret to stow mode:
 	-- the data name is precisely the name of the enum value to use:

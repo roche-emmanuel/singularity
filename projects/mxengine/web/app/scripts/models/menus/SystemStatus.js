@@ -80,10 +80,35 @@ define(["log","jquery","backbone","base/Tools","models/Level1Menu"],function(log
 			this.addButton("operator_gimbal","OPERATOR GIMBAL");
 			this.addButton("operator_payload","OPERATOR PAYLOAD");
 			this.addButton("mission","MISSION");
-			this.addButton("digital_overlays","DIGITAL OVERLAYS");
-			this.addButton("analog_overlays","ANALOG OVERLAYS");
+
+			if (this.hasItem("digital_overlays")) {			
+				this.addButton("digital_overlays","DIGITAL OVERLAYS");
+			}
+
+			if (this.hasItem("analog_overlays")) {
+				this.addButton("analog_overlays","ANALOG OVERLAYS");
+			}
+
+			if (this.hasItem("overlay_EOW")) {
+				this.addButton("analog_EOW","OVERLAY EOW");
+			}
+
+			if (this.hasItem("overlay_IR")) {
+				this.addButton("analog_IR","OVERLAY IR");
+			}
+
+			if (this.hasItem("overlay_EON")) {
+				this.addButton("analog_EON","OVERLAY EON");
+			}
+
 			// this.addButton("customer_menu","CUSTOMER MENU");
-			this.addModule("steering_modes","STEERING MODES");
+			if (this.hasItem("steering_modes")) {
+				this.addModule("steering_modes","STEERING MODES");
+			}
+			if (this.hasItem("geoscan")) {
+				this.addModule("geoscan","GEOSCAN");
+			}
+
 			this.addButton("profiles","PROFILES");
 			// tools.selectItem("#menu.mission")
 			

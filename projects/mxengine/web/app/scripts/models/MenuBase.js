@@ -28,9 +28,13 @@ define(["log","jquery","backbone","base/Tools","models/MenuFrame"],function(log,
 		},
 		
 		hasItem: function(mname) {
-			if (typeof turretProxy != 'undefined') {
+			if (typeof turretProxy !== 'undefined') {
 				if (typeof menu_map == 'undefined') {
 					menu_map = turretProxy.getMenuMap();
+				}
+
+				if (typeof menu_map == 'undefined') {
+					return true;
 				}
 
 				var fname = this._name+"." +mname;

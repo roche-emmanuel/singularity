@@ -32,6 +32,8 @@ define(["log","jquery","backbone","base/Tools"],function(log,$,Backbone,tools) {
 			this.setPosition(0.5,0.5)
 			this._paper = tools.createRaphaelPaper(cont);
 			this.setSize(10/1280,10/720);
+
+			tools.showElement("#"+this.getName(),false)
 		},
 		
 		getName: function() {

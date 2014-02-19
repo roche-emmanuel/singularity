@@ -72,6 +72,9 @@ local dxColorf = osg.Vec4f.toDXColor
 local dxColord = osg.Vec4d.toDXColor
 local fromYPR = osg.Quat.fromYPR
 local toYPR = osg.Quat.toYPR
+local toXYZ = osg.EllipsoidModel.toXYZ
+local toLLA = osg.EllipsoidModel.toLLA
+
 -- local toLLA = osg.Vec3d.toLLA
 -- local toUTM = osg.Vec3d.toUTM
 
@@ -136,6 +139,9 @@ osg.Vec4f.toDXColor = dxColorf
 osg.Vec4d.toDXColor = dxColord
 osg.Quat.fromYPR = fromYPR
 osg.Quat.toYPR = toYPR
+
+osg.EllipsoidModel.toXYZ = toXYZ
+osg.EllipsoidModel.toLLA = toLLA
 
 -- osg.Vec3d.toLLA = toLLA
 -- osg.Vec3d.toUTM = toUTM

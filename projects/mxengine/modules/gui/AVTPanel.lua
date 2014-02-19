@@ -14,6 +14,8 @@ function Class:buildComponent(intf,options)
 				choices=avt_algo, handler="updateAlgorithm",validItemOnly=true}
 			intf:addSingleChoiceEntry{name="avt_acqsize",prop=0,caption="Acq. Size",
 				choices=avt_acqsize, handler="updateAcqSize",validItemOnly=true}
+			intf:addActionButtonEntry{name="avt_acquire",src="disc1",size=size,
+									  handler="acquireTarget",validItemOnly=true}				
 			intf:addActionButtonEntry{name="avt_lock",src="enter",size=size,
 									  handler="lockTarget",validItemOnly=true}				
 		end}
@@ -81,6 +83,19 @@ function Class:lockTarget(data)
 	end
 	
 	avt:lockTarget()
+end
+
+function Class:acquireTarget(data)
+	local dmap = data.item
+	local turret = dmap:fetch("turret")
+	
+	local avt = turret:getModule(Enums.MODULE_AVT)
+	if not avt then
+		self:warn("No AVT Module in this turret.")
+		return 
+	end
+	
+	avt:setTrackStatus(Enums.AVT_TRACK_ARMED)
 end
 
 return Class 

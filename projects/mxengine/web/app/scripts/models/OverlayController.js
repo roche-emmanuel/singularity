@@ -38,6 +38,7 @@ define(["log","backbone"],function(log,Backbone) {
 		"transmitter_channel",
 		"alpha_blend",
 		"blend_mode",
+		"point_of_interest",
 		"alarm_message"
 		];
 	

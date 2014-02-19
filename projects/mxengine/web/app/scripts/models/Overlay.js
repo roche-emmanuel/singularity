@@ -12,13 +12,22 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 	"models/reticles/MalteseCross",
 	"models/reticles/Illuminator1",
 	"models/reticles/Illuminator2",
+	"models/reticles/SOCOM_EOW",
+	"models/reticles/SOCOM_IR_WFOV",
+	"models/reticles/SOCOM_IR_MFOV",
+	"models/reticles/SOCOM_IR_NFOV",
+	"models/reticles/SOCOM_IR_VNFOV",
 	"models/TransmitterBase",
 	"models/TransmitterFov",
 	"models/TransmitterKey",
-	"models/AcqWin"
+	"models/AcqWin",
+	"models/GateSize",
+	"models/AVTTarget",
+	"models/AVTCross"
 ],function(log,$,Backbone,Controller,tools,AzBase,AzFov,ElevBase,
 	ElevFov,Destab,AzScale,ElevScale,StdReticle,MalteseReticle,Illum1Ret,Illum2Ret,
-	TXBase,TXFov,TXKey,AcqWin) {
+	SOCOM_EOW,SOCOM_IR_WFOV,SOCOM_IR_MFOV,SOCOM_IR_NFOV,SOCOM_IR_VNFOV,
+	TXBase,TXFov,TXKey,AcqWin,GateSize,AVTTarget,AVTCross) {
 	
 	var con = new Controller;
 	
@@ -36,6 +45,7 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._streamFields = {};
 			this._streamHighlights = {};
 			this._reticles = [];
+			this._avtTargets = [];
 			this._currentStream = "VIC"
 		},
 	
@@ -87,7 +97,19 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 			this._reticles.push(new MalteseReticle())
 			this._reticles.push(new Illum1Ret())
 			this._reticles.push(new Illum2Ret())
+			this._reticles.push(new SOCOM_EOW())
+			this._reticles.push(new SOCOM_IR_WFOV())
+			this._reticles.push(new SOCOM_IR_MFOV())
+			this._reticles.push(new SOCOM_IR_NFOV())
+			this._reticles.push(new SOCOM_IR_VNFOV())
 			this._acqWin = new AcqWin()
+			this._gate = new GateSize()
+			this._avtTarget = new AVTTarget()
+
+			this._avtTargets.push(new AVTCross({index: 1}))
+			this._avtTargets.push(new AVTCross({index: 2}))
+			this._avtTargets.push(new AVTCross({index: 3}))
+			this._avtTargets.push(new AVTCross({index: 4}))
 
 			tools.showElement("#reticle_standard",false)
 			$("#picto_group").addClass("hidden")
@@ -112,6 +134,23 @@ define(["log","jquery","backbone","models/OverlayController","base/Tools",
 		setAcquisitionWindowState: function(visible, ww, hh) {
 			this._acqWin.setSize(ww,hh)
 			tools.showElement("#acq_win",visible)
+		},
+
+		setGateState: function(visible, ww, hh) {
+			this._gate.setSize(ww,hh)
+			tools.showElement("#gate_size",visible)
+		},
+
+		setAVTTargetState: function(visible, xx, yy, ww, hh) {
+			this._avtTarget.setPosition(xx,yy)
+			this._avtTarget.setSize(ww,hh)
+			tools.showElement("#avt_target",visible)
+		},
+
+		setAVTAltTargetState: function(visible, index, xx, yy, ww, hh) {
+			this._avtTargets[index-1].setPosition(xx,yy)
+			this._avtTargets[index-1].setSize(ww,hh)
+			tools.showElement("#avt_target_"+index,visible)
 		},
 
 		setGimbalAzimuthAngle: function(angle) {

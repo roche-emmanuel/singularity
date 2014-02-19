@@ -60,7 +60,7 @@ function Class:buildComponent(intf)
 		intf:addSingleChoiceEntry{name="single_turret.output_model",prop=1,caption="Output model",
 			-- choices={"std_outputs","debug_sources","debug_streams","debug_outputs","no_outputs","digital1","digital2"},
 			choices=outputList,
-			defaultValue="std_outputs",
+			defaultValue="digital1", --"std_outputs"
 			handler="onOutputModelChanged"}
 		intf:addSingleChoiceEntry{name="single_turret.network_model",prop=1,caption="Network model",
 			-- choices={"no_network","std_mxsim"},

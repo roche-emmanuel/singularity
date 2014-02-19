@@ -60,7 +60,7 @@ define(['log','jquery','config','raphael','base/Tools'], function(log,$,cfg,raph
 			
 			var str = ".textslot { \
 				position: absolute; \
-				text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000; \
+				//text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000; \
 				letter-spacing: {0}px; \
 				padding-left: {1}px; \
 				padding-right: {1}px; \

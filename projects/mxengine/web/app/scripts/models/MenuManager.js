@@ -28,11 +28,15 @@ define(["log","jquery","backbone","base/Tools",
 "models/menus/Waypoints",
 "models/menus/SeeSpot",
 "models/menus/ImageBlending",
-"models/menus/Alarms"
+"models/menus/Alarms",
+"models/menus/OverlayEOW",
+"models/menus/OverlayIR",
+"models/menus/OverlayEON"
 ],
 function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Illum2,VideoIO,OpGimbal,OpPayload,Mission,
 		 DigitalOverlays,AnalogOverlays,SteeringModes,Profiles,EOW_misc,IR_misc,GeoScan,POI,LDR,
-		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints,SeeSpot,ImageBlending,Alarms) {
+		 DigitalTX,AnalogTX,EditEncryption,MXPOD,Waypoints,SeeSpot,ImageBlending,Alarms,
+		 OverlayEOW, OverlayIR, OverlayEON) {
 		
 	var Class = Backbone.Model.extend({
 		
@@ -73,6 +77,9 @@ function(log,$,Backbone,tools,SystemStatus,Gimbal,EOW,IR,EON,LRF,AVT,Illum1,Illu
 			this.menus.push(new Waypoints());
 			this.menus.push(new SeeSpot());
 			this.menus.push(new ImageBlending());
+			this.menus.push(new OverlayEOW());
+			this.menus.push(new OverlayIR());
+			this.menus.push(new OverlayEON());
 			
 			// Alarm pages:
 			this.menus.push(new Alarms({name:"menu.alarms", parent_title:"SYSTEM STATUS", level: 2}));

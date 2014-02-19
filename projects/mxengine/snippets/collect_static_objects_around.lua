@@ -72,9 +72,7 @@ local vic = turret:getVideoStream(turret.VIDEO_VIC)
 local sensor = vic:getResolvedSensor()
 
 -- now get the FOV of this sensor:
-local hfov = sensor:getFOV(true) -- with ezoom;
-local aspect = sensor:getOutput():getAspectRatio()
-local vfov = hfov/aspect
+local hfov, vfov = sensor:getFOV(true) -- with ezoom;
 
 log:debug("Current sensor fov is :",hfov," degrees.");
 

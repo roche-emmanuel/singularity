@@ -9,7 +9,8 @@ local menu_list = { "menu", "menu.gimbal", "menu.EOW", "menu.IR", "menu.EON", "m
 					"menu.steering_modes.points_of_interest", "menu.LDR", "menu.digital_transmitter",
 					"menu.analog_transmitter", "menu.digital_transmitter.edit_encryption_id", "menu.mx_pod",
 					"menu.mx_pod.edit_waypoints","menu.seespot","menu.image_blending",
-					"menu.alarms","menu.gimbal.alarms","menu.EOW.alarms","menu.IR.alarms","menu.EON.alarms"}
+					"menu.alarms","menu.gimbal.alarms","menu.EOW.alarms","menu.IR.alarms","menu.EON.alarms",
+					"menu.overlay_EOW","menu.overlay_IR","menu.overlay_EON"}
 
 function Class:new(options)
 	self:info("Calling new for GenesisApp.")

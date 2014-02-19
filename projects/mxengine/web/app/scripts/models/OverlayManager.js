@@ -133,6 +133,38 @@ function(log,$,Backbone,MenuManager,OverlayManager,tools) {
 			om.setAcquisitionWindowState(visible,ww,hh);
 		},
 
+		setGateState: function(visible,ww,hh) {
+			// log.info("Should set acq win to visible="+visible+", size to "+ww+"x"+hh)
+			om.setGateState(visible,ww,hh);
+		},
+
+		setOutlineState: function(enabled) {
+			// In this method we just get or create a style element to set the text decoration for textslots:
+			log.info("Setting outline state to "+ (enabled ? "true" : "false"));
+
+			var el = $("#outline_style");
+			if (el.length == 0) {
+				el = $("<style id='outline_style'></style>").appendTo('head')
+			}
+			if(enabled) {
+				el.html(".textslot { 	text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000; } "
+							+".block { text-shadow: -1px -1px 1px #000, -1px 1px 1px #000, 1px -1px 1px #000, 1px 1px 1px #000; }" );
+			}
+			else {
+				el.html("");
+			}
+		},
+
+		setAVTTargetState: function(visible,xx,yy,ww,hh) {
+			//log.info("Should set AVT Target to visible="+visible+", rect to ("+xx+", "+yy+", "+ww+", "+hh+")")
+			om.setAVTTargetState(visible,xx,yy,ww,hh);
+		},
+
+		setAVTAltTargetState: function(visible,index,xx,yy,ww,hh) {
+			// log.info("Should set AVT Alt Target "+index+" to visible="+visible+", rect to ("+xx+", "+yy+", "+ww+", "+hh+")")
+			om.setAVTAltTargetState(visible,index,xx,yy,ww,hh);
+		},
+
 		setOverlayGroupStatus: function (gid, status) {
 			//log.info("Toggling group "+gid+" to "+status)
 			

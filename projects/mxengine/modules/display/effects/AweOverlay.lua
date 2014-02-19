@@ -34,13 +34,15 @@ function Class:initialize(options)
 	-- local size = self:getTurret():getRenderSize()
 	
 	local res = output:getResolution()
-	local size = self.resolutionSizeMap[res]
+	local size = self.overlayResolutionSizeMap[res] or self.resolutionSizeMap[res]
 	
 	self:info("Creating webview of size ",size:x(),"x",size:y())
 	local tobj = require "aw.WebView" {turret = self:getTurret(), width = size:x(), height = size:y(), transparent=true}
 	self:info("Setting up texture Object")
 	
 	tobj:getTextureObject():setLinearFiltering()	
+	--tobj:getTextureObject():setPointFiltering()	
+	
 	fx:setTextureObject(tobj,1)
 	self:info("Webview created.")
 		
@@ -214,6 +216,15 @@ function Class:performFullRefresh()
 	end
 
 	self:doSetAcquisitionWindowState(self:getAcquisitionWindowState())
+	self:doSetAVTTargetState(self:getAVTTargetState())
+	self:doSetGateState(self:getGateState())
+
+	for i=1,4 do
+		local visible, rect = self:getAVTAltTargetState(i)
+		self:doSetAVTAltTargetState(visible,i,rect)
+	end
+
+	self:doSetOutlineState(self:getOutlineState())
 end
 
 
@@ -223,7 +234,7 @@ function Class:onMenuVisibilityUpdated(visible)
 end
 
 function Class:onMenuSelectionUpdated(menu_name,item_name,sub_index)
-	-- self:info("Updating Menu selection to: ",menu_name,".",item_name," (sub=",sub_index,")")
+	--self:info("Updating Menu selection to: ",menu_name,".",item_name," (sub=",sub_index,")")
 	self._webView:call("setMenuSelection",menu_name,item_name,sub_index)
 end
 
@@ -369,6 +380,27 @@ Re-implementation to actually show/hide the acquisition window on the overlays.
 ]]
 function Class:doSetAcquisitionWindowState(visible, size)
 	self._webView:call("setAcquisitionWindowState",visible,size:x(),size:y())
+	dman:update()
+end
+
+function Class:doSetAVTTargetState(visible,rect)
+	self._webView:call("setAVTTargetState",visible,rect:x(),rect:y(),rect:z(),rect:w())
+	dman:update()
+end
+
+function Class:doSetAVTAltTargetState(visible,index,rect)
+	self._webView:call("setAVTAltTargetState",visible,index,rect:x(),rect:y(),rect:z(),rect:w())
+	dman:update()
+end
+
+function Class:doSetGateState(visible, size)
+	self._webView:call("setGateState",visible,size:x(),size:y())
+	dman:update()
+end
+
+function Class:doSetOutlineState(enabled)
+	self:debug("Calling setOutlineState to ",enabled)
+	self._webView:call("setOutlineState",enabled)
 	dman:update()
 end
 

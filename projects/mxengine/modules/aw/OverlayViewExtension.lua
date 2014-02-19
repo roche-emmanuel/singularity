@@ -62,7 +62,14 @@ function Class:registerTurretProxy()
 				end
 				
 				return awe.JSValue.Undefined()
-			end			
+			end,
+
+			getOverlayType = function()
+				if self._turret then					
+					return self._turret:getOverlayType()
+				end
+				return awe.JSValue.Undefined()
+			end		
 		})
 		
 
