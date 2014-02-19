@@ -37,6 +37,19 @@ osg.Matrix3.__tostring = function(self)
 	return str
 end
 
+osg.Matrixd.toMatrixf = function(mat)
+	return osg.Matrixf(mat:op_call(0,0),mat:op_call(0,1),mat:op_call(0,2),mat:op_call(0,3),
+		mat:op_call(1,0),mat:op_call(1,1),mat:op_call(1,2),mat:op_call(1,3),
+		mat:op_call(2,0),mat:op_call(2,1),mat:op_call(2,2),mat:op_call(2,3),
+		mat:op_call(3,0),mat:op_call(3,1),mat:op_call(3,2),mat:op_call(3,3))
+end
+
+osg.Matrixf.toMatrixd = function(mat)
+	return osg.Matrixd(mat:op_call(0,0),mat:op_call(0,1),mat:op_call(0,2),mat:op_call(0,3),
+		mat:op_call(1,0),mat:op_call(1,1),mat:op_call(1,2),mat:op_call(1,3),
+		mat:op_call(2,0),mat:op_call(2,1),mat:op_call(2,2),mat:op_call(2,3),
+		mat:op_call(3,0),mat:op_call(3,1),mat:op_call(3,2),mat:op_call(3,3))
+end
 
 -- Vec4f extensions:
 osg.Vec4f.__tostring = function(self)

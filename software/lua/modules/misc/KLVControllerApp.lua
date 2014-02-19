@@ -154,12 +154,15 @@ function Class:writeMessage()
 		-- Start by writting the tag 2 value:
 		self:appendBER(2)
 		self:appendBER(8)
-		self:append(bc.int64ToBytes(osg.Timer.instance():tick(),self._bigendian))
-		-- self:append(bc.int64ToBytes(self._startTime,self._bigendian))
 		
+		--self:append(bc.int64ToBytes(osg.Timer.instance():tick(),self._bigendian))
+		-- self:append(bc.int64ToBytes(self._startTime,self._bigendian))
+		self:append(bc.int32ToBytes(0,self._bigendian))
+		self:append(bc.int32ToBytes(0,self._bigendian))
+
 		-- we should write the data here:
-		self:writeLLA(39.582354 + dlat,-40.135323 + dlon,200)
-		self:writeYPR(yaw,pitch,roll)
+		-- self:writeLLA(39.582354 + dlat,-40.135323 + dlon,200)
+		-- self:writeYPR(yaw,pitch,roll)
 				
 		-- now write the checksum tag:
 		self:appendBER(1)
@@ -169,6 +172,11 @@ function Class:writeMessage()
 		
 		-- We add the message header here:
 		local key = '1234567890123456'
+		-- local key = ""
+		-- for i=1,16 do
+		-- 	key = key .. string.char(0)
+		-- end
+
 		local len = #self._buf + 16 + 2
 		if len <= 126 then 
 			-- the length will be encoded on one byte.
@@ -202,8 +210,10 @@ function Class:writeMessage()
 		res = bit.band(res,mask)
 		
 		-- now write the checksum we found:
-		-- self:info("Computed checksum: ",res)
+		self:info("Computed checksum: ",res)
 		self:append(bc.uint16ToBytes(res,self._bigendian))
+		self:info("Hex message: ",self:toHexString(self._buf))
+		self:info("Byte message: ",self:toByteString(self._buf))
 	end
 end
 
@@ -213,6 +223,23 @@ function Class:onFrame()
 	-- self:info("Sending packet of size: ", #self:getBuffer())
 	
 	self._socket:send(self:getBuffer())
+end
+
+function Class:toHexString(msg)
+	local hex = {}
+	for i=1,#msg do
+		table.insert(hex,bit.tohex(string.byte(msg:sub(i,i)), -2))
+	end
+	
+	return table.concat(hex)
+end
+
+function Class:toByteString(msg)   	
+	local str = {};
+	for i=1,msg:len() do
+       	table.insert(str,string.byte(msg:sub(i,i)))
+	end
+	return "| " .. table.concat(str," | ") .. " |";
 end
 
 return Class -- return class instance.
