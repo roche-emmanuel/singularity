@@ -52,6 +52,7 @@ function Class:initialize(options)
 	self._webView:onOverlayReady(function()
 		--self:updateOverlayContent(true) -- force complete update.
 		--self:showMessage("Overlay ready!")
+		self:assignMenuMap()
 		self:performFullRefresh()
 	end)
 	
@@ -83,8 +84,17 @@ function Class:initialize(options)
 	local eman = require "base.EventManager"
 	eman:addListener{Event.APP_CLOSING,function()
 		self._webView:releaseWebView()
-	end,front=true}	
+	end,front=true}
 	
+end
+
+function Class:assignMenuMap()
+	-- Now fill the array:
+	-- if we have a valid turret at this point, then we should retrieve the menu map from it:				
+	local mm = self._turret:getMenuManager():getMainMenu()
+	local map = mm:getChildrenMap()
+
+	self._webView:call("setMenuMap",map)
 end
 
 function Class:getOutputChannel()
@@ -336,14 +346,14 @@ end
 function Class:onGimbalAzimuthUpdated(value)
 	if(self._prevAz and math.abs(self._prevAz - value) < 0.01) then return end
 	self._prevAz = value
-	-- TO RESTORE self._webView:call("setGimbalAzimuthAngle",value)
+	self._webView:call("setGimbalAzimuthAngle",value)
 	dman:update()
 end
 
 function Class:onGimbalElevationUpdated(value)
 	if(self._prevElev and math.abs(self._prevElev - value) < 0.01) then return end
 	self._prevElev = value
-	-- TO RESTORE self._webView:call("setGimbalElevationAngle",-value)
+	self._webView:call("setGimbalElevationAngle",-value)
 	dman:update()
 end
 
