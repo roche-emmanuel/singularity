@@ -156,11 +156,11 @@ function Class:setupDefaultHandlers()
 		if message:find("%[INFO%]%s+") then
 			message = message:gsub("%[INFO%]%s+","")
 			self:info(message," (",source,":",line_number,")")
-		elseif message:find("%[DEBUG%]%s+") then
-			message = message:gsub("%[DEBUG%]%s+","")
-			self:debug(message," (",source,":",line_number,")")
-		else
+		elseif message:find("%[WARNING%]%s+") then
+			message = message:gsub("%[WARNING%]%s+","")
 			self:warn(message," (",source,":",line_number,")")
+		else
+			self:debug(message," (",source,":",line_number,")")
 		end
 	end
 
