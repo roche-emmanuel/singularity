@@ -20,7 +20,7 @@ Create a new instance of the class.
 function OverlayViewExtension(options)
 ]=]
 function Class:initialize(options)	
-	self:addSourcePrefix("web/app/scripts/")
+	
 end
 
 function Class:registerTurretProxy()

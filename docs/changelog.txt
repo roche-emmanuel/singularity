@@ -106,6 +106,7 @@
 - Added support for KLVController mockup server.
 - Added snippets for AVT tests.
 - Added SOCOM reticles.
+- Adding MXWebView support.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

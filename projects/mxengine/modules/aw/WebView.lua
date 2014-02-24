@@ -6,6 +6,7 @@ local wman = require "aw.DXWebManager"
 function Class:initialize(options)
 	self:check(options and options.turret,"Invalid turret object.")
 	self._turret = options.turret
+	self:addSourcePrefix("web/app/scripts/")
 end
 
 function Class:createSurface(options)
