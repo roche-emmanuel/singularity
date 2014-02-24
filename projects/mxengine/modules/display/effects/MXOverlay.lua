@@ -233,7 +233,7 @@ function Class:onMenuVisibilityUpdated(visible)
 	-- self:info("Updating Menus visibility to: ",visible)
 	if visible then
 		-- if the menus are not visible then we should restore the main overlays page
-		-- self._webView:call("showPage","menu","done")
+		self._webView:call("showPage","menu","done")
 	-- else
 	-- 	self._webView:call("showPage","main_overlays")
 	end
@@ -241,12 +241,14 @@ end
 
 function Class:onMenuSelectionUpdated(menu_name,item_name,sub_index)
 	--self:info("Updating Menu selection to: ",menu_name,".",item_name," (sub=",sub_index,")")
-	-- self._webView:call("showPage",menu_name,item_name,sub_index)
+	if self:getTurret():getMenuManager():isEnabled() then
+		self._webView:call("showPage",menu_name,item_name,sub_index)
+	end
 end
 
 function Class:onMenuFieldUpdated(menu_name,item_name,value)
 	-- self:info("Updating Menu field: ",menu_name,".",item_name," to ", value)
-	-- self._webView:call("setTextValue",menu_name ..".".. item_name,value)
+	self._webView:call("setTextValue",menu_name ..".".. item_name,value)
 end
 
 local unit_map = {
@@ -277,7 +279,7 @@ function Class:onOverlayVisibilityUpdated(visible)
 end
 
 function Class:onFieldUpdated(item_name, value)
-	-- TO RESTORE self._webView:call("setTextValue",item_name, value)
+	self._webView:call("setTextValue",item_name, value)
 	dman:update()
 end
 
@@ -312,7 +314,7 @@ end
 function Class:onNorthIndicatorUpdated(value)
 	if(self._prevNorth and math.abs(self._prevNorth - value) < 0.01) then return end
 	self._prevNorth = value
-	-- self._webView:call("setNorthIndicatorAngle",value)
+	self._webView:call("setNorthIndicatorAngle",value)
 	dman:update()
 end
 
