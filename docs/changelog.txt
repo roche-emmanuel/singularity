@@ -108,6 +108,7 @@
 - Added SOCOM reticles.
 - Adding MXWebView support.
 - improvements on MXOverlay class.
+- Adding web thread support.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

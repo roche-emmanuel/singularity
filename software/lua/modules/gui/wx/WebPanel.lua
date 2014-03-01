@@ -24,7 +24,7 @@ function Class:createSurface(options)
 end
 
 function Class:getManager()
-	return require "gui.web.WebManager"
+	return require "gui.web.GLWebManager"
 end
 
 function Class:createWebView(options)
