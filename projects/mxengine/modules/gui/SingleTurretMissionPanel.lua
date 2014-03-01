@@ -13,6 +13,8 @@ overlay_cfg.AweOverlay = DataMap()
 overlay_cfg.AweOverlay:set("Overlay.class_name","AweOverlay")
 overlay_cfg.MXOverlay = DataMap()
 overlay_cfg.MXOverlay:set("Overlay.class_name","MXOverlay")
+overlay_cfg.MTOverlay = DataMap()
+overlay_cfg.MTOverlay:set("Overlay.class_name","MTOverlay")
 
 -- empty_cfg = DataMap()
 -- awe_cfg = DataMap()
@@ -72,7 +74,7 @@ function Class:buildComponent(intf)
 	end}
 	
 	intf:addSingleChoiceEntry{name="single_turret.overlay_class",prop=1,caption="Overlay class",
-		choices={"Overlay","AweOverlay","MXOverlay","NoOverlay"},
+		choices={"Overlay","AweOverlay","MXOverlay","MTOverlay","NoOverlay"},
 		defaultValue="AweOverlay", --"Overlay",
 		handler="onOverlayChanged"}
 			
