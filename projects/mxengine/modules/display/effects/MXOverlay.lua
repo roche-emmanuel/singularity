@@ -114,7 +114,7 @@ function Class:assignLayout()
 	local rname = res_map[res]
 	self:check(rname,"Invalid resolution name for index: ",res)
 
-	local flavor = self:getConfig("Overlay.flavor")
+	local flavor = self:getConfig():get("Overlay.flavor")
 
 	self:debug("Setting layout to type=",otype,", res=",rname,", flavor=",flavor)
 	self._webView:call("setLayout",otype,rname,flavor or "")

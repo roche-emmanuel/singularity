@@ -4,11 +4,11 @@ local awe = require "Awesomium"
 
 function Class:initialize()
 
+	self._cache = {}
+
 	self:onOverlayReady(function()
 		self:debug("Overlay is now ready.")
-		self:assignMenuMap()
-		-- self:assignLayout()
-		-- self:performFullRefresh()
+		self:performFullRefresh()
 	end)
 
 end
@@ -56,14 +56,51 @@ function Class:setTargetSurface(surface)
 	end
 end
 
-function Class:assignMenuMap(mmap)
-	mmap = mmap or self._menu_map
-	self._menu_map = mmap
+function Class:performFullRefresh()
+	self:setMenuMap()
+	self:setLayout()
+	self:setGimbalAzimuthAngle()
+	self:setGimbalElevationAngle()
+end
 
-	if mmap then
-		self:debug("Assigning menu map with ",#mmap," elements")
-		self:call("setMenuMap",mmap)
+function Class:getCache(key,val)
+	if val~=nil then
+		self._cache[key] = val
 	end
+
+	return self._cache[key] 
+end
+
+function Class:setMenuMap(mmap)
+	mmap = self:getCache('menu_map',mmap)
+
+	if not mmap then return end
+	self:debug("Assigning menu map with ",#mmap," elements")
+	self:call("setMenuMap",mmap)
+end
+
+function Class:setLayout(otype,res,flavor)
+	otype = self:getCache("layout_type",otype)
+	res = self:getCache("layout_res",res)
+	flavor = self:getCache("layout_flavor",flavor or "")
+
+	if not otype then return end
+	self:debug("Setting layout to type=",otype,", res=",res,", flavor=",flavor)
+	self:call("setLayout",otype,res,flavor or "")	
+end
+
+function Class:setGimbalAzimuthAngle(angle)
+	angle = self:getCache("gimbal_azimuth",angle)
+
+	if not angle then return end
+	self:call("setGimbalAzimuthAngle",angle)
+end
+
+function Class:setGimbalElevationAngle(angle)
+	angle = self:getCache("gimbal_elevation",angle)
+
+	if not angle then return end
+	self:call("setGimbalElevationAngle",angle)
 end
 
 return Class

@@ -24,7 +24,7 @@ function Class:__call(interval)
 		-- for each cycle we check if we have any request pending:
 		num = self:count("request")
 		if num and num>0 then
-			self:info("Now handling ",num," requests.")
+			-- self:info("Now handling ",num," requests.")
 			for i=1,num do
 				key, data = self:receive(0.001,"request")
 				self:check(key=="request","Invalid key: didn't expect timeout to occur here, key=",key)
@@ -44,7 +44,7 @@ function Class:__call(interval)
 		delay = interval - elapsed;
 		if delay <= 0.001 then
 			delay = 0.001
-			self:warn("Webcore thread interval is too short: interval=",interval," secs, elapsed=",elapsed," secs")
+			self:debug("Webcore thread interval is too short: interval=",interval," secs, elapsed=",elapsed," secs")
 		end
 		
 		self:wait(interval)
@@ -129,7 +129,7 @@ function Class:handleRequest(data)
 	
 	-- self:showMessage("Now calling handler for request ",rid)
 	
-	self:info("Now calling handler for request ",rid)
+	-- self:info("Now calling handler for request ",rid)
 	-- The handler is valid, we now just call it:
 	local res = handler(self,options)
 	
