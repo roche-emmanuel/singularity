@@ -113,6 +113,7 @@
 - restoring support for webthread.
 - Added surface factory DX.
 - Fixed minor bug in web interface.
+- Added basic view.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
