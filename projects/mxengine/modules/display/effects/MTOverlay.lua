@@ -29,6 +29,16 @@ function Class:initialize(options)
 		web:destroyWebView(self._viewId)		
 		-- self:showMessage("Done destroying web view: "..self._viewId)
 	end}
+
+	-- On turret init we assign the menu map:
+	self:onTurretInit(function()
+		-- Now fill the array:
+		-- if we have a valid turret at this point, then we should retrieve the menu map from it:				
+		local mm = self._turret:getMenuManager():getMainMenu()
+		local map = mm:getChildrenMap()
+
+		self:sendCommand("assignMenuMap",map)
+	end)
 end
 
 function Class:sendCommand(...)
