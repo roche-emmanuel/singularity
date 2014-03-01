@@ -46,6 +46,9 @@ function Class:buildComponent(intf,options)
 	end}
 	
 		
+	intf:addIntegerEntry{name=sname..".filter",caption="Filter index", handler="updateFilter", range={0,5},
+						validItemOnly=true}
+
 	intf:addSingleChoiceEntry{name=sname..".selected_camera",prop=0,caption="Target Camera",
 		choices=cam_list[sname], handler="updateSelectedCamera"}
 
@@ -76,6 +79,7 @@ function Class:onTurretChanged(turret)
 	if not lens then return end
 
 	self:setEntryValue(self._sname..".focal_length",lens:getFocalLength(),lens:getFocalLengthRange())
+	self:setEntryValue(self._sname..".filter",sensor:getFilterIndex())
 	self:setEntryValue(self._sname..".focus",lens:getFocus(),lens:getFocusRange())
 end
 
@@ -86,7 +90,8 @@ function Class:onInitTurretMap(dmap,turret)
 	
 	dmap:set(sname..".focal_length",sensor:getFocalLength())
 	dmap:set(sname..".focus",sensor:getFocus())
-	
+	dmap:set(sname..".filter",sensor:getFilterIndex())
+
 	local svic = sensor:getSubVIC()
 	dmap:set(sname..".auto_sensitivity",svic:isAutoSensitivity())
 	dmap:set(sname..".sensitivity",svic:getSensitivity())
@@ -113,6 +118,14 @@ function Class:getLens(data)
 	return lens
 end
 
+function Class:updateFilter(data)
+	local sensor = self:getSensor(data)
+	if not sensor then
+		return
+	end
+	
+	sensor:setFilterIndex(data.value)
+end
 
 function Class:updateFocalLength(data)
 	local lens = self:getLens(data)

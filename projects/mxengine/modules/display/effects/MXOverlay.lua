@@ -53,6 +53,7 @@ function Class:initialize(options)
 		--self:updateOverlayContent(true) -- force complete update.
 		--self:showMessage("Overlay ready!")
 		self:assignMenuMap()
+		self:assignLayout()
 		self:performFullRefresh()
 	end)
 	
@@ -95,6 +96,28 @@ function Class:assignMenuMap()
 	local map = mm:getChildrenMap()
 
 	self._webView:call("setMenuMap",map)
+end
+
+res_map = {
+	[Class.RESOLUTION_1080P] = "HD",
+	[Class.RESOLUTION_720P] = "HD",
+	[Class.RESOLUTION_576I] = "SD",
+	[Class.RESOLUTION_480I] = "SD",
+	[Class.RESOLUTION_NTSC] = "NTSC",
+	[Class.RESOLUTION_PAL] = "PAL",
+}
+
+function Class:assignLayout()
+	-- Now fill the array:
+	local otype = self:getOverlayType()
+	local res = self:getProcessor():getResolution()
+	local rname = res_map[res]
+	self:check(rname,"Invalid resolution name for index: ",res)
+
+	local flavor = self:getConfig("Overlay.flavor")
+
+	self:debug("Setting layout to type=",otype,", res=",rname,", flavor=",flavor)
+	self._webView:call("setLayout",otype,rname,flavor or "")
 end
 
 function Class:getOutputChannel()
@@ -236,6 +259,8 @@ function Class:performFullRefresh()
 	end
 
 	self:doSetOutlineState(self:getOutlineState())
+
+	self:doSetOverlayColor(self:getOverlayColor())
 end
 
 
@@ -258,6 +283,7 @@ end
 
 function Class:onMenuFieldUpdated(menu_name,item_name,value)
 	-- self:info("Updating Menu field: ",menu_name,".",item_name," to ", value)
+	-- value = value:gsub("°","X") --&deg;") :gsub("%s","&nbsp;")
 	self._webView:call("setTextValue",menu_name ..".".. item_name,value)
 end
 
@@ -301,12 +327,12 @@ function Class:onHighlightUpdated(item_name, value, flashValue)
 		self:check(value[1]==flashValue[1] and value[2]==flashValue[2],"mismatch in highlight and flashing details.")
 	end
 	
-	-- TO RESTORE self._webView:call("setHighlight", item_name, value, flashValue)
+	self._webView:call("setTextHighlight", item_name, value, flashValue and true or false)
 	dman:update()
 end
 
 function Class:onFlashingUpdated(item_name, value)
-	-- TO RESTORE self._webView:call("setFlashing", item_name, value)
+	self._webView:call("setTextFlashing", item_name, value)
 	dman:update()
 end
 
@@ -329,18 +355,18 @@ function Class:onNorthIndicatorUpdated(value)
 end
 
 function Class:onMXPODBearingUpdated(value)
-	-- TO RESTORE self._webView:call("setMXPODBearingAngle",value)
+	self._webView:call("setMXPODAzimuthAngle",value)
 end
 
-local antenna_modes = {
-	[Class.MX_POD_ANTENNA_AUTO] = "auto",
-	[Class.MX_POD_ANTENNA_HIGH] = "high",
-	[Class.MX_POD_ANTENNA_OMNI] = "omni",
-	[Class.MX_POD_ANTENNA_COUPLED] = "coupled",
+local antenna_fov = {
+	[Class.MX_POD_ANTENNA_AUTO] = 0.0,
+	[Class.MX_POD_ANTENNA_HIGH] = 60.0,
+	[Class.MX_POD_ANTENNA_OMNI] = 0.0,
+	[Class.MX_POD_ANTENNA_COUPLED] = 0.0,
 }
 
 function Class:onMXPODAntennaModeUpdated(value)
-	-- TO RESTORE self._webView:call("setMXPODAntennaMode",antenna_modes[value])
+	self._webView:call("setMXPODFOVAngle",antenna_fov[value])
 end
 
 function Class:onGimbalAzimuthUpdated(value)
@@ -358,71 +384,92 @@ function Class:onGimbalElevationUpdated(value)
 end
 
 function Class:onPictoFOVUpdated(value)
-	-- TO RESTORE self._webView:call("setPictoFOVAngle",value)
+	self._webView:call("setPictoFOVAngle",value)
 	dman:update()
 end
 
 function Class:onDestabilizationStateUpdated(value)
-	-- TO RESTORE self._webView:call("enableWidget","destabilization",value)
+	self._webView:call("enableWidget","destabilization",value)
 	dman:update()
 end
 
 function Class:onTXEncryptionStateUpdated(value)
-	-- TO RESTORE self._webView:call("enableWidget","transmitter_key",value)
+	self._webView:call("enableWidget","transmitter_key",value)
 	dman:update()
 end
 
 function Class:doSetOverlayGroupStatus(gid,status)
-	-- gid = gid:gsub("_group$","")
-	-- self:info("Setting group ",gid," to ",status)
-	-- TO RESTORE self._webView:call("showGroup",gid,status)
+	gid = gid:gsub("_group$","")
+	self:info("Setting group ",gid," to ",status)
+	self._webView:call("showGroup",gid,status)
 	dman:update()
 end
 
 function Class:doSetReticleStatus(rid,enabled)
-	-- self._webView:call("enableWidget",rid,enabled)
+	-- self:warn("Calling do setReticleStatus with rid=",rid,", status=",enabled)
+	self._webView:call("enableWidget",rid,enabled)
 	dman:update()
 end
 
 function Class:doSetReticlePosition(rid,pos)
-	-- self._webView:call("setReticlePosition",rid,pos:x(),pos:y())
+	self._webView:call("setReticlePosition",rid,pos:x(),pos:y())
 	dman:update()
 end
 
 function Class:doSetReticleSize(rid,size)
-	-- self._webView:call("setReticleSize",rid,size:x(),size:y())
+	self._webView:call("setReticleSize",rid,size:x(),size:y())
 	dman:update()
 end
 
---[[
-Function: doSetAcquisitionWindowState
-
-Re-implementation to actually show/hide the acquisition window on the overlays.
-]]
 function Class:doSetAcquisitionWindowState(visible, size)
-	-- TO RESTORE self._webView:call("setAcquisitionWindowState",visible,size:x(),size:y())
+	self._webView:call("setAcquisitionWindowState",visible,size:x(),size:y())
 	dman:update()
 end
 
 function Class:doSetAVTTargetState(visible,rect)
-	-- TO RESTORE self._webView:call("setAVTTargetState",visible,rect:x(),rect:y(),rect:z(),rect:w())
+	self._webView:call("setAVTTargetState",visible,rect:x(),rect:y(),rect:z(),rect:w())
 	dman:update()
 end
 
 function Class:doSetAVTAltTargetState(visible,index,rect)
-	-- TO RESTORE self._webView:call("setAVTAltTargetState",visible,index,rect:x(),rect:y(),rect:z(),rect:w())
+	self._webView:call("setAVTAltTargetState",index,visible,rect:x(),rect:y(),rect:z(),rect:w())
 	dman:update()
 end
 
 function Class:doSetGateState(visible, size)
-	-- TO RESTORE self._webView:call("setGateState",visible,size:x(),size:y())
+	self._webView:call("setSensitivityGateState",visible,size:x(),size:y())
 	dman:update()
 end
 
 function Class:doSetOutlineState(enabled)
-	self:debug("Calling setOutlineState to ",enabled)
-	-- TO RESTORE self._webView:call("setOutlineState",enabled)
+	--self:debug("Calling setOutlineState to ",enabled)
+	--self._webView:call("setOutlineState",enabled)
 	dman:update()
+end
+
+function Class:doSetOverlayColor(cid)
+	local col = self.overlayColorMap[cid]
+	self:check(col,"Invalid color for index ", cid)
+	local int = (self:getOverlayIntensity() or 100.0)/100.0
+
+	self._webView:call("setOverlayColor",col:x()*int, col:y()*int, col:z()*int, 1.0)
+end
+
+function Class:doSetOverlayIntensity(intensity)
+	if self:useOverlayColor() then
+		local cid = self:getOverlayColor() or Enums.OVERLAY_COLOR_WHITE
+		local col = self.overlayColorMap[cid]
+		self:check(col,"Invalid color for index ", cid)
+		local int = intensity
+
+		self._webView:call("setOverlayColor",col:x()*int, col:y()*int, col:z()*int, 1.0)
+	else
+		self:warn("old overlay intensity control not implemented")
+	end
+end
+
+function Class:doSetOverlayReverseIntensity(intensity)
+	self:warn("old overlay intensity control not implemented")
 end
 
 return Class
