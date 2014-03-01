@@ -318,7 +318,11 @@ function Class:registerObject(objName,methods,withReturnMethods)
 	
 	-- Now create the object:
 	local obj = self._view:CreateGlobalJavascriptObject(objName)
-	self:check(obj:IsObject(),"Could not create JS global object, error code is: ", self._view:last_error());
+	while not obj:IsObject() do
+		self:warn("Could not create JS global object, error code is: ", self._view:last_error());
+		obj = self._view:CreateGlobalJavascriptObject(objName)
+	end
+	-- self:check(obj:IsObject(),"Could not create JS global object, error code is: ", self._view:last_error());
 	
 	-- convert to object:
 	obj = obj:ToObject()
