@@ -112,6 +112,7 @@
 - Added missing web enums.
 - restoring support for webthread.
 - Added surface factory DX.
+- Fixed minor bug in web interface.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
