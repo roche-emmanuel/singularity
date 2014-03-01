@@ -127,7 +127,7 @@ function Class:handleRequest(data)
 	local handler = request_map[rid]
 	self:check(handler,"No handler found for request id: ",rid)
 	
-	self:showMessage("Now calling handler for request ",rid)
+	-- self:showMessage("Now calling handler for request ",rid)
 	
 	self:info("Now calling handler for request ",rid)
 	-- The handler is valid, we now just call it:
