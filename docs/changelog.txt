@@ -110,6 +110,7 @@
 - improvements on MXOverlay class.
 - Adding web thread support.
 - Added missing web enums.
+- restoring support for webthread.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

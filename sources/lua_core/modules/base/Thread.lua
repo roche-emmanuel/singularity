@@ -1,13 +1,11 @@
-local Class = require("classBuilder"){name="Thread",bases="base.Object"};
+local Class = createClass{name="Thread",bases="core.Linda"};
 
 local loaders = {}
 
--- local lanes = require "lanes"
+local lanes = require "lanes"
 if lanes.configure then
 	lanes.configure({protect_allocator=true, with_timers=false})
 end
-
--- local local_env = _G.environment 
 
 loaders.high_level = function(data) 
 	_G.flavor = data.flavor
@@ -18,8 +16,7 @@ loaders.high_level = function(data)
 		-- initialize the lua environment for this thread.
 		data.env:init()
 	end
-	
-	
+
 	local sgt = require "core"
 	local modName = "StartModule"
 	local content = sgt.ModuleManager.instance().getModule(modName);
@@ -64,7 +61,7 @@ loaders.low_level = function(data)
 		-- initialize the lua environment for this thread.
 		data.env:init()
 	end
-	
+
 	-- local res = #data.args >0 and data.threadFunc(wrapper,unpack(data.args)) or data.threadFunc(wrapper)
 	local res = data.threadFunc(unpack(data.args))
 	
@@ -94,7 +91,7 @@ function Class:initialize(options)
 
 	self._lane = lanes.gen( libs, glb, loaders[loader]);
 	
-	self._linda = lanes.linda()
+	self._linda = self._linda or lanes.linda()
 end
 
 function Class:__call(...)
@@ -107,7 +104,7 @@ function Class:__call(...)
 		_G.environment = createEnv()
 		_G.environment:init()
 	end
-	
+
 	local data = {}
 	data.root_path = sgt_root or root_path
 	data.flavor = flavor
@@ -124,6 +121,7 @@ function Class:__call(...)
 	
 	log:info("Starting thread lane for ",self._name)
 	self._handle = self._lane(data)
+	self:checkStatus()
 	log:info("lane started.")
 	return self._handle
 end
@@ -146,6 +144,13 @@ function Class:getStatus()
 	end
 	
 	return self._handle.status
+end
+
+function Class:checkStatus()
+	if self:getStatus() == "error" then
+		self:cancel()
+		self:throw("Error occured in thread ".. self:getName())
+	end
 end
 
 function Class:getName()
@@ -194,17 +199,6 @@ end
 
 function Class.getTime()
 	return lanes.now_secs()
-end
-
-function Class:setObject(key,obj)
-	if obj == nil then
-		self._linda:set(key,nil)
-		return
-	end
-	
-	local ptr = obj:asVoid()
-	local lptr = sgt.toLightUserdata(ptr)
-	self._linda:set(key,lptr)
 end
 
 return Class

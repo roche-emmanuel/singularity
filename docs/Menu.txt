@@ -74,12 +74,13 @@ Group: Core  {
 
 Group: Gui  {
 
-   File: Container  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Container.lua)
-   File: ITemContainer  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/ItemContainer.lua)
-   File: Provider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Provider.lua)
-   File: Selector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Selector.lua)
-   File: SelectorProvider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/SelectorProvider.lua)
-   File: web.View  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/View.lua)
+   File: destroyWebView  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/WebThread.lua)
+   File: gui.Container  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Container.lua)
+   File: gui.ITemContainer  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/ItemContainer.lua)
+   File: gui.Provider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Provider.lua)
+   File: gui.Selector  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/Selector.lua)
+   File: gui.SelectorProvider  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/SelectorProvider.lua)
+   File: gui.web.View  (/cygdrive/w/Cloud/Projects/singularity/software/lua/modules/gui/web/View.lua)
 
    Group: wx  {
 

@@ -17,13 +17,14 @@ function Class:__call(interval)
 	
 	local timer = osg.Timer.instance()
 	local key, data, num, stick, elapsed, delay
-
+	self:info("Entering WebInterface loop...")
+	
 	while true do 
 		stick = timer:tick()
 		-- for each cycle we check if we have any request pending:
 		num = self:count("request")
 		if num and num>0 then
-			-- self:info("Now handling ",num," requests.")
+			self:info("Now handling ",num," requests.")
 			for i=1,num do
 				key, data = self:receive(0.001,"request")
 				self:check(key=="request","Invalid key: didn't expect timeout to occur here, key=",key)
@@ -126,7 +127,7 @@ function Class:handleRequest(data)
 	local handler = request_map[rid]
 	self:check(handler,"No handler found for request id: ",rid)
 	
-	-- self:showMessage("Now calling handler for request ",rid)
+	self:showMessage("Now calling handler for request ",rid)
 	
 	self:info("Now calling handler for request ",rid)
 	-- The handler is valid, we now just call it:

@@ -5,6 +5,7 @@ local Event = require "base.Event"
 function Class:initialize(options)
 	self._name = "webcore_thread"
 	self._timeout = 0.3
+	self:warn("Creating webthread")
 
 	-- this is he core function used to start the Web thread.
 	self._func = function(th,interval)
@@ -33,6 +34,7 @@ function Class:initialize(options)
 	
 	-- We start the thread right now:
 	self(0.01)
+
 end
 
 function Class:sendRequest(data)
@@ -44,7 +46,7 @@ function Class:sendRequest(data)
 		-- now we wait the answer to arrive:
 		self:checkStatus()
 		self:info("Waiting for report of ",data[1]," request...") 
-		local key, report = self:receive("report")
+		local key, report = self:receive(5.0,"report")
 		self:checkStatus()
 		self:check(report[1]==data[1],"Mismatch between report and request ID, report_id=",report[1])
 		self:info("Report received.")
