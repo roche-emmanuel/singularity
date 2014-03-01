@@ -35,7 +35,7 @@ function Class:__call(interval)
 		
 		-- done handling the request, so now we should perform an update cyle:
 		if self._manager:isValid() then
-			-- self:showMessage("Webcore manager is valid!")
+			-- self:info("Webcore manager is valid, now updating...")
 			self._manager:update()
 		end
 		

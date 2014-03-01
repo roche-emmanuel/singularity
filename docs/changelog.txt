@@ -114,6 +114,7 @@
 - Added surface factory DX.
 - Fixed minor bug in web interface.
 - Added basic view.
+- Adding support for menu map setting.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
