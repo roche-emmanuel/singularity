@@ -44,7 +44,7 @@ function Class:__call(interval)
 		delay = interval - elapsed;
 		if delay <= 0.001 then
 			delay = 0.001
-			self:debug("Webcore thread interval is too short: interval=",interval," secs, elapsed=",elapsed," secs")
+			-- self:debug("Webcore thread interval is too short: interval=",interval," secs, elapsed=",elapsed," secs")
 		end
 		
 		self:wait(interval)
