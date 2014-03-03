@@ -122,6 +122,10 @@ function Class:performFullRefresh()
 		self:call("setNextFOVState",desc[1],desc[2],desc[3])
 	end
 
+	if self._fov_ratio then
+		self:call("setFOVGraphicRatio",self._fov_ratio)
+	end
+
 	for index,desc in pairs(self._avt_alt_targets) do
 		self:call("setAVTAltTargetState",desc[1],desc[2],desc[3],desc[4],desc[5])
 	end
@@ -339,6 +343,11 @@ end
 function Class:setNextFOVState(visible, ww,hh)
 	self._next_fov = { visible, ww, hh}
 	self:call("setNextFOVState",visible,ww,hh)
+end
+
+function Class:setFOVGraphicRatio(ratio)
+	self._fov_ratio = ratio
+	self:call("setFOVGraphicRatio",ratio)
 end
 
 

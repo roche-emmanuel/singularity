@@ -241,6 +241,10 @@ function Class:doSetNextFOVState(visible, size)
 	self:sendCommand("setNextFOVState",visible,size:x(),size:y())
 end
 
+function Class:doSetFOVGraphicRatio(ratio)
+	self:sendCommand("setFOVGraphicRatio",ratio)
+end
+
 function Class:doSetOutlineState(enabled)
 	-- We do nothing here.
 end
@@ -269,5 +273,6 @@ end
 function Class:doSetOverlayReverseIntensity(intensity)
 	self:warn("old overlay intensity control not implemented")
 end
+
 
 return Class
