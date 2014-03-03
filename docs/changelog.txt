@@ -117,6 +117,7 @@
 - Adding support for menu map setting.
 - Added support for gimbal az/elev angles.
 - Added complete support for MTOverlay.
+- Added support for NextFOV widget.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==

@@ -117,6 +117,11 @@ function Class:performFullRefresh()
 		self:call("setSensitivityGateState",desc[1],desc[2],desc[3])
 	end
 
+	if self._next_fov then
+		local desc = self._next_fov
+		self:call("setNextFOVState",desc[1],desc[2],desc[3])
+	end
+
 	for index,desc in pairs(self._avt_alt_targets) do
 		self:call("setAVTAltTargetState",desc[1],desc[2],desc[3],desc[4],desc[5])
 	end
@@ -329,6 +334,11 @@ end
 function Class:setSensitivityGateState(visible, ww,hh)
 	self._sens_gate = { visible, ww, hh}
 	self:call("setSensitivityGateState",visible,ww,hh)
+end
+
+function Class:setNextFOVState(visible, ww,hh)
+	self._next_fov = { visible, ww, hh}
+	self:call("setNextFOVState",visible,ww,hh)
 end
 
 

@@ -237,6 +237,10 @@ function Class:doSetGateState(visible, size)
 	self:sendCommand("setSensitivityGateState",visible,size:x(),size:y())
 end
 
+function Class:doSetNextFOVState(visible, size)
+	self:sendCommand("setNextFOVState",visible,size:x(),size:y())
+end
+
 function Class:doSetOutlineState(enabled)
 	-- We do nothing here.
 end
