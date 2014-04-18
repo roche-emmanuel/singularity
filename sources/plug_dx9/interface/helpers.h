@@ -765,6 +765,16 @@ protected:
 	~ID3DXFont();
 };
 
+class ID3DXSprite {
+public:
+    // from IUnknown:
+    ULONG AddRef(void);
+    ULONG Release(void);
+    
+protected:
+    ~ID3DXSprite();
+};
+
 struct D3DRECT {
 	D3DRECT();
     long x1;

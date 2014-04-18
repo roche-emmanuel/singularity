@@ -72,14 +72,9 @@ function Class:initialize(options)
 		
 	end}	
 	
-	self:getTurret():addListener{Turret.EVT_POST_UPDATE,function()
-		if not self._webView:validate() then
-			return
-		end
-		
-		self:updateSourceStream()
-		--self:updateOverlayContent()
-	end}	
+	-- self:getTurret():addListener{Turret.EVT_POST_UPDATE,function()
+	-- 	self:update()
+	-- end}	
 	
 
 	local eman = require "base.EventManager"
@@ -87,6 +82,15 @@ function Class:initialize(options)
 		self._webView:releaseWebView()
 	end,front=true}
 	
+end
+
+function Class:update()
+	if not self._webView:validate() then
+		return
+	end
+	
+	self:updateSourceStream()
+	--self:updateOverlayContent()
 end
 
 function Class:assignMenuMap()

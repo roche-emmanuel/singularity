@@ -30,10 +30,9 @@ function Class:initialize(options)
 		-- self:showMessage("Done destroying web view: "..self._viewId)
 	end}
 
-	self:getTurret():addListener{Class.EVT_POST_UPDATE,function()		
-		self:updateSourceStream()
-		--self:updateOverlayContent()
-	end}	
+	-- self:getTurret():addListener{Class.EVT_POST_UPDATE,function()		
+	-- 	self:update()
+	-- end}	
 
 	-- On turret init we assign the menu map:
 	self:onTurretInit(function()
@@ -41,6 +40,11 @@ function Class:initialize(options)
 		self:assignMenuMap()
 		self:assignLayout()
 	end)
+end
+
+function Class:update()
+	self:updateSourceStream()
+	--self:updateOverlayContent()
 end
 
 function Class:getOutputChannel()

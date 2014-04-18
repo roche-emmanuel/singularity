@@ -173,6 +173,17 @@ inline ID3DXFont* createFont(IDirect3DDevice9* device, int width, int height, bo
 };
 
 /** LUNA_CLASS_EXTENSION */
+inline ID3DXSprite* createSprite(IDirect3DDevice9* device)
+{
+
+	ID3DXSprite* sprite = NULL;
+	HRESULT result = D3DXCreateSprite(device,&sprite);
+	CHECK_RESULT_RET(result,NULL,"Cannot create DirectX sprite object.");
+
+	return sprite;
+};
+
+/** LUNA_CLASS_EXTENSION */
 inline void drawText(ID3DXFont* font, const std::string& text, osg::Vec4f rect, osg::Vec4f color, unsigned int flags)
 {
 	RECT rr;
@@ -185,6 +196,25 @@ inline void drawText(ID3DXFont* font, const std::string& text, osg::Vec4f rect, 
 	HRESULT result = font->DrawText(NULL, text.c_str(), text.length(), &rr, flags, col);
 	
 	CHECK_RESULT(result,"Error in DrawText()");
+}
+
+/** LUNA_CLASS_EXTENSION */
+inline void drawTextSprite(ID3DXFont* font, ID3DXSprite* sprite, const std::string& text, osg::Vec4f rect, osg::Vec4f color, unsigned int flags)
+{
+	RECT rr;
+	rr.left = rect.x();
+	rr.top = rect.y();
+	rr.right = rect.z();
+	rr.bottom = rect.w();
+
+	sprite->Begin(D3DXSPRITE_ALPHABLEND|D3DXSPRITE_DO_NOT_ADDREF_TEXTURE); //D3DXSPRITE_DONOTSAVESTATE
+
+	D3DCOLOR col =  D3DCOLOR_ARGB((int)(color.w()*255.0f), (int)(color.x()*255.0f), (int)(color.y()*255.0f), (int)(color.z()*255.0f));
+	HRESULT result = font->DrawText(NULL, text.c_str(), text.length(), &rr, flags, col);
+	
+	sprite->End();
+
+	CHECK_RESULT(result,"Error in DrawTextSprite()");
 }
 
 /** LUNA_CLASS_EXTENSION */

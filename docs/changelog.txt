@@ -119,6 +119,7 @@
 - Added complete support for MTOverlay.
 - Added support for NextFOV widget.
 - Added support for FOV graphic.
+- Some changes on overlay classes.
 
 
 == Singularity release v0.2.0 - 04/04/2013 ==
