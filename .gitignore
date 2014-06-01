@@ -63,3 +63,7 @@ plug_doxmlparser2/
 
 # Windows files:
 Thumbs.db
+
+# ignore temp documentation files:
+docs/manual.chm
+docs/NaturalDocs/Data/*
