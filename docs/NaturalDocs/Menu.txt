@@ -1,0 +1,94 @@
+Format: 1.52
+
+
+Title: Singularity
+SubTitle: version 0.3.0
+
+# You can add a footer to your documentation like this:
+# Footer: [text]
+# If you want to add a copyright notice, this would be the place to do it.
+
+# You can add a timestamp to your documentation like one of these:
+# Timestamp: Generated on month day, year
+# Timestamp: Updated mm/dd/yyyy
+# Timestamp: Last updated mon day
+#
+#   m     - One or two digit month.  January is "1"
+#   mm    - Always two digit month.  January is "01"
+#   mon   - Short month word.  January is "Jan"
+#   month - Long month word.  January is "January"
+#   d     - One or two digit day.  1 is "1"
+#   dd    - Always two digit day.  1 is "01"
+#   day   - Day with letter extension.  1 is "1st"
+#   yy    - Two digit year.  2006 is "06"
+#   yyyy  - Four digit year.  2006 is "2006"
+#   year  - Four digit year.  2006 is "2006"
+
+
+# --------------------------------------------------------------------------
+# 
+# Cut and paste the lines below to change the order in which your files
+# appear on the menu.  Don't worry about adding or removing files, Natural
+# Docs will take care of that.
+# 
+# You can further organize the menu by grouping the entries.  Add a
+# "Group: [name] {" line to start a group, and add a "}" to end it.
+# 
+# You can add text and web links to the menu by adding "Text: [text]" and
+# "Link: [name] ([URL])" lines, respectively.
+# 
+# The formatting and comments are auto-generated, so don't worry about
+# neatness when editing the file.  Natural Docs will clean it up the next
+# time it is run.  When working with groups, just deal with the braces and
+# forget about the indentation and comments.
+# 
+# --------------------------------------------------------------------------
+
+
+File: __int64  (plug_core/include/luna/luna_types.h)
+File: __int64  (plug_osg/include/luna/luna_types.h)
+File: __uint64  (plug_byteconverter/src/byteconverter.cpp)
+File: Awesomium::Surface  (plug_awDX/include/luna/luna_types.h)
+File: b2AABB  (plug_box2d/include/luna/luna_types.h)
+File: base.EventHandler  (lua_core/modules/base/EventHandler.lua)
+File: base.Object  (lua_core/modules/base/Object.lua)
+File: btBroadphaseInterface  (plug_bullet/include/luna/luna_types.h)
+File: D3DADAPTER_IDENTIFIER9  (plug_dx9/include/luna/luna_types.h)
+File: HWND  (plug_wx/include/luna/luna_types.h)
+File: IChildNode  (plug_doxmlparser/include/luna/luna_types.h)
+File: mglActivePos  (plug_mathgl/include/luna/luna_types.h)
+File: micropather::StateCost  (plug_micropather/include/luna/luna_types.h)
+File: ork::Buffer::Parameters  (plug_proland/include/luna/luna_types.h)
+File: osg::Drawable::EventCallback  (plug_gizmo/include/luna/luna_types.h)
+File: osg::ImageStream  (plug_vlc/include/luna/luna_types.h)
+File: osg::Referenced  (plug_osgWX/include/luna/luna_types.h)
+File: osg::Referenced  (plug_atb/include/luna/luna_types.h)
+File: osg::Referenced  (plug_Awesomium/include/luna/luna_types.h)
+File: osgGA::GUIEventHandler  (plug_kinect/include/luna/luna_types.h)
+File: osgGA::GUIEventHandler  (plug_tuio/include/luna/luna_types.h)
+
+Group: Plug_FANN  {
+
+   File: FANN Cascade Training  (plug_FANN/include/fann_cascade.h)
+   File: FANN Creation/Execution  (plug_FANN/include/fann.h)
+   File: FANN Datatypes  (plug_FANN/include/fann_data.h)
+   File: FANN Error Handling  (plug_FANN/include/fann_error.h)
+   File: FANN File Input/Output  (plug_FANN/include/fann_io.h)
+   File: FANN Training  (plug_FANN/include/fann_train.h)
+   File: FANN Wrapper for C++  (plug_FANN/include/fann_cpp.h)
+   File: FANN::training_data  (plug_FANN/include/luna/luna_types.h)
+   }  # Group: Plug_FANN
+
+File: SDL_ActiveEvent  (plug_SDL/include/luna/luna_types.h)
+File: sgt::Buffer::Parameters  (plug_land/include/luna/luna_types.h)
+File: spark...DeferredSystemHandler::PosAndRotate  (plug_spark/include/luna/luna_types.h)
+
+Group: Index  {
+
+   Index: Everything
+   Class Index: Classes
+   Function Index: Functions
+   Constant Index: Constants
+   Type Index: Types
+   }  # Group: Index
+
